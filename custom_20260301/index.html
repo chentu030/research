@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研究報告 custom_20260301</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+<div class="nav-bar">
+  <label>📅 清單</label>
+  <div class="custom-select" id="customListSelect">
+    <div class="select-selected" id="selectSelected">🔍 自訂 2026/03/01</div>
+    <div class="select-items" id="selectItems">
+      <div class="select-search">
+        <input type="text" id="selectSearchInput" placeholder="搜尋清單..." autocomplete="off">
+      </div>
+      <div class="select-options-container" id="selectOptionsContainer">
+        <div class="select-item" data-url="../custom_20260303/index.html">🔍 自訂 2026/03/03</div>
+        <div class="select-item" data-url="../custom_20260302/index.html">🔍 自訂 2026/03/02</div>
+        <div class="select-item same-as-selected" data-url="../custom_20260301/index.html">🔍 自訂 2026/03/01</div>
+        <div class="select-item" data-url="../20260225-20260302/index.html">2026/02/25 ~ 03/02</div>
+        <div class="select-item" data-url="../20260224-20260226/index.html">2026/02/24 ~ 02/26</div>
+        <div class="select-item" data-url="../20260223-20260225/index.html">2026/02/23 ~ 02/25</div>
+        <div class="select-item" data-url="../20260211-20260224/index.html">2026/02/11 ~ 02/24</div>
+        <div class="select-item" data-url="../20260210-20260223/index.html">2026/02/10 ~ 02/23</div>
+        <div class="select-item" data-url="../20260209-20260211/index.html">2026/02/09 ~ 02/11</div>
+      </div>
+    </div>
+  </div>
+  <div class="search-box">
+    <input type="text" id="stockSearch" placeholder="搜尋股票代碼或名稱..." oninput="globalSearch()" onfocus="globalSearch()" autocomplete="off">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var selected = document.getElementById("selectSelected");
+    var itemsList = document.getElementById("selectItems");
+    var searchInput = document.getElementById("selectSearchInput");
+    var optionsContainer = document.getElementById("selectOptionsContainer");
+    var optionDivs = optionsContainer.getElementsByClassName("select-item");
+
+    selected.addEventListener("click", function(e) {
+        e.stopPropagation();
+        this.classList.toggle("select-arrow-active");
+        itemsList.classList.toggle("select-show");
+        if (itemsList.classList.contains("select-show")) {
+            searchInput.focus();
+            searchInput.value = '';
+            filterOptions('');
+        }
+    });
+
+    for (var i = 0; i < optionDivs.length; i++) {
+        optionDivs[i].addEventListener("click", function(e) {
+            window.location.href = this.getAttribute("data-url");
+        });
+    }
+
+    searchInput.addEventListener("input", function() {
+        filterOptions(this.value.toLowerCase());
+    });
+
+    searchInput.addEventListener("click", function(e) {
+        e.stopPropagation();
+    });
+
+    function filterOptions(filter) {
+        for (var i = 0; i < optionDivs.length; i++) {
+            var txtValue = optionDivs[i].textContent || optionDivs[i].innerText;
+            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                optionDivs[i].style.display = "";
+            } else {
+                optionDivs[i].style.display = "none";
+            }
+        }
+    }
+
+    document.addEventListener("click", function(e) {
+        if (!itemsList.contains(e.target) && e.target !== selected) {
+            selected.classList.remove("select-arrow-active");
+            itemsList.classList.remove("select-show");
+        }
+    });
+});
+</script>
+<p style="color:var(--text-light);margin-bottom:15px;">共 11 支個股</p>
+<div class="stock-grid">
+<a href="2332_友訊.html" class="stock-card" data-code="2332" data-name="友訊">
+  <span class="code">2332</span><span class="name">友訊</span>
+</a>
+<a href="2442_新美齊.html" class="stock-card" data-code="2442" data-name="新美齊">
+  <span class="code">2442</span><span class="name">新美齊</span>
+</a>
+<a href="2455_全新.html" class="stock-card" data-code="2455" data-name="全新">
+  <span class="code">2455</span><span class="name">全新</span>
+</a>
+<a href="2891_中信金.html" class="stock-card" data-code="2891" data-name="中信金">
+  <span class="code">2891</span><span class="name">中信金</span>
+</a>
+<a href="3090_日電貿.html" class="stock-card" data-code="3090" data-name="日電貿">
+  <span class="code">3090</span><span class="name">日電貿</span>
+</a>
+<a href="3577_泓格.html" class="stock-card" data-code="3577" data-name="泓格">
+  <span class="code">3577</span><span class="name">泓格</span>
+</a>
+<a href="3587_閎康.html" class="stock-card" data-code="3587" data-name="閎康">
+  <span class="code">3587</span><span class="name">閎康</span>
+</a>
+<a href="6152_百一.html" class="stock-card" data-code="6152" data-name="百一">
+  <span class="code">6152</span><span class="name">百一</span>
+</a>
+<a href="6683_雍智科技.html" class="stock-card" data-code="6683" data-name="雍智科技">
+  <span class="code">6683</span><span class="name">雍智科技</span>
+</a>
+<a href="8433_弘帆.html" class="stock-card" data-code="8433" data-name="弘帆">
+  <span class="code">8433</span><span class="name">弘帆</span>
+</a>
+<a href="9933_中鼎.html" class="stock-card" data-code="9933" data-name="中鼎">
+  <span class="code">9933</span><span class="name">中鼎</span>
+</a>
+</div>
+
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-03 12:09</p>
+</footer>
+</body>
+</html>
