@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研究報告 20260206-20260210</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+<div class="nav-bar">
+  <label>📅 清單</label>
+  <div class="custom-select" id="customListSelect">
+    <div class="select-selected" id="selectSelected">2026/02/06 ~ 02/10</div>
+    <div class="select-items" id="selectItems">
+      <div class="select-search">
+        <input type="text" id="selectSearchInput" placeholder="搜尋清單..." autocomplete="off">
+      </div>
+      <div class="select-options-container" id="selectOptionsContainer">
+        <div class="select-item" data-url="../custom_20260303/index.html">🔍 自訂 2026/03/03</div>
+        <div class="select-item" data-url="../custom_20260302/index.html">🔍 自訂 2026/03/02</div>
+        <div class="select-item" data-url="../custom_20260301/index.html">🔍 自訂 2026/03/01</div>
+        <div class="select-item" data-url="../20260226-20260303/index.html">2026/02/26 ~ 03/03</div>
+        <div class="select-item" data-url="../20260225-20260302/index.html">2026/02/25 ~ 03/02</div>
+        <div class="select-item" data-url="../20260224-20260226/index.html">2026/02/24 ~ 02/26</div>
+        <div class="select-item" data-url="../20260223-20260225/index.html">2026/02/23 ~ 02/25</div>
+        <div class="select-item" data-url="../20260211-20260224/index.html">2026/02/11 ~ 02/24</div>
+        <div class="select-item" data-url="../20260210-20260223/index.html">2026/02/10 ~ 02/23</div>
+        <div class="select-item" data-url="../20260209-20260211/index.html">2026/02/09 ~ 02/11</div>
+        <div class="select-item same-as-selected" data-url="../20260206-20260210/index.html">2026/02/06 ~ 02/10</div>
+      </div>
+    </div>
+  </div>
+  <div class="search-box">
+    <input type="text" id="stockSearch" placeholder="搜尋股票代碼或名稱..." oninput="globalSearch()" onfocus="globalSearch()" autocomplete="off">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var selected = document.getElementById("selectSelected");
+    var itemsList = document.getElementById("selectItems");
+    var searchInput = document.getElementById("selectSearchInput");
+    var optionsContainer = document.getElementById("selectOptionsContainer");
+    var optionDivs = optionsContainer.getElementsByClassName("select-item");
+
+    selected.addEventListener("click", function(e) {
+        e.stopPropagation();
+        this.classList.toggle("select-arrow-active");
+        itemsList.classList.toggle("select-show");
+        if (itemsList.classList.contains("select-show")) {
+            searchInput.focus();
+            searchInput.value = '';
+            filterOptions('');
+        }
+    });
+
+    for (var i = 0; i < optionDivs.length; i++) {
+        optionDivs[i].addEventListener("click", function(e) {
+            window.location.href = this.getAttribute("data-url");
+        });
+    }
+
+    searchInput.addEventListener("input", function() {
+        filterOptions(this.value.toLowerCase());
+    });
+
+    searchInput.addEventListener("click", function(e) {
+        e.stopPropagation();
+    });
+
+    function filterOptions(filter) {
+        for (var i = 0; i < optionDivs.length; i++) {
+            var txtValue = optionDivs[i].textContent || optionDivs[i].innerText;
+            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                optionDivs[i].style.display = "";
+            } else {
+                optionDivs[i].style.display = "none";
+            }
+        }
+    }
+
+    document.addEventListener("click", function(e) {
+        if (!itemsList.contains(e.target) && e.target !== selected) {
+            selected.classList.remove("select-arrow-active");
+            itemsList.classList.remove("select-show");
+        }
+    });
+});
+</script>
+<div class="threshold-tabs">
+  <button class="tab-btn active" onclick="showTab('all')">
+    全部 (21)
+  </button>
+  <button class="tab-btn" onclick="showTab('10%')">10%勝率 (21)</button>
+</div>
+<div class="csv-downloads">
+  <span class="csv-link" data-threshold="10%">📥 <a href="Monitor2.0_10pct_20260206-20260210_StrictStyle.csv" style="color:var(--accent);">10%: Monitor2.0_10pct_20260206-20260210_StrictStyle.csv</a></span>
+</div>
+<div class="tab-content" id="tab-all" style="display:block;">
+<p style="color:var(--text-light);margin-bottom:15px;">共 21 支個股</p>
+<div class="stock-grid">
+<a href="1304_台聚.html" class="stock-card" data-code="1304" data-name="台聚">
+  <span class="code">1304</span><span class="name">台聚</span>
+  
+</a>
+<a href="1312_國喬.html" class="stock-card" data-code="1312" data-name="國喬">
+  <span class="code">1312</span><span class="name">國喬</span>
+  
+</a>
+<a href="2337_旺宏.html" class="stock-card" data-code="2337" data-name="旺宏">
+  <span class="code">2337</span><span class="name">旺宏</span>
+  
+</a>
+<a href="2344_華邦電.html" class="stock-card" data-code="2344" data-name="華邦電">
+  <span class="code">2344</span><span class="name">華邦電</span>
+  
+</a>
+<a href="2349_錸德.html" class="stock-card" data-code="2349" data-name="錸德">
+  <span class="code">2349</span><span class="name">錸德</span>
+  
+</a>
+<a href="2377_微星.html" class="stock-card" data-code="2377" data-name="微星">
+  <span class="code">2377</span><span class="name">微星</span>
+  
+</a>
+<a href="2409_友達.html" class="stock-card" data-code="2409" data-name="友達">
+  <span class="code">2409</span><span class="name">友達</span>
+  
+</a>
+<a href="2413_環科.html" class="stock-card" data-code="2413" data-name="環科">
+  <span class="code">2413</span><span class="name">環科</span>
+  
+</a>
+<a href="2467_志聖.html" class="stock-card" data-code="2467" data-name="志聖">
+  <span class="code">2467</span><span class="name">志聖</span>
+  
+</a>
+<a href="2485_兆赫.html" class="stock-card" data-code="2485" data-name="兆赫">
+  <span class="code">2485</span><span class="name">兆赫</span>
+  
+</a>
+<a href="2489_瑞軒.html" class="stock-card" data-code="2489" data-name="瑞軒">
+  <span class="code">2489</span><span class="name">瑞軒</span>
+  
+</a>
+<a href="3019_亞光.html" class="stock-card" data-code="3019" data-name="亞光">
+  <span class="code">3019</span><span class="name">亞光</span>
+  
+</a>
+<a href="3037_欣興.html" class="stock-card" data-code="3037" data-name="欣興">
+  <span class="code">3037</span><span class="name">欣興</span>
+  
+</a>
+<a href="3450_聯鈞.html" class="stock-card" data-code="3450" data-name="聯鈞">
+  <span class="code">3450</span><span class="name">聯鈞</span>
+  
+</a>
+<a href="3576_聯合再生.html" class="stock-card" data-code="3576" data-name="聯合再生">
+  <span class="code">3576</span><span class="name">聯合再生</span>
+  
+</a>
+<a href="3588_通嘉.html" class="stock-card" data-code="3588" data-name="通嘉">
+  <span class="code">3588</span><span class="name">通嘉</span>
+  
+</a>
+<a href="3715_定穎投控.html" class="stock-card" data-code="3715" data-name="定穎投控">
+  <span class="code">3715</span><span class="name">定穎投控</span>
+  
+</a>
+<a href="6770_力積電.html" class="stock-card" data-code="6770" data-name="力積電">
+  <span class="code">6770</span><span class="name">力積電</span>
+  
+</a>
+<a href="6861_睿生光電.html" class="stock-card" data-code="6861" data-name="睿生光電">
+  <span class="code">6861</span><span class="name">睿生光電</span>
+  
+</a>
+<a href="7795_長廣.html" class="stock-card" data-code="7795" data-name="長廣">
+  <span class="code">7795</span><span class="name">長廣</span>
+  
+</a>
+<a href="8112_至上.html" class="stock-card" data-code="8112" data-name="至上">
+  <span class="code">8112</span><span class="name">至上</span>
+  
+</a>
+</div>
+</div>
+<div class="tab-content" id="tab-10%" style="display:none;">
+<p style="color:var(--text-light);margin-bottom:15px;">10%勝率清單：共 21 支個股</p>
+<div class="stock-grid">
+<a href="1304_台聚.html" class="stock-card" data-code="1304" data-name="台聚">
+  <span class="code">1304</span><span class="name">台聚</span>
+  
+</a>
+<a href="1312_國喬.html" class="stock-card" data-code="1312" data-name="國喬">
+  <span class="code">1312</span><span class="name">國喬</span>
+  
+</a>
+<a href="2337_旺宏.html" class="stock-card" data-code="2337" data-name="旺宏">
+  <span class="code">2337</span><span class="name">旺宏</span>
+  
+</a>
+<a href="2344_華邦電.html" class="stock-card" data-code="2344" data-name="華邦電">
+  <span class="code">2344</span><span class="name">華邦電</span>
+  
+</a>
+<a href="2349_錸德.html" class="stock-card" data-code="2349" data-name="錸德">
+  <span class="code">2349</span><span class="name">錸德</span>
+  
+</a>
+<a href="2377_微星.html" class="stock-card" data-code="2377" data-name="微星">
+  <span class="code">2377</span><span class="name">微星</span>
+  
+</a>
+<a href="2409_友達.html" class="stock-card" data-code="2409" data-name="友達">
+  <span class="code">2409</span><span class="name">友達</span>
+  
+</a>
+<a href="2413_環科.html" class="stock-card" data-code="2413" data-name="環科">
+  <span class="code">2413</span><span class="name">環科</span>
+  
+</a>
+<a href="2467_志聖.html" class="stock-card" data-code="2467" data-name="志聖">
+  <span class="code">2467</span><span class="name">志聖</span>
+  
+</a>
+<a href="2485_兆赫.html" class="stock-card" data-code="2485" data-name="兆赫">
+  <span class="code">2485</span><span class="name">兆赫</span>
+  
+</a>
+<a href="2489_瑞軒.html" class="stock-card" data-code="2489" data-name="瑞軒">
+  <span class="code">2489</span><span class="name">瑞軒</span>
+  
+</a>
+<a href="3019_亞光.html" class="stock-card" data-code="3019" data-name="亞光">
+  <span class="code">3019</span><span class="name">亞光</span>
+  
+</a>
+<a href="3037_欣興.html" class="stock-card" data-code="3037" data-name="欣興">
+  <span class="code">3037</span><span class="name">欣興</span>
+  
+</a>
+<a href="3450_聯鈞.html" class="stock-card" data-code="3450" data-name="聯鈞">
+  <span class="code">3450</span><span class="name">聯鈞</span>
+  
+</a>
+<a href="3576_聯合再生.html" class="stock-card" data-code="3576" data-name="聯合再生">
+  <span class="code">3576</span><span class="name">聯合再生</span>
+  
+</a>
+<a href="3588_通嘉.html" class="stock-card" data-code="3588" data-name="通嘉">
+  <span class="code">3588</span><span class="name">通嘉</span>
+  
+</a>
+<a href="3715_定穎投控.html" class="stock-card" data-code="3715" data-name="定穎投控">
+  <span class="code">3715</span><span class="name">定穎投控</span>
+  
+</a>
+<a href="6770_力積電.html" class="stock-card" data-code="6770" data-name="力積電">
+  <span class="code">6770</span><span class="name">力積電</span>
+  
+</a>
+<a href="6861_睿生光電.html" class="stock-card" data-code="6861" data-name="睿生光電">
+  <span class="code">6861</span><span class="name">睿生光電</span>
+  
+</a>
+<a href="7795_長廣.html" class="stock-card" data-code="7795" data-name="長廣">
+  <span class="code">7795</span><span class="name">長廣</span>
+  
+</a>
+<a href="8112_至上.html" class="stock-card" data-code="8112" data-name="至上">
+  <span class="code">8112</span><span class="name">至上</span>
+  
+</a>
+</div>
+</div>
+<script>
+function showTab(thr) {
+    document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    if (thr === 'all') {
+        document.getElementById('tab-all').style.display = 'block';
+    } else {
+        document.getElementById('tab-' + thr).style.display = 'block';
+    }
+    event.target.classList.add('active');
+}
+</script>
+
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-04 08:43</p>
+</footer>
+</body>
+</html>
