@@ -90,458 +90,64 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
-<div class="threshold-tabs">
-  <button class="tab-btn active" onclick="showTab('all')">
-    全部 (34)
-  </button>
-  <button class="tab-btn" onclick="showTab('5%')">5%勝率 (33)</button>
-  <button class="tab-btn" onclick="showTab('10%')">10%勝率 (23)</button>
-  <button class="tab-btn" onclick="showTab('15%')">15%勝率 (10)</button>
-</div>
-<div class="csv-downloads">
-  <span class="csv-link" data-threshold="5%">📥 <a href="Monitor2.0_5pct_20260224-20260226_StrictStyle.csv" style="color:var(--accent);">5%: Monitor2.0_5pct_20260224-20260226_StrictStyle.csv</a></span>
-  <span class="csv-link" data-threshold="10%">📥 <a href="Monitor2.0_20260224-20260226_StrictStyle.csv" style="color:var(--accent);">10%: Monitor2.0_20260224-20260226_StrictStyle.csv</a></span>
-  <span class="csv-link" data-threshold="15%">📥 <a href="Monitor2.0_15pct_20260224-20260226_StrictStyle.csv" style="color:var(--accent);">15%: Monitor2.0_15pct_20260224-20260226_StrictStyle.csv</a></span>
-</div>
-<div class="tab-content" id="tab-all" style="display:block;">
-<p style="color:var(--text-light);margin-bottom:15px;">共 34 支個股</p>
-<div class="stock-grid">
-<a href="1504_東元.html" class="stock-card" data-code="1504" data-name="東元">
-  <span class="code">1504</span><span class="name">東元</span>
-  
-</a>
-<a href="2312_金寶.html" class="stock-card" data-code="2312" data-name="金寶">
-  <span class="code">2312</span><span class="name">金寶</span>
-  
-</a>
-<a href="2316_楠梓電.html" class="stock-card" data-code="2316" data-name="楠梓電">
-  <span class="code">2316</span><span class="name">楠梓電</span>
-  
-</a>
-<a href="2317_鴻海.html" class="stock-card" data-code="2317" data-name="鴻海">
-  <span class="code">2317</span><span class="name">鴻海</span>
-  
-</a>
-<a href="2328_廣宇.html" class="stock-card" data-code="2328" data-name="廣宇">
-  <span class="code">2328</span><span class="name">廣宇</span>
-  
-</a>
-<a href="2337_旺宏.html" class="stock-card" data-code="2337" data-name="旺宏">
-  <span class="code">2337</span><span class="name">旺宏</span>
-  
-</a>
-<a href="2344_華邦電.html" class="stock-card" data-code="2344" data-name="華邦電">
-  <span class="code">2344</span><span class="name">華邦電</span>
-  
-</a>
-<a href="2351_順德.html" class="stock-card" data-code="2351" data-name="順德">
-  <span class="code">2351</span><span class="name">順德</span>
-  
-</a>
-<a href="2352_佳世達.html" class="stock-card" data-code="2352" data-name="佳世達">
-  <span class="code">2352</span><span class="name">佳世達</span>
-  
-</a>
-<a href="2369_菱生.html" class="stock-card" data-code="2369" data-name="菱生">
-  <span class="code">2369</span><span class="name">菱生</span>
-  
-</a>
-<a href="2409_友達.html" class="stock-card" data-code="2409" data-name="友達">
-  <span class="code">2409</span><span class="name">友達</span>
-  
-</a>
-<a href="2492_華新科.html" class="stock-card" data-code="2492" data-name="華新科">
-  <span class="code">2492</span><span class="name">華新科</span>
-  
-</a>
-<a href="2515_中工.html" class="stock-card" data-code="2515" data-name="中工">
-  <span class="code">2515</span><span class="name">中工</span>
-  
-</a>
-<a href="2887_台新新光金.html" class="stock-card" data-code="2887" data-name="台新新光金">
-  <span class="code">2887</span><span class="name">台新新光金</span>
-  
-</a>
-<a href="3016_嘉晶.html" class="stock-card" data-code="3016" data-name="嘉晶">
-  <span class="code">3016</span><span class="name">嘉晶</span>
-  
-</a>
-<a href="3028_增你強.html" class="stock-card" data-code="3028" data-name="增你強">
-  <span class="code">3028</span><span class="name">增你強</span>
-  
-</a>
-<a href="3049_精金.html" class="stock-card" data-code="3049" data-name="精金">
-  <span class="code">3049</span><span class="name">精金</span>
-  
-</a>
-<a href="3189_景碩.html" class="stock-card" data-code="3189" data-name="景碩">
-  <span class="code">3189</span><span class="name">景碩</span>
-  
-</a>
-<a href="3231_緯創.html" class="stock-card" data-code="3231" data-name="緯創">
-  <span class="code">3231</span><span class="name">緯創</span>
-  
-</a>
-<a href="3481_群創.html" class="stock-card" data-code="3481" data-name="群創">
-  <span class="code">3481</span><span class="name">群創</span>
-  
-</a>
-<a href="3504_揚明光.html" class="stock-card" data-code="3504" data-name="揚明光">
-  <span class="code">3504</span><span class="name">揚明光</span>
-  
-</a>
-<a href="3532_台勝科.html" class="stock-card" data-code="3532" data-name="台勝科">
-  <span class="code">3532</span><span class="name">台勝科</span>
-  
-</a>
-<a href="5469_瀚宇博.html" class="stock-card" data-code="5469" data-name="瀚宇博">
-  <span class="code">5469</span><span class="name">瀚宇博</span>
-  
-</a>
-<a href="6215_和椿.html" class="stock-card" data-code="6215" data-name="和椿">
-  <span class="code">6215</span><span class="name">和椿</span>
-  
-</a>
-<a href="6257_矽格.html" class="stock-card" data-code="6257" data-name="矽格">
-  <span class="code">6257</span><span class="name">矽格</span>
-  
-</a>
-<a href="6426_統新.html" class="stock-card" data-code="6426" data-name="統新">
-  <span class="code">6426</span><span class="name">統新</span>
-  
-</a>
-<a href="646_元大S&P500.html" class="stock-card" data-code="646" data-name="元大S&P500">
-  <span class="code">646</span><span class="name">元大S&P500</span>
-  
-</a>
-<a href="6706_惠特.html" class="stock-card" data-code="6706" data-name="惠特">
-  <span class="code">6706</span><span class="name">惠特</span>
-  
-</a>
-<a href="6753_龍德造船.html" class="stock-card" data-code="6753" data-name="龍德造船">
-  <span class="code">6753</span><span class="name">龍德造船</span>
-  
-</a>
-<a href="6770_力積電.html" class="stock-card" data-code="6770" data-name="力積電">
-  <span class="code">6770</span><span class="name">力積電</span>
-  
-</a>
-<a href="8021_尖點.html" class="stock-card" data-code="8021" data-name="尖點">
-  <span class="code">8021</span><span class="name">尖點</span>
-  
-</a>
-<a href="8103_瀚荃.html" class="stock-card" data-code="8103" data-name="瀚荃">
-  <span class="code">8103</span><span class="name">瀚荃</span>
-  
-</a>
-<a href="8261_富鼎.html" class="stock-card" data-code="8261" data-name="富鼎">
-  <span class="code">8261</span><span class="name">富鼎</span>
-  
-</a>
-<a href="8422_可寧衛_.html" class="stock-card" data-code="8422" data-name="可寧衛_">
-  <span class="code">8422</span><span class="name">可寧衛_</span>
-  
-</a>
-</div>
-</div>
-<div class="tab-content" id="tab-5%" style="display:none;">
-<p style="color:var(--text-light);margin-bottom:15px;">5%勝率清單：共 33 支個股</p>
-<div class="stock-grid">
-<a href="1504_東元.html" class="stock-card" data-code="1504" data-name="東元">
-  <span class="code">1504</span><span class="name">東元</span>
-  
-</a>
-<a href="2312_金寶.html" class="stock-card" data-code="2312" data-name="金寶">
-  <span class="code">2312</span><span class="name">金寶</span>
-  
-</a>
-<a href="2316_楠梓電.html" class="stock-card" data-code="2316" data-name="楠梓電">
-  <span class="code">2316</span><span class="name">楠梓電</span>
-  
-</a>
-<a href="2317_鴻海.html" class="stock-card" data-code="2317" data-name="鴻海">
-  <span class="code">2317</span><span class="name">鴻海</span>
-  
-</a>
-<a href="2328_廣宇.html" class="stock-card" data-code="2328" data-name="廣宇">
-  <span class="code">2328</span><span class="name">廣宇</span>
-  
-</a>
-<a href="2337_旺宏.html" class="stock-card" data-code="2337" data-name="旺宏">
-  <span class="code">2337</span><span class="name">旺宏</span>
-  
-</a>
-<a href="2344_華邦電.html" class="stock-card" data-code="2344" data-name="華邦電">
-  <span class="code">2344</span><span class="name">華邦電</span>
-  
-</a>
-<a href="2351_順德.html" class="stock-card" data-code="2351" data-name="順德">
-  <span class="code">2351</span><span class="name">順德</span>
-  
-</a>
-<a href="2352_佳世達.html" class="stock-card" data-code="2352" data-name="佳世達">
-  <span class="code">2352</span><span class="name">佳世達</span>
-  
-</a>
-<a href="2369_菱生.html" class="stock-card" data-code="2369" data-name="菱生">
-  <span class="code">2369</span><span class="name">菱生</span>
-  
-</a>
-<a href="2409_友達.html" class="stock-card" data-code="2409" data-name="友達">
-  <span class="code">2409</span><span class="name">友達</span>
-  
-</a>
-<a href="2492_華新科.html" class="stock-card" data-code="2492" data-name="華新科">
-  <span class="code">2492</span><span class="name">華新科</span>
-  
-</a>
-<a href="2515_中工.html" class="stock-card" data-code="2515" data-name="中工">
-  <span class="code">2515</span><span class="name">中工</span>
-  
-</a>
-<a href="2887_台新新光金.html" class="stock-card" data-code="2887" data-name="台新新光金">
-  <span class="code">2887</span><span class="name">台新新光金</span>
-  
-</a>
-<a href="3016_嘉晶.html" class="stock-card" data-code="3016" data-name="嘉晶">
-  <span class="code">3016</span><span class="name">嘉晶</span>
-  
-</a>
-<a href="3028_增你強.html" class="stock-card" data-code="3028" data-name="增你強">
-  <span class="code">3028</span><span class="name">增你強</span>
-  
-</a>
-<a href="3049_精金.html" class="stock-card" data-code="3049" data-name="精金">
-  <span class="code">3049</span><span class="name">精金</span>
-  
-</a>
-<a href="3189_景碩.html" class="stock-card" data-code="3189" data-name="景碩">
-  <span class="code">3189</span><span class="name">景碩</span>
-  
-</a>
-<a href="3231_緯創.html" class="stock-card" data-code="3231" data-name="緯創">
-  <span class="code">3231</span><span class="name">緯創</span>
-  
-</a>
-<a href="3481_群創.html" class="stock-card" data-code="3481" data-name="群創">
-  <span class="code">3481</span><span class="name">群創</span>
-  
-</a>
-<a href="3504_揚明光.html" class="stock-card" data-code="3504" data-name="揚明光">
-  <span class="code">3504</span><span class="name">揚明光</span>
-  
-</a>
-<a href="3532_台勝科.html" class="stock-card" data-code="3532" data-name="台勝科">
-  <span class="code">3532</span><span class="name">台勝科</span>
-  
-</a>
-<a href="5469_瀚宇博.html" class="stock-card" data-code="5469" data-name="瀚宇博">
-  <span class="code">5469</span><span class="name">瀚宇博</span>
-  
-</a>
-<a href="6215_和椿.html" class="stock-card" data-code="6215" data-name="和椿">
-  <span class="code">6215</span><span class="name">和椿</span>
-  
-</a>
-<a href="6257_矽格.html" class="stock-card" data-code="6257" data-name="矽格">
-  <span class="code">6257</span><span class="name">矽格</span>
-  
-</a>
-<a href="6426_統新.html" class="stock-card" data-code="6426" data-name="統新">
-  <span class="code">6426</span><span class="name">統新</span>
-  
-</a>
-<a href="6706_惠特.html" class="stock-card" data-code="6706" data-name="惠特">
-  <span class="code">6706</span><span class="name">惠特</span>
-  
-</a>
-<a href="6753_龍德造船.html" class="stock-card" data-code="6753" data-name="龍德造船">
-  <span class="code">6753</span><span class="name">龍德造船</span>
-  
-</a>
-<a href="6770_力積電.html" class="stock-card" data-code="6770" data-name="力積電">
-  <span class="code">6770</span><span class="name">力積電</span>
-  
-</a>
-<a href="8021_尖點.html" class="stock-card" data-code="8021" data-name="尖點">
-  <span class="code">8021</span><span class="name">尖點</span>
-  
-</a>
-<a href="8103_瀚荃.html" class="stock-card" data-code="8103" data-name="瀚荃">
-  <span class="code">8103</span><span class="name">瀚荃</span>
-  
-</a>
-<a href="8261_富鼎.html" class="stock-card" data-code="8261" data-name="富鼎">
-  <span class="code">8261</span><span class="name">富鼎</span>
-  
-</a>
-<a href="8422_可寧衛_.html" class="stock-card" data-code="8422" data-name="可寧衛_">
-  <span class="code">8422</span><span class="name">可寧衛_</span>
-  
-</a>
-</div>
-</div>
-<div class="tab-content" id="tab-10%" style="display:none;">
-<p style="color:var(--text-light);margin-bottom:15px;">10%勝率清單：共 23 支個股</p>
-<div class="stock-grid">
-<a href="2312_金寶.html" class="stock-card" data-code="2312" data-name="金寶">
-  <span class="code">2312</span><span class="name">金寶</span>
-  
-</a>
-<a href="2316_楠梓電.html" class="stock-card" data-code="2316" data-name="楠梓電">
-  <span class="code">2316</span><span class="name">楠梓電</span>
-  
-</a>
-<a href="2317_鴻海.html" class="stock-card" data-code="2317" data-name="鴻海">
-  <span class="code">2317</span><span class="name">鴻海</span>
-  
-</a>
-<a href="2328_廣宇.html" class="stock-card" data-code="2328" data-name="廣宇">
-  <span class="code">2328</span><span class="name">廣宇</span>
-  
-</a>
-<a href="2337_旺宏.html" class="stock-card" data-code="2337" data-name="旺宏">
-  <span class="code">2337</span><span class="name">旺宏</span>
-  
-</a>
-<a href="2344_華邦電.html" class="stock-card" data-code="2344" data-name="華邦電">
-  <span class="code">2344</span><span class="name">華邦電</span>
-  
-</a>
-<a href="2351_順德.html" class="stock-card" data-code="2351" data-name="順德">
-  <span class="code">2351</span><span class="name">順德</span>
-  
-</a>
-<a href="2352_佳世達.html" class="stock-card" data-code="2352" data-name="佳世達">
-  <span class="code">2352</span><span class="name">佳世達</span>
-  
-</a>
-<a href="2369_菱生.html" class="stock-card" data-code="2369" data-name="菱生">
-  <span class="code">2369</span><span class="name">菱生</span>
-  
-</a>
-<a href="2409_友達.html" class="stock-card" data-code="2409" data-name="友達">
-  <span class="code">2409</span><span class="name">友達</span>
-  
-</a>
-<a href="3016_嘉晶.html" class="stock-card" data-code="3016" data-name="嘉晶">
-  <span class="code">3016</span><span class="name">嘉晶</span>
-  
-</a>
-<a href="3189_景碩.html" class="stock-card" data-code="3189" data-name="景碩">
-  <span class="code">3189</span><span class="name">景碩</span>
-  
-</a>
-<a href="3231_緯創.html" class="stock-card" data-code="3231" data-name="緯創">
-  <span class="code">3231</span><span class="name">緯創</span>
-  
-</a>
-<a href="3481_群創.html" class="stock-card" data-code="3481" data-name="群創">
-  <span class="code">3481</span><span class="name">群創</span>
-  
-</a>
-<a href="3504_揚明光.html" class="stock-card" data-code="3504" data-name="揚明光">
-  <span class="code">3504</span><span class="name">揚明光</span>
-  
-</a>
-<a href="3532_台勝科.html" class="stock-card" data-code="3532" data-name="台勝科">
-  <span class="code">3532</span><span class="name">台勝科</span>
-  
-</a>
-<a href="5469_瀚宇博.html" class="stock-card" data-code="5469" data-name="瀚宇博">
-  <span class="code">5469</span><span class="name">瀚宇博</span>
-  
-</a>
-<a href="6257_矽格.html" class="stock-card" data-code="6257" data-name="矽格">
-  <span class="code">6257</span><span class="name">矽格</span>
-  
-</a>
-<a href="6426_統新.html" class="stock-card" data-code="6426" data-name="統新">
-  <span class="code">6426</span><span class="name">統新</span>
-  
-</a>
-<a href="646_元大S&P500.html" class="stock-card" data-code="646" data-name="元大S&P500">
-  <span class="code">646</span><span class="name">元大S&P500</span>
-  
-</a>
-<a href="6706_惠特.html" class="stock-card" data-code="6706" data-name="惠特">
-  <span class="code">6706</span><span class="name">惠特</span>
-  
-</a>
-<a href="6753_龍德造船.html" class="stock-card" data-code="6753" data-name="龍德造船">
-  <span class="code">6753</span><span class="name">龍德造船</span>
-  
-</a>
-<a href="6770_力積電.html" class="stock-card" data-code="6770" data-name="力積電">
-  <span class="code">6770</span><span class="name">力積電</span>
-  
-</a>
-</div>
-</div>
-<div class="tab-content" id="tab-15%" style="display:none;">
-<p style="color:var(--text-light);margin-bottom:15px;">15%勝率清單：共 10 支個股</p>
-<div class="stock-grid">
-<a href="2312_金寶.html" class="stock-card" data-code="2312" data-name="金寶">
-  <span class="code">2312</span><span class="name">金寶</span>
-  
-</a>
-<a href="2316_楠梓電.html" class="stock-card" data-code="2316" data-name="楠梓電">
-  <span class="code">2316</span><span class="name">楠梓電</span>
-  
-</a>
-<a href="2352_佳世達.html" class="stock-card" data-code="2352" data-name="佳世達">
-  <span class="code">2352</span><span class="name">佳世達</span>
-  
-</a>
-<a href="2369_菱生.html" class="stock-card" data-code="2369" data-name="菱生">
-  <span class="code">2369</span><span class="name">菱生</span>
-  
-</a>
-<a href="2409_友達.html" class="stock-card" data-code="2409" data-name="友達">
-  <span class="code">2409</span><span class="name">友達</span>
-  
-</a>
-<a href="3189_景碩.html" class="stock-card" data-code="3189" data-name="景碩">
-  <span class="code">3189</span><span class="name">景碩</span>
-  
-</a>
-<a href="3231_緯創.html" class="stock-card" data-code="3231" data-name="緯創">
-  <span class="code">3231</span><span class="name">緯創</span>
-  
-</a>
-<a href="3481_群創.html" class="stock-card" data-code="3481" data-name="群創">
-  <span class="code">3481</span><span class="name">群創</span>
-  
-</a>
-<a href="3504_揚明光.html" class="stock-card" data-code="3504" data-name="揚明光">
-  <span class="code">3504</span><span class="name">揚明光</span>
-  
-</a>
-<a href="3532_台勝科.html" class="stock-card" data-code="3532" data-name="台勝科">
-  <span class="code">3532</span><span class="name">台勝科</span>
-  
-</a>
-</div>
-</div>
+
 <script>
-function showTab(thr) {
-    document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
-    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-    if (thr === 'all') {
-        document.getElementById('tab-all').style.display = 'block';
-    } else {
-        document.getElementById('tab-' + thr).style.display = 'block';
+function sortTable(tableId, n, type='str') {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById(tableId);
+    switching = true;
+    dir = "desc"; 
+    
+    // Clear icons
+    var headers = table.getElementsByTagName("th");
+    for (var h = 0; h < headers.length; h++) {
+        headers[h].classList.remove("sort-asc", "sort-desc");
     }
-    event.target.classList.add('active');
+    
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            
+            var xVal = x.innerHTML.toLowerCase().replace(/<[^>]+>/g, '').trim();
+            var yVal = y.innerHTML.toLowerCase().replace(/<[^>]+>/g, '').trim();
+            
+            if (type === 'num') {
+                xVal = parseFloat(xVal.replace(/[%,]/g, '')) || 0;
+                yVal = parseFloat(yVal.replace(/[%,]/g, '')) || 0;
+            }
+            
+            if (dir == "asc") {
+                if (xVal > yVal) { shouldSwitch = true; break; }
+            } else if (dir == "desc") {
+                if (xVal < yVal) { shouldSwitch = true; break; }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount ++;      
+        } else {
+            if (switchcount == 0 && dir == "desc") {
+                dir = "asc";
+                switching = true;
+            }
+        }
+    }
+    headers[n].classList.add("sort-" + dir);
 }
 </script>
-
+<p style="color:var(--text-light);margin-bottom:15px;">共 34 支個股 (點擊標題可排序)</p>
+<div class="datatable-wrapper"><table class="datatable" id="table-fallback"><thead><tr><th class="text-left" onclick="sortTable('table-fallback', 0, 'str')">代碼 名稱</th><th onclick="sortTable('table-fallback', 1, 'str')">產業</th><th onclick="sortTable('table-fallback', 2, 'num')">命中</th><th onclick="sortTable('table-fallback', 3, 'num')">勝率(10D)</th><th onclick="sortTable('table-fallback', 4, 'num')">報酬(1D)</th><th onclick="sortTable('table-fallback', 5, 'num')">報酬(5D)</th><th onclick="sortTable('table-fallback', 6, 'str')">關鍵分點</th></tr></thead><tbody><tr><td class="text-left"><a href="1504_東元.html">1504 東元</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="2312_金寶.html">2312 金寶</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="2316_楠梓電.html">2316 楠梓電</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="2317_鴻海.html">2317 鴻海</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="2328_廣宇.html">2328 廣宇</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="2337_旺宏.html">2337 旺宏</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="2344_華邦電.html">2344 華邦電</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="2351_順德.html">2351 順德</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="2352_佳世達.html">2352 佳世達</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="2369_菱生.html">2369 菱生</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="2409_友達.html">2409 友達</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="2492_華新科.html">2492 華新科</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="2515_中工.html">2515 中工</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="2887_台新新光金.html">2887 台新新光金</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="3016_嘉晶.html">3016 嘉晶</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="3028_增你強.html">3028 增你強</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="3049_精金.html">3049 精金</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="3189_景碩.html">3189 景碩</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="3231_緯創.html">3231 緯創</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="3481_群創.html">3481 群創</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="3504_揚明光.html">3504 揚明光</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="3532_台勝科.html">3532 台勝科</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="5469_瀚宇博.html">5469 瀚宇博</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="6215_和椿.html">6215 和椿</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="6257_矽格.html">6257 矽格</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="6426_統新.html">6426 統新</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="646_元大S&P500.html">646 元大S&P500</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="6706_惠特.html">6706 惠特</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="6753_龍德造船.html">6753 龍德造船</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="6770_力積電.html">6770 力積電</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="8021_尖點.html">8021 尖點</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="8103_瀚荃.html">8103 瀚荃</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="8261_富鼎.html">8261 富鼎</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="8422_可寧衛_.html">8422 可寧衛_</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr></tbody></table></div>
 </div>
 <script>window.ROOT_PATH = "../";</script>
 <script src="../search_index.js"></script>
 <footer class="site-footer">
 <p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
-<p>最後更新：2026-03-05 10:18</p>
+<p>最後更新：2026-03-05 11:56</p>
 </footer>
 </body>
 </html>

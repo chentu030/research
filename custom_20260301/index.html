@@ -90,49 +90,64 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
-<p style="color:var(--text-light);margin-bottom:15px;">共 11 支個股</p>
-<div class="stock-grid">
-<a href="2332_友訊.html" class="stock-card" data-code="2332" data-name="友訊">
-  <span class="code">2332</span><span class="name">友訊</span>
-</a>
-<a href="2442_新美齊.html" class="stock-card" data-code="2442" data-name="新美齊">
-  <span class="code">2442</span><span class="name">新美齊</span>
-</a>
-<a href="2455_全新.html" class="stock-card" data-code="2455" data-name="全新">
-  <span class="code">2455</span><span class="name">全新</span>
-</a>
-<a href="2891_中信金.html" class="stock-card" data-code="2891" data-name="中信金">
-  <span class="code">2891</span><span class="name">中信金</span>
-</a>
-<a href="3090_日電貿.html" class="stock-card" data-code="3090" data-name="日電貿">
-  <span class="code">3090</span><span class="name">日電貿</span>
-</a>
-<a href="3577_泓格.html" class="stock-card" data-code="3577" data-name="泓格">
-  <span class="code">3577</span><span class="name">泓格</span>
-</a>
-<a href="3587_閎康.html" class="stock-card" data-code="3587" data-name="閎康">
-  <span class="code">3587</span><span class="name">閎康</span>
-</a>
-<a href="6152_百一.html" class="stock-card" data-code="6152" data-name="百一">
-  <span class="code">6152</span><span class="name">百一</span>
-</a>
-<a href="6683_雍智科技.html" class="stock-card" data-code="6683" data-name="雍智科技">
-  <span class="code">6683</span><span class="name">雍智科技</span>
-</a>
-<a href="8433_弘帆.html" class="stock-card" data-code="8433" data-name="弘帆">
-  <span class="code">8433</span><span class="name">弘帆</span>
-</a>
-<a href="9933_中鼎.html" class="stock-card" data-code="9933" data-name="中鼎">
-  <span class="code">9933</span><span class="name">中鼎</span>
-</a>
-</div>
 
+<script>
+function sortTable(tableId, n, type='str') {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById(tableId);
+    switching = true;
+    dir = "desc"; 
+    
+    // Clear icons
+    var headers = table.getElementsByTagName("th");
+    for (var h = 0; h < headers.length; h++) {
+        headers[h].classList.remove("sort-asc", "sort-desc");
+    }
+    
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            
+            var xVal = x.innerHTML.toLowerCase().replace(/<[^>]+>/g, '').trim();
+            var yVal = y.innerHTML.toLowerCase().replace(/<[^>]+>/g, '').trim();
+            
+            if (type === 'num') {
+                xVal = parseFloat(xVal.replace(/[%,]/g, '')) || 0;
+                yVal = parseFloat(yVal.replace(/[%,]/g, '')) || 0;
+            }
+            
+            if (dir == "asc") {
+                if (xVal > yVal) { shouldSwitch = true; break; }
+            } else if (dir == "desc") {
+                if (xVal < yVal) { shouldSwitch = true; break; }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount ++;      
+        } else {
+            if (switchcount == 0 && dir == "desc") {
+                dir = "asc";
+                switching = true;
+            }
+        }
+    }
+    headers[n].classList.add("sort-" + dir);
+}
+</script>
+<p style="color:var(--text-light);margin-bottom:15px;">共 11 支個股 (點擊標題可排序)</p>
+<div class="datatable-wrapper"><table class="datatable" id="table-fallback"><thead><tr><th class="text-left" onclick="sortTable('table-fallback', 0, 'str')">代碼 名稱</th><th onclick="sortTable('table-fallback', 1, 'str')">產業</th><th onclick="sortTable('table-fallback', 2, 'num')">命中</th><th onclick="sortTable('table-fallback', 3, 'num')">勝率(10D)</th><th onclick="sortTable('table-fallback', 4, 'num')">報酬(1D)</th><th onclick="sortTable('table-fallback', 5, 'num')">報酬(5D)</th><th onclick="sortTable('table-fallback', 6, 'str')">關鍵分點</th></tr></thead><tbody><tr><td class="text-left"><a href="2332_友訊.html">2332 友訊</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="2442_新美齊.html">2442 新美齊</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="2455_全新.html">2455 全新</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="2891_中信金.html">2891 中信金</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="3090_日電貿.html">3090 日電貿</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="3577_泓格.html">3577 泓格</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="3587_閎康.html">3587 閎康</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="6152_百一.html">6152 百一</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="6683_雍智科技.html">6683 雍智科技</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="8433_弘帆.html">8433 弘帆</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr><tr><td class="text-left"><a href="9933_中鼎.html">9933 中鼎</a></td><td></td><td></td><td></td><td></td><td></td><td style="white-space:normal; max-width: 200px;" title=""></td></tr></tbody></table></div>
 </div>
 <script>window.ROOT_PATH = "../";</script>
 <script src="../search_index.js"></script>
 <footer class="site-footer">
 <p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
-<p>最後更新：2026-03-05 10:18</p>
+<p>最後更新：2026-03-05 11:55</p>
 </footer>
 </body>
 </html>
