@@ -20,6 +20,7 @@
         <div class="select-item" data-url="../custom_20260303/index.html">🔍 自訂 2026/03/03</div>
         <div class="select-item" data-url="../custom_20260302/index.html">🔍 自訂 2026/03/02</div>
         <div class="select-item" data-url="../custom_20260301/index.html">🔍 自訂 2026/03/01</div>
+        <div class="select-item" data-url="../20260302-20260304/index.html">2026/03/02 ~ 03/04</div>
         <div class="select-item" data-url="../20260226-20260303/index.html">2026/02/26 ~ 03/03</div>
         <div class="select-item" data-url="../20260225-20260302/index.html">2026/02/25 ~ 03/02</div>
         <div class="select-item" data-url="../20260224-20260226/index.html">2026/02/24 ~ 02/26</div>
@@ -91,11 +92,11 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <div class="threshold-tabs">
   <button class="tab-btn active" onclick="showTab('all')">
-    全部 (31)
+    全部 (32)
   </button>
   <button class="tab-btn" onclick="showTab('5%')">5%勝率 (31)</button>
-  <button class="tab-btn" onclick="showTab('10%')">10%勝率 (22)</button>
-  <button class="tab-btn" onclick="showTab('15%')">15%勝率 (10)</button>
+  <button class="tab-btn" onclick="showTab('10%')">10%勝率 (23)</button>
+  <button class="tab-btn" onclick="showTab('15%')">15%勝率 (11)</button>
 </div>
 <div class="csv-downloads">
   <span class="csv-link" data-threshold="5%">📥 <a href="Monitor2.0_5pct_20260223-20260225_StrictStyle.csv" style="color:var(--accent);">5%: Monitor2.0_5pct_20260223-20260225_StrictStyle.csv</a></span>
@@ -103,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
   <span class="csv-link" data-threshold="15%">📥 <a href="Monitor2.0_15pct_20260223-20260225_StrictStyle.csv" style="color:var(--accent);">15%: Monitor2.0_15pct_20260223-20260225_StrictStyle.csv</a></span>
 </div>
 <div class="tab-content" id="tab-all" style="display:block;">
-<p style="color:var(--text-light);margin-bottom:15px;">共 31 支個股</p>
+<p style="color:var(--text-light);margin-bottom:15px;">共 32 支個股</p>
 <div class="stock-grid">
 <a href="2312_金寶.html" class="stock-card" data-code="2312" data-name="金寶">
   <span class="code">2312</span><span class="name">金寶</span>
@@ -183,6 +184,10 @@ document.addEventListener("DOMContentLoaded", function() {
 </a>
 <a href="3715_定穎投控.html" class="stock-card" data-code="3715" data-name="定穎投控">
   <span class="code">3715</span><span class="name">定穎投控</span>
+  
+</a>
+<a href="52_富邦科技.html" class="stock-card" data-code="52" data-name="富邦科技">
+  <span class="code">52</span><span class="name">富邦科技</span>
   
 </a>
 <a href="5469_瀚宇博.html" class="stock-card" data-code="5469" data-name="瀚宇博">
@@ -361,7 +366,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 </div>
 <div class="tab-content" id="tab-10%" style="display:none;">
-<p style="color:var(--text-light);margin-bottom:15px;">10%勝率清單：共 22 支個股</p>
+<p style="color:var(--text-light);margin-bottom:15px;">10%勝率清單：共 23 支個股</p>
 <div class="stock-grid">
 <a href="2312_金寶.html" class="stock-card" data-code="2312" data-name="金寶">
   <span class="code">2312</span><span class="name">金寶</span>
@@ -419,6 +424,10 @@ document.addEventListener("DOMContentLoaded", function() {
   <span class="code">3715</span><span class="name">定穎投控</span>
   
 </a>
+<a href="52_富邦科技.html" class="stock-card" data-code="52" data-name="富邦科技">
+  <span class="code">52</span><span class="name">富邦科技</span>
+  
+</a>
 <a href="5469_瀚宇博.html" class="stock-card" data-code="5469" data-name="瀚宇博">
   <span class="code">5469</span><span class="name">瀚宇博</span>
   
@@ -454,7 +463,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 </div>
 <div class="tab-content" id="tab-15%" style="display:none;">
-<p style="color:var(--text-light);margin-bottom:15px;">15%勝率清單：共 10 支個股</p>
+<p style="color:var(--text-light);margin-bottom:15px;">15%勝率清單：共 11 支個股</p>
 <div class="stock-grid">
 <a href="2312_金寶.html" class="stock-card" data-code="2312" data-name="金寶">
   <span class="code">2312</span><span class="name">金寶</span>
@@ -492,6 +501,10 @@ document.addEventListener("DOMContentLoaded", function() {
   <span class="code">3661</span><span class="name">世芯-KY</span>
   
 </a>
+<a href="52_富邦科技.html" class="stock-card" data-code="52" data-name="富邦科技">
+  <span class="code">52</span><span class="name">富邦科技</span>
+  
+</a>
 <a href="6669_緯穎.html" class="stock-card" data-code="6669" data-name="緯穎">
   <span class="code">6669</span><span class="name">緯穎</span>
   
@@ -516,7 +529,7 @@ function showTab(thr) {
 <script src="../search_index.js"></script>
 <footer class="site-footer">
 <p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
-<p>最後更新：2026-03-04 08:43</p>
+<p>最後更新：2026-03-05 10:18</p>
 </footer>
 </body>
 </html>
