@@ -276,7 +276,32 @@ body {
     color: var(--text);
 }
 .datatable td.text-left { text-align: left; }
-.datatable tr:last-child td { border-bottom: none; }
+.datatable tr.main-row { cursor: pointer; }
+.datatable tr.main-row:last-child td { border-bottom: none; }
+.datatable tr.main-row:hover td { background-color: #F8FAFC; }
+
+.truncate-group {
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+.details-row {
+    display: none;
+    background-color: var(--card-bg);
+}
+.details-content {
+    padding: 16px;
+    font-size: 0.95em;
+    color: var(--text);
+    white-space: pre-wrap;
+    text-align: left;
+    border-left: 4px solid var(--accent);
+    background-color: #F8FAFC;
+    border-radius: 4px;
+    margin: 4px 16px;
+}
 .datatable tr:hover td { background-color: #F8FAFC; }
 .datatable a { color: #2563EB; text-decoration: none; font-weight: 600; }
 .datatable a:hover { text-decoration: underline; }
