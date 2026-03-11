@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6278 台表科 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>6278 台表科 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>台表科作為專業電子製造服務 (EMS) 供應商，憑藉其在 DDR5 記憶體模組、車用電子及全球化產能佈局上的策略性投入，有望在 2026 年維持穩健營運，儘管消費性電子需求疲軟仍帶來挑戰。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">6278 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-6278" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-6278" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-6278');
+    var obvContainer = document.getElementById('obv-chart-6278');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 103.0, "high": 104.5, "low": 102.5, "close": 103.0}, {"time": "2025-12-05", "open": 103.0, "high": 103.5, "low": 101.5, "close": 102.0}, {"time": "2025-12-08", "open": 102.5, "high": 103.0, "low": 101.5, "close": 102.0}, {"time": "2025-12-09", "open": 103.0, "high": 103.0, "low": 100.5, "close": 100.5}, {"time": "2025-12-10", "open": 100.5, "high": 101.0, "low": 99.5, "close": 99.5}, {"time": "2025-12-11", "open": 100.0, "high": 100.0, "low": 99.1, "close": 99.5}, {"time": "2025-12-12", "open": 99.8, "high": 100.0, "low": 98.5, "close": 98.8}, {"time": "2025-12-15", "open": 98.8, "high": 98.8, "low": 97.6, "close": 97.8}, {"time": "2025-12-16", "open": 97.2, "high": 98.3, "low": 96.0, "close": 96.2}, {"time": "2025-12-17", "open": 97.4, "high": 98.1, "low": 96.0, "close": 96.2}, {"time": "2025-12-18", "open": 96.0, "high": 97.3, "low": 96.0, "close": 96.9}, {"time": "2025-12-19", "open": 96.8, "high": 97.4, "low": 95.1, "close": 95.7}, {"time": "2025-12-22", "open": 96.8, "high": 96.8, "low": 95.8, "close": 96.6}, {"time": "2025-12-23", "open": 96.5, "high": 97.0, "low": 94.6, "close": 94.6}, {"time": "2025-12-24", "open": 95.0, "high": 95.5, "low": 94.1, "close": 94.1}, {"time": "2025-12-26", "open": 94.5, "high": 94.6, "low": 92.8, "close": 92.9}, {"time": "2025-12-29", "open": 93.5, "high": 94.4, "low": 93.2, "close": 94.4}, {"time": "2025-12-30", "open": 101.0, "high": 101.5, "low": 95.5, "close": 96.3}, {"time": "2025-12-31", "open": 96.3, "high": 96.7, "low": 94.8, "close": 95.4}, {"time": "2026-01-02", "open": 95.6, "high": 95.9, "low": 94.6, "close": 94.7}, {"time": "2026-01-05", "open": 95.2, "high": 95.3, "low": 93.1, "close": 93.2}, {"time": "2026-01-06", "open": 93.9, "high": 96.2, "low": 93.8, "close": 95.9}, {"time": "2026-01-07", "open": 96.2, "high": 97.1, "low": 96.0, "close": 96.7}, {"time": "2026-01-08", "open": 97.0, "high": 97.0, "low": 95.6, "close": 96.0}, {"time": "2026-01-09", "open": 96.6, "high": 96.6, "low": 95.2, "close": 96.0}, {"time": "2026-01-12", "open": 96.3, "high": 96.5, "low": 95.7, "close": 96.2}, {"time": "2026-01-13", "open": 96.6, "high": 97.0, "low": 95.7, "close": 96.4}, {"time": "2026-01-14", "open": 96.8, "high": 97.4, "low": 96.2, "close": 96.8}, {"time": "2026-01-15", "open": 97.1, "high": 97.1, "low": 96.1, "close": 96.1}, {"time": "2026-01-16", "open": 96.3, "high": 97.6, "low": 96.3, "close": 96.7}, {"time": "2026-01-19", "open": 96.8, "high": 98.0, "low": 96.4, "close": 97.0}, {"time": "2026-01-20", "open": 97.0, "high": 97.6, "low": 96.3, "close": 96.9}, {"time": "2026-01-21", "open": 96.8, "high": 96.8, "low": 96.0, "close": 96.1}, {"time": "2026-01-22", "open": 96.6, "high": 97.6, "low": 96.3, "close": 97.4}, {"time": "2026-01-23", "open": 98.0, "high": 98.5, "low": 96.4, "close": 96.6}, {"time": "2026-01-26", "open": 96.7, "high": 97.0, "low": 96.0, "close": 96.0}, {"time": "2026-01-27", "open": 96.5, "high": 97.0, "low": 94.9, "close": 94.9}, {"time": "2026-01-28", "open": 95.6, "high": 95.6, "low": 93.6, "close": 93.8}, {"time": "2026-01-29", "open": 94.8, "high": 96.5, "low": 93.6, "close": 93.8}, {"time": "2026-01-30", "open": 94.2, "high": 94.4, "low": 92.1, "close": 92.2}, {"time": "2026-02-02", "open": 92.9, "high": 93.5, "low": 91.4, "close": 91.4}, {"time": "2026-02-03", "open": 92.0, "high": 93.7, "low": 92.0, "close": 93.6}, {"time": "2026-02-04", "open": 93.0, "high": 95.1, "low": 92.6, "close": 95.1}, {"time": "2026-02-05", "open": 94.7, "high": 95.6, "low": 93.8, "close": 94.1}, {"time": "2026-02-06", "open": 94.6, "high": 96.4, "low": 93.0, "close": 96.3}, {"time": "2026-02-09", "open": 97.3, "high": 98.0, "low": 96.4, "close": 96.9}, {"time": "2026-02-10", "open": 96.8, "high": 97.6, "low": 96.1, "close": 97.4}, {"time": "2026-02-11", "open": 97.7, "high": 97.7, "low": 96.6, "close": 97.4}, {"time": "2026-02-23", "open": 98.0, "high": 100.5, "low": 97.6, "close": 99.1}, {"time": "2026-02-24", "open": 98.8, "high": 100.5, "low": 98.8, "close": 100.5}, {"time": "2026-02-25", "open": 101.0, "high": 102.5, "low": 100.0, "close": 101.0}, {"time": "2026-02-26", "open": 101.5, "high": 103.5, "low": 101.5, "close": 101.5}, {"time": "2026-03-02", "open": 99.0, "high": 99.3, "low": 95.6, "close": 96.5}, {"time": "2026-03-03", "open": 101.5, "high": 102.0, "low": 99.9, "close": 100.0}, {"time": "2026-03-04", "open": 99.0, "high": 99.3, "low": 95.6, "close": 96.5}, {"time": "2026-03-05", "open": 98.5, "high": 101.5, "low": 98.1, "close": 101.0}, {"time": "2026-03-06", "open": 100.0, "high": 100.5, "low": 99.1, "close": 100.0}, {"time": "2026-03-09", "open": 94.8, "high": 96.2, "low": 93.5, "close": 95.0}, {"time": "2026-03-10", "open": 97.0, "high": 97.2, "low": 94.7, "close": 95.6}, {"time": "2026-03-11", "open": 96.5, "high": 100.5, "low": 96.5, "close": 100.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 517.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 572.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 495.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 633.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 996.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 892.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 774.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 1021.0, "color": "#26a69a"}, {"time": "2025-12-16", "value": 1476.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 2192.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 1176.0, "color": "#ef5350"}, {"time": "2025-12-19", "value": 2867.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 1095.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 2143.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 959.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 1915.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 1262.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 6855.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 2622.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 2329.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 2310.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 2556.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 1982.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 1302.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 900.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 897.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 1692.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 1298.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 1382.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 1578.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 1146.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 1118.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 1200.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 1616.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 1634.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 1334.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 1901.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 1736.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 2140.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 1947.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 2037.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 1214.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 1241.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 1201.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 2534.0, "color": "#ef5350"}, {"time": "2026-02-09", "value": 1649.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 1152.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 1283.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 3818.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 1867.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 1981.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 2924.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 2138.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 1667.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 2138.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 1618.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 1051.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 1969.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 913.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 1306.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 101.4}, {"time": "2025-12-11", "value": 100.7}, {"time": "2025-12-12", "value": 100.06}, {"time": "2025-12-15", "value": 99.22}, {"time": "2025-12-16", "value": 98.36}, {"time": "2025-12-17", "value": 97.7}, {"time": "2025-12-18", "value": 97.17999999999999}, {"time": "2025-12-19", "value": 96.56}, {"time": "2025-12-22", "value": 96.32000000000001}, {"time": "2025-12-23", "value": 96.0}, {"time": "2025-12-24", "value": 95.58}, {"time": "2025-12-26", "value": 94.78}, {"time": "2025-12-29", "value": 94.52000000000001}, {"time": "2025-12-30", "value": 94.46000000000001}, {"time": "2025-12-31", "value": 94.62}, {"time": "2026-01-02", "value": 94.74000000000001}, {"time": "2026-01-05", "value": 94.8}, {"time": "2026-01-06", "value": 95.1}, {"time": "2026-01-07", "value": 95.18}, {"time": "2026-01-08", "value": 95.3}, {"time": "2026-01-09", "value": 95.56}, {"time": "2026-01-12", "value": 96.16}, {"time": "2026-01-13", "value": 96.26}, {"time": "2026-01-14", "value": 96.28}, {"time": "2026-01-15", "value": 96.3}, {"time": "2026-01-16", "value": 96.44}, {"time": "2026-01-19", "value": 96.6}, {"time": "2026-01-20", "value": 96.7}, {"time": "2026-01-21", "value": 96.56}, {"time": "2026-01-22", "value": 96.82000000000001}, {"time": "2026-01-23", "value": 96.8}, {"time": "2026-01-26", "value": 96.6}, {"time": "2026-01-27", "value": 96.2}, {"time": "2026-01-28", "value": 95.74}, {"time": "2026-01-29", "value": 95.02000000000001}, {"time": "2026-01-30", "value": 94.14}, {"time": "2026-02-02", "value": 93.22}, {"time": "2026-02-03", "value": 92.96000000000001}, {"time": "2026-02-04", "value": 93.22}, {"time": "2026-02-05", "value": 93.28}, {"time": "2026-02-06", "value": 94.1}, {"time": "2026-02-09", "value": 95.2}, {"time": "2026-02-10", "value": 95.96000000000001}, {"time": "2026-02-11", "value": 96.42}, {"time": "2026-02-23", "value": 97.42}, {"time": "2026-02-24", "value": 98.26}, {"time": "2026-02-25", "value": 99.08}, {"time": "2026-02-26", "value": 99.9}, {"time": "2026-03-02", "value": 99.72}, {"time": "2026-03-03", "value": 99.9}, {"time": "2026-03-04", "value": 99.1}, {"time": "2026-03-05", "value": 99.1}, {"time": "2026-03-06", "value": 98.8}, {"time": "2026-03-09", "value": 98.5}, {"time": "2026-03-10", "value": 97.62}, {"time": "2026-03-11", "value": 98.32000000000001}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 99.55}, {"time": "2025-12-18", "value": 98.94}, {"time": "2025-12-19", "value": 98.31}, {"time": "2025-12-22", "value": 97.77000000000001}, {"time": "2025-12-23", "value": 97.17999999999999}, {"time": "2025-12-24", "value": 96.64}, {"time": "2025-12-26", "value": 95.97999999999999}, {"time": "2025-12-29", "value": 95.53999999999999}, {"time": "2025-12-30", "value": 95.39}, {"time": "2025-12-31", "value": 95.31}, {"time": "2026-01-02", "value": 95.16}, {"time": "2026-01-05", "value": 94.78999999999999}, {"time": "2026-01-06", "value": 94.81}, {"time": "2026-01-07", "value": 94.82000000000001}, {"time": "2026-01-08", "value": 94.96000000000001}, {"time": "2026-01-09", "value": 95.15}, {"time": "2026-01-12", "value": 95.48}, {"time": "2026-01-13", "value": 95.68}, {"time": "2026-01-14", "value": 95.73}, {"time": "2026-01-15", "value": 95.8}, {"time": "2026-01-16", "value": 96.0}, {"time": "2026-01-19", "value": 96.38}, {"time": "2026-01-20", "value": 96.47999999999999}, {"time": "2026-01-21", "value": 96.42}, {"time": "2026-01-22", "value": 96.56}, {"time": "2026-01-23", "value": 96.62}, {"time": "2026-01-26", "value": 96.6}, {"time": "2026-01-27", "value": 96.45}, {"time": "2026-01-28", "value": 96.15}, {"time": "2026-01-29", "value": 95.92}, {"time": "2026-01-30", "value": 95.47}, {"time": "2026-02-02", "value": 94.91}, {"time": "2026-02-03", "value": 94.58}, {"time": "2026-02-04", "value": 94.47999999999999}, {"time": "2026-02-05", "value": 94.15}, {"time": "2026-02-06", "value": 94.12}, {"time": "2026-02-09", "value": 94.21000000000001}, {"time": "2026-02-10", "value": 94.46000000000001}, {"time": "2026-02-11", "value": 94.82000000000001}, {"time": "2026-02-23", "value": 95.35}, {"time": "2026-02-24", "value": 96.17999999999999}, {"time": "2026-02-25", "value": 97.14}, {"time": "2026-02-26", "value": 97.92999999999999}, {"time": "2026-03-02", "value": 98.07000000000001}, {"time": "2026-03-03", "value": 98.66}, {"time": "2026-03-04", "value": 98.67999999999999}, {"time": "2026-03-05", "value": 99.09}, {"time": "2026-03-06", "value": 99.35}, {"time": "2026-03-09", "value": 99.11}, {"time": "2026-03-10", "value": 98.76}, {"time": "2026-03-11", "value": 98.71000000000001}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 97.35499999999999}, {"time": "2026-01-05", "value": 96.865}, {"time": "2026-01-06", "value": 96.56}, {"time": "2026-01-07", "value": 96.295}, {"time": "2026-01-08", "value": 96.07000000000001}, {"time": "2026-01-09", "value": 95.89500000000001}, {"time": "2026-01-12", "value": 95.72999999999999}, {"time": "2026-01-13", "value": 95.61}, {"time": "2026-01-14", "value": 95.56}, {"time": "2026-01-15", "value": 95.55499999999999}, {"time": "2026-01-16", "value": 95.58}, {"time": "2026-01-19", "value": 95.58500000000001}, {"time": "2026-01-20", "value": 95.64500000000001}, {"time": "2026-01-21", "value": 95.62}, {"time": "2026-01-22", "value": 95.76}, {"time": "2026-01-23", "value": 95.885}, {"time": "2026-01-26", "value": 96.03999999999999}, {"time": "2026-01-27", "value": 96.065}, {"time": "2026-01-28", "value": 95.94}, {"time": "2026-01-29", "value": 95.86}, {"time": "2026-01-30", "value": 95.735}, {"time": "2026-02-02", "value": 95.64500000000001}, {"time": "2026-02-03", "value": 95.53}, {"time": "2026-02-04", "value": 95.45}, {"time": "2026-02-05", "value": 95.35499999999999}, {"time": "2026-02-06", "value": 95.37}, {"time": "2026-02-09", "value": 95.405}, {"time": "2026-02-10", "value": 95.455}, {"time": "2026-02-11", "value": 95.485}, {"time": "2026-02-23", "value": 95.635}, {"time": "2026-02-24", "value": 95.825}, {"time": "2026-02-25", "value": 96.025}, {"time": "2026-02-26", "value": 96.255}, {"time": "2026-03-02", "value": 96.275}, {"time": "2026-03-03", "value": 96.405}, {"time": "2026-03-04", "value": 96.4}, {"time": "2026-03-05", "value": 96.65}, {"time": "2026-03-06", "value": 96.905}, {"time": "2026-03-09", "value": 96.965}, {"time": "2026-03-10", "value": 97.05499999999999}, {"time": "2026-03-11", "value": 97.44500000000001}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -572.0}, {"time": "2025-12-08", "value": -572.0}, {"time": "2025-12-09", "value": -1205.0}, {"time": "2025-12-10", "value": -2201.0}, {"time": "2025-12-11", "value": -2201.0}, {"time": "2025-12-12", "value": -2975.0}, {"time": "2025-12-15", "value": -3996.0}, {"time": "2025-12-16", "value": -5472.0}, {"time": "2025-12-17", "value": -5472.0}, {"time": "2025-12-18", "value": -4296.0}, {"time": "2025-12-19", "value": -7163.0}, {"time": "2025-12-22", "value": -6068.0}, {"time": "2025-12-23", "value": -8211.0}, {"time": "2025-12-24", "value": -9170.0}, {"time": "2025-12-26", "value": -11085.0}, {"time": "2025-12-29", "value": -9823.0}, {"time": "2025-12-30", "value": -2968.0}, {"time": "2025-12-31", "value": -5590.0}, {"time": "2026-01-02", "value": -7919.0}, {"time": "2026-01-05", "value": -10229.0}, {"time": "2026-01-06", "value": -7673.0}, {"time": "2026-01-07", "value": -5691.0}, {"time": "2026-01-08", "value": -6993.0}, {"time": "2026-01-09", "value": -6993.0}, {"time": "2026-01-12", "value": -6096.0}, {"time": "2026-01-13", "value": -4404.0}, {"time": "2026-01-14", "value": -3106.0}, {"time": "2026-01-15", "value": -4488.0}, {"time": "2026-01-16", "value": -2910.0}, {"time": "2026-01-19", "value": -1764.0}, {"time": "2026-01-20", "value": -2882.0}, {"time": "2026-01-21", "value": -4082.0}, {"time": "2026-01-22", "value": -2466.0}, {"time": "2026-01-23", "value": -4100.0}, {"time": "2026-01-26", "value": -5434.0}, {"time": "2026-01-27", "value": -7335.0}, {"time": "2026-01-28", "value": -9071.0}, {"time": "2026-01-29", "value": -9071.0}, {"time": "2026-01-30", "value": -11018.0}, {"time": "2026-02-02", "value": -13055.0}, {"time": "2026-02-03", "value": -11841.0}, {"time": "2026-02-04", "value": -10600.0}, {"time": "2026-02-05", "value": -11801.0}, {"time": "2026-02-06", "value": -9267.0}, {"time": "2026-02-09", "value": -7618.0}, {"time": "2026-02-10", "value": -6466.0}, {"time": "2026-02-11", "value": -6466.0}, {"time": "2026-02-23", "value": -2648.0}, {"time": "2026-02-24", "value": -781.0}, {"time": "2026-02-25", "value": 1200.0}, {"time": "2026-02-26", "value": 4124.0}, {"time": "2026-03-02", "value": 1986.0}, {"time": "2026-03-03", "value": 3653.0}, {"time": "2026-03-04", "value": 1515.0}, {"time": "2026-03-05", "value": 3133.0}, {"time": "2026-03-06", "value": 2082.0}, {"time": "2026-03-09", "value": 113.0}, {"time": "2026-03-10", "value": 1026.0}, {"time": "2026-03-11", "value": 2332.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>台表科 (6278) 主要從事電子製造服務（EMS），專注於表面黏著技術（SMT）業務，提供電子資訊產品電路板表面黏著構裝的設計、加工、製造及買賣業務。</p>
+
+<h3>業務與產品線</h3>
+<p>核心產品與服務涵蓋薄膜式液晶顯示面板（TFT-LCD）的控制板、發光二極體（LED）燈條、LCD 電視主板、數位相機軟板、家電控制板、無線網路電路板另體表面黏著封裝、汽車電子產品、智慧家電產品、觸控模組基板、智慧穿戴裝置、DDR 記憶體模組等。</p>
+
+<h3>營收結構 (2025 年前三季)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品類別</th><th>營收佔比</th><th>備註</th></tr></thead><tbody>
+<tr><td>TFT-LCD</td><td>46%</td><td></td></tr>
+<tr><td>Mini LED</td><td>12%</td><td>自高峰期回落</td></tr>
+<tr><td><strong>其他類別</strong></td><td><strong>42%</strong></td><td></td></tr>
+<tr><td>DRAM 模組</td><td>14%</td><td>預計 2026 年佔比可提升至 20% 以上</td></tr>
+<tr><td>車用電子</td><td>10%</td><td>預計 2026 年將重回成長</td></tr>
+<tr><td>Cable</td><td>9%</td><td></td></tr>
+<tr><td>Touch Pad</td><td>4%</td><td></td></tr>
+<tr><td>其他</td><td>5%</td><td></td></tr>
+</tbody></table></div>
+
+<em>註：有另一份 2025 年資料顯示，TFT LCD 業務佔 50%，Mini LED 佔 10%，而汽車與 DRAM 模組合計約佔 30%。</em>
+
+<h3>製造基地</h3>
+<p>台表科在全球共有 14 座生產據點，SMT 產線總數約 240 條。主要基地分佈於：</p>
+<ul><li><strong>中國：</strong> 東莞、蘇州、寧波、廈門、合肥、重慶、咸陽等地。合肥廠區正進行擴建，咸陽子公司峻凌電子預計 2026 年 6 月 30 日完工新廠。</li>
+<li><strong>印度：</strong> Gujarat 省 Sanand 工業區購置土地興建新廠，預計 2026 年第四季完工。清奈廠二期工程已於 2025 年第四季完工，預計 2026 年第一季遷入，有效擴充產能。</li>
+<li><strong>越南：</strong> 因應筆電等產品供應鏈移轉趨勢，將進行二期工程擴建。</li>
+<li><strong>墨西哥：</strong> 2024 年有新廠加入，預計 2026 年第一季完成主要客戶驗證。</li>
+</ul>
+<h2>核心競爭優勢</h2>
+<li><strong>SMT 專業技術與效率：</strong> 長期深耕表面黏著技術，提供高精密度的設計、加工與製造服務，是其核心競爭力。</li>
+<li><strong>利基市場佈局：</strong> 在 DDR5 記憶體模組、車用電子等高成長利基市場具備領先優勢，有效分散傳統消費性電子業務的風險。</li>
+<li><strong>全球化產能佈局：</strong> 積極擴建印度、越南、墨西哥等海外生產基地，有效應對地緣政治風險與客戶供應鏈韌性需求，強化承接多元訂單的能力。</li>
+<li><strong>客戶結構優化：</strong> 受惠於美光等記憶體大廠供應鏈，以及美系客戶的車用、伺服器訂單，提升營收質量。</li>
+<li><strong>代工不代料模式：</strong> 透過部分客戶的代工不代料模式，降低呆料風險，有助於穩定毛利率表現。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>2026 年 2 月</td><td>37.87</td><td>-16.84%</td><td>-5.28%</td></tr>
+<tr><td>2026 年 1 月</td><td>45.54</td><td>10.31%</td><td>11.39%</td></tr>
+<tr><td>2025 年 12 月</td><td>41.28</td><td>3.20%</td><td>0.17%</td></tr>
+<tr><td>2025 年 11 月</td><td>40.00</td><td>1.01%</td><td>0.27%</td></tr>
+<tr><td>2025 年 10 月</td><td>39.60</td><td>-11.06%</td><td>5.93%</td></tr>
+<tr><td>2025 年 9 月</td><td>44.52</td><td>6.65%</td><td>24.89%</td></tr>
+</tbody></table></div>
+
+<em>註：2026 年 1-2 月累計營收為新台幣 83.4 億元，年增 3.2%。</em>
+
+<h3>季度數據</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2025Q1</th><th>2025Q2</th><th>2025Q3</th></tr></thead><tbody>
+<tr><td>季營收 (億元)</td><td>124.14</td><td>126.04</td><td>120.87</td></tr>
+<tr><td>毛利率</td><td>13.36%</td><td>12.14%</td><td>12.72%</td></tr>
+<tr><td>營業利益率</td><td>N/A</td><td>N/A</td><td>7.20%</td></tr>
+<tr><td>稅後純益 (億元)</td><td>8.42</td><td>4.80</td><td>2.02</td></tr>
+<tr><td>EPS (元)</td><td>2.88</td><td>1.64</td><td>2.38</td></tr>
+</tbody></table></div>
+
+<em>註：2025 年第四季毛利率、營業利益率及 EPS 數據尚未公布。</em>
+
+<h3>年度趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2024 年</th><th>2025 年 (預估)</th></tr></thead><tbody>
+<tr><td>全年營收 (億元)</td><td>452.88</td><td>498.77 (+10.13% YoY)</td></tr>
+<tr><td>EPS (元)</td><td>9.94</td><td>6.90 (前三季累計)</td></tr>
+</tbody></table></div>
+
+<em>註：2025 年全年 EPS 尚未完全公布，僅為前三季累計。</em>
+
+<h2>法說會重點</h2>
+<p>最近一次法說會為 <strong>2025 年 12 月 18 日</strong>，重點如下：</p>
+<ul><li><strong>營運回顧：</strong> 2025 年前三季合併營收新台幣 378 億元，年增 13.01%。全年營收年增率預計接近 10%。儘管營收與毛利皆年增，但 2025 年第二季新台幣大幅升值導致業外匯兌損失，使稅後淨利下滑。</li>
+<li><strong>產品組合 (2025 年前三季營收結構)：</strong> TFT-LCD 佔比 46%，Mini LED 佔比 12%，其他類別佔比 42% (含 DRAM 模組約 14%、車用電子約 10%、Cable 約 9%、Touch Pad 約 4%)。</li>
+<li><strong>各業務表現與展望：</strong></li>
+</ul>    *   <strong>半導體 (DRAM 模組)：</strong> 2025 年成長力道最強勁，下半年需求顯著增加，彌補其他業務衰退。預期 2026 年 DRAM 模組將是主要成長動能，佔營收比重可望提升至 20% 以上。
+<p>*   <strong>車用電子：</strong> 2025 年受市況不佳影響，全年營收年衰退 15%。但預計 2026 年因美系客戶新車改款及加入中國、歐洲系客戶新品，將是主要成長動能之一，營收比重可望提升至 10%～15%。</p>
+<p>*   <strong>TFT-LCD：</strong> 自 2025 年第二季起，面板產業進入修正期，需求相對疲弱。</p>
+<p>*   <strong>伺服器相關代工：</strong> 為美系客戶供應的前段 PCBA (組裝電路板) 已於 2025 年下半年啟動，預期 2026 年占比可提升至 3%～5%。</p>
+<p>*   <strong>TCON 控制板：</strong> 美系與韓系客戶的 TCON 將在 2026 年接力放量，有助於分散 Mini LED 下滑帶來的壓力。</p>
+<ul><li><strong>產能與擴張計畫：</strong></li>
+</ul>    *   全球 SMT 產線總數已擴增至 240 條 (2025 年)，較 2024 年約 230 條提升。
+<p>*   印度 Gujarat 新廠預計 2026 年第四季完工。清奈廠二期已於 2025 年第四季完工，預計 2026 年第一季遷入。</p>
+<p>*   越南二期工程擴建中。墨西哥廠預計 2026 年第一季完成主要客戶驗證。</p>
+<p>*   中國合肥廠區規劃自建新廠。</p>
+<p>*   2026 年產線擴充將相對保守，重點在設備汰舊換新與新製程投入。</p>
+<ul><li><strong>資本支出：</strong> 預估 2026 年資本支出約為 8,000 萬至 1 億美元，主要用於海外廠房 (印度、越南) 及中國合肥廠區的擴建。</li>
+<li><strong>2026 年展望：</strong> 公司對整體營運持審慎態度，初步預估全年營運表現將與 2025 年持平。DRAM 模組與車用相關產品將是主要成長動能。</li>
+</ul>
+<h2>券商觀點</h2>
+<p>截至 2026 年 3 月 9 日，目前公開研究資料中未找到針對台表科 (6278) 在 2025-2026 年來自至少 3 家券商的具體目標價、EPS 預估數字，以及近期重大調升/調降評等的資料。</p>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2024Q1</th><th>2024Q2</th><th>2024Q3</th><th>2024Q4</th><th>2025Q1</th><th>2025Q2</th><th>2025Q3</th></tr></thead><tbody>
+<tr><td>毛利率</td><td>11.8%</td><td>13.9%</td><td>12.9%</td><td>14.6%</td><td>13.36%</td><td>12.14%</td><td>12.67%</td></tr>
+<tr><td>營業利益率</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>7.38%</td></tr>
+<tr><td>稅前淨利率</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>7.18%</td></tr>
+<tr><td>稅後淨利率</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>5.45%</td></tr>
+</tbody></table></div>
+
+<em>註：部分季度數據未提供營業利益率、稅前/稅後淨利率。</em>
+
+<strong>利潤率變化的原因分析：</strong>
+<ul><li><strong>2024 年：</strong> 墨西哥、越南新廠加入推升生產量能。部分客戶接單模式改為代工不代料，雖影響營收，但降低呆料風險，有助於毛利率向上，使得 2024 年獲利成長幅度大。</li>
+<li><strong>2025 年：</strong> 儘管營收與毛利皆年增，但 2025 年第二季新台幣大幅升值導致業外匯兌損失（業外損益合計 -2.43 億元），是稅後淨利下滑的主要原因。</li>
+<li><strong>2025Q4 展望：</strong> 預估營收因消費性電子需求趨弱而衰退 6%～7%，但 DRAM 模組產品組合需求穩健，毛利率預期可維持與第三季相當的水準。</li>
+</ul>
+<h3>存貨與營運分析</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2024Q4</th><th>2025Q1</th><th>2025Q2</th><th>2025Q3</th></tr></thead><tbody>
+<tr><td>存貨週轉天數</td><td>N/A</td><td>N/A</td><td>N/A</td><td>32.41 天</td></tr>
+<tr><td>存貨週轉次數</td><td>2.75 次</td><td>2.55 次</td><td>2.61 次</td><td>N/A</td></tr>
+<tr><td>應收帳款收現天數</td><td>N/A</td><td>N/A</td><td>N/A</td><td>115.2 天</td></tr>
+<tr><td>應收帳款週轉次數</td><td>0.77 次</td><td>0.77 次</td><td>0.78 次</td><td>0.78 次</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>存貨金額：</strong> 2025 年第三季存貨金額為新台幣 169.36 億元。2025 年第二季存貨佔總資產比為 8.3%，顯示存貨水平相對健康，未見明顯異常堆積現象。部分業務採代工不代料模式，降低了呆料風險。</li>
+</ul>
+<h3>資本支出趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/計畫</th><th>金額/描述</th><th>用途</th></tr></thead><tbody>
+<tr><td>2024 年</td><td>約 6,000 萬美元</td><td>墨西哥及越南廠房設備投入，後期越南廠房擴建</td></tr>
+<tr><td>2025 年</td><td>N/A (擴增 SMT 產線至 240 條)</td><td>越南廠增 3 條線，合肥、印度廠各增 4 條線</td></tr>
+<tr><td>2026 年</td><td>預估 8,000 萬至 1 億美元</td><td>海外廠房 (印度、越南) 持續建設，中國合肥廠區擴建</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>折舊攤銷：</strong> 2024 年折舊及攤銷預計為 27.45 億元 (2023 年為 14.92 億元)。2025 年第三季折舊為 4.49 億元。折舊開支的上升部分來自於新廠房設備的投入。</li>
+</ul>
+<h2>股權異動</h2>
+
+<ul><li><strong>庫藏股買回：</strong></li>
+</ul>    *   <strong>2025 年 12 月董事會決議：</strong> 買回 1 萬張庫藏股，買回區間價格為每股 66.5 至 148 元。
+<p>*   <strong>2026 年 1 月 29 日公告：</strong> 自 2026 年 1 月 30 日至 2026 年 2 月 26 日，買回 1 萬張庫藏股，目的為轉讓股份予員工。</p>
+<p>*   <strong>執行狀況：</strong> 截至 2026 年 2 月 26 日屆滿，執行率已達 32.68%，買回均價為 96.04 元。</p>
+<ul><li><strong>股利政策：</strong></li>
+</ul>    *   <strong>2025 年：</strong> 預計發放現金股利 5.5 元 (除權息日 2025/07/10)。
+<p>*   <strong>2024 年：</strong> 發放現金股利 5.0 元。</p>
+<p>*   <strong>2023 年：</strong> 發放現金股利 7.0 元。</p>
+<ul><li><strong>董監事/大股東申報轉讓、可轉換公司債 (CB) 發行、現金增資或減資計畫：</strong> 根據目前資料，未找到 2024 年以後的相關具體紀錄。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>市場規模與供需</h3>
+<ul><li><strong>EMS 產業全球市場規模：</strong> 2025 年預計介於 5,556.7 億美元至 6,481.1 億美元。預計 2035 年將達到 8,965.4 億美元至 1.17 兆美元，複合年增長率 (CAGR) 約 4.9% 至 6.8%。</li>
+<li><strong>SMT 設備市場規模：</strong> 2024 年已達約 38.4 億美元，預計 2031 年將攀升至 53 億美元以上。</li>
+<li><strong>供需狀況：</strong> 產業需求受 AI、電動車、物聯網等趨勢驅動而增長。然而，全球半導體、微控制器等關鍵零件短缺和供應鏈不穩定，仍是主要挑戰。記憶體供應吃緊與價格高漲，將分化業者出貨量與產能利用率。</li>
+<li><strong>產業平均毛利率：</strong> EMS 產業平均毛利率約在 12% 至 14% 之間。台表科 2025 年前三季毛利率為 12.72%，符合產業特性。</li>
+</ul>
+<h3>競爭格局</h3>
+
+<h4>全球前五大 EMS/ODM 業者 (2025 年預估)</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>排名</th><th>公司名稱</th><th>國籍</th><th>2025 年營收 (預估)</th><th>主要增長動能</th></tr></thead><tbody>
+<tr><td>1</td><td>鴻海</td><td>台灣</td><td>2,610 億美元</td><td>AI 伺服器、iPhone 17</td></tr>
+<tr><td>2</td><td>緯創</td><td>台灣</td><td>706 億美元</td><td>AI 伺服器</td></tr>
+<tr><td>3</td><td>廣達</td><td>台灣</td><td>682 億美元</td><td>AI 伺服器</td></tr>
+<tr><td>4</td><td>立訊精密</td><td>中國</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>5</td><td>和碩</td><td>台灣</td><td>N/A</td><td>N/A</td></tr>
+</tbody></table></div>
+
+<h4>台表科 vs 台灣同業比較</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>業務性質</th><th>2025 年前三季營收 (億台幣) / 全年營收</th><th>2025 年前三季毛利率 / 全年毛利率</th><th>2025 年前三季 EPS (元) / 全年 EPS</th><th>2026 年 1-2 月營收 (億台幣)</th></tr></thead><tbody>
+<tr><td><strong>台表科</strong></td><td>SMT EMS</td><td>378 (前三季) / 498.77 (全年)</td><td>12.72% (前三季)</td><td>6.90 (前三季)</td><td>83.4 (1-2月)</td></tr>
+<tr><td>順達</td><td>電池模組</td><td>N/A / 132.18 (全年)</td><td>N/A</td><td>N/A / 9.05 (全年)</td><td>10.05 (1月)</td></tr>
+<tr><td>圓裕</td><td>軟板製造</td><td>N/A / 23.8 (全年)</td><td>N/A / 21.64% (全年)</td><td>N/A / 0.97 (全年)</td><td>3.64 (1-2月)</td></tr>
+</tbody></table></div>
+
+<strong>比較小結：</strong> 台表科的營收規模顯著大於圓裕，但略小於順達。其毛利率與全球大型 EMS 廠相當，但低於專業軟板製造商圓裕。這反映了 SMT 代工業務的特性，毛利空間相對有限，需要依靠營運效率和規模來創造利潤。
+
+<h3>產業趨勢</h3>
+<li><strong>AI 應用與高效能運算 (HPC)：</strong> AI 伺服器帶動對高階 PCB、HBM 及相關精密組裝需求激增，AI PC 滲透率提升也將驅動 DRAM 模組需求，對台表科在 DRAM 模組業務帶來巨大機會。</li>
+<li><strong>電動車與汽車電子化：</strong> 全球電動車轉型推動 ECU、BMS 等電子元件需求，台表科在車用電子領域的佈局將受惠於高科技電氣化組件的生產需求。</li>
+<li><strong>自動化與智慧製造：</strong> EMS 產業日益採用 AI 驅動的品質控制、機器人等技術，以提升效率與精準度，台表科需持續投資於製程升級以維持競爭力。</li>
+
+<strong>對台表科的具體機會與威脅：</strong>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   DDR5/HBM 需求帶動 DRAM 模組業務強勁成長。
+<p>*   車用電子重回成長軌道，新模組產品貢獻增加。</p>
+<p>*   全球產能佈局 (印度、越南、墨西哥) 有助於承接多元訂單並規避地緣政治風險。</p>
+<p>*   AI 驅動的高階電子產品對精密 SMT 組裝需求。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   消費性電子需求疲軟 (TFT-LCD、Mini LED)，拖累部分營收。
+<p>*   匯率波動 (如 2025Q2 新台幣升值) 影響業外損益。</p>
+<p>*   全球供應鏈不穩定可能影響生產成本與排程。</p>
+<p>*   AI 相關零組件資源傾斜，可能導致消費性電子零組件漲價或缺料。</p>
+
+<h2>近期催化劑 (2025 年 12 月至 2026 年 3 月)</h2>
+<ul><li><strong>2025 年 12 月 18 日法說會：</strong> 強調 2026 年 DRAM 模組與車用電子為主要成長動能，海外新廠規劃逐步落實。</li>
+<li><strong>庫藏股買回：</strong> 2026 年 1 月 30 日至 2 月 26 日執行庫藏股 1 萬張，買回均價 96.04 元，展現公司對股價信心與員工激勵。</li>
+<li><strong>2026 年 1 月營收：</strong> 新台幣 45.54 億元，MoM +10.31%，YoY +11.39%，創 2023 年 1 月以來新高，顯示年初動能良好。</li>
+<li><strong>海外廠房建設進度：</strong> 印度清奈廠二期 2025Q4 完工、2026Q1 遷入；墨西哥廠 2026Q1 完成客戶驗證，陸續開始貢獻營收。</li>
+<li><strong>股利政策：</strong> 預計 2025 年發放現金股利 5.5 元，維持穩健股利政策。</li>
+<li><strong>法人買賣超：</strong> 2026 年 2 月至 3 月外資對台表科買賣超波動，投信則多數呈現賣超。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間</th><th>類別</th><th>詳細內容</th><th>營運影響</th></tr></thead><tbody>
+<tr><td><strong>2024 年 Q1</strong></td><td>新產能</td><td>墨西哥廠完工</td><td>擴大北美市場佈局，服務美系客戶</td></tr>
+<tr><td><strong>2024 年 Q2</strong></td><td>新產能</td><td>越南廠開始量產</td><td>應對供應鏈轉移，提升筆電等產品供應能力</td></tr>
+<tr><td><strong>2025 年 Q4</strong></td><td>新產能</td><td>印度清奈廠二期工程完工</td><td>擴充印度產能，為 2026 年遷入做準備</td></tr>
+<tr><td><strong>2025 年 下半年</strong></td><td>新客戶/新市場</td><td>為美系客戶供應伺服器前段 PCBA 服務啟動</td><td>開拓伺服器市場，提升高階產品營收佔比</td></tr>
+<tr><td><strong>2025 年 下半年</strong></td><td>需求</td><td>DRAM 模組需求顯著增加，彌補其他業務衰退</td><td>記憶體業務成為最強勁成長動能</td></tr>
+<tr><td><strong>2026 年 Q1</strong></td><td>新產能</td><td>印度清奈廠二期遷入、墨西哥廠完成主要客戶驗證</td><td>提升產能利用率，墨西哥廠開始貢獻營收</td></tr>
+<tr><td><strong>2026 年 Q1</strong></td><td>新產品</td><td>TCON 控制板 (美系與韓系客戶) 接力放量</td><td>分散 Mini LED 下滑壓力，增加新營收來源</td></tr>
+<tr><td><strong>2026 年 Q2</strong></td><td>新產能</td><td>中國咸陽峻凌電子新廠預計完工</td><td>強化中國產能與佈局</td></tr>
+<tr><td><strong>2026 年 全年</strong></td><td>需求</td><td>DDR5 記憶體模組將維持高雙位數成長，佔營收比重有望提升至 20%</td><td>受惠於 AI PC、伺服器對記憶體需求增加，成為主要成長支柱</td></tr>
+<tr><td><strong>2026 年 全年</strong></td><td>新客戶/新市場</td><td>車用電子預計加入中國與歐洲系客戶新品，營收比重提升至 10-15%</td><td>多元化車用電子客戶群，提升長期成長動能</td></tr>
+<tr><td><strong>2026 年 Q4</strong></td><td>新產能</td><td>印度 Gujarat 省 Sanand 工業區新廠完工</td><td>奠定印度長期發展基石，強化海外製造彈性</td></tr>
+<tr><td><strong>未來持續</strong></td><td>擴廠</td><td>越南二期工程擴建、中國合肥廠區自建新廠</td><td>因應供應鏈重組趨勢，提供彈性產能配置</td></tr>
+<tr><td><strong>未來持續</strong></td><td>產能</td><td>設備汰舊換新與新製程投入 (2026 年主軸)</td><td>提升生產效率與高階製程能力，而非盲目增加產線數量</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+<h3>成長動能</h3>
+<li><strong>DRAM 模組強勁成長：</strong> 預計 2026 年 DDR5 模組需求將維持高雙位數成長，營收佔比有望從 2025 年的 15% 提升至 20% 以上，受惠於記憶體市場回溫、DDR5 滲透率提升及 AI 應用對記憶體需求的驅動。</li>
+<li><strong>車用電子重回成長：</strong> 儘管 2025 年衰退 15%，預期 2026 年受美系客戶新車改款及新加入中國、歐洲系客戶新品影響，車用營收比重可望提升至 10%～15%。</li>
+<li><strong>海外產能逐步到位：</strong> 印度清奈廠二期遷入 (2026Q1)、墨西哥廠客戶驗證完成 (2026Q1) 以及印度 Gujarat 新廠完工 (2026Q4)，將提供新成長動能並分散營運風險。</li>
+<li><strong>伺服器及 TCON 業務增長：</strong> 伺服器 PCBA 代工業務預計 2026 年占比可提升至 3%～5%；TCON 控制板在美系與韓系客戶帶動下接力放量，有助於營收多元化。</li>
+
+<h3>風險</h3>
+<li><strong>消費性電子需求疲軟：</strong> 傳統 TFT-LCD 和 Mini LED 等面板相關業務需求仍相對疲弱，且 AI 趨勢可能導致零組件資源向 AI 應用傾斜，進而壓抑 2026 年消費性電子終端需求，影響相關營收。</li>
+<li><strong>匯率波動風險：</strong> 鑑於 2025 年第二季因新台幣升值導致業外匯兌損失，未來匯率波動仍可能對獲利造成影響。</li>
+<li><strong>全球經濟不確定性：</strong> 總體經濟環境若不如預期，可能影響終端消費與企業資本支出，進而波及 EMS 產業整體需求。</li>
+<li><strong>地緣政治風險：</strong> 雖然積極佈局海外產能，但全球貿易政策和地緣政治緊張局勢仍可能帶來供應鏈中斷或生產成本上升的風險。</li>
+
+<h2>投資結論</h2>
+<p>台表科在 2026 年面臨傳統業務逆風，但其積極拓展高成長性的 DDR5 記憶體模組和車用電子市場，搭配全球化產能佈局，將是支撐其營運的兩大關鍵動能。儘管公司預期 2026 年營運與 2025 年持平，但結構性調整和新應用帶來的成長潛力值得關注。</p>
+
+<li><strong>成長動能明確：</strong> DDR5 記憶體模組在 AI PC 及伺服器帶動下，預計將是 2026 年主要營收成長來源，營收佔比有望提升至 20% 以上。車用電子在客戶新品上市帶動下，亦可望重回成長。</li>
+<li><strong>海外擴廠效益漸顯：</strong> 印度、越南、墨西哥等新廠或擴建專案逐步完工並貢獻營收，有助於分散風險、貼近客戶，並提升長期承接能力。</li>
+<li><strong>穩健的財務體質：</strong> 儘管業外損益受匯率影響，但本業毛利率維持在產業平均水平，且存貨週轉健康，顯示其營運效率良好。</li>
+<li><strong>潛在評價提升機會：</strong> 若 DDR5 和車用電子業務比重持續提升，將優化其產品組合，有機會帶動市場給予更高的本益比評價。</li>
+
+<p>考量 2026 年營運預估持平，若以 2025 年全年 EPS 約落在 9.5 元 (假設 2025Q4 獲利與 2024Q4 接近) 為基礎，並給予穩健型 EMS 廠商合理的 11-13 倍本益比區間，建議投資者可將其目標價區間設定在 <strong>新台幣 105 元至 125 元</strong>。</p>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-09 22:01</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="6278_台表科_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="6278_台表科_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

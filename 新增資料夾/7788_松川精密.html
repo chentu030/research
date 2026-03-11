@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7788 松川精密 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>7788 松川精密 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>松川精密（7788）正成功轉型為高附加價值AI與新能源電力管理解決方案供應商，憑藉其獨特的HVDC及Super Seal技術，切入電動車、儲能及AI伺服器三大高成長應用，預期2026年營收將實現雙位數成長，毛利率顯著回升。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">7788 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-7788" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-7788" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-7788');
+    var obvContainer = document.getElementById('obv-chart-7788');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 111.0, "high": 116.5, "low": 111.0, "close": 116.5}, {"time": "2025-12-05", "open": 119.0, "high": 128.0, "low": 116.0, "close": 128.0}, {"time": "2025-12-08", "open": 128.0, "high": 131.0, "low": 124.0, "close": 126.0}, {"time": "2025-12-09", "open": 127.0, "high": 135.5, "low": 125.5, "close": 134.5}, {"time": "2025-12-10", "open": 135.0, "high": 135.0, "low": 128.0, "close": 131.5}, {"time": "2025-12-11", "open": 132.0, "high": 133.0, "low": 128.0, "close": 128.5}, {"time": "2025-12-12", "open": 130.0, "high": 132.0, "low": 128.0, "close": 129.0}, {"time": "2025-12-15", "open": 127.5, "high": 140.0, "low": 126.5, "close": 135.0}, {"time": "2025-12-16", "open": 133.0, "high": 136.0, "low": 126.5, "close": 132.0}, {"time": "2025-12-17", "open": 130.5, "high": 132.5, "low": 128.5, "close": 132.0}, {"time": "2025-12-18", "open": 135.0, "high": 136.5, "low": 128.0, "close": 134.0}, {"time": "2025-12-19", "open": 140.0, "high": 145.5, "low": 138.0, "close": 144.5}, {"time": "2025-12-22", "open": 147.5, "high": 147.5, "low": 138.5, "close": 141.0}, {"time": "2025-12-23", "open": 141.0, "high": 148.0, "low": 141.0, "close": 146.0}, {"time": "2025-12-24", "open": 146.0, "high": 147.5, "low": 131.5, "close": 131.5}, {"time": "2025-12-26", "open": 131.5, "high": 134.0, "low": 128.0, "close": 133.5}, {"time": "2025-12-29", "open": 134.0, "high": 141.0, "low": 133.5, "close": 135.0}, {"time": "2025-12-30", "open": 132.0, "high": 133.0, "low": 130.0, "close": 133.0}, {"time": "2025-12-31", "open": 134.5, "high": 139.5, "low": 132.0, "close": 135.5}, {"time": "2026-01-02", "open": 136.0, "high": 144.5, "low": 136.0, "close": 141.5}, {"time": "2026-01-05", "open": 146.5, "high": 146.5, "low": 137.5, "close": 138.5}, {"time": "2026-01-06", "open": 139.0, "high": 141.0, "low": 132.5, "close": 135.0}, {"time": "2026-01-07", "open": 140.0, "high": 140.0, "low": 133.5, "close": 134.0}, {"time": "2026-01-08", "open": 137.0, "high": 137.0, "low": 131.0, "close": 131.5}, {"time": "2026-01-09", "open": 131.5, "high": 135.0, "low": 129.5, "close": 135.0}, {"time": "2026-01-12", "open": 137.5, "high": 140.0, "low": 132.0, "close": 140.0}, {"time": "2026-01-13", "open": 143.0, "high": 143.0, "low": 136.0, "close": 138.0}, {"time": "2026-01-14", "open": 138.0, "high": 141.5, "low": 138.0, "close": 139.5}, {"time": "2026-01-15", "open": 139.5, "high": 139.5, "low": 135.5, "close": 136.0}, {"time": "2026-01-16", "open": 137.0, "high": 139.5, "low": 133.5, "close": 139.0}, {"time": "2026-01-19", "open": 139.0, "high": 139.0, "low": 131.5, "close": 135.0}, {"time": "2026-01-20", "open": 134.5, "high": 145.0, "low": 133.5, "close": 141.5}, {"time": "2026-01-21", "open": 138.5, "high": 149.5, "low": 138.5, "close": 142.5}, {"time": "2026-01-22", "open": 145.0, "high": 156.5, "low": 145.0, "close": 156.5}, {"time": "2026-01-23", "open": 172.0, "high": 172.0, "low": 163.0, "close": 171.0}, {"time": "2026-01-26", "open": 167.5, "high": 183.5, "low": 162.0, "close": 178.0}, {"time": "2026-01-27", "open": 178.0, "high": 184.5, "low": 174.0, "close": 181.5}, {"time": "2026-01-28", "open": 179.5, "high": 195.5, "low": 178.5, "close": 195.0}, {"time": "2026-01-29", "open": 198.0, "high": 198.0, "low": 185.5, "close": 193.0}, {"time": "2026-01-30", "open": 188.0, "high": 200.0, "low": 180.5, "close": 196.5}, {"time": "2026-02-02", "open": 190.0, "high": 192.0, "low": 177.0, "close": 178.0}, {"time": "2026-02-03", "open": 180.0, "high": 189.5, "low": 179.0, "close": 182.0}, {"time": "2026-02-04", "open": 180.0, "high": 180.0, "low": 171.0, "close": 178.0}, {"time": "2026-02-05", "open": 174.0, "high": 178.5, "low": 165.5, "close": 177.0}, {"time": "2026-02-06", "open": 171.5, "high": 172.0, "low": 165.0, "close": 168.0}, {"time": "2026-02-09", "open": 170.0, "high": 172.5, "low": 166.0, "close": 167.0}, {"time": "2026-02-10", "open": 173.0, "high": 177.5, "low": 166.5, "close": 172.5}, {"time": "2026-02-11", "open": 172.5, "high": 172.5, "low": 164.5, "close": 165.0}, {"time": "2026-02-23", "open": 165.0, "high": 172.0, "low": 160.5, "close": 167.0}, {"time": "2026-02-24", "open": 171.0, "high": 183.5, "low": 169.0, "close": 183.5}, {"time": "2026-02-25", "open": 190.5, "high": 195.0, "low": 184.0, "close": 188.0}, {"time": "2026-02-26", "open": 188.0, "high": 192.5, "low": 182.0, "close": 189.0}, {"time": "2026-03-02", "open": 174.5, "high": 174.5, "low": 161.0, "close": 162.0}, {"time": "2026-03-03", "open": 182.0, "high": 182.0, "low": 171.0, "close": 172.0}, {"time": "2026-03-04", "open": 174.5, "high": 174.5, "low": 161.0, "close": 162.0}, {"time": "2026-03-05", "open": 171.0, "high": 171.5, "low": 165.5, "close": 168.5}, {"time": "2026-03-06", "open": 168.5, "high": 170.0, "low": 164.0, "close": 166.5}, {"time": "2026-03-09", "open": 150.0, "high": 153.5, "low": 150.0, "close": 150.0}, {"time": "2026-03-10", "open": 156.0, "high": 158.0, "low": 151.0, "close": 155.0}, {"time": "2026-03-11", "open": 157.0, "high": 165.0, "low": 155.0, "close": 165.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 252.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 973.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 493.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 566.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 273.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 237.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 158.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 534.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 328.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 219.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 359.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 935.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 488.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 454.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 1259.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 278.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 277.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 185.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 265.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 474.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 253.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 235.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 141.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 161.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 226.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 355.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 221.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 168.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 136.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 147.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 347.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 508.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 422.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 857.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 2150.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 1334.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 862.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 1376.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 1177.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 1454.0, "color": "#ef5350"}, {"time": "2026-02-02", "value": 1057.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 653.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 680.0, "color": "#26a69a"}, {"time": "2026-02-05", "value": 789.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 323.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 360.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 508.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 441.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 312.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 942.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 1209.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 844.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 388.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 661.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 388.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 306.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 147.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 381.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 206.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 217.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 127.3}, {"time": "2025-12-11", "value": 129.7}, {"time": "2025-12-12", "value": 129.9}, {"time": "2025-12-15", "value": 131.7}, {"time": "2025-12-16", "value": 131.2}, {"time": "2025-12-17", "value": 131.3}, {"time": "2025-12-18", "value": 132.4}, {"time": "2025-12-19", "value": 135.5}, {"time": "2025-12-22", "value": 136.7}, {"time": "2025-12-23", "value": 139.5}, {"time": "2025-12-24", "value": 139.4}, {"time": "2025-12-26", "value": 139.3}, {"time": "2025-12-29", "value": 137.4}, {"time": "2025-12-30", "value": 135.8}, {"time": "2025-12-31", "value": 133.7}, {"time": "2026-01-02", "value": 135.7}, {"time": "2026-01-05", "value": 136.7}, {"time": "2026-01-06", "value": 136.7}, {"time": "2026-01-07", "value": 136.9}, {"time": "2026-01-08", "value": 136.1}, {"time": "2026-01-09", "value": 134.8}, {"time": "2026-01-12", "value": 135.1}, {"time": "2026-01-13", "value": 135.7}, {"time": "2026-01-14", "value": 136.8}, {"time": "2026-01-15", "value": 137.7}, {"time": "2026-01-16", "value": 138.5}, {"time": "2026-01-19", "value": 137.5}, {"time": "2026-01-20", "value": 138.2}, {"time": "2026-01-21", "value": 138.8}, {"time": "2026-01-22", "value": 142.9}, {"time": "2026-01-23", "value": 149.3}, {"time": "2026-01-26", "value": 157.9}, {"time": "2026-01-27", "value": 165.9}, {"time": "2026-01-28", "value": 176.4}, {"time": "2026-01-29", "value": 183.7}, {"time": "2026-01-30", "value": 188.8}, {"time": "2026-02-02", "value": 188.8}, {"time": "2026-02-03", "value": 188.9}, {"time": "2026-02-04", "value": 185.5}, {"time": "2026-02-05", "value": 182.3}, {"time": "2026-02-06", "value": 176.6}, {"time": "2026-02-09", "value": 174.4}, {"time": "2026-02-10", "value": 172.5}, {"time": "2026-02-11", "value": 169.9}, {"time": "2026-02-23", "value": 167.9}, {"time": "2026-02-24", "value": 171.0}, {"time": "2026-02-25", "value": 175.2}, {"time": "2026-02-26", "value": 178.5}, {"time": "2026-03-02", "value": 177.9}, {"time": "2026-03-03", "value": 178.9}, {"time": "2026-03-04", "value": 174.6}, {"time": "2026-03-05", "value": 170.7}, {"time": "2026-03-06", "value": 166.2}, {"time": "2026-03-09", "value": 163.8}, {"time": "2026-03-10", "value": 160.4}, {"time": "2026-03-11", "value": 161.0}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 129.3}, {"time": "2025-12-18", "value": 131.05}, {"time": "2025-12-19", "value": 132.7}, {"time": "2025-12-22", "value": 134.2}, {"time": "2025-12-23", "value": 135.35}, {"time": "2025-12-24", "value": 135.35}, {"time": "2025-12-26", "value": 135.85}, {"time": "2025-12-29", "value": 136.45}, {"time": "2025-12-30", "value": 136.25}, {"time": "2025-12-31", "value": 136.6}, {"time": "2026-01-02", "value": 137.55}, {"time": "2026-01-05", "value": 138.0}, {"time": "2026-01-06", "value": 137.05}, {"time": "2026-01-07", "value": 136.35}, {"time": "2026-01-08", "value": 134.9}, {"time": "2026-01-09", "value": 135.25}, {"time": "2026-01-12", "value": 135.9}, {"time": "2026-01-13", "value": 136.2}, {"time": "2026-01-14", "value": 136.85}, {"time": "2026-01-15", "value": 136.9}, {"time": "2026-01-16", "value": 136.65}, {"time": "2026-01-19", "value": 136.3}, {"time": "2026-01-20", "value": 136.95}, {"time": "2026-01-21", "value": 137.8}, {"time": "2026-01-22", "value": 140.3}, {"time": "2026-01-23", "value": 143.9}, {"time": "2026-01-26", "value": 147.7}, {"time": "2026-01-27", "value": 152.05}, {"time": "2026-01-28", "value": 157.6}, {"time": "2026-01-29", "value": 163.3}, {"time": "2026-01-30", "value": 169.05}, {"time": "2026-02-02", "value": 173.35}, {"time": "2026-02-03", "value": 177.4}, {"time": "2026-02-04", "value": 180.95}, {"time": "2026-02-05", "value": 183.0}, {"time": "2026-02-06", "value": 182.7}, {"time": "2026-02-09", "value": 181.6}, {"time": "2026-02-10", "value": 180.7}, {"time": "2026-02-11", "value": 177.7}, {"time": "2026-02-23", "value": 175.1}, {"time": "2026-02-24", "value": 173.8}, {"time": "2026-02-25", "value": 174.8}, {"time": "2026-02-26", "value": 175.5}, {"time": "2026-03-02", "value": 173.9}, {"time": "2026-03-03", "value": 173.4}, {"time": "2026-03-04", "value": 172.8}, {"time": "2026-03-05", "value": 172.95}, {"time": "2026-03-06", "value": 172.35}, {"time": "2026-03-09", "value": 170.85}, {"time": "2026-03-10", "value": 169.65}, {"time": "2026-03-11", "value": 167.8}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 133.425}, {"time": "2026-01-05", "value": 134.525}, {"time": "2026-01-06", "value": 134.875}, {"time": "2026-01-07", "value": 135.275}, {"time": "2026-01-08", "value": 135.125}, {"time": "2026-01-09", "value": 135.3}, {"time": "2026-01-12", "value": 135.875}, {"time": "2026-01-13", "value": 136.325}, {"time": "2026-01-14", "value": 136.55}, {"time": "2026-01-15", "value": 136.75}, {"time": "2026-01-16", "value": 137.1}, {"time": "2026-01-19", "value": 137.15}, {"time": "2026-01-20", "value": 137.0}, {"time": "2026-01-21", "value": 137.075}, {"time": "2026-01-22", "value": 137.6}, {"time": "2026-01-23", "value": 139.575}, {"time": "2026-01-26", "value": 141.8}, {"time": "2026-01-27", "value": 144.125}, {"time": "2026-01-28", "value": 147.225}, {"time": "2026-01-29", "value": 150.1}, {"time": "2026-01-30", "value": 152.85}, {"time": "2026-02-02", "value": 154.825}, {"time": "2026-02-03", "value": 157.175}, {"time": "2026-02-04", "value": 159.375}, {"time": "2026-02-05", "value": 161.65}, {"time": "2026-02-06", "value": 163.3}, {"time": "2026-02-09", "value": 164.65}, {"time": "2026-02-10", "value": 166.375}, {"time": "2026-02-11", "value": 167.65}, {"time": "2026-02-23", "value": 169.2}, {"time": "2026-02-24", "value": 171.425}, {"time": "2026-02-25", "value": 174.075}, {"time": "2026-02-26", "value": 176.45}, {"time": "2026-03-02", "value": 177.425}, {"time": "2026-03-03", "value": 178.2}, {"time": "2026-03-04", "value": 177.75}, {"time": "2026-03-05", "value": 177.275}, {"time": "2026-03-06", "value": 176.525}, {"time": "2026-03-09", "value": 174.275}, {"time": "2026-03-10", "value": 172.375}, {"time": "2026-03-11", "value": 170.8}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 973.0}, {"time": "2025-12-08", "value": 480.0}, {"time": "2025-12-09", "value": 1046.0}, {"time": "2025-12-10", "value": 773.0}, {"time": "2025-12-11", "value": 536.0}, {"time": "2025-12-12", "value": 694.0}, {"time": "2025-12-15", "value": 1228.0}, {"time": "2025-12-16", "value": 900.0}, {"time": "2025-12-17", "value": 900.0}, {"time": "2025-12-18", "value": 1259.0}, {"time": "2025-12-19", "value": 2194.0}, {"time": "2025-12-22", "value": 1706.0}, {"time": "2025-12-23", "value": 2160.0}, {"time": "2025-12-24", "value": 901.0}, {"time": "2025-12-26", "value": 1179.0}, {"time": "2025-12-29", "value": 1456.0}, {"time": "2025-12-30", "value": 1271.0}, {"time": "2025-12-31", "value": 1536.0}, {"time": "2026-01-02", "value": 2010.0}, {"time": "2026-01-05", "value": 1757.0}, {"time": "2026-01-06", "value": 1522.0}, {"time": "2026-01-07", "value": 1381.0}, {"time": "2026-01-08", "value": 1220.0}, {"time": "2026-01-09", "value": 1446.0}, {"time": "2026-01-12", "value": 1801.0}, {"time": "2026-01-13", "value": 1580.0}, {"time": "2026-01-14", "value": 1748.0}, {"time": "2026-01-15", "value": 1612.0}, {"time": "2026-01-16", "value": 1759.0}, {"time": "2026-01-19", "value": 1412.0}, {"time": "2026-01-20", "value": 1920.0}, {"time": "2026-01-21", "value": 2342.0}, {"time": "2026-01-22", "value": 3199.0}, {"time": "2026-01-23", "value": 5349.0}, {"time": "2026-01-26", "value": 6683.0}, {"time": "2026-01-27", "value": 7545.0}, {"time": "2026-01-28", "value": 8921.0}, {"time": "2026-01-29", "value": 7744.0}, {"time": "2026-01-30", "value": 9198.0}, {"time": "2026-02-02", "value": 8141.0}, {"time": "2026-02-03", "value": 8794.0}, {"time": "2026-02-04", "value": 8114.0}, {"time": "2026-02-05", "value": 7325.0}, {"time": "2026-02-06", "value": 7002.0}, {"time": "2026-02-09", "value": 6642.0}, {"time": "2026-02-10", "value": 7150.0}, {"time": "2026-02-11", "value": 6709.0}, {"time": "2026-02-23", "value": 7021.0}, {"time": "2026-02-24", "value": 7963.0}, {"time": "2026-02-25", "value": 9172.0}, {"time": "2026-02-26", "value": 10016.0}, {"time": "2026-03-02", "value": 9628.0}, {"time": "2026-03-03", "value": 10289.0}, {"time": "2026-03-04", "value": 9901.0}, {"time": "2026-03-05", "value": 10207.0}, {"time": "2026-03-06", "value": 10060.0}, {"time": "2026-03-09", "value": 9679.0}, {"time": "2026-03-10", "value": 9885.0}, {"time": "2026-03-11", "value": 10102.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>松川精密專注於繼電器（Relay）與接觸器（Contactor）的研發、製造與銷售。近年來積極轉型，專注於新能源與AI電力管理解決方案。公司具備高度垂直整合能力，能自主設計製造模具、零件與自動化設備。</p>
+
+<strong>關鍵產品與技術：</strong>
+<ul><li><strong>AI電源繼電器：</strong> 因應高功率需求，產品平均銷售價格（ASP）較傳統伺服器產品高2至3倍，產線積極擴充。</li>
+<li><strong>Super Seal技術：</strong> 開發超級密閉技術，應用於次世代AI伺服器液冷系統，產品已進入客戶系統性測試，要求在冷卻液中浸沒5-15年仍保持高可靠度。</li>
+<li><strong>高壓直流繼電器（HVDC）：</strong> 嘉義廠已建置可測試高達2500V DC的高壓實驗設備，強化自主研發能力，以應對未來電力架構走向HVDC的趨勢。</li>
+</ul>
+<strong>營收結構（2025年1月至11月數據）：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品應用</th><th>營收佔比</th></tr></thead><tbody>
+<tr><td>電動車</td><td>39%</td></tr>
+<tr><td>傳統汽車</td><td>21%</td></tr>
+<tr><td>儲能</td><td>20%</td></tr>
+<tr><td>AI電源與伺服器</td><td>12%</td></tr>
+<tr><td>家電</td><td>8%</td></tr>
+<tr><td><strong>新能源相關應用</strong></td><td><strong>59%</strong></td></tr>
+</tbody></table></div>
+
+<p>公司目標未來將新能源相關應用營收佔比提升至70%以上。</p>
+
+<strong>製造基地：</strong> 台灣（樹林、嘉義）、墨西哥、廈門、印度、越南（透過合作夥伴）。嘉義廠與墨西哥廠同步增產，越南生產基地已在2026年第一季完成擴產。
+
+<h2>核心競爭優勢</h2>
+<li><strong>獨特的技術壁壘：</strong> 掌握Super Seal超級密閉技術，滿足AI伺服器液冷系統在冷卻液中浸沒5-15年的高可靠度要求，具備領先優勢。同時，在高壓直流（HVDC）繼電器領域投入多年，嘉義廠具備2500V DC高壓實驗設備，卡位NVIDIA次世代800V HVDC架構趨勢。</li>
+<li><strong>高度垂直整合能力：</strong> 具備模具、零件與自動化設備自主設計製造能力，能快速反應市場變化，確保產品品質及成本競爭力。</li>
+<li><strong>車規等級品質：</strong> 所有產品均以車規標準生產，深受電動車及儲能系統等關鍵客戶信賴，產品可靠度高。</li>
+<li><strong>全球化產能佈局：</strong> 在台灣、墨西哥、廈門、印度及越南設有生產基地，能有效因應地緣政治風險，提供客戶供應鏈韌性。</li>
+<li><strong>高附加價值產品組合轉型：</strong> 積極將營收重心轉向毛利較高的電動車、儲能系統及AI伺服器應用，逐步淡出競爭激烈的低毛利家電市場。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<strong>松川精密（7788）近一年月營收數據</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026/01</td><td>6.76</td><td>+12.06%</td><td>+16.67%</td></tr>
+<tr><td>2025/12</td><td>6.03</td><td>+16.06%</td><td>+6.24%</td></tr>
+<tr><td>2025/11</td><td>5.1973</td><td>-6.0%</td><td>N/A</td></tr>
+<tr><td>2025/10</td><td>5.5283</td><td>N/A</td><td>+8.34%</td></tr>
+<tr><td>2025/09</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>2025/08</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
+</tbody></table></div>
+
+<em>註：2025年9月及8月具體月營收數據未提供。</em>
+
+<h3>季度數據</h3>
+<strong>松川精密（7788）近四季營收、獲利概況</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>營收 (新台幣億元)</th><th>季增率 QoQ</th><th>年增率 YoY</th><th>毛利率 (%)</th><th>稅後淨利 (新台幣億元)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2025年Q4</td><td>16.6974</td><td>+9.17%</td><td>+6.32%</td><td>26.04</td><td>1.1091</td><td>1.45</td></tr>
+<tr><td>2025年Q3</td><td>15.30</td><td>N/A</td><td>N/A</td><td>26.45</td><td>1.11</td><td>1.53</td></tr>
+<tr><td>2025年Q2</td><td>N/A</td><td>N/A</td><td>N/A</td><td>27.19</td><td>-0.4721 (虧損)</td><td>0.65 (上半年)</td></tr>
+<tr><td>2025年Q1</td><td>N/A</td><td>N/A</td><td>N/A</td><td>28.48</td><td>N/A</td><td>0.65 (上半年)</td></tr>
+</tbody></table></div>
+
+<em>註：部分季度營收與稅後淨利數據為合併上半年/前三季資料，單季數據需進一步細分。2025年Q2的EPS為上半年合計值，因業外匯損導致單季虧損。</em>
+
+<h3>年度趨勢</h3>
+<strong>松川精密（7788）近三年及2026年預估概況</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>營收 (新台幣億元)</th><th>年增率 YoY</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利 (新台幣億元)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2024年實際</td><td>59.63714</td><td>N/A</td><td>27.7</td><td>9.0</td><td>4.96328</td><td>6.95</td></tr>
+<tr><td>2025年實際</td><td>64.328</td><td>+7.87%</td><td>27.04</td><td>N/A</td><td>2.64</td><td>3.63</td></tr>
+<tr><td>2026年預估</td><td>雙位數成長</td><td>&gt;10%</td><td>明顯回升</td><td>N/A</td><td>爆發性成長</td><td>N/A</td></tr>
+</tbody></table></div>
+
+<em>註：2026年EPS未找到具體數字，但管理層預期毛利率將顯著回升，法人預期獲利將迎來爆發性成長。</em>
+
+<h2>法說會重點</h2>
+<p>最近一次法說會日期：<strong>2026年01月16日</strong>（由元大證券舉辦），以及<strong>2026年03月05日</strong>的公司法說會更新。</p>
+
+<strong>管理層具體 Guidance：</strong>
+<ul><li><strong>2026年營收展望：</strong> 預期重返雙位數成長。</li>
+<li><strong>新能源佔比目標：</strong> 2025年1-11月新能源相關應用佔營收59%，目標未來提升至70%以上。</li>
+<li><strong>各應用別2026年成長預估：</strong></li>
+</ul>    *   儲能：+20% 至30%
+<p>*   AI電源伺服器：+15% 至25%</p>
+<p>*   傳統汽車：+10% 至15%</p>
+<p>*   電動車：+5% 至10%</p>
+<p>*   家電：營收佔比將從8%降至5-6%。</p>
+<ul><li><strong>AI伺服器高壓、大電流繼電器出貨時程：</strong> 對台灣電源龍頭企業出貨將在2026年下半年；相關應用的其他客戶將於2026年第一季起開始出貨。</li>
+<li><strong>電動車新案：</strong> 美系電動車原訂2026年交貨的新案，已於2025年第四季開始交貨，預計2026年逐步放量。歐系德國大廠電動車應用產品亦開始交貨並持續放量。</li>
+<li><strong>2026年毛利率預期：</strong> 顯著回升，主要受高毛利產品佔比提升、原物料成本轉嫁及2025年不利因素消除。</li>
+<li><strong>2026年Q1營運預期：</strong> 看好，法人估仍有很大機會再改寫單季新高。</li>
+</ul>
+<strong>產能利用率與資本支出：</strong>
+<ul><li><strong>產能利用率：</strong> 穩定維持於80% - 85%的健康水平，並具備隨客戶新案放量的增產彈性。</li>
+<li><strong>資本支出金額：</strong> 未提供具體金額。公司表示將進行全球產能擴充，嘉義廠與墨西哥廠同步增產，越南新產能於2026年第一季開出，生產線正往高階產品移動中。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<h3>目標價表格</h3>
+<strong>近期券商對松川精密（7788）的評等與目標價</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>統一證券</td><td>200</td><td>買進</td><td>2026/03/05</td></tr>
+<tr><td>康和證券</td><td>176</td><td>買進</td><td>2026/01/22</td></tr>
+<tr><td>宏遠證券</td><td>170</td><td>買進</td><td>2026/03/05</td></tr>
+</tbody></table></div>
+
+<h3>EPS 預估</h3>
+<ul><li><strong>統一證券：</strong> 預估2025年度EPS約3.59元。</li>
+<li><strong>康和證券：</strong> 預估2025年度EPS約3.53元。</li>
+<li><strong>宏遠證券：</strong> 預估2025年EPS約3.68元。</li>
+<li><strong>2026年EPS預估：</strong> 統一投顧預計2026年獲利將迎來爆發性成長，但未提供具體EPS數字。</li>
+</ul>
+<h3>評等異動</h3>
+<p>近期搜尋結果主要顯示券商給予「看好」或「買進」的績效評等，未發現有重大調升或調降評等的明確報導。</p>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢表格</h3>
+<strong>松川精密（7788）近八季利潤率趨勢</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2025年Q4</td><td>26.04</td><td>N/A</td><td>6.64</td></tr>
+<tr><td>2025年Q3</td><td>26.45</td><td>6.68</td><td>7.24</td></tr>
+<tr><td>2025年Q2</td><td>27.19</td><td>8.84</td><td>-6.05</td></tr>
+<tr><td>2025年Q1</td><td>28.48</td><td>9.82</td><td>8.99</td></tr>
+<tr><td>2024年Q4</td><td>25.90</td><td>7.82</td><td>8.55</td></tr>
+<tr><td>2024年Q3</td><td>28.47</td><td>10.86</td><td>6.59</td></tr>
+<tr><td>2024年Q2</td><td>26.71</td><td>6.55</td><td>5.40</td></tr>
+<tr><td>2024年Q1</td><td>30.04</td><td>10.94</td><td>13.05</td></tr>
+</tbody></table></div>
+
+<em>註：2025年Q4的稅後淨利率是根據稅後淨利1.1091億元和營收16.6974億元計算而得。</em>
+
+<strong>利潤率變化原因分析：</strong>
+<ul><li><strong>2025年上半年：</strong> 2025年Q2因業外匯損約新台幣2.6億元，導致單季稅後淨利率轉負，嚴重衝擊獲利。</li>
+<li><strong>2025年全年：</strong> 整體毛利率27.04%較2024年的27.7%略為下滑0.67個百分點，主要受2025年面臨的匯率波動、關稅影響、稀土磁鐵進口管制以及原物料（銅、銀）價格大幅上漲等不利因素影響。</li>
+<li><strong>2025年Q4：</strong> 營收創歷史新高，但毛利率26.04%仍受銅價走高墊高成本的影響。</li>
+<li><strong>2026年展望：</strong> 公司預期毛利率將顯著回升，主要驅動力包括高毛利產品（儲能、AI伺服器、電動車）佔比提升，原物料成本轉嫁能力增強，以及2025年不利因素的消除。高毛利產品如儲能應用毛利率最高，AI伺服器與電動車次之且單價與利潤水準更高，有助於優化整體獲利結構。</li>
+</ul>
+<h3>存貨分析</h3>
+<strong>松川精密（7788）近四季存貨與應收帳款週轉天數</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數 (天)</th><th>應收帳款收現天數 (天)</th></tr></thead><tbody>
+<tr><td>2025年Q3</td><td>152.07</td><td>94.44</td></tr>
+<tr><td>2025年Q2</td><td>71.56</td><td>35.78</td></tr>
+<tr><td>2025年Q1</td><td>60.67</td><td>77.14</td></tr>
+<tr><td>2024年Q4</td><td>N/A</td><td>N/A</td></tr>
+</tbody></table></div>
+
+<em>註：2024年Q4數據未找到。</em>
+
+<p>目前沒有明確資料指出松川精密存貨有異常堆積或備料現象。2025年Q3存貨週轉天數顯著增加，可能需關注其原因，但考慮到公司多個新產品線（如美系電動車新案、AI電源繼電器）於2025年Q4及2026年Q1開始出貨，高存貨可能反映為迎接訂單爆發期的戰略性備料。</p>
+
+<h3>資本支出</h3>
+<ul><li><strong>近3年資本支出金額：</strong> 未找到2024-2026年具體的資本支出金額數據。</li>
+<li><strong>未來資本支出計畫：</strong> 為因應貿易戰及客戶需求，松川將持續在越南及墨西哥擴產。嘉義廠與越南廠也已增加產能，越南新產能於2026年第一季開出，生產線並往高階產品移動。</li>
+<li><strong>折舊攤銷趨勢：</strong> 2025年Q3折舊金額為新台幣85,965千元，攤銷金額為新台幣3,548千元。其他季度數據未找到。</li>
+</ul>
+<h2>股權異動</h2>
+
+<h3>近期董監事/大股東申報轉讓紀錄</h3>
+<p>未找到2024年以後有董監事/大股東申報轉讓的具體紀錄。Goodinfo!資料顯示2025年10月全體董監事持股曾減少100張，但其持股比例未變動。</p>
+
+<h3>庫藏股買回紀錄</h3>
+<p>未找到2024年以後的庫藏股買回紀錄。</p>
+
+<h3>可轉換公司債（CB）</h3>
+<p>未找到2024年以後發行可轉換公司債的紀錄。</p>
+
+<h3>增減資計畫</h3>
+<ul><li><strong>2025年現金增資：</strong> 松川精密於2025年10月3日公告，配合初次上市前公開承銷辦理現金增資新台幣7,130萬元，發行普通股713萬股，每股承銷價格為新台幣95元。</li>
+<li><strong>子公司增資：</strong> 松川精密於2025年8月1日公告，子公司松川(廈門)精密電子有限公司董事會決議通過辦理現金增資美金700萬元，充實營運資金。</li>
+<li><strong>間接投資台興（3426）：</strong> 松川精密於2026年2月9日決議通過參與頤盛辦理之現金增資案，總認購金額共計近新台幣5億元。本次增資完成後，松川精密持有頤盛股權將占其已發行股份總數之48%。透過頤盛投資與台興的股權轉換，將間接取得台興(3426)48%股權。此舉有助於擴大營運規模與技術版圖，特別是在高壓直流繼電器領域。</li>
+<li><strong>減資計畫：</strong> 未找到2024年以後的減資計畫。</li>
+</ul>
+<h3>股利政策</h3>
+<strong>松川精密（7788）近兩年股利發放紀錄</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>股利發放期間</th><th>股利所屬期間</th><th>現金股利 (元/股)</th><th>股票股利 (元/股)</th><th>股利合計 (元/股)</th></tr></thead><tbody>
+<tr><td>2025</td><td>2024</td><td>2.5</td><td>0</td><td>2.5</td></tr>
+<tr><td>2024</td><td>2023</td><td>1</td><td>0</td><td>1</td></tr>
+</tbody></table></div>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與成長率</h3>
+<p>全球繼電器市場預計從2025年的110.2億美元成長至2034年的204.6億美元，複合年成長率（CAGR）為7.12%。其中：</p>
+<ul><li><strong>電動車繼電器市場：</strong> 預計2025年超過37.9億美元，到2035年達到252.9億美元，CAGR約20.9%。2026年預計達到45億美元。</li>
+<li><strong>全球固態繼電器市場：</strong> 預計2025年超過38億美元，到2035年底將達到77億美元，CAGR為8.2%。</li>
+<li><strong>全球交流接觸器市場：</strong> 2025年底已突破85億美元，預計2026-2030年將以年均複合成長率超過6%的速度持續擴張。</li>
+</ul>
+<h3>供需狀況與產業平均毛利率</h3>
+<ul><li><strong>供需狀況：</strong> 繼電器市場趨勢正轉向智能、緊湊和多功能解決方案，約36%的新需求由智能監控和數位保護應用驅動。儲能市場對高壓直流繼電器需求增加，AI數據中心對高規格繼電器需求激增，電動車普及與電池儲能系統擴展亦推動大容量繼電器開發。松川精密目前產能利用率穩定維持在80%-85%，並具備增產彈性，顯示其訂單需求強勁。</li>
+<li><strong>產業平均毛利率：</strong> 未找到2025-2026年繼電器或接觸器產業的平均毛利率水準的具體數據。松川精密在2025年前三季的毛利率為27.4%。</li>
+</ul>
+<h3>競爭格局</h3>
+<p>全球繼電器市場由少數幾家跨國電氣巨頭主導，合計佔據約50%的高端市場份額。主要參與者包括ABB、西門子、施耐德電氣、伊頓公司、歐姆龍、博世、電裝公司、TE Connectivity、松下、宏發科技等。</p>
+
+<strong>松川精密（7788） vs. 主要競爭對手比較</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>松川精密 (7788)</th><th>台灣同業（如百容2483、台興3426）</th><th>國際巨頭（如Omron、TE Connectivity）</th></tr></thead><tbody>
+<tr><td><strong>技術優勢</strong></td><td>- AI電源繼電器ASP較傳統高2-3倍&lt;br&gt;- <strong>Super Seal技術</strong> (液冷系統)&lt;br&gt;- HVDC (2500V DC實驗設備)&lt;br&gt;- 高度垂直整合&lt;br&gt;- 車規等級品質</td><td>- 各有專精，但通常聚焦特定利基市場</td><td>- 技術全面，研發資源雄厚，具品牌優勢&lt;br&gt;- 可能具備固態繼電器領先技術</td></tr>
+<tr><td><strong>產品線</strong></td><td>- 電動車、儲能、AI電源、傳統車、家電繼電器與接觸器</td><td>- 百容：繼電器、開關、端子台&lt;br&gt;- 台興：繼電器、電磁閥</td><td>- 廣泛的繼電器/連接器產品線，應用多元</td></tr>
+<tr><td><strong>客戶群</strong></td><td>- 美系電動車大廠、歐系車廠（賓士新平台）、日韓系車廠&lt;br&gt;- 美系表前儲能領導廠商、中國主要儲能供應商&lt;br&gt;- 台灣電源龍頭企業（台達電、光寶科）、NVIDIA GB200/GB300供應鏈</td><td>- 可能有重疊，但各自耕耘不同客戶群</td><td>- 全球大型客戶，供應鏈廣泛</td></tr>
+<tr><td><strong>產能佈局</strong></td><td>- 台灣、墨西哥、廈門、印度、越南全球6大據點&lt;br&gt;- 嘉義、墨西哥、越南擴產</td><td>- 台灣、中國大陸等地佈局</td><td>- 全球廣泛佈局，供應鏈穩定</td></tr>
+<tr><td><strong>價格/ASP</strong></td><td>- AI電源繼電器ASP較傳統伺服器產品高2-3倍</td><td>- 較國際巨頭有成本優勢</td><td>- 高端產品定價較高</td></tr>
+<tr><td><strong>毛利率</strong></td><td>- 2025年前三季27.4% (目標提升至70%新能源佔比以優化)</td><td>- 百容2025Q3約24.8%&lt;br&gt;- 台興未提供2025數據</td><td>- 普遍較高，尤其高端產品及差異化解決方案</td></tr>
+<tr><td><strong>營收規模</strong></td><td>- 2025年64.328億元，創歷史新高</td><td>- 百容2026/01月營收1.8億元</td><td>- 營收規模顯著大於松川精密</td></tr>
+</tbody></table></div>
+
+<em>註：台興電子即將被松川精密間接取得48%股權，未來有望形成合作綜效。</em>
+
+<h3>產業趨勢</h3>
+<li><strong>高功率密度與高壓直流 (HVDC) 架構：</strong></li>
+<p>*   <strong>趨勢：</strong> AI數據中心伺服器電源功率大幅提升至8-12kW，並將導入800V HVDC架構（如NVIDIA次世代Vera Rubin系列預計2027年）。電動車單車繼電器產值亦從20-40美元提升至125-150美元以上。</p>
+<p>*   <strong>影響：</strong> 帶動對能承受更高電壓、電流，且具高可靠度、低發熱的大電流繼電器需求。高規格繼電器單價可翻數十倍，為松川精密帶來巨大成長機會。</p>
+
+<li><strong>液冷系統 (Liquid Cooling) 應用：</strong></li>
+<p>*   <strong>趨勢：</strong> 為因應AI伺服器高功率運算產生的巨大熱量，液冷系統成為次世代AI伺服器的重要散熱解決方案。</p>
+<p>*   <strong>影響：</strong> 繼電器需要具備極高的環境抗性，能在冷卻液中浸沒5-15年仍保持高可靠度。這促使廠商開發如松川精密「Super Seal」等超級密閉技術，形成技術壁壘。</p>
+
+<li><strong>固態繼電器 (SSR) 的興起與智能化：</strong></li>
+<p>*   <strong>趨勢：</strong> 繼電器市場轉向智能、緊湊和多功能解決方案。固態繼電器開關速度快、壽命長、運行安靜。</p>
+<p>*   <strong>影響：</strong> 固態繼電器在對控制精度和響應速度要求較高的儲能應用場景中表現出色，但其成本高、導通功耗和發熱量較大、對過載敏感等局限性，使得傳統機電繼電器在需要物理隔離和大電流的應用中仍有其不可取代性。</p>
+
+<h3>對松川精密而言的具體機會和威脅</h3>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>新能源與AI市場爆發：</strong> 儲能、AI電源、電動車等應用需求強勁，松川深化佈局高附加價值產品，目標將新能源營收佔比提升至70%以上。
+<p>*   <strong>技術領先優勢：</strong> Super Seal液冷技術和HVDC繼電器開發能力，使其在AI伺服器高功率趨勢中具備獨特競爭力。</p>
+<p>*   <strong>客戶策略成功：</strong> 成功切入美系電動車大廠、歐系車廠、美系表前儲能領導廠商及台灣電源龍頭企業，確保高階訂單來源。</p>
+<p>*   <strong>全球化產能韌性：</strong> 多地擴產應對地緣政治與客戶需求，降低供應風險。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>原物料價格波動：</strong> 銅、銀等價格上漲曾影響毛利率，儘管公司已透過轉嫁因應，但仍是潛在風險。
+<p>*   <strong>匯率風險：</strong> 2025年Q2曾因匯損導致虧損，匯率波動仍需關注。</p>
+<p>*   <strong>市場競爭：</strong> 傳統繼電器市場競爭激烈，松川正逐步淡出低毛利領域。</p>
+<p>*   <strong>技術替代風險：</strong> 儘管短期內機電繼電器不可取代，但固態繼電器長期發展仍是潛在威脅。</p>
+
+<h2>近期催化劑</h2>
+<p>以下為2025年12月至2026年3月的重要事件：</p>
+
+<ul><li><strong>2026年03月05日 法說會更新與營運展望：</strong> 公司預期受惠AI資料中心與儲能需求升溫，2026年營運樂觀，儲能業務年增有望近30%，AI伺服器電源可望成長15%至25%。新能源產品營收佔比已近59%，目標提升至70%。</li>
+<li><strong>2026年03月05日 2025年第四季財報公告：</strong> Q4營收16.6974億元創歷史新高，EPS 1.45元。2025年全年營收64.328億元創歷史新高，年增7.87%；全年EPS 3.63元。</li>
+<li><strong>2026年03月04日 法說會整理與新能源佈局：</strong> 強調新能源佔比提升目標，透過客製化技術與專利優勢提供高毛利繼電器方案，並強化全球供應鏈韌性。</li>
+<li><strong>2026年02月23日 營運持續看旺，股價漲停：</strong> 2025年Q3業績穩健，2025年12月及2026年1月營收連續創新高，2026年Q1營收有望再創新高，股價因此漲停。</li>
+<li><strong>2026年02月22日 訂單潮湧，首季營運明確看增：</strong> 受惠於訂單潮湧，公司預期2026年Q1營運明確看增。</li>
+<li><strong>2026年02月09日 間接取得台興（3426）48%股權：</strong> 決議參與頤盛現金增資案，透過頤盛間接取得台興48%股權，預計2026年6月完成。</li>
+<li><strong>2026年01月31日 股價創收盤新高：</strong> 股價滾量上漲，以196.5元創收盤新高。</li>
+<li><strong>2026年01月29日 擴產質與量提升，股價創新天價：</strong> 全球生產區位佈局調整及擴產完成，預估2026年業績雙位數成長。</li>
+<li><strong>2026年01月23日 法說會重點備忘錄：</strong> 2025年前三季EPS 2.18元創高，展望2026年營收預期雙位數成長，毛利率顯著回升。</li>
+<li><strong>2026年01月21日 嘉義廠及越南廠擴產進度：</strong> 嘉義廠及越南廠已增加產能，越南新產能於2026年Q1開出，生產線正往高階產品移動。</li>
+<li><strong>2026年01月16日 電動車及AI HVDC需求帶動新產品開發：</strong> 美系電動車新案於2025年Q4開始交貨，歐系德國大廠電動車應用產品也於2025年Q4起交貨並將在2026年放量。</li>
+<li><strong>2026年01月09日 2025年營收與2026年展望：</strong> 公布2025年12月營收6.03億元及全年營收64.34億元均創歷史新高。NVIDIA次世代HVDC架構將於2027年導入，松川相關產品預計2026年下半年對台灣電源龍頭出貨，其他客戶2026年Q1起出貨。</li>
+<li><strong>2025年11月13日 總經理人事異動：</strong> 吳頌仁升任總經理，2026年1月1日生效。</li>
+<li><strong>2025年11月11日 10月營收創6個月新高，生產佈局調整完成：</strong> 10月營收回升至5.53億元。因應稀土原料出口管制，已更改部分產品設計並搬進中國大陸在地生產線。</li>
+</ul>
+<strong>外資/投信/自營商近期買賣超（近3個月累計至2026/03/05）：</strong>
+<ul><li><strong>外資：</strong> 買超91張，佔發行量0.11%。</li>
+<li><strong>投信：</strong> 近期無買賣超紀錄（通常為0張）。</li>
+<li><strong>自營商：</strong> 買超90張，佔發行量0.11%。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能</th><th>具體內容</th></tr></thead><tbody>
+<tr><td><strong>2025年Q4</strong></td><td><strong>電動車新案開始交貨</strong></td><td>美系電動車原訂2026年交貨的新案，因設計可沿用於現有車款，已於Q4開始交貨。</td></tr>
+<tr><td></td><td><strong>歐系電動車新平台出貨</strong></td><td>歐系德國大廠電動車應用產品（如賓士新平台）於Q4起開始交貨。</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td><strong>越南廠新產能開出</strong></td><td>越南生產基地完成擴產，生產線往高階產品移動中。</td></tr>
+<tr><td></td><td><strong>AI高壓/大電流繼電器對其他客戶出貨</strong></td><td>除台灣電源龍頭外，其他AI相關客戶將於Q1起開始出貨。</td></tr>
+<tr><td></td><td><strong>2026年Q1營收預期創新高</strong></td><td>法人預估營收將改寫2025年Q4的16.71億元單季歷史新高紀錄。</td></tr>
+<tr><td><strong>2026年上半年</strong></td><td><strong>整體營收預期雙位數成長</strong></td><td>管理層與法人普遍預期2026年營收將重返雙位數成長。</td></tr>
+<tr><td></td><td><strong>高毛利產品比重提升，毛利率回升</strong></td><td>儲能、AI電源、電動車等高毛利產品佔比提升，加上原物料不利因素消除。</td></tr>
+<tr><td><strong>2026年下半年</strong></td><td><strong>AI高壓/大電流繼電器對台灣電源龍頭出貨</strong></td><td>對台灣電源龍頭企業（如台達電、光寶科）出貨。</td></tr>
+<tr><td></td><td><strong>美系/歐系電動車新案逐步放量</strong></td><td>2025年Q4開始交貨的電動車新案，預計2026年持續放量。</td></tr>
+<tr><td><strong>2026年底-2027年</strong></td><td><strong>HVDC繼電器商機發酵</strong></td><td>輝達(NVIDIA)次世代Vera Rubin系列預計2027年導入800V HVDC架構，松川 HVDC 繼電器將迎來爆發。</td></tr>
+<tr><td><strong>持續性</strong></td><td><strong>儲能系統需求強勁</strong></td><td>預估2026年成長20-30%。切入美系表前儲能領導廠商及中國主要供應商。</td></tr>
+<tr><td></td><td><strong>AI伺服器電源需求爆發</strong></td><td>預估2026年成長15-25%。切入台灣主要電源供應器大廠，佈局8-12kW甚至更高功率產品。</td></tr>
+<tr><td></td><td><strong>新能源營收佔比提升</strong></td><td>目標將新能源營收佔比提升至70%以上。</td></tr>
+<tr><td></td><td><strong>全球產能擴充</strong></td><td>嘉義廠、墨西哥廠同步增產，因應地緣政治與客戶需求。</td></tr>
+<tr><td></td><td><strong>Super Seal技術持續推廣</strong></td><td>應用於AI伺服器液冷系統，已進入客戶系統性測試階段。</td></tr>
+<tr><td></td><td><strong>間接併購台興（3426）</strong></td><td>透過頤盛間接取得台興48%股權，強化市場地位與技術整合。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+<p>松川精密在2026年將迎來多重成長動能的匯聚，預期營收將重返雙位數成長，獲利表現將迎來爆發性成長：</p>
+<li><strong>新能源應用持續深耕：</strong> 電動車、儲能系統、AI電源與伺服器等新能源相關應用營收佔比已接近60%，公司目標將此比例提升至70%以上，優化產品組合並提升整體毛利率。</li>
+<li><strong>AI伺服器需求爆發：</strong> 隨著AI算力需求提升，AI伺服器電源功率大幅增加，帶動高規格、高單價的AI電源繼電器需求。公司已成功打入NVIDIA GB200供應鏈，並有望通過GB300認證，且對台灣電源龍頭企業出貨將在2026年下半年放量。</li>
+<li><strong>HVDC 技術領先佈局：</strong> 因應NVIDIA次世代Vera Rubin系列將導入800V HVDC架構，以及電動車高壓系統需求，松川精密在高壓直流繼電器的多年開發與2500V DC測試能力，將使其在2026年底至2027年HVDC商機爆發時佔據有利位置。</li>
+<li><strong>儲能市場高速成長：</strong> 儲能系統（ESS）在再生能源發展中扮演關鍵角色，IEA預測到2030年市場規模將成長6倍。松川已切入美系表前儲能領導廠商及中國主要供應商，預估2026年儲能業務將有20-30%的顯著成長。</li>
+<li><strong>全球產能擴充與優化：</strong> 嘉義廠、墨西哥廠的同步增產，以及越南廠在2026年Q1完成擴產並轉向高階產品生產，確保公司能滿足日益增長的客戶訂單需求，並降低地緣政治風險。</li>
+
+<h3>風險</h3>
+<li><strong>原物料價格波動：</strong> 雖然公司已表示將透過成本轉嫁等措施應對，但銅、銀等關鍵原物料價格若再度劇烈波動，仍可能對毛利率構成壓力。</li>
+<li><strong>全球經濟放緩：</strong> 若全球經濟成長放緩，可能影響電動車、儲能等終端市場的需求成長速度。</li>
+<li><strong>地緣政治不確定性：</strong> 儘管公司已多地佈局產能以應對，但國際貿易政策、關稅變化等仍是潛在風險。</li>
+<li><strong>競爭加劇：</strong> 高附加價值繼電器市場吸引更多競爭者，若技術追趕過快或價格戰，可能影響公司利潤。</li>
+<li><strong>客戶集中度：</strong> 公司與美系電動車大廠、台灣電源龍頭等大客戶的合作雖是優勢，但也可能存在一定的客戶集中度風險。</li>
+
+<h2>投資結論</h2>
+<p>松川精密（7788）正處於一個關鍵的轉型與成長階段，其在新能源與AI領域的戰略佈局和技術創新已展現成效，具備強勁的長期成長潛力。</p>
+
+<li><strong>轉型效益顯現，產品組合優化：</strong> 公司積極將營收重心轉向高毛利的電動車、儲能及AI伺服器應用，目標將新能源營收佔比提升至70%以上。AI電源繼電器ASP較傳統伺服器高2-3倍，儲能毛利率最高，將顯著優化公司整體獲利結構。</li>
+<li><strong>獨家技術卡位高階市場：</strong> 獨特的Super Seal液冷技術及HVDC繼電器開發能力，使其在NVIDIA次世代AI伺服器800V HVDC架構及電動車高壓應用中建立技術壁壘，有望掌握未來關鍵商機。</li>
+<li><strong>營收獲利雙位數成長可期：</strong> 2025年營收已創歷史新高達64.328億元，2026年1月營收6.76億元再創新高。管理層及法人預期2026年營收將重返雙位數成長，毛利率顯著回升，預期獲利將迎來爆發性成長。</li>
+<li><strong>全球化產能佈局提升韌性：</strong> 在台灣、墨西哥、越南等地擴充產能，不僅能滿足強勁的客戶需求，也有效應對地緣政治變化，確保供應鏈的穩定性。間接取得台興股權更具備產業整合的潛力。</li>
+<li><strong>估值建議：</strong> 考量公司在AI及新能源高成長趨勢中的領先地位、獨特技術壁壘以及未來強勁的營收與獲利增長潛力，並參考券商目標價區間，建議給予買進評等。</li>
+
+<strong>目標價區間建議：新台幣 185 - 210 元</strong>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 14:49</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="7788_松川精密_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="7788_松川精密_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="7788_松川精密_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5443 均豪 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">5443 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-5443" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-5443" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-5443');
+    var obvContainer = document.getElementById('obv-chart-5443');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 86.3, "high": 87.5, "low": 84.6, "close": 84.6}, {"time": "2025-12-05", "open": 85.0, "high": 87.6, "low": 84.9, "close": 85.1}, {"time": "2025-12-08", "open": 85.9, "high": 88.4, "low": 85.2, "close": 87.5}, {"time": "2025-12-09", "open": 85.9, "high": 88.4, "low": 85.2, "close": 87.5}, {"time": "2025-12-10", "open": 88.1, "high": 88.7, "low": 86.9, "close": 88.3}, {"time": "2025-12-11", "open": 88.0, "high": 91.9, "low": 88.0, "close": 88.5}, {"time": "2025-12-12", "open": 89.4, "high": 90.2, "low": 88.7, "close": 89.7}, {"time": "2025-12-15", "open": 88.5, "high": 90.2, "low": 86.9, "close": 89.6}, {"time": "2025-12-16", "open": 89.0, "high": 90.0, "low": 86.6, "close": 87.8}, {"time": "2025-12-17", "open": 88.1, "high": 88.5, "low": 86.0, "close": 86.3}, {"time": "2025-12-18", "open": 85.6, "high": 85.7, "low": 84.0, "close": 84.0}, {"time": "2025-12-19", "open": 84.7, "high": 86.0, "low": 84.7, "close": 85.7}, {"time": "2025-12-22", "open": 87.1, "high": 87.2, "low": 85.8, "close": 86.5}, {"time": "2025-12-23", "open": 87.4, "high": 87.6, "low": 86.5, "close": 87.2}, {"time": "2025-12-24", "open": 87.8, "high": 88.3, "low": 86.0, "close": 86.2}, {"time": "2025-12-26", "open": 86.5, "high": 87.9, "low": 85.3, "close": 85.3}, {"time": "2025-12-29", "open": 84.7, "high": 87.5, "low": 84.5, "close": 86.5}, {"time": "2025-12-30", "open": 85.8, "high": 85.8, "low": 84.0, "close": 85.1}, {"time": "2025-12-31", "open": 85.3, "high": 87.4, "low": 84.7, "close": 85.5}, {"time": "2026-01-02", "open": 86.8, "high": 94.0, "low": 86.4, "close": 94.0}, {"time": "2026-01-05", "open": 98.0, "high": 102.0, "low": 95.3, "close": 100.0}, {"time": "2026-01-06", "open": 100.0, "high": 100.5, "low": 96.6, "close": 98.4}, {"time": "2026-01-07", "open": 99.8, "high": 100.5, "low": 95.0, "close": 95.2}, {"time": "2026-01-08", "open": 95.3, "high": 99.5, "low": 94.7, "close": 95.9}, {"time": "2026-01-09", "open": 96.0, "high": 96.6, "low": 92.8, "close": 96.5}, {"time": "2026-01-12", "open": 97.4, "high": 99.5, "low": 96.1, "close": 97.6}, {"time": "2026-01-13", "open": 98.4, "high": 103.5, "low": 96.3, "close": 96.6}, {"time": "2026-01-14", "open": 96.8, "high": 98.4, "low": 95.6, "close": 98.0}, {"time": "2026-01-15", "open": 99.8, "high": 101.0, "low": 97.5, "close": 99.0}, {"time": "2026-01-16", "open": 101.5, "high": 103.0, "low": 97.1, "close": 97.3}, {"time": "2026-01-19", "open": 96.8, "high": 97.0, "low": 94.3, "close": 94.4}, {"time": "2026-01-20", "open": 93.9, "high": 95.6, "low": 93.7, "close": 93.8}, {"time": "2026-01-21", "open": 93.0, "high": 96.6, "low": 92.6, "close": 92.8}, {"time": "2026-01-22", "open": 94.1, "high": 95.3, "low": 93.1, "close": 93.1}, {"time": "2026-01-23", "open": 94.0, "high": 94.4, "low": 91.7, "close": 91.8}, {"time": "2026-01-26", "open": 92.5, "high": 96.5, "low": 92.5, "close": 96.1}, {"time": "2026-01-27", "open": 96.5, "high": 97.2, "low": 94.4, "close": 94.4}, {"time": "2026-01-28", "open": 95.4, "high": 96.8, "low": 93.9, "close": 93.9}, {"time": "2026-01-29", "open": 94.5, "high": 94.7, "low": 91.0, "close": 91.0}, {"time": "2026-01-30", "open": 92.0, "high": 92.1, "low": 87.1, "close": 88.0}, {"time": "2026-02-02", "open": 86.5, "high": 87.1, "low": 84.5, "close": 86.0}, {"time": "2026-02-03", "open": 88.3, "high": 90.8, "low": 87.0, "close": 90.0}, {"time": "2026-02-04", "open": 89.7, "high": 90.0, "low": 87.7, "close": 89.9}, {"time": "2026-02-05", "open": 88.5, "high": 91.4, "low": 87.3, "close": 87.8}, {"time": "2026-02-06", "open": 87.8, "high": 87.8, "low": 83.6, "close": 85.8}, {"time": "2026-02-09", "open": 87.2, "high": 89.1, "low": 86.2, "close": 87.0}, {"time": "2026-02-10", "open": 86.6, "high": 88.0, "low": 84.1, "close": 85.0}, {"time": "2026-02-11", "open": 85.0, "high": 85.0, "low": 83.1, "close": 84.0}, {"time": "2026-02-23", "open": 85.0, "high": 86.5, "low": 83.0, "close": 86.5}, {"time": "2026-02-24", "open": 86.0, "high": 87.7, "low": 85.8, "close": 86.8}, {"time": "2026-02-25", "open": 87.0, "high": 89.1, "low": 87.0, "close": 88.5}, {"time": "2026-02-26", "open": 89.5, "high": 94.3, "low": 88.3, "close": 91.8}, {"time": "2026-03-02", "open": 89.0, "high": 90.6, "low": 85.0, "close": 87.0}, {"time": "2026-03-03", "open": 94.0, "high": 96.5, "low": 91.9, "close": 91.9}, {"time": "2026-03-04", "open": 89.0, "high": 90.6, "low": 85.0, "close": 87.0}, {"time": "2026-03-05", "open": 90.6, "high": 94.8, "low": 90.6, "close": 93.6}, {"time": "2026-03-06", "open": 93.6, "high": 95.5, "low": 91.7, "close": 95.1}, {"time": "2026-03-09", "open": 90.2, "high": 91.6, "low": 87.7, "close": 90.3}, {"time": "2026-03-10", "open": 93.0, "high": 97.3, "low": 92.8, "close": 93.9}, {"time": "2026-03-11", "open": 96.9, "high": 99.6, "low": 96.6, "close": 97.1}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 1948.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 765.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 2084.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 2084.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 989.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 3006.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 1151.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 818.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 826.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 780.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 760.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 537.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 560.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 509.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 540.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 677.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 993.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 836.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 1465.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 4583.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 16330.0, "color": "#ef5350"}, {"time": "2026-01-06", "value": 6622.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 5907.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 7501.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 3053.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 3888.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 8955.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 2804.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 4557.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 5389.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 2856.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 1635.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 2399.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 1476.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 1385.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 2670.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 2375.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 1607.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 1985.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 1808.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 1241.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 1956.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 832.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 1162.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 1343.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 1225.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 1158.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 942.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 1147.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 1063.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 1556.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 4331.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 2091.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 3597.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 2091.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 3225.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 3181.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 2396.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 4624.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 7844.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 86.6}, {"time": "2025-12-11", "value": 87.38}, {"time": "2025-12-12", "value": 88.3}, {"time": "2025-12-15", "value": 88.72}, {"time": "2025-12-16", "value": 88.78}, {"time": "2025-12-17", "value": 88.38}, {"time": "2025-12-18", "value": 87.47999999999999}, {"time": "2025-12-19", "value": 86.67999999999999}, {"time": "2025-12-22", "value": 86.06}, {"time": "2025-12-23", "value": 85.94}, {"time": "2025-12-24", "value": 85.92}, {"time": "2025-12-26", "value": 86.17999999999999}, {"time": "2025-12-29", "value": 86.34}, {"time": "2025-12-30", "value": 86.06}, {"time": "2025-12-31", "value": 85.72}, {"time": "2026-01-02", "value": 87.28}, {"time": "2026-01-05", "value": 90.22}, {"time": "2026-01-06", "value": 92.6}, {"time": "2026-01-07", "value": 94.62}, {"time": "2026-01-08", "value": 96.7}, {"time": "2026-01-09", "value": 97.2}, {"time": "2026-01-12", "value": 96.72}, {"time": "2026-01-13", "value": 96.36}, {"time": "2026-01-14", "value": 96.92}, {"time": "2026-01-15", "value": 97.53999999999999}, {"time": "2026-01-16", "value": 97.7}, {"time": "2026-01-19", "value": 97.06}, {"time": "2026-01-20", "value": 96.5}, {"time": "2026-01-21", "value": 95.46000000000001}, {"time": "2026-01-22", "value": 94.28}, {"time": "2026-01-23", "value": 93.17999999999999}, {"time": "2026-01-26", "value": 93.52}, {"time": "2026-01-27", "value": 93.64}, {"time": "2026-01-28", "value": 93.86}, {"time": "2026-01-29", "value": 93.44}, {"time": "2026-01-30", "value": 92.67999999999999}, {"time": "2026-02-02", "value": 90.66}, {"time": "2026-02-03", "value": 89.78}, {"time": "2026-02-04", "value": 88.97999999999999}, {"time": "2026-02-05", "value": 88.34}, {"time": "2026-02-06", "value": 87.9}, {"time": "2026-02-09", "value": 88.1}, {"time": "2026-02-10", "value": 87.1}, {"time": "2026-02-11", "value": 85.92}, {"time": "2026-02-23", "value": 85.66}, {"time": "2026-02-24", "value": 85.86}, {"time": "2026-02-25", "value": 86.16}, {"time": "2026-02-26", "value": 87.52000000000001}, {"time": "2026-03-02", "value": 88.12}, {"time": "2026-03-03", "value": 89.2}, {"time": "2026-03-04", "value": 89.24}, {"time": "2026-03-05", "value": 90.26}, {"time": "2026-03-06", "value": 90.92}, {"time": "2026-03-09", "value": 91.58}, {"time": "2026-03-10", "value": 91.97999999999999}, {"time": "2026-03-11", "value": 94.0}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 87.49}, {"time": "2025-12-18", "value": 87.42999999999999}, {"time": "2025-12-19", "value": 87.49}, {"time": "2025-12-22", "value": 87.39}, {"time": "2025-12-23", "value": 87.36}, {"time": "2025-12-24", "value": 87.15}, {"time": "2025-12-26", "value": 86.83}, {"time": "2025-12-29", "value": 86.51}, {"time": "2025-12-30", "value": 86.06}, {"time": "2025-12-31", "value": 85.83}, {"time": "2026-01-02", "value": 86.6}, {"time": "2026-01-05", "value": 88.2}, {"time": "2026-01-06", "value": 89.47}, {"time": "2026-01-07", "value": 90.34}, {"time": "2026-01-08", "value": 91.21000000000001}, {"time": "2026-01-09", "value": 92.24}, {"time": "2026-01-12", "value": 93.47}, {"time": "2026-01-13", "value": 94.47999999999999}, {"time": "2026-01-14", "value": 95.77000000000001}, {"time": "2026-01-15", "value": 97.12}, {"time": "2026-01-16", "value": 97.45}, {"time": "2026-01-19", "value": 96.89}, {"time": "2026-01-20", "value": 96.42999999999999}, {"time": "2026-01-21", "value": 96.19}, {"time": "2026-01-22", "value": 95.91}, {"time": "2026-01-23", "value": 95.44}, {"time": "2026-01-26", "value": 95.28999999999999}, {"time": "2026-01-27", "value": 95.07000000000001}, {"time": "2026-01-28", "value": 94.66}, {"time": "2026-01-29", "value": 93.86}, {"time": "2026-01-30", "value": 92.92999999999999}, {"time": "2026-02-02", "value": 92.09}, {"time": "2026-02-03", "value": 91.71000000000001}, {"time": "2026-02-04", "value": 91.42}, {"time": "2026-02-05", "value": 90.89}, {"time": "2026-02-06", "value": 90.28999999999999}, {"time": "2026-02-09", "value": 89.38}, {"time": "2026-02-10", "value": 88.44}, {"time": "2026-02-11", "value": 87.45}, {"time": "2026-02-23", "value": 87.0}, {"time": "2026-02-24", "value": 86.88}, {"time": "2026-02-25", "value": 87.13}, {"time": "2026-02-26", "value": 87.31}, {"time": "2026-03-02", "value": 87.02000000000001}, {"time": "2026-03-03", "value": 87.42999999999999}, {"time": "2026-03-04", "value": 87.55}, {"time": "2026-03-05", "value": 88.21000000000001}, {"time": "2026-03-06", "value": 89.22}, {"time": "2026-03-09", "value": 89.85}, {"time": "2026-03-10", "value": 90.59}, {"time": "2026-03-11", "value": 91.62}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 87.045}, {"time": "2026-01-05", "value": 87.815}, {"time": "2026-01-06", "value": 88.47999999999999}, {"time": "2026-01-07", "value": 88.865}, {"time": "2026-01-08", "value": 89.285}, {"time": "2026-01-09", "value": 89.69500000000001}, {"time": "2026-01-12", "value": 90.15}, {"time": "2026-01-13", "value": 90.495}, {"time": "2026-01-14", "value": 90.91499999999999}, {"time": "2026-01-15", "value": 91.475}, {"time": "2026-01-16", "value": 92.025}, {"time": "2026-01-19", "value": 92.545}, {"time": "2026-01-20", "value": 92.95}, {"time": "2026-01-21", "value": 93.265}, {"time": "2026-01-22", "value": 93.56}, {"time": "2026-01-23", "value": 93.84}, {"time": "2026-01-26", "value": 94.38}, {"time": "2026-01-27", "value": 94.775}, {"time": "2026-01-28", "value": 95.215}, {"time": "2026-01-29", "value": 95.49}, {"time": "2026-01-30", "value": 95.19}, {"time": "2026-02-02", "value": 94.49}, {"time": "2026-02-03", "value": 94.07000000000001}, {"time": "2026-02-04", "value": 93.80499999999999}, {"time": "2026-02-05", "value": 93.4}, {"time": "2026-02-06", "value": 92.865}, {"time": "2026-02-09", "value": 92.33500000000001}, {"time": "2026-02-10", "value": 91.755}, {"time": "2026-02-11", "value": 91.05499999999999}, {"time": "2026-02-23", "value": 90.42999999999999}, {"time": "2026-02-24", "value": 89.905}, {"time": "2026-02-25", "value": 89.61}, {"time": "2026-02-26", "value": 89.51}, {"time": "2026-03-02", "value": 89.22}, {"time": "2026-03-03", "value": 89.16}, {"time": "2026-03-04", "value": 88.92}, {"time": "2026-03-05", "value": 88.795}, {"time": "2026-03-06", "value": 88.83}, {"time": "2026-03-09", "value": 88.65}, {"time": "2026-03-10", "value": 88.795}, {"time": "2026-03-11", "value": 89.25}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 765.0}, {"time": "2025-12-08", "value": 2849.0}, {"time": "2025-12-09", "value": 2849.0}, {"time": "2025-12-10", "value": 3838.0}, {"time": "2025-12-11", "value": 6844.0}, {"time": "2025-12-12", "value": 7995.0}, {"time": "2025-12-15", "value": 7177.0}, {"time": "2025-12-16", "value": 6351.0}, {"time": "2025-12-17", "value": 5571.0}, {"time": "2025-12-18", "value": 4811.0}, {"time": "2025-12-19", "value": 5348.0}, {"time": "2025-12-22", "value": 5908.0}, {"time": "2025-12-23", "value": 6417.0}, {"time": "2025-12-24", "value": 5877.0}, {"time": "2025-12-26", "value": 5200.0}, {"time": "2025-12-29", "value": 6193.0}, {"time": "2025-12-30", "value": 5357.0}, {"time": "2025-12-31", "value": 6822.0}, {"time": "2026-01-02", "value": 11405.0}, {"time": "2026-01-05", "value": 27735.0}, {"time": "2026-01-06", "value": 21113.0}, {"time": "2026-01-07", "value": 15206.0}, {"time": "2026-01-08", "value": 22707.0}, {"time": "2026-01-09", "value": 25760.0}, {"time": "2026-01-12", "value": 29648.0}, {"time": "2026-01-13", "value": 20693.0}, {"time": "2026-01-14", "value": 23497.0}, {"time": "2026-01-15", "value": 28054.0}, {"time": "2026-01-16", "value": 22665.0}, {"time": "2026-01-19", "value": 19809.0}, {"time": "2026-01-20", "value": 18174.0}, {"time": "2026-01-21", "value": 15775.0}, {"time": "2026-01-22", "value": 17251.0}, {"time": "2026-01-23", "value": 15866.0}, {"time": "2026-01-26", "value": 18536.0}, {"time": "2026-01-27", "value": 16161.0}, {"time": "2026-01-28", "value": 14554.0}, {"time": "2026-01-29", "value": 12569.0}, {"time": "2026-01-30", "value": 10761.0}, {"time": "2026-02-02", "value": 9520.0}, {"time": "2026-02-03", "value": 11476.0}, {"time": "2026-02-04", "value": 10644.0}, {"time": "2026-02-05", "value": 9482.0}, {"time": "2026-02-06", "value": 8139.0}, {"time": "2026-02-09", "value": 9364.0}, {"time": "2026-02-10", "value": 8206.0}, {"time": "2026-02-11", "value": 7264.0}, {"time": "2026-02-23", "value": 8411.0}, {"time": "2026-02-24", "value": 9474.0}, {"time": "2026-02-25", "value": 11030.0}, {"time": "2026-02-26", "value": 15361.0}, {"time": "2026-03-02", "value": 13270.0}, {"time": "2026-03-03", "value": 16867.0}, {"time": "2026-03-04", "value": 14776.0}, {"time": "2026-03-05", "value": 18001.0}, {"time": "2026-03-06", "value": 21182.0}, {"time": "2026-03-09", "value": 18786.0}, {"time": "2026-03-10", "value": 23410.0}, {"time": "2026-03-11", "value": 31254.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h1>5443 均豪 深度研究報告：半導體轉型收割期，2nm 與先進封裝推升成長新高度</h1>
+
+<strong>日期：2026 年 03 月 05 日</strong>
+
+<hr>
+
+<h2>## 一句話摘要</h2>
+<p>均豪（5443）成功由面板設備轉型為半導體「檢、量、磨、拋」設備大廠，受惠 2 奈米製程及先進封裝（CoWoS/FOPLP）需求爆發，2026 年獲利有望續創歷史新高。</p>
+
+<hr>
+
+<h2>## 公司概覽</h2>
+<p>均豪精密工業（GPM）過去以面板設備為主，自 2025 年 6 月正式變更業態為「半導體類股」。公司目前專注於先進封裝檢測、再生晶圓研磨（CMP）及 AI 自動光學檢測。</p>
+
+<strong>【2025 年營收結構表格】</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>營收佔比</th><th>核心產品</th></tr></thead><tbody>
+<tr><td><strong>半導體設備</strong></td><td><strong>50% - 60%</strong></td><td>研磨設備 (Strip Grinder)、CMP 設備、3D NIR 檢測、Carrier Inspection</td></tr>
+<tr><td><strong>面板/顯示器設備</strong></td><td><strong>30% - 40%</strong></td><td>Micro LED 設備、新一代 LTPS 面板設備</td></tr>
+<tr><td><strong>其他（智動化系統等）</strong></td><td><strong>5% - 10%</strong></td><td>智能倉儲、自動化搬運系統</td></tr>
+</tbody></table></div>
+
+<em>註：2025 年上半年受惠 AI 需求，個體半導體佔比一度達 76%。</em>
+
+<hr>
+
+<h2>## 核心競爭優勢</h2>
+<li><strong>「檢、量、磨、拋」一體化技術：</strong> 具備研磨減薄與高精度光學檢測雙重技術，為台廠少數能提供 CMP 研磨至 3D 檢測一站式方案的廠商。</li>
+<li><strong>G2C+ 策略聯盟：</strong> 與志聖 (2467)、均華 (6640) 組成聯盟，共享研發與製造資源，具備強大的「整線輸出」能力。</li>
+<li><strong>2 奈米先行者：</strong> 與再生晶圓龍頭（如昇陽半）深度綁定，CMP 設備已打入 2 奈米供應鏈，訂單能見度直達 2026 年底。</li>
+<li><strong>在地化全球服務：</strong> 隨台積電佈局，於熊本、德勒斯登、亞利桑那設有服務據點，強化與大客戶的黏著度。</li>
+
+<hr>
+
+<h2>## 財務分析</h2>
+
+<strong>【月營收趨勢表格（最近 6 個月）】</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>營收（百萬元）</th><th>月增率 MoM</th><th>年增率 YoY</th><th>狀態備註</th></tr></thead><tbody>
+<tr><td><strong>2026/01</strong></td><td><strong>269.44</strong></td><td><strong>-51.47%</strong></td><td><strong>-5.41%</strong></td><td>傳統淡季與 12 月高基期影響</td></tr>
+<tr><td><strong>2025/12</strong></td><td><strong>555.16</strong></td><td>+50.14%</td><td>+1.30%</td><td>創 24 個月新高</td></tr>
+<tr><td><strong>2025/11</strong></td><td><strong>369.75</strong></td><td>+16.69%</td><td>-23.66%</td><td>入帳週期波動</td></tr>
+<tr><td><strong>2025/10</strong></td><td><strong>316.87</strong></td><td>-25.78%</td><td>-33.06%</td><td></td></tr>
+<tr><td><strong>2025/09</strong></td><td><strong>426.94</strong></td><td>-21.24%</td><td>+69.13%</td><td></td></tr>
+<tr><td><strong>2025/08</strong></td><td><strong>542.05</strong></td><td>+71.99%</td><td>+30.44%</td><td>2025 年營收次高</td></tr>
+</tbody></table></div>
+
+<strong>【年度 EPS 趨勢】</strong>
+<ul><li><strong>2024 (實際)：</strong> 1.61 元</li>
+<li><strong>2025 (實際)：</strong> <strong>2.58 元</strong> (創 19 年新高，淨利 4.15 億元)</li>
+<li><strong>2026 (法人預估)：</strong> <strong>3.2 - 3.8 元</strong></li>
+</ul>
+<hr>
+
+<h2>## 法說會重點（2026/03/03 最新內容）</h2>
+<li><strong>營收 guidance：</strong> 半導體營收佔比目標在 2026 年底穩定達到 60% 以上。</li>
+<li><strong>CMP 設備：</strong> 訂單能見度極佳，受惠於 2 奈米製程及再生晶圓需求，產線維持高效率自動化組裝。</li>
+<li><strong>先進封裝 (CoWoS/FOPLP)：</strong> 配合子公司均華出貨 OSAT 大廠，檢測設備隨客戶擴產持續追加訂單。</li>
+<li><strong>管理層發言：</strong> 董事長陳政興強調「未來十年是設備業黃金十年」，2026 年將是 FOPLP（面板級封裝）接手產能缺口的關鍵年。</li>
+
+<hr>
+
+<h2>## 券商觀點</h2>
+
+<strong>【券商目標價表格】</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>評等</th><th>目標價</th><th>2026 EPS 預估</th><th>報告日期</th></tr></thead><tbody>
+<tr><td><strong>統一證券</strong></td><td>買進 (Buy)</td><td><strong>120 元</strong></td><td>3.15 元</td><td>2026/01/06</td></tr>
+<tr><td><strong>元大證券</strong></td><td>看多 (Positive)</td><td><strong>115 元</strong></td><td>3.42 元</td><td>2026/03/03</td></tr>
+<tr><td><strong>CMoney研究員</strong></td><td>強力買進 (Strong Buy)</td><td><strong>N/A</strong></td><td><strong>3.30 元</strong></td><td>2026/01/05</td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>## 財報深度分析</h2>
+
+<strong>【2025 年度利潤率趨勢表格】</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2025 Q1</th><th>2025 Q2</th><th>2025 Q3</th><th>2025 Q4</th></tr></thead><tbody>
+<tr><td><strong>毛利率</strong></td><td>37.81%</td><td>36.31%</td><td>34.11%</td><td><strong>32.99%</strong></td></tr>
+<tr><td><strong>營業利益率</strong></td><td>11.64%</td><td>10.54%</td><td>7.54%</td><td><strong>11.97%</strong></td></tr>
+<tr><td><strong>稅後淨利率</strong></td><td>10.66%</td><td>15.44%</td><td>7.41%</td><td><strong>11.19%</strong></td></tr>
+</tbody></table></div>
+
+<ul><li><strong>存貨分析：</strong> 2025 Q4 存貨週轉天數約 <strong>94.12 天</strong>，較年初 169 天大幅改善，顯示銷貨速度加快。</li>
+<li><strong>資本支出：</strong> 2025 全年投入約 <strong>1.5 - 2 億元</strong> 於 2 奈米檢測技術與 AI 數位雙生研發。</li>
+</ul>
+<hr>
+
+<h2>## 股權異動與資本結構</h2>
+<li><strong>信託申報：</strong> 2026/01/14 董事長陳政興（115 張）及執行長梁又文（135 張）申報信託，主要用於員工權利新股管理。</li>
+<li><strong>庫藏股轉讓：</strong> 2026/02/26 董事會決議轉讓 113 年買回之庫藏股予員工，強化人才留用。</li>
+<li><strong>股利政策：</strong> 2025 年度擬配發 <strong>2.2 元現金股利</strong>，為近年高點。</li>
+
+<hr>
+
+<h2>## 產業分析</h2>
+
+<strong>【全球半導體檢測設備競爭格局】</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>排名</th><th>公司名稱</th><th>核心領域</th><th>市佔/地位</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>KLA (美)</strong></td><td>前段瑕疵檢測、量測</td><td>55% (全球領導者)</td></tr>
+<tr><td>2</td><td><strong>AMAT (美)</strong></td><td>電子束檢測、CMP</td><td>12%</td></tr>
+<tr><td><strong>-</strong></td><td><strong>均豪 (5443)</strong></td><td><strong>CMP、3D NIR、AOI</strong></td><td><strong>國產化領先者，價格具 20-30% 優勢</strong></td></tr>
+</tbody></table></div>
+
+<ul><li><strong>市場規模：</strong> 預計 2026 年全球量測檢測市場達 <strong>165-170 億美元</strong>，先進封裝需求成長率 &gt;25%。</li>
+</ul>
+<hr>
+
+<h2>## 近期催化劑</h2>
+<ul><li><strong>利多：</strong></li>
+</ul>    1.  法說會後法人大舉買超（2026/03/05 外資買超 1,059 張）。
+<p>2.  切入 SpaceX 供應鏈，提供 700mm FOPLP 製程設備。</p>
+<p>3.  3D NIR 檢測設備完成 2 奈米製程驗證。</p>
+<ul><li><strong>利空：</strong></li>
+</ul>    1.  1 月營收月減幅劇烈（-51.5%），短線影響投資情緒。
+<p>2.  對單一晶圓大廠資本支出依賴度高。</p>
+
+<hr>
+
+<h2>## ⭐ 成長動能時間軸</h2>
+<ul><li><strong>2025 Q4：</strong> 完成中科廠產能升級，應對 CMP 訂單增量。</li>
+<li><strong>2026 Q1：</strong> 2025 全年獲利結算（EPS 2.58），股價進入獲利校準期。</li>
+<li><strong>2026 Q2：</strong> <strong>高階 3D NIR 檢測設備</strong> 正式量產，切入 TGV（玻璃穿孔）技術市場。</li>
+<li><strong>2026 Q3：</strong> 2 奈米製程再生晶圓 CMP 設備進入交貨高峰。</li>
+<li><strong>2026 Q4：</strong> 海外據點（德、美、日）服務營收佔比預計翻倍成長。</li>
+</ul>
+<hr>
+
+<h2>## 2026 展望：成長動能 vs 風險</h2>
+<ul><li><strong>成長動能：</strong> 半導體純度大幅提升，2 奈米設備將帶動毛利率重回 35% 以上。FOPLP 玻璃基板技術商業化將是下半年的主要看點。</li>
+<li><strong>風險：</strong> 全球半導體擴產若因地緣政治延後，或玻璃基板技術普及速度不如預期，將影響成長斜率。</li>
+</ul>
+<hr>
+
+<h2>## 投資結論</h2>
+<li><strong>獲利上修：</strong> 均豪已展現強大轉型獲利能力，2025 EPS 2.58 元創高，2026 年有望挑戰 <strong>3.5 元</strong>。</li>
+<li><strong>評價調升：</strong> 市場已將其評價模型由「面板設備（10-12x P/E）」轉為「半導體設備（25-30x P/E）」。</li>
+<li><strong>目標價區間建議：</strong> 參考法人觀點，建議區間 <strong>90 - 120 元</strong>。目前（03/05）股價 93.1 元仍處於合理偏低區間。</li>
+<li><strong>操作建議：</strong> 趁 1-2 月營收淡季波動分批佈局，迎接 Q2 後 2 奈米與先進封裝設備的入帳高峰。</li>
+
+<hr>
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。</p>
+<p>產生時間：2026-03-05 12:05</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="5443_均豪_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="5443_均豪_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="5443_均豪_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

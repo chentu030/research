@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3694 海華 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>3694 海華 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>海華科技 (3694) 受惠於Wi-Fi 7/8技術升級、AIoT與機器人應用擴張，以及遊戲機、印表機和白色家電等多元產品線的出貨動能，2025年獲利表現亮眼，累計前三季EPS達3.27元，全年營收達114.07億元，展望2026年營收與獲利有望延續雙位數成長，然需留意原物料價格波動與總體經濟逆風。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">3694 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-3694" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-3694" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-3694');
+    var obvContainer = document.getElementById('obv-chart-3694');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 63.4, "high": 64.1, "low": 62.5, "close": 62.8}, {"time": "2025-12-05", "open": 63.0, "high": 63.4, "low": 61.6, "close": 61.8}, {"time": "2025-12-08", "open": 62.4, "high": 62.9, "low": 61.9, "close": 62.8}, {"time": "2025-12-09", "open": 63.2, "high": 66.0, "low": 62.7, "close": 64.0}, {"time": "2025-12-10", "open": 64.4, "high": 66.2, "low": 64.1, "close": 64.1}, {"time": "2025-12-11", "open": 62.1, "high": 62.1, "low": 57.8, "close": 57.8}, {"time": "2025-12-12", "open": 58.0, "high": 58.9, "low": 57.7, "close": 58.2}, {"time": "2025-12-15", "open": 57.1, "high": 58.5, "low": 56.5, "close": 57.8}, {"time": "2025-12-16", "open": 57.9, "high": 58.3, "low": 56.3, "close": 57.1}, {"time": "2025-12-17", "open": 57.8, "high": 59.8, "low": 57.6, "close": 58.2}, {"time": "2025-12-18", "open": 57.7, "high": 57.9, "low": 57.0, "close": 57.0}, {"time": "2025-12-19", "open": 57.4, "high": 59.4, "low": 57.1, "close": 58.8}, {"time": "2025-12-22", "open": 59.5, "high": 60.3, "low": 59.0, "close": 60.1}, {"time": "2025-12-23", "open": 60.7, "high": 64.6, "low": 60.1, "close": 61.7}, {"time": "2025-12-24", "open": 62.3, "high": 62.6, "low": 61.2, "close": 61.9}, {"time": "2025-12-26", "open": 62.1, "high": 63.0, "low": 60.9, "close": 61.1}, {"time": "2025-12-29", "open": 61.5, "high": 62.8, "low": 61.2, "close": 61.5}, {"time": "2025-12-30", "open": 62.1, "high": 62.5, "low": 60.4, "close": 60.6}, {"time": "2025-12-31", "open": 60.4, "high": 60.7, "low": 59.5, "close": 60.3}, {"time": "2026-01-02", "open": 61.0, "high": 62.2, "low": 60.5, "close": 61.9}, {"time": "2026-01-05", "open": 62.7, "high": 62.8, "low": 60.7, "close": 61.3}, {"time": "2026-01-06", "open": 61.7, "high": 61.9, "low": 60.3, "close": 60.4}, {"time": "2026-01-07", "open": 60.6, "high": 60.6, "low": 59.4, "close": 59.7}, {"time": "2026-01-08", "open": 59.7, "high": 60.2, "low": 58.1, "close": 58.1}, {"time": "2026-01-09", "open": 58.2, "high": 59.3, "low": 57.6, "close": 58.5}, {"time": "2026-01-12", "open": 60.0, "high": 62.5, "low": 60.0, "close": 61.8}, {"time": "2026-01-13", "open": 62.4, "high": 62.7, "low": 60.6, "close": 61.3}, {"time": "2026-01-14", "open": 62.0, "high": 62.8, "low": 61.3, "close": 62.2}, {"time": "2026-01-15", "open": 63.0, "high": 63.1, "low": 61.1, "close": 61.4}, {"time": "2026-01-16", "open": 61.8, "high": 61.9, "low": 60.5, "close": 60.5}, {"time": "2026-01-19", "open": 61.0, "high": 61.6, "low": 60.0, "close": 61.2}, {"time": "2026-01-20", "open": 61.8, "high": 62.9, "low": 61.2, "close": 62.1}, {"time": "2026-01-21", "open": 61.7, "high": 63.0, "low": 60.8, "close": 60.8}, {"time": "2026-01-22", "open": 61.9, "high": 62.2, "low": 61.1, "close": 61.5}, {"time": "2026-01-23", "open": 62.2, "high": 62.9, "low": 60.9, "close": 61.0}, {"time": "2026-01-26", "open": 61.5, "high": 67.1, "low": 60.8, "close": 67.1}, {"time": "2026-01-27", "open": 70.8, "high": 71.3, "low": 64.3, "close": 64.9}, {"time": "2026-01-28", "open": 64.5, "high": 64.5, "low": 61.6, "close": 62.5}, {"time": "2026-01-29", "open": 62.4, "high": 63.3, "low": 60.4, "close": 60.7}, {"time": "2026-01-30", "open": 61.0, "high": 61.0, "low": 58.4, "close": 59.1}, {"time": "2026-02-02", "open": 58.4, "high": 59.4, "low": 57.1, "close": 57.5}, {"time": "2026-02-03", "open": 58.3, "high": 58.7, "low": 57.2, "close": 58.1}, {"time": "2026-02-04", "open": 58.5, "high": 61.1, "low": 58.2, "close": 60.5}, {"time": "2026-02-05", "open": 60.3, "high": 61.0, "low": 59.2, "close": 59.2}, {"time": "2026-02-06", "open": 58.5, "high": 58.9, "low": 56.2, "close": 57.9}, {"time": "2026-02-09", "open": 59.8, "high": 59.8, "low": 57.6, "close": 57.7}, {"time": "2026-02-10", "open": 58.6, "high": 58.6, "low": 57.1, "close": 58.3}, {"time": "2026-02-11", "open": 61.5, "high": 62.4, "low": 60.1, "close": 60.5}, {"time": "2026-02-23", "open": 60.7, "high": 62.5, "low": 60.4, "close": 61.9}, {"time": "2026-02-24", "open": 61.9, "high": 62.0, "low": 61.2, "close": 61.6}, {"time": "2026-02-25", "open": 61.8, "high": 62.4, "low": 61.0, "close": 62.1}, {"time": "2026-02-26", "open": 62.0, "high": 62.8, "low": 61.6, "close": 61.9}, {"time": "2026-03-02", "open": 58.0, "high": 58.1, "low": 55.0, "close": 55.0}, {"time": "2026-03-03", "open": 60.6, "high": 61.8, "low": 58.5, "close": 58.6}, {"time": "2026-03-04", "open": 58.0, "high": 58.1, "low": 55.0, "close": 55.0}, {"time": "2026-03-05", "open": 57.2, "high": 57.4, "low": 56.1, "close": 57.1}, {"time": "2026-03-06", "open": 57.3, "high": 59.1, "low": 56.3, "close": 58.2}, {"time": "2026-03-09", "open": 55.2, "high": 56.0, "low": 53.2, "close": 54.3}, {"time": "2026-03-10", "open": 55.4, "high": 56.7, "low": 55.3, "close": 56.2}, {"time": "2026-03-11", "open": 56.9, "high": 57.5, "low": 55.9, "close": 56.1}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 453.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 539.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 440.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 2015.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 1420.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 5032.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 1485.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 804.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 917.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 1289.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 542.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 1142.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 1006.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 3042.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 1391.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 1216.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 969.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 776.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 836.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 759.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 1007.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 899.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 1006.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 1721.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 579.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 2059.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 1273.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 1276.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 975.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 923.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 890.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 1398.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 1414.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 832.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 1192.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 5727.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 15579.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 4964.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 2792.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 1852.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 1322.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 815.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 1472.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 898.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 1566.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 910.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 693.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 2367.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 1578.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 1018.0, "color": "#26a69a"}, {"time": "2026-02-25", "value": 1290.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 994.0, "color": "#26a69a"}, {"time": "2026-03-02", "value": 1962.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 1279.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 1962.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 670.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 822.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 1203.0, "color": "#26a69a"}, {"time": "2026-03-10", "value": 778.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 1138.0, "color": "#26a69a"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 63.1}, {"time": "2025-12-11", "value": 62.1}, {"time": "2025-12-12", "value": 61.379999999999995}, {"time": "2025-12-15", "value": 60.379999999999995}, {"time": "2025-12-16", "value": 59.0}, {"time": "2025-12-17", "value": 57.82000000000001}, {"time": "2025-12-18", "value": 57.660000000000004}, {"time": "2025-12-19", "value": 57.779999999999994}, {"time": "2025-12-22", "value": 58.239999999999995}, {"time": "2025-12-23", "value": 59.160000000000004}, {"time": "2025-12-24", "value": 59.9}, {"time": "2025-12-26", "value": 60.720000000000006}, {"time": "2025-12-29", "value": 61.260000000000005}, {"time": "2025-12-30", "value": 61.36}, {"time": "2025-12-31", "value": 61.08}, {"time": "2026-01-02", "value": 61.08}, {"time": "2026-01-05", "value": 61.120000000000005}, {"time": "2026-01-06", "value": 60.9}, {"time": "2026-01-07", "value": 60.720000000000006}, {"time": "2026-01-08", "value": 60.279999999999994}, {"time": "2026-01-09", "value": 59.6}, {"time": "2026-01-12", "value": 59.7}, {"time": "2026-01-13", "value": 59.879999999999995}, {"time": "2026-01-14", "value": 60.379999999999995}, {"time": "2026-01-15", "value": 61.04}, {"time": "2026-01-16", "value": 61.44}, {"time": "2026-01-19", "value": 61.32000000000001}, {"time": "2026-01-20", "value": 61.48}, {"time": "2026-01-21", "value": 61.2}, {"time": "2026-01-22", "value": 61.220000000000006}, {"time": "2026-01-23", "value": 61.32000000000001}, {"time": "2026-01-26", "value": 62.5}, {"time": "2026-01-27", "value": 63.06}, {"time": "2026-01-28", "value": 63.4}, {"time": "2026-01-29", "value": 63.239999999999995}, {"time": "2026-01-30", "value": 62.86}, {"time": "2026-02-02", "value": 60.94}, {"time": "2026-02-03", "value": 59.58}, {"time": "2026-02-04", "value": 59.17999999999999}, {"time": "2026-02-05", "value": 58.879999999999995}, {"time": "2026-02-06", "value": 58.64}, {"time": "2026-02-09", "value": 58.67999999999999}, {"time": "2026-02-10", "value": 58.720000000000006}, {"time": "2026-02-11", "value": 58.720000000000006}, {"time": "2026-02-23", "value": 59.260000000000005}, {"time": "2026-02-24", "value": 60.0}, {"time": "2026-02-25", "value": 60.879999999999995}, {"time": "2026-02-26", "value": 61.6}, {"time": "2026-03-02", "value": 60.5}, {"time": "2026-03-03", "value": 59.839999999999996}, {"time": "2026-03-04", "value": 58.52}, {"time": "2026-03-05", "value": 57.52}, {"time": "2026-03-06", "value": 56.779999999999994}, {"time": "2026-03-09", "value": 56.64}, {"time": "2026-03-10", "value": 56.160000000000004}, {"time": "2026-03-11", "value": 56.379999999999995}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 60.46}, {"time": "2025-12-18", "value": 59.879999999999995}, {"time": "2025-12-19", "value": 59.58}, {"time": "2025-12-22", "value": 59.31}, {"time": "2025-12-23", "value": 59.08}, {"time": "2025-12-24", "value": 58.86}, {"time": "2025-12-26", "value": 59.19}, {"time": "2025-12-29", "value": 59.52}, {"time": "2025-12-30", "value": 59.8}, {"time": "2025-12-31", "value": 60.120000000000005}, {"time": "2026-01-02", "value": 60.489999999999995}, {"time": "2026-01-05", "value": 60.92}, {"time": "2026-01-06", "value": 61.08}, {"time": "2026-01-07", "value": 61.04}, {"time": "2026-01-08", "value": 60.67999999999999}, {"time": "2026-01-09", "value": 60.339999999999996}, {"time": "2026-01-12", "value": 60.410000000000004}, {"time": "2026-01-13", "value": 60.39}, {"time": "2026-01-14", "value": 60.55}, {"time": "2026-01-15", "value": 60.660000000000004}, {"time": "2026-01-16", "value": 60.52}, {"time": "2026-01-19", "value": 60.510000000000005}, {"time": "2026-01-20", "value": 60.67999999999999}, {"time": "2026-01-21", "value": 60.79}, {"time": "2026-01-22", "value": 61.129999999999995}, {"time": "2026-01-23", "value": 61.379999999999995}, {"time": "2026-01-26", "value": 61.910000000000004}, {"time": "2026-01-27", "value": 62.27}, {"time": "2026-01-28", "value": 62.3}, {"time": "2026-01-29", "value": 62.23}, {"time": "2026-01-30", "value": 62.089999999999996}, {"time": "2026-02-02", "value": 61.720000000000006}, {"time": "2026-02-03", "value": 61.32000000000001}, {"time": "2026-02-04", "value": 61.29}, {"time": "2026-02-05", "value": 61.06}, {"time": "2026-02-06", "value": 60.75}, {"time": "2026-02-09", "value": 59.81}, {"time": "2026-02-10", "value": 59.15}, {"time": "2026-02-11", "value": 58.95}, {"time": "2026-02-23", "value": 59.07000000000001}, {"time": "2026-02-24", "value": 59.32000000000001}, {"time": "2026-02-25", "value": 59.779999999999994}, {"time": "2026-02-26", "value": 60.160000000000004}, {"time": "2026-03-02", "value": 59.61}, {"time": "2026-03-03", "value": 59.55}, {"time": "2026-03-04", "value": 59.260000000000005}, {"time": "2026-03-05", "value": 59.2}, {"time": "2026-03-06", "value": 59.19}, {"time": "2026-03-09", "value": 58.57000000000001}, {"time": "2026-03-10", "value": 58.0}, {"time": "2026-03-11", "value": 57.45}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 60.475}, {"time": "2026-01-05", "value": 60.4}, {"time": "2026-01-06", "value": 60.33}, {"time": "2026-01-07", "value": 60.175}, {"time": "2026-01-08", "value": 59.879999999999995}, {"time": "2026-01-09", "value": 59.6}, {"time": "2026-01-12", "value": 59.8}, {"time": "2026-01-13", "value": 59.955}, {"time": "2026-01-14", "value": 60.175}, {"time": "2026-01-15", "value": 60.39}, {"time": "2026-01-16", "value": 60.504999999999995}, {"time": "2026-01-19", "value": 60.714999999999996}, {"time": "2026-01-20", "value": 60.879999999999995}, {"time": "2026-01-21", "value": 60.915}, {"time": "2026-01-22", "value": 60.904999999999994}, {"time": "2026-01-23", "value": 60.86}, {"time": "2026-01-26", "value": 61.160000000000004}, {"time": "2026-01-27", "value": 61.33}, {"time": "2026-01-28", "value": 61.425}, {"time": "2026-01-29", "value": 61.44500000000001}, {"time": "2026-01-30", "value": 61.30499999999999}, {"time": "2026-02-02", "value": 61.114999999999995}, {"time": "2026-02-03", "value": 61.0}, {"time": "2026-02-04", "value": 61.04}, {"time": "2026-02-05", "value": 61.095000000000006}, {"time": "2026-02-06", "value": 61.065}, {"time": "2026-02-09", "value": 60.86}, {"time": "2026-02-10", "value": 60.71}, {"time": "2026-02-11", "value": 60.625}, {"time": "2026-02-23", "value": 60.65}, {"time": "2026-02-24", "value": 60.705}, {"time": "2026-02-25", "value": 60.75}, {"time": "2026-02-26", "value": 60.739999999999995}, {"time": "2026-03-02", "value": 60.45}, {"time": "2026-03-03", "value": 60.30499999999999}, {"time": "2026-03-04", "value": 60.004999999999995}, {"time": "2026-03-05", "value": 59.504999999999995}, {"time": "2026-03-06", "value": 59.17}, {"time": "2026-03-09", "value": 58.760000000000005}, {"time": "2026-03-10", "value": 58.535000000000004}, {"time": "2026-03-11", "value": 58.385000000000005}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -539.0}, {"time": "2025-12-08", "value": -99.0}, {"time": "2025-12-09", "value": 1916.0}, {"time": "2025-12-10", "value": 3336.0}, {"time": "2025-12-11", "value": -1696.0}, {"time": "2025-12-12", "value": -211.0}, {"time": "2025-12-15", "value": -1015.0}, {"time": "2025-12-16", "value": -1932.0}, {"time": "2025-12-17", "value": -643.0}, {"time": "2025-12-18", "value": -1185.0}, {"time": "2025-12-19", "value": -43.0}, {"time": "2025-12-22", "value": 963.0}, {"time": "2025-12-23", "value": 4005.0}, {"time": "2025-12-24", "value": 5396.0}, {"time": "2025-12-26", "value": 4180.0}, {"time": "2025-12-29", "value": 5149.0}, {"time": "2025-12-30", "value": 4373.0}, {"time": "2025-12-31", "value": 3537.0}, {"time": "2026-01-02", "value": 4296.0}, {"time": "2026-01-05", "value": 3289.0}, {"time": "2026-01-06", "value": 2390.0}, {"time": "2026-01-07", "value": 1384.0}, {"time": "2026-01-08", "value": -337.0}, {"time": "2026-01-09", "value": 242.0}, {"time": "2026-01-12", "value": 2301.0}, {"time": "2026-01-13", "value": 1028.0}, {"time": "2026-01-14", "value": 2304.0}, {"time": "2026-01-15", "value": 1329.0}, {"time": "2026-01-16", "value": 406.0}, {"time": "2026-01-19", "value": 1296.0}, {"time": "2026-01-20", "value": 2694.0}, {"time": "2026-01-21", "value": 1280.0}, {"time": "2026-01-22", "value": 2112.0}, {"time": "2026-01-23", "value": 920.0}, {"time": "2026-01-26", "value": 6647.0}, {"time": "2026-01-27", "value": -8932.0}, {"time": "2026-01-28", "value": -13896.0}, {"time": "2026-01-29", "value": -16688.0}, {"time": "2026-01-30", "value": -18540.0}, {"time": "2026-02-02", "value": -19862.0}, {"time": "2026-02-03", "value": -19047.0}, {"time": "2026-02-04", "value": -17575.0}, {"time": "2026-02-05", "value": -18473.0}, {"time": "2026-02-06", "value": -20039.0}, {"time": "2026-02-09", "value": -20949.0}, {"time": "2026-02-10", "value": -20256.0}, {"time": "2026-02-11", "value": -17889.0}, {"time": "2026-02-23", "value": -16311.0}, {"time": "2026-02-24", "value": -17329.0}, {"time": "2026-02-25", "value": -16039.0}, {"time": "2026-02-26", "value": -17033.0}, {"time": "2026-03-02", "value": -18995.0}, {"time": "2026-03-03", "value": -17716.0}, {"time": "2026-03-04", "value": -19678.0}, {"time": "2026-03-05", "value": -19008.0}, {"time": "2026-03-06", "value": -18186.0}, {"time": "2026-03-09", "value": -19389.0}, {"time": "2026-03-10", "value": -18611.0}, {"time": "2026-03-11", "value": -19749.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>海華科技主要從事無線通訊模組和數位影像模組的研發、生產與銷售，為和碩聯合科技股份有限公司的最終母公司，其產品廣泛應用於筆記型電腦、遊戲機、消費性電子、穿戴式裝置、車載電子、無人機、機器人及物聯網產品。</p>
+
+<ul><li><strong>核心產品</strong>：</li>
+</ul>    *   <strong>無線通訊模組</strong>：涵蓋WiFi模組（如WiFi 7、WiFi 8）及5G模組等。
+<p>*   <strong>數位影像模組</strong>：包括相機模組、3D鏡頭模組、IR紅外線鏡頭模組、ToF測距鏡頭模組，以及創新的eUSB2 V2鏡頭模組等。</p>
+
+<ul><li><strong>營收結構 (2024年)</strong>：</li>
+</ul><div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>營收比重</th></tr></thead><tbody>
+<tr><td>無線通訊模組</td><td>83.6%</td></tr>
+<tr><td>數位影像模組</td><td>15.9%</td></tr>
+<tr><td>其他</td><td>0.5%</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>製造基地</strong>：主要位於中國大陸上海。</li>
+</ul>
+<ul><li><strong>所屬產業及相關題材</strong>：</li>
+</ul>    *   <strong>產業</strong>：電子–通信網路產業、通訊設備零組件、網通設備。
+<p>*   <strong>題材</strong>：WiFi 7/8、AI應用 (AI無線模組、AI相機模組、機器人AI視覺辨識、邊緣運算)、物聯網 (無人機、機器人、安防、智慧眼鏡、掃地機、白色家電)、車載電子。</p>
+
+<h2>核心競爭優勢</h2>
+<li><strong>技術領先與多元佈局</strong>：積極投入Wi-Fi 7/8、5G模組及多種先進數位影像模組（如3D、ToF、eUSB鏡頭）的研發，涵蓋無線通訊與AI視覺兩大核心技術。</li>
+<li><strong>市場滲透廣泛</strong>：產品應用從PC擴展至遊戲機、印表機、車載、無人機、機器人及白色家電等多元領域，降低單一市場風險。</li>
+<li><strong>AIoT先機</strong>：搭上AI熱潮，積極發展AI無線模組、AI相機模組及機器人AI視覺辨識，搶佔邊緣運算及物聯網終端設備的商機。</li>
+<li><strong>母公司和碩資源整合</strong>：作為和碩子公司，在供應鏈管理、客戶資源與技術支援方面具備潛在優勢，特別是在消費性電子與PC相關應用。</li>
+<li><strong>既有市場領導地位</strong>：無線模組在筆電市場市佔率約五成，數位影像模組在筆電攝像頭模組產業位列前三名，具備穩固的客戶基礎與規模經濟效益。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>11.01</td><td>16.05%</td><td>58.57%</td></tr>
+<tr><td>2025年12月</td><td>9.49</td><td>19.48%</td><td>18.97%</td></tr>
+<tr><td>2025年11月</td><td>7.94</td><td>-1.95%</td><td>2.70%</td></tr>
+<tr><td>2025年10月</td><td>8.10</td><td>-30.00%</td><td>16.35%</td></tr>
+<tr><td>2025年9月</td><td>11.57</td><td>-0.43%</td><td>38.16%</td></tr>
+<tr><td>2025年8月</td><td>11.62</td><td>7.94%</td><td>39.74%</td></tr>
+</tbody></table></div>
+
+<strong>備註</strong>：2026年1月營收創十年單月同期新高。
+
+<h3>季度數據</h3>
+<ul><li><strong>最新已公布季度</strong>：2025年第三季。</li>
+<li>2025年第三季 EPS：新台幣 <strong>1.43元</strong> (季增33.64%、年增53.76%)。</li>
+<li>截至2025年第三季累計營收：新台幣 <strong>88.61億元</strong>。</li>
+<li>截至2025年第三季累計營業毛利：新台幣 <strong>12.77億元</strong>。</li>
+<li><strong>2025年第三季單季的毛利率與營業利益率數據未揭露</strong>。</li>
+</ul>
+<h3>年度趨勢</h3>
+<ul><li>22024年實際 EPS：新台幣 <strong>2.75元</strong>。</li>
+<li>2025年實際全年營收：新台幣 <strong>114.07億元</strong>。</li>
+<li>2025年累計至第三季 EPS：新台幣 <strong>3.27元</strong>。</li>
+<li>市場普遍預期2025年全年 EPS 有望突破新台幣 <strong>4元</strong> 大關，較2024年成長逾 <strong>20%</strong>。</li>
+</ul>
+<h2>法說會重點 (2025年12月24日)</h2>
+<ul><li><strong>總經理鄭光志發言</strong>：</li>
+</ul>    *   2025年為「豐收年」，營運表現超越往年，主要受惠於客戶因應關稅提前拉貨，遊戲機、印表機、IoT應用及車載充電樁等領域表現良好。
+<p>*   <strong>遊戲機無線模組</strong>：客戶庫存已於2025年大致去化完畢，預期2026年出貨量可望在既有基礎上進一步放大。</p>
+<p>*   <strong>IoT與印表機業務</strong>：深耕多年，以及2025年積極投入的無人機、機器人、掃地機等新興應用，預期將於2026年陸續開花結果。</p>
+<p>*   <strong>無線模組</strong>：將更深耕印表機無線模組，從專業事務機跨入家用市場，並打入前幾大品牌廠供應鏈，同時布局白色家電（冰箱、洗碗機及空調）。</p>
+<p>*   <strong>新產品</strong>：2026年機器人及無人機的數位影像模組及無線通訊模組可望開始陸續出貨。</p>
+<ul><li><strong>副總經理林谷峰發言</strong>：</li>
+</ul>    *   Wi-Fi 技術發展重點將轉向強化連線品質、降低干擾，並提升多裝置、多存取點環境下的整體效能。海華已與合作夥伴展開新世代技術的試作與導入，規劃於2026年持續深化相關模組開發 (如Wi-Fi 8)。
+<ul><li><strong>2026年營運展望</strong>：</li>
+</ul>    *   管理層對2026年營運成長抱持審慎樂觀態度，預期營運表現有機會超越2025年。
+<p>*   法人預期2026年第一季營運可望淡季不淡，維持2025年第四季水準或小幅成長。</p>
+<p>*   法人看好2026年全年業績年增<strong>雙位數百分比</strong>，營收、獲利均優於2025年。</p>
+<ul><li><strong>產能利用率/資本支出</strong>：法說會中未提供2025-2026年產能利用率及資本支出具體數據。</li>
+</ul>
+<h2>券商觀點</h2>
+<strong>目前未找到2025-2026年市場上主流券商針對海華 (3694) 發布的具體目標價與評等資訊。</strong>
+<p>市場普遍預期海華2025年全年EPS有望突破新台幣4元大關。</p>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2024年Q4</td><td>14.99%</td><td>3.49%</td><td>4.14%</td></tr>
+<tr><td>2025年Q1</td><td>15.16%</td><td>4.05%</td><td>4.90%</td></tr>
+<tr><td>2025年Q2</td><td>13.99%</td><td>5.28%</td><td>5.32%</td></tr>
+<tr><td>2025年Q3</td><td>14.29%</td><td>6.20%</td><td>6.42%</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化的原因分析</strong>：
+<p>海華的利潤率在2025年整體呈現增長趨勢，稅後淨利率從Q1的4.90%提升至Q3的6.42%，營業利益率的提升更為顯著。這可能反映了營收成長、產品組合優化（高毛利產品比重增加）以及營運效率的提升。總經理鄭光志提及2025年受惠於客戶提前拉貨，尤其在遊戲機、印表機、IoT等產品的成長，有助於營收規模擴大，進而改善利潤率。</p>
+
+<h3>資本支出與折舊攤銷</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>資本支出 (千元)</th><th>折舊 (千元)</th><th>攤銷 (千元)</th></tr></thead><tbody>
+<tr><td>2024年Q4</td><td>88,148</td><td>84,269</td><td>383</td></tr>
+<tr><td>2025年Q1</td><td>44,445</td><td>86,642</td><td>501</td></tr>
+<tr><td>2025年Q2</td><td>81,902</td><td>85,310</td><td>590</td></tr>
+<tr><td>2025年Q3</td><td>58,933</td><td>82,398</td><td>1,734</td></tr>
+</tbody></table></div>
+
+<p>海華的資本支出在各季度間有所波動，但總體維持在一定水平，顯示公司有持續對營運資產進行投入。未來的資本支出預期將與其在Wi-Fi 8、機器人、無人機、白色家電等新產品和新市場的布局相關，以支持研發和可能的產能擴張，但具體金額與計畫尚未公開。</p>
+
+<h3>存貨與營運效率</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數</th><th>應收帳款收現天數</th></tr></thead><tbody>
+<tr><td>2024年Q4</td><td>46.25天</td><td>81.04天</td></tr>
+<tr><td>2025年Q1</td><td>51.63天</td><td>73.38天</td></tr>
+<tr><td>2025年Q2</td><td>52.23天</td><td>67.76天</td></tr>
+<tr><td>2025年Q3</td><td>47.24天</td><td>76.39天</td></tr>
+</tbody></table></div>
+
+<p>存貨週轉天數在2025年Q1、Q2略有增加，Q3回落至47.24天，顯示公司存貨管理效率尚可，並無明顯異常堆積現象。應收帳款收現天數在Q2達到最低的67.76天，Q3略為上升，反映了公司對客戶帳款回收的效率。</p>
+
+<h3>其他財報重點</h3>
+<ul><li><strong>負債比率</strong>：2025年Q3為<strong>55.23%</strong>，較Q2的57.94%有所下降，顯示財務結構趨於穩健。</li>
+<li><strong>自由現金流量</strong>：波動較大，2025年Q2為<strong>-325,980千元</strong>，Q3轉正為<strong>203,302千元</strong>。管理現金流的能力仍需持續關注。</li>
+<li><strong>業外收支</strong>：2025年Q1業外收支佔稅前淨利比為<strong>22.98%</strong>，對當季獲利有較大貢獻，但Q2、Q3佔比降至個位數，顯示業外貢獻波動較大。</li>
+</ul>
+<h2>股權異動</h2>
+
+<ul><li><strong>董監事/大股東申報轉讓紀錄</strong>：</li>
+</ul>    *   2025年9月：研華投資股份有限公司 (董事本人) 申報轉讓海華股票<strong>2,500張</strong> (一般交易)，轉讓後持股<strong>25,498張</strong>。
+<p>*   2025年6月25日：多位經理人申報轉讓海華股票 (信託)，例如經理人廖志豪申報轉讓<strong>100張</strong>。</p>
+<p>*   海華主要股東為和碩 (4938)，持股比率<strong>23.43%</strong>；其次為研華投資股份有限公司，持股比率<strong>19.15%</strong> (2023年度資料)。</p>
+<p>*   2025年8月21日：法人董事「和碩聯合科技股份有限公司」改派代表人，由姚德慈改為謝如蕙。</p>
+<ul><li><strong>股權結構 (截至2026年02月26日)</strong>：</li>
+</ul>    *   外資持股佔<strong>5.69%</strong>。
+<p>*   大戶 (持股超過1,000張以上) 佔<strong>56.72%</strong>。</p>
+<p>*   董監持股佔<strong>39.53%</strong>，質押股票張數總計<strong>0張</strong>，質押比例約<strong>0%</strong>。</p>
+<ul><li><strong>庫藏股買回紀錄</strong>：目前未找到2024年以後的庫藏股買回紀錄。</li>
+<li><strong>發行可轉換公司債 (CB)</strong>：目前未找到2024年以後發行可轉換公司債的相關資料。</li>
+<li><strong>現金增資或減資計畫</strong>：目前未找到2024年以後有現金增資或減資計畫的相關資料。</li>
+<li><strong>股利政策</strong>：</li>
+</ul>    *   2024年：現金股利<strong>1.00元</strong>。
+<p>*   2025年：公告配發每股現金股利<strong>1.477元</strong>。</p>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與供需狀況</h3>
+<p>海華科技所在的無線通訊模組與數位影像模組市場正迎來快速增長，主要驅動力來自AI、IoT與5G/Wi-Fi 7等新興技術應用。</p>
+
+<ul><li><strong>無線通訊模組</strong>：</li>
+</ul>    *   全球市場規模：2024年人民幣<strong>436億元</strong>，預計2029年達人民幣<strong>726億元</strong>，2025-2029年複合年增長率為<strong>10.6%</strong>。
+<p>*   Wi-Fi模組市場：2024年<strong>41.5億美元</strong>，預計2025年增至<strong>45.2億美元</strong>，2034年達<strong>117.5億美元</strong>。</p>
+<ul><li><strong>數位影像模組</strong>：</li>
+</ul>    *   全球相機模組市場：2025年<strong>531.2億美元</strong>，預計2034年達<strong>1332.6億美元</strong>，2026-2034年複合年增長率為<strong>10.76%</strong>。
+<p>*   3D影像與感測市場：2020年<strong>68億美元</strong>，預計2026年達<strong>150億美元</strong>，複合年增長率達<strong>14.5%</strong>。</p>
+<ul><li><strong>物聯網設備數量</strong>：預計2024年底增長<strong>13%</strong>至<strong>188億台</strong>，2030年達<strong>400億台</strong>。</li>
+<li><strong>端側AI市場</strong>：預計2025年人民幣<strong>3219億元</strong>，增長至2029年人民幣<strong>1223萬億元</strong>，複合年增長率高達<strong>39.6%</strong>。</li>
+<li><strong>供需狀況</strong>：受AI拉動，物聯網設備與端側AI需求爆發，模組市場整體呈現需求快速增長的趨勢，高階模組供不應求。</li>
+</ul>
+<h3>產業平均毛利率水準</h3>
+<p>模組製造業的毛利率受產品複雜度、市場競爭及技術領先程度影響。高階、具備新技術（如Wi-Fi 7、AI功能、高速光模組）的產品，其毛利率通常優於傳統模組。例如，立積受惠Wi-Fi 7出貨比重拉升，2025年Q2毛利率提升至<strong>35.4%</strong>；Semtech物聯網部門2024年毛利率為<strong>39%</strong>。海華利潤率的提升也印證了其產品組合優化的成果。</p>
+
+<h3>競爭格局</h3>
+<p>由於缺乏針對海華科技主要產品線（Wi-Fi、5G模組、數位影像模組）的全球前五大公司及其市佔率的明確綜合數據，此處無法提供具體表格。</p>
+
+<ul><li><strong>無線通訊模組主要競爭者</strong>：</li>
+</ul>    *   海外：Telit (全球市場份額超過4%)、Sierra Wireless/Semtech (物聯網板塊毛利率39%)、Gemalto、U-Blox。
+<p>*   中國：移遠通信、美格智能。</p>
+<ul><li><strong>數位影像模組/相機模組主要競爭者</strong>：</li>
+</ul>    *   索尼、AMS、Largan (大立光)、LG Innotek、Sunny Optical (舜宇光學)。
+
+<strong>海華 vs 台灣同業比較</strong>：
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>股票代號</th><th>主要業務</th><th>2025年營收 (預估/實績)</th><th>2025年EPS (預估)</th><th>毛利率參考 (最新)</th></tr></thead><tbody>
+<tr><td>海華</td><td>3694</td><td>無線/數位影像模組</td><td>114.07億元 (實績)</td><td>&gt;4元</td><td>14.29% (Q3)</td></tr>
+<tr><td>達發科技</td><td>6526</td><td>光通訊晶片、寬頻、乙太網路晶片</td><td>209.3億元 (實績)</td><td>-</td><td>優於公司平均 (光通訊)</td></tr>
+<tr><td>立積</td><td>4968</td><td>Wi-Fi射頻前端模組</td><td>-</td><td>-</td><td>35.4% (Q2)</td></tr>
+<tr><td>神基</td><td>3005</td><td>AI伺服器電源模組、強固型電腦</td><td>-</td><td>-</td><td>31.8% (2026E)</td></tr>
+<tr><td>義隆電子</td><td>2458</td><td>觸控晶片、Edge AI晶片</td><td>-</td><td>-</td><td>-</td></tr>
+</tbody></table></div>
+
+<strong>備註</strong>：海華科技在無線通訊模組領域，尤其是Wi-Fi模組，與立積在技術上存在一定競爭關係。與達發在通訊領域雖有部分重疊，但達發更偏向晶片設計。
+
+<h3>產業趨勢對海華的影響</h3>
+<li><strong>端側AI (Edge AI) 與AIoT的普及</strong>：</li>
+<p>*   <strong>影響</strong>：將AI運算推向終端設備，帶動AI PC、AI手機、機器人、智慧家電等對高效能、低功耗AI模組的需求。</p>
+<p>*   <strong>機會</strong>：海華的無線通訊和數位影像模組是實現AIoT功能的關鍵，可提供高算力、高效能的模組解決方案，尤其在AI視覺辨識、機器人導航等應用。全球端側AI市場CAGR高達<strong>39.6%</strong>，為海華帶來爆發性成長機會。</p>
+<li><strong>下一代無線通訊技術 (Wi-Fi 7/8、5G-A/6G) 的演進</strong>：</li>
+<p>*   <strong>影響</strong>：Wi-Fi 7提供更高頻寬、更低延遲，5G-A/6G提升行動通訊速度與可靠性。</p>
+<p>*   <strong>機會</strong>：海華可從Wi-Fi 7設備的普及中獲益，推出符合最新標準的高階模組，並透過研發Wi-Fi 8保持技術領先。</p>
+<li><strong>先進數位影像技術的融合與應用擴展</strong>：</li>
+<p>*   <strong>影響</strong>：3D影像、ToF、IR、eUSB鏡頭等技術整合，並廣泛應用於AR/VR、車載、安防。</p>
+<p>*   <strong>機會</strong>：海華在多種數位影像模組的布局，使其能提供更精準、更可靠的視覺解決方案，特別是在自動駕駛艙、機器人導航等高階應用。</p>
+
+<h3>相關投資題材</h3>
+<ul><li><strong>AI (人工智慧)</strong>：海華的無線通訊模組與數位影像模組為AIoT與端側AI提供關鍵硬體基礎，可支援AI PC、機器人、無人機等。</li>
+<li><strong>電動車</strong>：海華的模組可應用於車載電子系統，如智能駕駛艙、ADAS中的感測器與通訊功能。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<h3>利多事件</h3>
+<ul><li><strong>2026年1月營收表現強勁</strong>：2026年1月營收達新台幣<strong>11.01億元</strong>，月增<strong>16.05%</strong>，年增<strong>58.57%</strong>，創十年單月營收同期新高。</li>
+<li><strong>法說會釋出樂觀展望</strong>：2025年12月法說會中，管理層對2026年營運表現持審慎樂觀態度，預期營收與獲利將優於2025年，實現雙位數百分比成長。</li>
+<li><strong>新興應用佈局開花結果</strong>：IoT領域的機器人掃地機、無人機、白色家電等新產品預期在2026年陸續出貨，為營運提供新動能。</li>
+<li><strong>遊戲機庫存去化完成</strong>：客戶遊戲機無線模組庫存已於2025年大致去化完畢，預期2026年出貨量將進一步放大。</li>
+<li><strong>股價受利多消息提振</strong>：2026年1月下旬股價曾因營運展望樂觀及營收創新高而急漲<strong>10%</strong>，報<strong>67.1元</strong>。</li>
+<li><strong>配發股利</strong>：2025年公告配發每股現金股利<strong>1.477元</strong>，顯示公司願意分享經營成果。</li>
+</ul>
+<h3>利空事件</h3>
+<ul><li><strong>近期股價技術面偏弱</strong>：2026年1月與3月多次出現股價下跌，且低於各條均線，RSI、日KD、月KD皆向下，顯示短線技術面不佳。</li>
+<li><strong>法人籌碼偏空</strong>：2026年1月及3月初，外資與自營商等多日呈現賣超，主力近20日賣超約<strong>10%</strong>，顯示法人對其籌碼偏空。</li>
+<li><strong>原物料與關鍵零組件壓力</strong>：記憶體價格上漲及缺貨議題仍存，可能為公司帶來成本與供應鏈壓力，進而影響PC、筆電需求。</li>
+<li><strong>全球經濟放緩風險</strong>：2026年全球經濟成長動能預期放緩，前期關稅措施可能對外需產業造成拖累。</li>
+<li><strong>AI投資不確定性</strong>：AI投資能否轉化為實質產出仍具不確定性，可能削弱全球成長力道。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<ul><li><strong>2025年</strong></li>
+</ul>    *   <strong>遊戲機</strong>：客戶庫存大致去化完畢，為2026年出貨放大奠定基礎。
+<p>*   <strong>印表機</strong>：成功從專業事務機跨入家用市場，並切入日系與美系重要客戶供應鏈。</p>
+<p>*   <strong>新市場開拓</strong>：產品應用擴展至遊戲機、印表機、IoT應用 (機器人、無人機、掃地機)、車載充電樁、白色家電等多元產業。</p>
+<p>*   <strong>財報表現</strong>：累計前三季EPS達<strong>3.27元</strong>，超越2024年全年獲利；全年營收達<strong>114.07億元</strong>，年增<strong>23.31%</strong>。</p>
+
+<ul><li><strong>2026年</strong></li>
+</ul>    *   <strong>新產品出貨</strong>：機器人及無人機的數位影像模組及無線通訊模組可望開始陸續出貨。無人機領域將推動數位化解決方案，結合AI成像與導航技術。
+<p>*   <strong>技術研發</strong>：持續深化Wi-Fi 8 (下一代無線網路技術) 相關模組開發，已與合作夥伴展開新世代技術試作與導入。</p>
+<p>*   <strong>市場擴張</strong>：印表機無線模組將持續從利基型市場走向大流量量產規模。布局白色家電 (冰箱、洗碗機及空調) 等市場。</p>
+<p>*   <strong>核心業務穩健</strong>：受惠PC、遊戲機等既有應用持續成長，在既有客戶中的出貨占比持續提升。</p>
+<p>*   <strong>營運展望</strong>：管理層預期營運表現有機會超越2025年，法人看好營收、獲利均年增<strong>雙位數百分比</strong>。</p>
+
+<h2>2026 展望</h2>
+<h3>成長動能</h3>
+<li><strong>AIoT與邊緣運算爆發</strong>：隨著AI PC、機器人、智慧家電等終端設備對AI功能及高速連網的需求增加，海華在AI無線/影像模組領域的布局將迎來黃金機遇。</li>
+<li><strong>Wi-Fi 7/8技術升級週期</strong>：Wi-Fi 7滲透率提升，加上公司積極研發Wi-Fi 8，將驅動模組產品平均單價及出貨量增長。</li>
+<li><strong>產品應用多角化成果顯現</strong>：遊戲機庫存去化完成後的出貨放大、印表機市場的深耕、白色家電的新增客戶以及機器人/無人機新興應用的陸續放量，共同構築多元成長曲線。</li>
+<li><strong>母公司和碩生態圈整合</strong>：有望持續獲得和碩集團內部資源與客戶支持，強化在終端電子產品供應鏈的地位。</li>
+
+<h3>風險因子</h3>
+<li><strong>原物料與零組件成本壓力</strong>：記憶體等關鍵零組件價格上漲及潛在缺貨，可能影響生產成本和出貨量，壓抑毛利率。</li>
+<li><strong>總體經濟成長放緩</strong>：全球經濟成長動能減弱，可能影響消費性電子產品的需求，對營收成長造成壓力。</li>
+<li><strong>地緣政治與貿易風險</strong>：國際關稅政策、區域性競爭及供應鏈韌性挑戰，可能對公司營運成本及市場拓展帶來不確定性。</li>
+<li><strong>市場競爭激烈</strong>：模組市場競爭者眾多，技術快速迭代，若無法持續創新並有效控制成本，可能面臨價格戰和市佔率壓力。</li>
+<li><strong>法人籌碼偏空</strong>：近期法人賣超以及技術面偏弱的訊號，需警惕短期股價波動風險。</li>
+
+<h2>投資結論</h2>
+<p>海華科技 (3694) 在無線通訊與數位影像模組領域深耕多年，憑藉對AIoT、Wi-Fi 7/8等新興技術的積極佈局，以及產品應用多角化的策略，展現出強勁的成長潛力。</p>
+
+<li><strong>成長主軸清晰</strong>：公司明確受益於AIoT趨勢、下一代Wi-Fi技術升級以及機器人、無人機等新興應用。這些高成長領域將是未來幾年的主要營收與獲利驅動力。</li>
+<li><strong>2025年獲利超預期，2026年展望樂觀</strong>：2025年累計前三季EPS已超越2024全年，全年營收表現亮眼。管理層與法人預期2026年營收與獲利將實現雙位數百分比增長，顯示基本面持續向好。</li>
+<li><strong>產品組合優化效益顯現</strong>：從利潤率趨勢可觀察到，高毛利的Wi-Fi 7/8及AI影像模組等新產品出貨比重增加，有助於推升整體獲利能力。</li>
+<li><strong>風險管理需關注</strong>：雖然成長前景看好，但仍需留意記憶體等原物料價格波動、全球經濟放緩以及短期法人籌碼偏空對股價造成的壓力。</li>
+
+<p>綜合考量海華科技在AIoT與無線通訊領域的成長潛力、2025年的優異財報表現以及2026年的樂觀展望，儘管缺乏券商目標價，但基於2025年預估EPS超過<strong>4元</strong>，若2026年能維持雙位數成長，預估2026年EPS有望達<strong>4.5-5元</strong>。給予目標價區間建議為 <strong>新台幣80元至100元</strong>，此區間反應了其在高速成長領域的技術優勢與市場拓展成果，以及產業成長潛力賦予的本益比溢價。建議投資人逢低佈局，並長期關注其新產品放量進度與毛利率變化。</p>
+
+<hr>
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-09 21:59</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="3694_海華_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="3694_海華_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="3694_海華_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

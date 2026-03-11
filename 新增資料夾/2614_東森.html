@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2614 東森 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2614 東森 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>東森國際(2614)正從傳統貿易與倉儲業務，成功轉型為涵蓋新零售、新媒體、寵物、美妝及資產活化等多元成長動能的綜合型集團。隨著林口AI智慧國際媒體園區於2026年啟用，以及旗下東森新媒體、東森寵物雲、自然美等轉投資事業預期於2026年全面轉盈，結合全面導入AI技術所帶來的成本效益，公司獲利能力與資產價值有望迎來顯著提升，開啟新的成長週期。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2614 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2614" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2614" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2614');
+    var obvContainer = document.getElementById('obv-chart-2614');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 22.85, "high": 22.9, "low": 22.6, "close": 22.85}, {"time": "2025-12-05", "open": 22.8, "high": 22.85, "low": 21.5, "close": 21.7}, {"time": "2025-12-08", "open": 21.7, "high": 21.95, "low": 21.35, "close": 21.4}, {"time": "2025-12-09", "open": 21.45, "high": 21.7, "low": 21.1, "close": 21.2}, {"time": "2025-12-10", "open": 21.3, "high": 21.4, "low": 21.1, "close": 21.1}, {"time": "2025-12-11", "open": 21.3, "high": 21.8, "low": 21.25, "close": 21.55}, {"time": "2025-12-12", "open": 21.65, "high": 23.7, "low": 21.65, "close": 23.15}, {"time": "2025-12-15", "open": 23.0, "high": 23.15, "low": 22.35, "close": 22.65}, {"time": "2025-12-16", "open": 22.6, "high": 22.75, "low": 22.25, "close": 22.3}, {"time": "2025-12-17", "open": 22.5, "high": 22.5, "low": 22.0, "close": 22.1}, {"time": "2025-12-18", "open": 22.15, "high": 23.0, "low": 22.1, "close": 22.8}, {"time": "2025-12-19", "open": 23.1, "high": 23.7, "low": 22.9, "close": 23.65}, {"time": "2025-12-22", "open": 24.0, "high": 24.2, "low": 22.45, "close": 22.55}, {"time": "2025-12-23", "open": 22.65, "high": 22.9, "low": 22.5, "close": 22.6}, {"time": "2025-12-24", "open": 22.75, "high": 23.25, "low": 22.65, "close": 23.2}, {"time": "2025-12-26", "open": 23.35, "high": 23.95, "low": 23.2, "close": 23.3}, {"time": "2025-12-29", "open": 23.5, "high": 23.5, "low": 22.75, "close": 22.85}, {"time": "2025-12-30", "open": 22.9, "high": 22.9, "low": 22.45, "close": 22.85}, {"time": "2025-12-31", "open": 22.65, "high": 23.0, "low": 22.6, "close": 22.6}, {"time": "2026-01-02", "open": 22.6, "high": 22.6, "low": 22.1, "close": 22.25}, {"time": "2026-01-05", "open": 22.25, "high": 22.25, "low": 21.65, "close": 21.75}, {"time": "2026-01-06", "open": 21.7, "high": 22.05, "low": 21.7, "close": 22.0}, {"time": "2026-01-07", "open": 22.05, "high": 22.65, "low": 21.95, "close": 22.55}, {"time": "2026-01-08", "open": 22.55, "high": 22.65, "low": 22.3, "close": 22.3}, {"time": "2026-01-09", "open": 22.6, "high": 22.75, "low": 22.15, "close": 22.25}, {"time": "2026-01-12", "open": 22.35, "high": 23.15, "low": 22.35, "close": 23.0}, {"time": "2026-01-13", "open": 23.0, "high": 23.0, "low": 22.5, "close": 22.65}, {"time": "2026-01-14", "open": 22.75, "high": 23.2, "low": 22.75, "close": 23.0}, {"time": "2026-01-15", "open": 23.2, "high": 23.2, "low": 22.4, "close": 22.45}, {"time": "2026-01-16", "open": 22.55, "high": 22.55, "low": 22.1, "close": 22.2}, {"time": "2026-01-19", "open": 22.2, "high": 22.55, "low": 22.0, "close": 22.35}, {"time": "2026-01-20", "open": 22.3, "high": 22.8, "low": 22.1, "close": 22.1}, {"time": "2026-01-21", "open": 22.1, "high": 22.1, "low": 21.35, "close": 21.4}, {"time": "2026-01-22", "open": 21.6, "high": 21.6, "low": 21.15, "close": 21.15}, {"time": "2026-01-23", "open": 21.15, "high": 21.2, "low": 20.95, "close": 21.05}, {"time": "2026-01-26", "open": 21.2, "high": 21.9, "low": 21.2, "close": 21.65}, {"time": "2026-01-27", "open": 21.8, "high": 21.8, "low": 21.1, "close": 21.15}, {"time": "2026-01-28", "open": 21.15, "high": 21.4, "low": 21.05, "close": 21.1}, {"time": "2026-01-29", "open": 21.1, "high": 21.2, "low": 20.6, "close": 20.6}, {"time": "2026-01-30", "open": 20.9, "high": 20.9, "low": 20.4, "close": 20.5}, {"time": "2026-02-02", "open": 20.5, "high": 20.5, "low": 20.2, "close": 20.25}, {"time": "2026-02-03", "open": 20.4, "high": 20.65, "low": 20.2, "close": 20.3}, {"time": "2026-02-04", "open": 20.35, "high": 20.85, "low": 20.35, "close": 20.8}, {"time": "2026-02-05", "open": 20.65, "high": 21.25, "low": 20.65, "close": 21.0}, {"time": "2026-02-06", "open": 21.0, "high": 21.0, "low": 20.6, "close": 20.75}, {"time": "2026-02-09", "open": 20.95, "high": 21.0, "low": 20.4, "close": 20.65}, {"time": "2026-02-10", "open": 20.5, "high": 20.55, "low": 20.1, "close": 20.5}, {"time": "2026-02-11", "open": 20.65, "high": 20.65, "low": 20.2, "close": 20.5}, {"time": "2026-02-23", "open": 20.5, "high": 21.2, "low": 20.4, "close": 21.1}, {"time": "2026-02-24", "open": 21.0, "high": 21.25, "low": 20.75, "close": 20.85}, {"time": "2026-02-25", "open": 20.85, "high": 20.95, "low": 20.55, "close": 20.6}, {"time": "2026-02-26", "open": 20.6, "high": 20.7, "low": 20.45, "close": 20.55}, {"time": "2026-03-02", "open": 20.4, "high": 20.55, "low": 20.2, "close": 20.25}, {"time": "2026-03-03", "open": 20.25, "high": 21.2, "low": 20.05, "close": 20.9}, {"time": "2026-03-04", "open": 20.7, "high": 20.75, "low": 20.25, "close": 20.3}, {"time": "2026-03-05", "open": 20.6, "high": 20.7, "low": 20.35, "close": 20.65}, {"time": "2026-03-06", "open": 20.65, "high": 21.2, "low": 20.55, "close": 20.95}, {"time": "2026-03-09", "open": 20.8, "high": 20.8, "low": 20.05, "close": 20.2}, {"time": "2026-03-10", "open": 20.4, "high": 20.75, "low": 20.3, "close": 20.65}, {"time": "2026-03-11", "open": 20.7, "high": 21.2, "low": 20.7, "close": 21.1}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 1059.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 3305.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 1157.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 937.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 912.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 981.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 10482.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 2668.0, "color": "#26a69a"}, {"time": "2025-12-16", "value": 1197.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 1404.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 1810.0, "color": "#ef5350"}, {"time": "2025-12-19", "value": 3642.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 5106.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 1249.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 1693.0, "color": "#ef5350"}, {"time": "2025-12-26", "value": 3052.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 1814.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 784.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 845.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 2078.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 1561.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 697.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 1220.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 767.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 622.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 1977.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 1474.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 1106.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 1322.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 1606.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 1265.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 1092.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 2339.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 1424.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 985.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 1131.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 909.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 736.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 1435.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 787.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 515.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 592.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 545.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 1017.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 822.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 852.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 999.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 676.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 1375.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 844.0, "color": "#26a69a"}, {"time": "2026-02-25", "value": 652.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 892.0, "color": "#26a69a"}, {"time": "2026-03-02", "value": 1301.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 1633.0, "color": "#ef5350"}, {"time": "2026-03-04", "value": 1229.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 680.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 866.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 1065.0, "color": "#26a69a"}, {"time": "2026-03-10", "value": 704.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 903.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 21.65}, {"time": "2025-12-11", "value": 21.39}, {"time": "2025-12-12", "value": 21.68}, {"time": "2025-12-15", "value": 21.93}, {"time": "2025-12-16", "value": 22.15}, {"time": "2025-12-17", "value": 22.35}, {"time": "2025-12-18", "value": 22.6}, {"time": "2025-12-19", "value": 22.7}, {"time": "2025-12-22", "value": 22.68}, {"time": "2025-12-23", "value": 22.740000000000002}, {"time": "2025-12-24", "value": 22.96}, {"time": "2025-12-26", "value": 23.06}, {"time": "2025-12-29", "value": 22.9}, {"time": "2025-12-30", "value": 22.96}, {"time": "2025-12-31", "value": 22.96}, {"time": "2026-01-02", "value": 22.770000000000003}, {"time": "2026-01-05", "value": 22.46}, {"time": "2026-01-06", "value": 22.29}, {"time": "2026-01-07", "value": 22.23}, {"time": "2026-01-08", "value": 22.169999999999998}, {"time": "2026-01-09", "value": 22.169999999999998}, {"time": "2026-01-12", "value": 22.419999999999998}, {"time": "2026-01-13", "value": 22.55}, {"time": "2026-01-14", "value": 22.64}, {"time": "2026-01-15", "value": 22.669999999999998}, {"time": "2026-01-16", "value": 22.66}, {"time": "2026-01-19", "value": 22.53}, {"time": "2026-01-20", "value": 22.419999999999998}, {"time": "2026-01-21", "value": 22.1}, {"time": "2026-01-22", "value": 21.84}, {"time": "2026-01-23", "value": 21.61}, {"time": "2026-01-26", "value": 21.47}, {"time": "2026-01-27", "value": 21.279999999999998}, {"time": "2026-01-28", "value": 21.22}, {"time": "2026-01-29", "value": 21.11}, {"time": "2026-01-30", "value": 21.0}, {"time": "2026-02-02", "value": 20.72}, {"time": "2026-02-03", "value": 20.55}, {"time": "2026-02-04", "value": 20.490000000000002}, {"time": "2026-02-05", "value": 20.57}, {"time": "2026-02-06", "value": 20.619999999999997}, {"time": "2026-02-09", "value": 20.7}, {"time": "2026-02-10", "value": 20.740000000000002}, {"time": "2026-02-11", "value": 20.68}, {"time": "2026-02-23", "value": 20.7}, {"time": "2026-02-24", "value": 20.72}, {"time": "2026-02-25", "value": 20.71}, {"time": "2026-02-26", "value": 20.720000000000002}, {"time": "2026-03-02", "value": 20.67}, {"time": "2026-03-03", "value": 20.630000000000003}, {"time": "2026-03-04", "value": 20.52}, {"time": "2026-03-05", "value": 20.53}, {"time": "2026-03-06", "value": 20.61}, {"time": "2026-03-09", "value": 20.6}, {"time": "2026-03-10", "value": 20.55}, {"time": "2026-03-11", "value": 20.71}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 22.0}, {"time": "2025-12-18", "value": 21.994999999999997}, {"time": "2025-12-19", "value": 22.19}, {"time": "2025-12-22", "value": 22.305}, {"time": "2025-12-23", "value": 22.445}, {"time": "2025-12-24", "value": 22.655}, {"time": "2025-12-26", "value": 22.830000000000002}, {"time": "2025-12-29", "value": 22.8}, {"time": "2025-12-30", "value": 22.82}, {"time": "2025-12-31", "value": 22.85}, {"time": "2026-01-02", "value": 22.865000000000002}, {"time": "2026-01-05", "value": 22.759999999999998}, {"time": "2026-01-06", "value": 22.595000000000002}, {"time": "2026-01-07", "value": 22.595000000000002}, {"time": "2026-01-08", "value": 22.565}, {"time": "2026-01-09", "value": 22.470000000000002}, {"time": "2026-01-12", "value": 22.44}, {"time": "2026-01-13", "value": 22.419999999999998}, {"time": "2026-01-14", "value": 22.435}, {"time": "2026-01-15", "value": 22.419999999999998}, {"time": "2026-01-16", "value": 22.415}, {"time": "2026-01-19", "value": 22.475}, {"time": "2026-01-20", "value": 22.485}, {"time": "2026-01-21", "value": 22.369999999999997}, {"time": "2026-01-22", "value": 22.255000000000003}, {"time": "2026-01-23", "value": 22.134999999999998}, {"time": "2026-01-26", "value": 22.0}, {"time": "2026-01-27", "value": 21.85}, {"time": "2026-01-28", "value": 21.66}, {"time": "2026-01-29", "value": 21.475}, {"time": "2026-01-30", "value": 21.305}, {"time": "2026-02-02", "value": 21.095}, {"time": "2026-02-03", "value": 20.915}, {"time": "2026-02-04", "value": 20.855}, {"time": "2026-02-05", "value": 20.84}, {"time": "2026-02-06", "value": 20.81}, {"time": "2026-02-09", "value": 20.71}, {"time": "2026-02-10", "value": 20.645}, {"time": "2026-02-11", "value": 20.585}, {"time": "2026-02-23", "value": 20.634999999999998}, {"time": "2026-02-24", "value": 20.669999999999998}, {"time": "2026-02-25", "value": 20.705000000000002}, {"time": "2026-02-26", "value": 20.73}, {"time": "2026-03-02", "value": 20.675}, {"time": "2026-03-03", "value": 20.665}, {"time": "2026-03-04", "value": 20.619999999999997}, {"time": "2026-03-05", "value": 20.619999999999997}, {"time": "2026-03-06", "value": 20.665}, {"time": "2026-03-09", "value": 20.634999999999998}, {"time": "2026-03-10", "value": 20.59}, {"time": "2026-03-11", "value": 20.615000000000002}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 22.432499999999997}, {"time": "2026-01-05", "value": 22.3775}, {"time": "2026-01-06", "value": 22.392500000000002}, {"time": "2026-01-07", "value": 22.45}, {"time": "2026-01-08", "value": 22.505000000000003}, {"time": "2026-01-09", "value": 22.5625}, {"time": "2026-01-12", "value": 22.634999999999998}, {"time": "2026-01-13", "value": 22.61}, {"time": "2026-01-14", "value": 22.6275}, {"time": "2026-01-15", "value": 22.634999999999998}, {"time": "2026-01-16", "value": 22.64}, {"time": "2026-01-19", "value": 22.6175}, {"time": "2026-01-20", "value": 22.54}, {"time": "2026-01-21", "value": 22.482499999999998}, {"time": "2026-01-22", "value": 22.41}, {"time": "2026-01-23", "value": 22.302500000000002}, {"time": "2026-01-26", "value": 22.22}, {"time": "2026-01-27", "value": 22.134999999999998}, {"time": "2026-01-28", "value": 22.0475}, {"time": "2026-01-29", "value": 21.947499999999998}, {"time": "2026-01-30", "value": 21.86}, {"time": "2026-02-02", "value": 21.785}, {"time": "2026-02-03", "value": 21.7}, {"time": "2026-02-04", "value": 21.6125}, {"time": "2026-02-05", "value": 21.5475}, {"time": "2026-02-06", "value": 21.4725}, {"time": "2026-02-09", "value": 21.355}, {"time": "2026-02-10", "value": 21.2475}, {"time": "2026-02-11", "value": 21.1225}, {"time": "2026-02-23", "value": 21.055}, {"time": "2026-02-24", "value": 20.9875}, {"time": "2026-02-25", "value": 20.9}, {"time": "2026-02-26", "value": 20.822499999999998}, {"time": "2026-03-02", "value": 20.765}, {"time": "2026-03-03", "value": 20.7525}, {"time": "2026-03-04", "value": 20.715}, {"time": "2026-03-05", "value": 20.665}, {"time": "2026-03-06", "value": 20.655}, {"time": "2026-03-09", "value": 20.61}, {"time": "2026-03-10", "value": 20.6125}, {"time": "2026-03-11", "value": 20.642500000000002}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -3305.0}, {"time": "2025-12-08", "value": -4462.0}, {"time": "2025-12-09", "value": -5399.0}, {"time": "2025-12-10", "value": -6311.0}, {"time": "2025-12-11", "value": -5330.0}, {"time": "2025-12-12", "value": 5152.0}, {"time": "2025-12-15", "value": 2484.0}, {"time": "2025-12-16", "value": 1287.0}, {"time": "2025-12-17", "value": -117.0}, {"time": "2025-12-18", "value": 1693.0}, {"time": "2025-12-19", "value": 5335.0}, {"time": "2025-12-22", "value": 229.0}, {"time": "2025-12-23", "value": 1478.0}, {"time": "2025-12-24", "value": 3171.0}, {"time": "2025-12-26", "value": 6223.0}, {"time": "2025-12-29", "value": 4409.0}, {"time": "2025-12-30", "value": 4409.0}, {"time": "2025-12-31", "value": 3564.0}, {"time": "2026-01-02", "value": 1486.0}, {"time": "2026-01-05", "value": -75.0}, {"time": "2026-01-06", "value": 622.0}, {"time": "2026-01-07", "value": 1842.0}, {"time": "2026-01-08", "value": 1075.0}, {"time": "2026-01-09", "value": 453.0}, {"time": "2026-01-12", "value": 2430.0}, {"time": "2026-01-13", "value": 956.0}, {"time": "2026-01-14", "value": 2062.0}, {"time": "2026-01-15", "value": 740.0}, {"time": "2026-01-16", "value": -866.0}, {"time": "2026-01-19", "value": 399.0}, {"time": "2026-01-20", "value": -693.0}, {"time": "2026-01-21", "value": -3032.0}, {"time": "2026-01-22", "value": -4456.0}, {"time": "2026-01-23", "value": -5441.0}, {"time": "2026-01-26", "value": -4310.0}, {"time": "2026-01-27", "value": -5219.0}, {"time": "2026-01-28", "value": -5955.0}, {"time": "2026-01-29", "value": -7390.0}, {"time": "2026-01-30", "value": -8177.0}, {"time": "2026-02-02", "value": -8692.0}, {"time": "2026-02-03", "value": -8100.0}, {"time": "2026-02-04", "value": -7555.0}, {"time": "2026-02-05", "value": -6538.0}, {"time": "2026-02-06", "value": -7360.0}, {"time": "2026-02-09", "value": -8212.0}, {"time": "2026-02-10", "value": -9211.0}, {"time": "2026-02-11", "value": -9211.0}, {"time": "2026-02-23", "value": -7836.0}, {"time": "2026-02-24", "value": -8680.0}, {"time": "2026-02-25", "value": -9332.0}, {"time": "2026-02-26", "value": -10224.0}, {"time": "2026-03-02", "value": -11525.0}, {"time": "2026-03-03", "value": -9892.0}, {"time": "2026-03-04", "value": -11121.0}, {"time": "2026-03-05", "value": -10441.0}, {"time": "2026-03-06", "value": -9575.0}, {"time": "2026-03-09", "value": -10640.0}, {"time": "2026-03-10", "value": -9936.0}, {"time": "2026-03-11", "value": -9033.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>東森國際（2614）已從傳統貿易及倉儲的業務結構轉型，成為一個以新媒體、新零售、寵物、美妝及資產活化為核心的綜合型集團。</p>
+
+<strong>公司主要業務與核心產品/服務</strong>
+<ul><li><strong>倉儲事業</strong>：提供穩定的倉儲服務，尤其涉及大宗穀物進口運量。</li>
+<li><strong>新媒體事業</strong>：以「ETtoday新聞雲」為平台，提供數位內容、AI廣告投放、短影音與展演轉播。</li>
+<li><strong>新零售會員服務平台</strong>：主要為「東森購物」，加速線上線下整合（OMO），運用AI強化選品、行銷與營運效率。</li>
+<li><strong>寵物事業</strong>：經營「東森寵物雲」，為全台少數可提供美容、醫療、特寵等一條龍服務的寵物連鎖零售體系，並與「慈愛動物醫院」合作。</li>
+<li><strong>美妝事業</strong>：旗下的「自然美生物科技」推動兩岸市場，台灣聚焦異業結盟，上海則以AI科技導入「AI科美」新模式。</li>
+<li><strong>資產開發與活化</strong>：包括林口A9「東林資產」開發案，規劃整合集團營運總部、展演廳、商場及引進晶華旗下品牌「Silks X 晶英薈旅」商務旅館。</li>
+</ul>
+<strong>各業務獲利貢獻概況</strong>
+<p>目前最新的公開資料中，未明確提供各業務佔營收的具體百分比。然而，根據2025年法說會和財報資訊顯示，東森國際已轉向以轉投資事業為核心的綜合型獲利模式，各事業體獲利動能如下：</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>事業體</th><th>2025年營運概況/獲利展望</th></tr></thead><tbody>
+<tr><td><strong>東森購物</strong></td><td>2025年前10月EPS達10.45元，法人預估全年EPS將超過13元。</td></tr>
+<tr><td><strong>東森新媒體</strong></td><td>2025年前三季轉虧為盈，預估2026年全年獲利可望破億元。</td></tr>
+<tr><td><strong>東森寵物雲</strong></td><td>2025年虧損收斂，預計2026年將全面轉盈。</td></tr>
+<tr><td><strong>自然美</strong></td><td>預估2025年亦將轉虧為盈。</td></tr>
+<tr><td><strong>倉儲事業</strong></td><td>2025年前三季營運量下降5.1%，營收下降6.7%，但獲利穩定。</td></tr>
+<tr><td><strong>林口媒體園區</strong></td><td>預計2026年3月取得使照，9月起陸續啟用，將帶來穩定租金收益。</td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+<li><strong>多元事業體轉型與協同效應</strong>：成功從傳統倉儲轉型，擁抱新零售、新媒體、寵物、美妝等高成長領域，各事業體間透過OMO（線上線下整合）策略，共享會員、數據與資源，強化集團整體競爭力與顧客黏著度。</li>
+<li><strong>全面導入AI技術，提升營運效率與創新</strong>：集團自2024年全面導入ChatGPT，2025年深化AI應用於選品、行銷投放、新聞產製、美容服務及開店評估等，預估2025-2026年全年可降低營運成本約新台幣5億元，並驅動各事業線的產品與服務創新。</li>
+<li><strong>獨特的寵物事業一條龍服務</strong>：東森寵物雲結合寵物零售、美容、醫療（與慈愛動物醫院合作）及特寵服務，形成全台少見的完整生態系，搶佔快速成長的寵物市場商機。</li>
+<li><strong>資產活化與價值重估</strong>：林口AI智慧國際媒體園區的開發，將整合集團總部、商場、展演廳及酒店，不僅為集團提供現代化營運基地，其預期帶來的穩定租金與管理收益，更將顯著提升公司資產價值與現金流。</li>
+<li><strong>兩岸美妝市場策略聯動與AI科美創新</strong>：自然美透過兩岸市場策略聯動，結合AI科技推出高端儀器專案「AI科美」新模式，瞄準高端美容與個人化服務需求，具備差異化競爭優勢。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>4.24</td><td>-14.98%</td><td>-11.40%</td></tr>
+<tr><td>2025年12月</td><td>4.99</td><td>7.84%</td><td>-4.75%</td></tr>
+<tr><td>2025年11月</td><td>4.63</td><td>-1.93%</td><td>-6.15%</td></tr>
+<tr><td>2025年10月</td><td>4.72</td><td>4.22%</td><td>-1.31%</td></tr>
+<tr><td>2025年09月</td><td>4.53</td><td>-4.59%</td><td>-1.47%</td></tr>
+<tr><td>2025年08月</td><td>4.75</td><td>6.03%</td><td>5.68%</td></tr>
+</tbody></table></div>
+
+<h3>季度數據 (最新完整季度：2025年第三季)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2025年第三季</th></tr></thead><tbody>
+<tr><td>營收年增率</td><td>-1.20%</td></tr>
+<tr><td>毛利率</td><td>35.29%</td></tr>
+<tr><td>營業利益率</td><td>11.51%</td></tr>
+<tr><td>稅後淨利率</td><td>14.53%</td></tr>
+<tr><td>單季EPS</td><td>0.58元</td></tr>
+</tbody></table></div>
+
+<h3>年度趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2024年實際</th><th>2025年實際/預估</th></tr></thead><tbody>
+<tr><td>全年營收</td><td>57.4億元</td><td>54.73億元</td></tr>
+<tr><td>全年EPS</td><td>1.24元</td><td>2.07元 (法人預估)</td></tr>
+<tr><td>備註</td><td>年減1.59%</td><td>前三季累計EPS為1.42元</td></tr>
+</tbody></table></div>
+
+<h2>法說會重點 (2025年12月26日)</h2>
+<ul><li><strong>林口AI智慧國際媒體園區</strong>：「恩典大樓」預計2026年3月取得使用執照，集團同仁預計2026年第三季遷入集中辦公。相關展演、住宿、餐飲及休閒設施預計2026年9月陸續啟用。</li>
+<li><strong>轉投資事業轉盈預期</strong>：東森新媒體（ETtoday新聞雲）、東森寵物雲、東森自然美預計2026年都將轉盈，顯著挹注集團獲利。</li>
+<li><strong>倉儲事業</strong>：2025年前三季營運量較去年同期下降5.1%，營收下降6.7%，但獲利仍穩定成長。預計2026年隨政府禁用廚餘養豬政策推動，有利於大宗穀物進口運量成長，獲利可望再創新高峰。</li>
+<li><strong>東森寵物雲</strong>：2025年線下通路已建立116間專業寵物零售通路及18間結合慈愛動物醫院專業醫療合作通路，服務遍及全台18縣市。2026年將優化門市績效、汰弱留強、提升覆蓋率，並透過異業合作開設店中店、導入AI開店評估系統。</li>
+<li><strong>東森自然美</strong>：截至2025年9月營收年增59%，通路據點新增331家達2,027家，年增19.5%。預計2025年轉虧為盈，2026年在中國大陸新開500家店，年底店數目標達2,177家。</li>
+<li><strong>東森購物</strong>：2025年前三季EPS已超過10元，法人預估全年EPS將超過13元。將加速線上線下融合，推動全通路(OMO)零售模式，2025年前三季營業利益率達14%。</li>
+<li><strong>產能利用率與資本支出</strong>：法說會中未具體說明2025-2026年產能利用率及總體資本支出金額。</li>
+</ul>
+<h2>券商觀點</h2>
+<p>目前未找到2025-2026年最新券商目標價、EPS預估數字及評等調整的公開資料。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
+</tbody></table></div>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>35.29%</td><td>11.51%</td><td>14.53%</td></tr>
+<tr><td>2025年第二季</td><td>35.25%</td><td>10.20%</td><td>11.40%</td></tr>
+<tr><td>2025年第一季</td><td>29.51%</td><td>2.89%</td><td>5.16%</td></tr>
+<tr><td>2024年第四季</td><td>32.30%</td><td>4.27%</td><td>10.59%</td></tr>
+<tr><td>2024年第三季</td><td>32.62%</td><td>6.57%</td><td>3.00%</td></tr>
+<tr><td>2024年第二季</td><td>32.45%</td><td>5.38%</td><td>7.97%</td></tr>
+<tr><td>2024年第一季</td><td>31.67%</td><td>6.48%</td><td>-0.60%</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化原因分析</strong>
+<p>東森國際的利潤率在2025年呈現顯著改善，尤其在第三季達到較高水準，主要受惠於其多元轉投資事業的獲利能力提升：</p>
+<ul><li><strong>轉投資事業動能齊發</strong>：東森新媒體於2025年第三季轉虧為盈，東森寵物雲及自然美虧損收斂並預期2026年轉盈，東森購物保持穩健獲利（2025年前三季營業利益率達14%）。這些事業體的改善直接提升了集團整體利潤率。</li>
+<li><strong>AI導入效益</strong>：集團全面導入AI，預估2025-2026年全年可降低營運成本約5億元，有助於營業費用率的控制，進而提升營業利益率。</li>
+<li><strong>資產處分</strong>：2024年處分復興南路資產對其獲利有正面影響，使得2024年全年EPS達1.24元。</li>
+<li><strong>倉儲事業</strong>：儘管2025年前三季營運量和營收小幅下降，但獲利仍穩定，為集團提供基本盤支撐。</li>
+</ul>
+<h3>存貨與營運</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數 (日)</th><th>存貨週轉率 (次)</th><th>應收帳款收現天數 (日)</th><th>應收帳款週轉率 (次)</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>42.42</td><td>2.12</td><td>26.06</td><td>3.45</td></tr>
+<tr><td>2025年第二季</td><td>42.40</td><td>2.12</td><td>24.14</td><td>3.46</td></tr>
+<tr><td>2025年第一季</td><td>41.84</td><td>2.15</td><td>29.12</td><td>2.91</td></tr>
+<tr><td>2024年第四季</td><td>36.55</td><td>2.46</td><td>25.20</td><td>3.37</td></tr>
+</tbody></table></div>
+
+<strong>存貨分析</strong>：從2024年第四季至2025年第三季，存貨週轉天數呈現微幅上升趨勢，存貨週轉率則微幅下降，可能表示存貨去化速度略有放緩，但目前未見異常堆積現象。
+<strong>應收帳款分析</strong>：應收帳款週轉天數在2025年第一季有所上升後，在第二、三季下降，顯示收款效率在2025年中有所改善。
+
+<h3>資本支出</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>資本支出 (千元)</th><th>折舊攤銷 (千元)</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>4,404</td><td>311,442</td></tr>
+<tr><td>2025年第二季</td><td>3,076</td><td>310,034</td></tr>
+<tr><td>2025年第一季</td><td>3,109</td><td>309,459</td></tr>
+<tr><td>2024年第四季</td><td>4,297</td><td>309,780</td></tr>
+</tbody></table></div>
+
+<strong>資本支出趨勢</strong>：近期季度資本支出金額相對穩定且規模較小。然而，林口A9「東林資產」開發案是總投資逾130億元的重大資產投資，預計2026年3月取得使用執照，9月起陸續啟用，雖然非傳統產能擴充，但對未來租金與管理收益有重大影響。
+<strong>折舊攤銷趨勢</strong>：折舊攤銷金額近幾季保持相對穩定，顯示公司資產折舊攤銷政策未有重大改變。
+
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓紀錄</strong>：近期（2024-2026年）未找到東森（2614）董監事/大股東大規模申報轉讓的明確紀錄。總經理周惠英(新任，前發言人)截至2026年1月持股59張，持股比例0.02%。</li>
+<li><strong>庫藏股買回紀錄</strong>：未找到2024-2026年的最新庫藏股買回紀錄。</li>
+<li><strong>可轉換公司債(CB)</strong>：未找到2024-2026年的最新可轉換公司債發行資訊。</li>
+<li><strong>增資/減資計畫</strong>：2025年12月24日公布114年(2025年)增資股股票上市掛牌日期為2026年1月2日，普通股數量為27,021,876股。未找到近期現金增資或減資計畫。</li>
+<li><strong>股利政策</strong>：</li>
+</ul>    *   <strong>2024年</strong>：每股配發現金股利0.25元、股票股利0.90元，合計1.15元。發放日期為2025年8月13日。
+<p>*   <strong>歷史股利</strong>：2023年、2022年無股利；2021年現金股利1元；2020年現金股利0.8元；2019年現金股利1元。2024年恢復發放股利且股利結構現金與股票並重。</p>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與CAGR</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>產業類別</th><th>市場規模 (2025/2026)</th><th>CAGR (預估)</th><th>趨勢重點</th></tr></thead><tbody>
+<tr><td><strong>倉儲事業</strong></td><td>N/A (未明確數據)</td><td>N/A</td><td>政府禁用廚餘養豬政策有利於大宗穀物進口運量成長。</td></tr>
+<tr><td><strong>新媒體 (數位廣告)</strong></td><td>2026年: 1.27兆美元 (全球廣告), 73%為數位廣告</td><td>15.61% (2025-2034)</td><td>AI主導創意、投放、優化；短影音與互動內容興起。</td></tr>
+<tr><td><strong>新零售 (電商)</strong></td><td>2026年: 8.1兆美元 (全球零售電商)</td><td>25.83% (2025-2033)</td><td>會員經濟深化、虛實整合(OMO)、營運效率提升。</td></tr>
+<tr><td><strong>寵物事業</strong></td><td>2030年: 突破5,000億美元 (全球寵物產業)</td><td>5.77% (2026-2034)</td><td>寵物人性化、高端化；專業照護、醫療服務需求增長。</td></tr>
+<tr><td><strong>美妝事業</strong></td><td>2025年: 1900-2000億美元 (全球護膚品)</td><td>6.97% (2026-2034)</td><td>大眾盤穩固、高端線高增；AI護膚、個人化美容方案。</td></tr>
+</tbody></table></div>
+
+<h3>競爭格局</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類型</th><th>東森 (2614)</th><th>主要競爭對手 (類型/實例)</th><th>競爭優勢/策略</th></tr></thead><tbody>
+<tr><td><strong>倉儲</strong></td><td>穩定獲利大宗穀物、智慧倉儲</td><td>N/A (未具體列出)</td><td>穩定基底，政策利多</td></tr>
+<tr><td><strong>新媒體</strong></td><td>ETtoday新聞雲、AI生成內容、多平台轉播</td><td>Google, Meta, TikTok, 傳統新聞媒體</td><td>數位內容與AI投放，加速內容製作與多元佈局</td></tr>
+<tr><td><strong>新零售 (電商)</strong></td><td>東森購物、OMO線上線下整合、AI選品行銷</td><td>Momo, 蝦皮, PChome, 酷澎</td><td>會員經濟深化，虛實整合提升用戶體驗與轉換率</td></tr>
+<tr><td><strong>寵物事業</strong></td><td>東森寵物雲、一條龍服務 (零售+美容+醫療)</td><td>Destination Pet, Pet Paradise, CVS Group, (台灣在地連鎖寵物店)</td><td>一站式專業服務，結合醫療資源，異業合作擴展覆蓋率</td></tr>
+<tr><td><strong>美妝事業</strong></td><td>自然美生物科技、兩岸策略聯動、AI科美</td><td>歐萊雅, 聯合利華, 寶潔, 雅詩蘭黛</td><td>AI高端美容服務，客製化體驗，深耕中國市場</td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢</h3>
+<li><strong>人工智慧 (AI) 深度整合</strong>：AI已成為產業核心基礎設施，主導創意、投放與優化。東森集團全面導入AI於數位媒體（內容生成、廣告投放）、新零售（AI導購、選品、庫存）、美妝（AI科美、個人化方案）及倉儲（智慧穀物倉儲），此為提升效率與競爭力的關鍵。</li>
+<li><strong>虛實整合 (OMO, Online-Merge-Offline) 全面化</strong>：零售業與服務業競爭從單一線上轉向線上線下整合。東森購物及東森寵物雲積極推動OMO，串聯實體門市、電商平台、社群，打造一致且可轉換的消費體驗，有助於提升客戶黏著度與營運效率。</li>
+<li><strong>短影音與內容經濟的崛起</strong>：短影音取代靜態貼文成為主要品牌接觸點，社群影音「即購化」趨勢明顯。ETtoday新聞雲需強化短影音製作與多平台整合，以適應消費者決策路徑的改變。</li>
+
+<h3>對 東森 而言的具體機會和威脅</h3>
+<strong>機會 (Opportunities)</strong>
+<ul><li><strong>AI技術導入</strong>：集團全面深化AI應用於各事業體，預期帶來顯著的成本節降（5億元）和營運效率提升，符合產業趨勢。</li>
+<li><strong>OMO策略深化</strong>：東森購物及東森寵物雲積極實踐虛實整合，有效應對消費者行為轉變，提升客戶黏著度。</li>
+<li><strong>寵物經濟成長</strong>：台灣寵物市場「人性化」與「高端化」趨勢，有利於東森寵物雲一條龍服務的商業模式擴張。</li>
+<li><strong>美妝市場高端需求</strong>：自然美上海以「AI科美」模式抓住高端與個人化美容服務商機，並持續擴展中國大陸門店。</li>
+<li><strong>資產活化價值</strong>：林口AI智慧國際媒體園區預計2026年啟用，將帶來穩定的租金與管理收益，並提升集團總部營運效率。</li>
+<li><strong>轉投資事業獲利改善</strong>：ETtoday、寵物雲、自然美預期2026年轉盈，將顯著挹注東森國際獲利。</li>
+</ul>
+<strong>威脅 (Threats)</strong>
+<ul><li><strong>電商市場激烈競爭</strong>：台灣電商市場高度集中且跨境電商強勢崛起，東森購物面臨嚴峻挑戰。</li>
+<li><strong>消費者行為變化</strong>：消費者對折扣疲乏、趨向理性消費，對平台業者獲利能力構成壓力。</li>
+<li><strong>技術快速迭代</strong>：AI等新技術發展迅速，若未能持續投資與快速導入，可能在競爭中落後。</li>
+<li><strong>總經風險</strong>：國際關稅政策不確定性、疾病、風災等可能影響倉儲事業的穀物進口運量。</li>
+</ul>
+<h2>近期催化劑</h2>
+<ul><li><strong>2026年03月05日</strong>：外資買超79張，投信買賣超-997張（年初至今），自營商賣超8張。</li>
+<li><strong>2026年03月04日</strong>：公告其及子公司背書保證金額達「公開發行公司資金貸與及背書保證處理準則」第二十五條之規定，被背書保證公司為東森新媒體控股股份有限公司。</li>
+<li><strong>2026年03月03日</strong>：董事會決議聘任周惠英出任總經理，廖尚文董事長卸下兼任總經理職務。</li>
+<li><strong>2026年02月09日/10日</strong>：公布2026年1月合併營收為新台幣4.24億元，較上月減少14.98%，較去年同期減少11.4%，為2025年4月以來新低。</li>
+<li><strong>2026年01月27日</strong>：東森集團積極推動AI轉型，預估2025年至2026年全年將因AI導入降低營運成本約新台幣5億元。</li>
+<li><strong>2026年01月02日</strong>：東森國際114年(2025年)增資股股票上市掛牌。</li>
+<li><strong>2025年12月26日</strong>：法說會公布林口AI智慧國際媒體園區2026年3月取得使照，9月起陸續啟用；旗下東森新聞雲、東森寵物雲與東森自然美預計2026年都將轉盈。</li>
+<li><strong>2025年12月12日</strong>：林口A9東林資產開發案預計2026年第一季取得使用執照，最快第三季營運。</li>
+<li><strong>2025年12月11日</strong>：2025年前三季稅後純益達新台幣4.64億元，年增139%，每股稅後純益為1.42元，已超越2024年全年獲利。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>成長動能項目</th><th>具體內容</th><th>預計時間點</th></tr></thead><tbody>
+<tr><td><strong>擴廠 (資產活化)</strong></td><td><strong>林口AI智慧國際媒體園區</strong>：「恩典大樓」取得使用執照</td><td>2026年3月</td></tr>
+<tr><td><strong>擴廠 (資產活化)</strong></td><td><strong>林口AI智慧國際媒體園區</strong>：集團同仁遷入集中辦公</td><td>2026年第三季</td></tr>
+<tr><td><strong>擴廠 (資產活化)</strong></td><td><strong>林口AI智慧國際媒體園區</strong>：展演、住宿、餐飲、休閒設施啟用</td><td>2026年9月起陸續</td></tr>
+<tr><td><strong>轉投資事業轉盈</strong></td><td>東森新媒體、東森寵物雲、自然美預計全年轉虧為盈</td><td>2026年全年</td></tr>
+<tr><td><strong>新市場/產能擴充</strong></td><td><strong>東森自然美</strong>：在中國大陸新開500家店，年底店數達2,177家</td><td>2026年全年</td></tr>
+<tr><td><strong>新客戶/新市場</strong></td><td><strong>東森寵物雲</strong>：優化門市績效、異業合作開拓店中店、強化第三方外送平台</td><td>2026年全年</td></tr>
+<tr><td><strong>AI導入效益</strong></td><td>集團全面導入AI，全年可降低營運成本約新台幣5億元</td><td>2025年至2026年全年</td></tr>
+<tr><td><strong>需求面利多</strong></td><td><strong>倉儲事業</strong>：政府禁用廚餘養豬政策，有利於大宗穀物進口運量成長</td><td>2026年全年</td></tr>
+<tr><td><strong>IPO計畫</strong></td><td><strong>東森寵物雲</strong>：積極規劃三年內掛牌上市</td><td>2025年5月宣佈，預計三年內</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+<strong>成長動能</strong>
+<p>東森國際2026年的主要成長動能來自多個面向：</p>
+<li><strong>林口AI智慧國際媒體園區啟用</strong>：預計2026年3月取得使照、9月陸續啟用，將整合集團總部、商場、展演廳與酒店，帶來穩定租金與管理收益，大幅提升資產價值和長期現金流。</li>
+<li><strong>三大轉投資事業全面轉盈</strong>：東森新媒體、東森寵物雲、自然美預計在2026年全面轉虧為盈，將顯著挹注東森國際的本業獲利，而非過去的虧損拖累。其中ETtoday新聞雲更預估獲利破億元。</li>
+<li><strong>AI導入效益顯現</strong>：集團全面導入AI預計在2025-2026年全年節省5億元成本，有效提升各事業體的獲利能力。</li>
+<li><strong>寵物事業持續擴張</strong>：東森寵物雲將繼續優化門市績效、擴大覆蓋率，並深化寵物醫療等一站式服務，抓住「寵物人性化」的市場趨勢。</li>
+<li><strong>自然美中國市場成長</strong>：自然美在中國大陸預計新開500家店，擴大市場滲透率並推廣AI科美新模式，推升營收與獲利。</li>
+<li><strong>倉儲事業穩定成長</strong>：受益於政府禁用廚餘養豬政策，大宗穀物進口運量有望成長，維持倉儲本業的穩定獲利。</li>
+
+<strong>風險</strong>
+<p>儘管成長動能強勁，仍需關注以下風險：</p>
+<li><strong>電商市場競爭加劇</strong>：台灣電商市場Momo、蝦皮等強勢平台競爭激烈，跨境電商如酷澎也持續投入，對東森購物的市場份額和獲利能力構成壓力。</li>
+<li><strong>景氣循環影響消費力</strong>：若全球或台灣經濟成長放緩，可能影響消費者在零售、媒體及美容服務上的支出意願。</li>
+<li><strong>新事業體獲利不及預期</strong>：儘管預期轉盈，但新媒體、寵物雲、自然美等事業若因市場變化或營運挑戰，未能達到預期獲利目標，將影響集團整體表現。</li>
+<li><strong>林口媒體園區招商與營運進度</strong>：園區啟用後的招商情況及營運效率，將直接影響其收益貢獻。</li>
+<li><strong>國際貿易政策變化</strong>：倉儲事業受國際穀物貿易政策影響，存在一定的波動性。</li>
+
+<h2>投資結論</h2>
+<p>東森國際(2614)正處於一個關鍵的轉型與收穫期，其多元化的戰略佈局與數位轉型成果，預期將在2026年開始顯現。</p>
+<li><strong>多角化經營帶來穩健成長</strong>：東森成功從單一倉儲業務轉型為涵蓋新媒體、新零售、寵物、美妝及資產活化等多元事業的集團。各事業體在2026年有望陸續轉虧為盈，將為集團獲利帶來顯著的增長動能。</li>
+<li><strong>資產活化價值重估</strong>：林口AI智慧國際媒體園區的啟用，不僅將改善集團營運效率，更將帶來穩定的租金收益與潛在資產重估價值，為公司提供長期現金流與基本面支撐。</li>
+<li><strong>AI導入提升營運效率與競爭力</strong>：集團全面導入AI技術，預計2025-2026年全年將節省5億元營運成本，並在各事業線推動創新，是未來提升獲利能力的重要驅動力。</li>
+<li><strong>寵物經濟與美妝市場的藍海商機</strong>：東森寵物雲的一條龍服務和自然美的AI科美模式，精準抓住台灣及兩岸市場的寵物與美容高端化趨勢，具備高成長潛力。</li>
+<li><strong>投資建議</strong>：考慮到東森國際在2025年法人預估EPS為2.07元，且2026年將有顯著的轉投資事業轉盈與資產活化收益，我們預期其未來獲利能力將有顯著提升。若給予一家具備多元成長動能與資產重估潛力的複合型企業20倍至25倍的預期本益比區間，則目標價區間建議落在 <strong>新台幣 42 元至 52 元</strong>。此目標價區間反映了公司核心事業的轉型成功、新成長動能的爆發，以及其資產價值的重新評估。</li>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 14:13</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2614_東森_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2614_東森_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2614_東森_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

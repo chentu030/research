@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2449 京元電子 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2449 京元電子 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>京元電子 (2449) 憑藉其在全球專業半導體測試服務領域的領導地位，特別是在高功率AI晶片預燒測試技術上獨具優勢。受惠於AI/HPC晶片需求的爆炸性成長，公司正透過創紀錄的資本支出積極擴充產能，預計2026年營收及獲利將進入顯著優於產業平均的爆發性成長期。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2449 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2449" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2449" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2449');
+    var obvContainer = document.getElementById('obv-chart-2449');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 225.0, "high": 225.0, "low": 217.5, "close": 220.5}, {"time": "2025-12-05", "open": 220.0, "high": 223.0, "low": 218.5, "close": 221.5}, {"time": "2025-12-08", "open": 221.0, "high": 228.0, "low": 221.0, "close": 228.0}, {"time": "2025-12-09", "open": 228.5, "high": 235.0, "low": 225.5, "close": 228.5}, {"time": "2025-12-10", "open": 229.0, "high": 231.5, "low": 227.0, "close": 229.0}, {"time": "2025-12-11", "open": 231.0, "high": 232.0, "low": 221.0, "close": 221.5}, {"time": "2025-12-12", "open": 224.0, "high": 230.5, "low": 222.0, "close": 230.0}, {"time": "2025-12-15", "open": 223.5, "high": 224.0, "low": 219.5, "close": 221.5}, {"time": "2025-12-16", "open": 221.0, "high": 223.0, "low": 214.0, "close": 216.0}, {"time": "2025-12-17", "open": 217.5, "high": 220.0, "low": 213.0, "close": 215.0}, {"time": "2025-12-18", "open": 213.0, "high": 213.5, "low": 208.0, "close": 208.5}, {"time": "2025-12-19", "open": 212.0, "high": 216.5, "low": 212.0, "close": 215.5}, {"time": "2025-12-22", "open": 219.0, "high": 227.0, "low": 219.0, "close": 221.0}, {"time": "2025-12-23", "open": 222.5, "high": 224.0, "low": 220.0, "close": 220.0}, {"time": "2025-12-24", "open": 222.0, "high": 224.0, "low": 219.0, "close": 219.0}, {"time": "2025-12-26", "open": 220.5, "high": 225.5, "low": 220.5, "close": 223.0}, {"time": "2025-12-29", "open": 234.0, "high": 245.0, "low": 227.0, "close": 245.0}, {"time": "2025-12-30", "open": 245.0, "high": 250.5, "low": 240.5, "close": 243.5}, {"time": "2025-12-31", "open": 246.0, "high": 261.5, "low": 244.0, "close": 247.5}, {"time": "2026-01-02", "open": 253.5, "high": 272.0, "low": 252.5, "close": 267.5}, {"time": "2026-01-05", "open": 273.0, "high": 274.0, "low": 258.5, "close": 263.0}, {"time": "2026-01-06", "open": 263.0, "high": 271.0, "low": 263.0, "close": 267.0}, {"time": "2026-01-07", "open": 270.5, "high": 276.0, "low": 266.5, "close": 266.5}, {"time": "2026-01-08", "open": 264.0, "high": 264.5, "low": 258.5, "close": 263.0}, {"time": "2026-01-09", "open": 259.5, "high": 266.0, "low": 252.0, "close": 263.5}, {"time": "2026-01-12", "open": 267.5, "high": 271.0, "low": 263.5, "close": 270.0}, {"time": "2026-01-13", "open": 273.5, "high": 279.5, "low": 265.0, "close": 270.5}, {"time": "2026-01-14", "open": 270.0, "high": 271.5, "low": 267.0, "close": 270.5}, {"time": "2026-01-15", "open": 271.5, "high": 271.5, "low": 263.0, "close": 267.5}, {"time": "2026-01-16", "open": 272.0, "high": 278.5, "low": 269.0, "close": 273.5}, {"time": "2026-01-19", "open": 273.5, "high": 280.0, "low": 270.0, "close": 271.5}, {"time": "2026-01-20", "open": 272.0, "high": 277.0, "low": 265.5, "close": 274.5}, {"time": "2026-01-21", "open": 271.0, "high": 278.0, "low": 266.0, "close": 267.0}, {"time": "2026-01-22", "open": 272.0, "high": 277.0, "low": 272.0, "close": 274.5}, {"time": "2026-01-23", "open": 279.0, "high": 292.0, "low": 272.5, "close": 286.5}, {"time": "2026-01-26", "open": 286.0, "high": 303.5, "low": 284.0, "close": 297.5}, {"time": "2026-01-27", "open": 298.0, "high": 313.5, "low": 292.5, "close": 300.0}, {"time": "2026-01-28", "open": 302.5, "high": 311.5, "low": 299.0, "close": 311.0}, {"time": "2026-01-29", "open": 315.0, "high": 324.0, "low": 303.5, "close": 305.0}, {"time": "2026-01-30", "open": 303.0, "high": 306.0, "low": 295.0, "close": 296.0}, {"time": "2026-02-02", "open": 289.5, "high": 293.5, "low": 280.0, "close": 285.0}, {"time": "2026-02-03", "open": 295.0, "high": 301.0, "low": 288.5, "close": 293.5}, {"time": "2026-02-04", "open": 293.0, "high": 297.5, "low": 287.0, "close": 297.0}, {"time": "2026-02-05", "open": 291.0, "high": 292.0, "low": 277.5, "close": 280.5}, {"time": "2026-02-06", "open": 286.5, "high": 292.0, "low": 277.5, "close": 283.5}, {"time": "2026-02-09", "open": 297.0, "high": 301.5, "low": 291.5, "close": 291.5}, {"time": "2026-02-10", "open": 298.5, "high": 308.0, "low": 297.0, "close": 302.0}, {"time": "2026-02-11", "open": 309.0, "high": 318.0, "low": 301.0, "close": 313.5}, {"time": "2026-02-23", "open": 322.5, "high": 331.5, "low": 313.0, "close": 316.5}, {"time": "2026-02-24", "open": 317.0, "high": 329.5, "low": 315.0, "close": 326.0}, {"time": "2026-02-25", "open": 333.0, "high": 333.0, "low": 318.0, "close": 320.0}, {"time": "2026-02-26", "open": 318.5, "high": 329.5, "low": 317.0, "close": 327.0}, {"time": "2026-03-02", "open": 291.5, "high": 296.5, "low": 276.0, "close": 278.0}, {"time": "2026-03-03", "open": 315.5, "high": 321.5, "low": 305.0, "close": 305.0}, {"time": "2026-03-04", "open": 291.5, "high": 296.5, "low": 276.0, "close": 278.0}, {"time": "2026-03-05", "open": 295.0, "high": 304.5, "low": 290.5, "close": 295.0}, {"time": "2026-03-06", "open": 291.0, "high": 293.5, "low": 283.5, "close": 284.5}, {"time": "2026-03-09", "open": 256.5, "high": 275.0, "low": 256.5, "close": 272.0}, {"time": "2026-03-10", "open": 291.0, "high": 299.0, "low": 287.0, "close": 293.0}, {"time": "2026-03-11", "open": 301.0, "high": 307.0, "low": 297.0, "close": 306.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 22536.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 15205.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 17060.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 27405.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 14091.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 21378.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 19094.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 17602.0, "color": "#26a69a"}, {"time": "2025-12-16", "value": 16918.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 16508.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 17100.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 11702.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 19025.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 8092.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 9835.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 11161.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 63582.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 52967.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 63445.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 57298.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 43235.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 25830.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 25557.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 18210.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 20400.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 24159.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 27923.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 15675.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 19953.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 26587.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 18283.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 17353.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 17052.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 19821.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 31112.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 25953.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 29314.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 21393.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 27050.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 17514.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 17191.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 12951.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 12025.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 18259.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 31636.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 20672.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 25947.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 22936.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 27444.0, "color": "#26a69a"}, {"time": "2026-02-24", "value": 19845.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 18501.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 18744.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 21867.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 12226.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 21867.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 16564.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 14259.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 27843.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 25917.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 23535.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 225.5}, {"time": "2025-12-11", "value": 225.7}, {"time": "2025-12-12", "value": 227.4}, {"time": "2025-12-15", "value": 226.1}, {"time": "2025-12-16", "value": 223.6}, {"time": "2025-12-17", "value": 220.8}, {"time": "2025-12-18", "value": 218.2}, {"time": "2025-12-19", "value": 215.3}, {"time": "2025-12-22", "value": 215.2}, {"time": "2025-12-23", "value": 216.0}, {"time": "2025-12-24", "value": 216.8}, {"time": "2025-12-26", "value": 219.7}, {"time": "2025-12-29", "value": 225.6}, {"time": "2025-12-30", "value": 230.1}, {"time": "2025-12-31", "value": 235.6}, {"time": "2026-01-02", "value": 245.3}, {"time": "2026-01-05", "value": 253.3}, {"time": "2026-01-06", "value": 257.7}, {"time": "2026-01-07", "value": 262.3}, {"time": "2026-01-08", "value": 265.4}, {"time": "2026-01-09", "value": 264.6}, {"time": "2026-01-12", "value": 266.0}, {"time": "2026-01-13", "value": 266.7}, {"time": "2026-01-14", "value": 267.5}, {"time": "2026-01-15", "value": 268.4}, {"time": "2026-01-16", "value": 270.4}, {"time": "2026-01-19", "value": 270.7}, {"time": "2026-01-20", "value": 271.5}, {"time": "2026-01-21", "value": 270.8}, {"time": "2026-01-22", "value": 272.2}, {"time": "2026-01-23", "value": 274.8}, {"time": "2026-01-26", "value": 280.0}, {"time": "2026-01-27", "value": 285.1}, {"time": "2026-01-28", "value": 293.9}, {"time": "2026-01-29", "value": 300.0}, {"time": "2026-01-30", "value": 301.9}, {"time": "2026-02-02", "value": 299.4}, {"time": "2026-02-03", "value": 298.1}, {"time": "2026-02-04", "value": 295.3}, {"time": "2026-02-05", "value": 290.4}, {"time": "2026-02-06", "value": 287.9}, {"time": "2026-02-09", "value": 289.2}, {"time": "2026-02-10", "value": 290.9}, {"time": "2026-02-11", "value": 294.2}, {"time": "2026-02-23", "value": 301.4}, {"time": "2026-02-24", "value": 309.9}, {"time": "2026-02-25", "value": 315.6}, {"time": "2026-02-26", "value": 320.6}, {"time": "2026-03-02", "value": 313.5}, {"time": "2026-03-03", "value": 311.2}, {"time": "2026-03-04", "value": 301.6}, {"time": "2026-03-05", "value": 296.6}, {"time": "2026-03-06", "value": 288.1}, {"time": "2026-03-09", "value": 286.9}, {"time": "2026-03-10", "value": 284.5}, {"time": "2026-03-11", "value": 290.1}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 223.15}, {"time": "2025-12-18", "value": 221.95}, {"time": "2025-12-19", "value": 221.35}, {"time": "2025-12-22", "value": 220.65}, {"time": "2025-12-23", "value": 219.8}, {"time": "2025-12-24", "value": 218.8}, {"time": "2025-12-26", "value": 218.95}, {"time": "2025-12-29", "value": 220.45}, {"time": "2025-12-30", "value": 222.65}, {"time": "2025-12-31", "value": 225.8}, {"time": "2026-01-02", "value": 231.05}, {"time": "2026-01-05", "value": 236.5}, {"time": "2026-01-06", "value": 241.65}, {"time": "2026-01-07", "value": 246.2}, {"time": "2026-01-08", "value": 250.5}, {"time": "2026-01-09", "value": 254.95}, {"time": "2026-01-12", "value": 259.65}, {"time": "2026-01-13", "value": 262.2}, {"time": "2026-01-14", "value": 264.9}, {"time": "2026-01-15", "value": 266.9}, {"time": "2026-01-16", "value": 267.5}, {"time": "2026-01-19", "value": 268.35}, {"time": "2026-01-20", "value": 269.1}, {"time": "2026-01-21", "value": 269.15}, {"time": "2026-01-22", "value": 270.3}, {"time": "2026-01-23", "value": 272.6}, {"time": "2026-01-26", "value": 275.35}, {"time": "2026-01-27", "value": 278.3}, {"time": "2026-01-28", "value": 282.35}, {"time": "2026-01-29", "value": 286.1}, {"time": "2026-01-30", "value": 288.35}, {"time": "2026-02-02", "value": 289.7}, {"time": "2026-02-03", "value": 291.6}, {"time": "2026-02-04", "value": 294.6}, {"time": "2026-02-05", "value": 295.2}, {"time": "2026-02-06", "value": 294.9}, {"time": "2026-02-09", "value": 294.3}, {"time": "2026-02-10", "value": 294.5}, {"time": "2026-02-11", "value": 294.75}, {"time": "2026-02-23", "value": 295.9}, {"time": "2026-02-24", "value": 298.9}, {"time": "2026-02-25", "value": 302.4}, {"time": "2026-02-26", "value": 305.75}, {"time": "2026-03-02", "value": 303.85}, {"time": "2026-03-03", "value": 306.3}, {"time": "2026-03-04", "value": 305.75}, {"time": "2026-03-05", "value": 306.1}, {"time": "2026-03-06", "value": 304.35}, {"time": "2026-03-09", "value": 300.2}, {"time": "2026-03-10", "value": 297.85}, {"time": "2026-03-11", "value": 295.85}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 227.1}, {"time": "2026-01-05", "value": 229.225}, {"time": "2026-01-06", "value": 231.5}, {"time": "2026-01-07", "value": 233.425}, {"time": "2026-01-08", "value": 235.15}, {"time": "2026-01-09", "value": 236.875}, {"time": "2026-01-12", "value": 239.3}, {"time": "2026-01-13", "value": 241.325}, {"time": "2026-01-14", "value": 243.775}, {"time": "2026-01-15", "value": 246.35}, {"time": "2026-01-16", "value": 249.275}, {"time": "2026-01-19", "value": 252.425}, {"time": "2026-01-20", "value": 255.375}, {"time": "2026-01-21", "value": 257.675}, {"time": "2026-01-22", "value": 260.4}, {"time": "2026-01-23", "value": 263.775}, {"time": "2026-01-26", "value": 267.5}, {"time": "2026-01-27", "value": 270.25}, {"time": "2026-01-28", "value": 273.625}, {"time": "2026-01-29", "value": 276.5}, {"time": "2026-01-30", "value": 277.925}, {"time": "2026-02-02", "value": 279.025}, {"time": "2026-02-03", "value": 280.35}, {"time": "2026-02-04", "value": 281.875}, {"time": "2026-02-05", "value": 282.75}, {"time": "2026-02-06", "value": 283.75}, {"time": "2026-02-09", "value": 284.825}, {"time": "2026-02-10", "value": 286.4}, {"time": "2026-02-11", "value": 288.55}, {"time": "2026-02-23", "value": 291.0}, {"time": "2026-02-24", "value": 293.625}, {"time": "2026-02-25", "value": 296.05}, {"time": "2026-02-26", "value": 298.675}, {"time": "2026-03-02", "value": 299.225}, {"time": "2026-03-03", "value": 300.75}, {"time": "2026-03-04", "value": 300.325}, {"time": "2026-03-05", "value": 300.2}, {"time": "2026-03-06", "value": 299.425}, {"time": "2026-03-09", "value": 297.475}, {"time": "2026-03-10", "value": 296.875}, {"time": "2026-03-11", "value": 297.375}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 15205.0}, {"time": "2025-12-08", "value": 32265.0}, {"time": "2025-12-09", "value": 59670.0}, {"time": "2025-12-10", "value": 73761.0}, {"time": "2025-12-11", "value": 52383.0}, {"time": "2025-12-12", "value": 71477.0}, {"time": "2025-12-15", "value": 53875.0}, {"time": "2025-12-16", "value": 36957.0}, {"time": "2025-12-17", "value": 20449.0}, {"time": "2025-12-18", "value": 3349.0}, {"time": "2025-12-19", "value": 15051.0}, {"time": "2025-12-22", "value": 34076.0}, {"time": "2025-12-23", "value": 25984.0}, {"time": "2025-12-24", "value": 16149.0}, {"time": "2025-12-26", "value": 27310.0}, {"time": "2025-12-29", "value": 90892.0}, {"time": "2025-12-30", "value": 37925.0}, {"time": "2025-12-31", "value": 101370.0}, {"time": "2026-01-02", "value": 158668.0}, {"time": "2026-01-05", "value": 115433.0}, {"time": "2026-01-06", "value": 141263.0}, {"time": "2026-01-07", "value": 115706.0}, {"time": "2026-01-08", "value": 97496.0}, {"time": "2026-01-09", "value": 117896.0}, {"time": "2026-01-12", "value": 142055.0}, {"time": "2026-01-13", "value": 169978.0}, {"time": "2026-01-14", "value": 169978.0}, {"time": "2026-01-15", "value": 150025.0}, {"time": "2026-01-16", "value": 176612.0}, {"time": "2026-01-19", "value": 158329.0}, {"time": "2026-01-20", "value": 175682.0}, {"time": "2026-01-21", "value": 158630.0}, {"time": "2026-01-22", "value": 178451.0}, {"time": "2026-01-23", "value": 209563.0}, {"time": "2026-01-26", "value": 235516.0}, {"time": "2026-01-27", "value": 264830.0}, {"time": "2026-01-28", "value": 286223.0}, {"time": "2026-01-29", "value": 259173.0}, {"time": "2026-01-30", "value": 241659.0}, {"time": "2026-02-02", "value": 224468.0}, {"time": "2026-02-03", "value": 237419.0}, {"time": "2026-02-04", "value": 249444.0}, {"time": "2026-02-05", "value": 231185.0}, {"time": "2026-02-06", "value": 262821.0}, {"time": "2026-02-09", "value": 283493.0}, {"time": "2026-02-10", "value": 309440.0}, {"time": "2026-02-11", "value": 332376.0}, {"time": "2026-02-23", "value": 359820.0}, {"time": "2026-02-24", "value": 379665.0}, {"time": "2026-02-25", "value": 361164.0}, {"time": "2026-02-26", "value": 379908.0}, {"time": "2026-03-02", "value": 358041.0}, {"time": "2026-03-03", "value": 370267.0}, {"time": "2026-03-04", "value": 348400.0}, {"time": "2026-03-05", "value": 364964.0}, {"time": "2026-03-06", "value": 350705.0}, {"time": "2026-03-09", "value": 322862.0}, {"time": "2026-03-10", "value": 348779.0}, {"time": "2026-03-11", "value": 372314.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>京元電子是一家專業的半導體測試服務供應商，在全球半導體供應鏈中佔有獨特的市場地位。公司主要提供從晶圓測試 (CP)、成品測試 (FT)、預燒 (Burn-in) 及部分封裝等後段製程服務，其中測試服務佔總營收約 95%。</p>
+
+<strong>核心產品/服務：</strong>
+<ul><li><strong>晶圓測試 (CP, Wafer Test)</strong>：在晶圓階段對晶片進行功能和性能測試。</li>
+<li><strong>成品測試 (FT, Final Test)</strong>：對已封裝完成的晶片進行最終功能和性能測試。</li>
+<li><strong>預燒 (Burn-in)</strong>：對晶片進行高溫、高電壓的老化測試，篩選早期失效產品，尤其對於AI晶片至關重要。</li>
+<li><strong>封裝服務</strong>：佔比較小，公司正逐步淡出毛利較低的封裝業務，將資源轉向高利潤的測試業務。</li>
+</ul>
+<strong>業務營收結構 (2025年第三季)：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務製程</th><th>佔比 (2025 Q3)</th></tr></thead><tbody>
+<tr><td>成品測試 (FT)</td><td>58.2%</td></tr>
+<tr><td>晶圓測試 (CP)</td><td>30.4%</td></tr>
+<tr><td>預燒 (Burn-in)</td><td>9.0%</td></tr>
+<tr><td>封裝服務</td><td>2.0%</td></tr>
+</tbody></table></div>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品應用</th><th>佔比 (2025 Q3)</th></tr></thead><tbody>
+<tr><td>消費性電子</td><td>36.7%</td></tr>
+<tr><td>資料處理 (AI與ASIC)</td><td>32.8%</td></tr>
+<tr><td>通訊</td><td>16.0%</td></tr>
+<tr><td>車用電子</td><td>11.5%</td></tr>
+<tr><td>工業</td><td>2.7%</td></tr>
+</tbody></table></div>
+
+<strong>製造基地：</strong>
+<p>京元電子在台灣設有製造基地，包括竹南、銅鑼廠區（近年擴充AI測試產能）、頭份廠區及楊梅廠區（新廠區將在2026年下半年投產）。目前未找到各製造基地具體的營收貢獻比例數據。</p>
+
+<h2>核心競爭優勢</h2>
+<li><strong>AI晶片測試領域的領導地位：</strong> 京元電子是全球最大的專業測試廠，受惠於AI晶片（GPU與ASIC）的強勁需求，其AI相關產能至2026年全年已達滿載狀態，預計2026年AI業務佔營收比重將大幅提升至75%至77%。公司成功取得NVIDIA下一代Rubin平台測試訂單，並承接亞馬遜 (AWS) TR3平台、Google TPU及Meta等大廠的ASIC晶片測試訂單，確立其在頂級AI客戶供應鏈中的關鍵地位。</li>
+<li><strong>獨特的高功率預燒 (Burn-in) 技術：</strong> 憑藉自製測試設備，特別是高功率預燒爐，京元電子在高功率燒錄測試技術上具備絕對領導地位。已通過3kW至5kW燒錄測試認證，並接近完成8kW的技術研發，顯著領先多數仍在2kW以下的競爭對手，使其在AI晶片對老化測試高要求的趨勢下具備不可取代的競爭優勢。</li>
+<li><strong>客製化與一站式服務能力：</strong> 公司能提供客製化且具成本效益的解決方案，並具備從晶圓測試 (CP)、成品測試 (FT) 到預燒 (Burn-in) 的一站式服務，滿足客戶多元且複雜的高階測試需求。</li>
+<li><strong>資本支出與產能擴張領先：</strong> 京元電子於2026年度核准新台幣393.72億元的創紀錄資本支出，顯示其對AI與HPC測試需求的長期成長充滿信心，並透過擴大租賃設備投資（約100億元）維持財務彈性，確保產能快速到位。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份 (2025-2026)</th><th>金額 (新台幣億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>2026年2月</td><td>33.70 (預估)</td><td>0.00%</td><td>41.3%</td></tr>
+<tr><td>2026年1月</td><td>33.70</td><td>3.54%</td><td>41.28%</td></tr>
+<tr><td>2025年12月</td><td>32.54</td><td>-1.16%</td><td>33.04%</td></tr>
+<tr><td>2025年11月</td><td>32.93</td><td>-3.69%</td><td>34.93%</td></tr>
+<tr><td>2025年10月</td><td>34.19</td><td>4.51%</td><td>41.83%</td></tr>
+<tr><td>2025年9月</td><td>32.71</td><td>5.50%</td><td>39.62%</td></tr>
+<tr><td>2025年8月</td><td>31.01</td><td>6.26%</td><td>31.89%</td></tr>
+</tbody></table></div>
+
+<em>註：2026年2月數據為市場預估，與2026年1月營收相同。</em>
+
+<h3>季度財務數據</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2025年第三季</th></tr></thead><tbody>
+<tr><td>季營收 (億元)</td><td>92.91</td></tr>
+<tr><td>毛利率</td><td>36.0%</td></tr>
+<tr><td>營業利益率</td><td>26.0%</td></tr>
+<tr><td>EPS (元)</td><td>1.87</td></tr>
+</tbody></table></div>
+
+<h3>年度財務趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>營收 (新台幣億元)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2024 (實際)</td><td>268.56</td><td>6.36</td></tr>
+<tr><td>2025 (預估)</td><td>349.12 (區間 340.98-351.71)</td><td>8.83 (區間 8.28-9.12)</td></tr>
+</tbody></table></div>
+
+<h2>法說會重點 (2025年12月3日)</h2>
+<ul><li><strong>AI成長動能</strong>：AI為主要成長動能，涵蓋GPU與ASIC產品。截至2025年11月，AI客戶需求比8、9月更為強勁。</li>
+<li><strong>產品線表現</strong>：2025年第三季成品測試(FT)佔比58.2%，資料處理類別（含AI）佔比32.8%，預期第四季將進一步提升。ASIC測試自2025年開始放量，預期2026年及2027年成長幅度非常大，但絕對營收貢獻仍以GPU為主。手機客戶第四季有庫存回補跡象，車用市場則處於停滯階段。</li>
+<li><strong>訂單能見度</strong>：已成功延續至2026年下半年。</li>
+<li><strong>產能與新廠</strong>：AI晶片測試產能滿載，高毛利先進封裝測試佔比提升使第三季毛利率維持36%以上。楊梅廠新產能最快預計於2025年第二季開始貢獻營收，並在下半年顯著優於上半年。預計2026年下半年營運將爆發，因應主要客戶AI新產品的強勁需求，大幅調整廠房配置。</li>
+<li><strong>資本支出</strong>：2025年資本支出已兩度上修至新台幣370億元。2026年度全年資本支出達新台幣393.72億元，較2025年成長6.41%，再創歷史新高，主要用於廠房設施（約佔54%）及成品測試相關機台。</li>
+<li><strong>下季/下半年 guidance</strong>：</li>
+</ul>    *   <strong>2025年第四季</strong>：預計營收將符合市場共識並季對季成長，毛利率目標會比第三季更高。AI與ASIC晶片將持續扮演關鍵驅動力。
+<p>*   <strong>2025年全年</strong>：預計營收年增率將是京元電子「歷年來成長最快的一個年度」，主要動能仍來自AI。</p>
+<p>*   <strong>2026年上半年</strong>：半導體產業的成長故事仍將圍繞AI展開。</p>
+<p>*   <strong>中長期展望</strong>：預期未來幾年成長將由AI晶片（包含GPU與ASIC）需求驅動，廠房空間擴張將是營運重點，無塵室擴張計畫可能持續至2028年。</p>
+
+<h2>券商觀點</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>日期</th><th>評等</th><th>目標價 (新台幣元)</th><th>2025年EPS預估 (元)</th><th>2026年EPS預估 (元)</th></tr></thead><tbody>
+<tr><td>元大投顧</td><td>2026/01/20</td><td>看多</td><td>330</td><td>9.03</td><td>9.9</td></tr>
+<tr><td>FactSet (綜合分析師)</td><td>2026/02/03</td><td>N/A</td><td>330</td><td>8.83 (2025/11/07)</td><td>9.01 (2025/11/07)</td></tr>
+<tr><td>外資Aletheia資本</td><td>2026/01 (曾給予)</td><td>N/A</td><td>400</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>法人機構 (綜合)</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>10.0-10.25 (最新預估)</td></tr>
+</tbody></table></div>
+
+<em>註：FactSet EPS預估為2025年11月7日的調查中位數。</em>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>36.02%</td><td>26.82%</td><td>24.78%</td></tr>
+<tr><td>2025年第二季</td><td>35.5%</td><td>26.02%</td><td>41.51%</td></tr>
+<tr><td>2025年第一季</td><td>33.5%</td><td>20.81%</td><td>59.22%</td></tr>
+<tr><td>2024年第四季</td><td>34.79%</td><td>22.98%</td><td>30.14%</td></tr>
+<tr><td>2024年第三季</td><td>34.8%</td><td>23.87%</td><td>30.53%</td></tr>
+<tr><td>2024年第二季</td><td>34.18%</td><td>23.17%</td><td>27.06%</td></tr>
+<tr><td>2024年第一季</td><td>33.21%</td><td>21.42%</td><td>17.13%</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化的原因分析：</strong>
+<p>京元電子利潤率的提升主要得益於AI晶片測試業務佔比的提升。隨著AI晶片測試的複雜度增加、測試時長拉長，以及成品測試(FT)業務比重因AI客戶需求而顯著拉高，帶動公司毛利率穩定攀升。公司預計隨著AI貢獻營收比重的提高，毛利率可望突破2022年的最高峰35.54%，且逐年攀升至約38%。2025年第一季因認列出售中國子公司蘇州京隆科技的業外獲利，使稅後淨利率異常升高。</p>
+
+<h3>存貨分析</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數</th><th>應收帳款收現天數</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>16.1天</td><td>66.78天</td></tr>
+<tr><td>2025年第二季</td><td>16.13天</td><td>67.16天</td></tr>
+<tr><td>2025年第一季</td><td>16.45天</td><td>75.63天</td></tr>
+<tr><td>2024年第四季</td><td>23.50天</td><td>105.88天</td></tr>
+<tr><td>2024年第三季</td><td>17.72天</td><td>76.27天</td></tr>
+<tr><td>2024年第二季</td><td>21.33天</td><td>93.75天</td></tr>
+<tr><td>2024年第一季</td><td>17.75天</td><td>82.57天</td></tr>
+</tbody></table></div>
+
+<p>存貨週轉天數相對穩定且略有下降，顯示京元電子在面對強勁需求時，仍能維持良好的存貨控管能力。應收帳款收現天數在2025年呈現下降趨勢，顯示資金回籠速度加快，營運效率有所提升。目前資料沒有明確指出有存貨異常堆積或備料現象。</p>
+
+<h3>資本支出</h3>
+<ul><li><strong>2024年</strong>：138.28億元 (較年初預定的87.79億元增長57.5%)</li>
+<li><strong>2025年</strong>：370億元 (兩度上修)</li>
+<li><strong>2026年</strong>：393.72億元 (創歷史新高，較2025年增長6.41%)</li>
+</ul>
+<p>資本支出逐年大幅增加，主要因應AI晶片與高效能運算 (HPC) 晶片測試需求的強勁成長，以及楊梅、頭份新廠的興建和產能擴充。預計2025年資本支出約54%用於廠房設施，其餘用於成品測試相關機台。公司計畫到2027年將AI ASIC測試機台增加至350台，遠高於目前AI GPU測試機台約90台。</p>
+
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓紀錄</strong>：未找到2024年以後的具體紀錄。</li>
+<li><strong>庫藏股買回紀錄</strong>：未找到2024年以後的紀錄。</li>
+<li><strong>可轉換公司債 (CB) 發行</strong>：未找到2024年以後的紀錄。</li>
+<li><strong>現金增資或減資計畫</strong>：京元電子曾於2025年8月決議辦理現金增資發行新股8000萬股，但考量市場不確定性，已於2025年10月自行撤回。</li>
+<li><strong>股利政策</strong>：</li>
+</ul>    *   2025年：現金股利4.00元 (發放日：2025/08/08)
+<p>*   2024年：現金股利3.20元 (發放日：2024/08/14)</p>
+<p>*   公司在2024年宣布出售中國子公司股權的處分利益，將在2025年和2026年分別加碼1.5元現金股息回饋股東。</p>
+
+<h2>產業分析</h2>
+
+<h3>全球專業封測代工 (OSAT) 市場規模與成長</h3>
+<ul><li><strong>市場規模：</strong></li>
+</ul>    *   2025年：470.9億美元 (OSAT 市場)，或 444億美元 (OSAT 市場)，或 543.72億美元 (半導體組裝和測試服務市場)。
+<p>*   2026年：511.2億美元 (OSAT 市場)，預計成長至2031年的771.2億美元。</p>
+<p>*   2035年：預計達996.5億美元 (OSAT 市場)。</p>
+<p>*   2半導體測試設備市場：2025年為76.5億美元，預計2034年達143.8億美元。</p>
+<ul><li><strong>複合年增長率 (CAGR)：</strong></li>
+</ul>    *   8.56% (2026-2031，OSAT 市場)
+<p>*   8.42% (2025-2035，OSAT 市場)</p>
+<p>*   7.84% (2025-2031，半導體組裝和測試服務市場)</p>
+<p>*   7.35% (2026-2034，半導體測試設備市場)</p>
+<ul><li><strong>供需狀況：</strong></li>
+</ul>    *   <strong>先進製程與高階封測</strong>：供不應求，AI晶片需求強勁導致高階封測成為稀缺資源，價格逐年上漲。儘管台積電預計2026年CoWoS先進封裝產能將擴增至110萬片 (年增72%)，市場仍存在供需缺口。
+<p>*   <strong>成熟製程</strong>：經過兩年調整後已走出谷底，產能利用率回穩。預期2026年成熟製程產能利用率可維持在80%以上，中國廠商因國產替代政策效應將逾90%。</p>
+<ul><li><strong>產業平均毛利率水準：</strong></li>
+</ul>    缺乏2024-2026年半導體測試服務產業的平均毛利率具體數據。但AI等高階晶片測試的複雜性與客製化需求，有望提升相關服務的毛利率。如聞泰科技旗下的安世半導體2025年第三季度半導體業務毛利率達34.56%。
+
+<h3>競爭格局</h3>
+<strong>全球主要 OSAT 廠商：</strong>
+<p>目前缺乏2025-2026年全球前5大專業半導體測試服務公司及其具體市佔率的最新資料。主要的OSAT廠商包括日月光/矽品、Amkor (艾克爾)、力成、京元電子等。</p>
+
+<strong>京元電子 vs 主要競爭對手比較：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>特性</th><th>京元電子</th><th>主要競爭對手 (日月光/矽品、Amkor等)</th></tr></thead><tbody>
+<tr><td><strong>技術</strong></td><td>- 自製測試設備，特別是高功率預燒爐。&lt;br&gt;- 3kW-5kW燒錄測試認證，接近8kW。</td><td>- 傳統測試技術成熟。&lt;br&gt;- 高功率預燒能力可能較京元電子落後 (多數仍在2kW以下)。</td></tr>
+<tr><td><strong>產能</strong></td><td>- 積極擴充AI/HPC測試產能，楊梅、頭份新廠將於2026H2投產。&lt;br&gt;- 2026年AI產能已滿載。</td><td>- 台灣與美國OSAT大廠在AI晶片需求下，競相掌握NVIDIA、AMD等高階晶片外溢訂單。</td></tr>
+<tr><td><strong>客戶</strong></td><td>- NVIDIA下一代Rubin平台、AWS TR3、Google TPU、Meta等頂級ASIC晶片客戶。</td><td>- 涵蓋廣泛，但AI高階晶片測試的獨佔性可能不如京元電子。</td></tr>
+<tr><td><strong>策略</strong></td><td>- 聚焦高毛利測試業務，淡出封裝。&lt;br&gt;- 強調客製化與一站式服務。</td><td>- 晶圓代工廠正進行垂直整合封測流程，可能壓縮獨立OSAT廠商份額。</td></tr>
+</tbody></table></div>
+
+<strong>台灣同業比較：</strong>
+<p>目前缺乏2025-2026年台灣專業半導體測試同業（如力成、頎邦、南茂等）最新的營收、毛利率及EPS比較數據。</p>
+
+<h3>產業趨勢</h3>
+<li><strong>AI晶片與高效能運算 (HPC) 需求爆發，帶動先進封裝與高階測試技術升級：</strong></li>
+<p>*   <strong>具體影響：</strong> AI加速器、HPC和5G基礎設施對高I/O封裝的需求，正推動對扇出、SiP和面板級組裝以及高並行ATE (自動化測試設備) 的持續投資。晶片複雜度、3D堆疊、小晶片封裝以及測試器件尺寸的縮小，都將推動對更複雜設計和可靠性測試標準的需求。訊號接點密度與測試針數持續提升，帶動探針卡加工價值提高。</p>
+<li><strong>異質整合與先進封裝技術的演進：</strong></li>
+<p>*   <strong>具體影響：</strong> 混合晶片架構提升了異質整合的重要性，推動了對扇出型晶圓級和2.5D/3D平台的策略性投資。CoWoS等先進封裝技術持續擴張，儘管產能大幅增長但仍供不應求。這使得晶圓廠與封裝廠之間的競合關係，以及供應鏈的配合成為關鍵。</p>
+<li><strong>地緣政治與供應鏈重組：</strong></li>
+<p>*   <strong>具體影響：</strong> 地緣政治重塑全球封測版圖，預計2026年OSAT市場將成長11%。中國在「半導體自主化」政策下，晶圓代工成熟製程產能快速提升，下游OSAT產業也隨之擴張。這促使企業除了擴大AI投資外，也需同步強化供應鏈韌性與風險控管。</p>
+
+<h3>對京元電子的具體機會與威脅</h3>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>AI、HPC晶片測試商機：</strong> 受惠於AI及HPC晶片持續放量，前段測試與後段測試將是京元電子未來重要的營運成長動能，在手訂單能見度已看到兩個季度。
+<p>*   <strong>預燒技術優勢：</strong> 京元電子憑藉自製高功率預燒爐，在AI晶片預燒重要性提升的趨勢下具備競爭優勢。</p>
+<p>*   <strong>一站式服務：</strong> 具備從晶圓測試、成品測試、預燒到封裝的一站式服務能力，可滿足客戶多元需求。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>IDM與晶圓代工廠的垂直整合：</strong> 可能壓縮獨立OSAT廠商在高利潤領域的市場份額。
+<p>*   <strong>成熟製程競爭加劇：</strong> 整體成長動能受限且價格下行，可能帶來成本壓力。</p>
+<p>*   <strong>地緣政治影響：</strong> 中國半導體產業的快速發展可能對台灣OSAT廠商造成競爭壓力。</p>
+
+<h3>相關投資題材的具體連結</h3>
+<ul><li><strong>AI晶片：</strong> AI晶片需求是驅動半導體市場成長的核心力量。京元電子作為專業的半導體測試服務供應商，直接受惠於AI晶片測試的強勁需求，特別是高階晶片的測試需求。</li>
+<li><strong>HBM (高頻寬記憶體)：</strong> 記憶體市場需求爆發期，受惠於HBM強勁需求，推升整體半導體產值。京元電子在記憶體測試領域的專業能力將使其受惠。</li>
+<li><strong>電動車：</strong> 電動車的普及對能源效率、散熱性能和可靠性提出了嚴格要求，強化了對專業OSAT合作夥伴的依賴。京元電子在車用電子晶片測試方面也有所佈局。</li>
+</ul>
+<h2>近期催化劑 (2024年以後資料)</h2>
+<ul><li><strong>2026年03月03日</strong>：因應AI新產品需求，大幅調整廠房配置並增加資本支出，楊梅廠區營收貢獻預計2026年下半年爆發。公司憑藉自製預燒爐設備，獨占客戶最新AI平台的成品與預燒測試服務。</li>
+<li><strong>2026年02月06日</strong>：公布2026年1月合併營收達新台幣33.70億元，月增3.5%，年增41.3%，創近3個月新高。法人評估2026年全年AI相關產能已達滿載。</li>
+<li><strong>2026年01月30日</strong>：公告取得新一批機器設備，總投資12.97億元，強化先進測試產能布局。</li>
+<li><strong>2026年01月28日</strong>：公告擬斥資100億元向七家國內外設備大廠租賃設備用於生產投資，採資本化租賃模式。</li>
+<li><strong>2026年01月27日</strong>：公布2025年12月營收32.54億元，月減1.16%，年增33.04%，連續12個月年增。累計2025年1至12月營收總額為349.34億元，年增30.08%。</li>
+<li><strong>2025年12月26日</strong>：董事會通過2026年度資本支出為新台幣393.72億元，再創歷史新高，並簽訂總額度新台幣350億元聯貸合約案。</li>
+<li><strong>2025年12月09日</strong>：公布2025年11月營收32.93億元，月減3.69%，年增34.93%。</li>
+<li><strong>2025年12月03日</strong>：法說會重申2025年第三季營收92.91億元、毛利率36.02%，預期2025年第四季營收季對季成長，毛利率優於第三季，AI驅動成長。</li>
+<li><strong>2025年11月14日</strong>：大幅提高資本支出，二度上修至370億元，並在新加坡租下近4,000坪廠房土地，簽訂10年租約。</li>
+<li><strong>2025年11月07日</strong>：公布2025年10月營收34.19億元，月增4.51%，年增41.83%。</li>
+<li><strong>2025年07月10日</strong>：發放2024年度現金股利4元。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能</th><th>具體內容</th></tr></thead><tbody>
+<tr><td><strong>2025年下半年</strong></td><td><strong>產能擴充</strong></td><td>苗栗三廠預備空間產能逐漸開出。2025年第四季測試產能將是第一季的兩倍。</td></tr>
+<tr><td><strong>2025年06月30日</strong></td><td><strong>業務聚焦</strong></td><td>結束封裝事業營運，將人力與空間大舉轉往AI測試，全力承接大客戶訂單。</td></tr>
+<tr><td><strong>2025年08月</strong></td><td><strong>新客戶/新市場</strong></td><td>承接多家雲端與科技大廠ASIC晶片測試訂單，客戶涵蓋亞馬遜AWS的TR3平台、Google TPU及Meta等自研晶片專案。</td></tr>
+<tr><td><strong>2025年11月14日</strong></td><td><strong>海外擴廠</strong></td><td>在新加坡東北部Ang Mo Kio工業區租下近4,000坪廠房土地，簽訂10年租約，實現T+1的全球佈局。</td></tr>
+<tr><td><strong>2025年12月26日</strong></td><td><strong>資本支出</strong></td><td>董事會通過2026年度資本支出高達<strong>新台幣393.72億元</strong>，創歷史新高，以配合營運需要及產能擴充需求。</td></tr>
+<tr><td><strong>2025-2027年</strong></td><td><strong>高成長期</strong></td><td>公司預期AI/HPC測試營收將達到近100%複合年成長率。</td></tr>
+<tr><td><strong>2026年全年</strong></td><td><strong>產能利用率</strong></td><td>AI相關產能已達滿載狀態。AI相關業務在2026年將占京元電營收比重逾75%，最高達77%。</td></tr>
+<tr><td><strong>2026年上半年</strong></td><td><strong>擴廠</strong></td><td>楊梅租廠預計投產，成為京元電第三核心產能。</td></tr>
+<tr><td><strong>2026年上半年</strong></td><td><strong>新客戶/新市場</strong></td><td>取得美系GPU大客戶NVIDIA下一代Rubin平台測試訂單，正逐步展開測試驗證。</td></tr>
+<tr><td><strong>2026年下半年</strong></td><td><strong>營收貢獻爆發</strong></td><td>楊梅廠區及頭份新廠區將投產，預計屆時營收貢獻將集中爆發，快速轉化為實質營收。</td></tr>
+<tr><td><strong>2026年之後</strong></td><td><strong>需求面</strong></td><td>新世代GPU測試架構與條件更複雜，測試迴圈更長，測試時間將比現在增加70%至80%，意味著單顆晶片測試金額大幅提高，有助於優化毛利結構。</td></tr>
+<tr><td><strong>2027年第四季前</strong></td><td><strong>擴廠</strong></td><td>銅鑼四廠計畫預定完工。</td></tr>
+<tr><td><strong>長期規劃</strong></td><td><strong>擴廠</strong></td><td>公司亦規劃竹南六、七廠以強化雙核心生產格局。</td></tr>
+<tr><td><strong>長期規劃</strong></td><td><strong>資本支出</strong></td><td>公司計畫到2027年將AI ASIC測試機台增加至350台，遠高於目前AI GPU測試機台約90台。無塵室擴張計畫可能持續至2028年，以應對未來AI需求。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+<p>京元電子在2026年將持續受惠於AI晶片需求的爆發性成長，預期營運將大幅成長。法人預期，公司2026年營收力拚年增約四成，逼近<strong>新台幣500億元大關</strong>。來自AI的營收佔比將大幅提升至<strong>75%至77%</strong>。</p>
+
+<strong>主要成長動能：</strong>
+<ul><li><strong>AI晶片測試需求</strong>：NVIDIA新一代AI晶片 (Rubin平台)、Blackwell架構AI晶片、GPU及ASIC晶片測試需求持續強勁。</li>
+<li><strong>高階產品測試時長增加</strong>：新世代GPU的測試架構更複雜、測試迴圈更長，測試時間將比現在增加70%至80%，顯著提高單顆晶片的測試金額及毛利。</li>
+<li><strong>獨占優勢</strong>：京元電子有望獨占GPU客戶最新世代的AI產品測試服務，並將服務範圍擴展至晶圓測試（CP）段及ASIC測試服務。</li>
+<li><strong>新產能陸續上線</strong>：2026年上半年楊梅租廠投產，下半年楊梅及頭份新廠區將集中貢獻營收。</li>
+</ul>
+<strong>風險因子：</strong>
+<ul><li><strong>客戶需求變化</strong>：客戶AI新產品的放量速度若低於預期，將直接影響公司下半年營運的快速升溫。</li>
+<li><strong>市場競爭</strong>：半導體測試市場競爭加劇，若競爭者如日月光投控提前切入Nvidia供應鏈並搶佔市佔，可能壓縮京元電子的議價能力。</li>
+<li><strong>技術替代</strong>：AI需求若低於預期，將影響高附加價值測試業務的放量。</li>
+<li><strong>毛利率稀釋</strong>：新舊產能交替與AI專案量產初期，可能會對毛利率產生暫時性的稀釋影響。</li>
+<li><strong>總經風險</strong>：新台幣升值對毛利率具持續性壓力，每升值1%毛利率將被稀釋約0.4%。</li>
+</ul>
+<h2>投資結論 (3-5 點，含具體目標價區間建議)</h2>
+
+<li><strong>AI/HPC測試產業領航者，長期成長動能明確：</strong> 京元電子憑藉其在高功率預燒測試的技術領導地位和自製設備優勢，已確立在AI/HPC晶片測試領域的核心供應商地位，尤其在NVIDIA等指標客戶的下一代AI平台中扮演關鍵角色。預期AI業務佔營收比重將在2026年提升至75%以上，為公司帶來強勁且可持續的成長動能。</li>
+<li><strong>創紀錄資本支出支持營運爆發，產能效益逐步顯現：</strong> 公司在2026年度核准了新台幣393.72億元的歷史新高資本支出，以及100億元的租賃設備投資，明確展現對未來AI晶片測試需求的信心。隨著楊梅、頭份新廠在2026年下半年陸續投產並快速貢獻營收，以及AI高階產品測試時長顯著增加，京元電子將迎來營收和獲利的爆發性成長。</li>
+<li><strong>財務體質穩健，獲利能力持續優化：</strong> 儘管面臨龐大資本支出，公司負債比率維持在46-47%的健康水準。AI產品組合的優化及高階測試服務比重提升，帶動毛利率自2025年第一季的33.5%逐步攀升至第三季的36.02%，預期在2026年將進一步突破並維持高檔，提升整體獲利能力。</li>
+<li><strong>地緣政治與競爭風險需密切關注：</strong> 雖然京元電子在AI測試領域具備獨特優勢，但半導體產業地緣政治風險與晶圓代工廠垂直整合趨勢可能帶來競爭壓力。此外，AI晶片需求若不及預期或匯率波動，也可能對營運造成衝擊，投資人應留意相關發展。</li>
+
+<strong>投資建議：</strong>
+<p>綜合考量京元電子在AI晶片測試市場的領導地位、顯著的產能擴張計畫、優化的獲利結構及法人對2026年營收及EPS的樂觀預估，我們維持對京元電子的「買進」評等。</p>
+
+<strong>目標價區間建議：新台幣330元至380元。</strong> (基於最新券商報告與2026年EPS預估)
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 12:53</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2449_京元電子_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2449_京元電子_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2449_京元電子_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

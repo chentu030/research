@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3376 新日興 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>3376 新日興 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>新日興為精密樞紐及MIM製造商，2025年因PC市場疲軟與新品轉換期獲利承壓，然受惠於美系客戶折疊式iPhone軸承（預計2026年下半年放量，佔逾三成營收）與高階穿戴裝置金屬件需求強勁，加上積極佈局AI伺服器及MIM新應用，預期2026-2027年營運將迎來強勁反轉與爆發性成長。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">3376 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-3376" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-3376" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-3376');
+    var obvContainer = document.getElementById('obv-chart-3376');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 202.5, "high": 211.0, "low": 202.5, "close": 208.0}, {"time": "2025-12-05", "open": 208.0, "high": 209.0, "low": 201.5, "close": 202.5}, {"time": "2025-12-08", "open": 204.0, "high": 204.5, "low": 201.0, "close": 203.0}, {"time": "2025-12-09", "open": 203.5, "high": 207.0, "low": 193.0, "close": 198.0}, {"time": "2025-12-10", "open": 197.5, "high": 209.5, "low": 196.0, "close": 206.0}, {"time": "2025-12-11", "open": 206.5, "high": 224.5, "low": 206.5, "close": 215.5}, {"time": "2025-12-12", "open": 216.5, "high": 219.0, "low": 210.0, "close": 210.5}, {"time": "2025-12-15", "open": 207.5, "high": 211.0, "low": 206.0, "close": 210.0}, {"time": "2025-12-16", "open": 208.5, "high": 209.5, "low": 202.5, "close": 208.0}, {"time": "2025-12-17", "open": 212.0, "high": 213.0, "low": 204.0, "close": 206.0}, {"time": "2025-12-18", "open": 206.0, "high": 208.0, "low": 204.0, "close": 205.5}, {"time": "2025-12-19", "open": 208.0, "high": 214.0, "low": 206.0, "close": 210.5}, {"time": "2025-12-22", "open": 212.0, "high": 213.5, "low": 206.5, "close": 209.0}, {"time": "2025-12-23", "open": 210.5, "high": 210.5, "low": 202.5, "close": 205.5}, {"time": "2025-12-24", "open": 206.5, "high": 206.5, "low": 202.0, "close": 202.0}, {"time": "2025-12-26", "open": 205.0, "high": 206.0, "low": 200.5, "close": 202.0}, {"time": "2025-12-29", "open": 202.5, "high": 205.0, "low": 202.0, "close": 203.0}, {"time": "2025-12-30", "open": 203.5, "high": 203.5, "low": 199.5, "close": 203.0}, {"time": "2025-12-31", "open": 204.0, "high": 205.0, "low": 202.5, "close": 202.5}, {"time": "2026-01-02", "open": 203.5, "high": 209.5, "low": 202.5, "close": 204.5}, {"time": "2026-01-05", "open": 209.0, "high": 210.5, "low": 197.5, "close": 207.5}, {"time": "2026-01-06", "open": 207.0, "high": 226.0, "low": 207.0, "close": 223.5}, {"time": "2026-01-07", "open": 223.0, "high": 223.0, "low": 208.0, "close": 223.0}, {"time": "2026-01-08", "open": 221.0, "high": 226.0, "low": 216.0, "close": 223.0}, {"time": "2026-01-09", "open": 224.0, "high": 239.5, "low": 215.5, "close": 228.5}, {"time": "2026-01-12", "open": 233.0, "high": 238.0, "low": 227.5, "close": 234.0}, {"time": "2026-01-13", "open": 236.0, "high": 236.0, "low": 222.0, "close": 222.0}, {"time": "2026-01-14", "open": 223.0, "high": 224.0, "low": 217.0, "close": 218.0}, {"time": "2026-01-15", "open": 218.0, "high": 221.5, "low": 215.0, "close": 215.0}, {"time": "2026-01-16", "open": 219.0, "high": 227.0, "low": 218.0, "close": 218.0}, {"time": "2026-01-19", "open": 218.5, "high": 232.0, "low": 218.0, "close": 227.5}, {"time": "2026-01-20", "open": 227.5, "high": 249.0, "low": 223.0, "close": 234.5}, {"time": "2026-01-21", "open": 241.0, "high": 250.0, "low": 230.0, "close": 230.0}, {"time": "2026-01-22", "open": 235.0, "high": 238.0, "low": 224.0, "close": 224.0}, {"time": "2026-01-23", "open": 226.0, "high": 232.5, "low": 219.5, "close": 226.5}, {"time": "2026-01-26", "open": 225.0, "high": 231.0, "low": 220.5, "close": 225.0}, {"time": "2026-01-27", "open": 228.5, "high": 229.5, "low": 220.5, "close": 222.5}, {"time": "2026-01-28", "open": 224.5, "high": 229.5, "low": 217.5, "close": 219.0}, {"time": "2026-01-29", "open": 220.0, "high": 220.5, "low": 204.0, "close": 206.0}, {"time": "2026-01-30", "open": 206.5, "high": 211.0, "low": 199.5, "close": 210.0}, {"time": "2026-02-02", "open": 206.5, "high": 208.0, "low": 201.0, "close": 205.5}, {"time": "2026-02-03", "open": 211.0, "high": 218.0, "low": 203.0, "close": 203.0}, {"time": "2026-02-04", "open": 206.0, "high": 220.0, "low": 206.0, "close": 213.5}, {"time": "2026-02-05", "open": 213.5, "high": 218.0, "low": 203.5, "close": 204.0}, {"time": "2026-02-06", "open": 203.5, "high": 203.5, "low": 197.0, "close": 198.5}, {"time": "2026-02-09", "open": 205.0, "high": 205.0, "low": 199.0, "close": 199.0}, {"time": "2026-02-10", "open": 199.5, "high": 200.5, "low": 193.0, "close": 193.5}, {"time": "2026-02-11", "open": 194.5, "high": 196.0, "low": 191.5, "close": 192.5}, {"time": "2026-02-23", "open": 196.0, "high": 203.5, "low": 194.5, "close": 200.0}, {"time": "2026-02-24", "open": 201.0, "high": 203.0, "low": 198.5, "close": 201.5}, {"time": "2026-02-25", "open": 204.0, "high": 210.5, "low": 200.0, "close": 201.5}, {"time": "2026-02-26", "open": 204.0, "high": 215.0, "low": 201.0, "close": 207.0}, {"time": "2026-03-02", "open": 205.0, "high": 206.5, "low": 190.0, "close": 192.0}, {"time": "2026-03-03", "open": 220.0, "high": 225.0, "low": 211.0, "close": 211.0}, {"time": "2026-03-04", "open": 205.0, "high": 206.5, "low": 190.0, "close": 192.0}, {"time": "2026-03-05", "open": 197.5, "high": 198.5, "low": 191.0, "close": 193.0}, {"time": "2026-03-06", "open": 193.0, "high": 195.0, "low": 190.5, "close": 195.0}, {"time": "2026-03-09", "open": 181.0, "high": 190.0, "low": 177.0, "close": 190.0}, {"time": "2026-03-10", "open": 193.0, "high": 200.0, "low": 192.0, "close": 197.5}, {"time": "2026-03-11", "open": 198.5, "high": 200.0, "low": 193.5, "close": 195.5}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 5408.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 3193.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 2401.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 4397.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 6319.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 11371.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 3664.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 2280.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 3029.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 3814.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 1347.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 2285.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 2025.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 2960.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 1919.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 1459.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 845.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 1842.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 1451.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 2363.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 4472.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 9858.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 12443.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 8286.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 12273.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 9070.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 5759.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 2978.0, "color": "#26a69a"}, {"time": "2026-01-15", "value": 2937.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 3820.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 4919.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 15120.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 19268.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 9194.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 5789.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 4112.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 4166.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 5645.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 8845.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 4546.0, "color": "#ef5350"}, {"time": "2026-02-02", "value": 3477.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 6469.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 8425.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 5768.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 5296.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 2019.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 3599.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 2526.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 3735.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 2849.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 4866.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 7014.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 8881.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 9627.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 8881.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 4597.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 2290.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 6197.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 3049.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 4133.0, "color": "#26a69a"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 203.5}, {"time": "2025-12-11", "value": 205.0}, {"time": "2025-12-12", "value": 206.6}, {"time": "2025-12-15", "value": 208.0}, {"time": "2025-12-16", "value": 210.0}, {"time": "2025-12-17", "value": 210.0}, {"time": "2025-12-18", "value": 208.0}, {"time": "2025-12-19", "value": 208.0}, {"time": "2025-12-22", "value": 207.8}, {"time": "2025-12-23", "value": 207.3}, {"time": "2025-12-24", "value": 206.5}, {"time": "2025-12-26", "value": 205.8}, {"time": "2025-12-29", "value": 204.3}, {"time": "2025-12-30", "value": 203.1}, {"time": "2025-12-31", "value": 202.5}, {"time": "2026-01-02", "value": 203.0}, {"time": "2026-01-05", "value": 204.1}, {"time": "2026-01-06", "value": 208.2}, {"time": "2026-01-07", "value": 212.2}, {"time": "2026-01-08", "value": 216.3}, {"time": "2026-01-09", "value": 221.1}, {"time": "2026-01-12", "value": 226.4}, {"time": "2026-01-13", "value": 226.1}, {"time": "2026-01-14", "value": 225.1}, {"time": "2026-01-15", "value": 223.5}, {"time": "2026-01-16", "value": 221.4}, {"time": "2026-01-19", "value": 220.1}, {"time": "2026-01-20", "value": 222.6}, {"time": "2026-01-21", "value": 225.0}, {"time": "2026-01-22", "value": 226.8}, {"time": "2026-01-23", "value": 228.5}, {"time": "2026-01-26", "value": 228.0}, {"time": "2026-01-27", "value": 225.6}, {"time": "2026-01-28", "value": 223.4}, {"time": "2026-01-29", "value": 219.8}, {"time": "2026-01-30", "value": 216.5}, {"time": "2026-02-02", "value": 212.6}, {"time": "2026-02-03", "value": 208.7}, {"time": "2026-02-04", "value": 207.6}, {"time": "2026-02-05", "value": 207.2}, {"time": "2026-02-06", "value": 204.9}, {"time": "2026-02-09", "value": 203.6}, {"time": "2026-02-10", "value": 201.7}, {"time": "2026-02-11", "value": 197.5}, {"time": "2026-02-23", "value": 196.7}, {"time": "2026-02-24", "value": 197.3}, {"time": "2026-02-25", "value": 197.8}, {"time": "2026-02-26", "value": 200.5}, {"time": "2026-03-02", "value": 200.4}, {"time": "2026-03-03", "value": 202.6}, {"time": "2026-03-04", "value": 200.7}, {"time": "2026-03-05", "value": 199.0}, {"time": "2026-03-06", "value": 196.6}, {"time": "2026-03-09", "value": 196.2}, {"time": "2026-03-10", "value": 193.5}, {"time": "2026-03-11", "value": 194.2}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 206.75}, {"time": "2025-12-18", "value": 206.5}, {"time": "2025-12-19", "value": 207.3}, {"time": "2025-12-22", "value": 207.9}, {"time": "2025-12-23", "value": 208.65}, {"time": "2025-12-24", "value": 208.25}, {"time": "2025-12-26", "value": 206.9}, {"time": "2025-12-29", "value": 206.15}, {"time": "2025-12-30", "value": 205.45}, {"time": "2025-12-31", "value": 204.9}, {"time": "2026-01-02", "value": 204.75}, {"time": "2026-01-05", "value": 204.95}, {"time": "2026-01-06", "value": 206.25}, {"time": "2026-01-07", "value": 207.65}, {"time": "2026-01-08", "value": 209.4}, {"time": "2026-01-09", "value": 212.05}, {"time": "2026-01-12", "value": 215.25}, {"time": "2026-01-13", "value": 217.15}, {"time": "2026-01-14", "value": 218.65}, {"time": "2026-01-15", "value": 219.9}, {"time": "2026-01-16", "value": 221.25}, {"time": "2026-01-19", "value": 223.25}, {"time": "2026-01-20", "value": 224.35}, {"time": "2026-01-21", "value": 225.05}, {"time": "2026-01-22", "value": 225.15}, {"time": "2026-01-23", "value": 224.95}, {"time": "2026-01-26", "value": 224.05}, {"time": "2026-01-27", "value": 224.1}, {"time": "2026-01-28", "value": 224.2}, {"time": "2026-01-29", "value": 223.3}, {"time": "2026-01-30", "value": 222.5}, {"time": "2026-02-02", "value": 220.3}, {"time": "2026-02-03", "value": 217.15}, {"time": "2026-02-04", "value": 215.5}, {"time": "2026-02-05", "value": 213.5}, {"time": "2026-02-06", "value": 210.7}, {"time": "2026-02-09", "value": 208.1}, {"time": "2026-02-10", "value": 205.2}, {"time": "2026-02-11", "value": 202.55}, {"time": "2026-02-23", "value": 201.95}, {"time": "2026-02-24", "value": 201.1}, {"time": "2026-02-25", "value": 200.7}, {"time": "2026-02-26", "value": 201.1}, {"time": "2026-03-02", "value": 198.95}, {"time": "2026-03-03", "value": 199.65}, {"time": "2026-03-04", "value": 199.0}, {"time": "2026-03-05", "value": 198.4}, {"time": "2026-03-06", "value": 198.55}, {"time": "2026-03-09", "value": 198.3}, {"time": "2026-03-10", "value": 198.05}, {"time": "2026-03-11", "value": 197.45}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 205.75}, {"time": "2026-01-05", "value": 205.725}, {"time": "2026-01-06", "value": 206.775}, {"time": "2026-01-07", "value": 207.775}, {"time": "2026-01-08", "value": 209.025}, {"time": "2026-01-09", "value": 210.15}, {"time": "2026-01-12", "value": 211.075}, {"time": "2026-01-13", "value": 211.65}, {"time": "2026-01-14", "value": 212.05}, {"time": "2026-01-15", "value": 212.4}, {"time": "2026-01-16", "value": 213.0}, {"time": "2026-01-19", "value": 214.1}, {"time": "2026-01-20", "value": 215.3}, {"time": "2026-01-21", "value": 216.35}, {"time": "2026-01-22", "value": 217.275}, {"time": "2026-01-23", "value": 218.5}, {"time": "2026-01-26", "value": 219.65}, {"time": "2026-01-27", "value": 220.625}, {"time": "2026-01-28", "value": 221.425}, {"time": "2026-01-29", "value": 221.6}, {"time": "2026-01-30", "value": 221.875}, {"time": "2026-02-02", "value": 221.775}, {"time": "2026-02-03", "value": 220.75}, {"time": "2026-02-04", "value": 220.275}, {"time": "2026-02-05", "value": 219.325}, {"time": "2026-02-06", "value": 217.825}, {"time": "2026-02-09", "value": 216.075}, {"time": "2026-02-10", "value": 214.65}, {"time": "2026-02-11", "value": 213.375}, {"time": "2026-02-23", "value": 212.625}, {"time": "2026-02-24", "value": 211.8}, {"time": "2026-02-25", "value": 210.5}, {"time": "2026-02-26", "value": 209.125}, {"time": "2026-03-02", "value": 207.225}, {"time": "2026-03-03", "value": 206.575}, {"time": "2026-03-04", "value": 204.85}, {"time": "2026-03-05", "value": 203.25}, {"time": "2026-03-06", "value": 201.875}, {"time": "2026-03-09", "value": 200.425}, {"time": "2026-03-10", "value": 200.0}, {"time": "2026-03-11", "value": 199.275}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -3193.0}, {"time": "2025-12-08", "value": -792.0}, {"time": "2025-12-09", "value": -5189.0}, {"time": "2025-12-10", "value": 1130.0}, {"time": "2025-12-11", "value": 12501.0}, {"time": "2025-12-12", "value": 8837.0}, {"time": "2025-12-15", "value": 6557.0}, {"time": "2025-12-16", "value": 3528.0}, {"time": "2025-12-17", "value": -286.0}, {"time": "2025-12-18", "value": -1633.0}, {"time": "2025-12-19", "value": 652.0}, {"time": "2025-12-22", "value": -1373.0}, {"time": "2025-12-23", "value": -4333.0}, {"time": "2025-12-24", "value": -6252.0}, {"time": "2025-12-26", "value": -6252.0}, {"time": "2025-12-29", "value": -5407.0}, {"time": "2025-12-30", "value": -5407.0}, {"time": "2025-12-31", "value": -6858.0}, {"time": "2026-01-02", "value": -4495.0}, {"time": "2026-01-05", "value": -23.0}, {"time": "2026-01-06", "value": 9835.0}, {"time": "2026-01-07", "value": -2608.0}, {"time": "2026-01-08", "value": -2608.0}, {"time": "2026-01-09", "value": 9665.0}, {"time": "2026-01-12", "value": 18735.0}, {"time": "2026-01-13", "value": 12976.0}, {"time": "2026-01-14", "value": 9998.0}, {"time": "2026-01-15", "value": 7061.0}, {"time": "2026-01-16", "value": 10881.0}, {"time": "2026-01-19", "value": 15800.0}, {"time": "2026-01-20", "value": 30920.0}, {"time": "2026-01-21", "value": 11652.0}, {"time": "2026-01-22", "value": 2458.0}, {"time": "2026-01-23", "value": 8247.0}, {"time": "2026-01-26", "value": 4135.0}, {"time": "2026-01-27", "value": -31.0}, {"time": "2026-01-28", "value": -5676.0}, {"time": "2026-01-29", "value": -14521.0}, {"time": "2026-01-30", "value": -9975.0}, {"time": "2026-02-02", "value": -13452.0}, {"time": "2026-02-03", "value": -19921.0}, {"time": "2026-02-04", "value": -11496.0}, {"time": "2026-02-05", "value": -17264.0}, {"time": "2026-02-06", "value": -22560.0}, {"time": "2026-02-09", "value": -20541.0}, {"time": "2026-02-10", "value": -24140.0}, {"time": "2026-02-11", "value": -26666.0}, {"time": "2026-02-23", "value": -22931.0}, {"time": "2026-02-24", "value": -20082.0}, {"time": "2026-02-25", "value": -20082.0}, {"time": "2026-02-26", "value": -13068.0}, {"time": "2026-03-02", "value": -21949.0}, {"time": "2026-03-03", "value": -12322.0}, {"time": "2026-03-04", "value": -21203.0}, {"time": "2026-03-05", "value": -16606.0}, {"time": "2026-03-06", "value": -14316.0}, {"time": "2026-03-09", "value": -20513.0}, {"time": "2026-03-10", "value": -17464.0}, {"time": "2026-03-11", "value": -21597.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>新日興（3376）是一家專業的精密樞紐（Hinge）及金屬粉末射出成型（MIM）零組件製造商。公司產品廣泛應用於筆記型電腦（NB）、平板電腦、手機、各式3C電子產品、液晶顯示器及穿戴式裝置。近年來，新日興的營運方向已明確轉向技術含量更高、單價更好的折疊式裝置與耳機金屬件領域。</p>
+
+<strong>核心產品與服務：</strong>
+<ul><li><strong>精密樞紐 (Hinge)</strong>：用於筆記型電腦、螢幕、3C產品及穿戴式裝置。</li>
+<li><strong>金屬粉末射出成型 (MIM) 零組件</strong>：應用於NB、螢幕、3C及穿戴裝置等產品。</li>
+</ul>
+<strong>營收結構 (2025年前7個月資料)：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品線</th><th>佔營收比例</th><th>備註</th></tr></thead><tbody>
+<tr><td>穿戴及配件製品 (Hinges-Wearable)</td><td>51%</td><td>目前最主要的營收來源</td></tr>
+<tr><td>筆記型電腦樞紐 (Hinges-NB)</td><td>24%</td><td></td></tr>
+<tr><td>螢幕樞紐 (Hinges-LCD)</td><td>13%</td><td></td></tr>
+<tr><td>3C 產品樞紐 (Hinges-3C)</td><td>7%</td><td></td></tr>
+<tr><td>粉末冶金 (MIM)</td><td>2%</td><td>僅為獨立銷售的MIM產品營收</td></tr>
+<tr><td>其他 (Others)</td><td>3%</td><td></td></tr>
+</tbody></table></div>
+
+<strong>製造基地：</strong>
+<ul><li><strong>越南新廠</strong>：已於2025年上半年開始貢獻產能。</li>
+<li><strong>蘇州新廠</strong>：預計於2026年初加入折疊產品量產，以銜接2026-2027年的需求成長。</li>
+<li>目前未有各製造基地的具體營收貢獻比例公開數據。</li>
+</ul>
+<h2>核心競爭優勢</h2>
+<li><strong>折疊裝置樞紐技術領先與美系客戶深度綁定：</strong> 新日興在折疊裝置樞紐領域深耕多年，技術開發逐步成熟，已透過合資方式承接蘋果折疊式iPhone的核心轉軸製作，負責高複雜度金屬零件，成為關鍵供應鏈之一。折疊轉軸單價預計約在70至80美元區間，具備競爭優勢。</li>
+<li><strong>高精度金屬加工與MIM製程能力：</strong> 公司具備高精度金屬沖壓、彈簧製品以及精密金屬粉末射出成型（MIM）技術，能生產複雜、高精度的零組件，滿足高階電子產品對輕薄、高強度、高可靠性的要求。並持續擴充MIM製程，增加多種材料量產能力。</li>
+<li><strong>多元產品線與高階市場佈局：</strong> 除了傳統NB、顯示器等成熟應用，公司產品線已成功延伸至高階穿戴式裝置（如美系客戶AirPods系列高階耳機金屬件，金屬件使用量與複雜度提升）、折疊機機構與AI伺服器相關機構件，有效分散營運風險並抓住新興市場機會。</li>
+<li><strong>前瞻性產能佈局：</strong> 公司已提前完成越南新廠（2025年上半年貢獻）與蘇州新廠（2026年初加入量產）的擴建，產能規模能有效銜接2026-2027年折疊與穿戴裝置的強勁需求成長。</li>
+
+<h2>財務分析</h2>
+
+<strong>月營收趨勢 (最近六個月，單位：億元)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026 年 1 月</td><td>8.71</td><td>0.9%</td><td>-17.2%</td></tr>
+<tr><td>2025 年 12 月</td><td>8.63</td><td>21.51%</td><td>-18.09%</td></tr>
+<tr><td>2025 年 11 月</td><td>7.10</td><td>-5.98%</td><td>-33.81%</td></tr>
+<tr><td>2025 年 10 月</td><td>7.55</td><td>-8.3%</td><td>-35.14%</td></tr>
+<tr><td>2025 年 9 月</td><td>8.23</td><td>-10.75%</td><td>-32.21%</td></tr>
+<tr><td>2025 年 8 月</td><td>9.23</td><td>2.05%</td><td>-26.34%</td></tr>
+</tbody></table></div>
+
+<strong>季度數據 (2025年第三季)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>指標</th><th>2025年第三季數據</th></tr></thead><tbody>
+<tr><td>季營收 (累計至3Q25)</td><td>83.95 億元</td></tr>
+<tr><td>毛利率</td><td>13.6%</td></tr>
+<tr><td>營業利益率</td><td>0.02%</td></tr>
+<tr><td>EPS</td><td>0.59 元</td></tr>
+</tbody></table></div>
+
+<strong>年度趨勢</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>指標</th><th>2024年實際</th><th>2025年預估 (FactSet中位數)</th><th>2026年預估 (FactSet中位數)</th></tr></thead><tbody>
+<tr><td>全年營收</td><td>133.27 億元</td><td>108.735 億元</td><td>-</td></tr>
+<tr><td>EPS</td><td>7.15 元</td><td>1.58 元</td><td>9.57 元</td></tr>
+</tbody></table></div>
+
+<em>註：2025年EPS預估值已於2026年2月23日由1.64元下修至1.58元。</em>
+
+<h2>法說會重點 (2026年2月5日 Nomura Asia Tech Tour 2026)</h2>
+<strong>營運成果與挑戰 (2025年第三季)</strong>
+<ul><li>2025年第三季營運面臨顯著短期挑戰，多項關鍵獲利指標（營收、營業利益、稅後淨利、EPS）出現大幅衰退，顯示營收動能及盈利能力承壓。</li>
+<li>產品組合方面，穿戴及配件製品(Hinges-Wearable)佔比高達47%，為公司主要營收來源，業績高度依賴該市場變化。</li>
+</ul>
+<strong>產品線展望與管理層指引</strong>
+<ul><li><strong>筆電軸承：</strong> 為分散營運風險，新日興正積極爭取其他非美系筆電品牌訂單，配合原有美系客戶新品效益，預期2026年筆電樞紐業務有望回升。</li>
+<li><strong>穿戴式裝置：</strong> 產品線涵蓋第二代真無線耳機充電盒與耳罩式耳機。預計2026年隨高階真無線耳機市場需求回穩，出貨結構逐步修正，成為上半年營運中的支撐來源。</li>
+<li><strong>折疊式裝置：</strong> 新日興投入折疊螢幕產品樞紐設計多年，預期折疊式手機相關軸承將於2026年開始出現營收貢獻，並於下半年逐步放量。管理層預估折疊式樞紐在2026年將佔整體營收比重逾三成，2027年進一步提升至四成。</li>
+</ul>
+<strong>產能利用率與資本支出</strong>
+<ul><li><strong>資本支出：</strong> 蘇州廠擴廠資本支出約1,800萬美元（約新台幣5.7億元），計畫在2026年1月前完工。</li>
+<li><strong>產能佈局：</strong> 越南新產能已於2025年貢獻。蘇州新廠預計於2026年初加入折疊產品量產，整體產能規模將銜接2026-2027年需求成長。</li>
+<li><strong>2026年展望：</strong> 受惠於美系客戶多項新品預計於上半年推出，法人預估新日興2026年第一季營收有望回升並呈現季增。公司預計2026年營運將迎來成長。</li>
+</ul>
+<h2>券商觀點</h2>
+<strong>目標價與評等</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (元)</th><th>評等</th><th>日期</th><th>備註</th></tr></thead><tbody>
+<tr><td>FactSet (中位數)</td><td>297.5</td><td>-</td><td>2026年2月23日</td><td>-</td></tr>
+<tr><td>群益證券</td><td>275</td><td>看多</td><td>2025年11月11日</td><td>-</td></tr>
+<tr><td>高盛證券</td><td>349</td><td>看多</td><td>2025年2月17日</td><td>⚠️過時</td></tr>
+<tr><td>美系外資</td><td>323</td><td>-</td><td>2025年7月3日</td><td>⚠️過時</td></tr>
+<tr><td>亞系外資</td><td>300</td><td>優於大盤表現</td><td>2025年6月11日</td><td>⚠️過時</td></tr>
+</tbody></table></div>
+
+<strong>EPS 預估</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>2025年 EPS 預估 (元)</th><th>2026年 EPS 預估 (元)</th></tr></thead><tbody>
+<tr><td>FactSet (中位數)</td><td>1.58</td><td>9.57</td></tr>
+<tr><td>群益證券</td><td>2.05</td><td>7.94</td></tr>
+<tr><td>美系券商</td><td>4.4</td><td>11</td></tr>
+</tbody></table></div>
+<em>註：美系券商數據發布於2025年8月12日，可能過時。FactSet 2025年EPS預估中位數已於2026年2月23日下修至1.58元。</em>
+
+<strong>近期評等與目標價調整</strong>
+<ul><li><strong>2025年8月12-13日：</strong> 新日興曾遭美系券商下調目標價，主因7月營收不如預期，儘管仍維持正向評等。</li>
+<li><strong>2025年11月26日：</strong> FactSet最新調查顯示，對新日興目標價估值中位數由300元下修至287.5元，調降幅度4.17%。</li>
+<li><strong>2026年2月23日：</strong> FactSet最新調查顯示，2025年EPS預估中位數由1.64元下修至1.58元。</li>
+<li><strong>綜合評級 (2025年11月26日)：</strong> FactSet追蹤的8位分析師中，6位給予積極樂觀評價，2位保持中立，無保守悲觀評價。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢 (營業毛利率、營業利益率、稅後淨利率，單位：%)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>指標</th><th>2024Q1</th><th>2024Q2</th><th>2024Q3</th><th>2024Q4</th><th>2025Q1</th><th>2025Q2</th><th>2025Q3</th></tr></thead><tbody>
+<tr><td>營業毛利率</td><td>18.20%</td><td>17.15%</td><td>18.47%</td><td>17.63%</td><td>15.1%</td><td>15.1%</td><td>13.6%</td></tr>
+<tr><td>營業利益率</td><td>11.23%</td><td>10.87%</td><td>9.40%</td><td>10.70%</td><td>6.15%</td><td>6.15%</td><td>0.02%</td></tr>
+<tr><td>稅後淨利率</td><td>10.95%</td><td>10.96%</td><td>6.29%</td><td>6.29%</td><td>6.29%</td><td>6.29%</td><td>2.87%</td></tr>
+</tbody></table></div>
+<em>註：2025年第二季利潤率數據依據法說會資料，部分季度數據為區間中位數或參考值，2025Q3數據來自最新季報，與其他部分提供數據略有差異時以最新季報數據為準。</em>
+
+<strong>利潤率變化的原因分析：</strong>
+<p>2025年上半年，公司累計EPS表現較弱，主要受多個開發案前置成本較高及不利匯率因素影響，壓低了毛利率。公司正處於新舊產品交替過渡期，傳統PC相關產品比重下降，折疊式手機零件與耳機零件比重逐步增加，顯示公司升級至技術含量更高、單價更好的領域。2025年第三季淨利率下降至2.87%，每股盈餘驟降至0.59元，反映短期盈利能力承壓。</p>
+
+<h3>存貨與營運分析</h3>
+<ul><li><strong>存貨週轉天數：</strong></li>
+</ul>    *   2025年第三季：71.23天，存貨週轉率1.26次。
+<p>*   2024年（年度）：存貨週轉率6.09次，平均售貨天數59.93天。</p>
+<p>*   2025年第二季法說會資料曾提及「週轉效率下降」，反映市場壓力。</p>
+<ul><li><strong>應收帳款週轉天數：</strong></li>
+</ul>    *   2025年第三季：142.32天，應收帳款週轉率0.64次。
+<p>*   2024年（年度）：應收帳款週轉次數2.81次，平均收帳天數129.89天。</p>
+<p>*   應收帳款佔營收比率在最新季報顯示為157.03%，處於過去十年區間126.64%至162.03%的高位，顯示收款速度可能放緩。</p>
+<ul><li><strong>存貨異常堆積或備料現象：</strong> 雖然週轉效率下降且應收帳款偏高，但公開資料中未直接說明有異常堆積或備料現象。</li>
+</ul>
+<h3>資本支出與產能</h3>
+<ul><li><strong>近3年資本支出金額與趨勢 (投資活動現金流量)：</strong></li>
+</ul>    *   2024年Q1: 252,328千元
+<p>*   2024年Q2: -10,755千元</p>
+<p>*   2024年Q3: -1,269,485千元</p>
+<p>*   2024年Q4: -847,503千元</p>
+<p>*   2025年Q1: -988,953千元</p>
+<p>*   2025年Q2: -1,552,748千元</p>
+<p>*   2025年Q3: 1,420,769千元</p>
+<p>*   趨勢顯示公司在2024年下半年至2025年上半年有較大的投資活動現金流出，應與產能擴張有關。</p>
+<ul><li><strong>未來資本支出計畫與預計新增產能：</strong></li>
+</ul>    *   越南新產能已於2025年開始貢獻。
+<p>*   蘇州新廠預計2026年初投入折疊產品量產，總資本支出約1,800萬美元。</p>
+<p>*   2026年3月2日，董事會決議現金增資子公司Time Rise Corp.約700萬美元（約新台幣2.22億元），強化後續產品與營運布局。</p>
+<p>*   整體產能擴張旨在銜接2026-2027年需求成長。</p>
+<ul><li><strong>折舊攤銷趨勢：</strong></li>
+</ul>    *   2024年Q1-Q4折舊約為135,445千元。
+<p>*   2025年Q1-Q3折舊金額分別為139,158千元、127,805千元、131,770千元。攤銷金額未明確列出。</p>
+
+<h2>股權異動</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>描述</th></tr></thead><tbody>
+<tr><td>申報轉讓</td><td>未找到2024-2026年董監事/大股東申報轉讓紀錄。</td></tr>
+<tr><td>庫藏股</td><td>未找到2024-2026年庫藏股買回紀錄。</td></tr>
+<tr><td>可轉換公司債</td><td>已發行「新日興三(33763)無擔保可轉換公司債」，發行日期2024年8月23日，到期日2029年8月23日。轉換價格202元，目前轉換價200.3元。</td></tr>
+<tr><td>增減資</td><td>1. 2024年3月1日董事會決議現金增資發行普通股8,000仟股，發行價格每股170元，除權日2024年7月30日，用於償還銀行借款及充實營運資金。</td></tr>
+<tr><td></td><td>2. 2026年3月2日，決議現金增資子公司Time Rise Corp.約700萬美元（約新台幣2.22億元），強化產品與營運布局。</td></tr>
+<tr><td>股利政策</td><td><strong>2025年 (所屬年度)</strong>：現金股利預計6.0元。</td></tr>
+<tr><td></td><td><strong>2024年 (所屬年度)</strong>：現金股利4.0元，發放年度2025年，除息日2025年7月30日。</td></tr>
+<tr><td></td><td>2024年和2025年均無股票股利發放。</td></tr>
+</tbody></table></div>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與CAGR成長率</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>產業市場</th><th>2025年規模</th><th>2026年規模</th><th>2035年預估規模</th><th>2026-2035年 CAGR</th></tr></thead><tbody>
+<tr><td>金屬粉末射出成型（MIM）部品</td><td>46億美元 (預計)</td><td>52億美元 (預計)</td><td>122億美元 (預計)</td><td>9.9%</td></tr>
+<tr><td>折疊手機出貨量</td><td>1,980萬支 (滲透率1.6%)</td><td>2,060萬支 (IDC) / 2,400-2,500萬部 (預計)</td><td>-</td><td>10%-30% (年增)</td></tr>
+<tr><td>智慧穿戴裝置</td><td>293.5億美元 (預計)</td><td>313.9億美元 (預計)</td><td>420.4億美元 (預計)</td><td>7.0%-7.6%</td></tr>
+</tbody></table></div>
+
+<h3>競爭格局</h3>
+<strong>折疊手機樞紐市場 - 主要品牌佔有率 (2025年預估)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>品牌</th><th>2025年全球市佔率</th><th>2025年第一季全球出貨量市佔率</th></tr></thead><tbody>
+<tr><td>華為</td><td>34.3%</td><td>51%</td></tr>
+<tr><td>三星</td><td>35.4%</td><td>-</td></tr>
+<tr><td>榮耀</td><td>9.1%</td><td>-</td></tr>
+<tr><td>聯想 (Motorola)</td><td>7.6%</td><td>-</td></tr>
+<tr><td>小米</td><td>5.1%</td><td>-</td></tr>
+<tr><td>其他</td><td>8.5%</td><td>-</td></tr>
+</tbody></table></div>
+
+<strong>MIM零組件供應商：</strong> 中國為最大MIM技術提供方，市場份額超過50%。精研科技（Jiangsu Jingyan Technology Co., Ltd.）是中國MIM行業重點企業。
+
+<strong>產業平均毛利率水準：</strong>
+<ul><li>新日興在2025年第二季的營業毛利率為15.1%，低於2024年同期的18.2%。</li>
+<li>精密樞紐或MIM產業的平均毛利率水準缺乏最新公開數據。</li>
+</ul>
+<strong>新日興 vs 兆利 (3548) 營收、毛利率、EPS對比 (2025年)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司</th><th>2025年全年營收</th><th>2025年全年EPS</th><th>2025年第三季營業毛利率</th></tr></thead><tbody>
+<tr><td>新日興 (3376)</td><td>107.23億元</td><td>1.63元</td><td>13.6%</td></tr>
+<tr><td>兆利 (3548)</td><td>未找到最新資料</td><td>未找到最新資料</td><td>未找到最新資料</td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢</h3>
+<li><strong>折疊裝置的普及與技術成熟：</strong></li>
+<p>*   <strong>關鍵技術：</strong> 2023年起水滴鉸鏈成主流，提升折疊平整度與可靠性，技術標準化。</p>
+<p>*   <strong>影響：</strong> 2026年折疊手機將從「炫技」走向實用，蘋果預計於2026年下半年推出折疊iPhone，將推動市場主流化，軸承壽命要求20萬次以上、零件數達百件等級。</p>
+<li><strong>MIM技術與新興技術的深度融合：</strong></li>
+<p>*   <strong>關鍵技術：</strong> MIM與3D打印、AI等融合，實現客製化、小批量複雜零件生產。鈦合金MIM成重要突破，如小米14 Ultra中框應用。</p>
+<p>*   <strong>影響：</strong> MIM應用領域擴大至消費電子、汽車、醫療等，市場需求提升。</p>
+<li><strong>穿戴裝置市場成長與AI整合：</strong></li>
+<p>*   <strong>關鍵技術：</strong> IoT普及推動穿戴市場擴張，AI驅動的健康監測、AI助理將是未來成長要素。</p>
+<p>*   <strong>影響：</strong> 智慧穿戴裝置市場持續成長，對精密金屬件需求增加，新日興在高階耳機金屬件領域受益。</p>
+
+<strong>對新日興的具體機會和威脅：</strong>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>折疊裝置市場爆發：</strong> 與美系客戶合作，有望成折疊iPhone關鍵供應商，2026年折疊樞紐營收占比預估逾三成。
+<p>*   <strong>高階穿戴裝置需求：</strong> 受益於美系客戶新一代AirPods系列金屬件用量與複雜度提升，穩健成長。</p>
+<p>*   <strong>MIM技術應用擴展：</strong> 擴充MIM製程，應用延伸至AI伺服器、車用、醫療等領域。</p>
+<p>*   <strong>AI相關應用：</strong> 開發銅製程支援AI伺服器水冷散熱，跨入AI伺服器、AI眼鏡市場。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>PC市場需求疲弱：</strong> 2025年NB樞紐業務難成長，2026年筆電市場可能衰退15%~20%，短期營運承壓。
+<p>*   <strong>折疊手機軸承價格壓力：</strong> 市場傳蘋果可能調降軸承成本，壓縮供應鏈獲利空間。</p>
+<p>*   <strong>市場競爭激烈：</strong> 折疊手機市場競爭加劇，可能影響新日興市佔率與議價能力。</p>
+
+<h2>近期催化劑</h2>
+
+<strong>利多事件清單：</strong>
+<ul><li><strong>2025年11月3日：</strong> 持續擴充MIM製程（銅製程支援AI伺服器水冷散熱），產品應用延伸至AI伺服器、車用、醫療等領域。越南河內新產線已啟用，蘇州新廠規劃於2026年Q1完成。</li>
+<li><strong>2025年11月18日：</strong> 法人預估2026年折疊式手機與高階穿戴裝置逐步放量，折疊式樞紐2026年佔營收逾三成，穿戴裝置營收年增近一成。</li>
+<li><strong>2025年11月20日：</strong> 供應鏈消息指出，新日興透過合資承接蘋果折疊式iPhone核心轉軸製作，成為關鍵供應鏈，單價70-80美元。耳機零件比重因新品金屬件用量與複雜度提升而增加。越南新產能貢獻，蘇州新廠2026年初加入折疊產品量產。</li>
+<li><strong>2025年12月11日：</strong> 中信投顧預估新日興2026年EPS上看8.41元，給予「增加持股」評等。</li>
+<li><strong>2026年1月6日：</strong> 高盛發布「2026年投資展望」，將新日興納入25檔臺廠買進名單。</li>
+<li><strong>2026年2月4日：</strong> 折疊手機相關軸承預期2026年開始貢獻營收，並於下半年逐步放量。NB業務聚焦中高階與商用筆電樞紐出貨。穿戴裝置需求回穩將成上半年營運支撐。</li>
+<li><strong>2026年2月8日：</strong> 法人預估2026年EPS可能從2025年的1.55元垂直起飛到14.07元，增幅高達810%。折疊手機2026年出貨量預估達2670萬支，年增30%。</li>
+<li><strong>2026年3月2日：</strong> 公告現金增資子公司Time Rise Corp.約700萬美元，強化後續產品與營運布局。美系客戶多項新品預計上半年推出，法人預估Q1營收有望季增。折疊螢幕手機軸承2026年正式量產，佔營收比重將跨過三成，2027年提升至四成。</li>
+<li><strong>2026年3月3日：</strong> 蘋果春季新品發表會，新日興等供應鏈受惠。</li>
+</ul>
+<strong>利空事件清單：</strong>
+<ul><li><strong>2025年11月9日：</strong> 2025年10月營收為7.55億元，月減8.3%，年減35.14%。</li>
+<li><strong>2025年12月12日：</strong> 2025年11月營收為7.10億元，月減5.98%，年減33.81%。</li>
+<li><strong>2026年1月9日：</strong> 2025年Q4及全年營收表現受個別產品線及客戶需求節奏影響，PC市場需求疲弱使短期營運承壓。</li>
+<li><strong>2026年1月10日：</strong> 2025年12月營收為8.63億元，月增21.51%，但年減18.09%。</li>
+<li><strong>2026年2月5日：</strong> 2025年Q3營運面臨顯著短期挑戰，營收、營業利益、稅後淨利及EPS（1.23元）均大幅衰退。</li>
+<li><strong>2026年2月9日：</strong> 2026年1月合併營收8.71億元，月增0.9%，年減17.2%。</li>
+<li><strong>2026年3月2日：</strong> 公告2025年全年營收107.23億元，年減19.54%；稅後純益3.18億元，EPS 1.63元，年減77.2%。</li>
+</ul>
+<strong>外資/投信/自營商近期買賣超 (2025年12月6日 - 2026年3月5日)</strong>
+<ul><li><strong>外資：</strong> 淨賣超約 -16,000 張</li>
+<li><strong>投信：</strong> 淨買超約 1,800 張</li>
+<li><strong>自營商：</strong> 淨賣超約 -1,100 張</li>
+<li><strong>總計 (三大法人)：</strong> 淨賣超約 -15,300 張</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>成長動能</th><th>具體項目</th><th>時間點</th><th>影響與量化目標</th></tr></thead><tbody>
+<tr><td><strong>擴廠</strong></td><td>越南新廠量產貢獻</td><td>2025年上半年</td><td>開始貢獻產能。</td></tr>
+<tr><td></td><td>蘇州新廠建設完成並加入折疊產品量產</td><td>2026年Q1完成建設，2026年初加入量產</td><td>資本支出約1,800萬美元，銜接2026-2027年折疊產品需求成長。</td></tr>
+<tr><td><strong>新客戶/新市場</strong></td><td>蘋果折疊式iPhone核心轉軸供應商</td><td>2026年下半年量產放量，2027年倍數成長</td><td>與美系客戶（蘋果）合資承接高複雜度金屬零件，單價70-80美元，預估2026年折疊式樞紐營收佔比逾三成，2027年達四成。</td></tr>
+<tr><td></td><td>打入小米、OPPO、三星等多元品牌折疊裝置供應鏈</td><td>進行中</td><td>降低對單一客戶依賴風險。</td></tr>
+<tr><td></td><td>AI伺服器/車用/醫療領域延伸</td><td>2025年11月起持續開發</td><td>開發銅製程支援AI伺服器水冷散熱，MIM應用擴展至新興高階市場。</td></tr>
+<tr><td></td><td>積極爭取其他非美系筆電品牌訂單</td><td>2025年起</td><td>有助分散NB業務風險，配合原有美系客戶新品，預估2026年NB營收可望重返成長。</td></tr>
+<tr><td><strong>產能</strong></td><td>規劃擴產並採購燒結爐配套設備（射出機、CNC機）</td><td>預計2026年Q2前到位</td><td>因應客戶投產需求，提升MIM與Hinge生產能力。</td></tr>
+<tr><td></td><td>擴充MIM製程，增加Kovar、440C等多種材料量產能力</td><td>進行中</td><td>提升產品線廣度與競爭力。</td></tr>
+<tr><td></td><td>各廠區落實新一輪產線調整，提升製程同質性</td><td>2026年逐步實施</td><td>提升生產效率與彈性。</td></tr>
+<tr><td><strong>需求</strong></td><td>折疊式手機市場需求爆發</td><td>2026年出貨量預估2,670萬支，年增30%</td><td>蘋果折疊iPhone初期出貨量上看1,500萬支，帶動軸承需求。</td></tr>
+<tr><td></td><td>高階穿戴式裝置（AirPods系列、耳罩式耳機）需求回溫</td><td>2026年上半年</td><td>美系客戶新品金屬件用量與複雜度提升，預估2026年相關營收年增近一成。</td></tr>
+<tr><td></td><td>AI PC換機潮</td><td>預期2026年起</td><td>有望帶動NB樞紐需求。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+<p>2026年將是新日興營運的關鍵轉折年。最主要的成長動能來自<strong>美系客戶折疊式iPhone軸承的量產放量</strong>，預計在2026年下半年開始貢獻顯著營收，直接將折疊式樞紐營收比重推升至逾三成。同時，<strong>高階穿戴裝置市場需求回溫</strong>，特別是美系客戶新一代耳機金屬件用量與複雜度提升，將成為上半年穩定的營收支撐。此外，公司積極<strong>爭取非美系NB品牌訂單</strong>，有望使NB樞紐業務重返成長。長期來看，MIM技術應用擴展至<strong>AI伺服器水冷散熱、車用、醫療及AI眼鏡</strong>等新興市場，將為新日興開拓更廣闊的成長空間。隨著越南與蘇州新廠的產能到位，公司已做好準備迎接這波成長浪潮。</p>
+
+<strong>風險因子：</strong>
+<ul><li><strong>PC市場疲弱：</strong> 2025年PC市場需求不佳，2026年筆電市場預期可能進一步衰退15%至20%，仍對NB樞紐業務造成壓力。</li>
+<li><strong>客戶集中度：</strong> NB與穿戴業務高度集中於特定美系客戶，若該客戶產品出貨不如預期或轉單，將對新日興營運產生較大影響。</li>
+<li><strong>新品遞延與轉換期成本：</strong> 新產品開發與舊產品交替仍可能存在遞延風險及前期較高投入成本，短期內可能影響毛利率。</li>
+<li><strong>折疊手機軸承價格壓力：</strong> 雖然市場預期軸承單價70-80美元，但若客戶持續壓低價格，可能壓縮供應鏈獲利空間。</li>
+<li><strong>總經風險：</strong> 匯率波動（主要以美元計價）可能影響公司獲利，全球經濟不確定性亦可能衝擊終端電子產品需求。</li>
+<li><strong>ESG評級：</strong> ESG評級仍屬高風險，治理透明度需持續觀察，可能影響部分機構投資者的投資意願。</li>
+</ul>
+<h2>投資結論</h2>
+<li><strong>營運谷底已過，2026年迎來爆發性成長：</strong> 2025年為新日興的營運谷底，獲利受PC疲軟與新品轉換期影響。然而，核心動能已明確轉向高單價的折疊裝置與高階穿戴裝置。隨著2026年美系客戶折疊式iPhone軸承量產放量，預期2026年折疊式樞紐營收佔比將跨過三成，成為公司營運成長的核心引擎，推動EPS從2025年的1.63元大幅躍升至法人預估的9.57元至14.07元。</li>
+<li><strong>折疊機關鍵供應鏈地位穩固：</strong> 新日興與美系客戶的深度合作使其成為折疊式iPhone核心轉軸的關鍵供應商，技術領先與產能佈局完整（越南廠2025年貢獻、蘇州廠2026年初量產）確保其能抓住折疊手機市場爆發的紅利。折疊轉軸單價70-80美元，具備可觀的成長潛力。</li>
+<li><strong>多角化佈局提供長期成長動能：</strong> 除折疊機外，高階穿戴裝置（如AirPods系列）的金屬件需求穩定成長，MIM技術也成功延伸至AI伺服器水冷散熱、車用與醫療等新興高階應用領域，有望為新日興帶來新的增長曲線，提升產品組合的廣度與毛利率。</li>
+<li><strong>估值具吸引力：</strong> 考量2026年預期EPS的顯著成長，目前券商目標價中位數約297.5元（FactSet，2026/02/23），對應2026年EPS的本益比約20-30倍，在電子零組件產業中，對於具備高成長動能和新應用題材的公司而言，仍屬合理甚至偏低的估值區間。</li>
+<li><strong>建議投資目標價區間：</strong> 綜合考量其2026年成長潛力、產業地位及法人預估，建議投資者可關注 <strong>285元至320元</strong> 的目標價區間。</li>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 00:28</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="3376_新日興_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="3376_新日興_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="3376_新日興_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

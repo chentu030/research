@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4961 天鈺 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>4961 天鈺 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>天鈺（4961）正處於轉型關鍵期，2025年獲利承壓，然積極布局非驅動IC產品線，特別是AIoT、ESL與高整合PMIC，預期在2026年帶動營運逐季回溫，挑戰非驅動IC營收佔比突破五成，儘管短期面臨8吋晶圓產能排擠與DDI市場競爭壓力，但長期成長動能明確。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">4961 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-4961" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-4961" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-4961');
+    var obvContainer = document.getElementById('obv-chart-4961');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 142.5, "high": 143.5, "low": 141.0, "close": 141.0}, {"time": "2025-12-05", "open": 141.0, "high": 141.0, "low": 137.5, "close": 137.5}, {"time": "2025-12-08", "open": 139.0, "high": 139.0, "low": 136.0, "close": 136.5}, {"time": "2025-12-09", "open": 136.5, "high": 140.0, "low": 136.5, "close": 139.5}, {"time": "2025-12-10", "open": 139.0, "high": 141.0, "low": 138.0, "close": 140.0}, {"time": "2025-12-11", "open": 140.5, "high": 142.0, "low": 138.0, "close": 139.5}, {"time": "2025-12-12", "open": 139.5, "high": 140.0, "low": 136.5, "close": 137.0}, {"time": "2025-12-15", "open": 136.0, "high": 138.0, "low": 135.0, "close": 136.5}, {"time": "2025-12-16", "open": 136.0, "high": 138.5, "low": 135.0, "close": 138.0}, {"time": "2025-12-17", "open": 138.5, "high": 151.0, "low": 138.5, "close": 148.5}, {"time": "2025-12-18", "open": 147.5, "high": 149.0, "low": 144.0, "close": 146.0}, {"time": "2025-12-19", "open": 146.5, "high": 147.0, "low": 143.5, "close": 145.0}, {"time": "2025-12-22", "open": 145.5, "high": 146.5, "low": 143.0, "close": 146.0}, {"time": "2025-12-23", "open": 146.5, "high": 147.5, "low": 145.0, "close": 145.0}, {"time": "2025-12-24", "open": 146.5, "high": 148.0, "low": 143.0, "close": 145.0}, {"time": "2025-12-26", "open": 145.5, "high": 145.5, "low": 140.0, "close": 142.5}, {"time": "2025-12-29", "open": 142.5, "high": 146.0, "low": 141.0, "close": 143.5}, {"time": "2025-12-30", "open": 143.0, "high": 146.0, "low": 141.5, "close": 145.0}, {"time": "2025-12-31", "open": 145.0, "high": 146.5, "low": 143.5, "close": 143.5}, {"time": "2026-01-02", "open": 144.0, "high": 144.0, "low": 139.0, "close": 139.5}, {"time": "2026-01-05", "open": 140.0, "high": 141.0, "low": 134.5, "close": 135.0}, {"time": "2026-01-06", "open": 137.5, "high": 148.5, "low": 137.0, "close": 148.5}, {"time": "2026-01-07", "open": 151.0, "high": 154.5, "low": 148.5, "close": 152.0}, {"time": "2026-01-08", "open": 151.5, "high": 151.5, "low": 145.0, "close": 148.0}, {"time": "2026-01-09", "open": 148.0, "high": 149.0, "low": 144.5, "close": 147.0}, {"time": "2026-01-12", "open": 148.0, "high": 148.5, "low": 145.5, "close": 147.5}, {"time": "2026-01-13", "open": 148.0, "high": 148.0, "low": 145.5, "close": 146.5}, {"time": "2026-01-14", "open": 146.0, "high": 151.0, "low": 146.0, "close": 150.5}, {"time": "2026-01-15", "open": 150.0, "high": 152.5, "low": 148.0, "close": 149.0}, {"time": "2026-01-16", "open": 150.0, "high": 151.5, "low": 148.0, "close": 149.0}, {"time": "2026-01-19", "open": 149.0, "high": 155.0, "low": 149.0, "close": 154.0}, {"time": "2026-01-20", "open": 154.0, "high": 159.5, "low": 152.0, "close": 157.0}, {"time": "2026-01-21", "open": 155.5, "high": 158.0, "low": 149.0, "close": 149.5}, {"time": "2026-01-22", "open": 151.5, "high": 156.0, "low": 151.0, "close": 154.0}, {"time": "2026-01-23", "open": 155.5, "high": 157.0, "low": 151.0, "close": 151.5}, {"time": "2026-01-26", "open": 153.5, "high": 155.5, "low": 153.0, "close": 154.5}, {"time": "2026-01-27", "open": 155.0, "high": 155.0, "low": 152.0, "close": 153.0}, {"time": "2026-01-28", "open": 154.5, "high": 155.0, "low": 153.0, "close": 153.0}, {"time": "2026-01-29", "open": 154.0, "high": 155.0, "low": 151.0, "close": 151.0}, {"time": "2026-01-30", "open": 151.5, "high": 151.5, "low": 146.5, "close": 147.0}, {"time": "2026-02-02", "open": 145.0, "high": 146.0, "low": 142.0, "close": 143.0}, {"time": "2026-02-03", "open": 144.5, "high": 146.5, "low": 143.0, "close": 145.5}, {"time": "2026-02-04", "open": 145.0, "high": 147.5, "low": 145.0, "close": 146.5}, {"time": "2026-02-05", "open": 146.0, "high": 149.5, "low": 144.5, "close": 144.5}, {"time": "2026-02-06", "open": 143.5, "high": 144.5, "low": 140.0, "close": 142.5}, {"time": "2026-02-09", "open": 145.0, "high": 147.0, "low": 144.0, "close": 146.0}, {"time": "2026-02-10", "open": 146.0, "high": 148.5, "low": 145.5, "close": 147.0}, {"time": "2026-02-11", "open": 147.0, "high": 148.0, "low": 142.5, "close": 143.0}, {"time": "2026-02-23", "open": 143.0, "high": 148.0, "low": 143.0, "close": 146.0}, {"time": "2026-02-24", "open": 146.0, "high": 154.0, "low": 146.0, "close": 152.5}, {"time": "2026-02-25", "open": 154.0, "high": 154.5, "low": 147.0, "close": 148.5}, {"time": "2026-02-26", "open": 148.5, "high": 151.5, "low": 148.0, "close": 148.5}, {"time": "2026-03-02", "open": 148.0, "high": 148.0, "low": 138.0, "close": 138.5}, {"time": "2026-03-03", "open": 148.5, "high": 149.5, "low": 146.0, "close": 148.0}, {"time": "2026-03-04", "open": 148.0, "high": 148.0, "low": 138.0, "close": 138.5}, {"time": "2026-03-05", "open": 141.0, "high": 142.5, "low": 139.0, "close": 141.5}, {"time": "2026-03-06", "open": 140.0, "high": 147.0, "low": 139.0, "close": 147.0}, {"time": "2026-03-09", "open": 141.0, "high": 144.5, "low": 139.5, "close": 143.0}, {"time": "2026-03-10", "open": 143.5, "high": 149.0, "low": 143.5, "close": 148.5}, {"time": "2026-03-11", "open": 148.0, "high": 149.5, "low": 146.5, "close": 147.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 277.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 685.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 506.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 550.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 362.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 431.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 510.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 382.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 561.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 2934.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 1382.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 897.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 592.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 597.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 1198.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 1266.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 1474.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 1334.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 1259.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 1581.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 1829.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 2325.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 5549.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 1904.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 1268.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 974.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 714.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 924.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 1240.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 598.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 1689.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 1692.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 2835.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 1739.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 942.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 860.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 617.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 600.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 937.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 749.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 577.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 415.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 301.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 641.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 773.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 391.0, "color": "#ef5350"}, {"time": "2026-02-10", "value": 443.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 725.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 589.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 1267.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 1224.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 1113.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 1174.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 647.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 1174.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 557.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 698.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 983.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 813.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 653.0, "color": "#26a69a"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 138.9}, {"time": "2025-12-11", "value": 138.6}, {"time": "2025-12-12", "value": 138.5}, {"time": "2025-12-15", "value": 138.5}, {"time": "2025-12-16", "value": 138.2}, {"time": "2025-12-17", "value": 139.9}, {"time": "2025-12-18", "value": 141.2}, {"time": "2025-12-19", "value": 142.8}, {"time": "2025-12-22", "value": 144.7}, {"time": "2025-12-23", "value": 146.1}, {"time": "2025-12-24", "value": 145.4}, {"time": "2025-12-26", "value": 144.7}, {"time": "2025-12-29", "value": 144.4}, {"time": "2025-12-30", "value": 144.2}, {"time": "2025-12-31", "value": 143.9}, {"time": "2026-01-02", "value": 142.8}, {"time": "2026-01-05", "value": 141.3}, {"time": "2026-01-06", "value": 142.3}, {"time": "2026-01-07", "value": 143.7}, {"time": "2026-01-08", "value": 144.6}, {"time": "2026-01-09", "value": 146.1}, {"time": "2026-01-12", "value": 148.6}, {"time": "2026-01-13", "value": 148.2}, {"time": "2026-01-14", "value": 147.9}, {"time": "2026-01-15", "value": 148.1}, {"time": "2026-01-16", "value": 148.5}, {"time": "2026-01-19", "value": 149.8}, {"time": "2026-01-20", "value": 151.9}, {"time": "2026-01-21", "value": 151.7}, {"time": "2026-01-22", "value": 152.7}, {"time": "2026-01-23", "value": 153.2}, {"time": "2026-01-26", "value": 153.3}, {"time": "2026-01-27", "value": 152.5}, {"time": "2026-01-28", "value": 153.2}, {"time": "2026-01-29", "value": 152.6}, {"time": "2026-01-30", "value": 151.7}, {"time": "2026-02-02", "value": 149.4}, {"time": "2026-02-03", "value": 147.9}, {"time": "2026-02-04", "value": 146.6}, {"time": "2026-02-05", "value": 145.3}, {"time": "2026-02-06", "value": 144.4}, {"time": "2026-02-09", "value": 145.0}, {"time": "2026-02-10", "value": 145.3}, {"time": "2026-02-11", "value": 144.6}, {"time": "2026-02-23", "value": 144.9}, {"time": "2026-02-24", "value": 146.9}, {"time": "2026-02-25", "value": 147.4}, {"time": "2026-02-26", "value": 147.7}, {"time": "2026-03-02", "value": 146.8}, {"time": "2026-03-03", "value": 147.2}, {"time": "2026-03-04", "value": 144.4}, {"time": "2026-03-05", "value": 143.0}, {"time": "2026-03-06", "value": 142.7}, {"time": "2026-03-09", "value": 143.6}, {"time": "2026-03-10", "value": 143.7}, {"time": "2026-03-11", "value": 145.4}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 139.4}, {"time": "2025-12-18", "value": 139.9}, {"time": "2025-12-19", "value": 140.65}, {"time": "2025-12-22", "value": 141.6}, {"time": "2025-12-23", "value": 142.15}, {"time": "2025-12-24", "value": 142.65}, {"time": "2025-12-26", "value": 142.95}, {"time": "2025-12-29", "value": 143.6}, {"time": "2025-12-30", "value": 144.45}, {"time": "2025-12-31", "value": 145.0}, {"time": "2026-01-02", "value": 144.1}, {"time": "2026-01-05", "value": 143.0}, {"time": "2026-01-06", "value": 143.35}, {"time": "2026-01-07", "value": 143.95}, {"time": "2026-01-08", "value": 144.25}, {"time": "2026-01-09", "value": 144.45}, {"time": "2026-01-12", "value": 144.95}, {"time": "2026-01-13", "value": 145.25}, {"time": "2026-01-14", "value": 145.8}, {"time": "2026-01-15", "value": 146.35}, {"time": "2026-01-16", "value": 147.3}, {"time": "2026-01-19", "value": 149.2}, {"time": "2026-01-20", "value": 150.05}, {"time": "2026-01-21", "value": 149.8}, {"time": "2026-01-22", "value": 150.4}, {"time": "2026-01-23", "value": 150.85}, {"time": "2026-01-26", "value": 151.55}, {"time": "2026-01-27", "value": 152.2}, {"time": "2026-01-28", "value": 152.45}, {"time": "2026-01-29", "value": 152.65}, {"time": "2026-01-30", "value": 152.45}, {"time": "2026-02-02", "value": 151.35}, {"time": "2026-02-03", "value": 150.2}, {"time": "2026-02-04", "value": 149.9}, {"time": "2026-02-05", "value": 148.95}, {"time": "2026-02-06", "value": 148.05}, {"time": "2026-02-09", "value": 147.2}, {"time": "2026-02-10", "value": 146.6}, {"time": "2026-02-11", "value": 145.6}, {"time": "2026-02-23", "value": 145.1}, {"time": "2026-02-24", "value": 145.65}, {"time": "2026-02-25", "value": 146.2}, {"time": "2026-02-26", "value": 146.5}, {"time": "2026-03-02", "value": 145.7}, {"time": "2026-03-03", "value": 146.05}, {"time": "2026-03-04", "value": 145.65}, {"time": "2026-03-05", "value": 145.2}, {"time": "2026-03-06", "value": 145.2}, {"time": "2026-03-09", "value": 145.2}, {"time": "2026-03-10", "value": 145.45}, {"time": "2026-03-11", "value": 144.9}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 141.75}, {"time": "2026-01-05", "value": 141.45}, {"time": "2026-01-06", "value": 142.0}, {"time": "2026-01-07", "value": 142.775}, {"time": "2026-01-08", "value": 143.2}, {"time": "2026-01-09", "value": 143.55}, {"time": "2026-01-12", "value": 143.95}, {"time": "2026-01-13", "value": 144.425}, {"time": "2026-01-14", "value": 145.125}, {"time": "2026-01-15", "value": 145.675}, {"time": "2026-01-16", "value": 145.7}, {"time": "2026-01-19", "value": 146.1}, {"time": "2026-01-20", "value": 146.7}, {"time": "2026-01-21", "value": 146.875}, {"time": "2026-01-22", "value": 147.325}, {"time": "2026-01-23", "value": 147.65}, {"time": "2026-01-26", "value": 148.25}, {"time": "2026-01-27", "value": 148.725}, {"time": "2026-01-28", "value": 149.125}, {"time": "2026-01-29", "value": 149.5}, {"time": "2026-01-30", "value": 149.875}, {"time": "2026-02-02", "value": 150.275}, {"time": "2026-02-03", "value": 150.125}, {"time": "2026-02-04", "value": 149.85}, {"time": "2026-02-05", "value": 149.675}, {"time": "2026-02-06", "value": 149.45}, {"time": "2026-02-09", "value": 149.375}, {"time": "2026-02-10", "value": 149.4}, {"time": "2026-02-11", "value": 149.025}, {"time": "2026-02-23", "value": 148.875}, {"time": "2026-02-24", "value": 149.05}, {"time": "2026-02-25", "value": 148.775}, {"time": "2026-02-26", "value": 148.35}, {"time": "2026-03-02", "value": 147.8}, {"time": "2026-03-03", "value": 147.5}, {"time": "2026-03-04", "value": 146.85}, {"time": "2026-03-05", "value": 146.2}, {"time": "2026-03-06", "value": 145.9}, {"time": "2026-03-09", "value": 145.4}, {"time": "2026-03-10", "value": 145.275}, {"time": "2026-03-11", "value": 145.275}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -685.0}, {"time": "2025-12-08", "value": -1191.0}, {"time": "2025-12-09", "value": -641.0}, {"time": "2025-12-10", "value": -279.0}, {"time": "2025-12-11", "value": -710.0}, {"time": "2025-12-12", "value": -1220.0}, {"time": "2025-12-15", "value": -1602.0}, {"time": "2025-12-16", "value": -1041.0}, {"time": "2025-12-17", "value": 1893.0}, {"time": "2025-12-18", "value": 511.0}, {"time": "2025-12-19", "value": -386.0}, {"time": "2025-12-22", "value": 206.0}, {"time": "2025-12-23", "value": -391.0}, {"time": "2025-12-24", "value": -391.0}, {"time": "2025-12-26", "value": -1657.0}, {"time": "2025-12-29", "value": -183.0}, {"time": "2025-12-30", "value": 1151.0}, {"time": "2025-12-31", "value": -108.0}, {"time": "2026-01-02", "value": -1689.0}, {"time": "2026-01-05", "value": -3518.0}, {"time": "2026-01-06", "value": -1193.0}, {"time": "2026-01-07", "value": 4356.0}, {"time": "2026-01-08", "value": 2452.0}, {"time": "2026-01-09", "value": 1184.0}, {"time": "2026-01-12", "value": 2158.0}, {"time": "2026-01-13", "value": 1444.0}, {"time": "2026-01-14", "value": 2368.0}, {"time": "2026-01-15", "value": 1128.0}, {"time": "2026-01-16", "value": 1128.0}, {"time": "2026-01-19", "value": 2817.0}, {"time": "2026-01-20", "value": 4509.0}, {"time": "2026-01-21", "value": 1674.0}, {"time": "2026-01-22", "value": 3413.0}, {"time": "2026-01-23", "value": 2471.0}, {"time": "2026-01-26", "value": 3331.0}, {"time": "2026-01-27", "value": 2714.0}, {"time": "2026-01-28", "value": 2714.0}, {"time": "2026-01-29", "value": 1777.0}, {"time": "2026-01-30", "value": 1028.0}, {"time": "2026-02-02", "value": 451.0}, {"time": "2026-02-03", "value": 866.0}, {"time": "2026-02-04", "value": 1167.0}, {"time": "2026-02-05", "value": 526.0}, {"time": "2026-02-06", "value": -247.0}, {"time": "2026-02-09", "value": 144.0}, {"time": "2026-02-10", "value": 587.0}, {"time": "2026-02-11", "value": -138.0}, {"time": "2026-02-23", "value": 451.0}, {"time": "2026-02-24", "value": 1718.0}, {"time": "2026-02-25", "value": 494.0}, {"time": "2026-02-26", "value": 494.0}, {"time": "2026-03-02", "value": -680.0}, {"time": "2026-03-03", "value": -33.0}, {"time": "2026-03-04", "value": -1207.0}, {"time": "2026-03-05", "value": -650.0}, {"time": "2026-03-06", "value": 48.0}, {"time": "2026-03-09", "value": -935.0}, {"time": "2026-03-10", "value": -122.0}, {"time": "2026-03-11", "value": -775.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>天鈺科技（4961）是一家台灣領先的無晶圓廠（Fabless）半導體公司，主要從事積體電路設計業務。</p>
+
+<strong>公司主要業務與核心產品/服務：</strong>
+<ul><li><strong>顯示器驅動IC (DDI)：</strong> 應用於大尺寸（如TV、Notebook、Monitor）與中尺寸（如車載、工控）顯示器。提供TFT-LCD、AMOLED顯示驅動IC，並積極布局OLED DDI產品，涵蓋智慧手機、電視、筆電、平板、車用顯示等領域。</li>
+<li><strong>電源管理IC (PMIC)：</strong> 應用於快充、電子紙(EPD)、移動設備等領域。提供顯示面板電源管理、驅動電路控制，適用於AI PC、電競顯示器、VR裝置。</li>
+<li><strong>Mobile IC (行動裝置IC)：</strong> 包含TDDI（觸控與顯示驅動整合IC）、SDDI、TFT IoT與OLED產品，主要用於手機與平板。</li>
+<li><strong>其他相關半導體：</strong> 包含時序控制晶片(TCON)、電子紙驅動IC(EPD)、電子貨架標籤驅動IC(ESL)與Edge AI晶片，應用於電子紙與智慧零售。</li>
+</ul>
+<strong>營收結構 (2025年Q2)</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>產品線分類</th><th>營收佔比</th></tr></thead><tbody>
+<tr><td>Mobile IC</td><td>34.87%</td></tr>
+<tr><td>其他相關半導體</td><td>31.87%</td></tr>
+<tr><td>顯示器驅動IC</td><td>21.67%</td></tr>
+<tr><td>電源管理IC</td><td>11.57%</td></tr>
+<tr><td><strong>總計</strong></td><td><strong>100%</strong></td></tr>
+</tbody></table></div>
+<em>備註：截至2025年Q2，非驅動IC產品佔比已提升至43%，公司目標在2026年將非驅動IC相關營收比重提升突破五成。天鈺為無晶圓廠(Fabless)設計公司，無自有製造基地。</em>
+
+<h2>核心競爭優勢</h2>
+<ul><li><strong>多元產品組合與轉型能力：</strong> 積極由傳統DDI業務轉向高成長的非驅動IC領域，涵蓋PMIC、ESL、AIoT晶片及車用DDI，降低單一產品線風險。</li>
+<li><strong>OLED顯示技術領先佈局：</strong> 持續投入AMOLED DDI與TDDI產品，受惠於OLED面板在手機、筆電及車用市場滲透率提升。</li>
+<li><strong>邊緣AI晶片潛力：</strong> AIoT與Edge AI晶片第一代已量產，次世代產品瞄準機器人、無人機等高階應用，具備長期成長潛力。</li>
+<li><strong>高整合快充技術：</strong> 預計推出支援PD3.2標準的高整合快充協議IC，有助於搶佔快速成長的快充市場。</li>
+<li><strong>一線客戶認證與出貨：</strong> 筆電eDP 1.5 T-Con、電競顯示器T-Con已打入一線品牌；eDP PMIC導入歐美新客戶；DDR5 PMIC導入DRAM品牌客戶。</li>
+</ul>
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>2026年02月</td><td>13.23</td><td>-1.77%</td><td>-10.35%</td></tr>
+<tr><td>2026年01月</td><td>13.47</td><td>-3.04%</td><td>-3.17%</td></tr>
+<tr><td>2025年12月</td><td>13.89</td><td>+4.29%</td><td>-20.19%</td></tr>
+<tr><td>2025年11月</td><td>13.32</td><td>+7.12%</td><td>-23.22%</td></tr>
+<tr><td>2025年10月</td><td>12.44</td><td>-10.27%</td><td>-26.65%</td></tr>
+<tr><td>2025年09月</td><td>13.86</td><td>-1.37%</td><td>-22.26%</td></tr>
+</tbody></table></div>
+<em>備註：2026年1月、2月營收受農曆年假影響，呈現雙衰退，為近4個月新低，但預期3月需求回溫。</em>
+
+<h3>季度營收與獲利 (近四季)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2024年Q4</th><th>2025年Q2</th><th>2025年Q3</th><th>2025年Q4</th></tr></thead><tbody>
+<tr><td>季營收 (新台幣億元)</td><td>51.46</td><td>50.76</td><td>42.71</td><td>39.84</td></tr>
+<tr><td>季增率 (QoQ)</td><td>-</td><td>+8.91%</td><td>-15.86%</td><td>-6.73%</td></tr>
+<tr><td>年增率 (YoY)</td><td>-</td><td>-</td><td>-</td><td>-22.5%</td></tr>
+<tr><td>毛利率</td><td>26.60%</td><td>28.63%</td><td>28.14%</td><td>27.76%</td></tr>
+<tr><td>營業利益 (新台幣億元)</td><td>4.90 (估算)</td><td>4.95</td><td>2.63</td><td>0.89</td></tr>
+<tr><td>營業利益率</td><td>9.52%</td><td>9.75%</td><td>6.15%</td><td>2.23%</td></tr>
+<tr><td>EPS (新台幣元)</td><td>3.80</td><td>2.62</td><td>1.99 (估算)</td><td>1.57</td></tr>
+</tbody></table></div>
+<em>備註：2025年Q4營收季減與年減，營益率與淨利大幅衰退，反映市場逆風與轉型期挑戰。</em>
+
+<h3>年度營收與 EPS</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>項目</th><th>數字 (新台幣)</th><th>變動</th></tr></thead><tbody>
+<tr><td>2024年</td><td>全年營收</td><td>191.9974 億元</td><td>-</td></tr>
+<tr><td></td><td>全年 EPS</td><td>16.08 元</td><td>-</td></tr>
+<tr><td>2025年</td><td>全年營收</td><td>179.93 億元</td><td>年減 6.28%</td></tr>
+<tr><td></td><td>全年 EPS</td><td>9.65 元</td><td>較2024年下滑</td></tr>
+<tr><td>2026年</td><td>預估年度稅後純益</td><td>13.87 億元</td><td>預期較2025年成長</td></tr>
+<tr><td></td><td>預估 EPS</td><td>11.33 ~ 11.59 元 (2026/03/03)</td><td>預期較2025年成長</td></tr>
+</tbody></table></div>
+
+<h2>法說會重點 (2026年2月25日)</h2>
+<ul><li><strong>2025年營運表現：</strong> 全年EPS為9.65元，較2024年的16.08元明顯下滑。2025年Q4營收39.84億元，季減6.73%、年減22.5%；單季毛利率27.76%，淨利2.57億元，EPS 1.57元。全年合併營收179.93億元，年減6.28%；毛利率28.5%，營益率降至7.42%。</li>
+<li><strong>短期營運展望 (2026年Q1)：</strong> 1、2月受農曆年假影響表現相對低檔，預計3月需求將明顯回溫，後續可望呈現逐季走升態勢。</li>
+<li><strong>2026年全年展望：</strong> 預期整體營運將優於2025年，主要動能來自非驅動IC產品線的擴張與深化，其中Edge AI晶片營收貢獻將逐步成長，並將推出次世代產品。</li>
+<li><strong>產品線具體規劃：</strong></li>
+</ul>    *   <strong>顯示器驅動IC：</strong> 持續提高大尺寸P2P介面市佔率，提供驅動IC、T-Con與面板PMIC整體解決方案。客戶需求轉向成本優化，部分品項有急單補庫存跡象。
+<p>*   <strong>電源管理IC (PMIC)：</strong> 2026年Q1將推出支援Apple PD3.2標準高整合快充協議IC；eDP PMIC打入歐美新客戶並量產；DDR5 PMIC導入DRAM品牌客戶並放量；筆電LTPS面板PMIC Q1放量；Q2電視與顯示器產品將導入可免散熱設計PMIC。</p>
+<p>*   <strong>行動裝置 (Mobile)：</strong> AMOLED DDI出貨量持續放大，同步布局下一代產品；TDDI朝家電與數位顯示發展，已進入家電大廠驗證，Q2將推出多款含RAM的TDDI產品 (QHD、HD、Full HD)。</p>
+<p>*   <strong>其他半導體 (AIoT, Edge AI)：</strong> 鎖定2026年成長引擎為AI SoC與邊緣運算晶片。AIoT晶片聚焦智慧白電、生物辨識、AI玩具、AI數位裝置，延伸至機器人、無人機等邊緣運算應用。新一代IoT晶片將導入更先進製程。新一代ESL IC已放量，支援六色顯示。筆電eDP 1.5省記憶體T-Con打入一線品牌；電競顯示器T-Con切入QHD主流市場。</p>
+<ul><li><strong>產能利用率：</strong> 董事長林永杰坦言，記憶體需求回升已排擠驅動IC在8吋晶圓產線產能，12吋產線亦密切觀察中，不排除未來類似排擠效應。</li>
+<li><strong>資本支出金額：</strong> 未提供2025-2026年具體資本支出金額。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<h3>券商目標價與評等</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>三家券商</td><td>150 ~ 166 元</td><td>中立</td><td>未明確標示發布日期</td></tr>
+</tbody></table></div>
+<em>備註：目前市場對天鈺評等多為「中立」，此目標價僅為市場討論，未揭露具體券商名稱與發布日期。法人機構平均預估2026年EPS為11.33~11.59元 (截至2026年3月3日)。</em>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2024年Q4</th><th>2025年Q1</th><th>2025年Q2</th><th>2025年Q3</th><th>2025年Q4</th><th>2025年全年</th></tr></thead><tbody>
+<tr><td>毛利率</td><td>26.60%</td><td>29.31%</td><td>28.63%</td><td>28.14%</td><td>27.76%</td><td>28.50%</td></tr>
+<tr><td>營業利益率</td><td>9.52%</td><td>-</td><td>9.75%</td><td>6.15%</td><td>2.23%</td><td>7.42%</td></tr>
+<tr><td>稅後淨利率 (估算)</td><td>8.94%</td><td>-</td><td>9.54%</td><td>7.98%</td><td>6.45%</td><td>9.04%</td></tr>
+<tr><td>EPS (新台幣元)</td><td>3.80</td><td>-</td><td>2.62</td><td>-</td><td>1.57</td><td>9.65</td></tr>
+</tbody></table></div>
+<em>備註：2025年第四季毛利率季減0.38個百分點至27.76%，營業利益率大幅下滑至2.23%，顯示公司在營收下滑及產品組合轉換期間面臨較大的獲利壓力。產品組合轉型和匯率波動為主要影響因素。</em>
+
+<h3>存貨分析</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2024年Q4</th><th>2025年Q1</th><th>2025年Q2</th><th>2025年Q3</th><th>2025年Q4</th></tr></thead><tbody>
+<tr><td>存貨金額 (新台幣億元)</td><td>-</td><td>-</td><td>23.33</td><td>-</td><td>-</td></tr>
+<tr><td>存貨週轉率 (次)</td><td>1.55</td><td>1.24</td><td>1.40</td><td>1.33</td><td>-</td></tr>
+<tr><td>存貨週轉天數 (天)</td><td>58.12</td><td>72.56</td><td>64.15</td><td>67.44</td><td>拉長</td></tr>
+</tbody></table></div>
+<em>備註：2025年Q2存貨金額季減17.6%至23.33億元，存貨週轉天數由72.56天降至64.15天，顯示存貨管理效率有所提升。然2025年Q4平均銷貨日數季增與年增，顯示存貨週轉天數再次拉長，可能暗示存貨有異常堆積現象。</em>
+
+<h3>資本支出與折舊攤銷</h3>
+<ul><li><strong>近3年資本支出金額與趨勢：</strong> 未找到2024-2026年天鈺具體的資本支出金額與趨勢的詳細資料。</li>
+<li><strong>未來資本支出計畫與預計新增產能：</strong> 天鈺未明確公布擴廠或新增產能的量化目標，但強調持續投入高傳輸、高刷新率與節能設計產品，深化AI應用以提升產品競爭力。公司將專注於克服晶圓廠投片限制，並預期2026年營運優於2025年，由非驅動IC產品線帶動。</li>
+<li><strong>折舊攤銷趨勢：</strong> 根據2025年Q3合併現金流量表，近四季（2024Q4至2025Q3）折舊費用為4.47億元，攤銷費用為2.03億元。</li>
+</ul>
+<h3>應收帳款趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2024年Q4</th><th>2025年Q1</th><th>2025年Q2</th><th>2025年Q3</th><th>2025年Q4</th></tr></thead><tbody>
+<tr><td>應收帳款週轉率 (次)</td><td>1.60</td><td>1.42</td><td>1.65</td><td>1.41</td><td>-</td></tr>
+<tr><td>應收帳款收現天數 (天)</td><td>56.11</td><td>63.21</td><td>65.81</td><td>63.86</td><td>拉長</td></tr>
+</tbody></table></div>
+<em>備註：2025年Q2平均收現日數為65.81天，較Q1減少9.09天，顯示收款效率提升。然2025年Q4平均收現日數季增與年增，顯示應收帳款回收效率再次下降。</em>
+
+<h2>股權異動</h2>
+
+<h3>董監事/大股東申報轉讓</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>日期</th><th>身份</th><th>張數</th><th>方式</th></tr></thead><tbody>
+<tr><td>2025年12月19日</td><td>經理人蔡坤憲</td><td>260</td><td>信託</td></tr>
+</tbody></table></div>
+
+<h3>庫藏股</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>宣布日期</th><th>執行期間</th><th>預計買回張數</th><th>實際買回張數</th><th>買回總金額 (新台幣)</th><th>平均買回價 (新台幣)</th><th>目的</th><th>佔已發行股數比率</th></tr></thead><tbody>
+<tr><td>2026年01月05日</td><td>2026/01/06-03/05</td><td>1,500</td><td>1,500</td><td>220,678,034</td><td>147.12</td><td>轉讓股份予員工</td><td>1.24%</td></tr>
+</tbody></table></div>
+<em>備註：庫藏股已於2026年3月4日執行完畢，買回區間價格為94.50元至216.00元，顯示管理層對公司股價的信心。</em>
+
+<h3>可轉債、增減資</h3>
+<ul><li><strong>可轉債：</strong> 未找到2024-2026年天鈺發行可轉換公司債的相關資料。</li>
+<li><strong>增減資：</strong> 未找到2024-2026年天鈺現金增資或減資計畫的相關資料。</li>
+</ul>
+<h3>股利政策</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>現金股利 (新台幣元/股)</th><th>股票股利 (新台幣元/股)</th><th>除息日</th><th>現金發放日</th><th>盈餘配發率 (估計)</th><th>現金殖利率 (估計)</th></tr></thead><tbody>
+<tr><td>2024年</td><td>10.64</td><td>0</td><td>2024年06月27日</td><td>2024年07月26日</td><td>-</td><td>-</td></tr>
+<tr><td>2025年</td><td>12.87</td><td>0</td><td>2025年07月01日</td><td>2025年07月25日</td><td>約八成</td><td>約6.1% (以2025/04/01收盤價210.5元計)</td></tr>
+</tbody></table></div>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與 CAGR 成長率</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>產業細分</th><th>2024年市場規模</th><th>2025年市場規模</th><th>2026年市場規模</th><th>預估 CAGR (區間/年限)</th></tr></thead><tbody>
+<tr><td>顯示器驅動IC (DDI)</td><td>-</td><td>130.6億美元</td><td>138.1億美元</td><td>5.8% (2020-2034)</td></tr>
+<tr><td>電源管理IC (PMIC)</td><td>408.6億美元</td><td>418.2億美元</td><td>444.3億美元</td><td>6.83% (2025-2034) 或 6.3% (2026-2034)</td></tr>
+<tr><td>行動裝置IC (Mobile DDI)</td><td>-</td><td>-</td><td>-</td><td>4.2% (2026-2033)</td></tr>
+</tbody></table></div>
+
+<h3>供需狀況</h3>
+<ul><li><strong>顯示器驅動IC (DDI)：</strong></li>
+</ul>    *   Omdia預計2025年全球DDI出貨量年減1-2%，2026年溫和成長2%。
+<p>*   大尺寸DDI 2025年需求平穩，供應充足，但終端需求不明朗，供應鏈備貨保守。</p>
+<p>*   LCD電視DDIC 2025年需求預計年減6.6%，受4K+高解析度面板出貨低於預期及DRD/TRD技術影響。</p>
+<p>*   IT應用DDI (NB、Monitor、Tablet) 2025年預計年增3%，受全球經濟不確定性影響。</p>
+<p>*   智慧手機DDI (中小尺寸) 2025年預計年減5%，長期穩定。</p>
+<p>*   手機TDDI 2025-2026年需求穩定但面臨價格壓力；AMOLED DDI需求隨滲透率提升而增長。</p>
+<ul><li><strong>電源管理IC (PMIC)：</strong></li>
+</ul>    *   AI伺服器電源管理需求迫切，2026年電源IC供應將全面吃緊，特別是高效能、高電流密度的產品。
+<p>*   AI應用驅動PMIC需求激增，帶動8吋晶圓代工產能吃緊，華虹、中芯國際、世界先進等8吋廠產能利用率接近滿載 (超過95%)，預計2026年Q4仍維持高檔 (94-100%)，已醞釀零星漲價。</p>
+<p>*   PMIC市場2025年呈現緩步回溫的態勢。</p>
+
+<h3>產業的平均毛利率水準 (作為參考)</h3>
+<ul><li><strong>DDI業者瑞鼎 (3592)：</strong> 2025年全年毛利率28.5%。</li>
+<li><strong>PMIC業者致新 (8081)：</strong> 2024年Q2毛利率40%。</li>
+<li><strong>晶圓代工世界先進 (5347)：</strong> 預計2026年Q1毛利率有望提升至28-30%。</li>
+<li><strong>台積電 (2330)：</strong> 2025年Q4毛利率62.33%。</li>
+</ul>
+<h3>競爭格局</h3>
+
+<strong>台灣同業比較 (2025年)</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>營收規模 (新台幣億元)</th><th>毛利率</th><th>EPS (新台幣元)</th><th>產品主要類別</th></tr></thead><tbody>
+<tr><td>天鈺 (4961)</td><td>179.93 (2025全年)</td><td>28.50%</td><td>9.65</td><td>DDI, PMIC, AIoT, ESL</td></tr>
+<tr><td>瑞鼎 (3592)</td><td>224.0 (2025全年)</td><td>28.50%</td><td>18.24</td><td>OLED/LCD DDI</td></tr>
+<tr><td>致新 (8081)</td><td>55.50 (2024前8月)</td><td>40.00% (2024Q2)</td><td>4.28 (2024Q2)</td><td>PMIC, 放大器, 溫度感測</td></tr>
+</tbody></table></div>
+<em>備註：全球DDI/PMIC前5大公司市佔率及詳細技術、產能、客戶、價格等比較資訊未公開。中國大陸供應商在DDI市場的市佔率有望在2025年接近台灣。</em>
+
+<h3>產業趨勢</h3>
+<li><strong>AI應用普及與高效能需求：</strong></li>
+<p>*   <strong>具體影響：</strong> AI伺服器和AI PC的興起，對高效能、高電流密度的PMIC需求顯著增加，亦帶動散熱風扇馬達IC市場。</p>
+<li><strong>OLED顯示技術的快速發展：</strong></li>
+<p>*   <strong>具體影響：</strong> OLED面板在智慧手機、平板、筆記型電腦、電視以及車用顯示等領域的滲透率持續提升，推動AMOLED驅動IC的需求增長。低價版本的Ramless AMOLED驅動IC成為主流，同時隨著面板廠8.6代線產能陸續開出，平板、筆電與顯示器導入OLED面板的趨勢明確，帶動IT OLED DDI與T-COM產品逐步放量。</p>
+<li><strong>電動車及車用電子市場的成長：</strong></li>
+<p>*   <strong>具體影響：</strong> 電動車和混合動力車的快速普及，推動了對高電流、高效率電源管理IC（PMIC）的需求。汽車電子被認定為PMIC增長最快的細分領域。車用顯示器對DDI的需求也日益增加，且車用相關產品享有較長的產品週期，有助於廠商長期營運貢獻。</p>
+
+<h3>對天鈺而言的具體機會和威脅</h3>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>OLED DDI市場擴張：</strong> 積極佈局OLED DDI（手機、TV、NB、平板、車用），受惠於OLED滲透率提升。折疊手機DDIC用量翻倍。
+<p>*   <strong>AI相關PMIC需求：</strong> PMIC佈局有機會切入AI PC、AI伺服器等高效能電源管理晶片市場。</p>
+<p>*   <strong>車用電子領域發展：</strong> 車用DDI與PMIC投入，受惠電動車及車用電子市場穩健成長。</p>
+<p>*   <strong>ESL市場成長：</strong> ESL IC已開始放量，支援六色顯示，智慧零售市場持續成長。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>DDI市場競爭加劇與價格壓力：</strong> 2025年DDI出貨微降，手機TDDI面臨價格壓力，AMOLED DDI供應商增多導致價格下滑，毛利承壓。
+<p>*   <strong>傳統LCD應用需求趨緩：</strong> LCD電視DDI需求下降，平板DDI疲軟，影響傳統DDI業績。</p>
+<p>*   <strong>8吋/12吋晶圓產能排擠：</strong> 記憶體需求回升已排擠DDI在8吋晶圓產能，未來可能延伸至12吋，影響出貨。</p>
+<p>*   <strong>全球經濟不確定性：</strong> 關稅政策與經濟環境不穩定，影響消費電子市場前景，進而影響整體IC需求。</p>
+
+<h3>相關投資題材的具體連結</h3>
+<ul><li><strong>AI (人工智慧)：</strong> 天鈺PMIC產品線可連結AI PC、AI伺服器對高效能電源管理晶片的需求。AIoT、Edge AI晶片更是直接受惠。</li>
+<li><strong>電動車 (EV)：</strong> 天鈺車載DDI與PMIC應用於車用顯示器及電子系統，與電動車產業快速發展相關。</li>
+<li><strong>HBM (高頻寬記憶體)：</strong> 雖不直接生產，但HBM市場熱絡可能排擠晶圓產能（DDI部分），對行動裝置IC業務可能產生間接影響。</li>
+</ul>
+<h2>近期催化劑 (2025年12月 - 2026年3月)</h2>
+
+<h3>利多事件</h3>
+<ul><li><strong>2026年3月4日：</strong> 庫藏股執行完畢，實際買回1,500張，總金額2.21億元，平均每股147.12元，展現管理層對股價信心與激勵員工。</li>
+<li><strong>2026年2月25日法說會：</strong> 管理層預期2026年整體營運將優於2025年，營運動能可望逐季走升，且非驅動IC產品線（特別是Edge AI晶片）將成為主要成長引擎，朝非驅動IC營收佔比突破五成目標邁進。</li>
+<li><strong>2026年Q1新產品陸續推出：</strong> 支援Apple PD3.2高整合快充協議IC、eDP PMIC導入歐美新客戶量產、DDR5 PMIC導入DRAM品牌客戶並放量、筆電LTPS面板PMIC放量、家電/數位顯示TDDI進入家電大廠驗證。</li>
+<li><strong>2025年4月1日：</strong> 2024年獲利擬配發每股現金股利12.87元，以當時收盤價計算，現金殖利率約6.1%，顯示公司願意回饋股東。</li>
+</ul>
+<h3>利空事件</h3>
+<ul><li><strong>2026年3月3日：</strong> 公布2月營收13.23億元，月減1.77%、年減10.35%，為近4個月新低，顯示消費性電子淡季效應仍在。</li>
+<li><strong>2026年2月25日法說會：</strong> 坦言記憶體需求回升已排擠驅動IC在8吋晶圓產能，且不排除延伸至12吋，可能影響DDI出貨。2025年全年EPS 9.65元，較2024年16.08元大幅下滑，顯示獲利能力面臨挑戰。</li>
+<li><strong>2026年1月至3月3日：</strong> 外資累計賣超851張、投信累計賣超966張，顯示法人對公司短期表現持審慎態度。</li>
+<li><strong>2025年第四季財報：</strong> 季營收39.84億元季減6.7%、年減22.5%；營業利益僅0.89億元季減66.04%、年減82.07%；EPS 1.57元季減24.4%、年減58.7%，獲利能力大幅衰退。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>時間</th><th>事件</th><th>成長動能</th><th>備註</th></tr></thead><tbody>
+<tr><td><strong>2025年Q2</strong></td><td>第一代AIoT晶片進入規模量產</td><td>Edge AI晶片市場</td><td>智慧白電、生物辨識、AI玩具等應用</td></tr>
+<tr><td><strong>2025年Q2</strong></td><td>非驅動IC營收佔比提升至43%</td><td>產品組合優化、非DDI成長</td><td>目標2026年突破五成</td></tr>
+<tr><td><strong>2025年Q3</strong></td><td>新一代ESL IC開始放量</td><td>電子貨架標籤 (ESL) 市場擴張</td><td>支援六色顯示技術</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td>推出支援Apple PD3.2高整合快充協議IC</td><td>快充市場、PMIC高整合趨勢</td><td>將多項外部元件整合至單一晶片</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td>eDP PMIC導入歐美新客戶量產</td><td>PMIC新客戶/市場擴展</td><td>筆電eDP應用</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td>DDR5 PMIC導入記憶體品牌客戶並放量出貨</td><td>DDR5市場、PMIC應用</td><td>受惠DDR5升級潮</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td>筆電LTPS面板用PMIC放量出貨</td><td>LTPS面板應用、PMIC市場擴展</td><td></td></tr>
+<tr><td><strong>2026年Q1</strong></td><td>家電/數位顯示TDDI進入家電大廠驗證</td><td>家電TDDI新市場</td><td>搶食白色家電市場</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td>筆電eDP 1.5省記憶體T-Con打入一線品牌</td><td>T-Con市場、一線品牌客戶</td><td>筆電應用趨勢</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td>電競顯示器T-Con切入QHD主流市場</td><td>T-Con市場、電競應用</td><td></td></tr>
+<tr><td><strong>2026年Q2</strong></td><td>電視/顯示器產品導入可免散熱設計PMIC</td><td>PMIC技術創新、成本優化</td><td>協助面板廠降低成本</td></tr>
+<tr><td><strong>2026年Q2</strong></td><td>推出新一代AMOLED PMIC</td><td>AMOLED市場、PMIC技術升級</td><td></td></tr>
+<tr><td><strong>2026年Q2</strong></td><td>開發下一代IoT晶片 (導入更先進製程)</td><td>AIoT、Edge AI晶片效能提升</td><td>瞄準機器人、無人機等邊緣運算</td></tr>
+<tr><td><strong>2026年</strong></td><td>整體營運預期優於2025年</td><td>非驅動IC產品線持續擴展</td><td>營收獲利回升預期</td></tr>
+<tr><td><strong>2026年</strong></td><td>非驅動IC相關營收比重目標突破五成</td><td>產品組合轉型成功、多元成長</td><td></td></tr>
+<tr><td><strong>2026年</strong></td><td>Edge AI晶片營收貢獻逐步成長並推次世代</td><td>Edge AI晶片市場</td><td>邊緣運算應用深化</td></tr>
+<tr><td><strong>長期</strong></td><td>OLED DDI佈局 (手機、TV、NB、平板、車用)</td><td>OLED滲透率提升</td><td></td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+<p>天鈺董事長林永杰預期2026年整體營運將優於2025年，並呈現逐季走升態勢。法人機構平均預估2026年稅後純益將達13.87億元，EPS介於11.33~11.59元，相較2025年9.65元的低點將有顯著回升。</p>
+
+<h3>成長動能</h3>
+<li><strong>非驅動IC產品線持續擴展：</strong> 公司目標在2026年將非驅動IC營收比重提升突破五成。Edge AI晶片、ESL、高效能PMIC (如PD3.2快充、DDR5 PMIC、eDP PMIC) 等產品將是主要成長引擎。</li>
+<li><strong>AIoT與Edge AI晶片放量：</strong> 第一代AIoT晶片已進入規模量產，新一代IoT與AI SoC將導入更先進製程，瞄準機器人、無人機等高階邊緣運算應用，營收貢獻將逐步放大。</li>
+<li><strong>OLED DDI與TDDI佈局深化：</strong> 受惠於AMOLED面板滲透率提升及折疊手機DDIC用量翻倍，OLED DDI出貨持續放大。TDDI產品積極切入家電與數位顯示應用，並推出多款含RAM的TDDI產品。</li>
+<li><strong>車用電子市場貢獻：</strong> 車用DDI和PMIC隨著電動車與智慧座艙市場成長，提供穩健的長期營收動能。</li>
+<li><strong>T-Con產品線競爭力提升：</strong> 筆電eDP 1.5省記憶體T-Con及電競顯示器QHD T-Con已打入一線品牌及主流市場，有望持續擴大市佔。</li>
+
+<h3>風險因子</h3>
+<li><strong>晶圓產能排擠風險：</strong> 記憶體需求回升已排擠8吋晶圓產能，且不排除延伸至12吋，可能影響DDI產品的供應與出貨。</li>
+<li><strong>DDI市場價格競爭激烈：</strong> 消費性電子需求復甦緩慢，DDI尤其手機TDDI和AMOLED DDI市場競爭激烈，價格壓力持續，可能影響公司毛利率。</li>
+<li><strong>消費性電子需求復甦速度不如預期：</strong> 儘管管理層預期3月需求回溫，但整體消費性電子終端市場需求是否能全面復甦，仍存在不確定性。</li>
+<li><strong>新產品開發與市場導入不確定性：</strong> 雖然公司積極布局多條新產品線，但新產品的營收貢獻時程與市場接受度仍需觀察，若進度不如預期可能影響2026年成長目標。</li>
+<li><strong>總體經濟不確定性：</strong> 全球經濟成長放緩、地緣政治風險及匯率波動等因素，仍可能對公司營運造成不利影響。</li>
+
+<h2>投資結論</h2>
+<p>綜合上述分析，天鈺（4961）正處於由傳統DDI廠向多元化IC設計公司轉型的關鍵階段。儘管2025年獲利面臨壓力，但公司積極拓展Edge AI、ESL、高效能PMIC等非驅動IC產品線，為2026年營運成長奠定基礎。</p>
+
+<li><strong>轉型效益將逐步顯現：</strong> 非驅動IC營收佔比目標突破五成，Edge AI晶片、高整合快充PMIC、DDR5 PMIC、ESL等新產品線有望在2026年提供明確成長動能，支撐營收回升。</li>
+<li><strong>DDI市場挑戰與機遇並存：</strong> 傳統DDI市場面臨產能排擠與價格競爭，但AMOLED DDI在OLED滲透率提升、車用DDI在電動車市場的佈局，將是DDI業務的長期成長支撐。</li>
+<li><strong>財務結構穩健，管理層具信心：</strong> 儘管短期獲利下滑，但公司負債比率仍低。庫藏股的執行顯示管理層對公司價值的信心，有助於提振市場情緒。</li>
+<li><strong>關注毛利率與產能狀況：</strong> 隨著新產品組合變化，需密切關注公司毛利率能否有效改善。同時，記憶體需求對8吋/12吋晶圓產能的排擠效應，是未來營運潛在風險。</li>
+<li><strong>目標價區間建議：</strong> 考量公司2026年EPS預估區間為11.33~11.59元，並參考市場對其轉型前景的審慎樂觀態度，給予合理本益比區間約13-15倍。因此，建議天鈺的<strong>目標價區間為新台幣 147.3 ~ 173.85 元</strong>。投資人應關注公司新產品出貨動能、毛利率改善情況以及晶圓產能供應的變化。</li>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 14:35</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="4961_天鈺_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="4961_天鈺_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="4961_天鈺_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

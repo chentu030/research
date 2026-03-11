@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4540 全球傳動 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>4540 全球傳動 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>全球傳動（TBI MOTION）正處於從傳統機械元件向「人形機器人關鍵零組件」轉型的轉折點；隨著 2026 年 1 月營收年增 85% 展現強勁復甦，配合半導體封裝訂單與機器人驗證進度，2026 年有望達成全面轉虧為盈。</p>
+
+<hr>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">4540 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-4540" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-4540" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-4540');
+    var obvContainer = document.getElementById('obv-chart-4540');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 36.2, "high": 37.45, "low": 35.95, "close": 35.95}, {"time": "2025-12-05", "open": 36.25, "high": 37.5, "low": 36.0, "close": 36.1}, {"time": "2025-12-08", "open": 36.1, "high": 36.1, "low": 35.25, "close": 35.85}, {"time": "2025-12-09", "open": 36.15, "high": 36.15, "low": 35.3, "close": 35.45}, {"time": "2025-12-10", "open": 35.35, "high": 35.95, "low": 35.2, "close": 35.2}, {"time": "2025-12-11", "open": 35.45, "high": 35.7, "low": 35.05, "close": 35.3}, {"time": "2025-12-12", "open": 35.5, "high": 35.85, "low": 35.1, "close": 35.35}, {"time": "2025-12-15", "open": 34.9, "high": 35.55, "low": 34.5, "close": 35.35}, {"time": "2025-12-16", "open": 35.8, "high": 35.8, "low": 34.0, "close": 34.6}, {"time": "2025-12-17", "open": 34.75, "high": 35.15, "low": 34.6, "close": 34.6}, {"time": "2025-12-18", "open": 34.6, "high": 34.6, "low": 33.8, "close": 33.9}, {"time": "2025-12-19", "open": 34.0, "high": 34.45, "low": 33.95, "close": 34.2}, {"time": "2025-12-22", "open": 34.45, "high": 34.9, "low": 34.4, "close": 34.85}, {"time": "2025-12-23", "open": 35.45, "high": 35.45, "low": 34.6, "close": 34.9}, {"time": "2025-12-24", "open": 35.05, "high": 35.35, "low": 34.75, "close": 34.85}, {"time": "2025-12-26", "open": 35.5, "high": 35.5, "low": 34.55, "close": 34.9}, {"time": "2025-12-29", "open": 35.1, "high": 35.85, "low": 35.1, "close": 35.25}, {"time": "2025-12-30", "open": 35.7, "high": 35.7, "low": 33.85, "close": 34.3}, {"time": "2025-12-31", "open": 34.3, "high": 34.8, "low": 34.2, "close": 34.4}, {"time": "2026-01-02", "open": 34.7, "high": 35.75, "low": 34.7, "close": 35.2}, {"time": "2026-01-05", "open": 35.25, "high": 35.4, "low": 34.6, "close": 35.0}, {"time": "2026-01-06", "open": 35.7, "high": 38.5, "low": 35.2, "close": 37.9}, {"time": "2026-01-07", "open": 38.35, "high": 38.85, "low": 37.05, "close": 38.0}, {"time": "2026-01-08", "open": 37.75, "high": 37.8, "low": 36.6, "close": 36.9}, {"time": "2026-01-09", "open": 36.95, "high": 38.0, "low": 35.65, "close": 35.85}, {"time": "2026-01-12", "open": 35.85, "high": 36.75, "low": 35.65, "close": 35.65}, {"time": "2026-01-13", "open": 36.0, "high": 36.35, "low": 35.5, "close": 36.1}, {"time": "2026-01-14", "open": 36.3, "high": 37.8, "low": 36.3, "close": 37.5}, {"time": "2026-01-15", "open": 38.1, "high": 39.45, "low": 37.55, "close": 38.95}, {"time": "2026-01-16", "open": 40.2, "high": 40.6, "low": 38.75, "close": 38.75}, {"time": "2026-01-19", "open": 39.65, "high": 42.6, "low": 39.65, "close": 42.6}, {"time": "2026-01-20", "open": 42.8, "high": 45.75, "low": 42.0, "close": 45.35}, {"time": "2026-01-21", "open": 46.8, "high": 49.85, "low": 45.8, "close": 49.85}, {"time": "2026-01-22", "open": 51.3, "high": 52.0, "low": 48.5, "close": 48.5}, {"time": "2026-01-23", "open": 48.9, "high": 52.5, "low": 48.75, "close": 49.8}, {"time": "2026-01-26", "open": 50.5, "high": 51.5, "low": 49.35, "close": 50.6}, {"time": "2026-01-27", "open": 50.1, "high": 50.4, "low": 48.55, "close": 49.15}, {"time": "2026-01-28", "open": 49.1, "high": 50.4, "low": 48.0, "close": 49.7}, {"time": "2026-01-29", "open": 51.2, "high": 53.8, "low": 49.7, "close": 49.8}, {"time": "2026-01-30", "open": 49.55, "high": 49.7, "low": 47.1, "close": 47.85}, {"time": "2026-02-02", "open": 46.8, "high": 47.05, "low": 45.05, "close": 45.7}, {"time": "2026-02-03", "open": 46.1, "high": 47.05, "low": 45.6, "close": 46.75}, {"time": "2026-02-04", "open": 46.25, "high": 49.4, "low": 46.05, "close": 48.15}, {"time": "2026-02-05", "open": 47.65, "high": 47.7, "low": 45.6, "close": 45.8}, {"time": "2026-02-06", "open": 45.5, "high": 45.7, "low": 43.0, "close": 44.2}, {"time": "2026-02-09", "open": 45.55, "high": 48.45, "low": 45.0, "close": 48.25}, {"time": "2026-02-10", "open": 47.3, "high": 47.9, "low": 46.3, "close": 46.65}, {"time": "2026-02-11", "open": 46.9, "high": 49.9, "low": 46.2, "close": 47.85}, {"time": "2026-02-23", "open": 47.9, "high": 52.0, "low": 47.7, "close": 51.4}, {"time": "2026-02-24", "open": 51.2, "high": 53.0, "low": 50.3, "close": 52.4}, {"time": "2026-02-25", "open": 52.8, "high": 52.9, "low": 50.1, "close": 50.5}, {"time": "2026-02-26", "open": 50.4, "high": 52.8, "low": 50.4, "close": 51.7}, {"time": "2026-03-02", "open": 48.75, "high": 49.75, "low": 46.05, "close": 47.0}, {"time": "2026-03-03", "open": 51.9, "high": 52.2, "low": 48.8, "close": 49.7}, {"time": "2026-03-04", "open": 48.75, "high": 49.75, "low": 46.05, "close": 47.0}, {"time": "2026-03-05", "open": 48.75, "high": 49.6, "low": 47.2, "close": 47.45}, {"time": "2026-03-06", "open": 47.1, "high": 47.35, "low": 46.1, "close": 46.95}, {"time": "2026-03-09", "open": 43.2, "high": 43.95, "low": 42.3, "close": 43.4}, {"time": "2026-03-10", "open": 43.5, "high": 46.5, "low": 43.5, "close": 45.1}, {"time": "2026-03-11", "open": 46.05, "high": 48.15, "low": 46.05, "close": 47.9}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 1964.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 1563.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 506.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 275.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 365.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 338.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 477.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 253.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 428.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 205.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 407.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 293.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 199.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 267.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 260.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 277.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 437.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 589.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 271.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 652.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 474.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 4704.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 3338.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 1191.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 991.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 770.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 811.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 1684.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 3442.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 5344.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 7055.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 12564.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 15315.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 23404.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 14867.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 7054.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 4781.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 4965.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 9395.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 3564.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 2179.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 1639.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 2744.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 1622.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 1462.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 3516.0, "color": "#ef5350"}, {"time": "2026-02-10", "value": 2888.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 3665.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 7434.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 9722.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 4665.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 4642.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 2407.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 3320.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 2407.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 1555.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 960.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 1496.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 1909.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 1854.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 35.71}, {"time": "2025-12-11", "value": 35.58}, {"time": "2025-12-12", "value": 35.43}, {"time": "2025-12-15", "value": 35.33}, {"time": "2025-12-16", "value": 35.160000000000004}, {"time": "2025-12-17", "value": 35.04}, {"time": "2025-12-18", "value": 34.760000000000005}, {"time": "2025-12-19", "value": 34.53}, {"time": "2025-12-22", "value": 34.43}, {"time": "2025-12-23", "value": 34.489999999999995}, {"time": "2025-12-24", "value": 34.54}, {"time": "2025-12-26", "value": 34.739999999999995}, {"time": "2025-12-29", "value": 34.95}, {"time": "2025-12-30", "value": 34.839999999999996}, {"time": "2025-12-31", "value": 34.739999999999995}, {"time": "2026-01-02", "value": 34.81}, {"time": "2026-01-05", "value": 34.83}, {"time": "2026-01-06", "value": 35.36}, {"time": "2026-01-07", "value": 36.1}, {"time": "2026-01-08", "value": 36.6}, {"time": "2026-01-09", "value": 36.730000000000004}, {"time": "2026-01-12", "value": 36.86}, {"time": "2026-01-13", "value": 36.5}, {"time": "2026-01-14", "value": 36.4}, {"time": "2026-01-15", "value": 36.81}, {"time": "2026-01-16", "value": 37.39}, {"time": "2026-01-19", "value": 38.78}, {"time": "2026-01-20", "value": 40.63}, {"time": "2026-01-21", "value": 43.1}, {"time": "2026-01-22", "value": 45.010000000000005}, {"time": "2026-01-23", "value": 47.22}, {"time": "2026-01-26", "value": 48.82}, {"time": "2026-01-27", "value": 49.58}, {"time": "2026-01-28", "value": 49.55}, {"time": "2026-01-29", "value": 49.81}, {"time": "2026-01-30", "value": 49.42}, {"time": "2026-02-02", "value": 48.44}, {"time": "2026-02-03", "value": 47.96}, {"time": "2026-02-04", "value": 47.65}, {"time": "2026-02-05", "value": 46.85}, {"time": "2026-02-06", "value": 46.12}, {"time": "2026-02-09", "value": 46.63}, {"time": "2026-02-10", "value": 46.61}, {"time": "2026-02-11", "value": 46.55}, {"time": "2026-02-23", "value": 47.67}, {"time": "2026-02-24", "value": 49.31}, {"time": "2026-02-25", "value": 49.760000000000005}, {"time": "2026-02-26", "value": 50.769999999999996}, {"time": "2026-03-02", "value": 50.6}, {"time": "2026-03-03", "value": 50.260000000000005}, {"time": "2026-03-04", "value": 49.18}, {"time": "2026-03-05", "value": 48.57000000000001}, {"time": "2026-03-06", "value": 47.620000000000005}, {"time": "2026-03-09", "value": 46.9}, {"time": "2026-03-10", "value": 45.980000000000004}, {"time": "2026-03-11", "value": 46.160000000000004}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 35.375}, {"time": "2025-12-18", "value": 35.17}, {"time": "2025-12-19", "value": 34.980000000000004}, {"time": "2025-12-22", "value": 34.88}, {"time": "2025-12-23", "value": 34.825}, {"time": "2025-12-24", "value": 34.79}, {"time": "2025-12-26", "value": 34.75}, {"time": "2025-12-29", "value": 34.739999999999995}, {"time": "2025-12-30", "value": 34.635000000000005}, {"time": "2025-12-31", "value": 34.614999999999995}, {"time": "2026-01-02", "value": 34.675}, {"time": "2026-01-05", "value": 34.785000000000004}, {"time": "2026-01-06", "value": 35.155}, {"time": "2026-01-07", "value": 35.47}, {"time": "2026-01-08", "value": 35.67}, {"time": "2026-01-09", "value": 35.769999999999996}, {"time": "2026-01-12", "value": 35.845}, {"time": "2026-01-13", "value": 35.93}, {"time": "2026-01-14", "value": 36.25}, {"time": "2026-01-15", "value": 36.705}, {"time": "2026-01-16", "value": 37.06}, {"time": "2026-01-19", "value": 37.82}, {"time": "2026-01-20", "value": 38.565}, {"time": "2026-01-21", "value": 39.75}, {"time": "2026-01-22", "value": 40.910000000000004}, {"time": "2026-01-23", "value": 42.305}, {"time": "2026-01-26", "value": 43.8}, {"time": "2026-01-27", "value": 45.105000000000004}, {"time": "2026-01-28", "value": 46.325}, {"time": "2026-01-29", "value": 47.410000000000004}, {"time": "2026-01-30", "value": 48.32}, {"time": "2026-02-02", "value": 48.63}, {"time": "2026-02-03", "value": 48.769999999999996}, {"time": "2026-02-04", "value": 48.6}, {"time": "2026-02-05", "value": 48.33}, {"time": "2026-02-06", "value": 47.769999999999996}, {"time": "2026-02-09", "value": 47.535000000000004}, {"time": "2026-02-10", "value": 47.285000000000004}, {"time": "2026-02-11", "value": 47.1}, {"time": "2026-02-23", "value": 47.260000000000005}, {"time": "2026-02-24", "value": 47.714999999999996}, {"time": "2026-02-25", "value": 48.195}, {"time": "2026-02-26", "value": 48.69}, {"time": "2026-03-02", "value": 48.575}, {"time": "2026-03-03", "value": 48.964999999999996}, {"time": "2026-03-04", "value": 49.245}, {"time": "2026-03-05", "value": 49.165}, {"time": "2026-03-06", "value": 49.195}, {"time": "2026-03-09", "value": 48.75}, {"time": "2026-03-10", "value": 48.12}, {"time": "2026-03-11", "value": 47.67}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 35.025}, {"time": "2026-01-05", "value": 34.9775}, {"time": "2026-01-06", "value": 35.0675}, {"time": "2026-01-07", "value": 35.175}, {"time": "2026-01-08", "value": 35.2475}, {"time": "2026-01-09", "value": 35.28}, {"time": "2026-01-12", "value": 35.2975}, {"time": "2026-01-13", "value": 35.335}, {"time": "2026-01-14", "value": 35.4425}, {"time": "2026-01-15", "value": 35.660000000000004}, {"time": "2026-01-16", "value": 35.8675}, {"time": "2026-01-19", "value": 36.302499999999995}, {"time": "2026-01-20", "value": 36.86}, {"time": "2026-01-21", "value": 37.61}, {"time": "2026-01-22", "value": 38.29}, {"time": "2026-01-23", "value": 39.0375}, {"time": "2026-01-26", "value": 39.822500000000005}, {"time": "2026-01-27", "value": 40.5175}, {"time": "2026-01-28", "value": 41.2875}, {"time": "2026-01-29", "value": 42.0575}, {"time": "2026-01-30", "value": 42.69}, {"time": "2026-02-02", "value": 43.225}, {"time": "2026-02-03", "value": 43.667500000000004}, {"time": "2026-02-04", "value": 44.175}, {"time": "2026-02-05", "value": 44.62}, {"time": "2026-02-06", "value": 45.0375}, {"time": "2026-02-09", "value": 45.667500000000004}, {"time": "2026-02-10", "value": 46.195}, {"time": "2026-02-11", "value": 46.7125}, {"time": "2026-02-23", "value": 47.335}, {"time": "2026-02-24", "value": 48.0175}, {"time": "2026-02-25", "value": 48.4125}, {"time": "2026-02-26", "value": 48.730000000000004}, {"time": "2026-03-02", "value": 48.5875}, {"time": "2026-03-03", "value": 48.6475}, {"time": "2026-03-04", "value": 48.5075}, {"time": "2026-03-05", "value": 48.35}, {"time": "2026-03-06", "value": 48.239999999999995}, {"time": "2026-03-09", "value": 47.925}, {"time": "2026-03-10", "value": 47.69}, {"time": "2026-03-11", "value": 47.6925}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 1563.0}, {"time": "2025-12-08", "value": 1057.0}, {"time": "2025-12-09", "value": 782.0}, {"time": "2025-12-10", "value": 417.0}, {"time": "2025-12-11", "value": 755.0}, {"time": "2025-12-12", "value": 1232.0}, {"time": "2025-12-15", "value": 1232.0}, {"time": "2025-12-16", "value": 804.0}, {"time": "2025-12-17", "value": 804.0}, {"time": "2025-12-18", "value": 397.0}, {"time": "2025-12-19", "value": 690.0}, {"time": "2025-12-22", "value": 889.0}, {"time": "2025-12-23", "value": 1156.0}, {"time": "2025-12-24", "value": 896.0}, {"time": "2025-12-26", "value": 1173.0}, {"time": "2025-12-29", "value": 1610.0}, {"time": "2025-12-30", "value": 1021.0}, {"time": "2025-12-31", "value": 1292.0}, {"time": "2026-01-02", "value": 1944.0}, {"time": "2026-01-05", "value": 1470.0}, {"time": "2026-01-06", "value": 6174.0}, {"time": "2026-01-07", "value": 9512.0}, {"time": "2026-01-08", "value": 8321.0}, {"time": "2026-01-09", "value": 7330.0}, {"time": "2026-01-12", "value": 6560.0}, {"time": "2026-01-13", "value": 7371.0}, {"time": "2026-01-14", "value": 9055.0}, {"time": "2026-01-15", "value": 12497.0}, {"time": "2026-01-16", "value": 7153.0}, {"time": "2026-01-19", "value": 14208.0}, {"time": "2026-01-20", "value": 26772.0}, {"time": "2026-01-21", "value": 42087.0}, {"time": "2026-01-22", "value": 18683.0}, {"time": "2026-01-23", "value": 33550.0}, {"time": "2026-01-26", "value": 40604.0}, {"time": "2026-01-27", "value": 35823.0}, {"time": "2026-01-28", "value": 40788.0}, {"time": "2026-01-29", "value": 50183.0}, {"time": "2026-01-30", "value": 46619.0}, {"time": "2026-02-02", "value": 44440.0}, {"time": "2026-02-03", "value": 46079.0}, {"time": "2026-02-04", "value": 48823.0}, {"time": "2026-02-05", "value": 47201.0}, {"time": "2026-02-06", "value": 45739.0}, {"time": "2026-02-09", "value": 49255.0}, {"time": "2026-02-10", "value": 46367.0}, {"time": "2026-02-11", "value": 50032.0}, {"time": "2026-02-23", "value": 57466.0}, {"time": "2026-02-24", "value": 67188.0}, {"time": "2026-02-25", "value": 62523.0}, {"time": "2026-02-26", "value": 67165.0}, {"time": "2026-03-02", "value": 64758.0}, {"time": "2026-03-03", "value": 68078.0}, {"time": "2026-03-04", "value": 65671.0}, {"time": "2026-03-05", "value": 67226.0}, {"time": "2026-03-06", "value": 66266.0}, {"time": "2026-03-09", "value": 64770.0}, {"time": "2026-03-10", "value": 66679.0}, {"time": "2026-03-11", "value": 68533.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>全球傳動為台灣精密線性傳動元件領導廠，專精於自動化設備核心零件。</p>
+
+<h3>業務與產品線結構</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>產品類別</th><th>營收佔比 (2025 Q3)</th><th>主要應用與特性</th></tr></thead><tbody>
+<tr><td><strong>滾珠螺桿</strong></td><td>57%</td><td>主力產品，轉造級市佔高，具規模經濟優勢。</td></tr>
+<tr><td><strong>線性滑軌</strong></td><td>38%</td><td>佔比呈上升趨勢，主打高順暢性與價格競爭力。</td></tr>
+<tr><td><strong>滾珠花鍵</strong></td><td>5%</td><td>適用於高扭矩、高速往復運動環境。</td></tr>
+<tr><td><strong>其他（單軸機器人等）</strong></td><td>&lt;1%</td><td>整合型模組產品。</td></tr>
+</tbody></table></div>
+
+<strong>市場區域分布：</strong> 中國大陸 (79%)、台灣 (8%)、亞洲其他地區 (8%)、其餘地區 (5%)。
+
+<hr>
+
+<h2>核心競爭優勢</h2>
+<li><strong>高性價比轉造技術：</strong> 擅長量大且具成本優勢的轉造級螺桿，在中端自動化市場具備高競爭力。</li>
+<li><strong>人形機器人技術突破：</strong> 成功研發應用於機器人靈巧手的「微型螺桿」（最小外徑 3mm）及應用於肢體的「線性執行器」。</li>
+<li><strong>半導體供應鏈切入：</strong> 成功進入台灣與中國半導體後段封裝設備鏈，避開低價競爭的通用型市場。</li>
+
+<hr>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢表</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>營收金額 (億元)</th><th>月增率 MoM</th><th>年增率 YoY</th><th>營運備註</th></tr></thead><tbody>
+<tr><td><strong>2026/01</strong></td><td>2.69</td><td>-0.95%</td><td><strong>+85.11%</strong></td><td>訂單自谷底回升，需求強勁。</td></tr>
+<tr><td><strong>2025/12</strong></td><td>2.72</td><td>+12.99%</td><td>-5.92%</td><td>自結單月 EPS 0.13 元成功轉盈。</td></tr>
+<tr><td><strong>2025/11</strong></td><td>2.40</td><td>-6.95%</td><td>+21.15%</td><td>產業需求緩步復甦。</td></tr>
+<tr><td><strong>2025/10</strong></td><td>2.58</td><td>+11.78%</td><td>+81.31%</td><td>去年基期較低。</td></tr>
+<tr><td><strong>2025/09</strong></td><td>2.31</td><td>+6.22%</td><td>+34.08%</td><td></td></tr>
+<tr><td><strong>2025/08</strong></td><td>2.18</td><td>-3.54%</td><td>+26.42%</td><td></td></tr>
+</tbody></table></div>
+
+<h3>季度與年度數據</h3>
+<ul><li><strong>2024 實際值：</strong> 營收 22.94 億元，EPS <strong>-4.97 元</strong>。</li>
+<li><strong>2025 預估值：</strong> 營收 25.59 億元，EPS 介於 <strong>-1.02 元至 -0.62 元</strong>。</li>
+<li><strong>2026 展望：</strong> 管理層與法人一致看好達成「轉虧為盈」，目標營收雙位數成長。</li>
+</ul>
+<hr>
+
+<h2>法說會重點</h2>
+<ul><li><strong>訂單能見度：</strong> 目前在手訂單約 <strong>2.5 至 3 個月</strong>，較去年上半年顯著改善。</li>
+<li><strong>稼動率：</strong> 產線稼動率回升至約 <strong>85%</strong>。</li>
+<li><strong>中國策略：</strong> 推出新品牌 <strong>「MOSION X」</strong> 鎖定中高階市場；為避開 ECFA 關稅（6-8%），規劃將 15-30% 後段產能移往蘇州。</li>
+<li><strong>蘇州新廠：</strong> 投資 2,000 萬美元，預計 <strong>2027 年正式投產</strong>，屆時產能將佔總產值 30%。</li>
+</ul>
+<hr>
+
+<h2>券商觀點</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名</th><th>目標價</th><th>評等</th><th>日期</th><th>2026 EPS 預估</th></tr></thead><tbody>
+<tr><td><strong>兆豐證券</strong></td><td>60 元</td><td>看多</td><td>2026/02/26</td><td>轉盈 (未給確數)</td></tr>
+<tr><td><strong>宏遠證券</strong></td><td>60 元</td><td>看多</td><td>2026/01/30</td><td>轉盈</td></tr>
+<tr><td><strong>群益證券</strong></td><td>56.5 元</td><td>看多</td><td>2026/01/29</td><td>轉盈 (營收預估 28.36 億)</td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢表格</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>指標</th><th>2025 Q3</th><th>2025 Q2</th><th>2025 Q1</th><th>2024 Q4</th></tr></thead><tbody>
+<tr><td><strong>毛利率</strong></td><td><strong>4.3%</strong></td><td>8.0%</td><td>9.0%</td><td>7.5%</td></tr>
+<tr><td><strong>營業利益率</strong></td><td>-19.02%</td><td>-11.0%</td><td>-14.0%</td><td>-12.0%</td></tr>
+<tr><td><strong>稅後淨利率</strong></td><td>-13.45%</td><td>7.2%*</td><td>-16.0%</td><td>-18.0%</td></tr>
+<tr><td><strong>單季 EPS</strong></td><td>-0.81 元</td><td>0.42 元*</td><td>-0.69 元</td><td>--</td></tr>
+</tbody></table></div>
+<em>\</em>註：2025 Q2 獲利主因為處分鶯歌廠房獲利 3.6 億元挹注。*
+
+<h3>營運指標分析</h3>
+<ul><li><strong>存貨去化：</strong> 存貨週轉天數從 2023 年底的 <strong>458 天</strong> 大幅降至 2025 Q3 的 <strong>195.12 天</strong>，顯示庫存已回歸健康水位。</li>
+<li><strong>財務結構：</strong> 負債比率由 2024 年中的 142% 降至 2025 Q3 的 <strong>112%</strong>，財務體質受業外收益挹注而改善。</li>
+</ul>
+<hr>
+
+<h2>股權異動與資本結構</h2>
+<ul><li><strong>申報轉讓：</strong> 近一年無重大董監事持股異動，股權結構穩定。</li>
+<li><strong>可轉換公司債 (CB)：</strong> <strong>全球傳動二 (45402)</strong> 已於 2025/12/12 到期並清償，目前無流通在外的 CB，減輕潛在稀釋壓力。</li>
+<li><strong>庫藏股：</strong> 近年無新執行計畫。</li>
+</ul>
+<hr>
+
+<h2>產業分析</h2>
+
+<h3>競爭格局表格</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>市佔率 (估)</th><th>核心優勢</th><th>2026 展望</th></tr></thead><tbody>
+<tr><td><strong>THK (日本)</strong></td><td>~30%</td><td>全球高階市場龍頭</td><td>穩健增長</td></tr>
+<tr><td><strong>上銀 (2049)</strong></td><td>~18%</td><td>產品線最廣、半導體佈局領先</td><td>需求強勁 (毛利 &gt;27%)</td></tr>
+<tr><td><strong>全球傳動 (4540)</strong></td><td>&lt;5%</td><td><strong>轉造級螺桿性價比高</strong></td><td><strong>谷底反彈轉盈</strong></td></tr>
+<tr><td><strong>直得 (1597)</strong></td><td>&lt;3%</td><td>微型滑軌技術領先</td><td>微幅成長</td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>近期催化劑</h2>
+<li><strong>【利多】1 月營收爆發：</strong> 年增 85.11%，確認產業進入上升軌道。</li>
+<li><strong>【利多】人形機器人驗證：</strong> 靈巧手專用螺桿與線性執行器樣品已進入客戶整機測試階段。</li>
+<li><strong>【利多】台美關稅協議：</strong> 市場預期降稅將帶動原本流向日、韓廠商的訂單回流台灣。</li>
+<li><strong>【利空】ECFA 衝擊：</strong> 輸陸產品被課 6-8% 關稅，壓抑短期毛利表現。</li>
+
+<hr>
+
+<h2>⭐ 成長動能時間軸</h2>
+<ul><li><strong>2025 Q4：</strong> 完成人形機器人線性執行器樣品，處分鶯歌廠房獲利入帳。</li>
+<li><strong>2026 Q1：</strong> 12 月與 1 月營收動能確認，靈巧手微型螺桿多家客戶驗證中。</li>
+<li><strong>2026 Q3：</strong> 預期半導體封裝訂單貢獻放大，單季獲利挑戰常態性轉盈。</li>
+<li><strong>2026 Q4：</strong> <strong>蘇州新廠完工</strong>，開始設備進駐與小量試產。</li>
+<li><strong>2027：</strong> <strong>蘇州廠量產</strong>（目標產能佔比 30%）與 <strong>人形機器人零組件量產</strong>。</li>
+</ul>
+<hr>
+
+<h2>2026 展望</h2>
+<ul><li><strong>成長動能：</strong></li>
+</ul>    1.  AI 帶動半導體後段封裝設備需求。
+<p>2.  人形機器人題材從「概念」進入「小量出貨」。</p>
+<p>3.  存貨去化完畢，產能利用率回升帶動規模經濟。</p>
+<ul><li><strong>風險：</strong></li>
+</ul>    1.  中國市場佔比過高（近 80%），受中國宏觀經濟影響極大。
+<p>2.  毛利率回升速度若慢於預期（目標重回 15-20%）。</p>
+
+<hr>
+
+<h2>投資結論</h2>
+<li><strong>營運轉折：</strong> 經歷 2024-2025 年的深度虧損與庫存去化，2026 年初營收動能已確認產業谷底已過。</li>
+<li><strong>機器人純度提升：</strong> 微型螺桿與線性執行器已進入驗證，為 2027 年爆發性成長鋪路。</li>
+<li><strong>評價回升：</strong> 隨營收回溫與 12 月單月轉盈，市場估值正從 P/B 底部向上修復。</li>
+<li><strong>建議目標價：</strong> 參考券商共識，短期目標價區間為 <strong>55 - 60 元</strong>，若 2026 Q1 毛利率能顯著回升至 10% 以上，評價具進一步上修空間。</li>
+
+<hr>
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-01 04:03</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="4540_全球傳動_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="4540_全球傳動_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="4540_全球傳動_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

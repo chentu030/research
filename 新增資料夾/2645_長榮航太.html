@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2645 長榮航太 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2645 長榮航太 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>長榮航太正乘著全球航空 MRO 強勁需求復甦、航太製造打入 Airbus 一階供應商，以及台灣國防自主無人機龐大採購計畫的三重成長浪潮。公司透過產能擴張與新客戶導入，預計 2026 年至 2027 年營收與獲利將進入爆發性成長階段，奠定長期發展基石。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2645 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2645" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2645" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2645');
+    var obvContainer = document.getElementById('obv-chart-2645');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 147.0, "high": 151.0, "low": 146.0, "close": 146.5}, {"time": "2025-12-05", "open": 146.5, "high": 149.5, "low": 146.5, "close": 148.0}, {"time": "2025-12-08", "open": 150.0, "high": 150.0, "low": 144.0, "close": 146.0}, {"time": "2025-12-09", "open": 146.5, "high": 147.5, "low": 143.0, "close": 143.0}, {"time": "2025-12-10", "open": 143.5, "high": 146.5, "low": 141.0, "close": 142.0}, {"time": "2025-12-11", "open": 142.5, "high": 145.0, "low": 141.5, "close": 141.5}, {"time": "2025-12-12", "open": 142.5, "high": 145.0, "low": 140.5, "close": 140.5}, {"time": "2025-12-15", "open": 141.0, "high": 148.0, "low": 140.0, "close": 145.0}, {"time": "2025-12-16", "open": 145.5, "high": 145.5, "low": 141.5, "close": 142.0}, {"time": "2025-12-17", "open": 142.0, "high": 143.5, "low": 140.0, "close": 140.0}, {"time": "2025-12-18", "open": 140.0, "high": 140.5, "low": 137.5, "close": 138.0}, {"time": "2025-12-19", "open": 140.0, "high": 147.0, "low": 138.5, "close": 144.0}, {"time": "2025-12-22", "open": 145.5, "high": 147.5, "low": 143.5, "close": 145.0}, {"time": "2025-12-23", "open": 146.0, "high": 148.5, "low": 144.5, "close": 147.0}, {"time": "2025-12-24", "open": 147.5, "high": 149.5, "low": 146.0, "close": 146.5}, {"time": "2025-12-26", "open": 148.0, "high": 150.0, "low": 146.0, "close": 147.5}, {"time": "2025-12-29", "open": 149.5, "high": 151.0, "low": 147.5, "close": 148.5}, {"time": "2025-12-30", "open": 149.5, "high": 151.0, "low": 143.0, "close": 143.0}, {"time": "2025-12-31", "open": 143.0, "high": 143.0, "low": 140.5, "close": 142.0}, {"time": "2026-01-02", "open": 142.0, "high": 144.5, "low": 141.5, "close": 143.5}, {"time": "2026-01-05", "open": 144.0, "high": 148.0, "low": 143.5, "close": 144.0}, {"time": "2026-01-06", "open": 145.0, "high": 148.0, "low": 144.0, "close": 146.0}, {"time": "2026-01-07", "open": 146.0, "high": 147.0, "low": 143.0, "close": 144.0}, {"time": "2026-01-08", "open": 144.5, "high": 151.5, "low": 144.5, "close": 151.0}, {"time": "2026-01-09", "open": 153.0, "high": 153.5, "low": 144.0, "close": 145.0}, {"time": "2026-01-12", "open": 145.0, "high": 149.5, "low": 143.5, "close": 147.5}, {"time": "2026-01-13", "open": 150.0, "high": 152.0, "low": 146.0, "close": 150.0}, {"time": "2026-01-14", "open": 151.0, "high": 151.5, "low": 149.5, "close": 150.5}, {"time": "2026-01-15", "open": 151.0, "high": 155.0, "low": 149.0, "close": 155.0}, {"time": "2026-01-16", "open": 156.5, "high": 156.5, "low": 151.0, "close": 154.0}, {"time": "2026-01-19", "open": 153.5, "high": 158.5, "low": 152.5, "close": 153.5}, {"time": "2026-01-20", "open": 157.0, "high": 163.5, "low": 154.5, "close": 161.0}, {"time": "2026-01-21", "open": 162.0, "high": 177.0, "low": 159.0, "close": 177.0}, {"time": "2026-01-22", "open": 185.0, "high": 185.5, "low": 175.5, "close": 176.5}, {"time": "2026-01-23", "open": 176.0, "high": 177.0, "low": 170.5, "close": 171.5}, {"time": "2026-01-26", "open": 173.0, "high": 180.0, "low": 172.5, "close": 177.0}, {"time": "2026-01-27", "open": 177.0, "high": 177.0, "low": 167.0, "close": 168.0}, {"time": "2026-01-28", "open": 167.5, "high": 168.0, "low": 164.0, "close": 167.0}, {"time": "2026-01-29", "open": 167.5, "high": 175.5, "low": 165.5, "close": 169.5}, {"time": "2026-01-30", "open": 170.0, "high": 170.0, "low": 160.5, "close": 161.0}, {"time": "2026-02-02", "open": 158.0, "high": 163.0, "low": 155.0, "close": 155.0}, {"time": "2026-02-03", "open": 158.0, "high": 160.5, "low": 157.0, "close": 159.5}, {"time": "2026-02-04", "open": 159.5, "high": 169.0, "low": 159.5, "close": 167.0}, {"time": "2026-02-05", "open": 166.5, "high": 166.5, "low": 161.5, "close": 161.5}, {"time": "2026-02-06", "open": 161.5, "high": 162.0, "low": 155.5, "close": 159.0}, {"time": "2026-02-09", "open": 162.0, "high": 162.5, "low": 158.0, "close": 158.5}, {"time": "2026-02-10", "open": 159.0, "high": 161.0, "low": 157.0, "close": 160.0}, {"time": "2026-02-11", "open": 162.0, "high": 165.0, "low": 161.0, "close": 164.5}, {"time": "2026-02-23", "open": 170.0, "high": 178.0, "low": 169.0, "close": 172.0}, {"time": "2026-02-24", "open": 172.0, "high": 174.0, "low": 169.0, "close": 174.0}, {"time": "2026-02-25", "open": 174.5, "high": 174.5, "low": 169.0, "close": 174.0}, {"time": "2026-02-26", "open": 173.5, "high": 177.5, "low": 168.0, "close": 177.5}, {"time": "2026-03-02", "open": 171.0, "high": 173.5, "low": 163.5, "close": 164.5}, {"time": "2026-03-03", "open": 175.5, "high": 176.5, "low": 168.0, "close": 171.0}, {"time": "2026-03-04", "open": 171.0, "high": 173.5, "low": 163.5, "close": 164.5}, {"time": "2026-03-05", "open": 168.0, "high": 170.0, "low": 166.0, "close": 167.5}, {"time": "2026-03-06", "open": 168.0, "high": 168.0, "low": 163.0, "close": 164.0}, {"time": "2026-03-09", "open": 155.0, "high": 156.5, "low": 150.0, "close": 152.0}, {"time": "2026-03-10", "open": 155.0, "high": 156.5, "low": 153.0, "close": 156.0}, {"time": "2026-03-11", "open": 155.0, "high": 160.5, "low": 155.0, "close": 160.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 2139.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 1408.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 2065.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 1825.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 1463.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 1134.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 1376.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 3457.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 1679.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 1524.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 1373.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 6256.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 5225.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 6106.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 4832.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 5044.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 2163.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 3385.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 1432.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 1180.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 1793.0, "color": "#ef5350"}, {"time": "2026-01-06", "value": 2277.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 1449.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 5412.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 4959.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 2699.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 3672.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 1693.0, "color": "#26a69a"}, {"time": "2026-01-15", "value": 3331.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 4103.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 3193.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 10133.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 9742.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 21036.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 4773.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 6101.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 5699.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 2854.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 7359.0, "color": "#ef5350"}, {"time": "2026-01-30", "value": 4101.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 2928.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 1658.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 2889.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 2065.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 1765.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 1243.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 1028.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 2923.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 5034.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 2588.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 2241.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 4141.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 3466.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 3527.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 3466.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 1273.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 1673.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 2805.0, "color": "#26a69a"}, {"time": "2026-03-10", "value": 1371.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 1636.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 145.1}, {"time": "2025-12-11", "value": 144.1}, {"time": "2025-12-12", "value": 142.6}, {"time": "2025-12-15", "value": 142.4}, {"time": "2025-12-16", "value": 142.2}, {"time": "2025-12-17", "value": 141.8}, {"time": "2025-12-18", "value": 141.1}, {"time": "2025-12-19", "value": 141.8}, {"time": "2025-12-22", "value": 141.8}, {"time": "2025-12-23", "value": 142.8}, {"time": "2025-12-24", "value": 144.1}, {"time": "2025-12-26", "value": 146.0}, {"time": "2025-12-29", "value": 146.9}, {"time": "2025-12-30", "value": 146.5}, {"time": "2025-12-31", "value": 145.5}, {"time": "2026-01-02", "value": 144.9}, {"time": "2026-01-05", "value": 144.2}, {"time": "2026-01-06", "value": 143.7}, {"time": "2026-01-07", "value": 143.9}, {"time": "2026-01-08", "value": 145.7}, {"time": "2026-01-09", "value": 146.0}, {"time": "2026-01-12", "value": 146.7}, {"time": "2026-01-13", "value": 147.5}, {"time": "2026-01-14", "value": 148.8}, {"time": "2026-01-15", "value": 149.6}, {"time": "2026-01-16", "value": 151.4}, {"time": "2026-01-19", "value": 152.6}, {"time": "2026-01-20", "value": 154.8}, {"time": "2026-01-21", "value": 160.1}, {"time": "2026-01-22", "value": 164.4}, {"time": "2026-01-23", "value": 167.9}, {"time": "2026-01-26", "value": 172.6}, {"time": "2026-01-27", "value": 174.0}, {"time": "2026-01-28", "value": 172.0}, {"time": "2026-01-29", "value": 170.6}, {"time": "2026-01-30", "value": 168.5}, {"time": "2026-02-02", "value": 164.1}, {"time": "2026-02-03", "value": 162.4}, {"time": "2026-02-04", "value": 162.4}, {"time": "2026-02-05", "value": 160.8}, {"time": "2026-02-06", "value": 160.4}, {"time": "2026-02-09", "value": 161.1}, {"time": "2026-02-10", "value": 161.2}, {"time": "2026-02-11", "value": 160.7}, {"time": "2026-02-23", "value": 162.8}, {"time": "2026-02-24", "value": 165.8}, {"time": "2026-02-25", "value": 168.9}, {"time": "2026-02-26", "value": 172.4}, {"time": "2026-03-02", "value": 172.4}, {"time": "2026-03-03", "value": 172.2}, {"time": "2026-03-04", "value": 170.3}, {"time": "2026-03-05", "value": 169.0}, {"time": "2026-03-06", "value": 166.3}, {"time": "2026-03-09", "value": 163.8}, {"time": "2026-03-10", "value": 160.8}, {"time": "2026-03-11", "value": 159.9}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 143.45}, {"time": "2025-12-18", "value": 142.6}, {"time": "2025-12-19", "value": 142.2}, {"time": "2025-12-22", "value": 142.1}, {"time": "2025-12-23", "value": 142.5}, {"time": "2025-12-24", "value": 142.95}, {"time": "2025-12-26", "value": 143.55}, {"time": "2025-12-29", "value": 144.35}, {"time": "2025-12-30", "value": 144.15}, {"time": "2025-12-31", "value": 144.15}, {"time": "2026-01-02", "value": 144.5}, {"time": "2026-01-05", "value": 145.1}, {"time": "2026-01-06", "value": 145.3}, {"time": "2026-01-07", "value": 145.2}, {"time": "2026-01-08", "value": 145.6}, {"time": "2026-01-09", "value": 145.45}, {"time": "2026-01-12", "value": 145.45}, {"time": "2026-01-13", "value": 145.6}, {"time": "2026-01-14", "value": 146.35}, {"time": "2026-01-15", "value": 147.65}, {"time": "2026-01-16", "value": 148.7}, {"time": "2026-01-19", "value": 149.65}, {"time": "2026-01-20", "value": 151.15}, {"time": "2026-01-21", "value": 154.45}, {"time": "2026-01-22", "value": 157.0}, {"time": "2026-01-23", "value": 159.65}, {"time": "2026-01-26", "value": 162.6}, {"time": "2026-01-27", "value": 164.4}, {"time": "2026-01-28", "value": 166.05}, {"time": "2026-01-29", "value": 167.5}, {"time": "2026-01-30", "value": 168.2}, {"time": "2026-02-02", "value": 168.35}, {"time": "2026-02-03", "value": 168.2}, {"time": "2026-02-04", "value": 167.2}, {"time": "2026-02-05", "value": 165.7}, {"time": "2026-02-06", "value": 164.45}, {"time": "2026-02-09", "value": 162.6}, {"time": "2026-02-10", "value": 161.8}, {"time": "2026-02-11", "value": 161.55}, {"time": "2026-02-23", "value": 161.8}, {"time": "2026-02-24", "value": 163.1}, {"time": "2026-02-25", "value": 165.0}, {"time": "2026-02-26", "value": 166.8}, {"time": "2026-03-02", "value": 166.55}, {"time": "2026-03-03", "value": 167.5}, {"time": "2026-03-04", "value": 168.05}, {"time": "2026-03-05", "value": 168.95}, {"time": "2026-03-06", "value": 169.35}, {"time": "2026-03-09", "value": 168.1}, {"time": "2026-03-10", "value": 166.5}, {"time": "2026-03-11", "value": 165.1}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 143.975}, {"time": "2026-01-05", "value": 143.85}, {"time": "2026-01-06", "value": 143.75}, {"time": "2026-01-07", "value": 143.65}, {"time": "2026-01-08", "value": 144.05}, {"time": "2026-01-09", "value": 144.2}, {"time": "2026-01-12", "value": 144.5}, {"time": "2026-01-13", "value": 144.975}, {"time": "2026-01-14", "value": 145.25}, {"time": "2026-01-15", "value": 145.9}, {"time": "2026-01-16", "value": 146.6}, {"time": "2026-01-19", "value": 147.375}, {"time": "2026-01-20", "value": 148.225}, {"time": "2026-01-21", "value": 149.825}, {"time": "2026-01-22", "value": 151.3}, {"time": "2026-01-23", "value": 152.55}, {"time": "2026-01-26", "value": 154.025}, {"time": "2026-01-27", "value": 155.0}, {"time": "2026-01-28", "value": 156.2}, {"time": "2026-01-29", "value": 157.575}, {"time": "2026-01-30", "value": 158.45}, {"time": "2026-02-02", "value": 159.0}, {"time": "2026-02-03", "value": 159.675}, {"time": "2026-02-04", "value": 160.825}, {"time": "2026-02-05", "value": 161.35}, {"time": "2026-02-06", "value": 162.05}, {"time": "2026-02-09", "value": 162.6}, {"time": "2026-02-10", "value": 163.1}, {"time": "2026-02-11", "value": 163.8}, {"time": "2026-02-23", "value": 164.65}, {"time": "2026-02-24", "value": 165.65}, {"time": "2026-02-25", "value": 166.675}, {"time": "2026-02-26", "value": 167.5}, {"time": "2026-03-02", "value": 166.875}, {"time": "2026-03-03", "value": 166.6}, {"time": "2026-03-04", "value": 166.25}, {"time": "2026-03-05", "value": 165.775}, {"time": "2026-03-06", "value": 165.575}, {"time": "2026-03-09", "value": 164.825}, {"time": "2026-03-10", "value": 164.15}, {"time": "2026-03-11", "value": 164.1}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 1408.0}, {"time": "2025-12-08", "value": -657.0}, {"time": "2025-12-09", "value": -2482.0}, {"time": "2025-12-10", "value": -3945.0}, {"time": "2025-12-11", "value": -5079.0}, {"time": "2025-12-12", "value": -6455.0}, {"time": "2025-12-15", "value": -2998.0}, {"time": "2025-12-16", "value": -4677.0}, {"time": "2025-12-17", "value": -6201.0}, {"time": "2025-12-18", "value": -7574.0}, {"time": "2025-12-19", "value": -1318.0}, {"time": "2025-12-22", "value": 3907.0}, {"time": "2025-12-23", "value": 10013.0}, {"time": "2025-12-24", "value": 5181.0}, {"time": "2025-12-26", "value": 10225.0}, {"time": "2025-12-29", "value": 12388.0}, {"time": "2025-12-30", "value": 9003.0}, {"time": "2025-12-31", "value": 7571.0}, {"time": "2026-01-02", "value": 8751.0}, {"time": "2026-01-05", "value": 10544.0}, {"time": "2026-01-06", "value": 12821.0}, {"time": "2026-01-07", "value": 11372.0}, {"time": "2026-01-08", "value": 16784.0}, {"time": "2026-01-09", "value": 11825.0}, {"time": "2026-01-12", "value": 14524.0}, {"time": "2026-01-13", "value": 18196.0}, {"time": "2026-01-14", "value": 19889.0}, {"time": "2026-01-15", "value": 23220.0}, {"time": "2026-01-16", "value": 19117.0}, {"time": "2026-01-19", "value": 15924.0}, {"time": "2026-01-20", "value": 26057.0}, {"time": "2026-01-21", "value": 35799.0}, {"time": "2026-01-22", "value": 14763.0}, {"time": "2026-01-23", "value": 9990.0}, {"time": "2026-01-26", "value": 16091.0}, {"time": "2026-01-27", "value": 10392.0}, {"time": "2026-01-28", "value": 7538.0}, {"time": "2026-01-29", "value": 14897.0}, {"time": "2026-01-30", "value": 10796.0}, {"time": "2026-02-02", "value": 7868.0}, {"time": "2026-02-03", "value": 9526.0}, {"time": "2026-02-04", "value": 12415.0}, {"time": "2026-02-05", "value": 10350.0}, {"time": "2026-02-06", "value": 8585.0}, {"time": "2026-02-09", "value": 7342.0}, {"time": "2026-02-10", "value": 8370.0}, {"time": "2026-02-11", "value": 11293.0}, {"time": "2026-02-23", "value": 16327.0}, {"time": "2026-02-24", "value": 18915.0}, {"time": "2026-02-25", "value": 18915.0}, {"time": "2026-02-26", "value": 23056.0}, {"time": "2026-03-02", "value": 19590.0}, {"time": "2026-03-03", "value": 23117.0}, {"time": "2026-03-04", "value": 19651.0}, {"time": "2026-03-05", "value": 20924.0}, {"time": "2026-03-06", "value": 19251.0}, {"time": "2026-03-09", "value": 16446.0}, {"time": "2026-03-10", "value": 17817.0}, {"time": "2026-03-11", "value": 19453.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>長榮航太（2645）是一家台灣的航太科技公司，主要業務涵蓋航空器維修（MRO）與零組件製造，並積極拓展無人機、太空衛星及半導體設備零組件等新興領域。在維修業務方面，公司是全球前十大機體維修廠之一，並在波音 747、空中巴士 A380、A340 等大型機型的維修實績位居全球第一。製造業務方面，公司承接波音機體結構件與奇異（GE）發動機零組件代工，並於 2025 年正式成為空中巴士（Airbus）的一階供應商（Tier 1），成功打入國際航太製造供應鏈。主要製造基地設於觀音廠區，正進行二期擴建以因應新接訂單與長期擴產需求。</p>
+
+<h3>營收結構分析 (2025 年第三季為準)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>營收佔比</th><th>備註</th></tr></thead><tbody>
+<tr><td>維修業務</td><td>約 80%</td><td>全球前十大機體維修廠，波音 747、A380、A340 大型機型維修實績全球第一。</td></tr>
+<tr><td>製造業務</td><td>22% 以上</td><td>承接波音、GE 零組件代工，2025 年成為 Airbus 一階供應商。</td></tr>
+<tr><td>無人機業務</td><td>目前佔比不高</td><td>預計 2025 年貢獻約 4.2 億元，2027 年有望貢獻當年營收三成。</td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>全球領先的機體維修實力</strong>：作為全球前十大機體維修廠，在特定大型機型（如波音 747、空巴 A380、A340）維修領域擁有全球第一的實績，技術能力與認證廣泛。</li>
+<li><strong>成功切入國際航太製造供應鏈</strong>：2025 年正式成為空中巴士（Airbus）的一階供應商（Tier 1），顯著提升其在國際航太製造領域的地位與訂單能見度。</li>
+<li><strong>多角化發展分散風險</strong>：除傳統 MRO 與航太製造外，積極投入高成長的無人機、太空衛星和半導體設備零組件製造，為未來營收成長提供多重動能。</li>
+<li><strong>區域市場成長優勢</strong>：位於亞太地區，該地區預計在 2026 年至 2035 年間將實現飛機 MRO 市場最快成長，長榮航太具有地利優勢。</li>
+<li><strong>具備軍用商規無人機研發製造優勢</strong>：受惠於台灣國防自主政策，已取得部分無人機標案，並有望在未來數百億元的採購案中脫穎而出。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢 (2025 年 8 月至 2026 年 1 月)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2026 年 1 月</td><td>17.18</td><td>6.28%</td><td>34.77%</td><td>創下歷史新高紀錄</td></tr>
+<tr><td>2025 年 12 月</td><td>16.17</td><td>-3.95%</td><td>-4.67%</td><td></td></tr>
+<tr><td>2025 年 11 月</td><td>16.84</td><td>9.95%</td><td>11.58%</td><td></td></tr>
+<tr><td>2025 年 10 月</td><td>15.31</td><td>-2.30%</td><td>11.79%</td><td></td></tr>
+<tr><td>2025 年 9 月</td><td>15.67</td><td>6.82%</td><td>19.82%</td><td></td></tr>
+<tr><td>2025 年 8 月</td><td>14.67</td><td>0.91%</td><td>4.72%</td><td></td></tr>
+</tbody></table></div>
+
+<em>註：2026 年 2 月營收尚未公佈。</em>
+
+<h3>季度數據與年度趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2024 年實際 (新台幣億元/元)</th><th>2025 年預估 (新台幣億元/元)</th><th>2026 年預估 (新台幣億元/元)</th></tr></thead><tbody>
+<tr><td><strong>營收</strong></td><td>162.85</td><td>177 - 185.8 (中位數 181.53)</td><td>195 - 239 (中位數 202.26)</td></tr>
+<tr><td><strong>EPS</strong></td><td>4.90</td><td>5.41 - 6.93 (中位數 5.64)</td><td>7.43 - 9.37 (中位數 7.94)</td></tr>
+<tr><td><strong>2025 Q1 營收</strong></td><td>41.90 (YoY +13.29%)</td><td>-</td><td>-</td></tr>
+<tr><td><strong>2025 Q1 毛利率</strong></td><td>24%</td><td>-</td><td>-</td></tr>
+<tr><td><strong>2025 Q1 EPS</strong></td><td>1.49</td><td>-</td><td>-</td></tr>
+<tr><td><strong>2025 Q3 營收</strong></td><td>YoY +11.4%</td><td>-</td><td>-</td></tr>
+<tr><td><strong>2025 Q3 毛利率</strong></td><td>21.9%</td><td>-</td><td>-</td></tr>
+<tr><td><strong>2025 Q3 EPS</strong></td><td>1.95</td><td>-</td><td>-</td></tr>
+</tbody></table></div>
+
+<strong>分析：</strong>
+<p>長榮航太在 2026 年 1 月營收創歷史新高達 17.18 億元，年增 34.77%，顯示營運動能強勁。儘管 2025 年 12 月營收因季節性因素略有回落，但整體而言，月營收呈現穩健增長趨勢。法人預估 2025 年營收將達到 181.53 億元 (年增 11.34%)，EPS 達 5.64 元。展望 2026 年，隨著維修與製造訂單持續放量，加上無人機業務的潛在爆發，法人預期營收有望達 202.26 億元 (年增 8.51%)，EPS 進一步提升至 7.94 元，獲利成長動能顯著。</p>
+
+<h2>法說會重點 (2025 年 5 月 19 日及相關發言)</h2>
+
+<ul><li><strong>最近一次法說會日期：</strong> 2025 年 5 月 19 日 (預計 2026 年 3 月 11 日召開 2025 年第四季財報討論會)。</li>
+<li><strong>維修業務</strong>：</li>
+</ul>    *   全球機隊高齡化與新機交付延遲，導致航空公司延長舊機使用年限，推升 MRO 需求。
+<p>*   一年維修架次超過 300 架。</p>
+<p>*   預計 2025 年取得 A350 機型維修認證，2027 年起大規模接單。</p>
+<p>*   2025、2026 年持續導入新客戶，涵蓋亞洲 747、777、787 及歐洲市場。</p>
+<p>*   計畫自 2025 年起逐步調漲維修服務價格 3% 至 15%。</p>
+<ul><li><strong>航太製造業務</strong>：</li>
+</ul>    *   已與空中巴士簽署合作，成為其機體組件的一階 (Tier 1) 供應商。
+<p>*   持續發展 IC 設備製造業務，2025 年已取得多項產品訂單。</p>
+<ul><li><strong>無人機業務</strong>：</li>
+</ul>    *   承接國防部軍用商規陸用型監偵無人機標案，已進入量產與交付階段。
+<p>*   2025 年預計出貨 16 架，貢獻營收約 4.2 億元。</p>
+<p>*   國防部規劃 500 億元無人機採購案，預計 2027 年前完成建置，相關標案預估 2026 年 2～3 月公告招標，最快 2026 年 9～12 月開始交貨。法人普遍認為，營收爆發點將落在 2026 年第四季至 2027 年。</p>
+<p>*   預計 2026 年將貢獻 10 億元營收，2027 年有機會挑戰 90 億元，貢獻當年營收的三成。</p>
+<ul><li><strong>產能利用率與資本支出</strong>：</li>
+</ul>    *   斥資新台幣 4.84 億元擴建製造廠二期廠房，預計 2027 年第一季投產並貢獻獲利。
+<p>*   桃園第三航廈的維修棚廠將於 2027 年起陸續投入營運，預計提升整體維修產能 78%。</p>
+<ul><li><strong>管理層 Guidance</strong>：</li>
+</ul>    *   對 2025 年產能提升及維修需求成長保持審慎樂觀。
+<p>*   將持續拓展商用機、國防及太空三大市場。</p>
+<p>*   轉投資子公司長異公司在 GE 引擎維修需求強勁帶動下，預計 2026 年營收中雙位數年增，虧損收窄，恢復正向貢獻。</p>
+
+<h2>券商觀點</h2>
+
+<h3>目標價彙整</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>國泰證券</td><td>195</td><td>買進</td><td>2026 年 2 月 3 日</td></tr>
+<tr><td>FactSet (中位數)</td><td>187</td><td>-</td><td>2026 年 1 月 1 日</td></tr>
+<tr><td>統一證券</td><td>190</td><td>買進</td><td>2026 年 1 月 12 日</td></tr>
+<tr><td>本土投顧</td><td>190~200</td><td>-</td><td>2026 年 1 月 9 日</td></tr>
+<tr><td>華南投顧</td><td>172</td><td>-</td><td>2026 年 1 月 20 日</td></tr>
+<tr><td>FTNN 新聞網 (引述法人)</td><td>190</td><td>-</td><td>2026 年 3 月 2 日</td></tr>
+</tbody></table></div>
+
+<em>註：凱基投顧 2025 年 11 月 11 日的目標價 186 元已過時，故不列入主要參考。</em>
+
+<h3>EPS 預估 (2025-2026 年)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商/機構</th><th>2025 年預估 EPS (元)</th><th>2026 年預估 EPS (元)</th></tr></thead><tbody>
+<tr><td>國泰證券</td><td>5.66 / 5.79</td><td>-</td></tr>
+<tr><td>統一證券</td><td>5.61</td><td>-</td></tr>
+<tr><td>FactSet (中位數)</td><td>5.64 (上修)</td><td>7.94</td></tr>
+<tr><td>法人機構</td><td>6.93</td><td>8.13</td></tr>
+<tr><td>華南投顧</td><td>5.76</td><td>7.66</td></tr>
+<tr><td>FTNN 新聞網 (引述法人)</td><td>-</td><td>8.3 (上看)</td></tr>
+</tbody></table></div>
+
+<strong>主要調升/調降評等：</strong> FactSet 最新調查顯示，2025 年 EPS 中位數由 5.6 元上修至 5.64 元。FactSet 曾於 2025 年 11 月 11 日將目標價中位數由 200 元下修至 190 元，調降幅度 5%。
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢 (2024 年 Q1 – 2025 年 Q3)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2025 年 Q3</td><td>21.86%</td><td>18.15%</td><td>16.3%</td></tr>
+<tr><td>2025 年 Q2</td><td>23%</td><td>19.3%</td><td>-</td></tr>
+<tr><td>2025 年 Q1</td><td>23.8%</td><td>19.9%</td><td>-</td></tr>
+<tr><td>2024 年 Q4</td><td>19.2%</td><td>14.9%</td><td>-</td></tr>
+<tr><td>2024 年 Q3</td><td>20.2%</td><td>16.2%</td><td>-</td></tr>
+<tr><td>2024 年 Q2</td><td>19.3%</td><td>15.1%</td><td>-</td></tr>
+<tr><td>2024 年 Q1</td><td>19.2%</td><td>15.3%</td><td>-</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化的原因分析：</strong>
+<p>長榮航太毛利率在 2025 年第一季達到 23.8% 的高點，反映了航空 MRO 業務量價齊揚以及高毛利無人機業務的比重提升。雖然 2025 年第三季毛利率略降至 21.86%，但整體維持在相對健康水準。公司計劃自 2025 年起調漲維修服務價格 3% 至 15%，有助於應對成本上升並穩定利潤。轉投資的長異發動機維修公司在 2023 年底受品管事件影響後，預計 2025 年逐步恢復正常營運並有望轉虧為盈，將減少對集團整體獲利的拖累。</p>
+
+<h3>存貨與營運趨勢 (2024 年 Q1 – 2025 年 Q3)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨金額 (新台幣億元)</th><th>存貨週轉天數 (天)</th><th>應收帳款週轉天數 (天)</th></tr></thead><tbody>
+<tr><td>2025 年 Q3</td><td>22.62</td><td>59.56</td><td>80.51</td></tr>
+<tr><td>2025 年 Q2</td><td>23.80</td><td>80.82</td><td>78.17</td></tr>
+<tr><td>2025 年 Q1</td><td>25.97</td><td>97.56</td><td>87.23</td></tr>
+<tr><td>2024 年 Q4</td><td>25.82</td><td>74.83</td><td>68.73</td></tr>
+<tr><td>2024 年 Q3</td><td>-</td><td>71.74</td><td>71.74</td></tr>
+<tr><td>2024 年 Q2</td><td>-</td><td>73.52</td><td>73.52</td></tr>
+<tr><td>2024 年 Q1</td><td>-</td><td>76.89</td><td>76.89</td></tr>
+</tbody></table></div>
+
+<strong>分析：</strong>
+<p>長榮航太 2025 年存貨週轉天數呈現下降趨勢，從第一季的 97.56 天降至第三季的 59.56 天，顯示存貨控管能力顯著提升，且未有明顯異常堆積或備料現象。應收帳款週轉天數則維持在 70-90 天的相對穩定範圍。整體營運效率良好。</p>
+
+<h3>資本支出與產能</h3>
+<p>公司已著手進行觀音廠區二期擴建，投資約新台幣 4.83 億元，預計 2026 年第三季完工，最快 2027 年第一季投產，用於增加航太零組件產能。此外，參與桃園國際機場第三航廈維修棚的設計與建置，該維修棚預計 2028 年完成，將使整體維修產能提升 78%。這些資本支出計畫將為公司未來的營運成長提供堅實的產能基礎。</p>
+
+<h3>負債比率與業外收支 (2024 年 Q1 – 2025 年 Q3)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>負債比率</th><th>業外收支佔稅前淨利比</th></tr></thead><tbody>
+<tr><td>2025 年 Q3</td><td>42.70%</td><td>10.94%</td></tr>
+<tr><td>2025 年 Q2</td><td>47.94%</td><td>-159.62%</td></tr>
+<tr><td>2025 年 Q1</td><td>48.65%</td><td>-19.47%</td></tr>
+<tr><td>2024 年 Q4</td><td>42.44%</td><td>-0.60%</td></tr>
+<tr><td>2024 年 Q3</td><td>44.47%</td><td>-</td></tr>
+<tr><td>2024 年 Q2</td><td>48.46%</td><td>-</td></tr>
+<tr><td>2024 年 Q1</td><td>50.00%</td><td>-</td></tr>
+</tbody></table></div>
+
+<strong>分析：</strong>
+<p>長榮航太負債比率在 2024-2025 年間維持在 40-50% 區間，顯示財務結構穩健。業外收支在 2025 年 Q1 和 Q2 呈現較大波動甚至負值，尤其 Q2 的 -159.62% 顯著異常，可能受匯率變動及轉投資損益（如長異公司初期虧損）影響，需持續關注後續財報說明及長異公司轉盈狀況。</p>
+
+<h2>股權異動</h2>
+
+<ul><li><strong>股利政策：</strong> 長榮航太近年來主要以現金股利回饋股東。</li>
+</ul>    *   <strong>2025 年</strong>：已宣布配發<strong>現金股利 4.5 元</strong> (除息日期 2025 年 7 月 9 日)。
+<p>*   <strong>2024 年</strong>：配發<strong>現金股利 4.5 元</strong> (除息日期 2024 年 7 月 11 日)。</p>
+<p>*   <strong>2023 年</strong>：配發<strong>現金股利 4 元</strong>。</p>
+<ul><li><strong>董監事/大股東申報轉讓：</strong> 未找到 2024-2026 年相關紀錄。</li>
+<li><strong>庫藏股買回：</strong> 未找到 2024-2026 年相關紀錄。</li>
+<li><strong>可轉換公司債 (CB) / 增減資：</strong> 未找到 2024-2026 年發行可轉換公司債或增減資計畫的相關資訊。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>市場規模與成長率</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產業類別</th><th>2025 年市場規模 (預估)</th><th>2035 年市場規模 (預估)</th><th>複合年增長率 (CAGR) (2026-2035)</th></tr></thead><tbody>
+<tr><td>全球航空器 MRO</td><td>超過 922.1 億美元</td><td>超過 1,516.4 億美元</td><td>超過 5.1%</td></tr>
+<tr><td>全球航空器零組件製造</td><td>超過 9,945.6 億美元</td><td>超過 1.54 兆美元</td><td>超過 4.5%</td></tr>
+<tr><td>全球航空器製造</td><td>4,786.5 億美元</td><td>6,076.5 億美元 (2029)</td><td>5.9% (2024-2025), 6.1% (2025-2029)</td></tr>
+</tbody></table></div>
+
+<strong>供需狀況：</strong>
+<p>目前航空產業呈現「<strong>供不應求</strong>」的狀況。全球航空客運量在 2025 年預計將突破 100 億人次，較 2019 年疫情前水平高出 16% 以上。然而，飛機製造商面臨嚴重的供應鏈瓶頸和勞動力短缺，導致新飛機交付嚴重延遲。截至 2026 年初，全球約有 17,000 架未交付的飛機訂單，按目前生產速度需逾 12 年才能完成。空中巴士積壓訂單達 8,754 架，波音未交付訂單達 6,245 架，尤其飛機引擎採購困難。新機供應緊張迫使航空公司延長現有機隊服役壽命，導致飛機平均機齡超過 15 年，創歷史新高，進而大幅推升 MRO（維修、保養和大修）市場需求。</p>
+
+<strong>產業平均毛利率水準：</strong>
+<p>航空產業的淨利率相對較低（IATA 預測 2026 年全球航空公司淨利率僅 3.9%），但上游製造和 MRO 服務的毛利率預期相對較高，因其技術門檻與專業性。具體的 MRO 或零組件製造產業平均毛利率數據未直接提供。</p>
+
+<h3>競爭格局</h3>
+
+<p>由於航空 MRO 和零組件製造產業涵蓋範圍廣泛且市場高度細分，難以取得全球前五大公司及其市佔率的綜合性最新數據。以下為各領域主要參與者：</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>領域</th><th>主要參與者</th></tr></thead><tbody>
+<tr><td>航空器引擎 MRO</td><td>Lufthansa Technik AG, AAR CORP., Delta Air Lines, HAECO, Safran S.A.</td></tr>
+<tr><td>航空航太零件製造</td><td>Elbit Systems Ltd., Intrex Aerospace, Rolls-Royce, CAMAR, Safran S.A., Woodward, Inc.</td></tr>
+<tr><td>航空器製造</td><td>空中巴士 (Airbus), 波音 (Boeing), 巴西航空工業公司 (Embraer)</td></tr>
+</tbody></table></div>
+
+<strong>長榮航太 vs. 主要競爭對手</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>特性</th><th>長榮航太</th><th>主要國際競爭對手 (如 Lufthansa Technik, Safran)</th><th>台灣同業 (漢翔 2634)</th></tr></thead><tbody>
+<tr><td><strong>技術</strong></td><td>全球前十大機體 MRO，特定機型維修第一。Airbus Tier 1 供應商。無人機研發。</td><td>具備廣泛 MRO 能力及新技術導入能力，擁有深厚產業經驗及廣泛客戶群。</td><td>台灣唯一飛機製造商，軍用機生產主力，近年拓展民用機及發動機零組件。</td></tr>
+<tr><td><strong>產能</strong></td><td>觀音廠區二期擴建，桃園第三航廈維修棚 (2028 年 +78%)。</td><td>全球多個維修基地，規模龐大，產能覆蓋廣泛。</td><td>沙鹿廠區，具備機體結構件、發動機匣、起落架產能，亦有擴廠計畫。</td></tr>
+<tr><td><strong>客戶</strong></td><td>全球約 40 多家航空公司；波音、GE、Airbus (製造)；台灣國防部。</td><td>全球各大航空公司、飛機製造商、國防機構。</td><td>台灣國防部、國際航空大廠零組件供應商。</td></tr>
+<tr><td><strong>價格</strong></td><td>未公開明確價格策略，但預計 2025 年起調漲維修服務 3-15%。</td><td>國際市場競爭激烈，價格受技術、服務品質及合約規模影響。</td><td>依合約議價，具備本土供應鏈價格優勢。</td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢與對長榮航太的影響</h3>
+
+<li><strong>數位化與人工智慧 (AI) 應用</strong>：</li>
+<p>*   <strong>具體影響：</strong> 全球航空 AI 市場預計 2033 年達 64.7 億美元，CAGR 達 21.4%。AI 應用於預測性維護、航班營運優化、空中交通管理。</p>
+<p>*   <strong>長榮航太機會：</strong> 導入 AI 於 MRO 可提升預測性維護能力，減少停機時間，優化生產排程，提高效率與競爭力。</p>
+<li><strong>永續航空燃料 (SAF) 與綠色 MRO</strong>：</li>
+<p>*   <strong>具體影響：</strong> 永續性日益受重視，航空公司尋求環保 MRO 供應商。IATA 預計 2026 年 SAF 採購成本達 45 億美元。</p>
+<p>*   <strong>長榮航太機會/威脅：</strong> 導入綠色 MRO 實踐可符合法規並吸引環保意識客戶。若未能及時跟進，可能面臨競爭劣勢。</p>
+<li><strong>先進材料與積層製造 (Additive Manufacturing)</strong>：</li>
+<p>*   <strong>具體影響：</strong> 輕量化複合材料需求增長，3D 列印提高生產效率、減輕飛機重量，提升燃油效率。</p>
+<p>*   <strong>長榮航太機會：</strong> 運用先進製造技術可提升零組件製造能力，降低成本，並拓展高附加價值產品線 (如半導體設備零組件)。</p>
+
+<strong>對長榮航太的具體機會與威脅</strong>：
+<ul><li><strong>機會</strong>：全球 MRO 需求因新機交付延遲而強勁增長；成為空中巴士一階供應商拓展製造業務；無人機、太空衛星及半導體設備零組件等新興領域帶來成長潛力；亞太 MRO 市場快速成長；導入 AI 提升營運效率。</li>
+<li><strong>威脅</strong>：全球供應鏈瓶頸 (尤其引擎) 影響製造業務；航太業勞動力短缺；MRO 與製造市場激烈國際競爭；地緣政治風險影響市場與供應鏈；匯率波動風險 (美元貶值 1% 稅前淨利恐減 4100 萬元)。</li>
+</ul>
+<strong>相關投資題材連結</strong>：
+<ul><li><strong>AI (人工智慧)</strong>：應用於航空 MRO 的預測性維護，提升效率。</li>
+<li><strong>無人機與先進空中移動 (UAM)</strong>：公司積極投入軍用商規無人機製造，是 UAM 市場重要參與者。</li>
+<li><strong>太空衛星與半導體設備零組件</strong>：憑藉精密製造技術，拓展高門檻、高附加價值的科技應用領域。</li>
+</ul>
+<h2>近期催化劑 (2025 年 12 月 6 日至 2026 年 3 月 6 日)</h2>
+
+<ul><li><strong>2026 年 3 月 6 日</strong>：立法院協商國防特別條例草案，帶動軍工股關注度，長榮航太有望受惠新一波約 500 億元的軍用商規無人機採購計畫。</li>
+<li><strong>2026 年 3 月 4 日</strong>：股東會通過配發現金股利 4.5 元。</li>
+<li><strong>2026 年 2 月 23 日</strong>：法人上調長榮航太第一季營收預估，預期毛利率因高毛利無人機業務與維修比重回升而改善。國防部計畫採購逾 20 萬架無人機及 1,300 艘無人艇，長榮航太艦載型監偵無人機將認列下一批營收。</li>
+<li><strong>2026 年 2 月 12 日</strong>：公告 2026 年 1 月合併營收達 17.18 億元，月增 6.28%，年增 34.77%，創歷史新高紀錄。</li>
+<li><strong>2026 年 1 月 30 日</strong>：確認為首批無人機標案得標廠商，預計 2025 年將出貨 16 架，貢獻營收約 4.2 億元。本業維修與製造業務獲利動能穩定。</li>
+<li><strong>2026 年 1 月 26 日</strong>：軍用商規採購計畫整體規模約 500 億元，預計 2027 年前完成建置。相關標案預估 2026 年 2～3 月公告招標，最快 9～12 月開始交貨。法人預期營收爆發點將落在 2026 年第四季至 2027 年。</li>
+<li><strong>2026 年 1 月 10 日</strong>：公告 2025 年 12 月營收 16.17 億元，月減 3.96%，年減 4.67%。</li>
+<li><strong>2026 年 1 月 1 日</strong>：FactSet 分析師將 2025 年 EPS 中位數由 5.6 元上修至 5.64 元。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間</th><th>成長動能</th><th>具體內容</th><th>預計影響 / 量化目標</th></tr></thead><tbody>
+<tr><td><strong>2025 年</strong></td><td><strong>新客戶/新市場</strong></td><td>正式成為空中巴士 (Airbus) 一階供應商 (5 月 9 日)。</td><td>顯著提升航太製造業務營收佔比及國際地位。</td></tr>
+<tr><td></td><td></td><td>預計完成 A350 廣體機維修認證 (Q2)。</td><td>為 2027 年大規模接單奠定基礎。</td></tr>
+<tr><td></td><td></td><td>軍用商規無人機標案出貨 16 架。</td><td>貢獻約 4.2 億元營收。</td></tr>
+<tr><td></td><td></td><td>維修服務價格逐步調漲 3% 至 15%。</td><td>提升毛利率，應對成本上升。</td></tr>
+<tr><td><strong>2025-2026 年</strong></td><td><strong>新客戶導入</strong></td><td>預計導入 2 家新 MRO 客戶，機型涵蓋波音 787 及空中巴士 A350。</td><td>增加 MRO 維修收入與架次。</td></tr>
+<tr><td><strong>2026 年</strong></td><td><strong>無人機業務放量</strong></td><td>國防部第二波軍用無人機大規模採購 (總預算 725 億元)，標案公告與開標。</td><td>預計貢獻無人機營收達 10 億元，推升整體獲利。</td></tr>
+<tr><td></td><td><strong>轉投資效益</strong></td><td>長異發動機維修公司有望恢復正向貢獻，營收中雙位數年增。</td><td>貢獻約 1~2 億元獲利，減少對集團整體獲利拖累。</td></tr>
+<tr><td></td><td><strong>維修業務穩定成長</strong></td><td>飛機維修業務持續增加新客戶，並有 A350 維修機型增長。</td><td>預期 MRO 收入年增率可達 10%。</td></tr>
+<tr><td><strong>2026 年 Q3</strong></td><td><strong>產能擴充</strong></td><td>觀音製造廠二期廠房完工。</td><td>為航太零組件產能擴增奠定基礎。</td></tr>
+<tr><td><strong>2026 年 Q4 - 2027 年</strong></td><td><strong>無人機營收爆發</strong></td><td>國防部軍用商規無人機採購案 (總規模 500 億元，約 5 萬架) 大規模交貨。</td><td>營收爆發點，預計 2027 年有望貢獻當年營收三成 (挑戰 90 億元)。</td></tr>
+<tr><td><strong>2027 年 Q1</strong></td><td><strong>產能效益顯現</strong></td><td>觀音製造廠二期廠房正式投產並貢獻獲利。</td><td>增加航太零組件產能，提高作業效率。</td></tr>
+<tr><td><strong>2027 年起</strong></td><td><strong>維修業務拓展</strong></td><td>空中巴士 A350 廣體機維修服務大規模接單。</td><td>成為重要的 MRO 成長動能。</td></tr>
+<tr><td><strong>2028 年</strong></td><td><strong>維修產能大幅提升</strong></td><td>桃園第三航廈維修棚完成並陸續投入營運。</td><td>整體維修產能提升 78%。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+
+<li><strong>航空 MRO 強勁需求</strong>：全球機隊高齡化（平均機齡 12 年以上）與新機交付延遲導致飛機延役，持續推升 MRO 需求。桃園機場第三航廈維修棚預計 2028 年完成，將提升整體維修產能 78%，提供長期成長支撐。</li>
+<li><strong>航太製造業務拓展</strong>：成為 Airbus 一階供應商，確立其在國際航太製造供應鏈的地位。與 GE 合資的「長翼公司」預計 2026 年起將恢復正向貢獻，受惠於 GE Aerospace 擴增全球 MRO 產能 40% 的計畫。</li>
+<li><strong>無人機國防商機爆發</strong>：台灣國防部規劃總規模約 500 億元，採購近 5 萬架軍用商規無人機的龐大計畫，長榮航太作為第一階段得標廠商，具實績優勢，有望在中大型機型項目中勝出。法人預期 2026 年第四季至 2027 年將是營收爆發點，2027 年無人機業務有望貢獻當年營收三成（約 90 億元）。</li>
+<li><strong>新客戶與機型導入</strong>：預計 2025-2026 年將導入波音 787 及空中巴士 A350 的 MRO 新客戶及機型，進一步擴大營收基礎。</li>
+
+<h3>風險因子</h3>
+
+<li><strong>供應鏈瓶頸</strong>：全球航空供應鏈持續緊張，特別是引擎等關鍵零組件的供應短缺，可能影響製造業務的材料採購與交付進度。</li>
+<li><strong>地緣政治風險</strong>：雖然台灣國防自主政策為無人機業務帶來機會，但地緣政治緊張局勢也可能帶來市場不確定性，國防預算審議進度將直接影響標案獲利認列時程。</li>
+<li><strong>匯率波動風險</strong>：公司近七成營收來自國外客戶（主要收取美元），新台幣升值對公司來說是負面影響，美元貶值 1% 可能導致稅前淨利減少 4100 萬元。</li>
+<li><strong>轉投資事業虧損不確定性</strong>：轉投資的長異發動機維修公司曾因品管事件停工導致虧損，儘管預計 2026 年有望恢復正常獲利，仍需持續觀察其營運改善情況。</li>
+
+<h2>投資結論</h2>
+
+<p>長榮航太在多重利多匯聚下，正迎來顯著的成長契機。</p>
+
+<li><strong>核心業務穩健增長</strong>：受惠於全球航空 MRO 市場因機隊高齡化和新機交付延遲而持續升溫，加上公司預計調漲維修服務價格 3% 至 15%，以及長異發動機維修公司預計 2026 年轉虧為盈，共同支撐 MRO 業務的穩定獲利與成長。</li>
+<li><strong>製造業務質量提升</strong>：成功打入 Airbus 一階供應鏈，大幅提升製造業務的國際地位與訂單能見度，為營收結構帶來正面優化。觀音廠區二期擴建與桃園第三航廈維修棚的規劃，將確保長期產能足以支應成長需求。</li>
+<li><strong>無人機業務爆發潛力</strong>：掌握台灣國防部高達 500 億元的軍用商規無人機採購計畫，公司已取得部分標案並預計 2026 年第四季至 2027 年進入營收爆發期，有望成為未來幾年獲利跳躍式成長的關鍵催化劑。</li>
+<li><strong>財務預期樂觀</strong>：法人預估 2025 年 EPS 為 5.64 元，2026 年 EPS 更上看 7.94 元，營收成長動能明確。公司健康的負債比率及逐步改善的存貨週轉效率，顯示良好的財務體質與營運效率。</li>
+
+<p>綜合上述分析，考量長榮航太在 MRO、航太製造與無人機三大領域的強勁成長動能，以及其全球領先的技術與產能布局，我們建議投資人可視其為航空產業復甦與國防自主題材的雙重受惠者。</p>
+
+<strong>目標價區間建議：</strong> 考量券商平均預估目標價約 185-195 元，並對 2026 年 EPS 成長的樂觀預期，建議投資區間為 <strong>190 元至 210 元</strong>。
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:35</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2645_長榮航太_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2645_長榮航太_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2645_長榮航太_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

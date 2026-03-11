@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2002 中鋼 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2002 中鋼 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>中鋼 (2002) 歷經2025年產業逆風與首度年度虧損（每股淨損0.29元），在全球鋼市觸底與自身高值化轉型策略帶動下，預期2026年將溫和復甦，法人預估EPS有望達0.06至0.42元，經營團隊目標實現「穩定獲利」。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2002 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2002" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2002" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2002');
+    var obvContainer = document.getElementById('obv-chart-2002');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 19.05, "high": 19.05, "low": 18.75, "close": 18.9}, {"time": "2025-12-05", "open": 18.8, "high": 18.85, "low": 18.6, "close": 18.7}, {"time": "2025-12-08", "open": 18.6, "high": 18.7, "low": 18.45, "close": 18.6}, {"time": "2025-12-09", "open": 18.55, "high": 18.6, "low": 18.4, "close": 18.45}, {"time": "2025-12-10", "open": 18.4, "high": 18.45, "low": 18.3, "close": 18.3}, {"time": "2025-12-11", "open": 18.45, "high": 18.45, "low": 18.2, "close": 18.35}, {"time": "2025-12-12", "open": 18.45, "high": 18.8, "low": 18.45, "close": 18.75}, {"time": "2025-12-15", "open": 18.9, "high": 19.15, "low": 18.75, "close": 18.95}, {"time": "2025-12-16", "open": 18.7, "high": 18.75, "low": 18.5, "close": 18.55}, {"time": "2025-12-17", "open": 18.55, "high": 18.65, "low": 18.4, "close": 18.4}, {"time": "2025-12-18", "open": 18.4, "high": 18.5, "low": 18.2, "close": 18.25}, {"time": "2025-12-19", "open": 18.35, "high": 18.85, "low": 18.3, "close": 18.85}, {"time": "2025-12-22", "open": 18.75, "high": 18.8, "low": 18.5, "close": 18.8}, {"time": "2025-12-23", "open": 18.8, "high": 18.8, "low": 18.6, "close": 18.6}, {"time": "2025-12-24", "open": 18.6, "high": 18.75, "low": 18.55, "close": 18.55}, {"time": "2025-12-26", "open": 18.6, "high": 18.85, "low": 18.6, "close": 18.85}, {"time": "2025-12-29", "open": 18.9, "high": 19.4, "low": 18.9, "close": 19.1}, {"time": "2025-12-30", "open": 19.15, "high": 19.4, "low": 19.05, "close": 19.25}, {"time": "2025-12-31", "open": 19.3, "high": 19.35, "low": 19.0, "close": 19.0}, {"time": "2026-01-02", "open": 19.0, "high": 19.05, "low": 18.7, "close": 18.75}, {"time": "2026-01-05", "open": 18.8, "high": 18.9, "low": 18.55, "close": 18.6}, {"time": "2026-01-06", "open": 18.7, "high": 18.9, "low": 18.45, "close": 18.5}, {"time": "2026-01-07", "open": 18.65, "high": 19.45, "low": 18.6, "close": 19.45}, {"time": "2026-01-08", "open": 19.7, "high": 19.8, "low": 19.1, "close": 19.15}, {"time": "2026-01-09", "open": 19.15, "high": 19.2, "low": 18.9, "close": 19.0}, {"time": "2026-01-12", "open": 19.0, "high": 19.8, "low": 18.95, "close": 19.55}, {"time": "2026-01-13", "open": 19.75, "high": 19.8, "low": 19.35, "close": 19.45}, {"time": "2026-01-14", "open": 19.5, "high": 19.65, "low": 19.35, "close": 19.4}, {"time": "2026-01-15", "open": 19.5, "high": 19.75, "low": 19.35, "close": 19.45}, {"time": "2026-01-16", "open": 19.55, "high": 19.55, "low": 19.2, "close": 19.25}, {"time": "2026-01-19", "open": 19.25, "high": 19.7, "low": 19.05, "close": 19.65}, {"time": "2026-01-20", "open": 19.65, "high": 19.65, "low": 19.15, "close": 19.15}, {"time": "2026-01-21", "open": 19.1, "high": 19.15, "low": 18.9, "close": 18.95}, {"time": "2026-01-22", "open": 19.15, "high": 19.25, "low": 18.9, "close": 19.0}, {"time": "2026-01-23", "open": 19.1, "high": 19.25, "low": 18.95, "close": 19.15}, {"time": "2026-01-26", "open": 19.2, "high": 19.7, "low": 19.15, "close": 19.65}, {"time": "2026-01-27", "open": 19.75, "high": 19.95, "low": 19.35, "close": 19.35}, {"time": "2026-01-28", "open": 19.35, "high": 19.6, "low": 19.25, "close": 19.6}, {"time": "2026-01-29", "open": 19.85, "high": 21.35, "low": 19.8, "close": 20.7}, {"time": "2026-01-30", "open": 20.8, "high": 21.55, "low": 20.35, "close": 20.75}, {"time": "2026-02-02", "open": 21.05, "high": 21.6, "low": 20.8, "close": 21.1}, {"time": "2026-02-03", "open": 21.4, "high": 21.4, "low": 20.6, "close": 20.65}, {"time": "2026-02-04", "open": 20.65, "high": 21.25, "low": 20.15, "close": 20.95}, {"time": "2026-02-05", "open": 21.15, "high": 21.3, "low": 20.8, "close": 20.95}, {"time": "2026-02-06", "open": 20.8, "high": 20.8, "low": 20.25, "close": 20.4}, {"time": "2026-02-09", "open": 20.6, "high": 20.6, "low": 20.2, "close": 20.35}, {"time": "2026-02-10", "open": 20.45, "high": 20.5, "low": 20.25, "close": 20.5}, {"time": "2026-02-11", "open": 20.6, "high": 21.1, "low": 20.6, "close": 20.9}, {"time": "2026-02-23", "open": 20.75, "high": 20.8, "low": 20.35, "close": 20.45}, {"time": "2026-02-24", "open": 20.6, "high": 20.75, "low": 20.45, "close": 20.7}, {"time": "2026-02-25", "open": 20.7, "high": 21.25, "low": 20.5, "close": 21.25}, {"time": "2026-02-26", "open": 21.25, "high": 21.25, "low": 20.6, "close": 20.75}, {"time": "2026-03-02", "open": 19.8, "high": 19.8, "low": 19.1, "close": 19.2}, {"time": "2026-03-03", "open": 20.1, "high": 20.4, "low": 19.9, "close": 20.05}, {"time": "2026-03-04", "open": 19.8, "high": 19.8, "low": 19.1, "close": 19.2}, {"time": "2026-03-05", "open": 19.6, "high": 19.6, "low": 19.2, "close": 19.3}, {"time": "2026-03-06", "open": 19.1, "high": 19.9, "low": 19.1, "close": 19.9}, {"time": "2026-03-09", "open": 19.15, "high": 19.3, "low": 18.8, "close": 19.15}, {"time": "2026-03-10", "open": 19.4, "high": 19.4, "low": 19.15, "close": 19.2}, {"time": "2026-03-11", "open": 19.25, "high": 19.65, "low": 19.2, "close": 19.5}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 22240.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 16831.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 20504.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 15289.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 14114.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 22325.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 27705.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 52464.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 34791.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 27909.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 23782.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 48985.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 25839.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 17109.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 12110.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 18595.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 60244.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 46366.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 24063.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 34914.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 37619.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 35378.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 101684.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 66522.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 37822.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 78551.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 49327.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 32319.0, "color": "#26a69a"}, {"time": "2026-01-15", "value": 52938.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 35619.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 76962.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 60140.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 45828.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 26848.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 31337.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 84072.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 55309.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 50012.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 252713.0, "color": "#ef5350"}, {"time": "2026-01-30", "value": 236124.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 192450.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 101403.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 87525.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 45959.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 52136.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 37219.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 22843.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 59286.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 63019.0, "color": "#26a69a"}, {"time": "2026-02-24", "value": 59289.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 100937.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 78353.0, "color": "#26a69a"}, {"time": "2026-03-02", "value": 72826.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 51449.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 72826.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 42848.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 34596.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 63581.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 27186.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 32463.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 18.59}, {"time": "2025-12-11", "value": 18.48}, {"time": "2025-12-12", "value": 18.490000000000002}, {"time": "2025-12-15", "value": 18.56}, {"time": "2025-12-16", "value": 18.580000000000002}, {"time": "2025-12-17", "value": 18.6}, {"time": "2025-12-18", "value": 18.580000000000002}, {"time": "2025-12-19", "value": 18.6}, {"time": "2025-12-22", "value": 18.57}, {"time": "2025-12-23", "value": 18.580000000000002}, {"time": "2025-12-24", "value": 18.610000000000003}, {"time": "2025-12-26", "value": 18.73}, {"time": "2025-12-29", "value": 18.78}, {"time": "2025-12-30", "value": 18.87}, {"time": "2025-12-31", "value": 18.95}, {"time": "2026-01-02", "value": 18.990000000000002}, {"time": "2026-01-05", "value": 18.94}, {"time": "2026-01-06", "value": 18.82}, {"time": "2026-01-07", "value": 18.86}, {"time": "2026-01-08", "value": 18.89}, {"time": "2026-01-09", "value": 18.94}, {"time": "2026-01-12", "value": 19.130000000000003}, {"time": "2026-01-13", "value": 19.32}, {"time": "2026-01-14", "value": 19.31}, {"time": "2026-01-15", "value": 19.369999999999997}, {"time": "2026-01-16", "value": 19.419999999999998}, {"time": "2026-01-19", "value": 19.439999999999998}, {"time": "2026-01-20", "value": 19.38}, {"time": "2026-01-21", "value": 19.29}, {"time": "2026-01-22", "value": 19.2}, {"time": "2026-01-23", "value": 19.18}, {"time": "2026-01-26", "value": 19.18}, {"time": "2026-01-27", "value": 19.22}, {"time": "2026-01-28", "value": 19.35}, {"time": "2026-01-29", "value": 19.69}, {"time": "2026-01-30", "value": 20.009999999999998}, {"time": "2026-02-02", "value": 20.3}, {"time": "2026-02-03", "value": 20.56}, {"time": "2026-02-04", "value": 20.830000000000002}, {"time": "2026-02-05", "value": 20.880000000000003}, {"time": "2026-02-06", "value": 20.81}, {"time": "2026-02-09", "value": 20.66}, {"time": "2026-02-10", "value": 20.630000000000003}, {"time": "2026-02-11", "value": 20.619999999999997}, {"time": "2026-02-23", "value": 20.52}, {"time": "2026-02-24", "value": 20.580000000000002}, {"time": "2026-02-25", "value": 20.759999999999998}, {"time": "2026-02-26", "value": 20.81}, {"time": "2026-03-02", "value": 20.47}, {"time": "2026-03-03", "value": 20.39}, {"time": "2026-03-04", "value": 20.09}, {"time": "2026-03-05", "value": 19.7}, {"time": "2026-03-06", "value": 19.53}, {"time": "2026-03-09", "value": 19.52}, {"time": "2026-03-10", "value": 19.35}, {"time": "2026-03-11", "value": 19.41}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 18.595}, {"time": "2025-12-18", "value": 18.53}, {"time": "2025-12-19", "value": 18.544999999999998}, {"time": "2025-12-22", "value": 18.565}, {"time": "2025-12-23", "value": 18.580000000000002}, {"time": "2025-12-24", "value": 18.605}, {"time": "2025-12-26", "value": 18.655}, {"time": "2025-12-29", "value": 18.69}, {"time": "2025-12-30", "value": 18.720000000000002}, {"time": "2025-12-31", "value": 18.765}, {"time": "2026-01-02", "value": 18.8}, {"time": "2026-01-05", "value": 18.835}, {"time": "2026-01-06", "value": 18.8}, {"time": "2026-01-07", "value": 18.865000000000002}, {"time": "2026-01-08", "value": 18.919999999999998}, {"time": "2026-01-09", "value": 18.965}, {"time": "2026-01-12", "value": 19.035}, {"time": "2026-01-13", "value": 19.07}, {"time": "2026-01-14", "value": 19.085}, {"time": "2026-01-15", "value": 19.130000000000003}, {"time": "2026-01-16", "value": 19.18}, {"time": "2026-01-19", "value": 19.285}, {"time": "2026-01-20", "value": 19.35}, {"time": "2026-01-21", "value": 19.3}, {"time": "2026-01-22", "value": 19.285}, {"time": "2026-01-23", "value": 19.3}, {"time": "2026-01-26", "value": 19.31}, {"time": "2026-01-27", "value": 19.3}, {"time": "2026-01-28", "value": 19.32}, {"time": "2026-01-29", "value": 19.445}, {"time": "2026-01-30", "value": 19.595}, {"time": "2026-02-02", "value": 19.740000000000002}, {"time": "2026-02-03", "value": 19.89}, {"time": "2026-02-04", "value": 20.09}, {"time": "2026-02-05", "value": 20.285}, {"time": "2026-02-06", "value": 20.41}, {"time": "2026-02-09", "value": 20.48}, {"time": "2026-02-10", "value": 20.595}, {"time": "2026-02-11", "value": 20.725}, {"time": "2026-02-23", "value": 20.7}, {"time": "2026-02-24", "value": 20.695}, {"time": "2026-02-25", "value": 20.71}, {"time": "2026-02-26", "value": 20.72}, {"time": "2026-03-02", "value": 20.544999999999998}, {"time": "2026-03-03", "value": 20.455000000000002}, {"time": "2026-03-04", "value": 20.335}, {"time": "2026-03-05", "value": 20.23}, {"time": "2026-03-06", "value": 20.169999999999998}, {"time": "2026-03-09", "value": 19.994999999999997}, {"time": "2026-03-10", "value": 19.869999999999997}, {"time": "2026-03-11", "value": 19.75}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 18.697499999999998}, {"time": "2026-01-05", "value": 18.6825}, {"time": "2026-01-06", "value": 18.6725}, {"time": "2026-01-07", "value": 18.715}, {"time": "2026-01-08", "value": 18.75}, {"time": "2026-01-09", "value": 18.785}, {"time": "2026-01-12", "value": 18.845}, {"time": "2026-01-13", "value": 18.880000000000003}, {"time": "2026-01-14", "value": 18.9025}, {"time": "2026-01-15", "value": 18.947499999999998}, {"time": "2026-01-16", "value": 18.990000000000002}, {"time": "2026-01-19", "value": 19.06}, {"time": "2026-01-20", "value": 19.075}, {"time": "2026-01-21", "value": 19.0825}, {"time": "2026-01-22", "value": 19.1025}, {"time": "2026-01-23", "value": 19.1325}, {"time": "2026-01-26", "value": 19.1725}, {"time": "2026-01-27", "value": 19.185}, {"time": "2026-01-28", "value": 19.2025}, {"time": "2026-01-29", "value": 19.2875}, {"time": "2026-01-30", "value": 19.3875}, {"time": "2026-02-02", "value": 19.5125}, {"time": "2026-02-03", "value": 19.619999999999997}, {"time": "2026-02-04", "value": 19.695}, {"time": "2026-02-05", "value": 19.785}, {"time": "2026-02-06", "value": 19.854999999999997}, {"time": "2026-02-09", "value": 19.895}, {"time": "2026-02-10", "value": 19.947499999999998}, {"time": "2026-02-11", "value": 20.0225}, {"time": "2026-02-23", "value": 20.072499999999998}, {"time": "2026-02-24", "value": 20.145}, {"time": "2026-02-25", "value": 20.225}, {"time": "2026-02-26", "value": 20.305}, {"time": "2026-03-02", "value": 20.317500000000003}, {"time": "2026-03-03", "value": 20.369999999999997}, {"time": "2026-03-04", "value": 20.3725}, {"time": "2026-03-05", "value": 20.355}, {"time": "2026-03-06", "value": 20.3825}, {"time": "2026-03-09", "value": 20.36}, {"time": "2026-03-10", "value": 20.285}, {"time": "2026-03-11", "value": 20.2225}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -16831.0}, {"time": "2025-12-08", "value": -37335.0}, {"time": "2025-12-09", "value": -52624.0}, {"time": "2025-12-10", "value": -66738.0}, {"time": "2025-12-11", "value": -44413.0}, {"time": "2025-12-12", "value": -16708.0}, {"time": "2025-12-15", "value": 35756.0}, {"time": "2025-12-16", "value": 965.0}, {"time": "2025-12-17", "value": -26944.0}, {"time": "2025-12-18", "value": -50726.0}, {"time": "2025-12-19", "value": -1741.0}, {"time": "2025-12-22", "value": -27580.0}, {"time": "2025-12-23", "value": -44689.0}, {"time": "2025-12-24", "value": -56799.0}, {"time": "2025-12-26", "value": -38204.0}, {"time": "2025-12-29", "value": 22040.0}, {"time": "2025-12-30", "value": 68406.0}, {"time": "2025-12-31", "value": 44343.0}, {"time": "2026-01-02", "value": 9429.0}, {"time": "2026-01-05", "value": -28190.0}, {"time": "2026-01-06", "value": -63568.0}, {"time": "2026-01-07", "value": 38116.0}, {"time": "2026-01-08", "value": -28406.0}, {"time": "2026-01-09", "value": -66228.0}, {"time": "2026-01-12", "value": 12323.0}, {"time": "2026-01-13", "value": -37004.0}, {"time": "2026-01-14", "value": -69323.0}, {"time": "2026-01-15", "value": -16385.0}, {"time": "2026-01-16", "value": -52004.0}, {"time": "2026-01-19", "value": 24958.0}, {"time": "2026-01-20", "value": -35182.0}, {"time": "2026-01-21", "value": -81010.0}, {"time": "2026-01-22", "value": -54162.0}, {"time": "2026-01-23", "value": -22825.0}, {"time": "2026-01-26", "value": 61247.0}, {"time": "2026-01-27", "value": 5938.0}, {"time": "2026-01-28", "value": 55950.0}, {"time": "2026-01-29", "value": 308663.0}, {"time": "2026-01-30", "value": 544787.0}, {"time": "2026-02-02", "value": 737237.0}, {"time": "2026-02-03", "value": 635834.0}, {"time": "2026-02-04", "value": 723359.0}, {"time": "2026-02-05", "value": 723359.0}, {"time": "2026-02-06", "value": 671223.0}, {"time": "2026-02-09", "value": 634004.0}, {"time": "2026-02-10", "value": 656847.0}, {"time": "2026-02-11", "value": 716133.0}, {"time": "2026-02-23", "value": 653114.0}, {"time": "2026-02-24", "value": 712403.0}, {"time": "2026-02-25", "value": 813340.0}, {"time": "2026-02-26", "value": 734987.0}, {"time": "2026-03-02", "value": 662161.0}, {"time": "2026-03-03", "value": 713610.0}, {"time": "2026-03-04", "value": 640784.0}, {"time": "2026-03-05", "value": 683632.0}, {"time": "2026-03-06", "value": 718228.0}, {"time": "2026-03-09", "value": 654647.0}, {"time": "2026-03-10", "value": 681833.0}, {"time": "2026-03-11", "value": 714296.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>中鋼（2002）是台灣唯一具備高爐的一貫作業鋼廠，為台灣鋼鐵產業龍頭。主要業務涵蓋鋼品的設計、製造、買賣、儲運等，並積極朝向高值化產品發展。</p>
+
+<h3>主要產品線</h3>
+<ul><li>鋼胚</li>
+<li>熱軋鋼捲（含一般料、軋延料、中高碳、工具鋼）</li>
+<li>線材、盤元、條鋼</li>
+<li>冷軋鋼捲（含一般料、中高碳、工具鋼、製桶）</li>
+<li>鍍鋅鋼捲（熱浸鍍鋅鋼捲、電鍍鋅鋼捲，應用於抗指紋、建材、烤漆料、家電、電腦等）</li>
+<li>棒鋼</li>
+<li>鋼板（含A36/SS400、SM570系列、船板等）</li>
+<li>塗鍍鋼捲</li>
+<li>板鋼</li>
+</ul>
+<h3>營收結構（精緻鋼品貢獻度）</h3>
+<p>中鋼近年積極轉型高值化策略，精緻鋼品貢獻度日益提升。</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2025年出貨量佔比</th><th>2025年毛利貢獻佔比</th></tr></thead><tbody>
+<tr><td>精緻鋼品</td><td>11.5% (約78.7萬噸)</td><td>超過九成</td></tr>
+<tr><td>一般鋼品</td><td>約88.5%</td><td>低於一成</td></tr>
+</tbody></table></div>
+
+<p>公司研發重心鎖定無人機、機器人、電動車及低軌衛星等高成長產業所需的高品質鋼材，為未來營收結構轉型奠定基礎。主要生產基地位於台灣，包含中鋼自身廠區及子公司中龍鋼鐵。</p>
+
+<h2>核心競爭優勢</h2>
+<li><strong>台灣唯一一貫化大鋼廠：</strong> 擁有高爐，具備從鐵礦砂到鋼品的完整煉製能力，規模經濟與成本優勢顯著。</li>
+<li><strong>高值化產品領先：</strong> 積極佈局電動車（超能效電磁鋼）、無人機、機器人（高精密鋼材）、低軌衛星等高端應用，精緻鋼品雖僅佔總銷售量11.5%，卻貢獻超過九成的毛利。</li>
+<li><strong>綠色製程與永續發展：</strong> 領先同業取得多項國際綠色認證，在企業永續評比名列全球鋼鐵業前茅，符合歐盟CBAM等環保趨勢，具備「綠色溢價」潛力。</li>
+<li><strong>彈性市場調度能力：</strong> 面對國際貿易壁壘與區域性供需變化，能靈活調整產品銷售市場，例如韓國對中國反傾銷後迅速切入。</li>
+<li><strong>台灣內需市場穩定基石：</strong> 受惠於台灣基礎建設（如台電電網升級）、國防產業自主化（潛艦、軍武高功能結構鋼）及高科技產業發展，提供穩定內需支撐。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元新台幣)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>260.19</td><td>1.86%</td><td>1.19%</td></tr>
+<tr><td>2025年12月</td><td>255.43</td><td>0.69%</td><td>-13.8%</td></tr>
+<tr><td>2025年11月</td><td>253.68</td><td>3.7%</td><td>-12.59%</td></tr>
+<tr><td>2025年10月</td><td>244.62</td><td>0.31%</td><td>-12.45%</td></tr>
+<tr><td>2025年9月</td><td>243.85</td><td>-1.43%</td><td>-8.83%</td></tr>
+<tr><td>2025年8月</td><td>247.40</td><td>1.43%</td><td>-16.41%</td></tr>
+</tbody></table></div>
+
+<em>註：2026年1月營收為2026年2月11日公告，終結長達13個月的年負成長，顯示營運初步回穩。</em>
+
+<h3>季度數據</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>季營收 (億元新台幣)</th><th>毛利率</th><th>營業利益率</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2025年第四季</td><td>753.73</td><td>4.83%</td><td>0.47%</td><td>-0.03</td></tr>
+</tbody></table></div>
+
+<h3>年度趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>全年營收 (億元新台幣)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2024實際</td><td>3,605.36</td><td>0.13</td></tr>
+<tr><td>2025實際</td><td>3,171.55</td><td>-0.29</td></tr>
+</tbody></table></div>
+
+<em>註：2025年全年稅後虧損新台幣43億元，每股淨損0.29元，為建廠47年來首度虧損（2026年2月26日公告）。</em>
+
+<h2>法說會重點 (截至2026年3月8日)</h2>
+<ul><li><strong>最近法說會日期：</strong> 中鋼曾預計於2025年11月底召開法人說明會，但最新完整資訊需以公司公告為準。</li>
+<li><strong>管理層發言與Guidance：</strong></li>
+</ul>    *   <strong>2025年11月25日法說會指出</strong>，全球鋼市需求已於2025年完成打底，2026年起將進入溫和復甦新局面，預期全球鋼鐵需求將回升至17.72億公噸，年增1.3%，增加約2,330萬公噸。
+<p>*   <strong>2026年2月25日，董事長黃建智宣示</strong>：2026年最重要的營運目標為「穩定獲利」，並看好3月中旬即將開出的4月及第二季盤價「大有可為」。</p>
+<p>*   <strong>2026年2月26日董事會後黃建智表示</strong>：2025年是谷底，2026年一定會比2025年好，「穩定獲利是最重要目標」。</p>
+<ul><li><strong>產品線與訂單能見度：</strong></li>
+</ul>    *   2026年1月，中鋼與子公司中龍鋼鐵合計出貨量達84萬公噸，較原訂目標80萬公噸超標4.3萬公噸，創近8個月以來新高點。
+<p>*   2026年3月盤價，熱軋鋼板、鋼捲、冷軋鋼捲、鍍鋅鋼捲及電磁鋼捲等主要產品，每公噸全面調漲500元（2026年2月2日公告），後續營運展望正面。</p>
+<ul><li><strong>資本支出計畫：</strong></li>
+</ul>    *   2026年2月26日，董事會決議投資約<strong>77.57億元</strong>，進行肆號高爐第二爐代汰舊換新計畫，預計投資期間為2026年3月1日至2029年8月31日。其中70.48%由營運資金支應，其餘來自借款。
+<p>*   2025年11月12日，董事會決議投資<strong>6.4億元</strong>於煉鋼廠一號扁鋼胚連鑄機鑄模段設備汰舊換新（計畫期間2026年1月至2028年6月），並批准<strong>4億元</strong>用於軋鋼二廠熱軋酸洗塗油線銲接機的更新（預計2028年底完成）。</p>
+
+<h2>券商觀點</h2>
+<h3>目標價與評等</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣元)</th><th>評等/建議</th><th>日期</th></tr></thead><tbody>
+<tr><td>FactSet (中位數)</td><td>22.00</td><td>買進</td><td>2026/03/06</td></tr>
+<tr><td>FactSet</td><td>21.75</td><td>N/A</td><td>2026/03/03</td></tr>
+<tr><td>FactSet</td><td>21.50</td><td>N/A</td><td>2026/02/27</td></tr>
+<tr><td>中信投顧</td><td>22.00</td><td>N/A</td><td>2026/01/06</td></tr>
+<tr><td>法人 (CMoney)</td><td>20.35 (現價參考)</td><td>N/A</td><td>2026/02/09</td></tr>
+<tr><td>法人</td><td>20.00</td><td>N/A</td><td>2025/12/16</td></tr>
+</tbody></table></div>
+
+<h3>EPS 預估</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>FactSet (中位數)</th><th>CMoney (法人)</th><th>中信投顧</th></tr></thead><tbody>
+<tr><td>2025</td><td>-0.29元 (2026/02/27)</td><td>-0.35元 (2026/01/30)</td><td>N/A</td></tr>
+<tr><td>2026</td><td>0.06元 (2026/03/06)</td><td>0.42元 (2026/02/10)</td><td>0.31元 (2026/01/06)</td></tr>
+</tbody></table></div>
+<em>註：FactSet 2026年EPS最高估值0.42元，最低估值-0.07元。</em>
+
+<h3>評等調整</h3>
+<ul><li>FactSet於2026年2月27日將中鋼2025年EPS預估中位數由-0.32元上修至-0.29元。</li>
+<li>FactSet於2026年3月3日將中鋼2026年EPS預估中位數由0.04元上修至0.05元，並於2026年3月6日進一步上修至0.06元。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢 (近四季)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2025年第四季</td><td>4.83%</td><td>0.47%</td><td>1.18%</td></tr>
+<tr><td>2025年第三季</td><td>0.27%</td><td>-3.99%<em></td><td>-3.29%</em></td></tr>
+<tr><td>2025年第二季</td><td>未找到具體數據</td><td>未找到具體數據</td><td>未找到具體數據</td></tr>
+<tr><td>2025年第一季</td><td>未找到具體數據</td><td>未找到具體數據</td><td>未找到具體數據</td></tr>
+</tbody></table></div>
+
+<em>註：2025年第三季營業損失30.16億元，稅後淨損約24.8億元，毛利率因出貨量、價格下跌及認列存貨跌價損失而探底。</em>
+
+<strong>利潤率變化原因分析：</strong>
+<ul><li><strong>2025年整體虧損主因：</strong> 全球鋼鐵業景氣低迷，中國大陸鋼廠低價傾銷，導致鋼品單位毛利及銷售數量減少，營業收入下降。同時，礦業投資獲配股利減少及財務成本增加，擴大業外支出。</li>
+<li><strong>2025年第三季探底：</strong> 受出貨量與價格雙雙下跌，並認列存貨跌價損失影響，毛利率嚴重壓縮。</li>
+<li><strong>2025年第四季回升：</strong> 隨著存貨減損利空消除、中能風場發電收益及鋼鐵銷售毛利增加，毛利率與稅後淨利回穩，12月單月轉盈。</li>
+<li><strong>2026年1月轉虧：</strong> 受澳洲礦區淹水導致煤價上漲、鋼鐵單位毛利減少，以及中能風場發電度數減少影響營業利益。</li>
+<li><strong>高值化策略奏效：</strong> 儘管整體虧損，但精緻鋼品貢獻超過九成毛利，顯示產品組合優化有效抵抗部分市場壓力。</li>
+</ul>
+<h3>存貨與營運</h3>
+<ul><li><strong>存貨分析：</strong> 缺乏2025年Q1-Q4具體存貨金額與週轉天數。但2025年第三季因鋼價下跌曾認列存貨跌價損失，顯示當時存在存貨價值壓力。隨著第四季獲利回穩，此壓力可能已有所緩解。</li>
+<li><strong>應收帳款週轉天數：</strong> 未找到2025年以後具體數據。</li>
+<li><strong>資本支出與產能：</strong></li>
+</ul>    *   <strong>2026年2月26日決議：</strong> 投資<strong>77.57億元</strong>進行肆號高爐第二爐代汰舊換新計畫（2026/03/01 – 2029/08/31）。
+<p>*   <strong>2025年11月12日決議：</strong> 投資<strong>6.4億元</strong>於煉鋼廠一號扁鋼胚連鑄機鑄模段設備汰舊換新（2026/01/01 – 2028/06/30），及<strong>4億元</strong>用於軋鋼二廠熱軋酸洗塗油線銲接機汰舊換新（2026/01/01 – 2028/12/31）。</p>
+<p>*   <strong>資本支出趨勢：</strong> 主要為汰舊換新與效率提升，而非大規模擴產。公司正將產能從追求規模轉向「最適產量」，規劃封存或除役六條老舊產線，年減碳排約300萬公噸，以降低成本並提升高階鋼品比重。</p>
+
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓紀錄：</strong> 未找到2024年以後相關紀錄。</li>
+<li><strong>庫藏股買回紀錄：</strong> 未找到2024年以後相關紀錄。</li>
+<li><strong>發行可轉換公司債（CB）：</strong> 未找到2024年以後相關紀錄。</li>
+<li><strong>現金增資或減資計畫：</strong> 未找到2024年以後相關紀錄。</li>
+<li><strong>股利政策：</strong> 董事會於2026年2月26日決議配發2025年度普通股現金股利<strong>0.15元</strong>，特別股每股現金<strong>1.4元</strong>。儘管2025年虧損，仍維持配息，但為建廠以來新低。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>市場規模與供需</h3>
+<ul><li><strong>全球市場規模：</strong> 預計將從2025年的<strong>17,841.1億美元</strong>成長到2026年的<strong>18,767.1億美元</strong>，年複合成長率（CAGR）為<strong>5.2%</strong>。預計到2030年將達到<strong>23,347.7億美元</strong>，複合年成長率為<strong>5.6%</strong>。</li>
+<li><strong>供需狀況：</strong></li>
+</ul>    *   世界鋼鐵協會預測，2025年全球鋼鐵需求約<strong>17.49億噸</strong>（持平2024年）；2026年可望小幅回升<strong>1.3%</strong>，達<strong>17.72億噸</strong>。
+<p>*   需求復甦動能主要來自印度、東協、中東（3%～7%增長），以及美國降息、基建與製造回流。</p>
+<p>*   主要風險為中國大陸需求疲弱，預計2025、2026年仍呈負成長，且中國政府將加強鋼鐵出口許可控管，預計2025年出口下降3%，2026年下降33%，有助於緩解全球低價鋼材壓力。</p>
+<p>*   供需已回到相對脆弱的平衡狀態，歐美鋼材供給縮減、價格波動收斂，鋼市有望在2025年觸底。</p>
+
+<h3>產業平均毛利率</h3>
+<ul><li>中國鋼鐵工業協會數據：2025年重點統計企業平均利潤率<strong>1.9%</strong>。</li>
+<li>2025年第三季度：鋼鐵行業毛利率<strong>6.4%</strong>。</li>
+<li>台灣鋼鐵工業類：2025年第四季度毛利率<strong>6.46%</strong>。</li>
+</ul>
+<h3>競爭格局</h3>
+
+<h4>全球粗鋼產量前五大公司 (2024年數據)</h4>
+<div class="table-wrapper"><table>
+<thead><tr><th>排名</th><th>公司名稱</th><th>總部所在地</th><th>224年粗鋼產量 (百萬噸)</th></tr></thead><tbody>
+<tr><td>1</td><td>中國寶武鋼鐵集團</td><td>中國</td><td>130.09</td></tr>
+<tr><td>2</td><td>ArcelorMittal</td><td>盧森堡</td><td>65.00</td></tr>
+<tr><td>3</td><td>鞍鋼集團</td><td>中國</td><td>59.55</td></tr>
+<tr><td>4</td><td>日本製鐵</td><td>日本</td><td>43.64</td></tr>
+<tr><td>5</td><td>河北鋼鐵集團</td><td>中國</td><td>42.28</td></tr>
+</tbody></table></div>
+
+<h4>中鋼 vs 主要競爭對手比較</h4>
+<p>由於缺乏具體的2025-2026年詳細對比數據，以下為定性分析：</p>
+<ul><li><strong>技術與高值化：</strong> 中鋼在高值化產品佈局深耕，瞄準電動車、無人機、機器人、低軌衛星等高端應用，精緻鋼品佔總銷售11.6%但貢獻17.8%營收，目標2030年精緻鋼品佔比達20%。相較於國際大廠，中鋼在特定利基市場與高附加價值產品方面具備競爭力。</li>
+<li><strong>產能：</strong> 中鋼正從追求規模轉向「最適產量」策略，調整老舊產線，以提升效率而非單純擴大總產能。</li>
+<li><strong>永續發展：</strong> 中鋼在2025年企業永續評比（CSA）名列全球鋼鐵業第二名，榮獲標普全球永續年鑑Top 5%，其在綠色鋼材、低碳轉型方面領先，在全球碳中和趨勢下形成差異化優勢。</li>
+<li><strong>應對中國競爭：</strong> 中國大陸鋼鐵業強調「設備更新」與「低碳轉型」對中鋼構成威脅，但中鋼認為其轉型路線正確，將加速研發以應對。面對中國大陸低價傾銷，中鋼則透過靈活調度市場策略來降低衝擊。</li>
+</ul>
+<h4>台灣同業比較</h4>
+<p>中鋼作為台灣唯一一貫作業大鋼廠，營收規模與產業地位在台灣鋼鐵業中居領先地位。其2026年1月營收達<strong>260.18億元</strong>，已超越台灣多數鋼鐵同業。在毛利率表現上，中鋼的精緻鋼品策略使其在景氣低谷中仍能維持部分獲利能力，相較於高度仰賴大宗商品價格的同業更具韌性。</p>
+
+<h3>產業趨勢</h3>
+<li><strong>綠色鋼鐵與碳中和：</strong></li>
+<p>*   <strong>趨勢：</strong> 全球鋼鐵業面臨碳定價、碳關稅（如歐盟CBAM）壓力，加速低碳轉型。</p>
+<p>*   <strong>影響：</strong> 具備低碳製程能力的鋼廠將享有「綠色溢價」及更強議價權。氫能冶金、電弧爐等技術應用將增加。</p>
+<li><strong>智慧製造與AI應用：</strong></li>
+<p>*   <strong>趨勢：</strong> AI正推動鋼鐵生產從「經驗驅動」向「數據與模型驅動」轉型。</p>
+<p>*   <strong>影響：</strong> AI應用於高爐爐溫預測、質檢、能耗分析等，實現降本、提質、增效。</p>
+<li><strong>高值化與特種鋼需求：</strong></li>
+<p>*   <strong>趨勢：</strong> 市場對高性能特種鋼需求成長，鋼鐵業邁向高技術、高附加價值產業。</p>
+<p>*   <strong>影響：</strong> 高強度、耐腐蝕、超能效等特種鋼開發成為主流，高端鋼材進口替代空間巨大。</p>
+
+<h3>對 中鋼 而言的具體機會和威脅</h3>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>高值化產品拓展：</strong> 電動車（超能效電磁鋼片訂單可望擴增2-3倍）、無人機/機器人（高精密鋼材2026年下半年放量）、低軌衛星等新興應用市場。
+<p>*   <strong>綠色鋼材市場：</strong> 歐盟CBAM實施，中鋼的低碳製程與綠色認證可享「綠鋼訂單溢價」，已獲5.7萬公噸再生鋼材訂單。</p>
+<p>*   <strong>基礎建設與國防：</strong> 全球新興市場基建與美國基建/製造回流帶動需求。台灣台電電網升級與國防自主（高功能結構鋼）帶來穩定內需。</p>
+<p>*   <strong>AI與數位轉型：</strong> 積極導入AI於生產、研發、決策，提升效率與競爭力。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>中國大陸市場不確定性：</strong> 中國大陸需求疲弱、房市低迷、出口壓力仍存，可能影響全球鋼價。中國大陸鋼鐵業的「設備更新」與「低碳轉型」也可能衝擊中鋼海外市場。
+<p>*   <strong>國際貿易摩擦與關稅：</strong> 美國232條款及未來歐盟CBAM的衝擊，可能影響出口策略與成本。</p>
+<p>*   <strong>原物料價格波動：</strong> 鐵礦砂與煤炭價格高漲，可能持續侵蝕獲利。</p>
+<p>*   <strong>減碳轉型壓力與資本支出：</strong> 達成1.5°C氣候目標需投入鉅額資本支出（2030年前205億元），對現金流構成壓力。</p>
+
+<h2>近期催化劑</h2>
+<ul><li><strong>利多事件：</strong></li>
+</ul>    *   <strong>2026年2月25日：</strong> 董事長黃建智宣示2026年營運目標「穩定獲利」，看好4月及第二季盤價「大有可為」。
+<p>*   <strong>2026年2月2日：</strong> 中鋼公布2026年3月盤價，主要產品每公噸全面調漲<strong>500元</strong>。</p>
+<p>*   <strong>2026年1月11日：</strong> 中鋼公布2026年2月盤價，七大鋼品每噸全數上調<strong>300元</strong>。</p>
+<p>*   <strong>2026年2月11日：</strong> 中鋼公布2026年1月合併營收<strong>260.19億元</strong>，年增<strong>1.19%</strong>，終結長達13個月的年負成長。</p>
+<p>*   <strong>2026年2月10日：</strong> 法人預估中鋼2026年EPS有望達<strong>0.42元</strong>。</p>
+<p>*   <strong>2025年12月16日：</strong> 中國大陸宣布2026年起將加強鋼鐵出口許可控管，有利於抑制低價鋼材，穩定全球鋼價。</p>
+<p>*   <strong>2025年11月25日：</strong> 法說會指出全球鋼市需求已於2025年完成打底，2026年起進入溫和復甦。</p>
+<p>*   <strong>2025年11月24日：</strong> 中鋼「IF汽車用鋼RC30」榮獲經濟部資源再生綠色產品認證。</p>
+<p>*   <strong>2026年3月1日：</strong> 中鋼通過反賄賂管理系統ISO 37001國際標準驗證。</p>
+<p>*   <strong>2026年3月2日：</strong> 環境部表示台灣將成立「CBAM服務平台」，協助企業應對歐盟CBAM。</p>
+<p>*   <strong>2026年2月9日、24日：</strong> 外資連續買超中鋼，顯示資金回流。</p>
+<ul><li><strong>利空事件：</strong></li>
+</ul>    *   <strong>2026年2月26日：</strong> 中鋼董事會通過2025年財報，全年稅後虧損<strong>43億元</strong>，每股淨損<strong>0.29元</strong>。
+<p>*   <strong>2026年1月：</strong> 中鋼單月稅前虧損<strong>0.85億元</strong>，合併營業損失<strong>0.73億元</strong>，顯示獲利基礎仍脆弱。</p>
+<p>*   <strong>2025年12月16日：</strong> 法人將中鋼目標價調降至<strong>20元</strong>（但後續有上修）。</p>
+
+<h2>⭐ 成長動能時間軸</h2>
+<ul><li><strong>2026年1月1日起至2028年6月30日：</strong> 煉鋼廠「一號扁鋼胚連鑄機鑄模段設備汰舊換新計畫」（投資金額<strong>6.4億元</strong>）。</li>
+<li><strong>2026年1月1日起至2028年12月31日：</strong> 軋鋼二廠「熱軋酸洗塗油線銲接機汰舊換新計畫」（投資金額<strong>4億元</strong>）。</li>
+<li><strong>2026年3月1日起至2029年8月31日：</strong> 肆號高爐第二爐代汰舊換新計畫（投資金額<strong>77.57億元</strong>）。</li>
+<li><strong>2026年上半年：</strong> 全球鋼市需求開始溫和復甦，尤其印度、東協、中東地區將有3%～7%增長。</li>
+<li><strong>2026年下半年度起：</strong> 應用於無人機與機器人關節的高精密鋼材預計開始放量供應。</li>
+<li><strong>2026年全年：</strong> 全球電動車市場重回高成長，帶動中鋼超能效電磁鋼訂單可望擴增2-3倍。</li>
+<li><strong>2026年全年：</strong> 台灣國防建案對「高功能結構鋼」需求量預計成長約10%至15%。</li>
+<li><strong>2026年前：</strong> 中鋼規劃封存或除役六條老舊產線，調整產能配置至「最適產量」，年減碳排約300萬公噸。</li>
+<li><strong>2026年全年：</strong> 美國降息、基建與資料中心建設進入高峰，對鋼材需求高度依賴。</li>
+<li><strong>2030年：</strong> 中鋼精緻鋼品銷售量佔比目標提升至20%。</li>
+</ul>
+<h2>2026 展望</h2>
+<h3>成長動能</h3>
+<li><strong>全球鋼市溫和復甦：</strong> 世界鋼鐵協會預測2026年全球鋼鐵需求成長<strong>1.3%</strong>，主要受惠於印度、東協、中東地區的強勁基建需求，以及美國降息、基建與製造回流。歐洲補庫存需求亦將浮現。</li>
+<li><strong>高值化精緻鋼品貢獻提升：</strong> 中鋼持續聚焦電動車、無人機、機器人、低軌衛星等高成長產業所需的高品質鋼材，預計這些產品的訂單量和出貨量將在2026年放量，精緻鋼品高毛利特性將顯著改善整體獲利結構。</li>
+<li><strong>營運體質調整見效：</strong> 透過「最適產量」策略，封存或除役老舊產線，降低固定成本，並強化高階鋼品比重，將使產能配置更貼近市場需求，提升營運效率。</li>
+<li><strong>綠色鋼材市場優勢：</strong> 面對歐盟CBAM及全球減碳趨勢，中鋼在綠色製程與認證方面的領先優勢，將使其在國際供應鏈中更具競爭力，有望獲得「綠鋼訂單溢價」。</li>
+
+<h3>風險因子</h3>
+<li><strong>中國大陸需求不確定性：</strong> 中國大陸房市低迷、新開工不足，鋼鐵需求預計2026年仍呈負成長，其龐大的出口壓力仍是全球鋼價的最大不確定性因素，可能壓抑國際鋼價上漲空間。</li>
+<li><strong>國際貿易保護主義：</strong> 美國對鋼鐵進口關稅提高、歐盟CBAM等貿易壁壘，將持續影響中鋼的出口策略與成本，增加營運複雜性。</li>
+<li><strong>原物料成本波動：</strong> 鐵礦砂、冶金煤等大宗原物料價格若再度高漲，可能侵蝕中鋼的獲利空間，尤其在終端需求復甦有限的情況下。</li>
+<li><strong>減碳轉型資本支出壓力：</strong> 達成碳中和目標所需的大規模資本支出，將對中鋼的財務結構和現金流量產生長期壓力。</li>
+
+<h3>2026年營收/EPS 預估</h3>
+<ul><li><strong>營收預估：</strong> FactSet最新調查，分析師對中鋼2026年營收預估中位數為<strong>3,210.44億元新台幣</strong> (2026/03/06)。</li>
+<li><strong>EPS 預估：</strong> FactSet最新調查，分析師對中鋼2026年EPS預估中位數為<strong>0.06元</strong> (最高估值0.42元，最低估值-0.07元，2026/03/06)。中信投顧預估為<strong>0.31元</strong> (2026/01/06)，法人（CMoney）預估有望達<strong>0.42元</strong> (2026/02/10)。</li>
+</ul>
+<h2>投資結論</h2>
+<li><strong>谷底已過，穩健復甦：</strong> 中鋼在2025年雖面臨營運挑戰導致年度虧損，但2025年第四季已見獲利回穩跡象，2026年1月營收亦終結年減，顯示營運最壞時期已過。隨著全球鋼市預期溫和復甦及國際鋼價止穩反彈，2026年營運有望逐季好轉。</li>
+<li><strong>高值化轉型成效顯著：</strong> 公司積極推動「高值化精緻鋼廠」策略，精緻鋼品雖僅佔銷售量11.5%，卻貢獻超過九成毛利。未來在電動車、無人機、機器人及低軌衛星等新興應用市場的放量，將持續優化產品組合，提升獲利能力與市場競爭力。</li>
+<li><strong>綠色競爭力與資本支出支持：</strong> 中鋼在綠色製程與永續發展上的投入，使其在面對歐盟CBAM及全球減碳趨勢時具備領先優勢，有望獲得「綠色溢價」。近期高爐汰舊換新等重大資本支出，也將提升長期生產效率與產能穩定性。</li>
+<li><strong>股利政策具韌性：</strong> 儘管2025年虧損，董事會仍決議配發0.15元現金股利，顯示公司重視股東回報，也間接反映管理層對未來營運的信心。</li>
+<li><strong>目標價區間建議：</strong> 綜合券商評估及產業展望，中鋼2026年的股價有望挑戰<strong>21.5元至22.5元</strong>的目標區間。此區間反映了公司走出谷底、高值化轉型帶來的新成長動能，以及產業溫和復甦的預期。投資人應關注鋼價走勢、原物料成本及中國大陸出口政策變化。</li>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-08 18:13</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2002_中鋼_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2002_中鋼_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2002_中鋼_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

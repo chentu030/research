@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3653 健策 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>3653 健策 深度研究報告</h1>
+
+<strong>今天日期：2026年03月06日</strong>
+
+<h2>一句話摘要</h2>
+
+<p>健策（3653）憑藉其在高階散熱與精密沖壓領域的技術領先及垂直整合能力，在AI伺服器、HPC及電動車等高成長市場受惠顯著。公司在微通道蓋板（MCL）等次世代散熱技術具備優勢，配合積極的產能擴張計畫，營收與獲利屢創歷史新高。法人普遍看好其2026年及往後年度的強勁成長動能，目標價區間已上修至4,100元至5,000元。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">3653 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-3653" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-3653" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-3653');
+    var obvContainer = document.getElementById('obv-chart-3653');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 2790.0, "high": 2815.0, "low": 2750.0, "close": 2785.0}, {"time": "2025-12-05", "open": 2910.0, "high": 3060.0, "low": 2865.0, "close": 3060.0}, {"time": "2025-12-08", "open": 3060.0, "high": 3140.0, "low": 3010.0, "close": 3020.0}, {"time": "2025-12-09", "open": 3015.0, "high": 3060.0, "low": 2945.0, "close": 2950.0}, {"time": "2025-12-10", "open": 3010.0, "high": 3040.0, "low": 2885.0, "close": 2920.0}, {"time": "2025-12-11", "open": 2935.0, "high": 3000.0, "low": 2910.0, "close": 2930.0}, {"time": "2025-12-12", "open": 2970.0, "high": 3050.0, "low": 2935.0, "close": 2995.0}, {"time": "2025-12-15", "open": 2905.0, "high": 2945.0, "low": 2885.0, "close": 2915.0}, {"time": "2025-12-16", "open": 2890.0, "high": 2920.0, "low": 2800.0, "close": 2840.0}, {"time": "2025-12-17", "open": 2860.0, "high": 2870.0, "low": 2705.0, "close": 2705.0}, {"time": "2025-12-18", "open": 2680.0, "high": 2730.0, "low": 2655.0, "close": 2655.0}, {"time": "2025-12-19", "open": 2690.0, "high": 2710.0, "low": 2630.0, "close": 2630.0}, {"time": "2025-12-22", "open": 2665.0, "high": 2695.0, "low": 2625.0, "close": 2645.0}, {"time": "2025-12-23", "open": 2670.0, "high": 2755.0, "low": 2655.0, "close": 2715.0}, {"time": "2025-12-24", "open": 2760.0, "high": 2765.0, "low": 2725.0, "close": 2750.0}, {"time": "2025-12-26", "open": 2785.0, "high": 2830.0, "low": 2730.0, "close": 2740.0}, {"time": "2025-12-29", "open": 2750.0, "high": 2760.0, "low": 2690.0, "close": 2725.0}, {"time": "2025-12-30", "open": 2725.0, "high": 2775.0, "low": 2710.0, "close": 2760.0}, {"time": "2025-12-31", "open": 2775.0, "high": 2785.0, "low": 2745.0, "close": 2745.0}, {"time": "2026-01-02", "open": 2785.0, "high": 2785.0, "low": 2590.0, "close": 2590.0}, {"time": "2026-01-05", "open": 2630.0, "high": 2650.0, "low": 2545.0, "close": 2590.0}, {"time": "2026-01-06", "open": 2610.0, "high": 2685.0, "low": 2595.0, "close": 2640.0}, {"time": "2026-01-07", "open": 2680.0, "high": 2725.0, "low": 2480.0, "close": 2485.0}, {"time": "2026-01-08", "open": 2510.0, "high": 2510.0, "low": 2425.0, "close": 2445.0}, {"time": "2026-01-09", "open": 2460.0, "high": 2575.0, "low": 2450.0, "close": 2565.0}, {"time": "2026-01-12", "open": 2605.0, "high": 2605.0, "low": 2495.0, "close": 2535.0}, {"time": "2026-01-13", "open": 2570.0, "high": 2580.0, "low": 2375.0, "close": 2390.0}, {"time": "2026-01-14", "open": 2400.0, "high": 2505.0, "low": 2400.0, "close": 2450.0}, {"time": "2026-01-15", "open": 2415.0, "high": 2430.0, "low": 2315.0, "close": 2380.0}, {"time": "2026-01-16", "open": 2400.0, "high": 2475.0, "low": 2320.0, "close": 2410.0}, {"time": "2026-01-19", "open": 2395.0, "high": 2450.0, "low": 2315.0, "close": 2430.0}, {"time": "2026-01-20", "open": 2380.0, "high": 2490.0, "low": 2380.0, "close": 2460.0}, {"time": "2026-01-21", "open": 2410.0, "high": 2410.0, "low": 2300.0, "close": 2330.0}, {"time": "2026-01-22", "open": 2390.0, "high": 2560.0, "low": 2360.0, "close": 2560.0}, {"time": "2026-01-23", "open": 2660.0, "high": 2795.0, "low": 2605.0, "close": 2795.0}, {"time": "2026-01-26", "open": 2845.0, "high": 2845.0, "low": 2730.0, "close": 2740.0}, {"time": "2026-01-27", "open": 2800.0, "high": 2850.0, "low": 2720.0, "close": 2795.0}, {"time": "2026-01-28", "open": 2820.0, "high": 2890.0, "low": 2775.0, "close": 2810.0}, {"time": "2026-01-29", "open": 2835.0, "high": 3015.0, "low": 2835.0, "close": 2895.0}, {"time": "2026-01-30", "open": 2855.0, "high": 2940.0, "low": 2820.0, "close": 2840.0}, {"time": "2026-02-02", "open": 2750.0, "high": 2970.0, "low": 2750.0, "close": 2955.0}, {"time": "2026-02-03", "open": 3030.0, "high": 3140.0, "low": 2985.0, "close": 3140.0}, {"time": "2026-02-04", "open": 3125.0, "high": 3175.0, "low": 2985.0, "close": 3110.0}, {"time": "2026-02-05", "open": 3060.0, "high": 3090.0, "low": 2990.0, "close": 3000.0}, {"time": "2026-02-06", "open": 2980.0, "high": 3015.0, "low": 2875.0, "close": 2970.0}, {"time": "2026-02-09", "open": 3120.0, "high": 3155.0, "low": 3055.0, "close": 3145.0}, {"time": "2026-02-10", "open": 3185.0, "high": 3350.0, "low": 3155.0, "close": 3350.0}, {"time": "2026-02-11", "open": 3320.0, "high": 3345.0, "low": 3185.0, "close": 3205.0}, {"time": "2026-02-23", "open": 3365.0, "high": 3365.0, "low": 3075.0, "close": 3080.0}, {"time": "2026-02-24", "open": 3125.0, "high": 3125.0, "low": 2910.0, "close": 2940.0}, {"time": "2026-02-25", "open": 2990.0, "high": 3145.0, "low": 2925.0, "close": 3130.0}, {"time": "2026-02-26", "open": 3120.0, "high": 3190.0, "low": 3055.0, "close": 3120.0}, {"time": "2026-03-02", "open": 2960.0, "high": 2975.0, "low": 2855.0, "close": 2880.0}, {"time": "2026-03-03", "open": 3060.0, "high": 3165.0, "low": 3025.0, "close": 3040.0}, {"time": "2026-03-04", "open": 2960.0, "high": 2975.0, "low": 2855.0, "close": 2880.0}, {"time": "2026-03-05", "open": 3035.0, "high": 3160.0, "low": 3035.0, "close": 3140.0}, {"time": "2026-03-06", "open": 3250.0, "high": 3450.0, "low": 3155.0, "close": 3415.0}, {"time": "2026-03-09", "open": 3075.0, "high": 3270.0, "low": 3075.0, "close": 3180.0}, {"time": "2026-03-10", "open": 3450.0, "high": 3495.0, "low": 3360.0, "close": 3495.0}, {"time": "2026-03-11", "open": 3475.0, "high": 3545.0, "low": 3375.0, "close": 3485.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 637.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 4232.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 2733.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 1518.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 1694.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 1228.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 1312.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 1492.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 1642.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 2079.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 1125.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 2985.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 1422.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 1422.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 911.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 1287.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 670.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 553.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 673.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 1797.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 1287.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 1013.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 2588.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 1401.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 2077.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 1385.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 2317.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 1587.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 2252.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 1986.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 1594.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 1438.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 3073.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 2366.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 4243.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 1788.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 2211.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 1468.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 3367.0, "color": "#ef5350"}, {"time": "2026-01-30", "value": 1464.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 1935.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 3031.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 1947.0, "color": "#26a69a"}, {"time": "2026-02-05", "value": 1384.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 1367.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 1880.0, "color": "#ef5350"}, {"time": "2026-02-10", "value": 2686.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 1743.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 2199.0, "color": "#26a69a"}, {"time": "2026-02-24", "value": 2151.0, "color": "#26a69a"}, {"time": "2026-02-25", "value": 1859.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 1293.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 1460.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 1255.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 1460.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 1847.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 4048.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 2894.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 2743.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 3220.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 2947.0}, {"time": "2025-12-11", "value": 2976.0}, {"time": "2025-12-12", "value": 2963.0}, {"time": "2025-12-15", "value": 2942.0}, {"time": "2025-12-16", "value": 2920.0}, {"time": "2025-12-17", "value": 2877.0}, {"time": "2025-12-18", "value": 2822.0}, {"time": "2025-12-19", "value": 2749.0}, {"time": "2025-12-22", "value": 2695.0}, {"time": "2025-12-23", "value": 2670.0}, {"time": "2025-12-24", "value": 2679.0}, {"time": "2025-12-26", "value": 2696.0}, {"time": "2025-12-29", "value": 2715.0}, {"time": "2025-12-30", "value": 2738.0}, {"time": "2025-12-31", "value": 2744.0}, {"time": "2026-01-02", "value": 2712.0}, {"time": "2026-01-05", "value": 2682.0}, {"time": "2026-01-06", "value": 2665.0}, {"time": "2026-01-07", "value": 2610.0}, {"time": "2026-01-08", "value": 2550.0}, {"time": "2026-01-09", "value": 2545.0}, {"time": "2026-01-12", "value": 2534.0}, {"time": "2026-01-13", "value": 2484.0}, {"time": "2026-01-14", "value": 2477.0}, {"time": "2026-01-15", "value": 2464.0}, {"time": "2026-01-16", "value": 2433.0}, {"time": "2026-01-19", "value": 2412.0}, {"time": "2026-01-20", "value": 2426.0}, {"time": "2026-01-21", "value": 2402.0}, {"time": "2026-01-22", "value": 2438.0}, {"time": "2026-01-23", "value": 2515.0}, {"time": "2026-01-26", "value": 2577.0}, {"time": "2026-01-27", "value": 2644.0}, {"time": "2026-01-28", "value": 2740.0}, {"time": "2026-01-29", "value": 2807.0}, {"time": "2026-01-30", "value": 2816.0}, {"time": "2026-02-02", "value": 2859.0}, {"time": "2026-02-03", "value": 2928.0}, {"time": "2026-02-04", "value": 2988.0}, {"time": "2026-02-05", "value": 3009.0}, {"time": "2026-02-06", "value": 3035.0}, {"time": "2026-02-09", "value": 3073.0}, {"time": "2026-02-10", "value": 3115.0}, {"time": "2026-02-11", "value": 3134.0}, {"time": "2026-02-23", "value": 3150.0}, {"time": "2026-02-24", "value": 3144.0}, {"time": "2026-02-25", "value": 3141.0}, {"time": "2026-02-26", "value": 3095.0}, {"time": "2026-03-02", "value": 3030.0}, {"time": "2026-03-03", "value": 3022.0}, {"time": "2026-03-04", "value": 3010.0}, {"time": "2026-03-05", "value": 3012.0}, {"time": "2026-03-06", "value": 3071.0}, {"time": "2026-03-09", "value": 3131.0}, {"time": "2026-03-10", "value": 3222.0}, {"time": "2026-03-11", "value": 3343.0}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 2912.0}, {"time": "2025-12-18", "value": 2899.0}, {"time": "2025-12-19", "value": 2856.0}, {"time": "2025-12-22", "value": 2818.5}, {"time": "2025-12-23", "value": 2795.0}, {"time": "2025-12-24", "value": 2778.0}, {"time": "2025-12-26", "value": 2759.0}, {"time": "2025-12-29", "value": 2732.0}, {"time": "2025-12-30", "value": 2716.5}, {"time": "2025-12-31", "value": 2707.0}, {"time": "2026-01-02", "value": 2695.5}, {"time": "2026-01-05", "value": 2689.0}, {"time": "2026-01-06", "value": 2690.0}, {"time": "2026-01-07", "value": 2674.0}, {"time": "2026-01-08", "value": 2647.0}, {"time": "2026-01-09", "value": 2628.5}, {"time": "2026-01-12", "value": 2608.0}, {"time": "2026-01-13", "value": 2574.5}, {"time": "2026-01-14", "value": 2543.5}, {"time": "2026-01-15", "value": 2507.0}, {"time": "2026-01-16", "value": 2489.0}, {"time": "2026-01-19", "value": 2473.0}, {"time": "2026-01-20", "value": 2455.0}, {"time": "2026-01-21", "value": 2439.5}, {"time": "2026-01-22", "value": 2451.0}, {"time": "2026-01-23", "value": 2474.0}, {"time": "2026-01-26", "value": 2494.5}, {"time": "2026-01-27", "value": 2535.0}, {"time": "2026-01-28", "value": 2571.0}, {"time": "2026-01-29", "value": 2622.5}, {"time": "2026-01-30", "value": 2665.5}, {"time": "2026-02-02", "value": 2718.0}, {"time": "2026-02-03", "value": 2786.0}, {"time": "2026-02-04", "value": 2864.0}, {"time": "2026-02-05", "value": 2908.0}, {"time": "2026-02-06", "value": 2925.5}, {"time": "2026-02-09", "value": 2966.0}, {"time": "2026-02-10", "value": 3021.5}, {"time": "2026-02-11", "value": 3061.0}, {"time": "2026-02-23", "value": 3079.5}, {"time": "2026-02-24", "value": 3089.5}, {"time": "2026-02-25", "value": 3107.0}, {"time": "2026-02-26", "value": 3105.0}, {"time": "2026-03-02", "value": 3082.0}, {"time": "2026-03-03", "value": 3086.0}, {"time": "2026-03-04", "value": 3077.0}, {"time": "2026-03-05", "value": 3076.5}, {"time": "2026-03-06", "value": 3083.0}, {"time": "2026-03-09", "value": 3080.5}, {"time": "2026-03-10", "value": 3122.0}, {"time": "2026-03-11", "value": 3176.5}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 2803.75}, {"time": "2026-01-05", "value": 2794.0}, {"time": "2026-01-06", "value": 2773.0}, {"time": "2026-01-07", "value": 2746.25}, {"time": "2026-01-08", "value": 2721.0}, {"time": "2026-01-09", "value": 2703.25}, {"time": "2026-01-12", "value": 2683.5}, {"time": "2026-01-13", "value": 2653.25}, {"time": "2026-01-14", "value": 2630.0}, {"time": "2026-01-15", "value": 2607.0}, {"time": "2026-01-16", "value": 2592.25}, {"time": "2026-01-19", "value": 2581.0}, {"time": "2026-01-20", "value": 2572.5}, {"time": "2026-01-21", "value": 2556.75}, {"time": "2026-01-22", "value": 2549.0}, {"time": "2026-01-23", "value": 2551.25}, {"time": "2026-01-26", "value": 2551.25}, {"time": "2026-01-27", "value": 2554.75}, {"time": "2026-01-28", "value": 2557.25}, {"time": "2026-01-29", "value": 2564.75}, {"time": "2026-01-30", "value": 2577.25}, {"time": "2026-02-02", "value": 2595.5}, {"time": "2026-02-03", "value": 2620.5}, {"time": "2026-02-04", "value": 2651.75}, {"time": "2026-02-05", "value": 2679.5}, {"time": "2026-02-06", "value": 2699.75}, {"time": "2026-02-09", "value": 2730.25}, {"time": "2026-02-10", "value": 2778.25}, {"time": "2026-02-11", "value": 2816.0}, {"time": "2026-02-23", "value": 2851.0}, {"time": "2026-02-24", "value": 2877.5}, {"time": "2026-02-25", "value": 2912.5}, {"time": "2026-02-26", "value": 2945.5}, {"time": "2026-03-02", "value": 2973.0}, {"time": "2026-03-03", "value": 2997.0}, {"time": "2026-03-04", "value": 3001.25}, {"time": "2026-03-05", "value": 3021.25}, {"time": "2026-03-06", "value": 3052.25}, {"time": "2026-03-09", "value": 3070.75}, {"time": "2026-03-10", "value": 3100.75}, {"time": "2026-03-11", "value": 3133.0}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 4232.0}, {"time": "2025-12-08", "value": 1499.0}, {"time": "2025-12-09", "value": -19.0}, {"time": "2025-12-10", "value": -1713.0}, {"time": "2025-12-11", "value": -485.0}, {"time": "2025-12-12", "value": 827.0}, {"time": "2025-12-15", "value": -665.0}, {"time": "2025-12-16", "value": -2307.0}, {"time": "2025-12-17", "value": -4386.0}, {"time": "2025-12-18", "value": -5511.0}, {"time": "2025-12-19", "value": -8496.0}, {"time": "2025-12-22", "value": -7074.0}, {"time": "2025-12-23", "value": -5652.0}, {"time": "2025-12-24", "value": -4741.0}, {"time": "2025-12-26", "value": -6028.0}, {"time": "2025-12-29", "value": -6698.0}, {"time": "2025-12-30", "value": -6145.0}, {"time": "2025-12-31", "value": -6818.0}, {"time": "2026-01-02", "value": -8615.0}, {"time": "2026-01-05", "value": -8615.0}, {"time": "2026-01-06", "value": -7602.0}, {"time": "2026-01-07", "value": -10190.0}, {"time": "2026-01-08", "value": -11591.0}, {"time": "2026-01-09", "value": -9514.0}, {"time": "2026-01-12", "value": -10899.0}, {"time": "2026-01-13", "value": -13216.0}, {"time": "2026-01-14", "value": -11629.0}, {"time": "2026-01-15", "value": -13881.0}, {"time": "2026-01-16", "value": -11895.0}, {"time": "2026-01-19", "value": -10301.0}, {"time": "2026-01-20", "value": -8863.0}, {"time": "2026-01-21", "value": -11936.0}, {"time": "2026-01-22", "value": -9570.0}, {"time": "2026-01-23", "value": -5327.0}, {"time": "2026-01-26", "value": -7115.0}, {"time": "2026-01-27", "value": -4904.0}, {"time": "2026-01-28", "value": -3436.0}, {"time": "2026-01-29", "value": -69.0}, {"time": "2026-01-30", "value": -1533.0}, {"time": "2026-02-02", "value": 402.0}, {"time": "2026-02-03", "value": 3433.0}, {"time": "2026-02-04", "value": 1486.0}, {"time": "2026-02-05", "value": 102.0}, {"time": "2026-02-06", "value": -1265.0}, {"time": "2026-02-09", "value": 615.0}, {"time": "2026-02-10", "value": 3301.0}, {"time": "2026-02-11", "value": 1558.0}, {"time": "2026-02-23", "value": -641.0}, {"time": "2026-02-24", "value": -2792.0}, {"time": "2026-02-25", "value": -933.0}, {"time": "2026-02-26", "value": -2226.0}, {"time": "2026-03-02", "value": -3686.0}, {"time": "2026-03-03", "value": -2431.0}, {"time": "2026-03-04", "value": -3891.0}, {"time": "2026-03-05", "value": -2044.0}, {"time": "2026-03-06", "value": 2004.0}, {"time": "2026-03-09", "value": -890.0}, {"time": "2026-03-10", "value": 1853.0}, {"time": "2026-03-11", "value": -1367.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>健策（3653）主要從事電子零組件的製造，是散熱與精密沖壓領域的重要廠商。其核心產品與服務聚焦於高階散熱解決方案及精密機構件，主要應用於AI伺服器、雲端資料中心、高效能運算裝置及電動車等高門檻領域。公司具備垂直整合能力，提供從封裝級到系統級的完整散熱與結構件解決方案，以解決高熱量產生的散熱及結構應力問題，並縮短產品開發週期。</p>
+
+<strong>核心產品包括：</strong>
+<ul><li><strong>均熱片（Vapor Chamber / Heat Spreader）</strong>：散熱產品主力，廣泛應用於AI伺服器、PC、車用及遊戲機等，在高階市場具高良率優勢。</li>
+<li><strong>水冷散熱模組</strong>：未來關鍵成長動能，產品應用已從車用擴展至伺服器領域，預計2025年開始量產出貨。</li>
+<li><strong>伺服器ILM（Independent Loading Mechanism）扣件</strong>：提供AI主晶片及散熱器扣壓力量，確保晶片與連接器電性接觸良好。</li>
+<li><strong>導線架</strong>：主要應用於車用二極體與5G通訊元件。</li>
+<li><strong>微流道蓋板（MCL）</strong>：新世代封裝散熱結構，健策具備量產能力，被視為關鍵受惠者，預計2026年下半年導入應用。</li>
+</ul>
+<strong>營收結構概覽：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品線分類</th><th>2024年Q1-Q3 營收佔比</th><th>2024年全年 營收佔比</th><th>2025年Q3 散熱模組佔比 (預估)</th><th>2025年Q4 散熱模組佔比 (預估)</th><th>2026年 散熱模組佔比 (預估)</th></tr></thead><tbody>
+<tr><td>散熱產品 (均熱片、水冷等)</td><td>63%</td><td>66%</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>散熱模組</td><td>-</td><td>-</td><td>~70%</td><td>~75%</td><td>上看80%</td></tr>
+<tr><td>導線架</td><td>~15%</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>機構件 (ILM/扣件)</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+</tbody></table></div>
+
+<strong>製造基地：</strong>
+<p>健策的製造基地主要位於台灣。公司正積極展開擴產計畫以滿足客戶需求，主要集中在大園廠區。目前未找到各製造基地的具體營收貢獻比例資料。</p>
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>高階散熱技術領先與高良率優勢：</strong> 健策在高階均熱片市場擁有高良率，並在微通道蓋板（MCL）等次世代封裝散熱結構扮演關鍵角色。MCL 技術因直接接觸晶片並涉及晶片封裝、電鍍技術，形成較高護城河，有望在2026年下半年導入應用，並於2027年成為主流。</li>
+<li><strong>垂直整合能力：</strong> 提供從封裝級到系統級的完整散熱與結構件解決方案，縮短產品開發週期，有效滿足客戶一站式需求。</li>
+<li><strong>產品組合高階化：</strong> 隨著AI伺服器、HPC及電動車對高功耗散熱需求的提升，公司產品組合持續向高毛利的高階熱擴散片、水冷散熱模組及MCL等發展，有效提升整體獲利能力。</li>
+<li><strong>切入關鍵供應鏈與客戶認證：</strong> 健策為AMD、英特爾與輝達的均熱片供應商，水冷散熱模組也預計於2025年開始量產出貨。2025年首度獲選台積電優良供應商，彰顯其在先進封裝散熱能力的肯定。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份 (2025-2026)</th><th>金額 (億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>18.73</td><td>0.16%</td><td>29.43%</td></tr>
+<tr><td>2025年12月</td><td>18.70</td><td>9.91%</td><td>13.27%</td></tr>
+<tr><td>2025年11月</td><td>17.01</td><td>0.03%</td><td>16.66%</td></tr>
+<tr><td>2025年10月</td><td>17.01</td><td>0.23%</td><td>29.82%</td></tr>
+<tr><td>2025年09月</td><td>16.97</td><td>0.43%</td><td>40.90%</td></tr>
+<tr><td>2025年08月</td><td>16.90</td><td>0.43%</td><td>40.48%</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>營收亮點：</strong> 健策2026年1月營收達18.73億元，創單月歷史新高，年增率達29.43%。2025年全年營收突破202.7億元，年增42%，亦創歷史新高，顯示AI散熱需求帶動的強勁成長。</li>
+</ul>
+<h3>季度與年度財務表現</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>期間</th><th>營收 (億元)</th><th>年增率 (%)</th><th>季增率 (%)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td><strong>2025年Q4 (預估)</strong></td><td>52.72</td><td>19.29</td><td>4</td><td>-</td></tr>
+<tr><td><strong>2025年Q3 (實際)</strong></td><td>50.70</td><td>41.09</td><td>-2.16</td><td>9.49</td></tr>
+<tr><td><strong>2025年Q1-Q3 (累計)</strong></td><td>-</td><td>-</td><td>-</td><td>26.92</td></tr>
+<tr><td><strong>2025年全年 (實際)</strong></td><td>202.76</td><td>42</td><td>-</td><td>-</td></tr>
+<tr><td><strong>2024年全年 (實際)</strong></td><td>142.78</td><td>18.37</td><td>-</td><td>24.15</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>EPS預估：</strong></li>
+</ul>    *   國內大型金控旗下投顧預估2025年EPS為59.02元 (年增59%) (2026年2月26日)。
+<p>*   歐系券商預估2025年EPS為36.8元 (2025年12月5日，⚠️過時)。</p>
+<ul><li><strong>2025年前三季累計EPS 26.92元，已超越2024年全年EPS 24.15元。</strong></li>
+</ul>
+<h2>法說會重點 (最近一次：2025年11月28日)</h2>
+
+<ul><li><strong>營運概況：</strong> 2025年前三季營收年增52%，其中散熱產品佔比73%，年增77%，主要受惠於AI伺服器需求強勁。</li>
+<li><strong>技術領先：</strong> 健策是首家能同時提供散熱片、散熱模組及ILM／插槽三種關鍵元件的供應商。</li>
+<li><strong>AI散熱需求：</strong> AI GPU與ASIC的熱設計功耗 (TDP) 從700-1,000W躍升到2,700-3,100W，高階熱擴散片已成為AI伺服器與資料中心平台的標準配備。</li>
+<li><strong>MCL技術進展：</strong> 預期2026年下半年起，散熱元件將迎來向微通道蓋（MCL）的重大規格升級，並在2027年成為主流。此技術有望將散熱元件的價值提升9至10倍。健策被視為MCL技術的關鍵受惠者。</li>
+<li><strong>散熱模組比重：</strong> 散熱模組在2025年第三季營收占比約7成，預估第四季達75%，市場預估2026年上看8成。</li>
+<li><strong>NVIDIA新平台：</strong> 輝達(NVIDIA)預計在2026年進入GB300世代，下半年推出Rubin平台，Rubin Ultra GPU將採MCL設計，整合均熱片/蓋板（Lid）與水冷板，預期推升健策均熱片ASP逾3倍。</li>
+<li><strong>產能與資本支出：</strong></li>
+</ul>    *   法人預期健策在2025年至2027年間，隨著大園廠擴建完成，總廠房面積將增加約30%，主要用於擴大高階熱擴散片與IGBT液冷散熱模組產能。
+<p>*   2025年資本支出預計落在5億至7億元區間。</p>
+<p>*   2026年因應新廠房動工建設，資本支出將大幅提升至20億至30億元之間。</p>
+<ul><li><strong>管理層/法人Guidance：</strong></li>
+</ul>    *   法人預期健策2025年第四季營收可望季增雙位數，2026年第一季有機會維持相近水準，反映AI應用的拉貨力道。
+<p>*   展望2026年，法人預期健策營收將逐季走升，並可留意MCL量產時程。</p>
+
+<h2>券商觀點</h2>
+
+<h3>券商目標價與評等</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱/機構</th><th>目標價 (元)</th><th>評等</th><th>日期</th><th>備註</th></tr></thead><tbody>
+<tr><td>瑞銀證券</td><td>5000</td><td>買進</td><td>2025年12月7日</td><td>-</td></tr>
+<tr><td>國內大型金控旗下投顧</td><td>4200</td><td>增持</td><td>2026年2月26日</td><td>首評</td></tr>
+<tr><td>FactSet (綜合 6 位分析師)</td><td>4100</td><td>-</td><td>2026年1月25日</td><td>較先前 3955 元上修 3.67%</td></tr>
+<tr><td>國泰大和 DW</td><td>4335</td><td>買進</td><td>2025年12月10日</td><td>首次評等</td></tr>
+<tr><td>摩根士丹利 (小摩)</td><td>3650</td><td>點讚</td><td>2025年9月30日</td><td>首次點讚 (歷史參考)</td></tr>
+</tbody></table></div>
+
+<h3>2025-2026年EPS預估</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱/機構</th><th>日期</th><th>2025年EPS (元)</th><th>2026年EPS (元)</th></tr></thead><tbody>
+<tr><td>國內大型金控旗下投顧</td><td>2026年2月26日</td><td>59.02</td><td>119.99</td></tr>
+<tr><td>歐系券商 (⚠️過時)</td><td>2025年12月5日</td><td>36.8</td><td>61.3</td></tr>
+</tbody></table></div>
+
+<h3>重大調升/調降評等</h3>
+
+<ul><li><strong>FactSet (綜合 6 位分析師)：</strong> 目標價調升至4100元，幅度約3.67% (2026年1月25日)。</li>
+<li><strong>國內大型金控旗下投顧：</strong> 首評健策，給予「增持」評級 (2026年2月26日)。</li>
+<li><strong>國泰大和 DW：</strong> 首次納入研究範圍，給予「買進」評等 (2025年12月10日)。</li>
+<li><strong>歐系券商：</strong> 首次覆蓋，給予正向評等 (2025年12月5日)。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2025年Q3</td><td>38.97</td><td>29.28</td><td>26.96</td></tr>
+<tr><td>2025年Q2</td><td>41.48</td><td>32.80</td><td>21.82</td></tr>
+<tr><td>2025年Q1</td><td>44.91</td><td>35.06</td><td>28.93</td></tr>
+<tr><td>2024年Q4</td><td>37.73</td><td>27.58</td><td>24.86</td></tr>
+<tr><td>2024年Q3</td><td>38.13</td><td>27.00</td><td>21.56</td></tr>
+<tr><td>2024年Q2</td><td>38.84</td><td>27.98</td><td>25.08</td></tr>
+<tr><td>2024年Q1</td><td>35.15</td><td>22.97</td><td>24.04</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>利潤率變化的原因分析：</strong></li>
+</ul>    *   <strong>2025年Q3利潤率下滑：</strong> 2025年Q3毛利率(38.97%)低於市場預期及先前高檔約43%水準，可能係產品組合變化或新產能初期投入成本所致。
+<p>*   <strong>產品組合升級：</strong> 健策營收高度集中於散熱產品，特別是高階熱擴散片和汽車熱管理零組件。隨著AI伺服器需求強勁，產品組合持續向高毛利產品集中（如高階熱擴散片、MCL、VCL），有助於挹注整體獲利。高階散熱產品的毛利率明顯高於LED導線架及其他電子零件。</p>
+<p>*   <strong>AI伺服器需求：</strong> AI GPU與客製化ASIC功耗大幅增加，使高階熱擴散片成為AI伺服器與資料中心平台的標準配備，帶動散熱材料需求擴張，提升獲利能力。</p>
+<p>*   <strong>產能擴充效益：</strong> 產能持續擴充，使公司實際出貨量與平均單價（ASP）均優於原先市場較保守的假設，對營收和獲利產生正面影響。法人預期，隨著散熱模組比重在2026年上看8成，毛利率可望來到40%水準。</p>
+
+<h3>資本支出與產能</h3>
+
+<ul><li><strong>近期資本支出：</strong></li>
+</ul>    *   2025年資本支出預估維持在5億至7億元水準。
+<p>*   2026年資本支出將大幅提升至20億至30億元之間，主要用於新廠房建設。</p>
+<ul><li><strong>未來產能規劃：</strong></li>
+</ul>    *   <strong>大園一廠擴建：</strong> 預計2026年第一季完工，新增廠房面積4,735坪，主要用於擴大高階熱擴散片與IGBT液冷散熱模組產能。
+<p>*   <strong>大園三廠（航空城新廠）：</strong> 第一期廠房面積11,340坪，預計於2027年第一季完工，將專注於高階均熱片、車用水冷及伺服器扣件等產品。</p>
+<p>*   2026-2027年台灣廠房合計將新增16,075坪，相較現有台灣廠房面積成長超過114%。</p>
+<ul><li><strong>折舊攤銷趨勢：</strong> 未找到2024-2026年折舊攤銷的最新資料。</li>
+</ul>
+<h3>存貨與營運</h3>
+
+<ul><li><strong>存貨金額與週轉天數：</strong> 未找到2025-2026年的最新資料。</li>
+<li><strong>應收帳款週轉天數：</strong> 未找到2025-2026年的最新資料。</li>
+<li><strong>存貨是否有異常堆積或備料現象：</strong> 未找到2025-2026年的最新資料。</li>
+</ul>
+<h3>其他財報重點</h3>
+
+<ul><li><strong>負債比率：</strong> 健策財務結構健康，在完成子公司合併與償還借款後，目前已接近無負債狀態。</li>
+<li><strong>自由現金流量趨勢：</strong> 未找到2024-2026年的最新資料。</li>
+<li><strong>業外收支：</strong> 2025年Q3稅後淨利季增20.8%，年增75.9%，主要受益於AI伺服器相關產品接單暢旺，以及ILM扣件產品展望正向，未見特殊業外收支項目。</li>
+</ul>
+<h2>股權異動</h2>
+
+<ul><li><strong>董監事/大股東申報轉讓紀錄：</strong> 未找到2024-2026年的最新資料。</li>
+<li><strong>庫藏股買回紀錄：</strong> 未找到2024-2026年的最新資料。</li>
+<li><strong>可轉換公司債（CB）：</strong> 健策董事會於2025年2月25日決議發行合計50億元無擔保轉換公司債，主要用途是興建大園三廠廠房及充實營運資金（⚠️此為歷史資料）。</li>
+<li><strong>增資或減資計畫：</strong> 未找到2024-2026年的最新資料。</li>
+<li><strong>股利政策：</strong> 健策於2025年7月17日發放現金股利14.5元。尚未公告2026年的股利政策。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>產業數據</h3>
+
+<li><strong>全球市場規模與 CAGR 成長率</strong></li>
+<p>*   <strong>AI 伺服器市場：</strong></p>
+<p>*   2024年全球市場規模估計為<strong>140.7億美元</strong>。</p>
+<p>*   預計2025年成長至<strong>166億美元</strong>。</p>
+<p>*   2025年至2030年間CAGR為<strong>18.68%</strong>，預計到2030年達<strong>393.3億美元</strong>。</p>
+<p>*   <strong>半導體冷卻裝置市場：</strong></p>
+<p>*   預計從2025年的<strong>8.4853億美元</strong>，以<strong>7.14%</strong>的CAGR成長，到2032年達到<strong>13.7087億美元</strong>。</p>
+<p>*   <strong>直接液冷 (DLC) 市場：</strong></p>
+<p>*   預估2025年至2030年間CAGR可達<strong>51%</strong>，市場規模上看<strong>310億美元</strong>。</p>
+
+<li><strong>供需狀況：供不應求</strong></li>
+<p>目前散熱產業在高階AI伺服器應用領域呈現<strong>供不應求</strong>的狀況。</p>
+<p>*   AI伺服器需求強勁，最新GPU功耗動輒700W以上，傳統氣冷技術難以應對。</p>
+<p>*   NVIDIA執行長黃仁勳表示，GB200 AI伺服器需求「瘋狂」，預期台灣數家散熱廠2025年液冷營收將年增一倍以上。</p>
+<p>*   2026年液冷將開始實際放量、貢獻營收。新一代平台功耗密度再上台階，使得散熱設計從「單顆晶片水冷」升級為「整櫃液冷」。</p>
+<p>*   高階銅箔基板（CCL）市場極度緊俏，反映高階電子材料供需緊張。</p>
+
+<li><strong>產業平均毛利率水準</strong></li>
+<p>高階散熱產品的毛利率預期將顯著提升：</p>
+<p>*   法人預期奇鋐、雙鴻、建準2025年毛利率將分別上揚至<strong>25%、28%、29%</strong>。</p>
+<p>*   奇鋐2026年上半年毛利率有望顯著跳升至<strong>28%至29%</strong>，主要歸功於高單價、高毛利的水冷伺服器產品比重提升。</p>
+<p>*   雙鴻2025年第三季毛利率衝上<strong>29.77%</strong>。</p>
+<p>*   健策法人點出，預期2025年第四季毛利率將較2025年第三季增加，且隨著散熱模組比重在2026年上看8成，毛利率可望來到<strong>40%水準</strong>。</p>
+
+<h3>競爭格局</h3>
+
+<li><strong>AI伺服器散熱主要廠商</strong></li>
+    <em>註：目前未找到具體全球市佔率數據，以下為台灣在AI伺服器散熱領域具代表性的主要廠商。</em>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱 (股票代碼)</th><th>主要產品/專注領域</th></tr></thead><tbody>
+<tr><td>奇鋐 (3017)</td><td>散熱模組、水冷板、風扇門、機殼、分歧管</td></tr>
+<tr><td>雙鴻 (3324)</td><td>散熱模組、水冷板、分歧管、浸沒式液冷系統</td></tr>
+<tr><td>健策 (3653)</td><td>均熱片、水冷散熱模組、伺服器 ILM 扣件、微通道蓋 (MCL)</td></tr>
+<tr><td>建準 (2421)</td><td>散熱風扇、散熱模組</td></tr>
+<tr><td>高力 (8996)</td><td>熱交換器、板式熱交換器</td></tr>
+<tr><td>台達電 (2308)</td><td>電源、風扇、液冷 CDU、整櫃方案</td></tr>
+</tbody></table></div>
+
+<li><strong>健策 vs 主要競爭對手的具體比較</strong></li>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>比較項目</th><th>健策 (3653)</th><th>奇鋐 (3017)</th><th>雙鴻 (3324)</th></tr></thead><tbody>
+<tr><td><strong>技術</strong></td><td>高階均熱片高良率優勢，垂直整合能力。MCL技術護城河高，直接接觸晶片並涉及電鍍。水冷散熱模組2025年量產。</td><td>AI伺服器水冷散熱強勁，PC散熱模組龍頭。獲GB200水冷板模組、風扇門等訂單，2025年Q2後放量。投入MCCP研發。</td><td>提供直接式/浸沒式液冷整機系統。2025年Q2後出貨水冷板模組、分歧管。列間冷卻分配單元2026年量產。</td></tr>
+<tr><td><strong>產能</strong></td><td>2025-2027年大園廠擴建，總廠房面積增約30%，擴大高階熱擴散片與IGBT液冷散熱模組產能。</td><td>VR200與Trainium3水冷產品2026年6月量產。2026年Q4銜接Google TPUv8水冷產品放量。</td><td>預設2026年營收成長目標50%以上。預估2026年液冷產品營收比重超過55%。</td></tr>
+<tr><td><strong>客戶</strong></td><td>均熱片供應AMD、英特爾、輝達。</td><td>輝達水冷零組件主力供應商，橫跨GPU、ASIC AI。AWS T4伺服器水冷主要供應商之一。</td><td>受惠AI伺服器液冷，打入高階AI散熱。握美系雲端客戶AISC訂單。受益於GB300、VR系列及其他雲端/ASIC平台。</td></tr>
+<tr><td><strong>價格/毛利率</strong></td><td>高階散熱產品毛利率明顯高於LED導線架。預期散熱模組比重達8成時，毛利率可望達40%水準。</td><td>2026年上半年毛利率有望跳升至28%至29%，歸功於高單價、高毛利水冷伺服器產品比重提升。</td><td>AI散熱市場高速擴張下，獲利規模仍顯著提升，但主要客戶在水冷板產品上的供應策略可能壓抑長期毛利率。</td></tr>
+</tbody></table></div>
+
+<li><strong>台灣同業比較 (財務數據)</strong></li>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱 (股票代碼)</th><th>預估 2025年 EPS (元)</th><th>預估 2026年 EPS (元)</th><th>預估 2025年 毛利率 (%)</th><th>預估 2026年 毛利率 (%)</th><th>營收成長動能 (2026)</th></tr></thead><tbody>
+<tr><td>健策 (3653)</td><td>59.02 (投顧)</td><td>119.99 (投顧)</td><td>(Q4預估40%)</td><td>40 (散熱模組比重達8成時)</td><td>市場預期2025-2026年營收與獲利續創新高，受惠高階散熱產品、產品組合高階化、產能開出。</td></tr>
+<tr><td>奇鋐 (3017)</td><td>31.61 (年增48%)</td><td>-</td><td>25</td><td>28-29 (上半年)</td><td>2026年1月營收達170.03億元，年成長150.01%。預期2026年Q1、Q2營收季增5-10%。</td></tr>
+<tr><td>雙鴻 (3324)</td><td>30.12 / 38.3 (年增74%)</td><td>51.91 / 48</td><td>29.77 (Q3)</td><td>-</td><td>2026年營收成長目標50%以上。預計2026年Q1營收可望季持平，年增率仍有機會維持在50%以上。</td></tr>
+<tr><td>建準 (2421)</td><td>7.23 (年增24%)</td><td>-</td><td>29</td><td>-</td><td>-</td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢</h3>
+
+<li><strong>2-3個關鍵技術趨勢和具體影響</strong></li>
+<p>*   <strong>液冷散熱成為主流 (Liquid Cooling Dominance)</strong></p>
+<p>*   <strong>趨勢:</strong> AI模型規模擴張使伺服器功耗飆升，傳統氣冷散熱難以應對。液冷解熱能力約為氣冷3.5倍，預計2026年起液冷伺服器出貨占比將加速上升。</p>
+<p>*   <strong>具體影響:</strong> 液冷技術要求散熱廠商提供更全面的水冷解決方案（水冷板、分歧管、CDU等），同時帶來資料中心設計變革，包括風扇減少、空間釋放、算力密度提高及能耗下降。</p>
+<p>*   <strong>微通道冷板/蓋 (MCCP/MCL) 技術興起</strong></p>
+<p>*   <strong>趨勢:</strong> 為縮短熱傳路徑，讓冷卻液更貼近裸晶，提升散熱效率，微通道冷板/蓋技術應運而生，最快2025年有望量產。輝達下世代GPU將持續提升算力，需要MCCP/MCL等新技術升級散熱能力。</p>
+<p>*   <strong>具體影響:</strong> 將液冷板與晶片上的均熱片整合，透過蝕刻微小通道讓冷卻液直接流過，大幅縮減冷卻液與晶片距離。這對散熱廠在晶片封裝、電鍍技術等方面提出更高要求，具備均熱片技術優勢的廠商將佔有先機。</p>
+<p>*   <strong>浸沒式散熱 (Immersion Cooling) 的發展</strong></p>
+<p>*   <strong>趨勢:</strong> 將電子元件浸泡在不導電液體中，透過液體循環帶走熱量。</p>
+<p>*   <strong>具體影響:</strong> 雖解熱能力極高，但面臨建置成本高、需大幅調整機架架構、硬體相容性不足及冷卻液成本高等阻礙。短期內液冷仍被認為是最佳解決方案之一。</p>
+
+<li><strong>對 健策 而言的具體機會和威脅</strong></li>
+<p>*   <strong>機會:</strong></p>
+<p>*   <strong>高階散熱需求爆發：</strong> AI伺服器、HPC及電動車高功耗應用對高階均熱片、水冷散熱模組、MCL等需求持續提升，健策明確受惠。</p>
+<p>*   <strong>技術領先與垂直整合：</strong> 高階均熱片的高良率優勢及MCL等關鍵技術護城河，使其在新一代散熱技術變革中佔據先機。</p>
+<p>*   <strong>產能擴充以應對成長：</strong> 大園廠擴建增加約30%廠房面積，擴大高階熱擴散片與IGBT液冷散熱模組產能，有助把握市場成長機會。</p>
+<p>*   <strong>切入新興平台與應用：</strong> 水冷散熱模組2025年量產出貨，MCL研發推進帶動新一波成長。新能源車液冷模組與IGBT基板提供中長期訂單能見度。</p>
+<p>*   <strong>威脅:</strong></p>
+<p>*   <strong>市場競爭加劇：</strong> 散熱產業競爭激烈，存在價格競爭、客戶認證週期長等風險，同業奇鋐、雙鴻亦積極擴充液冷產能。</p>
+<p>*   <strong>客戶集中度風險：</strong> AI訂單不如預期或單一主要客戶採購策略調整，可能影響成長軌跡。</p>
+<p>*   <strong>技術快速迭代與資本投入：</strong> 散熱技術演進快速，需持續投入大量研發以維持競爭力。</p>
+
+<li><strong>相關投資題材的具體連結</strong></li>
+<p>*   <strong>AI 伺服器與高效能運算 (HPC)：</strong> 健策核心產品均熱片、水冷散熱模組和伺服器ILM扣件，主要應用於AI伺服器、雲端資料中心及HPC等高門檻領域。AI晶片功耗提升，高階熱擴散片成為標準配備，健策直接受惠NVIDIA GB300等新平台。</p>
+<p>*   <strong>HBM (高頻寬記憶體)：</strong> HBM高熱量對散熱要求更高，液冷散熱技術適合處理GPU、HBM等高度集中的熱源，健策提供的高階散熱解決方案有助確保HBM穩定運作。</p>
+<p>*   <strong>電動車 (EV)：</strong> 健策產品應用延伸至電動車領域，研發重心投入新能源車液冷模組與IGBT基板。電動車對高效能熱管理的需求是健策另一個重要成長動能。</p>
+
+<h2>近期催化劑 (2025年12月至2026年3月)</h2>
+
+<ul><li><strong>營收表現強勁：</strong> 2026年1月營收達18.73億元，年增29.4%，續創單月歷史新高。2025年全年營收202.7億元，年增42%，創歷史新高。</li>
+<li><strong>高階產品出貨與組合優化：</strong> 高階散熱產品需求強勁，產品組合向高毛利產品集中。散熱模組在2025年Q3營收占比約7成，預估Q4達75%，2026年上看8成。</li>
+<li><strong>MCL技術領先與新產品導入：</strong> 領先取得NVIDIA新世代Rubin系統微通道蓋板（MCL）技術合作認證，預計2026年下半年起正式導入應用，MCL產品每單位價格預期是現有均熱片3至4倍，將顯著提升營收獲利。</li>
+<li><strong>擴大封裝與系統散熱整合：</strong> 強化冷板、CPU端伺服器散熱產品線，擴大整合供應能力，預期相關布局將在2026年至2027年間導入挹注。</li>
+<li><strong>法人持續看好：</strong> 法人預期2026年營收逐季走升，調升獲利預估與目標價。瑞銀證券給予目標價5,000元。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<ul><li><strong>2025年：</strong></li>
+</ul>    *   <strong>2025年Q4：</strong> 大園一廠擴建預計量產，新增廠房面積3,200坪。散熱模組營收佔比預估達75%。
+<p>*   <strong>全年：</strong> 營收突破202.7億元，年增42%，創歷史新高。前三季EPS 26.92元超越2024年全年。水冷散熱模組開始量產出貨。首度獲選台積電優良供應商 (11月28日)。</p>
+<ul><li><strong>2026年：</strong></li>
+</ul>    *   <strong>2026年Q1：</strong> 大園一廠擴建完工，新增廠房面積4,735坪，擴大高階熱擴散片與IGBT液冷散熱模組產能。
+<p>*   <strong>2026年下半年：</strong> 領先取得NVIDIA Rubin系統的微通道蓋板（MCL）技術合作認證，預計正式導入應用並啟動量產布局。</p>
+<p>*   <strong>全年：</strong> 法人預期營收逐季走升，散熱模組營收占比上看8成。NVIDIA GB300系列AI伺服器出貨量上看6萬櫃，推升供應鏈需求。資本支出大幅提升至20億至30億元，用於新廠建設。</p>
+<ul><li><strong>2027年：</strong></li>
+</ul>    *   <strong>2027年Q1：</strong> 大園三廠航空城新廠（第一期）完工，新增廠房面積11,340坪，專注高階均熱片、車用水冷及伺服器扣件。
+<p>*   <strong>全年：</strong> MCL技術有望成為AI伺服器主流散熱方案。</p>
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+<ul><li><strong>AI伺服器與HPC需求爆發：</strong> AI晶片功耗大幅提升，推動高階均熱片、液冷散熱模組、微通道蓋板（MCL）等需求強勁成長。</li>
+<li><strong>MCL技術變革：</strong> 健策在MCL技術上的領先地位，將使單顆處理器散熱內容量大幅放大，ASP提升3-4倍，成為營收及獲利躍升的關鍵。</li>
+<li><strong>產能大幅擴充：</strong> 大園廠區合計新增超過1.6萬坪廠房面積（相較現有翻倍），專為高階散熱產品設計，確保滿足未來強勁需求。</li>
+<li><strong>產品組合優化：</strong> 散熱模組營收比重預期在2026年上看8成，高毛利產品佔比提升將持續挹注獲利。</li>
+<li><strong>電動車市場潛力：</strong> 新能源車液冷模組與IGBT基板為健策提供長線穩定的成長動能。</li>
+</ul>
+<strong>風險：</strong>
+<ul><li><strong>競爭加劇：</strong> 散熱產業同業亦積極投入液冷方案，可能導致價格競爭，影響毛利率。</li>
+<li><strong>AI投資節奏不確定性：</strong> 終端企業資本支出輪動、雲端業者庫存調整及AI投資時程，可能影響訂單能見度與出貨節奏。</li>
+<li><strong>新產能利用率：</strong> 大幅擴廠後，產能利用率能否維持高檔將直接影響獲利。</li>
+<li><strong>技術替代風險：</strong> 散熱技術快速演進，若無法持續保持技術領先或及時導入新技術，可能面臨被替代風險。</li>
+</ul>
+<h2>投資結論</h2>
+
+<p>健策（3653）作為AI伺服器散熱領域的領航者，其投資價值在於：</p>
+
+<li><strong>AI散熱核心受惠者：</strong> 在AI伺服器、HPC及電動車高功耗趨勢下，健策的高階均熱片、水冷散熱模組及MCL技術處於產業領先地位，直接受惠於次世代散熱規格升級。</li>
+<li><strong>MCL技術帶來高成長爆發點：</strong> 領先取得NVIDIA新世代Rubin系統MCL技術認證，該技術預期將使單顆處理器散熱內容量與產品單價大幅提升，為2026年下半年及2027年帶來顯著的營收與獲利成長動能。</li>
+<li><strong>積極擴產確保未來成長：</strong> 大園廠區的大幅擴建計畫，顯示公司對未來需求的高度信心，並能有效承接龐大訂單，預計2025年至2027年間產能將大幅提升。</li>
+<li><strong>財務表現強勁且產品組合優化：</strong> 營收與獲利屢創歷史新高，散熱模組比重持續提升至高毛利區間（預期2026年毛利率上看40%），展現卓越的獲利能力。</li>
+
+<p>綜合以上分析，考量健策在AI散熱領域的技術領先、產能擴張以及MCL帶來的潛在爆發性成長，我們建議投資人可將健策納入投資組合。基於多家券商的最新目標價區間，我們建議健策的<strong>目標價區間介於 4,100元至 5,000元</strong>。</p>
+
+<hr>
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:00</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="3653_健策_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="3653_健策_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="3653_健策_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3545 敦泰 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>3545 敦泰 深度研究報告</h1>
+
+<strong>產生時間：2026-03-08 12:32</strong>
+
+<h2>一句話摘要</h2>
+<p>敦泰電子 (3545) 2025年因一次性提列新台幣12.37億元商譽減損導致稅後淨損每股4.64元，但董事會仍決議配發0.8元現金股利並執行庫藏股維護股東權益。展望2026年，公司預期第一季為營運谷底，第二季起隨著庫存調整告終、需求回補，以及車用、AMOLED與平板/工控等高毛利新產品線陸續放量出貨，營運將逐步回溫並實現成長。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">3545 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-3545" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-3545" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-3545');
+    var obvContainer = document.getElementById('obv-chart-3545');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 52.4, "high": 53.0, "low": 51.9, "close": 52.2}, {"time": "2025-12-05", "open": 52.0, "high": 52.2, "low": 50.5, "close": 50.9}, {"time": "2025-12-08", "open": 50.8, "high": 52.0, "low": 50.8, "close": 51.7}, {"time": "2025-12-09", "open": 51.7, "high": 52.4, "low": 51.0, "close": 51.7}, {"time": "2025-12-10", "open": 51.7, "high": 51.7, "low": 50.6, "close": 50.9}, {"time": "2025-12-11", "open": 50.9, "high": 51.6, "low": 50.5, "close": 51.1}, {"time": "2025-12-12", "open": 51.2, "high": 51.6, "low": 50.7, "close": 50.9}, {"time": "2025-12-15", "open": 50.0, "high": 51.1, "low": 49.9, "close": 50.7}, {"time": "2025-12-16", "open": 50.1, "high": 50.7, "low": 49.55, "close": 50.6}, {"time": "2025-12-17", "open": 50.4, "high": 52.9, "low": 50.4, "close": 51.3}, {"time": "2025-12-18", "open": 51.5, "high": 52.2, "low": 50.3, "close": 50.4}, {"time": "2025-12-19", "open": 51.4, "high": 51.7, "low": 50.2, "close": 51.0}, {"time": "2025-12-22", "open": 51.1, "high": 51.8, "low": 51.0, "close": 51.7}, {"time": "2025-12-23", "open": 52.5, "high": 52.5, "low": 50.4, "close": 50.6}, {"time": "2025-12-24", "open": 51.1, "high": 51.1, "low": 50.6, "close": 51.0}, {"time": "2025-12-26", "open": 51.3, "high": 51.6, "low": 50.7, "close": 51.1}, {"time": "2025-12-29", "open": 51.7, "high": 53.1, "low": 51.2, "close": 51.9}, {"time": "2025-12-30", "open": 51.9, "high": 52.8, "low": 51.5, "close": 52.3}, {"time": "2025-12-31", "open": 52.7, "high": 52.8, "low": 51.7, "close": 51.7}, {"time": "2026-01-02", "open": 51.7, "high": 52.4, "low": 51.1, "close": 51.1}, {"time": "2026-01-05", "open": 51.1, "high": 51.1, "low": 49.95, "close": 50.5}, {"time": "2026-01-06", "open": 50.8, "high": 55.3, "low": 50.7, "close": 53.4}, {"time": "2026-01-07", "open": 54.2, "high": 55.2, "low": 53.4, "close": 54.1}, {"time": "2026-01-08", "open": 53.6, "high": 53.8, "low": 52.6, "close": 52.6}, {"time": "2026-01-09", "open": 53.1, "high": 53.6, "low": 51.7, "close": 52.8}, {"time": "2026-01-12", "open": 52.2, "high": 53.2, "low": 51.7, "close": 53.1}, {"time": "2026-01-13", "open": 53.6, "high": 53.6, "low": 51.8, "close": 52.1}, {"time": "2026-01-14", "open": 52.4, "high": 53.7, "low": 51.9, "close": 53.3}, {"time": "2026-01-15", "open": 53.9, "high": 54.3, "low": 52.9, "close": 53.0}, {"time": "2026-01-16", "open": 53.0, "high": 53.5, "low": 52.3, "close": 52.9}, {"time": "2026-01-19", "open": 52.5, "high": 57.5, "low": 52.4, "close": 56.8}, {"time": "2026-01-20", "open": 56.0, "high": 57.0, "low": 54.8, "close": 56.7}, {"time": "2026-01-21", "open": 56.4, "high": 56.5, "low": 55.1, "close": 55.7}, {"time": "2026-01-22", "open": 56.8, "high": 57.5, "low": 55.7, "close": 56.1}, {"time": "2026-01-23", "open": 57.0, "high": 58.6, "low": 55.2, "close": 55.3}, {"time": "2026-01-26", "open": 56.2, "high": 57.2, "low": 55.1, "close": 57.1}, {"time": "2026-01-27", "open": 57.0, "high": 57.0, "low": 55.8, "close": 56.4}, {"time": "2026-01-28", "open": 56.2, "high": 57.3, "low": 56.0, "close": 56.2}, {"time": "2026-01-29", "open": 56.2, "high": 56.4, "low": 54.5, "close": 54.7}, {"time": "2026-01-30", "open": 54.3, "high": 54.6, "low": 52.7, "close": 53.8}, {"time": "2026-02-02", "open": 53.8, "high": 53.8, "low": 52.3, "close": 53.0}, {"time": "2026-02-03", "open": 54.0, "high": 54.3, "low": 52.5, "close": 53.4}, {"time": "2026-02-04", "open": 53.1, "high": 53.8, "low": 52.9, "close": 53.5}, {"time": "2026-02-05", "open": 53.1, "high": 54.7, "low": 52.6, "close": 52.8}, {"time": "2026-02-06", "open": 52.8, "high": 52.8, "low": 50.3, "close": 52.2}, {"time": "2026-02-09", "open": 53.3, "high": 53.7, "low": 52.7, "close": 53.0}, {"time": "2026-02-10", "open": 53.0, "high": 53.0, "low": 51.8, "close": 51.9}, {"time": "2026-02-11", "open": 52.0, "high": 52.0, "low": 50.9, "close": 51.1}, {"time": "2026-02-23", "open": 51.2, "high": 52.1, "low": 50.9, "close": 52.0}, {"time": "2026-02-24", "open": 52.3, "high": 53.8, "low": 51.7, "close": 51.8}, {"time": "2026-02-25", "open": 52.4, "high": 53.7, "low": 51.9, "close": 52.6}, {"time": "2026-03-02", "open": 51.1, "high": 51.3, "low": 47.7, "close": 47.7}, {"time": "2026-03-03", "open": 53.0, "high": 53.0, "low": 50.9, "close": 52.4}, {"time": "2026-03-04", "open": 51.1, "high": 51.3, "low": 47.7, "close": 47.7}, {"time": "2026-03-05", "open": 48.8, "high": 48.8, "low": 47.0, "close": 47.3}, {"time": "2026-03-06", "open": 46.95, "high": 47.0, "low": 45.3, "close": 45.5}, {"time": "2026-03-09", "open": 42.5, "high": 43.5, "low": 41.95, "close": 42.9}, {"time": "2026-03-10", "open": 44.2, "high": 44.5, "low": 42.0, "close": 42.9}, {"time": "2026-03-11", "open": 43.15, "high": 44.5, "low": 43.15, "close": 44.15}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 545.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 906.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 611.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 605.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 609.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 596.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 557.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 460.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 815.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 1600.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 828.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 778.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 593.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 1051.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 531.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 553.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 1393.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 981.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 846.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 959.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 1278.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 3951.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 2651.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 1201.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 993.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 1230.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 967.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 1268.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 1275.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 888.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 4636.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 2974.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 2327.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 1904.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 2565.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 1488.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 1551.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 1311.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 1387.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 1361.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 942.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 947.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 696.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 1001.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 1311.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 791.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 926.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 911.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 873.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 1316.0, "color": "#26a69a"}, {"time": "2026-02-25", "value": 2181.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 2783.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 3017.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 2783.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 2378.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 1951.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 1618.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 1471.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 1192.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 51.48}, {"time": "2025-12-11", "value": 51.260000000000005}, {"time": "2025-12-12", "value": 51.260000000000005}, {"time": "2025-12-15", "value": 51.06}, {"time": "2025-12-16", "value": 50.839999999999996}, {"time": "2025-12-17", "value": 50.92}, {"time": "2025-12-18", "value": 50.78}, {"time": "2025-12-19", "value": 50.8}, {"time": "2025-12-22", "value": 51.0}, {"time": "2025-12-23", "value": 51.0}, {"time": "2025-12-24", "value": 50.94}, {"time": "2025-12-26", "value": 51.08}, {"time": "2025-12-29", "value": 51.260000000000005}, {"time": "2025-12-30", "value": 51.379999999999995}, {"time": "2025-12-31", "value": 51.6}, {"time": "2026-01-02", "value": 51.620000000000005}, {"time": "2026-01-05", "value": 51.5}, {"time": "2026-01-06", "value": 51.8}, {"time": "2026-01-07", "value": 52.160000000000004}, {"time": "2026-01-08", "value": 52.339999999999996}, {"time": "2026-01-09", "value": 52.67999999999999}, {"time": "2026-01-12", "value": 53.2}, {"time": "2026-01-13", "value": 52.94}, {"time": "2026-01-14", "value": 52.779999999999994}, {"time": "2026-01-15", "value": 52.86}, {"time": "2026-01-16", "value": 52.879999999999995}, {"time": "2026-01-19", "value": 53.620000000000005}, {"time": "2026-01-20", "value": 54.54}, {"time": "2026-01-21", "value": 55.02}, {"time": "2026-01-22", "value": 55.64}, {"time": "2026-01-23", "value": 56.120000000000005}, {"time": "2026-01-26", "value": 56.17999999999999}, {"time": "2026-01-27", "value": 56.120000000000005}, {"time": "2026-01-28", "value": 56.220000000000006}, {"time": "2026-01-29", "value": 55.94}, {"time": "2026-01-30", "value": 55.64}, {"time": "2026-02-02", "value": 54.82000000000001}, {"time": "2026-02-03", "value": 54.220000000000006}, {"time": "2026-02-04", "value": 53.67999999999999}, {"time": "2026-02-05", "value": 53.3}, {"time": "2026-02-06", "value": 52.98}, {"time": "2026-02-09", "value": 52.98}, {"time": "2026-02-10", "value": 52.67999999999999}, {"time": "2026-02-11", "value": 52.2}, {"time": "2026-02-23", "value": 52.04}, {"time": "2026-02-24", "value": 51.96}, {"time": "2026-02-25", "value": 51.879999999999995}, {"time": "2026-03-02", "value": 51.04}, {"time": "2026-03-03", "value": 51.3}, {"time": "2026-03-04", "value": 50.44}, {"time": "2026-03-05", "value": 49.54}, {"time": "2026-03-06", "value": 48.12}, {"time": "2026-03-09", "value": 47.160000000000004}, {"time": "2026-03-10", "value": 45.260000000000005}, {"time": "2026-03-11", "value": 44.55}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 51.2}, {"time": "2025-12-18", "value": 51.019999999999996}, {"time": "2025-12-19", "value": 51.03}, {"time": "2025-12-22", "value": 51.03}, {"time": "2025-12-23", "value": 50.92}, {"time": "2025-12-24", "value": 50.93}, {"time": "2025-12-26", "value": 50.93}, {"time": "2025-12-29", "value": 51.03}, {"time": "2025-12-30", "value": 51.19}, {"time": "2025-12-31", "value": 51.3}, {"time": "2026-01-02", "value": 51.279999999999994}, {"time": "2026-01-05", "value": 51.29}, {"time": "2026-01-06", "value": 51.529999999999994}, {"time": "2026-01-07", "value": 51.77}, {"time": "2026-01-08", "value": 51.970000000000006}, {"time": "2026-01-09", "value": 52.15}, {"time": "2026-01-12", "value": 52.35}, {"time": "2026-01-13", "value": 52.370000000000005}, {"time": "2026-01-14", "value": 52.470000000000006}, {"time": "2026-01-15", "value": 52.6}, {"time": "2026-01-16", "value": 52.779999999999994}, {"time": "2026-01-19", "value": 53.410000000000004}, {"time": "2026-01-20", "value": 53.739999999999995}, {"time": "2026-01-21", "value": 53.9}, {"time": "2026-01-22", "value": 54.25}, {"time": "2026-01-23", "value": 54.5}, {"time": "2026-01-26", "value": 54.9}, {"time": "2026-01-27", "value": 55.33}, {"time": "2026-01-28", "value": 55.620000000000005}, {"time": "2026-01-29", "value": 55.79}, {"time": "2026-01-30", "value": 55.879999999999995}, {"time": "2026-02-02", "value": 55.5}, {"time": "2026-02-03", "value": 55.17}, {"time": "2026-02-04", "value": 54.95}, {"time": "2026-02-05", "value": 54.620000000000005}, {"time": "2026-02-06", "value": 54.31}, {"time": "2026-02-09", "value": 53.9}, {"time": "2026-02-10", "value": 53.45}, {"time": "2026-02-11", "value": 52.94}, {"time": "2026-02-23", "value": 52.67}, {"time": "2026-02-24", "value": 52.470000000000006}, {"time": "2026-02-25", "value": 52.42999999999999}, {"time": "2026-03-02", "value": 51.86}, {"time": "2026-03-03", "value": 51.75}, {"time": "2026-03-04", "value": 51.239999999999995}, {"time": "2026-03-05", "value": 50.75}, {"time": "2026-03-06", "value": 50.0}, {"time": "2026-03-09", "value": 49.1}, {"time": "2026-03-10", "value": 48.28}, {"time": "2026-03-11", "value": 47.495}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 51.239999999999995}, {"time": "2026-01-05", "value": 51.155}, {"time": "2026-01-06", "value": 51.279999999999994}, {"time": "2026-01-07", "value": 51.4}, {"time": "2026-01-08", "value": 51.44500000000001}, {"time": "2026-01-09", "value": 51.54}, {"time": "2026-01-12", "value": 51.64}, {"time": "2026-01-13", "value": 51.7}, {"time": "2026-01-14", "value": 51.83}, {"time": "2026-01-15", "value": 51.95}, {"time": "2026-01-16", "value": 52.029999999999994}, {"time": "2026-01-19", "value": 52.35}, {"time": "2026-01-20", "value": 52.635000000000005}, {"time": "2026-01-21", "value": 52.835}, {"time": "2026-01-22", "value": 53.11}, {"time": "2026-01-23", "value": 53.325}, {"time": "2026-01-26", "value": 53.625}, {"time": "2026-01-27", "value": 53.85}, {"time": "2026-01-28", "value": 54.045}, {"time": "2026-01-29", "value": 54.19500000000001}, {"time": "2026-01-30", "value": 54.33}, {"time": "2026-02-02", "value": 54.455}, {"time": "2026-02-03", "value": 54.455}, {"time": "2026-02-04", "value": 54.425}, {"time": "2026-02-05", "value": 54.435}, {"time": "2026-02-06", "value": 54.404999999999994}, {"time": "2026-02-09", "value": 54.4}, {"time": "2026-02-10", "value": 54.39}, {"time": "2026-02-11", "value": 54.279999999999994}, {"time": "2026-02-23", "value": 54.23}, {"time": "2026-02-24", "value": 54.175}, {"time": "2026-02-25", "value": 53.964999999999996}, {"time": "2026-03-02", "value": 53.515}, {"time": "2026-03-03", "value": 53.35}, {"time": "2026-03-04", "value": 52.92999999999999}, {"time": "2026-03-05", "value": 52.529999999999994}, {"time": "2026-03-06", "value": 51.95}, {"time": "2026-03-09", "value": 51.275}, {"time": "2026-03-10", "value": 50.61}, {"time": "2026-03-11", "value": 50.082499999999996}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -906.0}, {"time": "2025-12-08", "value": -295.0}, {"time": "2025-12-09", "value": -295.0}, {"time": "2025-12-10", "value": -904.0}, {"time": "2025-12-11", "value": -308.0}, {"time": "2025-12-12", "value": -865.0}, {"time": "2025-12-15", "value": -1325.0}, {"time": "2025-12-16", "value": -2140.0}, {"time": "2025-12-17", "value": -540.0}, {"time": "2025-12-18", "value": -1368.0}, {"time": "2025-12-19", "value": -590.0}, {"time": "2025-12-22", "value": 3.0}, {"time": "2025-12-23", "value": -1048.0}, {"time": "2025-12-24", "value": -517.0}, {"time": "2025-12-26", "value": 36.0}, {"time": "2025-12-29", "value": 1429.0}, {"time": "2025-12-30", "value": 2410.0}, {"time": "2025-12-31", "value": 1564.0}, {"time": "2026-01-02", "value": 605.0}, {"time": "2026-01-05", "value": -673.0}, {"time": "2026-01-06", "value": 3278.0}, {"time": "2026-01-07", "value": 5929.0}, {"time": "2026-01-08", "value": 4728.0}, {"time": "2026-01-09", "value": 5721.0}, {"time": "2026-01-12", "value": 6951.0}, {"time": "2026-01-13", "value": 5984.0}, {"time": "2026-01-14", "value": 7252.0}, {"time": "2026-01-15", "value": 5977.0}, {"time": "2026-01-16", "value": 5089.0}, {"time": "2026-01-19", "value": 9725.0}, {"time": "2026-01-20", "value": 6751.0}, {"time": "2026-01-21", "value": 4424.0}, {"time": "2026-01-22", "value": 6328.0}, {"time": "2026-01-23", "value": 3763.0}, {"time": "2026-01-26", "value": 5251.0}, {"time": "2026-01-27", "value": 3700.0}, {"time": "2026-01-28", "value": 2389.0}, {"time": "2026-01-29", "value": 1002.0}, {"time": "2026-01-30", "value": -359.0}, {"time": "2026-02-02", "value": -1301.0}, {"time": "2026-02-03", "value": -354.0}, {"time": "2026-02-04", "value": 342.0}, {"time": "2026-02-05", "value": -659.0}, {"time": "2026-02-06", "value": -1970.0}, {"time": "2026-02-09", "value": -1179.0}, {"time": "2026-02-10", "value": -2105.0}, {"time": "2026-02-11", "value": -3016.0}, {"time": "2026-02-23", "value": -2143.0}, {"time": "2026-02-24", "value": -3459.0}, {"time": "2026-02-25", "value": -1278.0}, {"time": "2026-03-02", "value": -4061.0}, {"time": "2026-03-03", "value": -1044.0}, {"time": "2026-03-04", "value": -3827.0}, {"time": "2026-03-05", "value": -6205.0}, {"time": "2026-03-06", "value": -8156.0}, {"time": "2026-03-09", "value": -9774.0}, {"time": "2026-03-10", "value": -9774.0}, {"time": "2026-03-11", "value": -8582.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>敦泰電子是一家台灣IC設計公司，專注於人機介面解決方案的開發與銷售，核心產品包括顯示驅動IC、觸控IC、觸控顯示整合單晶片（IDC）、指紋辨識晶片及壓力觸控晶片。其產品廣泛應用於智慧型手機、平板、筆記型電腦、穿戴裝置及車用電子。</p>
+
+<h3>營收結構 (2025年第二季)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品類別</th><th>營收佔比</th></tr></thead><tbody>
+<tr><td>觸控產品</td><td>約 50%</td></tr>
+<tr><td>顯示產品 (DDIC &amp; TDDI)</td><td>約 50%</td></tr>
+</tbody></table></div>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>應用領域</th><th>營收佔比</th></tr></thead><tbody>
+<tr><td>非手機應用 (平板、筆記型電腦、工控)</td><td>約 45%</td></tr>
+<tr><td>手機應用</td><td>約 55%</td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+<li><strong>完整的人機介面解決方案能力：</strong> 敦泰具備觸控、顯示、指紋辨識等多樣化IC產品線，提供客戶整合性解決方案。</li>
+<li><strong>AMOLED與車用市場前瞻布局：</strong> 積極投入高階OLED顯示驅動與觸控IC，並成功切入歐日中知名車廠供應鏈，為未來高成長、高毛利市場奠定基礎。</li>
+<li><strong>先進製程與演算法優勢：</strong> 在LTPS車用DDIC、OLED驅動IC的補償演算法，以及指紋辨識AI防偽技術上具備技術積累，有助於拉開與競爭對手的差距。</li>
+<li><strong>國際品牌客戶拓展能力：</strong> 成功導入Google Pixel 10手機、豐田/問界車款，並取得國際平板/工控品牌專案，顯示其產品品質與市場認可度。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 MoM (%)</th><th>年增率 YoY (%)</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>8.48</td><td>-2.83</td><td>-16.06</td></tr>
+<tr><td>2025年12月</td><td>8.73</td><td>-10.02</td><td>-29.82</td></tr>
+<tr><td>2025年11月</td><td>9.70</td><td>1.30</td><td>-36.23</td></tr>
+<tr><td>2025年10月</td><td>9.58</td><td>-8.69</td><td>-32.67</td></tr>
+<tr><td>2025年9月</td><td>10.49</td><td>5.39</td><td>-26.15</td></tr>
+<tr><td>2025年8月</td><td>9.95</td><td>-6.33</td><td>-15.79</td></tr>
+</tbody></table></div>
+
+<h3>季度與年度財務數據</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2024年 (實際)</th><th>2025年 (實際)</th><th>2025年Q4 (實際)</th></tr></thead><tbody>
+<tr><td>合併營收 (億元新台幣)</td><td>145.39</td><td>119.52</td><td>28.01</td></tr>
+<tr><td>年增率 (%)</td><td>N/A</td><td>-17.8</td><td>-33.1</td></tr>
+<tr><td>毛利率 (%)</td><td>22.4</td><td>24.8</td><td>20.8</td></tr>
+<tr><td>營業淨損 (億元新台幣)</td><td>N/A</td><td>N/A</td><td>2.01 (損)</td></tr>
+<tr><td>營業利益率 (%)</td><td>N/A</td><td>N/A</td><td>-7.18</td></tr>
+<tr><td>稅後淨利 (億元新台幣)</td><td>5.76</td><td>-9.90</td><td>-13.21</td></tr>
+<tr><td>EPS (元新台幣)</td><td>2.71</td><td>-4.64</td><td>-6.21</td></tr>
+</tbody></table></div>
+
+<strong>備註：</strong>
+<ul><li>2025年第四季因一次性提列商譽減損新台幣12.37億元，導致單季稅後淨損達新台幣13.21億元，每股淨損6.21元。此為非現金流出項目，不影響公司現金流。</li>
+<li>2025年全年稅後淨損新台幣9.90億元，每股淨損4.64元，亦受商譽減損影響。</li>
+</ul>
+<h2>法說會重點 (2026年2月26日)</h2>
+<ul><li><strong>2026年第一季展望：</strong> 預期為傳統淡季，受春節工作天數減少及記憶體短缺影響，整體營運將處於年度低點。</li>
+<li><strong>2026年第二季起展望：</strong> 預計營運將逐步回溫，主因庫存調整告一段落、需求回補，以及平板、工控、車用與AMOLED等新品出貨發酵，對營收與獲利帶來正面貢獻。</li>
+<li><strong>產品線具體說明：</strong></li>
+</ul>    *   <strong>中大尺寸顯示產品 (平板與工控)：</strong> 已取得多個國際知名品牌專案，預期將於2026上半年開始貢獻營收與獲利。
+<p>*   <strong>車用DDIC：</strong> 已提前佈局LTPS技術，與客戶合作開發新一代車用DDIC，成功打入歐洲、日本及大陸車廠的儀表板供應鏈，預期在2026年第二季後將有明顯表現。</p>
+<p>*   <strong>AMOLED顯示產品 (穿戴式)：</strong> 2025年出貨量已超過100萬顆，新一代產品(FT2391) 將於2026年第一季開始量產。</p>
+<p>*   <strong>中小尺寸AMOLED觸控：</strong> 成功打入品牌旗艦手機供應鏈，新產品支援主動筆功能，預計2026年第二季將有明顯成長。</p>
+<p>*   <strong>中大尺寸AMOLED觸控 (平板、筆電、車載)：</strong> 推出搭配POLED On-Cell架構的觸控IC，已獲一線大廠認證，預計於2026年第一季開始小量出貨。</p>
+<p>*   <strong>手機用OLED驅動IC：</strong> 樣品仍在工程驗證中，預計將於2026年第二季或第三季有機會量產。</p>
+
+<h2>券商觀點</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期</th><th>備註</th></tr></thead><tbody>
+<tr><td>群益證券</td><td>94</td><td>看多</td><td>2024年11月14日</td><td>⚠️<strong>資料過時</strong></td></tr>
+<tr><td>法人機構平均預估</td><td>N/A</td><td>N/A</td><td>2026年2月9日</td><td>2026年EPS預估：1.46~1.5元</td></tr>
+</tbody></table></div>
+
+<strong>備註：</strong>
+<ul><li>群益證券的報告日期已超過6個月，且其對2025年EPS預估與實際數值差異巨大。目前市場缺乏針對敦泰的最新券商目標價報告。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2025年Q4</td><td>20.78</td><td>-7.17</td><td>-47.14</td></tr>
+<tr><td>2025年Q3</td><td>26.16</td><td>0.37</td><td>2.65</td></tr>
+<tr><td>2025年Q2</td><td>25.08</td><td>0.21</td><td>2.52</td></tr>
+<tr><td>2025年Q1</td><td>26.89</td><td>1.68</td><td>5.72</td></tr>
+<tr><td>2024年Q4</td><td>21.39</td><td>1.66</td><td>4.37</td></tr>
+<tr><td>2024年Q3</td><td>22.27</td><td>2.32</td><td>4.40</td></tr>
+<tr><td>2024年Q2</td><td>24.26</td><td>0.03</td><td>3.57</td></tr>
+<tr><td>2024年Q1</td><td>22.24</td><td>0.22</td><td>3.13</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化原因分析：</strong>
+<ul><li><strong>2025年全年毛利率24.8%</strong>：較2024年的22.4%提升2.4個百分點，主要得益於高毛利的觸控產品佔比提升。</li>
+<li><strong>2025年第四季毛利率20.8%</strong>：較第三季下滑5.4個百分點，主因手機市場需求下滑、產品價格競爭激烈及產品組合變化。同期，提列商譽減損新台幣12.37億元導致稅後淨利率大幅轉負。</li>
+<li><strong>2025年第三季毛利率26.2%</strong>：受益於中高階智慧型手機新機上市及備貨需求，帶動高毛利觸控產品出貨成長，改善了產品組合。</li>
+<li><strong>2026年第一季展望</strong>：預期毛利率受淡季與競爭壓力影響，第二季起隨著高毛利的AMOLED觸控產品銷售成長，有望帶動毛利率回升。</li>
+</ul>
+<h3>存貨分析與資本支出</h3>
+<ul><li><strong>存貨狀況：</strong> 2025年第三季報告指出，中國國內市場黯淡及經濟環境不確定性導致終端需求疲弱，品牌客戶對備貨持保守態度，暗示敦泰的存貨控制可能趨於謹慎。具體存貨週轉天數未找到最新數據。</li>
+<li><strong>資本支出：</strong> 未找到2024-2026年的具體季度或年度資本支出金額與趨勢資料。作為IC設計公司，資本支出相對較低。</li>
+<li><strong>業外收支：</strong> 2025年第四季一次性認列新台幣12.37億元商譽減損為最大業外影響，此為非現金項目，且減損後公司帳上已無商譽。</li>
+</ul>
+<h2>股權異動</h2>
+
+<ul><li><strong>董監事/大股東申報轉讓：</strong> 未找到2025-2026年的最新資料。</li>
+<li><strong>庫藏股買回：</strong> 董事會決議自2026年3月2日至4月25日買回普通股300萬股，買回區間價格為每股36元至80元，目的為維護股東權益。</li>
+<li><strong>可轉債/增減資：</strong> 未找到2025-2026年的最新資料。</li>
+<li><strong>股利政策：</strong> 董事會決議針對2025年營運，由資本公積發放現金股利，總金額約1.77億元，相當於每股配發0.8元。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>市場規模與供需狀況</h3>
+<ul><li><strong>全球顯示驅動晶片 (DDIC) 市場：</strong> Omdia報告預計2025年出貨量同比下降2%，2026年將溫和增長2%。其中，大尺寸DDIC 2025年微降0.5%，中小尺寸DDIC下降5%。</li>
+<li><strong>全球觸控控制器IC市場：</strong> 預估2025年至2030年間將成長新台幣192.587億美元，複合年成長率（CAGR）為15.8%。</li>
+<li><strong>車用OLED觸控控制器IC市場：</strong> 2024年全球規模約1.15億美元，預計2031年達1.85億美元，2025-2031年CAGR為7.1%。</li>
+<li><strong>供需狀況：</strong> DDIC產業目前供給充裕，部分產品線甚至供過於求，價格競爭激烈。手機TDDI市場因高階機種轉向AMOLED，FHD TDDI需求下降，價格壓力持續。記憶體需求回升可能排擠驅動IC產能。</li>
+</ul>
+<h3>競爭格局</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱 (股票代碼)</th><th>2025年營收 (億元新台幣)</th><th>2025年毛利率 (%)</th><th>2025年EPS (元新台幣)</th><th>產品與市場重點</th></tr></thead><tbody>
+<tr><td><strong>敦泰 (3545)</strong></td><td>119.52</td><td>24.8</td><td>-4.64</td><td>DDIC (TDDI, LTPS車用, AMOLED), 觸控IC (OLED手機/平板/車載), 指紋辨識。積極轉型高階OLED與車用。</td></tr>
+<tr><td>聯詠 (3034)</td><td>1006.63</td><td>-</td><td>-</td><td>全球DDIC龍頭，涵蓋LCD/OLED DDIC、TDDI、SoC等，產品線最廣。</td></tr>
+<tr><td>天鈺 (4961)</td><td>179.93</td><td>28.5</td><td>9.65</td><td>驅動IC佔比下降至58%，積極發展電源管理IC、AI SoC、邊緣運算晶片。</td></tr>
+<tr><td>瑞鼎 (3592)</td><td>-</td><td>-</td><td>-</td><td>OLED DDIC主要供應商，在AMOLED驅動IC市場具優勢。</td></tr>
+<tr><td>矽創 (8016)</td><td>-</td><td>-</td><td>-</td><td>鎖定中小尺寸驅動IC、感測器IC，在功能型手機、工控儀表市場具競爭力。</td></tr>
+</tbody></table></div>
+
+<strong>敦泰 vs 主要競爭對手：</strong>
+<ul><li><strong>技術：</strong> 敦泰在OLED觸控顯示整合、LTPS車用DDIC領域積極布局。手機用OLED DDIC樣品已在驗證中。在特定高階OLED應用（穿戴、平板、車載）與主動筆功能觸控IC有亮點。</li>
+<li><strong>客戶：</strong> 已打入Google Pixel 10手機、豐田/問界/小鵬/零跑等車廠供應鏈，並取得國際知名平板/工控品牌專案，客戶分散性與高階客戶導入能力提升。</li>
+<li><strong>價格：</strong> 在傳統LCD TDDI領域面臨激烈價格競爭，公司策略是透過拓展高毛利OLED及車用產品線來優化產品組合，減輕價格壓力。</li>
+</ul>
+<h3>產業趨勢與敦泰的機會/威脅</h3>
+<li><strong>OLED技術的普及與升級：</strong></li>
+<p>*   <strong>趨勢：</strong> 2026年智慧型手機OLED滲透率預計突破68%。折疊手機帶來雙倍IC需求和柔性TDDI挑戰。OLED DDIC單價為LCD的2-3倍。</p>
+<p>*   <strong>機會 (敦泰)：</strong> 積極布局柔性OLED、折疊手機與車用TDDI等高規應用，已在穿戴OLED IDC、手機OLED觸控IC及中大尺寸AMOLED觸控IC取得進展，預計2026年量產出貨，有望帶動營收與獲利。</p>
+<li><strong>車用電子顯示器的高階化與整合化：</strong></li>
+<p>*   <strong>趨勢：</strong> 智慧座艙發展帶動車載顯示器數量增多、尺寸加大，LTPS技術成主流。車用DDIC是長效的毛利護城河。</p>
+<p>*   <strong>機會 (敦泰)：</strong> 在車用DDIC產品（包括IDC）已成功打入歐日中知名車廠供應鏈，預計2026年第二季後有明顯表現。</p>
+<li><strong>AI與邊緣運算的整合：</strong></li>
+<p>*   <strong>趨勢：</strong> 「非雲端AI」晶片需求增加，驅動IC設計公司加速靠攏ASIC設計，對低功耗、高整合度SoC需求升溫。</p>
+<p>*   <strong>機會 (敦泰)：</strong> 雖非直接AI晶片供應商，但智慧型手機、穿戴裝置等終端導入AI功能，將帶動對其觸控IC和顯示驅動IC的需求。公司已將AI技術導入指紋辨識IC。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>市場價格競爭激烈：</strong> LCD TDDI市場競爭白熱化，價格持續承壓。
+<p>*   <strong>消費性電子需求不確定性：</strong> 全球經濟環境及關稅政策仍可能影響終端需求。</p>
+<p>*   <strong>記憶體短缺排擠產能：</strong> 記憶體需求回升可能排擠驅動IC的晶圓代工產能。</p>
+
+<h2>近期催化劑 (2025年12月至2026年3月)</h2>
+
+<h3>利多事件</h3>
+<ul><li><strong>2026年2月26日 董事會決議：</strong> 通過庫藏股買回計畫，預計買回300萬股，展現維護股東權益的決心。</li>
+<li><strong>2026年2月26日 董事會決議：</strong> 即使2025年虧損，仍決議由資本公積發放每股0.8元現金股利，回饋股東。</li>
+<li><strong>2026年Q1起新品量產與出貨：</strong></li>
+</ul>    *   AMOLED穿戴式裝置新一代產品(FT2391)開始量產。
+<p>*   中大尺寸AMOLED觸控產品（平板、筆電、車載）開始小量出貨。</p>
+<ul><li><strong>2026年上半年國際品牌專案貢獻：</strong> 平板與工控產品已取得數個國際知名品牌專案，預期開始貢獻營收與獲利。</li>
+<li><strong>2026年Q2後車用與AMOLED放量：</strong></li>
+</ul>    *   車用DDIC產品成功切入歐日中車廠儀表板供應鏈，預期有明顯表現。
+<p>*   中小尺寸AMOLED觸控產品成功打入品牌旗艦手機供應鏈，支援主動筆功能，預計有明顯成長。</p>
+<ul><li><strong>國際客戶導入成果：</strong></li>
+</ul>    *   2025年Q3觸控IC產品獲Google Pixel 10機型採用。
+<p>*   2025年Q3 IDC產品獲豐田及中國新創品牌問界新車款採用。</p>
+<p>*   2025年Q2 IDC產品進入大陸品牌小鵬與零跑。</p>
+
+<h3>利空事件</h3>
+<ul><li><strong>2026年2月26日 財報公告：</strong> 2025年第四季一次性提列新台幣12.37億元商譽減損，導致單季及全年稅後淨損。</li>
+<li><strong>2026年1月營收表現：</strong> 合併營收新台幣8.48億元，月減2.83%，年減16.06%，顯示短期營運仍承壓。</li>
+<li><strong>2026年第一季營運展望：</strong> 公司預期第一季為傳統淡季，且受記憶體短缺影響，將是年度營運低點。</li>
+<li><strong>驅動IC產業面臨「量穩利弱」格局：</strong> 中國市場競爭激烈、價格戰導致平均銷售單價(ASP)承壓。</li>
+<li><strong>外資買賣超：</strong> 截至2026年3月6日，外資2026年累計賣超4,324張。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>事件內容</th><th>影響 / 備註</th></tr></thead><tbody>
+<tr><td><strong>2025年Q2</strong></td><td>IDC (TDDI) 產品成功進入大陸知名品牌小鵬與零跑。</td><td>開啟敦泰在新能源車領域的合作。</td></tr>
+<tr><td><strong>2025年Q3</strong></td><td>觸控IC產品獲Google Pixel 10機型採用。</td><td>成功打入國際一線手機品牌供應鏈，提升產品能見度。</td></tr>
+<tr><td><strong>2025年Q3</strong></td><td>IDC產品獲豐田（Toyota）及中國新創品牌問界（AITO）的新車款採用。</td><td>進一步擴大車用市場佈局，切入日系與高階中國品牌。</td></tr>
+<tr><td><strong>2025年</strong></td><td>AMOLED穿戴式裝置顯示驅動IC出貨量突破100萬顆。</td><td>顯示在穿戴式OLED市場已具量產實力。</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td>AMOELD穿戴式裝置新一代產品(FT2391)預計開始量產。</td><td>產品升級，鞏固穿戴市場地位。</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td>中大尺寸AMOLED觸控產品（平板、筆電、車載）獲一線大廠認證，預計小量出貨。</td><td>拓展OLED觸控至更大尺寸應用，提升毛利。</td></tr>
+<tr><td><strong>2026年上半年</strong></td><td>平板與工控產品取得國際知名品牌專案，預期開始貢獻營收與獲利。</td><td>降低對手機業務依賴，強化非手機高毛利應用。</td></tr>
+<tr><td><strong>2026年Q2後</strong></td><td>車用DDIC產品成功切入歐洲、日本及大陸車廠儀表板供應鏈，預期有明顯表現。</td><td>車用業務進入收穫期，長期成長動能明確。</td></tr>
+<tr><td><strong>2026年Q2後</strong></td><td>中小尺寸AMOLED觸控產品成功打入品牌旗艦手機供應鏈，支援主動筆功能。</td><td>搶佔高階手機市場，主動筆功能提升產品價值與毛利。</td></tr>
+<tr><td><strong>2026年Q2/Q3</strong></td><td>手機用OLED驅動IC樣品仍在工程驗證中，預計有機會量產。</td><td>若成功量產，將是手機業務轉型至高毛利OLED的關鍵里程碑。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+<ul><li><strong>AMOLED產品線發酵：</strong> 穿戴式裝置新產品量產、中小尺寸AMOLED觸控打入旗艦手機、中大尺寸AMOLED觸控出貨，以及手機OLED DDIC有望量產，將顯著帶動營收與毛利增長。</li>
+<li><strong>車用電子貢獻提升：</strong> 車用DDIC產品成功切入國際車廠供應鏈，預期第二季後將有明顯放量，受益於汽車產業顯示器高階化趨勢。</li>
+<li><strong>非手機應用拓展：</strong> 平板與工控產品的國際品牌專案將於上半年開始貢獻營收，優化產品組合並降低對波動較大的手機市場依賴。</li>
+<li><strong>庫存調整尾聲與需求回補：</strong> 預期2026年第一季為谷底，第二季起隨著整體產業庫存去化完成，需求將逐步回補，推動公司營運回溫。</li>
+</ul>
+<h3>風險因子</h3>
+<ul><li><strong>手機市場需求不確定性：</strong> 儘管庫存調整告終，但全球經濟、消費者信心及AI應用排擠效應仍可能影響手機終端需求及拉貨動能。</li>
+<li><strong>產品價格競爭持續：</strong> 尤其在LCD TDDI等相對成熟的產品線，中國廠商競爭激烈，可能持續壓縮毛利率。</li>
+<li><strong>記憶體短缺影響：</strong> 2026年第一季仍受記憶體短缺影響，可能對晶圓代工產能造成排擠，影響驅動IC出貨。</li>
+<li><strong>匯率波動與地緣政治：</strong> 潛在的匯率波動及地緣政治不確定性仍是外在風險。</li>
+<li><strong>新產品量產時程延誤：</strong> OLED DDIC等新產品的工程驗證及量產進度若不如預期，可能影響公司成長動能。</li>
+</ul>
+<h2>投資結論</h2>
+<p>敦泰電子在經歷2025年的低谷與商譽減損後，正積極轉型並拓展高成長、高毛利產品線。儘管短期營運仍有挑戰，但2026年展望呈現明顯的復甦跡象。</p>
+
+<li><strong>營運谷底已現，復甦動能明確：</strong> 2026年第一季預期為年度低點，第二季起隨著主要成長引擎（AMOLED、車用、平板/工控）的陸續出貨，營運有望迎來強勁反彈。</li>
+<li><strong>高毛利產品驅動獲利轉佳：</strong> 敦泰在AMOLED顯示與觸控IC、LTPS車用DDIC等高階產品的佈局，將有效優化產品組合，有助於擺脫低毛利LCD TDDI的價格競爭泥沼，提升整體獲利能力。</li>
+<li><strong>國際品牌客戶導入成果豐碩：</strong> 成功切入Google Pixel 10、豐田、問界等一線客戶，顯示其技術與產品品質獲得國際市場認可，為未來長期發展奠定基礎。</li>
+<li><strong>庫藏股與股利政策展現經營層信心：</strong> 儘管2025年虧損，公司仍維持股利發放並啟動庫藏股，顯示管理層對公司未來營運具信心，有利於穩定市場情緒。</li>
+<li><strong>目標價區間建議：</strong> 考量2026年預期獲利回歸 (法人平均EPS 1.46~1.5元) 以及新產品線帶來的成長潛力，若市場給予適當的本益比估值 (35~50倍，反映其高成長應用前景)，建議投資人可關注區間在新台幣 <strong>50元至75元</strong> 之間。此區間反映了公司從谷底翻身的潛力，以及在AMOLED與車用市場的長期價值。</li>
+
+<hr>
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-08 12:32</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="3545_敦泰_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="3545_敦泰_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="3545_敦泰_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

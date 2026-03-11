@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6531 愛普_ 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>6531 愛普* 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>愛普*憑藉其客製化記憶體解決方案，特別是IoTRAM™、S-SiCap™（矽電容）及VHM™（極高頻寬記憶體），成功轉型為AI封裝與記憶體供應鏈關鍵角色，迎接AI時代帶來的結構性成長契機，預計2026年營運在先進封裝與AI應用帶動下顯著增長。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">6531 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-6531" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-6531" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-6531');
+    var obvContainer = document.getElementById('obv-chart-6531');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 402.5, "high": 402.5, "low": 392.0, "close": 396.0}, {"time": "2025-12-05", "open": 396.5, "high": 404.5, "low": 393.5, "close": 396.5}, {"time": "2025-12-08", "open": 402.0, "high": 408.0, "low": 398.0, "close": 407.5}, {"time": "2025-12-09", "open": 406.0, "high": 417.0, "low": 404.0, "close": 408.0}, {"time": "2025-12-10", "open": 409.0, "high": 420.0, "low": 403.0, "close": 403.0}, {"time": "2025-12-11", "open": 408.5, "high": 409.5, "low": 399.5, "close": 405.0}, {"time": "2025-12-12", "open": 406.5, "high": 407.0, "low": 394.5, "close": 396.0}, {"time": "2025-12-15", "open": 389.0, "high": 391.0, "low": 383.5, "close": 387.5}, {"time": "2025-12-16", "open": 387.5, "high": 389.5, "low": 372.5, "close": 376.5}, {"time": "2025-12-17", "open": 380.0, "high": 383.5, "low": 377.5, "close": 378.0}, {"time": "2025-12-18", "open": 378.0, "high": 383.0, "low": 377.0, "close": 378.0}, {"time": "2025-12-19", "open": 386.0, "high": 390.5, "low": 381.5, "close": 382.5}, {"time": "2025-12-22", "open": 388.5, "high": 403.5, "low": 388.5, "close": 399.5}, {"time": "2025-12-23", "open": 401.5, "high": 424.5, "low": 396.5, "close": 412.0}, {"time": "2025-12-24", "open": 413.0, "high": 417.5, "low": 412.0, "close": 417.5}, {"time": "2025-12-26", "open": 420.0, "high": 429.0, "low": 402.5, "close": 412.0}, {"time": "2025-12-29", "open": 414.5, "high": 423.0, "low": 407.0, "close": 411.0}, {"time": "2025-12-30", "open": 415.0, "high": 448.0, "low": 413.5, "close": 442.5}, {"time": "2025-12-31", "open": 447.5, "high": 448.0, "low": 432.0, "close": 448.0}, {"time": "2026-01-02", "open": 449.0, "high": 467.5, "low": 445.0, "close": 458.5}, {"time": "2026-01-05", "open": 469.5, "high": 499.0, "low": 469.5, "close": 479.0}, {"time": "2026-01-06", "open": 483.5, "high": 495.0, "low": 460.0, "close": 477.5}, {"time": "2026-01-07", "open": 485.5, "high": 486.0, "low": 452.0, "close": 455.5}, {"time": "2026-01-08", "open": 457.0, "high": 462.0, "low": 445.5, "close": 455.0}, {"time": "2026-01-09", "open": 459.5, "high": 485.0, "low": 455.5, "close": 480.0}, {"time": "2026-01-12", "open": 489.0, "high": 489.0, "low": 460.5, "close": 472.0}, {"time": "2026-01-13", "open": 483.0, "high": 483.0, "low": 461.0, "close": 476.0}, {"time": "2026-01-14", "open": 478.5, "high": 482.0, "low": 467.5, "close": 468.5}, {"time": "2026-01-15", "open": 475.0, "high": 482.0, "low": 465.0, "close": 470.0}, {"time": "2026-01-16", "open": 475.5, "high": 494.5, "low": 474.0, "close": 481.5}, {"time": "2026-01-19", "open": 506.0, "high": 525.0, "low": 501.0, "close": 515.0}, {"time": "2026-01-20", "open": 501.0, "high": 508.0, "low": 482.5, "close": 506.0}, {"time": "2026-01-21", "open": 500.0, "high": 514.0, "low": 484.0, "close": 490.0}, {"time": "2026-01-22", "open": 502.0, "high": 504.0, "low": 473.0, "close": 476.0}, {"time": "2026-01-23", "open": 476.0, "high": 485.0, "low": 461.5, "close": 466.5}, {"time": "2026-01-26", "open": 463.0, "high": 469.0, "low": 445.0, "close": 450.0}, {"time": "2026-01-27", "open": 451.0, "high": 457.0, "low": 436.5, "close": 438.0}, {"time": "2026-01-28", "open": 440.0, "high": 451.5, "low": 429.5, "close": 436.0}, {"time": "2026-01-29", "open": 442.0, "high": 453.0, "low": 442.0, "close": 443.0}, {"time": "2026-01-30", "open": 439.0, "high": 447.5, "low": 429.5, "close": 429.5}, {"time": "2026-02-02", "open": 421.0, "high": 431.0, "low": 416.5, "close": 420.0}, {"time": "2026-02-03", "open": 429.5, "high": 436.5, "low": 417.5, "close": 430.0}, {"time": "2026-02-04", "open": 424.5, "high": 435.0, "low": 422.0, "close": 426.5}, {"time": "2026-02-05", "open": 423.0, "high": 433.0, "low": 413.0, "close": 413.0}, {"time": "2026-02-06", "open": 405.0, "high": 417.5, "low": 391.5, "close": 407.0}, {"time": "2026-02-09", "open": 419.0, "high": 419.0, "low": 405.5, "close": 405.5}, {"time": "2026-02-10", "open": 408.5, "high": 411.0, "low": 403.0, "close": 410.0}, {"time": "2026-02-11", "open": 410.0, "high": 410.0, "low": 396.0, "close": 396.0}, {"time": "2026-02-23", "open": 404.0, "high": 407.0, "low": 397.0, "close": 402.5}, {"time": "2026-02-24", "open": 402.5, "high": 415.5, "low": 399.5, "close": 412.0}, {"time": "2026-02-25", "open": 413.5, "high": 432.0, "low": 403.0, "close": 427.5}, {"time": "2026-02-26", "open": 425.5, "high": 449.0, "low": 423.0, "close": 433.5}, {"time": "2026-03-02", "open": 417.5, "high": 429.0, "low": 404.0, "close": 404.0}, {"time": "2026-03-03", "open": 436.0, "high": 445.0, "low": 422.0, "close": 422.0}, {"time": "2026-03-04", "open": 417.5, "high": 429.0, "low": 404.0, "close": 404.0}, {"time": "2026-03-05", "open": 422.0, "high": 442.0, "low": 421.5, "close": 440.5}, {"time": "2026-03-06", "open": 440.5, "high": 446.0, "low": 428.0, "close": 434.5}, {"time": "2026-03-09", "open": 391.5, "high": 405.0, "low": 391.5, "close": 403.0}, {"time": "2026-03-10", "open": 420.0, "high": 434.5, "low": 417.0, "close": 427.5}, {"time": "2026-03-11", "open": 438.0, "high": 445.0, "low": 432.0, "close": 441.5}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 2020.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 1839.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 1969.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 2483.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 3277.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 1935.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 2671.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 1580.0, "color": "#26a69a"}, {"time": "2025-12-16", "value": 3049.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 988.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 920.0, "color": "#ef5350"}, {"time": "2025-12-19", "value": 1174.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 2489.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 5858.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 2194.0, "color": "#ef5350"}, {"time": "2025-12-26", "value": 7382.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 4513.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 14317.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 7231.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 7411.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 8542.0, "color": "#ef5350"}, {"time": "2026-01-06", "value": 10439.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 7884.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 3922.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 8210.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 5610.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 4096.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 2908.0, "color": "#26a69a"}, {"time": "2026-01-15", "value": 4109.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 5188.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 9007.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 7678.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 8472.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 6127.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 5517.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 5334.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 4211.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 6939.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 4500.0, "color": "#ef5350"}, {"time": "2026-01-30", "value": 4485.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 2960.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 3785.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 2070.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 3066.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 3119.0, "color": "#ef5350"}, {"time": "2026-02-09", "value": 1419.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 1188.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 1759.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 1597.0, "color": "#26a69a"}, {"time": "2026-02-24", "value": 1850.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 4335.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 4941.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 2636.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 3168.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 2636.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 3438.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 3571.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 3007.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 2329.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 2737.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 402.2}, {"time": "2025-12-11", "value": 404.0}, {"time": "2025-12-12", "value": 403.9}, {"time": "2025-12-15", "value": 399.9}, {"time": "2025-12-16", "value": 393.6}, {"time": "2025-12-17", "value": 388.6}, {"time": "2025-12-18", "value": 383.2}, {"time": "2025-12-19", "value": 380.5}, {"time": "2025-12-22", "value": 382.9}, {"time": "2025-12-23", "value": 390.0}, {"time": "2025-12-24", "value": 397.9}, {"time": "2025-12-26", "value": 404.7}, {"time": "2025-12-29", "value": 410.4}, {"time": "2025-12-30", "value": 419.0}, {"time": "2025-12-31", "value": 426.2}, {"time": "2026-01-02", "value": 434.4}, {"time": "2026-01-05", "value": 447.8}, {"time": "2026-01-06", "value": 461.1}, {"time": "2026-01-07", "value": 463.7}, {"time": "2026-01-08", "value": 465.1}, {"time": "2026-01-09", "value": 469.4}, {"time": "2026-01-12", "value": 468.0}, {"time": "2026-01-13", "value": 467.7}, {"time": "2026-01-14", "value": 470.3}, {"time": "2026-01-15", "value": 473.3}, {"time": "2026-01-16", "value": 473.6}, {"time": "2026-01-19", "value": 482.2}, {"time": "2026-01-20", "value": 488.2}, {"time": "2026-01-21", "value": 492.5}, {"time": "2026-01-22", "value": 493.7}, {"time": "2026-01-23", "value": 490.7}, {"time": "2026-01-26", "value": 477.7}, {"time": "2026-01-27", "value": 464.1}, {"time": "2026-01-28", "value": 453.3}, {"time": "2026-01-29", "value": 446.7}, {"time": "2026-01-30", "value": 439.3}, {"time": "2026-02-02", "value": 433.3}, {"time": "2026-02-03", "value": 431.7}, {"time": "2026-02-04", "value": 429.8}, {"time": "2026-02-05", "value": 423.8}, {"time": "2026-02-06", "value": 419.3}, {"time": "2026-02-09", "value": 416.4}, {"time": "2026-02-10", "value": 412.4}, {"time": "2026-02-11", "value": 406.3}, {"time": "2026-02-23", "value": 404.2}, {"time": "2026-02-24", "value": 405.2}, {"time": "2026-02-25", "value": 409.6}, {"time": "2026-02-26", "value": 414.3}, {"time": "2026-03-02", "value": 415.9}, {"time": "2026-03-03", "value": 419.8}, {"time": "2026-03-04", "value": 418.2}, {"time": "2026-03-05", "value": 420.8}, {"time": "2026-03-06", "value": 421.0}, {"time": "2026-03-09", "value": 420.8}, {"time": "2026-03-10", "value": 421.9}, {"time": "2026-03-11", "value": 429.4}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 395.4}, {"time": "2025-12-18", "value": 393.6}, {"time": "2025-12-19", "value": 392.2}, {"time": "2025-12-22", "value": 391.4}, {"time": "2025-12-23", "value": 391.8}, {"time": "2025-12-24", "value": 393.25}, {"time": "2025-12-26", "value": 393.95}, {"time": "2025-12-29", "value": 395.45}, {"time": "2025-12-30", "value": 400.95}, {"time": "2025-12-31", "value": 408.1}, {"time": "2026-01-02", "value": 416.15}, {"time": "2026-01-05", "value": 426.25}, {"time": "2026-01-06", "value": 435.75}, {"time": "2026-01-07", "value": 441.35}, {"time": "2026-01-08", "value": 445.65}, {"time": "2026-01-09", "value": 451.9}, {"time": "2026-01-12", "value": 457.9}, {"time": "2026-01-13", "value": 464.4}, {"time": "2026-01-14", "value": 467.0}, {"time": "2026-01-15", "value": 469.2}, {"time": "2026-01-16", "value": 471.5}, {"time": "2026-01-19", "value": 475.1}, {"time": "2026-01-20", "value": 477.95}, {"time": "2026-01-21", "value": 481.4}, {"time": "2026-01-22", "value": 483.5}, {"time": "2026-01-23", "value": 482.15}, {"time": "2026-01-26", "value": 479.95}, {"time": "2026-01-27", "value": 476.15}, {"time": "2026-01-28", "value": 472.9}, {"time": "2026-01-29", "value": 470.2}, {"time": "2026-01-30", "value": 465.0}, {"time": "2026-02-02", "value": 455.5}, {"time": "2026-02-03", "value": 447.9}, {"time": "2026-02-04", "value": 441.55}, {"time": "2026-02-05", "value": 435.25}, {"time": "2026-02-06", "value": 429.3}, {"time": "2026-02-09", "value": 424.85}, {"time": "2026-02-10", "value": 422.05}, {"time": "2026-02-11", "value": 418.05}, {"time": "2026-02-23", "value": 414.0}, {"time": "2026-02-24", "value": 412.25}, {"time": "2026-02-25", "value": 413.0}, {"time": "2026-02-26", "value": 413.35}, {"time": "2026-03-02", "value": 411.1}, {"time": "2026-03-03", "value": 412.0}, {"time": "2026-03-04", "value": 411.7}, {"time": "2026-03-05", "value": 415.2}, {"time": "2026-03-06", "value": 417.65}, {"time": "2026-03-09", "value": 418.35}, {"time": "2026-03-10", "value": 420.85}, {"time": "2026-03-11", "value": 423.8}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 405.775}, {"time": "2026-01-05", "value": 409.925}, {"time": "2026-01-06", "value": 413.975}, {"time": "2026-01-07", "value": 416.375}, {"time": "2026-01-08", "value": 418.725}, {"time": "2026-01-09", "value": 422.575}, {"time": "2026-01-12", "value": 425.925}, {"time": "2026-01-13", "value": 429.925}, {"time": "2026-01-14", "value": 433.975}, {"time": "2026-01-15", "value": 438.65}, {"time": "2026-01-16", "value": 443.825}, {"time": "2026-01-19", "value": 450.675}, {"time": "2026-01-20", "value": 456.85}, {"time": "2026-01-21", "value": 461.375}, {"time": "2026-01-22", "value": 464.575}, {"time": "2026-01-23", "value": 467.025}, {"time": "2026-01-26", "value": 468.925}, {"time": "2026-01-27", "value": 470.275}, {"time": "2026-01-28", "value": 469.95}, {"time": "2026-01-29", "value": 469.7}, {"time": "2026-01-30", "value": 468.25}, {"time": "2026-02-02", "value": 465.3}, {"time": "2026-02-03", "value": 462.925}, {"time": "2026-02-04", "value": 461.475}, {"time": "2026-02-05", "value": 459.375}, {"time": "2026-02-06", "value": 455.725}, {"time": "2026-02-09", "value": 452.4}, {"time": "2026-02-10", "value": 449.1}, {"time": "2026-02-11", "value": 445.475}, {"time": "2026-02-23", "value": 442.1}, {"time": "2026-02-24", "value": 438.625}, {"time": "2026-02-25", "value": 434.25}, {"time": "2026-02-26", "value": 430.625}, {"time": "2026-03-02", "value": 426.325}, {"time": "2026-03-03", "value": 423.625}, {"time": "2026-03-04", "value": 420.5}, {"time": "2026-03-05", "value": 420.025}, {"time": "2026-03-06", "value": 419.85}, {"time": "2026-03-09", "value": 418.2}, {"time": "2026-03-10", "value": 417.425}, {"time": "2026-03-11", "value": 418.025}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 1839.0}, {"time": "2025-12-08", "value": 3808.0}, {"time": "2025-12-09", "value": 6291.0}, {"time": "2025-12-10", "value": 3014.0}, {"time": "2025-12-11", "value": 4949.0}, {"time": "2025-12-12", "value": 2278.0}, {"time": "2025-12-15", "value": 698.0}, {"time": "2025-12-16", "value": -2351.0}, {"time": "2025-12-17", "value": -1363.0}, {"time": "2025-12-18", "value": -1363.0}, {"time": "2025-12-19", "value": -189.0}, {"time": "2025-12-22", "value": 2300.0}, {"time": "2025-12-23", "value": 8158.0}, {"time": "2025-12-24", "value": 10352.0}, {"time": "2025-12-26", "value": 2970.0}, {"time": "2025-12-29", "value": -1543.0}, {"time": "2025-12-30", "value": 12774.0}, {"time": "2025-12-31", "value": 20005.0}, {"time": "2026-01-02", "value": 27416.0}, {"time": "2026-01-05", "value": 35958.0}, {"time": "2026-01-06", "value": 25519.0}, {"time": "2026-01-07", "value": 17635.0}, {"time": "2026-01-08", "value": 13713.0}, {"time": "2026-01-09", "value": 21923.0}, {"time": "2026-01-12", "value": 16313.0}, {"time": "2026-01-13", "value": 20409.0}, {"time": "2026-01-14", "value": 17501.0}, {"time": "2026-01-15", "value": 21610.0}, {"time": "2026-01-16", "value": 26798.0}, {"time": "2026-01-19", "value": 35805.0}, {"time": "2026-01-20", "value": 28127.0}, {"time": "2026-01-21", "value": 19655.0}, {"time": "2026-01-22", "value": 13528.0}, {"time": "2026-01-23", "value": 8011.0}, {"time": "2026-01-26", "value": 2677.0}, {"time": "2026-01-27", "value": -1534.0}, {"time": "2026-01-28", "value": -8473.0}, {"time": "2026-01-29", "value": -3973.0}, {"time": "2026-01-30", "value": -8458.0}, {"time": "2026-02-02", "value": -11418.0}, {"time": "2026-02-03", "value": -7633.0}, {"time": "2026-02-04", "value": -9703.0}, {"time": "2026-02-05", "value": -12769.0}, {"time": "2026-02-06", "value": -15888.0}, {"time": "2026-02-09", "value": -17307.0}, {"time": "2026-02-10", "value": -16119.0}, {"time": "2026-02-11", "value": -17878.0}, {"time": "2026-02-23", "value": -16281.0}, {"time": "2026-02-24", "value": -14431.0}, {"time": "2026-02-25", "value": -10096.0}, {"time": "2026-02-26", "value": -5155.0}, {"time": "2026-03-02", "value": -7791.0}, {"time": "2026-03-03", "value": -4623.0}, {"time": "2026-03-04", "value": -7259.0}, {"time": "2026-03-05", "value": -3821.0}, {"time": "2026-03-06", "value": -7392.0}, {"time": "2026-03-09", "value": -10399.0}, {"time": "2026-03-10", "value": -8070.0}, {"time": "2026-03-11", "value": -5333.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>愛普* (6531) 主要從事DRAM記憶體IC、SRAM記憶體IC、IC設計與設計IP業務，提供客製化記憶體解決方案。公司已成功轉型為「AI封裝＋記憶體一條龍供應鏈關鍵角色」，其核心營運聚焦於三大產品線，主要應用於AI、HPC、IoT及邊緣運算領域。</p>
+
+<strong>主要產品線與應用：</strong>
+<li><strong>IoTRAM™ (物聯網記憶體)</strong>：</li>
+<p>*   <strong>產品特色</strong>：新一代ApSRAM™產品具備更高頻寬和更低功耗。</p>
+<p>*   <strong>應用領域</strong>：通訊模組、穿戴裝置、影像/音訊及其他物聯網應用。預計2025年底量產，2026年放量成長。</p>
+<li><strong>S-SiCap™ (堆疊式矽電容)</strong>：</li>
+<p>*   <strong>產品特色</strong>：包含IPC (含Interposer的矽電容) 和IPD (分離式電容)。IPC能精準符合CoWoS-S interposer對嵌入大量電容的嚴格要求；IPD提供高電容密度解決方案。</p>
+<p>*   <strong>應用領域</strong>：先進封裝，特別是AI伺服器與HPC領域。預計IPD產品2026年下半年量產。</p>
+<li><strong>VHM™ (極高頻寬記憶體/超高頻寬行動記憶體)</strong>：</li>
+<p>*   <strong>產品特色</strong>：3D堆疊技術記憶體，提供不同於傳統HBM的高頻寬記憶體解決方案，包括VHMStack多層堆疊架構產品。</p>
+<p>*   <strong>應用領域</strong>：高效能推理、特定AI應用場景、HPC和資料密集型應用。VHMStack預計2027-2028年間進入量產。</p>
+
+<strong>營收結構 (依2025年第三季資料預估)：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品線名稱</th><th>營收金額 (新台幣)</th><th>營收佔比 (%)</th><th>主要次產品/應用</th></tr></thead><tbody>
+<tr><td>IoTRAM™</td><td>11 億元</td><td>74</td><td>Connectivity (45%)、Wearable (31%)、Video/Audio/Others (24%)</td></tr>
+<tr><td>S-SiCap™</td><td>3.14 億元</td><td>21</td><td>IPC、IPD (預估2025年佔總營收約25%)</td></tr>
+<tr><td>VHM™</td><td>7,700 萬元</td><td>5</td><td>委託設計收入 (NRE)、高效能推理、特定AI應用</td></tr>
+<tr><td><strong>總計</strong></td><td><strong>約 14.91 億元</strong></td><td><strong>100</strong></td><td></td></tr>
+</tbody></table></div>
+
+<strong>製造基地：</strong>
+<p>愛普*作為一家IC設計公司，無自有製造基地，主要將晶片製造委託給晶圓代工廠。公司與一線基板廠商合作開發IPD產品，並與台積電合作開發HBM技術。</p>
+
+<h2>核心競爭優勢</h2>
+<li><strong>客製化記憶體解決方案的領導者</strong>：愛普*深耕利基型記憶體設計，能提供高度客製化的記憶體解決方案，滿足客戶在AI、HPC、IoT等特殊應用上的嚴格性能與功耗要求。</li>
+<li><strong>精準掌握AI與先進封裝趨勢</strong>：公司三大產品線精準對應AI時代的關鍵需求。S-SiCap在先進封裝（特別是CoWoS-S interposer）中扮演關鍵角色，VHM/VHMStack則瞄準HBM市場的藍海，使其成為AI生態系統中不可或缺的供應鏈夥伴。</li>
+<li><strong>技術創新與產品迭代能力</strong>：新一代ApSRAM™具備更高頻寬與更低功耗，第二代IPC電容密度倍增，顯示公司持續研發與產品升級的能力，以應對快速變化的市場需求。</li>
+<li><strong>與關鍵供應鏈夥伴深度合作</strong>：與晶圓代工廠及基板廠商的緊密合作，確保了產品的製造與量產能力，例如與台積電合作開發HBM技術。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢 (新台幣億元)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元)</th><th>月增率 MoM (%)</th><th>年增率 YoY (%)</th></tr></thead><tbody>
+<tr><td>2026年2月</td><td>6.72</td><td>9.60</td><td>146.70</td></tr>
+<tr><td>2026年1月</td><td>6.13</td><td>-24.54</td><td>93.77</td></tr>
+<tr><td>2025年12月</td><td>8.13</td><td>49.96</td><td>76.75</td></tr>
+<tr><td>2025年11月</td><td>5.42</td><td>6.78</td><td>70.56</td></tr>
+<tr><td>2025年10月</td><td>5.08</td><td>-18.80</td><td>14.03</td></tr>
+<tr><td>2025年9月</td><td>6.25</td><td>52.10</td><td>49.87</td></tr>
+</tbody></table></div>
+
+<h3>季度數據 (2025年第四季)</h3>
+<p>愛普*於2026年3月3日公布2025年第四季財報數據：</p>
+<ul><li><strong>合併營收</strong>：新台幣 18.68 億元，年增 52.45%，季增 24.98%。</li>
+<li><strong>毛利率</strong>：49.86%，季增 3.85 個百分點。</li>
+<li><strong>營業利益率</strong>：30.64%，季增 5.15 個百分點。</li>
+<li><strong>每股盈餘 (EPS)</strong>：4.71 元。</li>
+</ul>
+<h3>年度趨勢</h3>
+<ul><li><strong>2025年實際全年度營收</strong>：新台幣 56.66 億元，年增 35.16%。</li>
+<li><strong>2025年實際全年度 EPS</strong>：7.74 元，年減 20.31% (主因2025年第二季匯損影響)。</li>
+<li><strong>2026年累計前2月營收</strong>：新台幣 12.86 億元，年增 118.25%。</li>
+</ul>
+<h2>法說會重點 (2026年3月3日)</h2>
+<p>愛普*於2026年3月3日召開最近一次法說會，管理層對各產品線的具體guidance與發言如下：</p>
+
+<ul><li><strong>IoTRAM (物聯網記憶體)</strong>：</li>
+</ul>    *   2025年第四季維持穩健出貨，受惠於穿戴式裝置、連網設備與顯示應用升級需求。
+<p>*   新一代 ApSRAM 於該季度正式量產並獲多家客戶採用，具備數倍於前代的資料存取頻寬與更低功耗，符合 AI 功能加速導入穿戴裝置與微處理器的趨勢。</p>
+<p>*   預期 <strong>2026年</strong> IoTRAM 需求將持續強勁，並將從 SDR/DDR 市場取得轉換需求，成為長期成長主力。</p>
+<ul><li><strong>S-SiCap (矽電容)</strong>：</li>
+</ul>    *   2025年第四季表現亮眼，主要來自 IPC (具 S-SiCap 的矽中介層) 多個專案於 AI 與 HPC 客戶導入後進入量產。
+<p>*   第二代 IPC 同步進入試產，其電容密度可再提升一倍，並已獲主要客戶納入設計流程。</p>
+<p>*   積極推動 IPD (分離式 S-SiCap 電容) 在 embedded substrate 與 Land-side Capacitor (LSC) 應用落地，預計於 <strong>2026年下半年</strong> 進入量產階段。</p>
+<p>*   公司認為，隨著 AI 加速器封裝面積與功耗不斷提升，S-SiCap 將成為未來兩年（2026-2027）重要支柱。</p>
+<ul><li><strong>VHM/VHMStack (極高頻寬記憶體)</strong>：</li>
+</ul>    *   產品線已從驗證階段走向實際 AI/HPC 專案開發，目標是協助 ASIC 加速器以更高效能、更低功耗切入大型語言模型推理市場。
+    <em>   多項專案已進入產品開發階段，預計 <strong>2027年至2028年</strong> 完成量產驗證，為愛普</em>長期成長奠定基礎。
+<ul><li><strong>產能利用率與資本支出</strong>：</li>
+</ul>    *   未提供具體產能利用率及資本支出金額數據。
+    <em>   公司說明合作夥伴力積電銅鑼廠的產線調整對愛普</em>整體營運預期影響有限，已協調投產時程並加速製程轉移，確保交期穩定。
+<ul><li><strong>管理層給出的下季/下半年 guidance</strong>：</li>
+</ul>    <em>   展望 <strong>2026年</strong>，愛普</em>預期 IoTRAM 需求將持續強勁，S-SiCap 相關的 IPC 與 IPD 專案將進入擴產期，受惠於先進封裝與 3DIC 的成長趨勢。
+<p>*   VHM 與 VHMStack 專案將持續深化研發投入，期能帶動下一波高速成長。</p>
+
+<h2>券商觀點</h2>
+
+<strong>目標價與評等：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>富邦證券</td><td>315</td><td>中立</td><td>2026年3月5日</td></tr>
+<tr><td>美系外資</td><td>325</td><td>中立</td><td>2025年5月7日</td></tr>
+</tbody></table></div>
+
+<strong>EPS預估：</strong>
+<ul><li><strong>富邦證券</strong>：預估 2025 年度 EPS 約 8.96 元。</li>
+<li><strong>美系外資</strong> (2025年8月6日報告提及)：</li>
+</ul>    *   曾下修 2025 年 EPS 至 2.4 元。
+<p>*   上修 2026 年 EPS 至 13.3 元。</p>
+<p>*   上修 2027 年 EPS 至 19.3 元。</p>
+<ul><li><strong>市場法人綜合預估</strong>：2026 年 EPS 可能落在 10 至 17.75 元區間，另有預估 2026 年 EPS 為 16.67 元。</li>
+</ul>
+<strong>近期評等調整：</strong>
+<ul><li>美系外資於 2025年5月7日維持「中立」評等，並於 2025年8月6日重申正向評等不變。</li>
+<li>富邦證券於 2026年3月5日給予「中立」評等。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢 (%)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2025Q4</td><td>49.86</td><td>30.64</td><td>40.14</td></tr>
+<tr><td>2025Q3</td><td>46.01</td><td>25.49</td><td>46.45</td></tr>
+<tr><td>2025Q2</td><td>42.25</td><td>20.38</td><td>-41.42</td></tr>
+<tr><td>2025Q1</td><td>46.48</td><td>17.96</td><td>35.49</td></tr>
+<tr><td>2024Q4</td><td>53.24</td><td>28.42</td><td>41.00</td></tr>
+<tr><td>2024Q3</td><td>52.06</td><td>29.90</td><td>26.44</td></tr>
+<tr><td>2024Q2</td><td>51.36</td><td>24.15</td><td>39.20</td></tr>
+<tr><td>2024Q1</td><td>45.65</td><td>35.92</td><td>38.76</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化的原因分析：</strong>
+<p>愛普*的利潤率在2025年呈現波動。2025年第二季因新台幣兌美元大幅升值，產生高達新台幣9.8億元的匯兌損失，導致稅後淨損，使該季稅後淨利率為-41.42%。若排除此業外影響，本業獲利仍有成長。2025年下半年，特別是第四季，受惠於IoTRAM穩健出貨、新一代ApSRAM量產以及S-SiCap在AI/HPC客戶多個專案導入量產帶動，營運明顯攀升，毛利率、營業利益率與稅後淨利率皆呈現顯著季增與回升。</p>
+
+<h3>資本支出與產能</h3>
+<ul><li><strong>折舊攤銷趨勢 (近4季):</strong></li>
+</ul>    *   2025Q3: 折舊1,395萬元，攤銷1,116萬元。
+<p>*   2025Q2: 折舊1,404萬元，攤銷877萬元。</p>
+<p>*   2025Q1: 折舊1,346萬元，攤銷899萬元。</p>
+<p>*   2024Q4的折舊攤銷數據未明確列出。</p>
+<ul><li><strong>未來資本支出計畫與預計新增產能:</strong></li>
+</ul>    <em>   愛普</em>預期2026年S-SiCap的IPC與IPD專案將進入擴產期，預計在先進封裝與3DIC成長趨勢中受惠。
+<p>*   第二代IPC已進入試產，其電容密度可再提升一倍，並已獲主要客戶納入設計流程。</p>
+<p>*   IPD預計於2026年下半年進入量產階段。</p>
+<p>*   公司計畫在未來兩年內完成GDR募資資金在研發及3DIC生態系的投資佈局，顯示對未來成長的資本投入規劃。</p>
+
+<h3>存貨與營運</h3>
+<ul><li><strong>存貨金額與存貨週轉天數趨勢</strong>：目前未找到2024-2026年的最新數據。</li>
+<li><strong>應收帳款週轉天數趨勢</strong>：目前未找到2024-2026年的最新數據。</li>
+</ul><em>   目前的資料未明確指出愛普</em>在2024-2026年間有異常的存貨堆積或備料現象。
+
+<h3>其他財報重點</h3>
+<ul><li><strong>自由現金流量趨勢:</strong></li>
+</ul>    *   2025Q3: 7.15 億元。
+<p>*   2025Q2: 0.98 億元。</p>
+<p>*   2025Q1: 9.68 億元。</p>
+<p>*   2025Q4自由現金流為0億元。</p>
+<ul><li><strong>業外收支重大項目:</strong></li>
+</ul>    *   2025年第二季因新台幣兌美元大幅升值，產生約新台幣9.8億元的大額匯兌損失。
+
+<h2>股權異動</h2>
+<em>   <strong>股利政策：</strong> 愛普</em>董事會決議派發2025年每股現金股利新台幣7元。
+<ul><li><strong>庫藏股/可轉債/增減資：</strong> 目前未找到2024-2026年期間相關公開資料。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>一、產業數據</h3>
+<strong>全球市場規模與CAGR成長率：</strong>
+<ul><li><strong>半導體記憶體市場總體</strong>：預計2025年估值1,189億美元，2035年達2,260億美元，2026-2035年CAGR為7.4%。</li>
+<li><strong>DRAM市場</strong>：2024年達1,158.9億美元，預計2025年1,218.3億美元增長至2032年1,939.7億美元，CAGR達6.9%。</li>
+<li><strong>HBM市場</strong>：2023-2033年CAGR達42%，從2023年40億美元增至2033年1,300億美元，屆時佔DRAM市場50%以上。另預測2026年達546億美元，年增58%；2025年約350億美元增至2028年約1,000億美元。</li>
+<li><strong>MCU市場</strong>：2025年347.5億美元，2030年達572.5億美元，CAGR達10.5%。</li>
+<li><strong>SRAM及S-SiCap</strong>：目前未找到具體市場規模及CAGR數據，但其成長與AI、先進封裝需求高度相關。</li>
+</ul>
+<strong>供需狀況：</strong>
+<p>全球記憶體市場在2025年下半年進入AI驅動的「超級週期」，DRAM和NAND Flash價格持續上漲，庫存低位，產能利用率近滿載，導致嚴重供不應求。</p>
+<ul><li><strong>HBM</strong>：由於AI需求及複雜製程，HBM產能遠不及市場需求。高盛預估2026年全球DRAM將出現4.9%供需缺口，2027年為2.5%，2026年可能是近15年來供應最緊張時期。2026年AI伺服器將消耗DRAM產能66%至70%。</li>
+<li><strong>DRAM</strong>：高階HBM產能排擠效應導致傳統成熟製程產品供給下降，DDR4因供給緊俏、下游需求仍多，價格漲幅甚至超越DDR5。</li>
+<li><strong>先進封裝</strong>：HBM生產瓶頸之一，台積電已規劃2026-2027年全面調高CoWoS產能目標。</li>
+</ul>
+<strong>產業的平均毛利率水準：</strong>
+<ul><li>HBM因其高利潤率（毛利高達50%以上）吸引廠商轉移產能，SK海力士HBM營業利益率甚至達70%。</li>
+<li>一般型DDR5伺服器記憶體毛利率已攀升至60%左右。</li>
+</ul>
+<h3>二、競爭格局</h3>
+
+<strong>全球主要記憶體供應商市佔率 (2025年)：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>記憶體類型</th><th>前三大公司</th><th>市佔率</th></tr></thead><tbody>
+<tr><td><strong>DRAM</strong></td><td>三星、SK海力士、美光</td><td>三星約35%、SK海力士約20%、美光約15%，合計佔記憶體晶片市場近70%。DRAM市場份額合計超過90%。</td></tr>
+<tr><td><strong>HBM</strong></td><td>SK海力士、三星、美光</td><td>SK海力士為領導者（約50%）。2025年HBM產能分配：SK海力士15萬片/月、三星14萬片/月、美光6萬片/月。</td></tr>
+<tr><td><strong>MCU</strong></td><td>意法半導體、Microchip、恩智浦、瑞薩、英飛凌、德州儀器</td><td>前六大供應商共佔全球超過80%份額。</td></tr>
+</tbody></table></div>
+
+<strong>愛普* vs 主要競爭對手的具體比較：</strong>
+<p>愛普*主要在專業記憶體IC設計和客製化解決方案領域競爭，尤其是在IoTRAM、S-SiCap和VHM/HBM。</p>
+<em>   <strong>技術</strong>：在HBM領域，愛普</em>的VHM技術旨在切入高階市場，需在頻寬、功耗及客製化能力上與巨頭抗衡。在IoTRAM (ApSRAM) 方面強調更高頻寬和更低功耗。S-SiCap的IPC產品能符合CoWoS-S interposer的需求，顯示其在先進封裝領域的技術實力。
+<em>   <strong>產能</strong>：作為IC設計公司，愛普</em>不具備晶圓製造產能，其產能依賴代工夥伴。
+<em>   <strong>客戶與價格</strong>：愛普</em>提供客製化解決方案，客戶群包含通訊模組、穿戴裝置、AI加速器等，利基型產品有望維持較好的議價能力。
+
+<strong>台灣同業比較：</strong>
+<ul><li><strong>DRAM製造商</strong>：南亞科 (2408) 是台灣最大的DRAM製造商；華邦電 (2344) 等公司短期受益於舊世代記憶體價格上漲。</li>
+<li><strong>MCU設計公司</strong>：盛群 (6202) 的MCU產品佔營收比重約75%，2025年安防應用出貨成長。</li>
+</ul>
+<h3>三、產業趨勢</h3>
+<li><strong>AI應用對高頻寬記憶體（HBM）的爆炸性需求</strong>：AI伺服器對記憶體頻寬與容量需求呈倍數增長，推動HBM技術從HBM3到HBM3e乃至HBM4演進，成為AI訓練與推論不可或缺的資源。HBM高利潤率促使DRAM大廠轉向HBM，導致傳統DRAM供不應求。</li>
+<li><strong>先進封裝技術的持續創新（如CoWoS、TSV）</strong>：HBM生產高度依賴先進製程與先進封裝技術，如TSV實現多層DRAM晶片垂直堆疊。CoWoS等先進封裝是實現HBM與GPU高效能連結的關鍵，台積電正大幅擴充CoWoS產能以緩解瓶頸。</li>
+<li><strong>DDR5世代交替與Edge AI帶動的記憶體容量提升</strong>：DDR5技術快速普及，預計2026年成為伺服器市場主流。AI PC和AI手機等邊緣AI裝置興起，提升記憶體容量門檻，形成新增需求。</li>
+
+<h3>對 愛普* 而言的具體機會和威脅</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>類別</th><th>具體項目</th></tr></thead><tbody>
+<tr><td><strong>機會</strong></td><td>1. <strong>HBM相關商機</strong>：VHM產品線直接受益於HBM市場高速成長與技術演進。 &lt;br&gt; 2. <strong>先進封裝趨勢</strong>：S-SiCap (IPC) 精準符合CoWoS-S interposer需求，搭上AI封裝快車。 &lt;br&gt; 3. <strong>物聯網記憶體放量</strong>：IoTRAM™ (ApSRAM™) 預計2025年底量產、2026年放量，受益於物聯網與邊緣AI市場成長。 &lt;br&gt; 4. <strong>轉型關鍵角色</strong>：戰略轉型使其在AI驅動的記憶體超級週期中，憑藉客製化解決方案和先進封裝佈局，提升市場地位。</td></tr>
+<tr><td><strong>威脅</strong></td><td>1. <strong>巨頭寡佔與技術競爭</strong>：高端HBM市場由三星、SK海力士、美光高度寡佔，VHM領域將面臨激烈競爭。 &lt;br&gt; 2. <strong>產能限制與供應鏈風險</strong>：作為IC設計公司，產品生產依賴代工夥伴，若記憶體晶片或先進封裝產能持續緊張，恐影響交期和成本。 &lt;br&gt; 3. <strong>記憶體市場波動性</strong>：儘管目前處於超級週期，但市場供需變化快速，大規模擴產可能導致供給過剩，價格反轉。 &lt;br&gt; 4. <strong>下游需求變化</strong>：消費電子市場可能因記憶體成本高漲導致需求受損，間接影響IoTRAM等產品終端應用。</td></tr>
+</tbody></table></div>
+
+<h2>近期催化劑</h2>
+<strong>利多事件：</strong>
+<em>   <strong>2026年03月05日</strong>：愛普</em>公布2月合併營收6.72億元，月增9.6%、年增146.68%，創近2個月新高；累計前2月營收12.86億元，年增118.2%。
+<ul><li><strong>2026年03月03日/04日</strong>：法說會公布2025年第四季營收18.68億元，年增52.45%，毛利率50%，EPS 4.71元，創歷史新高。</li>
+<li><strong>2025年第四季</strong>：新一代ApSRAM正式量產並獲多家客戶採用。S-SiCap (IPC) 多個專案在AI與HPC客戶導入後進入量產，第二代IPC同步試產並獲主要客戶納入設計流程。</li>
+<li><strong>22026年下半年</strong>：IPD（分離式S-SiCap電容）產品預計將正式進入量產，為營運增添新動能。</li>
+<li><strong>三大法人買超</strong>：近5日三大法人合計買超283張。</li>
+<li><strong>股利政策</strong>：董事會決議配發2025年每股現金股利7元。</li>
+</ul>
+<strong>利空事件：</strong>
+<ul><li><strong>供應鏈調整風險</strong>：合作夥伴力積電銅鑼廠的產線調整，雖公司表示影響有限，但仍需持續關注供應鏈穩定性及對出貨的潛在影響。</li>
+<li><strong>產品驗證時程風險</strong>：VHM與VHMStack產品線的量產驗證預計在2027年至2028年完成，在此之前存在產品開發、驗證與客戶導入的時程風險。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能</th><th>產品線</th><th>關鍵事件/里程碑</th></tr></thead><tbody>
+<tr><td><strong>2025年Q4</strong></td><td>- 新一代ApSRAM™量產，獲多家客戶採用 &lt;br&gt; - S-SiCap (IPC) 多個專案導入AI/HPC客戶並進入量產 &lt;br&gt; - 第二代IPC進入試產，電容密度倍增，獲主要客戶納入設計流程</td><td>IoTRAM™、S-SiCap™</td><td>新產品量產、新客戶導入、技術升級</td></tr>
+<tr><td><strong>2026年</strong></td><td>- IoTRAM™需求持續強勁，ApSRAM™正式放量成長 &lt;br&gt; - S-SiCap (IPC與IPD) 專案進入擴產期，預計成為未來兩年重要支柱 &lt;br&gt; - 積極佈局新興IVR領域，開發整合式高效供電方案</td><td>IoTRAM™、S-SiCap™</td><td>產品放量、產能擴充、新市場佈局</td></tr>
+<tr><td><strong>2026年下半年</strong></td><td>- IPD（分離式S-SiCap電容）產品正式進入量產，與客戶及一線基板廠商完成基板製程驗證，在embedded substrate與LSC應用落地</td><td>S-SiCap™</td><td>新產品量產、市場滲透率擴大</td></tr>
+<tr><td><strong>2027年-2028年</strong></td><td>- VHM/VHMStack產品線從驗證走向實際AI/HPC專案開發，目標大型語言模型推理市場 &lt;br&gt; - 首個非加密領域邊緣AI的VHMStack專案預計於2028年量產 &lt;br&gt; - VHMStack技術針對AI/HPC產品預計進入量產驗證，完成量產驗證，奠定長期成長基礎。</td><td>VHM™</td><td>尖端技術量產驗證、長期成長引擎啟動</td></tr>
+<tr><td><strong>長期</strong></td><td>- 持續深化高效能記憶體、先進封裝與AI加速領域的關鍵技術佈局，完整三大產品線優勢 &lt;br&gt; - 受惠於穿戴式裝置、連網設備與顯示類應用的升級需求 &lt;br&gt; - AI加速器封裝面積與功耗不斷提升，對高密度電容需求大幅增加 &lt;br&gt; - AI/HPC專案開發持續推進，迎接資料密集型應用趨勢</td><td>全產品線</td><td>技術領先、市場趨勢掌握、AI時代結構性成長</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+<p>愛普*在2026年將迎來多重成長動能。IoTRAM™在新一代ApSRAM™放量及AI功能導入穿戴裝置的趨勢下，需求將持續強勁。S-SiCap™的IPC產品在AI及HPC客戶導入量產後將持續貢獻營收，而IPD產品預計於2026年下半年量產，將進一步擴大公司在先進封裝領域的市場滲透率。VHM™產品線持續深化研發，為2027-2028年的量產驗證奠定基礎。公司在AI封裝與記憶體一條龍供應鏈中的關鍵角色，使其能有效捕捉AI記憶體超級週期的結構性成長機會。法人預估2026年EPS可達16.67元，顯著高於2025年。</p>
+
+<strong>風險：</strong>
+<p>儘管展望樂觀，仍需留意潛在風險。VHM與VHMStack產品的量產驗證時程較長，存在技術開發與客戶導入的時程不確定性。S-SiCap產品在初期量產階段可能面臨毛利率較低的挑戰。此外，全球記憶體市場的供需波動、產業巨頭的競爭壓力，以及新台幣兌美元匯率大幅波動導致的匯兌損失（如2025年第二季經驗），都可能影響公司獲利能力。合作夥伴產線調整（如力積電銅鑼廠）也需持續關注對供應穩定性的潛在影響。</p>
+
+<h2>投資結論</h2>
+<p>愛普* (6531) 正處於由AI驅動的記憶體超級週期，其戰略轉型和產品佈局使其成為台灣AI供應鏈中具備高成長潛力的標的。</p>
+
+<li><strong>AI與先進封裝雙引擎驅動</strong>：公司三大產品線精準切入AI、HPC及先進封裝領域。S-SiCap在CoWoS供應鏈中扮演關鍵角色，IPD預計2026下半年量產，VHM/VHMStack則瞄準HBM市場，有望在AI算力需求爆發的趨勢中持續受惠。</li>
+<li><strong>IoTRAM成長動能確立</strong>：新一代ApSRAM™已於2025年底量產並獲客戶採用，預計2026年將正式放量，受惠於物聯網與邊緣AI裝置對高效能、低功耗記憶體的需求升級。</li>
+<li><strong>財報表現強勁回升</strong>：2025年第四季營收與獲利創歷史新高，月營收年增率維持高檔，顯示營運已擺脫谷底並進入快速成長階段。2026年法人預估EPS高達16.67元，成長幅度可期。</li>
+<li><strong>長期技術優勢與市場區隔</strong>：愛普*以客製化解決方案與利基型市場為重點，避免與IDM大廠正面衝突，憑藉技術優勢在特定應用領域建立高進入門檻，有望維持較高毛利率。</li>
+
+<strong>目標價區間建議</strong>：
+<p>考量2026年法人預估EPS 16.67元，若給予成長型IC設計公司合理本益比區間 (例如25-35倍)，其股價潛在區間應落在 416.75元至 583.45元。券商給予之目標價 315-325元顯得較為保守，可能尚未充分反映公司在AI領域的長期成長潛力。</p>
+
+<strong>綜合考量愛普*在AI記憶體與先進封裝趨勢中的核心地位及其2026年強勁的獲利成長預期，建議投資人可關注其在 450元至 550元 區間的表現。</strong> 建議持續追蹤S-SiCap與VHM產品線的客戶導入進度及實際貢獻，並密切關注總經環境與匯率變動對獲利的影響。
+
+<hr>
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-09 22:06</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="6531_愛普__company_overview.png" alt="company_overview" class="info-card">
+
+<img src="6531_愛普__investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

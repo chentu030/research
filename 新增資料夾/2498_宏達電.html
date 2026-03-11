@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2498 宏達電 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2498 宏達電 深度研究報告</h1>
+
+<strong>今天日期：2026年03月06日</strong>
+
+<h2>一句話摘要</h2>
+
+<p>宏達電積極轉型XR/AI領域，VIVE Eagle智慧眼鏡與VIVERSE平台為2025/2026年成長核心。儘管2025年因出售XR團隊與處分資產獲得巨額業外收益，使其短期轉虧為盈，但本業仍面臨營收下滑與持續虧損壓力。市場對AI/XR前景雖抱持樂觀態度，法人普遍對其2026年營運持續保持審慎，等待核心業務獲利能力顯著改善。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2498 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2498" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2498" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2498');
+    var obvContainer = document.getElementById('obv-chart-2498');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 49.7, "high": 50.5, "low": 49.2, "close": 49.2}, {"time": "2025-12-05", "open": 49.3, "high": 52.0, "low": 48.85, "close": 50.4}, {"time": "2025-12-08", "open": 51.5, "high": 51.8, "low": 50.2, "close": 51.6}, {"time": "2025-12-09", "open": 51.1, "high": 52.6, "low": 51.0, "close": 51.8}, {"time": "2025-12-10", "open": 52.6, "high": 55.2, "low": 50.7, "close": 50.9}, {"time": "2025-12-11", "open": 51.2, "high": 54.0, "low": 51.0, "close": 52.0}, {"time": "2025-12-12", "open": 52.5, "high": 52.8, "low": 50.5, "close": 51.0}, {"time": "2025-12-15", "open": 50.4, "high": 50.5, "low": 49.7, "close": 50.1}, {"time": "2025-12-16", "open": 49.9, "high": 49.95, "low": 48.55, "close": 49.4}, {"time": "2025-12-17", "open": 49.55, "high": 50.4, "low": 49.45, "close": 49.45}, {"time": "2025-12-18", "open": 49.1, "high": 49.3, "low": 48.5, "close": 48.55}, {"time": "2025-12-19", "open": 49.0, "high": 49.35, "low": 48.6, "close": 49.3}, {"time": "2025-12-22", "open": 49.45, "high": 50.2, "low": 49.45, "close": 49.95}, {"time": "2025-12-23", "open": 50.5, "high": 50.7, "low": 49.75, "close": 49.75}, {"time": "2025-12-24", "open": 50.3, "high": 51.3, "low": 49.55, "close": 50.1}, {"time": "2025-12-26", "open": 51.0, "high": 51.0, "low": 49.3, "close": 49.3}, {"time": "2025-12-29", "open": 49.65, "high": 50.3, "low": 49.3, "close": 49.4}, {"time": "2025-12-30", "open": 50.1, "high": 50.4, "low": 48.75, "close": 49.5}, {"time": "2025-12-31", "open": 49.95, "high": 50.3, "low": 49.2, "close": 49.2}, {"time": "2026-01-02", "open": 49.85, "high": 49.85, "low": 49.15, "close": 49.25}, {"time": "2026-01-05", "open": 49.7, "high": 50.1, "low": 48.95, "close": 49.1}, {"time": "2026-01-06", "open": 49.2, "high": 49.55, "low": 48.7, "close": 48.7}, {"time": "2026-01-07", "open": 48.35, "high": 48.4, "low": 47.6, "close": 47.8}, {"time": "2026-01-08", "open": 47.6, "high": 47.8, "low": 46.3, "close": 46.3}, {"time": "2026-01-09", "open": 46.2, "high": 46.85, "low": 45.75, "close": 45.95}, {"time": "2026-01-12", "open": 46.35, "high": 46.7, "low": 46.15, "close": 46.25}, {"time": "2026-01-13", "open": 46.7, "high": 46.8, "low": 45.0, "close": 45.05}, {"time": "2026-01-14", "open": 45.05, "high": 47.7, "low": 45.05, "close": 46.95}, {"time": "2026-01-15", "open": 47.0, "high": 47.15, "low": 46.0, "close": 46.3}, {"time": "2026-01-16", "open": 46.5, "high": 46.9, "low": 46.15, "close": 46.15}, {"time": "2026-01-19", "open": 46.15, "high": 47.1, "low": 45.75, "close": 46.65}, {"time": "2026-01-20", "open": 46.9, "high": 47.1, "low": 46.35, "close": 46.85}, {"time": "2026-01-21", "open": 46.2, "high": 47.05, "low": 46.05, "close": 46.15}, {"time": "2026-01-22", "open": 46.55, "high": 48.3, "low": 46.4, "close": 47.25}, {"time": "2026-01-23", "open": 47.6, "high": 47.75, "low": 46.3, "close": 46.45}, {"time": "2026-01-26", "open": 46.85, "high": 48.15, "low": 46.65, "close": 47.75}, {"time": "2026-01-27", "open": 47.75, "high": 47.75, "low": 46.25, "close": 46.4}, {"time": "2026-01-28", "open": 46.65, "high": 47.2, "low": 46.25, "close": 46.35}, {"time": "2026-01-29", "open": 46.7, "high": 47.35, "low": 45.35, "close": 45.5}, {"time": "2026-01-30", "open": 45.5, "high": 45.7, "low": 44.5, "close": 44.85}, {"time": "2026-02-02", "open": 44.6, "high": 44.8, "low": 43.55, "close": 43.6}, {"time": "2026-02-03", "open": 44.1, "high": 44.7, "low": 43.45, "close": 44.45}, {"time": "2026-02-04", "open": 44.8, "high": 45.85, "low": 44.35, "close": 45.8}, {"time": "2026-02-05", "open": 45.4, "high": 46.4, "low": 44.8, "close": 44.8}, {"time": "2026-02-06", "open": 44.65, "high": 45.0, "low": 43.4, "close": 44.9}, {"time": "2026-02-09", "open": 45.25, "high": 47.3, "low": 44.85, "close": 44.85}, {"time": "2026-02-10", "open": 45.0, "high": 45.15, "low": 44.05, "close": 44.7}, {"time": "2026-02-11", "open": 44.75, "high": 44.75, "low": 44.15, "close": 44.25}, {"time": "2026-02-23", "open": 44.7, "high": 45.15, "low": 44.25, "close": 45.1}, {"time": "2026-02-24", "open": 45.1, "high": 45.8, "low": 44.9, "close": 45.25}, {"time": "2026-02-25", "open": 45.6, "high": 46.1, "low": 45.05, "close": 45.15}, {"time": "2026-02-26", "open": 45.25, "high": 45.7, "low": 44.95, "close": 45.4}, {"time": "2026-03-02", "open": 42.1, "high": 42.3, "low": 40.0, "close": 40.4}, {"time": "2026-03-03", "open": 44.7, "high": 45.25, "low": 42.85, "close": 43.0}, {"time": "2026-03-04", "open": 42.1, "high": 42.3, "low": 40.0, "close": 40.4}, {"time": "2026-03-05", "open": 41.35, "high": 41.75, "low": 40.65, "close": 41.55}, {"time": "2026-03-06", "open": 41.6, "high": 43.3, "low": 41.45, "close": 42.95}, {"time": "2026-03-09", "open": 40.1, "high": 40.4, "low": 39.25, "close": 40.4}, {"time": "2026-03-10", "open": 41.25, "high": 41.7, "low": 40.35, "close": 41.4}, {"time": "2026-03-11", "open": 42.55, "high": 44.75, "low": 42.55, "close": 43.75}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 8143.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 11750.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 20740.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 17888.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 44625.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 24263.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 16550.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 6918.0, "color": "#26a69a"}, {"time": "2025-12-16", "value": 9557.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 9281.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 5098.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 4368.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 4766.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 4833.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 8384.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 7239.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 4655.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 7607.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 7402.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 4596.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 8665.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 7416.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 11117.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 14990.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 6918.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 4710.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 10097.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 10465.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 8751.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 6075.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 7124.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 5763.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 7213.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 14801.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 7658.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 9918.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 10218.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 5664.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 8411.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 8281.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 8087.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 5219.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 5042.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 5285.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 6172.0, "color": "#ef5350"}, {"time": "2026-02-09", "value": 8743.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 5252.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 3356.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 5073.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 4238.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 4149.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 5651.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 9637.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 8290.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 9637.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 4933.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 7378.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 8284.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 6119.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 12328.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 50.78}, {"time": "2025-12-11", "value": 51.339999999999996}, {"time": "2025-12-12", "value": 51.46}, {"time": "2025-12-15", "value": 51.160000000000004}, {"time": "2025-12-16", "value": 50.68}, {"time": "2025-12-17", "value": 50.39}, {"time": "2025-12-18", "value": 49.7}, {"time": "2025-12-19", "value": 49.36}, {"time": "2025-12-22", "value": 49.33}, {"time": "2025-12-23", "value": 49.4}, {"time": "2025-12-24", "value": 49.53}, {"time": "2025-12-26", "value": 49.68}, {"time": "2025-12-29", "value": 49.7}, {"time": "2025-12-30", "value": 49.61}, {"time": "2025-12-31", "value": 49.5}, {"time": "2026-01-02", "value": 49.33}, {"time": "2026-01-05", "value": 49.29}, {"time": "2026-01-06", "value": 49.15}, {"time": "2026-01-07", "value": 48.81}, {"time": "2026-01-08", "value": 48.230000000000004}, {"time": "2026-01-09", "value": 47.57}, {"time": "2026-01-12", "value": 47.0}, {"time": "2026-01-13", "value": 46.269999999999996}, {"time": "2026-01-14", "value": 46.1}, {"time": "2026-01-15", "value": 46.1}, {"time": "2026-01-16", "value": 46.14}, {"time": "2026-01-19", "value": 46.22}, {"time": "2026-01-20", "value": 46.58}, {"time": "2026-01-21", "value": 46.42}, {"time": "2026-01-22", "value": 46.61}, {"time": "2026-01-23", "value": 46.67}, {"time": "2026-01-26", "value": 46.89}, {"time": "2026-01-27", "value": 46.8}, {"time": "2026-01-28", "value": 46.839999999999996}, {"time": "2026-01-29", "value": 46.489999999999995}, {"time": "2026-01-30", "value": 46.17}, {"time": "2026-02-02", "value": 45.339999999999996}, {"time": "2026-02-03", "value": 44.95}, {"time": "2026-02-04", "value": 44.839999999999996}, {"time": "2026-02-05", "value": 44.7}, {"time": "2026-02-06", "value": 44.71}, {"time": "2026-02-09", "value": 44.96}, {"time": "2026-02-10", "value": 45.010000000000005}, {"time": "2026-02-11", "value": 44.7}, {"time": "2026-02-23", "value": 44.760000000000005}, {"time": "2026-02-24", "value": 44.83}, {"time": "2026-02-25", "value": 44.89}, {"time": "2026-02-26", "value": 45.03}, {"time": "2026-03-02", "value": 44.260000000000005}, {"time": "2026-03-03", "value": 43.839999999999996}, {"time": "2026-03-04", "value": 42.87}, {"time": "2026-03-05", "value": 42.15}, {"time": "2026-03-06", "value": 41.660000000000004}, {"time": "2026-03-09", "value": 41.660000000000004}, {"time": "2026-03-10", "value": 41.339999999999996}, {"time": "2026-03-11", "value": 42.010000000000005}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 50.585}, {"time": "2025-12-18", "value": 50.519999999999996}, {"time": "2025-12-19", "value": 50.410000000000004}, {"time": "2025-12-22", "value": 50.245}, {"time": "2025-12-23", "value": 50.04}, {"time": "2025-12-24", "value": 49.96}, {"time": "2025-12-26", "value": 49.69}, {"time": "2025-12-29", "value": 49.53}, {"time": "2025-12-30", "value": 49.47}, {"time": "2025-12-31", "value": 49.45}, {"time": "2026-01-02", "value": 49.43}, {"time": "2026-01-05", "value": 49.485}, {"time": "2026-01-06", "value": 49.425}, {"time": "2026-01-07", "value": 49.21}, {"time": "2026-01-08", "value": 48.864999999999995}, {"time": "2026-01-09", "value": 48.45}, {"time": "2026-01-12", "value": 48.144999999999996}, {"time": "2026-01-13", "value": 47.71}, {"time": "2026-01-14", "value": 47.455}, {"time": "2026-01-15", "value": 47.165}, {"time": "2026-01-16", "value": 46.855000000000004}, {"time": "2026-01-19", "value": 46.61}, {"time": "2026-01-20", "value": 46.425}, {"time": "2026-01-21", "value": 46.260000000000005}, {"time": "2026-01-22", "value": 46.355000000000004}, {"time": "2026-01-23", "value": 46.405}, {"time": "2026-01-26", "value": 46.555}, {"time": "2026-01-27", "value": 46.69}, {"time": "2026-01-28", "value": 46.63}, {"time": "2026-01-29", "value": 46.55}, {"time": "2026-01-30", "value": 46.42}, {"time": "2026-02-02", "value": 46.114999999999995}, {"time": "2026-02-03", "value": 45.875}, {"time": "2026-02-04", "value": 45.839999999999996}, {"time": "2026-02-05", "value": 45.595}, {"time": "2026-02-06", "value": 45.44}, {"time": "2026-02-09", "value": 45.15}, {"time": "2026-02-10", "value": 44.980000000000004}, {"time": "2026-02-11", "value": 44.769999999999996}, {"time": "2026-02-23", "value": 44.730000000000004}, {"time": "2026-02-24", "value": 44.769999999999996}, {"time": "2026-02-25", "value": 44.925}, {"time": "2026-02-26", "value": 45.019999999999996}, {"time": "2026-03-02", "value": 44.480000000000004}, {"time": "2026-03-03", "value": 44.3}, {"time": "2026-03-04", "value": 43.85}, {"time": "2026-03-05", "value": 43.519999999999996}, {"time": "2026-03-06", "value": 43.345}, {"time": "2026-03-09", "value": 42.96}, {"time": "2026-03-10", "value": 42.589999999999996}, {"time": "2026-03-11", "value": 42.44}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 50.0075}, {"time": "2026-01-05", "value": 50.0025}, {"time": "2026-01-06", "value": 49.917500000000004}, {"time": "2026-01-07", "value": 49.7275}, {"time": "2026-01-08", "value": 49.4525}, {"time": "2026-01-09", "value": 49.205}, {"time": "2026-01-12", "value": 48.917500000000004}, {"time": "2026-01-13", "value": 48.62}, {"time": "2026-01-14", "value": 48.4625}, {"time": "2026-01-15", "value": 48.3075}, {"time": "2026-01-16", "value": 48.1425}, {"time": "2026-01-19", "value": 48.0475}, {"time": "2026-01-20", "value": 47.925}, {"time": "2026-01-21", "value": 47.735}, {"time": "2026-01-22", "value": 47.61}, {"time": "2026-01-23", "value": 47.427499999999995}, {"time": "2026-01-26", "value": 47.35}, {"time": "2026-01-27", "value": 47.2}, {"time": "2026-01-28", "value": 47.042500000000004}, {"time": "2026-01-29", "value": 46.8575}, {"time": "2026-01-30", "value": 46.6375}, {"time": "2026-02-02", "value": 46.3625}, {"time": "2026-02-03", "value": 46.15}, {"time": "2026-02-04", "value": 46.05}, {"time": "2026-02-05", "value": 45.975}, {"time": "2026-02-06", "value": 45.9225}, {"time": "2026-02-09", "value": 45.8525}, {"time": "2026-02-10", "value": 45.835}, {"time": "2026-02-11", "value": 45.7}, {"time": "2026-02-23", "value": 45.64}, {"time": "2026-02-24", "value": 45.595}, {"time": "2026-02-25", "value": 45.519999999999996}, {"time": "2026-02-26", "value": 45.447500000000005}, {"time": "2026-03-02", "value": 45.160000000000004}, {"time": "2026-03-03", "value": 44.947500000000005}, {"time": "2026-03-04", "value": 44.644999999999996}, {"time": "2026-03-05", "value": 44.335}, {"time": "2026-03-06", "value": 44.1625}, {"time": "2026-03-09", "value": 43.864999999999995}, {"time": "2026-03-10", "value": 43.660000000000004}, {"time": "2026-03-11", "value": 43.605000000000004}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 11750.0}, {"time": "2025-12-08", "value": 32490.0}, {"time": "2025-12-09", "value": 50378.0}, {"time": "2025-12-10", "value": 5753.0}, {"time": "2025-12-11", "value": 30016.0}, {"time": "2025-12-12", "value": 13466.0}, {"time": "2025-12-15", "value": 6548.0}, {"time": "2025-12-16", "value": -3009.0}, {"time": "2025-12-17", "value": 6272.0}, {"time": "2025-12-18", "value": 1174.0}, {"time": "2025-12-19", "value": 5542.0}, {"time": "2025-12-22", "value": 10308.0}, {"time": "2025-12-23", "value": 5475.0}, {"time": "2025-12-24", "value": 13859.0}, {"time": "2025-12-26", "value": 6620.0}, {"time": "2025-12-29", "value": 11275.0}, {"time": "2025-12-30", "value": 18882.0}, {"time": "2025-12-31", "value": 11480.0}, {"time": "2026-01-02", "value": 16076.0}, {"time": "2026-01-05", "value": 7411.0}, {"time": "2026-01-06", "value": -5.0}, {"time": "2026-01-07", "value": -11122.0}, {"time": "2026-01-08", "value": -26112.0}, {"time": "2026-01-09", "value": -33030.0}, {"time": "2026-01-12", "value": -28320.0}, {"time": "2026-01-13", "value": -38417.0}, {"time": "2026-01-14", "value": -27952.0}, {"time": "2026-01-15", "value": -36703.0}, {"time": "2026-01-16", "value": -42778.0}, {"time": "2026-01-19", "value": -35654.0}, {"time": "2026-01-20", "value": -29891.0}, {"time": "2026-01-21", "value": -37104.0}, {"time": "2026-01-22", "value": -22303.0}, {"time": "2026-01-23", "value": -29961.0}, {"time": "2026-01-26", "value": -20043.0}, {"time": "2026-01-27", "value": -30261.0}, {"time": "2026-01-28", "value": -35925.0}, {"time": "2026-01-29", "value": -44336.0}, {"time": "2026-01-30", "value": -52617.0}, {"time": "2026-02-02", "value": -60704.0}, {"time": "2026-02-03", "value": -55485.0}, {"time": "2026-02-04", "value": -50443.0}, {"time": "2026-02-05", "value": -55728.0}, {"time": "2026-02-06", "value": -49556.0}, {"time": "2026-02-09", "value": -58299.0}, {"time": "2026-02-10", "value": -63551.0}, {"time": "2026-02-11", "value": -66907.0}, {"time": "2026-02-23", "value": -61834.0}, {"time": "2026-02-24", "value": -57596.0}, {"time": "2026-02-25", "value": -61745.0}, {"time": "2026-02-26", "value": -56094.0}, {"time": "2026-03-02", "value": -65731.0}, {"time": "2026-03-03", "value": -57441.0}, {"time": "2026-03-04", "value": -67078.0}, {"time": "2026-03-05", "value": -62145.0}, {"time": "2026-03-06", "value": -54767.0}, {"time": "2026-03-09", "value": -63051.0}, {"time": "2026-03-10", "value": -56932.0}, {"time": "2026-03-11", "value": -44604.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>宏達電（HTC）主要從事智慧型手機與虛擬實境（VR）/延展實境（XR）平台及生態系統的設計、製造與銷售業務。</p>
+
+<h3>核心產品線與服務</h3>
+
+<ul><li><strong>虛擬實境（VR）/延展實境（XR）設備：</strong> VIVE Eagle（AI智慧眼鏡）、VIVE Focus系列（VR解決方案）、VIVE XR Elite（可轉換一體式XR頭戴裝置）、VIVE Pro系列（PC VR）、VIVE Flow（沉浸式VR眼鏡）。</li>
+<li><strong>軟體與平台：</strong> VIVERSE（全球首創開放式3D內容平台）、以及用於企業專網和邊緣運算的G REIGNS團隊服務。</li>
+<li><strong>行動解決方案：</strong> 智慧型手機、區塊鏈手機、行動電話配件、5G網路相關產品。</li>
+<li><strong>其他：</strong> 醫療保健VR產品。</li>
+</ul>
+<h3>營收結構概況 (2024年)</h3>
+
+<p>根據2024年數據，虛擬實境設備和智慧型行動裝置為宏達電表現最佳的業務區塊。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務區塊</th><th>營收貢獻 (新台幣億元)</th><th>佔年度總營收比例</th></tr></thead><tbody>
+<tr><td>VR設備與智慧行動裝置</td><td>27.1</td><td>87.99%</td></tr>
+<tr><td>其他業務</td><td>3.7</td><td>12.01%</td></tr>
+<tr><td><strong>年度總營收</strong></td><td><strong>30.8</strong></td><td><strong>100%</strong></td></tr>
+</tbody></table></div>
+
+<em>註：目前未有2025-2026年間各業務精確營收佔比細分數據。</em>
+
+<h3>製造基地與分銷</h3>
+
+<p>宏達電總部和研發中心位於台灣新北市。VIVE Eagle AI智慧眼鏡為「台灣製造並全球首發」。公司產品分銷至國內市場以及歐洲、美洲和亞洲等海外市場。公司曾於2025年處分桃園廠房與土地。</p>
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>AI/XR 先發優勢與研發實力：</strong> 作為VR/XR領域的早期參與者，宏達電累積了深厚的技術與專利基礎，特別是VIVE Eagle AI智慧眼鏡的推出，顯示其在AI與穿戴裝置整合方面的敏銳度。</li>
+<li><strong>VIVERSE 生態系佈局：</strong> VIVERSE作為開放式3D內容平台，透過支援主流遊戲引擎、無程式碼工具與AI，積極建構元宇宙生態圈，月活躍使用者已突破百萬，有望從硬體銷售轉向內容與服務收益。</li>
+<li><strong>企業級解決方案市場聚焦：</strong> G REIGNS團隊服務專注於5G專網與邊緣運算，並成功協助日產汽車等導入企業專網，顯示其在B2B市場的競爭力。VR訓練與模擬、VR展覽等企業級應用被視為高毛利成長動能。</li>
+<li><strong>IP 與專利資產：</strong> 儘管部分XR研發團隊與IP授權予Google，宏達電仍保有大量XR相關智慧財產權，在持續演進的AI/XR產業中仍具一定價值。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢 (2025年8月 – 2026年1月)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>2026/01</td><td>1.61</td><td>-44.91%</td><td>0.04%</td></tr>
+<tr><td>2025/12</td><td>2.92</td><td>-2.12%</td><td>-26.22%</td></tr>
+<tr><td>2025/11</td><td>2.98</td><td>56.28%</td><td>-8.68%</td></tr>
+<tr><td>2025/10</td><td>1.91</td><td>-36.87%</td><td>-14.58%</td></tr>
+<tr><td>2025/09</td><td>3.02</td><td>13.35%</td><td>-10.52%</td></tr>
+<tr><td>2025/08</td><td>2.67</td><td>80.85%</td><td>31.00%</td></tr>
+</tbody></table></div>
+
+<h3>季度數據 (2025年第三季)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2025年第三季數據</th><th>備註</th></tr></thead><tbody>
+<tr><td>季營收</td><td>新台幣7.2億元</td><td>年減7.43%</td></tr>
+<tr><td>毛利率</td><td>35.2%</td><td></td></tr>
+<tr><td>營業淨損</td><td>新台幣8.5億元</td><td></td></tr>
+<tr><td>營業利益率</td><td>-119.2%</td><td>本業虧損嚴重</td></tr>
+<tr><td>每股盈餘(EPS)</td><td>新台幣3.88元</td><td>受惠於處分廠房與土地的一次性利益</td></tr>
+</tbody></table></div>
+
+<h3>年度營收與EPS趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2024年 (實際)</th><th>2025年 (實際/累計)</th><th>2026年 (預估)</th></tr></thead><tbody>
+<tr><td>年度營收</td><td>30.81億元</td><td>29億元</td><td>-</td></tr>
+<tr><td>年增率</td><td>-30.26%</td><td>-5.8%</td><td>-</td></tr>
+<tr><td>年度EPS</td><td>-4.11元</td><td>6.85元 (全年預估)</td><td>-3.86元</td></tr>
+<tr><td>累計前三季EPS</td><td>-</td><td>7.88元</td><td>-</td></tr>
+</tbody></table></div>
+
+<em>註：2025年全年EPS預估來自官股投顧；2026年EPS預估來自官股投顧。2025年實際營收為全年累計。</em>
+
+<h2>法說會重點</h2>
+
+<strong>最近一次法說會日期：</strong> 2025年12月30日 (2025年第三季法說會)
+
+<h3>管理層發言與產品線展望</h3>
+
+<ul><li><strong>VIVE Eagle AI智慧眼鏡：</strong> 於2025年8月中旬上市，搭載Google Gemini與OpenAI GPT大模型，售價520美元。預購反應熱烈，宏達電看好VIVE Eagle將是HTC史上銷量最大的VIVE裝置，短期內銷售可達5位數，並預期10年內台灣智慧眼鏡總量挑戰百萬支。已拓展香港市場，並持續擴大台灣通路佈局至300多家體驗據點。</li>
+<li><strong>XR軟體專案：</strong> 預期與AI眼鏡共同帶動2025年第四季營收季增173%，達到新台幣19.55億元。</li>
+<li><strong>VIVERSE平台：</strong> 月活躍使用者已突破百萬。作為元宇宙中心，採開放式架構，全面支援主流遊戲引擎，並透過無程式碼工具與AI推動直覺式創作。</li>
+<li><strong>G-REIGNS 5G專網方案：</strong> 團隊已協助日產汽車與多家智慧工廠導入企業專網與邊緣運算，提升效率與安全性。</li>
+<li><strong>長期營運展望：</strong> 董事長王雪紅在2025年6月股東會上表示，2025年公司有望賺錢（主要受業外挹注），並考慮於2026年配息及實施庫藏股。她強調AI是宏達電下一階段的核心動能，需大量投資。</li>
+</ul>
+<h3>產能利用率與資本支出</h3>
+
+<ul><li>未找到2025-2026年具體的產能利用率與資本支出金額資料。王雪紅曾表示AI（特別是LLM）投資規模達千億級，宏達電正處於起飛階段，需要大量投資。</li>
+</ul>
+<h3>下季/下半年 guidance (管理層/法人預估)</h3>
+
+<ul><li><strong>22025年第四季展望：</strong> 受AI眼鏡及XR軟體專案帶動，營收預期季增173%至新台幣19.55億元。</li>
+<li><strong>2026年營運：</strong> 宏達電董事長王雪紅表示2026年將考慮配息及實施庫藏股。美系外資曾預估2026年獲利有機會達3.06元（⚠️此為2024年初預估，官股投顧最新預估為虧損）。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<h3>目標價與評等</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期</th><th>備註</th></tr></thead><tbody>
+<tr><td>Goldman Sachs</td><td>35.20</td><td>賣出</td><td>2025年06月02日</td><td></td></tr>
+<tr><td>Goldman Sachs</td><td>40.60</td><td>調降</td><td>2025年03月25日</td><td>評級從「買進」下調</td></tr>
+<tr><td>美系外資</td><td>40.30</td><td>賣出</td><td>2025年11月17日</td><td>重申「賣出」評等，12個月平均目標價40.3元</td></tr>
+</tbody></table></div>
+
+<em>註：美系外資於2024年01月08日曾給出目標價55元，評等「中立」，此為過時資料，不列入主要參考。</em>
+
+<h3>2025-2026年EPS預估</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>來源</th><th>2025年EPS預估</th><th>2026年EPS預估</th><th>日期</th><th>備註</th></tr></thead><tbody>
+<tr><td>官股投顧</td><td>6.85元</td><td>-3.86元</td><td>2026年01月07日</td><td>預期2026年本業將再度轉虧</td></tr>
+<tr><td>美系外資</td><td>1.8元</td><td>3.06元</td><td>2024年01月08日</td><td>⚠️過時預估，僅供參考</td></tr>
+</tbody></table></div>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢 (2024年Q4 - 2025年Q3)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>營收 (新台幣億元)</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利 (新台幣億元)</th><th>EPS (新台幣元)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2025年Q3</td><td>7.16</td><td>35.2%</td><td>-119.2%</td><td>32.43</td><td>3.88</td><td>受處分廠房土地利益挹注</td></tr>
+<tr><td>2025年Q2</td><td>7.0</td><td>36.5%</td><td>-120.0%</td><td>-7.17</td><td>-0.86</td><td>營業淨損8.4億元</td></tr>
+<tr><td>2025年Q1</td><td>9.6</td><td>37.6%</td><td>-</td><td>40.5</td><td>4.86</td><td>受與Google協議收益挹注，終結長期虧損</td></tr>
+<tr><td>2024年Q4</td><td>6.84</td><td>38.3%</td><td>-</td><td>-8.7</td><td>-1.05</td><td></td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化的原因分析：</strong>
+<p>宏達電的利潤率呈現明顯受業外收益主導的特徵。2025年第一季因與Google的XR技術合作協議獲得2.5億美元（約新台幣76億元），使其稅後純益達40.5億元，EPS 4.86元，成功終結連續27季虧損。2025年第三季則受惠於處分桃園廠房與土地予和碩（4938），認列約新台幣39億元處分利益，使得單季稅後淨利達32.43億元，EPS 3.88元。</p>
+
+<p>然而，公司的本業持續虧損，營業利益率維持負值且規模龐大（例如2025年第三季為-119.2%），顯示核心營運業務尚未能產生穩定獲利。毛利率雖維持在35%以上，但未能彌補龐大的營業費用。</p>
+
+<h3>存貨與營運</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數 (天)</th><th>應收帳款週轉天數 (天)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2025年Q3</td><td>103.0</td><td>62.06</td><td>存貨去化加速，應收帳款收現效率改善</td></tr>
+<tr><td>2025年Q2</td><td>112.09</td><td>70.45</td><td></td></tr>
+<tr><td>2025年Q1</td><td>148.61</td><td>67.25</td><td></td></tr>
+<tr><td>2024年Q4</td><td>158.73</td><td>50.78</td><td></td></tr>
+</tbody></table></div>
+
+<strong>存貨與應收帳款分析：</strong>
+<p>宏達電的存貨週轉天數自2024年第四季的158.73天下降至2025年第三季的103.0天，顯示存貨去化速度加快，庫存管理有所改善，目前未見異常堆積現象。應收帳款週轉天數則在過去一年內波動，2025年第三季略有改善。</p>
+
+<h3>資本支出與折舊攤銷</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>折舊 (千元)</th><th>攤銷 (千元)</th></tr></thead><tbody>
+<tr><td>2025年Q3</td><td>48,203</td><td>4,367</td></tr>
+<tr><td>2025年Q2</td><td>56,000</td><td>7,000</td></tr>
+<tr><td>2025年Q1</td><td>57,000</td><td>2,000</td></tr>
+<tr><td>2024年Q4</td><td>57,000</td><td>5,000</td></tr>
+</tbody></table></div>
+
+<strong>趨勢：</strong> 近幾季折舊和攤銷金額呈現相對穩定，略有波動。公司曾表示AI為下一階段核心動能，需要大量投資，但未公布2025-2026年具體資本支出計畫與預計新增產能。
+
+<h3>自由現金流量趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>自由現金流 (千元)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2025年Q3</td><td>-2,978,800</td><td>本業現金流出加劇，業外收入雖高，但未能持續改善自由現金流</td></tr>
+<tr><td>2025年Q2</td><td>-2,150,000</td><td></td></tr>
+<tr><td>2025年Q1</td><td>16,940,000</td><td>受與Google協議收益大幅挹注</td></tr>
+<tr><td>2024年Q4</td><td>-2,150,000</td><td></td></tr>
+</tbody></table></div>
+
+<strong>趨勢：</strong> 宏達電的自由現金流量在2025年第一季因業外收益而大幅轉正，但之後的第二季和第三季又轉為負值，顯示其本業的現金產生能力仍有待加強。
+
+<h3>其他財報重點</h3>
+
+<ul><li><strong>負債比率：</strong> 2025年第一季負債對淨值比率為96.74%。</li>
+<li><strong>業外收支佔稅前淨利比：</strong> 2025年第三季為124.60%，2025年第一季為118.55%。這顯示業外收支對宏達電的稅前淨利影響巨大，獲利主要仰賴非經常性收益。</li>
+</ul>
+<h2>股權異動</h2>
+
+<ul><li><strong>董監事/大股東申報轉讓：</strong> 未找到2024年以後宏達電董監事/大股東有新的申報轉讓紀錄。</li>
+<li><strong>庫藏股買回紀錄：</strong> 宏達電在2025年6月股東會上，董事長王雪紅表示考量資金仍須用於營運與研發，董事會目前不支持啟動庫藏股計畫，但未來可再評估。</li>
+<li><strong>可轉換公司債（CB）：</strong> 未找到2024年以後宏達電有發行可轉換公司債的紀錄。</li>
+<li><strong>現金增資或減資計畫：</strong></li>
+</ul>    *   宏達電子公司宏達通訊有限公司於2025年1月20日公告現金減資3,000萬美元（約新台幣9.8億元），減資比率約23.5%。
+<p>*   子公司HTC Holding B.V.於2025年8月26日公告現金減資約歐元1,300萬元，減資比率10.96%。</p>
+<p>*   兩項減資目的均為配合集團資金規劃。</p>
+<ul><li><strong>股利政策：</strong> 宏達電自2019年後，2020年至2024年均未發放股利。王雪紅在2025年股東會上表示，若2025年有盈餘，2026年股東會就有機會發放股利。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>市場規模與CAGR</h3>
+
+<li><strong>虛擬實境 (VR) / 延展實境 (XR) 市場：</strong></li>
+<p>*   <strong>VR 市場規模：</strong> 2025年預計為208.3億美元，2026年成長至267.1億美元，2034年達1,713.3億美元，2026-2034年CAGR為26.20%。</p>
+<p>*   <strong>XR 市場規模：</strong> 2025年估計為2,535億美元，2026年成長至3,460.9億美元，2034年達2.12781兆美元，2026-2034年CAGR為25.5%。</p>
+<li><strong>智慧型手機市場：</strong></li>
+<p>*   <strong>市場規模：</strong> 2025年預計為6,092億美元，2026年為6,567億美元，2035年達1.19兆美元，2026-2035年CAGR為7.8%。</p>
+<p>*   <strong>出貨量：</strong> Omdia預估2025年全球出貨量成長2%至12.5億支。但Counterpoint Research和TrendForce警告，因記憶體短缺和漲價，2026年全球智慧型手機出貨量將年減12.4%，跌破11億支。</p>
+
+<h3>供需狀況</h3>
+
+<ul><li><strong>VR/XR 市場：</strong> 目前呈現<strong>供大於求</strong>趨勢。2025年第三季全球VR頭戴裝置出貨量年減17%，顯示需求疲軟，且缺乏殺手級應用。零組件短缺和新技術開發難度也是限制成長因素。</li>
+<li><strong>智慧型手機市場：</strong> 2026年面臨嚴峻的「<strong>供不應求</strong>」挑戰，主因記憶體（LPDDR4/LPDDR5）供應嚴重短缺且價格暴漲，預計2026年第二季行動記憶體價格將攀升至2025年第三季的近三倍，導致手機廠商延後新機或調漲價格10%-20%。</li>
+</ul>
+<h3>產業的平均毛利率水準</h3>
+
+<ul><li><strong>VR/XR 產業：</strong> 未找到2025-2026年公開平均毛利率。宏達電預期其高附加價值的訓練與模擬、遊戲與電競、VR展覽等相關產品毛利率可超過四成。</li>
+<li><strong>智慧型手機產業：</strong> 一家主要智慧型手機製造商的毛利率從2024年第一季的14.8%下降至2025年第一季的12.4%，主要因核心零組件價格上漲。</li>
+</ul>
+<h3>競爭格局</h3>
+
+<strong>XR（AR與VR頭戴裝置）全球市場市佔率 (2024年第二季度出貨量基準)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>市佔率</th></tr></thead><tbody>
+<tr><td>Meta</td><td>74%</td></tr>
+<tr><td>Pico</td><td>8%</td></tr>
+<tr><td>DPVR</td><td>4%</td></tr>
+<tr><td>Apple</td><td>3%</td></tr>
+<tr><td>Sony</td><td>3%</td></tr>
+<tr><td>其他</td><td>8%</td></tr>
+</tbody></table></div>
+
+<strong>智慧型手機全球市場主要品牌 (2025年出貨量預期)</strong>
+
+<ul><li>Apple (預計連續三年蟬聯全球最大智慧型手機廠商)</li>
+<li>Samsung</li>
+<li>小米</li>
+<li>Vivo</li>
+<li>OPPO</li>
+</ul>
+<h3>宏達電 vs 主要競爭對手的具體比較</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>特性</th><th>宏達電 (HTC)</th><th>Meta (Quest 系列)</th><th>Apple (Vision Pro)</th><th>Sony (PlayStation VR2)</th><th>Pico</th></tr></thead><tbody>
+<tr><td><strong>技術與產品</strong></td><td><strong>VR/XR設備：</strong> VIVE Eagle (AI智慧眼鏡), VIVE XR Elite (可轉換XR頭戴), VIVE Focus/Pro/Flow系列。<strong>軟體/平台：</strong> VIVERSE (開放式3D內容平台), G REIGNS (5G專網/邊緣運算)。<strong>手機：</strong> 智慧型手機、區塊鏈手機。強調AI與XR結合，技術較為多元。</td><td><strong>VR設備：</strong> Quest系列 (Quest 3)。主導消費級VR市場，在遊戲應用方面有強大生態。</td><td><strong>MR設備：</strong> Vision Pro。高規格混合實境技術，視訊穿透(VST)技術領先，但定價高昂。</td><td><strong>VR設備：</strong> PlayStation VR2。專為PS5遊戲機設計，提供高品質VR遊戲體驗。</td><td><strong>XR設備：</strong> 在XR市場佔一席之地，在中國市場表現較好。</td></tr>
+<tr><td><strong>客戶與市場</strong></td><td><strong>企業級解決方案：</strong> 訓練與模擬、遊戲與電競、VR展覽、工業現場應用 (G REIGNS)。<strong>消費級：</strong> VIVE Eagle（台灣大哥大綁約、擴大體驗據點）。著重於特定垂直市場應用及B2B市場，也佈局AI眼鏡消費市場。與Google合作開發XR生態圈。</td><td><strong>消費級市場：</strong> 高市佔率，但受市場需求放緩影響。</td><td><strong>法人研究開發/高階用戶：</strong> 2024年出貨量主要限於此用途，普及率有限。正在規劃2026年後推出更平價機種。</td><td><strong>遊戲玩家：</strong> 主要面向PS5遊戲玩家，出貨量2024年有所減少。</td><td><strong>中國市場/線下娛樂：</strong> 在中國市場及特定線下娛樂(LBE)專案方面表現較好。</td></tr>
+<tr><td><strong>價格</strong></td><td>銷售高附加價值產品與服務，VIVE Eagle定價520美元。</td><td>相對親民的消費級定價，有助於其在消費市場普及。</td><td>極高價位，限制了其在主流消費市場的滲透。</td><td>捆綁PS5，遊戲配件。</td><td></td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢</h3>
+
+<li><strong>人工智慧 (AI) 深度整合：</strong></li>
+<p>*   <strong>影響：</strong> AI與XR融合加速，生成式AI功能被導入手機與XR裝置。AI智慧眼鏡成為新焦點，AI能個性化訓練內容，提供即時回饋，提升可衡量效益。</p>
+<p>*   <strong>具體影響：</strong> 宏達電VIVE Eagle AI智慧眼鏡直接抓住此趨勢，其G REIGNS團隊的邊緣運算應用也與AI部署密切相關。</p>
+<li><strong>混合實境 (MR) 成為主流，VR/AR融合發展：</strong></li>
+<p>*   <strong>影響：</strong> MR技術模糊VR和AR界限，預計VR市場未來將歸類為MR。新一代XR頭戴裝置透過視訊穿透(VST)技術，結合真實與虛擬影像，提供更沉浸和互動的體驗，設備朝輕量化、高解析度、無線化發展。</p>
+<p>*   <strong>具體影響：</strong> Apple Vision Pro等產品推動MR市場熱度，宏達電的VIVE XR Elite也具備MR功能，需持續創新以應對市場轉變。</p>
+<li><strong>5G與邊緣運算賦能企業級應用：</strong></li>
+<p>*   <strong>影響：</strong> 5G低延遲、高頻寬特性及邊緣運算，解決XR應用技術瓶頸，使得多使用者VR協作、工業現場即時可視化等企業級應用成為可能。XR與數位孿生、工業4.0整合，轉變為提高生產力的工具。</p>
+<p>*   <strong>具體影響：</strong> 宏達電的G REIGNS團隊服務直接受惠於此趨勢，深耕企業專網與邊緣運算解決方案。</p>
+
+<h3>對宏達電而言的具體機會和威脅</h3>
+
+<strong>機會：</strong>
+
+<ul><li><strong>深耕企業級市場：</strong> 訓練與模擬、VR展覽等企業級應用毛利率較高且需求成長，G REIGNS服務亦瞄準此領域。</li>
+<li><strong>AI 技術整合：</strong> VIVE Eagle AI智慧眼鏡和G REIGNS邊緣運算與AI趨勢高度契合，有望抓住AI+XR市場機會。</li>
+<li><strong>軟體與平台發展：</strong> VIVERSE平台發展有望提升毛利率，降低對單一硬體銷售依賴，建立生態系價值。</li>
+<li><strong>與Google合作：</strong> 借助Google平台影響力，擴大XR生態系市場份額。</li>
+</ul>
+<strong>威脅：</strong>
+
+<ul><li><strong>巨頭競爭：</strong> Meta、Apple等科技巨頭資源雄厚，對宏達電構成巨大競爭壓力。</li>
+<li><strong>消費者市場挑戰：</strong> XR設備仍缺乏「殺手級應用」，消費者市場普及速度不及預期。</li>
+<li><strong>零組件成本與供應：</strong> 記憶體等關鍵零組件短缺與漲價可能影響XR設備成本與供應鏈穩定性。</li>
+<li><strong>技術研發挑戰：</strong> 高階XR設備技術難度高，需持續投入大量研發費用。</li>
+<li><strong>智慧型手機業務：</strong> 市場競爭激烈且2026年面臨記憶體短缺壓力，可能影響其行動解決方案業務。</li>
+</ul>
+<h3>相關投資題材的具體連結</h3>
+
+<ul><li><strong>人工智慧 (AI)：</strong> 宏達電VIVE Eagle智慧眼鏡強調AI功能，G REIGNS的邊緣運算也與AI應用部署相關。整個XR產業正將AI視為驅動成長關鍵技術，宏達電具明確AI投資題材連結。</li>
+<li><strong>HBM (高頻寬記憶體)：</strong> HBM主要用於AI伺服器，但其需求飆升導致晶圓產能排擠效應，間接造成手機記憶體（LPDDR4/5）短缺和價格上漲，進而影響智慧型手機和XR設備的生產成本，對宏達電營運產生間接負面影響。</li>
+<li><strong>電動車：</strong> 目前未找到宏達電與電動車產業有直接的產品或業務連結。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<h3>近期新聞與事件 (2025年12月6日至今)</h3>
+
+<ul><li><strong>2026/03/04：</strong> 宏達電旗下HTC G REIGNS與光寶科技在MWC2026展示德國5G專網商用成果，整合XR與邊緣運算技術於企業沉浸式應用。</li>
+<li><strong>2026/03/03：</strong> VIVERSE推出全新合作夥伴計畫，為內容創作者提供以「有效觀看」與「互動時間」為基礎的績效型收益機制。</li>
+<li><strong>2026/01/06：</strong> 宏達電公布2025年12月營收為新台幣2.92億元 (月減2.1%, 年減26.2%)；累計2025年全年營收29億元 (年減5.8%)，創上市以來新低。</li>
+<li><strong>2026/01/06：</strong> VIVE Eagle AI智慧眼鏡拓展香港市場（攜手1O1O、csl、SmarTone及溥儀眼鏡），並全面升級台灣實體體驗門市，與台灣大哥大、小林眼鏡合作，全台體驗據點已突破300家。</li>
+</ul>
+<h3>股東會/法說會重要決議</h3>
+
+<ul><li><strong>2025/12/30 (2025年Q3法說會)：</strong> 宏達電公布Q3稅後淨利32.4億元，EPS 3.88元，主要受惠於業外處分利益，但核心營運收入持續下滑，毛利率承壓，營業活動現金流為負。</li>
+<li><strong>2025/08/30 (2025年Q2法說會)：</strong> 公布Q2營業收入新台幣7億元，EPS為-0.86元。上半年EPS達4元，主要受業外收入（Google交易）貢獻。</li>
+<li><strong>2025/06/20 (股東會)：</strong> 董事長王雪紅表示，2025年公司會賺錢，但因仍需大量投資，2026年將考慮配息及實施庫藏股。與Google簽署的2.5億美元協議已於2025年Q1完成，助其終結連續七年虧損。</li>
+</ul>
+<h3>內部人買賣超、庫藏股、股利政策</h3>
+
+<ul><li><strong>庫藏股：</strong> 王雪紅在2025年股東會上表示，董事會目前不支持啟動庫藏股計畫，未來可再評估。</li>
+<li><strong>股利政策：</strong> 2019年後未發股利，王雪紅表示2025年若有盈餘，2026年股東會有機會發放。</li>
+<li><strong>內部人買賣超：</strong> 未找到2025-2026年最新內部人買賣超具體實施資料。</li>
+</ul>
+<h3>外資/投信近期買賣超張數 (近 3 個月)</h3>
+
+<ul><li><strong>2026/03/04：</strong> 外資買賣超 -79 張，投信 0 張，自營商 -327 張。</li>
+<li><strong>2026/03/03：</strong> 外資買賣超 -2,865 張，投信 0 張，自營商 -276 張。</li>
+</ul><em>   </em>註：未提供2025年12月至2026年2月完整的月度外資/投信買賣超具體張數。*
+
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能重點</th><th>具體事件與量化目標</th></tr></thead><tbody>
+<tr><td><strong>2025年Q1</strong></td><td><strong>業外收益挹注</strong></td><td>與Google的XR研發團隊與IP非專屬授權協議完成，獲得2.5億美元（約新台幣76億元），帶動單季EPS 4.86元，終結連續虧損。</td></tr>
+<tr><td><strong>2025年Q3</strong></td><td><strong>資產活化，業外收益</strong></td><td>處分桃園廠房與土地予和碩（4938），認列約新台幣39億元處分利益，帶動單季EPS 3.88元。</td></tr>
+<tr><td><strong>2025年06月</strong></td><td><strong>管理層信心喊話，AI長期投資</strong></td><td>董事長王雪紅在股東會表示2025年會賺錢，2026年考慮配息與庫藏股，強調AI是下一階段核心動能，需大量投資（LLM投資規模達千億級），是很好時機點。</td></tr>
+<tr><td><strong>2025年08月中旬</strong></td><td><strong>新產品上市 (AI智慧眼鏡)</strong></td><td>VIVE Eagle AI智慧眼鏡上市，搭載Google Gemini與OpenAI GPT大模型。</td></tr>
+<tr><td><strong>2025年08月30日</strong></td><td><strong>新市場拓展 (醫療健康、LBE)</strong></td><td>與美國AT&amp;T、Mynd Immersive及Select Rehabilitation合作，擴大全美數位健康照護版圖，將沉浸式XR治療平台導入超過150間高齡照護機構。 VIVERSE與日本NTT Communications簽署合作備忘錄，推動大場域沉浸式實景娛樂（LBE）於日本應用。</td></tr>
+<tr><td><strong>2025年09月10日</strong></td><td><strong>市場需求預期 (AR/VR裝置出貨量)</strong></td><td>法人預估，受惠於AI眼鏡崛起，2026年全球AR、VR裝置出貨量將比2025年大增近90%。</td></tr>
+<tr><td><strong>2025年11月12日</strong></td><td><strong>VIVERSE應用擴展 (教育)</strong></td><td>VIVERSE積極推動XR教育，與台北市辛亥國小和台南應用科技大學多媒體動畫系合作，導入VIVERSE Create平台。</td></tr>
+<tr><td><strong>2025年Q4 (預期)</strong></td><td><strong>AI眼鏡與XR軟體專案帶動營收</strong></td><td>法人預期2025年第四季營收可望較第三季成長173%，達到新台幣19.6億元。</td></tr>
+<tr><td><strong>2026年01月06日</strong></td><td><strong>VIVE Eagle新市場與通路佈局</strong></td><td>VIVE Eagle AI智慧眼鏡正式拓展香港市場，攜手電信商1O1O、csl、SmarTone及奢華眼鏡通路溥儀眼鏡。同時，HTC全面升級台灣實體體驗門市，與台灣大哥大、小林眼鏡合作，全台體驗據點已突破300家。</td></tr>
+<tr><td><strong>2026年01月07日</strong></td><td><strong>AI眼鏡市場潛力</strong></td><td>IDC預估2025年全球AI眼鏡出貨量年增率38%至58億美元產值；2026年出貨量可望突破900萬副，市場規模上看75億美元；至2030年止，AI眼鏡出貨量有機會擴增至3500萬副，整體產值挑戰百億美元。宏達電VIVE Eagle在此趨勢中具潛力。</td></tr>
+<tr><td><strong>2026年03月03日</strong></td><td><strong>VIVERSE合作夥伴計畫啟動</strong></td><td>VIVERSE推出全新合作夥伴計畫，為遊戲、影片、互動網頁應用、數位藝術與沉浸式內容創作者提供以真實觀眾互動為基礎的績效型收益機制，依據「有效觀看」與「互動時間」計算收益，推動內容生態系發展。</td></tr>
+<tr><td><strong>2026年03月04日</strong></td><td><strong>G REIGNS 5G專網應用深化</strong></td><td>HTC G REIGNS於MWC2026與光寶科技共同展示雙方在德國成功落地的5G專網商業應用成果。此專案採用5G SA專網架構，整合XR與邊緣運算技術於企業沉浸式應用場域，展現可擴展性、穩定性及低延遲優勢，將支持電信營運商於高密度應用場域的部署需求，為5G-Advanced與B5G世代的網路演進奠定商用實證基礎。</td></tr>
+<tr><td><strong>2026年</strong></td><td><strong>硬體營收與合併營收增長</strong></td><td>法人對2026年前景樂觀，預期硬體營收（受AI眼鏡和新手機帶動）和合併營收（受IP合作專案帶動）均有望實現雙位數年增長。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+
+<li><strong>AI智慧眼鏡與XR裝置出貨量增長：</strong> 市場預期2026年全球AR/VR裝置出貨量將比2025年大增近90%，尤其AI眼鏡因其結合AI功能和便利性，有望成為新亮點。宏達電的VIVE Eagle已率先佈局，並積極拓展通路，可望從中受益。</li>
+<li><strong>VIVERSE生態系擴張與變現：</strong> 隨著VIVERSE平台月活躍使用者突破百萬，新合作夥伴計畫的推出將吸引更多內容創作者，有望推動內容變現和平台收益增長。</li>
+<li><strong>企業級5G專網與XR應用：</strong> G REIGNS在5G專網和邊緣運算的企業級應用持續深化，與光寶科技在德國的合作案顯示其在B2B市場的競爭力，高毛利企業級解決方案有望成為營收穩定的來源。</li>
+<li><strong>IP合作專案：</strong> 過去與Google的交易顯示宏達電在XR領域的IP價值，未來若有進一步的IP合作或授權，仍可能帶來業外收益。</li>
+
+<h3>風險因子</h3>
+
+<li><strong>本業持續虧損：</strong> 儘管2025年受業外收益挹注而轉虧為盈，宏達電核心主營業務營收持續下滑，毛利率承壓，且營業活動淨現金流持續為負，顯示本業未能產生足夠現金流。官股投顧預估2026年可能再度轉虧，EPS預估為-3.86元。</li>
+<li><strong>市場競爭激烈：</strong> XR市場面臨Meta、Apple等科技巨頭的龐大資源投入和激烈競爭，宏達電的市場份額和獲利空間受到挑戰。</li>
+<li><strong>消費者需求不確定性：</strong> XR設備仍缺乏「殺手級應用」，消費者市場的普及速度與規模存在不確定性。</li>
+<li><strong>零組件供應與成本壓力：</strong> 2026年智慧型手機市場面臨記憶體短缺與價格暴漲，此供應鏈壓力可能間接影響宏達電部分產品的生產成本和供貨。</li>
+<li><strong>長期市場地位：</strong> 過去分析公司曾預測宏達電可能在2026年前退出VR產業（雖遭宏達電嚴正否認），這反映了市場對其長期競爭力的擔憂。</li>
+
+<h2>投資結論</h2>
+
+<p>綜合以上分析，宏達電（2498）正處於關鍵的轉型期，儘管在AI/XR新興領域展現積極佈局，但其投資價值仍需審慎評估。</p>
+
+<li><strong>AI/XR轉型潛力顯現，但本業獲利仍待證明：</strong> VIVE Eagle AI智慧眼鏡、VIVERSE平台及G REIGNS企業級解決方案符合產業趨勢，為公司長期發展提供潛在動能。然而，業外收益主導的獲利模式不可持續，本業營收下滑及持續虧損是核心問題。投資者需密切關注未來幾季AI/XR業務能否帶來實質營收成長與獲利轉正。</li>
+<li><strong>資金配置策略積極，但配息仍不確定：</strong> 處分閒置資產與子公司現金減資，顯示管理層正積極進行資金重配置，這對公司長期發展是正向的。然而，在核心業務尚未穩定獲利之前，董事長提及的2026年配息及庫藏股計畫仍存在變數。</li>
+<li><strong>競爭格局嚴峻，差異化與生態系是關鍵：</strong> 面對Meta、Apple等巨頭的強力競爭，宏達電必須持續強化其在企業級市場的獨特解決方案及VIVERSE生態系的吸引力，以建立難以取代的競爭優勢。</li>
+<li><strong>評價考量：</strong> 鑒於公司目前盈利主要依賴業外收益，且本業持續虧損，傳統的本益比（P/E）評價方式難以適用。應更多關注其在AI/XR市場的份額擴張速度、營收增長質量及現金流改善情況。券商給予的目標價普遍不高，且多數維持「賣出」或「中立」評等，反映了市場對其本業前景的謹慎態度。</li>
+
+<strong>投資建議區間：</strong>
+<p>考慮到宏達電在AI/XR領域的潛在成長動能，以及其本業持續虧損的現實，並參考目前券商的平均目標價與評等，本報告建議投資者對宏達電保持<strong>觀望態度</strong>。若公司能持續展現AI/XR業務的明確營收與獲利轉折，潛在目標價區間或可落在<strong>新台幣38元至45元</strong>。然而，鑑於本業持續虧損及競爭壓力，此目標價仍具高度不確定性，投資人應密切關注後續財報表現與市場需求，尤其需待看到核心業務穩定獲利的明確信號後，再行評估是否值得積極投資。</p>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 12:54</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2498_宏達電_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2498_宏達電_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2498_宏達電_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

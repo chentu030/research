@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6550 北極星藥業-KY 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>6550 北極星藥業-KY 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>北極星藥業-KY憑藉核心ADI-PEG 20抗癌新藥的藥證申請進程，以及積極佈局GLP-1多肽藥物CDMO業務，形成「雙引擎」成長策略，預期2026年起在CDMO營收和新藥上市銷售帶動下，有望逐步走出營運谷底。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">6550 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-6550" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-6550" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-6550');
+    var obvContainer = document.getElementById('obv-chart-6550');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 30.0, "high": 31.15, "low": 30.0, "close": 31.0}, {"time": "2025-12-05", "open": 31.2, "high": 31.2, "low": 29.9, "close": 29.9}, {"time": "2025-12-08", "open": 30.3, "high": 30.3, "low": 29.1, "close": 29.1}, {"time": "2025-12-09", "open": 29.3, "high": 29.3, "low": 28.9, "close": 29.15}, {"time": "2025-12-10", "open": 29.3, "high": 30.2, "low": 29.0, "close": 29.0}, {"time": "2025-12-11", "open": 29.05, "high": 31.9, "low": 29.05, "close": 31.55}, {"time": "2025-12-12", "open": 32.6, "high": 32.6, "low": 29.95, "close": 30.0}, {"time": "2025-12-15", "open": 29.8, "high": 30.2, "low": 29.65, "close": 30.05}, {"time": "2025-12-16", "open": 30.95, "high": 33.05, "low": 30.95, "close": 33.05}, {"time": "2025-12-17", "open": 33.05, "high": 33.9, "low": 31.9, "close": 32.15}, {"time": "2025-12-18", "open": 32.05, "high": 32.05, "low": 31.0, "close": 31.1}, {"time": "2025-12-19", "open": 31.0, "high": 31.2, "low": 30.85, "close": 31.15}, {"time": "2025-12-22", "open": 31.7, "high": 31.7, "low": 30.8, "close": 31.15}, {"time": "2025-12-23", "open": 31.2, "high": 31.45, "low": 30.9, "close": 31.0}, {"time": "2025-12-24", "open": 31.2, "high": 31.2, "low": 30.2, "close": 30.2}, {"time": "2025-12-26", "open": 30.3, "high": 30.3, "low": 29.75, "close": 30.15}, {"time": "2025-12-29", "open": 30.9, "high": 32.1, "low": 30.85, "close": 31.0}, {"time": "2025-12-30", "open": 31.4, "high": 31.4, "low": 30.4, "close": 30.5}, {"time": "2025-12-31", "open": 30.65, "high": 31.65, "low": 30.6, "close": 31.1}, {"time": "2026-01-02", "open": 31.4, "high": 32.2, "low": 30.9, "close": 31.6}, {"time": "2026-01-05", "open": 31.9, "high": 32.1, "low": 30.25, "close": 30.35}, {"time": "2026-01-06", "open": 30.35, "high": 30.75, "low": 30.25, "close": 30.3}, {"time": "2026-01-07", "open": 30.25, "high": 30.75, "low": 30.2, "close": 30.2}, {"time": "2026-01-08", "open": 30.2, "high": 30.75, "low": 30.2, "close": 30.2}, {"time": "2026-01-09", "open": 30.25, "high": 30.4, "low": 29.7, "close": 30.4}, {"time": "2026-01-12", "open": 30.4, "high": 30.95, "low": 30.3, "close": 30.95}, {"time": "2026-01-13", "open": 31.4, "high": 32.75, "low": 30.95, "close": 31.45}, {"time": "2026-01-14", "open": 31.55, "high": 33.95, "low": 31.55, "close": 32.95}, {"time": "2026-01-15", "open": 33.0, "high": 33.1, "low": 32.2, "close": 33.1}, {"time": "2026-01-16", "open": 33.1, "high": 33.6, "low": 32.7, "close": 32.7}, {"time": "2026-01-19", "open": 32.75, "high": 33.1, "low": 32.05, "close": 32.05}, {"time": "2026-01-20", "open": 32.45, "high": 32.5, "low": 31.35, "close": 31.5}, {"time": "2026-01-21", "open": 31.45, "high": 31.45, "low": 30.35, "close": 30.55}, {"time": "2026-01-22", "open": 30.55, "high": 31.0, "low": 30.45, "close": 30.9}, {"time": "2026-01-23", "open": 30.5, "high": 31.75, "low": 30.5, "close": 31.5}, {"time": "2026-01-26", "open": 30.95, "high": 31.6, "low": 30.7, "close": 31.1}, {"time": "2026-01-27", "open": 31.1, "high": 31.95, "low": 30.9, "close": 31.55}, {"time": "2026-01-28", "open": 32.0, "high": 32.4, "low": 30.85, "close": 30.9}, {"time": "2026-01-29", "open": 31.2, "high": 31.95, "low": 30.8, "close": 31.4}, {"time": "2026-01-30", "open": 31.4, "high": 31.6, "low": 30.6, "close": 31.0}, {"time": "2026-02-02", "open": 30.55, "high": 31.45, "low": 30.55, "close": 30.65}, {"time": "2026-02-03", "open": 30.85, "high": 31.25, "low": 30.0, "close": 30.4}, {"time": "2026-02-04", "open": 30.05, "high": 31.45, "low": 30.05, "close": 31.45}, {"time": "2026-02-05", "open": 31.3, "high": 32.6, "low": 31.0, "close": 31.1}, {"time": "2026-02-06", "open": 31.1, "high": 31.1, "low": 30.0, "close": 30.0}, {"time": "2026-02-09", "open": 30.3, "high": 30.3, "low": 29.1, "close": 29.15}, {"time": "2026-02-10", "open": 29.5, "high": 29.5, "low": 28.75, "close": 29.25}, {"time": "2026-02-11", "open": 29.9, "high": 30.2, "low": 29.45, "close": 29.9}, {"time": "2026-02-23", "open": 30.5, "high": 32.85, "low": 30.45, "close": 32.85}, {"time": "2026-02-24", "open": 32.85, "high": 35.95, "low": 32.85, "close": 35.7}, {"time": "2026-02-25", "open": 35.7, "high": 35.7, "low": 32.95, "close": 33.0}, {"time": "2026-02-26", "open": 33.75, "high": 34.2, "low": 33.0, "close": 33.3}, {"time": "2026-03-02", "open": 32.95, "high": 33.8, "low": 31.85, "close": 31.95}, {"time": "2026-03-03", "open": 31.8, "high": 32.1, "low": 31.35, "close": 31.45}, {"time": "2026-03-04", "open": 31.3, "high": 31.35, "low": 29.55, "close": 29.55}, {"time": "2026-03-05", "open": 29.95, "high": 30.7, "low": 29.95, "close": 30.3}, {"time": "2026-03-06", "open": 30.0, "high": 30.9, "low": 29.95, "close": 30.6}, {"time": "2026-03-09", "open": 28.55, "high": 29.45, "low": 27.7, "close": 28.95}, {"time": "2026-03-10", "open": 29.5, "high": 29.5, "low": 28.4, "close": 28.9}, {"time": "2026-03-11", "open": 29.5, "high": 29.85, "low": 29.25, "close": 29.7}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 619.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 546.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 655.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 396.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 697.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 2550.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 1355.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 370.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 2585.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 1953.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 815.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 404.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 493.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 414.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 672.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 496.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 1589.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 697.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 1205.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 1338.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 1340.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 725.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 776.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 527.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 698.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 821.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 1807.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 2833.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 1193.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 1675.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 1144.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 1019.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 1424.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 793.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 972.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 978.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 1334.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 1657.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 1401.0, "color": "#ef5350"}, {"time": "2026-01-30", "value": 1534.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 1038.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 1308.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 1029.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 1629.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 1467.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 1759.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 826.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 903.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 3375.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 4410.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 3340.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 1731.0, "color": "#26a69a"}, {"time": "2026-03-02", "value": 1665.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 969.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 1774.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 720.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 508.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 1493.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 1051.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 1031.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 29.630000000000003}, {"time": "2025-12-11", "value": 29.74}, {"time": "2025-12-12", "value": 29.76}, {"time": "2025-12-15", "value": 29.95}, {"time": "2025-12-16", "value": 30.73}, {"time": "2025-12-17", "value": 31.360000000000003}, {"time": "2025-12-18", "value": 31.27}, {"time": "2025-12-19", "value": 31.5}, {"time": "2025-12-22", "value": 31.72}, {"time": "2025-12-23", "value": 31.310000000000002}, {"time": "2025-12-24", "value": 30.919999999999998}, {"time": "2025-12-26", "value": 30.73}, {"time": "2025-12-29", "value": 30.7}, {"time": "2025-12-30", "value": 30.57}, {"time": "2025-12-31", "value": 30.589999999999996}, {"time": "2026-01-02", "value": 30.869999999999997}, {"time": "2026-01-05", "value": 30.910000000000004}, {"time": "2026-01-06", "value": 30.77}, {"time": "2026-01-07", "value": 30.71}, {"time": "2026-01-08", "value": 30.53}, {"time": "2026-01-09", "value": 30.29}, {"time": "2026-01-12", "value": 30.410000000000004}, {"time": "2026-01-13", "value": 30.639999999999997}, {"time": "2026-01-14", "value": 31.189999999999998}, {"time": "2026-01-15", "value": 31.77}, {"time": "2026-01-16", "value": 32.230000000000004}, {"time": "2026-01-19", "value": 32.45}, {"time": "2026-01-20", "value": 32.46}, {"time": "2026-01-21", "value": 31.98}, {"time": "2026-01-22", "value": 31.54}, {"time": "2026-01-23", "value": 31.3}, {"time": "2026-01-26", "value": 31.110000000000003}, {"time": "2026-01-27", "value": 31.119999999999997}, {"time": "2026-01-28", "value": 31.189999999999998}, {"time": "2026-01-29", "value": 31.29}, {"time": "2026-01-30", "value": 31.189999999999998}, {"time": "2026-02-02", "value": 31.1}, {"time": "2026-02-03", "value": 30.869999999999997}, {"time": "2026-02-04", "value": 30.98}, {"time": "2026-02-05", "value": 30.919999999999998}, {"time": "2026-02-06", "value": 30.72}, {"time": "2026-02-09", "value": 30.419999999999998}, {"time": "2026-02-10", "value": 30.189999999999998}, {"time": "2026-02-11", "value": 29.880000000000003}, {"time": "2026-02-23", "value": 30.23}, {"time": "2026-02-24", "value": 31.369999999999997}, {"time": "2026-02-25", "value": 32.14}, {"time": "2026-02-26", "value": 32.95}, {"time": "2026-03-02", "value": 33.36}, {"time": "2026-03-03", "value": 33.08}, {"time": "2026-03-04", "value": 31.85}, {"time": "2026-03-05", "value": 31.310000000000002}, {"time": "2026-03-06", "value": 30.77}, {"time": "2026-03-09", "value": 30.169999999999998}, {"time": "2026-03-10", "value": 29.660000000000004}, {"time": "2026-03-11", "value": 29.689999999999998}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 30.494999999999997}, {"time": "2025-12-18", "value": 30.505000000000003}, {"time": "2025-12-19", "value": 30.630000000000003}, {"time": "2025-12-22", "value": 30.835}, {"time": "2025-12-23", "value": 31.02}, {"time": "2025-12-24", "value": 31.139999999999997}, {"time": "2025-12-26", "value": 31.0}, {"time": "2025-12-29", "value": 31.1}, {"time": "2025-12-30", "value": 31.145}, {"time": "2025-12-31", "value": 30.95}, {"time": "2026-01-02", "value": 30.895}, {"time": "2026-01-05", "value": 30.82}, {"time": "2026-01-06", "value": 30.735000000000003}, {"time": "2026-01-07", "value": 30.639999999999997}, {"time": "2026-01-08", "value": 30.560000000000002}, {"time": "2026-01-09", "value": 30.580000000000002}, {"time": "2026-01-12", "value": 30.660000000000004}, {"time": "2026-01-13", "value": 30.705000000000002}, {"time": "2026-01-14", "value": 30.95}, {"time": "2026-01-15", "value": 31.15}, {"time": "2026-01-16", "value": 31.26}, {"time": "2026-01-19", "value": 31.43}, {"time": "2026-01-20", "value": 31.55}, {"time": "2026-01-21", "value": 31.585}, {"time": "2026-01-22", "value": 31.655}, {"time": "2026-01-23", "value": 31.764999999999997}, {"time": "2026-01-26", "value": 31.78}, {"time": "2026-01-27", "value": 31.79}, {"time": "2026-01-28", "value": 31.585}, {"time": "2026-01-29", "value": 31.415}, {"time": "2026-01-30", "value": 31.244999999999997}, {"time": "2026-02-02", "value": 31.105}, {"time": "2026-02-03", "value": 30.994999999999997}, {"time": "2026-02-04", "value": 31.085}, {"time": "2026-02-05", "value": 31.105}, {"time": "2026-02-06", "value": 30.955000000000002}, {"time": "2026-02-09", "value": 30.76}, {"time": "2026-02-10", "value": 30.53}, {"time": "2026-02-11", "value": 30.43}, {"time": "2026-02-23", "value": 30.575}, {"time": "2026-02-24", "value": 31.044999999999998}, {"time": "2026-02-25", "value": 31.28}, {"time": "2026-02-26", "value": 31.57}, {"time": "2026-03-02", "value": 31.619999999999997}, {"time": "2026-03-03", "value": 31.655}, {"time": "2026-03-04", "value": 31.610000000000003}, {"time": "2026-03-05", "value": 31.725}, {"time": "2026-03-06", "value": 31.860000000000003}, {"time": "2026-03-09", "value": 31.764999999999997}, {"time": "2026-03-10", "value": 31.369999999999997}, {"time": "2026-03-11", "value": 30.77}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 30.695}, {"time": "2026-01-05", "value": 30.6625}, {"time": "2026-01-06", "value": 30.682499999999997}, {"time": "2026-01-07", "value": 30.7375}, {"time": "2026-01-08", "value": 30.79}, {"time": "2026-01-09", "value": 30.860000000000003}, {"time": "2026-01-12", "value": 30.830000000000002}, {"time": "2026-01-13", "value": 30.902499999999996}, {"time": "2026-01-14", "value": 31.047500000000003}, {"time": "2026-01-15", "value": 31.05}, {"time": "2026-01-16", "value": 31.077499999999997}, {"time": "2026-01-19", "value": 31.125}, {"time": "2026-01-20", "value": 31.142500000000002}, {"time": "2026-01-21", "value": 31.1125}, {"time": "2026-01-22", "value": 31.107499999999998}, {"time": "2026-01-23", "value": 31.172500000000003}, {"time": "2026-01-26", "value": 31.22}, {"time": "2026-01-27", "value": 31.247500000000002}, {"time": "2026-01-28", "value": 31.267500000000002}, {"time": "2026-01-29", "value": 31.2825}, {"time": "2026-01-30", "value": 31.252499999999998}, {"time": "2026-02-02", "value": 31.267500000000002}, {"time": "2026-02-03", "value": 31.2725}, {"time": "2026-02-04", "value": 31.335}, {"time": "2026-02-05", "value": 31.380000000000003}, {"time": "2026-02-06", "value": 31.360000000000003}, {"time": "2026-02-09", "value": 31.27}, {"time": "2026-02-10", "value": 31.160000000000004}, {"time": "2026-02-11", "value": 31.0075}, {"time": "2026-02-23", "value": 30.994999999999997}, {"time": "2026-02-24", "value": 31.145}, {"time": "2026-02-25", "value": 31.192500000000003}, {"time": "2026-02-26", "value": 31.2825}, {"time": "2026-03-02", "value": 31.3525}, {"time": "2026-03-03", "value": 31.380000000000003}, {"time": "2026-03-04", "value": 31.2825}, {"time": "2026-03-05", "value": 31.2425}, {"time": "2026-03-06", "value": 31.195}, {"time": "2026-03-09", "value": 31.097500000000004}, {"time": "2026-03-10", "value": 30.972500000000004}, {"time": "2026-03-11", "value": 30.9075}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -546.0}, {"time": "2025-12-08", "value": -1201.0}, {"time": "2025-12-09", "value": -805.0}, {"time": "2025-12-10", "value": -1502.0}, {"time": "2025-12-11", "value": 1048.0}, {"time": "2025-12-12", "value": -307.0}, {"time": "2025-12-15", "value": 63.0}, {"time": "2025-12-16", "value": 2648.0}, {"time": "2025-12-17", "value": 695.0}, {"time": "2025-12-18", "value": -120.0}, {"time": "2025-12-19", "value": 284.0}, {"time": "2025-12-22", "value": 284.0}, {"time": "2025-12-23", "value": -130.0}, {"time": "2025-12-24", "value": -802.0}, {"time": "2025-12-26", "value": -1298.0}, {"time": "2025-12-29", "value": 291.0}, {"time": "2025-12-30", "value": -406.0}, {"time": "2025-12-31", "value": 799.0}, {"time": "2026-01-02", "value": 2137.0}, {"time": "2026-01-05", "value": 797.0}, {"time": "2026-01-06", "value": 72.0}, {"time": "2026-01-07", "value": -704.0}, {"time": "2026-01-08", "value": -704.0}, {"time": "2026-01-09", "value": -6.0}, {"time": "2026-01-12", "value": 815.0}, {"time": "2026-01-13", "value": 2622.0}, {"time": "2026-01-14", "value": 5455.0}, {"time": "2026-01-15", "value": 6648.0}, {"time": "2026-01-16", "value": 4973.0}, {"time": "2026-01-19", "value": 3829.0}, {"time": "2026-01-20", "value": 2810.0}, {"time": "2026-01-21", "value": 1386.0}, {"time": "2026-01-22", "value": 2179.0}, {"time": "2026-01-23", "value": 3151.0}, {"time": "2026-01-26", "value": 2173.0}, {"time": "2026-01-27", "value": 3507.0}, {"time": "2026-01-28", "value": 1850.0}, {"time": "2026-01-29", "value": 3251.0}, {"time": "2026-01-30", "value": 1717.0}, {"time": "2026-02-02", "value": 679.0}, {"time": "2026-02-03", "value": -629.0}, {"time": "2026-02-04", "value": 400.0}, {"time": "2026-02-05", "value": -1229.0}, {"time": "2026-02-06", "value": -2696.0}, {"time": "2026-02-09", "value": -4455.0}, {"time": "2026-02-10", "value": -3629.0}, {"time": "2026-02-11", "value": -2726.0}, {"time": "2026-02-23", "value": 649.0}, {"time": "2026-02-24", "value": 5059.0}, {"time": "2026-02-25", "value": 1719.0}, {"time": "2026-02-26", "value": 3450.0}, {"time": "2026-03-02", "value": 1785.0}, {"time": "2026-03-03", "value": 816.0}, {"time": "2026-03-04", "value": -958.0}, {"time": "2026-03-05", "value": -238.0}, {"time": "2026-03-06", "value": 270.0}, {"time": "2026-03-09", "value": -1223.0}, {"time": "2026-03-10", "value": -2274.0}, {"time": "2026-03-11", "value": -1243.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>北極星藥業-KY（6550）是一家專注於創新抗癌療法研發的跨國生技製藥公司，同時透過併購與擴廠，積極拓展生物製劑開發與醫藥CDMO服務。</p>
+
+<ul><li><strong>核心產品與服務：</strong></li>
+</ul>    *   <strong>新藥研發：</strong> 主要為代謝療法抗癌新藥 <strong>ADI-PEG 20 (商品名 ADZODI)</strong>，正進行多種癌症適應症的後期臨床開發，包括惡性胸膜間皮瘤 (MPM)、膠質母細胞瘤 (GBM)、肝癌 (HCC)、軟組織肉瘤及急性骨髓性白血病 (AML)。
+<p>*   <strong>多肽產品業務：</strong> 透過子公司霖揚生技，垂直整合生產GLP-1類藥物的原料藥與製劑，如司美格魯肽 (Semaglutide) 和替爾泊肽 (Tirzepatide)。</p>
+<p>*   <strong>CDMO服務：</strong> 提供生物技術服務、藥品檢驗及委託開發暨生產相關服務。</p>
+
+<ul><li><strong>製造基地：</strong></li>
+</ul>    *   <strong>美國：</strong> 北加州廠 (Vacaville)，ADI-PEG 20藥證查廠地點，最大年產能預計可達310萬瓶。
+<p>*   <strong>台灣：</strong> 竹南新廠，專責生產GLP-1多肽原料藥，預計2025年動土，2028年投產。</p>
+<p>*   <strong>中國：</strong> 成都廠，規劃增建GLP-1多肽原料藥產線，最大年產能預計可達310萬瓶 (與美國廠合計)。</p>
+<p>*   <strong>子公司霖揚生技 (Genovior Biotech)：</strong> 擴展無菌注射劑產能。</p>
+
+<ul><li><strong>營收結構：</strong></li>
+</ul>    目前公司未有公開資料明確揭露各業務佔營收的具體比例。2025年全年合併營收約為新台幣4,080萬元。公司營收波動較大，主要受CDMO代工收入依合約進度認列以及新藥研發進度影響。隨著GLP-1新廠預計自2026年起開始貢獻營收，未來多肽產品在營收中的比重有望提升。
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>佔營收比例 (2025年)</th><th>說明</th></tr></thead><tbody>
+<tr><td>新藥研發銷售</td><td>未公開</td><td>主要仰賴ADI-PEG 20藥證獲批後的商業化銷售</td></tr>
+<tr><td>多肽產品製造</td><td>未公開</td><td>規劃中，2026年起貢獻營收</td></tr>
+<tr><td>CDMO代工服務</td><td>未公開</td><td>依合約進度認列，為近期營收主要來源之一</td></tr>
+<tr><td><strong>總計</strong></td><td><strong>100%</strong></td><td>2025年全年合併營收約新台幣4,080萬元，年減逾六成</td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+<li><strong>獨特的癌症代謝療法平台：</strong> 核心產品ADI-PEG 20作用機制獨特，透過耗竭精胺酸來抑制癌細胞生長，為傳統療法效果不佳的難治癌症（如惡性胸膜間皮瘤、膠質母細胞瘤等）提供新的治療選擇。</li>
+<li><strong>廣泛的適應症潛力與國際佈局：</strong> ADI-PEG 20針對多種癌症進行臨床開發，且已與國際夥伴簽署沙烏地阿拉伯、GCC地區及EMEA等36個市場的授權協議，具備全球商業化潛力。</li>
+<li><strong>GLP-1多肽藥物垂直整合能力：</strong> 透過併購霖揚生技，建立從原料藥到製劑的垂直整合生產能力，並積極佈局竹南與成都新廠，鎖定2026年司美格魯肽專利到期後的學名藥市場，搶佔市場先機。</li>
+<li><strong>具備國際GMP水準的CDMO服務：</strong> 公司在生物製劑和多肽產品CDMO領域的佈局，受益於全球生物製劑CDMO市場的快速成長及供應鏈重組趨勢，有望承接更多高附加價值的國際訂單。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣萬元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>226年1月</td><td>1,842.9</td><td>492.95%</td><td>1,275.30%</td></tr>
+<tr><td>225年12月</td><td>311</td><td>11.48%</td><td>-40.72%</td></tr>
+<tr><td>225年11月</td><td>279</td><td>1,359.70%</td><td>-81.33%</td></tr>
+<tr><td>225年10月</td><td>19</td><td>-98.55%</td><td>-98.81%</td></tr>
+<tr><td>225年9月</td><td>1,318.2</td><td>787.07%</td><td>310.14%</td></tr>
+<tr><td>225年8月</td><td>148.6</td><td>-53.53%</td><td>-60.65%</td></tr>
+</tbody></table></div>
+
+<h3>季度數據 (2025年第三季)</h3>
+<ul><li>季營收：1,786.6 萬元 (2025年7月319.8萬元 + 8月148.6萬元 + 9月1,318.2萬元)。</li>
+<li>毛利率：-300.61%。</li>
+<li>營業利益率：-4,101.96%。</li>
+<li>EPS：-0.89 元。</li>
+</ul>
+<h3>年度趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>全年營收 (新台幣億元)</th><th>EPS (新台幣元)</th></tr></thead><tbody>
+<tr><td>2024</td><td>1.07</td><td>-3.35</td></tr>
+<tr><td>2025</td><td>0.408</td><td>-2.91 (截至Q3)</td></tr>
+</tbody></table></div>
+
+<h2>法說會重點 (2025年12月11日)</h2>
+<p>北極星藥業於法說會中強調「雙引擎成長策略」，包括核心的ADI-PEG 20癌症新藥管線與GLP-1多肽藥物業務。</p>
+
+<ul><li><strong>ADI-PEG 20癌症新藥：</strong></li>
+</ul>    *   惡性胸膜間皮瘤(MPM)的生物製劑上市許可申請(BLA)已在進行中，預計2026年中將上市銷售。
+<p>*   ADZODI新藥鎖定的肺間皮癌適應症，目標是2025年底取得藥證，並預計於2026年開始販售。</p>
+<p>*   急性骨髓性白血病(AML)的臨床數據顯示客觀緩解率(ORR)高達91.3%，遠超標準療法歷史預期(40%)。</p>
+<p>*   海外合作已拓展至沙烏地阿拉伯及GCC地區，以及EMEA等36個市場。</p>
+
+<ul><li><strong>GLP-1多肽藥物業務：</strong></li>
+</ul>    *   諾和諾德的司美格魯肽核心化合物專利預計於2026年3月20日到期，預期將為北極星藥業進入學名藥市場創造巨大商機。
+<p>*   公司在司美格魯肽和替爾泊肽的垂直整合生產能力具備優勢。</p>
+<p>*   已簽署和洽談中的司美格魯肽合作合約，預計年度API總需求量達85.4公斤，顯示已有實際的市場客戶與訂單基礎。</p>
+
+<ul><li><strong>CDMO代工收入：</strong> 營收認列係依合約內容進行進度。</li>
+</ul>
+<ul><li><strong>資本支出與產能擴增：</strong></li>
+</ul>    *   <strong>資本支出：</strong> 北極星藥業計畫自2025年起，未來五年分階段投資約80億元以持續擴充產能。
+<p>*   <strong>產能擴增：</strong> 竹南廠新建GLP-1多胜肽原料藥新廠，共有六條產線，預計通過查廠後於2028年投產。ADZODI新藥的產能將在美國、台灣、大陸擴增廠房，目標年產能達360萬支針劑。</p>
+
+<ul><li><strong>管理層給出的下季/下半年 guidance：</strong></li>
+</ul>    *   ADI-PEG 20惡性胸膜間皮瘤新藥預計2026年中上市。
+<p>*   GLP-1學名藥市場因司美格魯肽專利於2026年3月到期，將帶來巨大商機。</p>
+<p>*   新廠房的營收貢獻調整至2026年起開始。</p>
+
+<h2>券商觀點</h2>
+<p>目前未找到2024年以後，至少3家券商對北極星藥業-KY的具體目標價與評等。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>無</td><td>無</td><td>無</td><td>無</td></tr>
+<tr><td>無</td><td>無</td><td>無</td><td>無</td></tr>
+<tr><td>無</td><td>無</td><td>無</td><td>無</td></tr>
+</tbody></table></div>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季度</th><th>營收 (仟元)</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率 (歸屬母公司)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2024年全年</td><td>107,006</td><td>-71.89%</td><td>-2462.51%</td><td>-2338.92%</td><td>-3.35</td></tr>
+<tr><td>2024年Q4</td><td>36,246</td><td>-93.37%</td><td>無</td><td>無</td><td>-1.12</td></tr>
+<tr><td>2025年上半年</td><td>16,835</td><td>-609.70%</td><td>-8425.03%</td><td>-9263.34%</td><td>-2.02</td></tr>
+<tr><td>2025年Q3</td><td>17,866</td><td>-300.61%</td><td>-4101.96%</td><td>無</td><td>-0.89</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>利潤率變化的原因分析：</strong></li>
+</ul>    北極星藥業-KY作為新藥研發公司，在產品大規模上市前，需投入大量研發成本，導致利潤率持續為負。2025年營收較2024年大幅年減逾六成（從1.07億元降至4,080萬元），反映公司仍處於調整或過渡期，營收下滑可能源於產品銷售不如預期、臨床或授權進度延宕，或策略性調整與一次性因素。儘管2026年1月營收因CDMO收入認列而顯著成長，但公司整體仍受限於新藥尚未獲利、新產能貢獻遞延等因素，導致獲利能力波動劇烈。
+
+<h3>存貨與營運</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨金額 (仟元)</th><th>存貨週轉天數 (天)</th><th>應收帳款收現天數 (天)</th></tr></thead><tbody>
+<tr><td>2024年Q1</td><td>無</td><td>103.1</td><td>32.38</td></tr>
+<tr><td>2024年Q2</td><td>無</td><td>108.29</td><td>25.48</td></tr>
+<tr><td>2024年Q3</td><td>無</td><td>106.2</td><td>27.89</td></tr>
+<tr><td>2024年Q4</td><td>無</td><td>81.7</td><td>7.67</td></tr>
+<tr><td>2025年Q1</td><td>無</td><td>156.07</td><td>41.27</td></tr>
+<tr><td>2025年Q2</td><td>無</td><td>125.43</td><td>51.09</td></tr>
+<tr><td>2025年Q3</td><td>1,186,760</td><td>131.77</td><td>16.53</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>存貨是否有異常堆積或備料現象：</strong> 存貨週轉天數在2024年至2025年第三季之間呈現波動，從2024Q4的81.7天上升至2025Q1的156.07天，隨後有所下降。儘管生技產業的存貨管理與其產品研發、臨床試驗、藥證取得及市場銷售進度緊密相關，但目前沒有明確資料指出存貨有異常堆積。</li>
+</ul>
+<h3>資本支出與產能</h3>
+<ul><li><strong>近3年資本支出金額與趨勢：</strong></li>
+</ul>    *   2024年：曾進行現金增資11.76億元，部分用於擴建竹南新廠房、購置設備。
+<p>*   2025年：計畫分階段投資約80億元於未來五年，持續擴充產能；年中預計增資20億元。</p>
+<ul><li><strong>未來資本支出計畫與預計新增產能：</strong></li>
+</ul>    *   <strong>竹南GLP-1新廠：</strong> 於2025年4月動土，規劃六條GLP-1多胜肽原料藥產線，預計通過查廠後於2028年投產。
+<p>*   <strong>ADI-PEG 20產能：</strong> 規劃在美國、台灣、中國大陸擴增ADI-PEG 20廠房，目標年產能達360萬支針劑。美國Vacaville與中國成都的生產基地最大年產能可達310萬瓶。</p>
+
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓：</strong> 未找到2024年以後董監事/大股東的申報轉讓紀錄。</li>
+<li><strong>庫藏股買回：</strong> 未找到2024年以後的庫藏股買回紀錄。</li>
+<li><strong>可轉換公司債 (CB)：</strong> 未找到2024年以後發行可轉換公司債的相關資訊。</li>
+<li><strong>增減資計畫：</strong></li>
+</ul>    *   2024年：完成現金增資11.76億元。
+<p>*   2025年：董事會曾通過現金增資發行新股上限7000萬股，並預計年中增資20億元。8月董事會通過發行不超過7500萬股，但於11月5日公司自行撤回現金增資案，考量募資時程及公司長遠規劃。</p>
+<ul><li><strong>股利政策：</strong> 2024年分配股利為0.0元，公司已連續多年未發放股利。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>市場規模與成長率</h3>
+<ul><li><strong>全球生物製劑CDMO市場：</strong></li>
+</ul>    *   225年：預計210.2億美元。
+<p>*   226年：預計235.4億美元。</p>
+<p>*   226-2035年：CAGR超過13.3%，2035年預計超過732.7億美元。</p>
+<p>*   另一報告：從2024年1437億美元，預計至2029年以11.52% CAGR增長至2479億美元。</p>
+<ul><li><strong>全球癌症治療市場：</strong></li>
+</ul>    *   225年：預計2822.8億美元。
+<p>*   226年：預計2695.5億美元。</p>
+<p>*   226-2031年：CAGR為10.64%，2031年預計達到4468.9億美元。</p>
+<p>*   腫瘤內癌症治療市場：225年1569.6億美元，226年增至1747.5億美元 (CAGR 11.3%)。</p>
+<ul><li><strong>全球GLP-1藥物市場：</strong></li>
+</ul>    *   2024年市場價值已達447.25億美元。
+<p>*   預計至2030年，市場規模有望達到900億美元 (德邦證券預估)。</p>
+
+<h3>供需狀況</h3>
+<ul><li><strong>CDMO產業：</strong> 整體需求持續增長，尤其受生物藥物需求增加、製藥業外包趨勢、個性化醫療發展及地緣政治供應鏈重組推動。</li>
+<li><strong>GLP-1藥物：</strong> 市場面臨「灌裝荒」到「發酵荒」的產能瓶頸，原料藥需求暴增，目前處於供不應求狀態。</li>
+</ul>
+<h3>產業的平均毛利率水準</h3>
+<p>台灣生技產業獲利企業平均純益率達16.71%。生物製劑CDMO與新藥研發毛利率通常較高，但新藥研發前期投入巨大，獲利受影響。和迅生命科學CDMO/CMO業務已實現高稼動率、高毛利率。</p>
+
+<h3>競爭格局</h3>
+
+<h4>全球主要生物製劑CDMO公司</h4>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th></tr></thead><tbody>
+<tr><td>Lonza Group AG</td></tr>
+<tr><td>Catalent, Inc.</td></tr>
+<tr><td>Samsung Biologics</td></tr>
+<tr><td>WuXi Biologics (藥明生物)</td></tr>
+<tr><td>Boehringer Ingelheim</td></tr>
+<tr><td>Fujifilm Diosynth Biotechnologies</td></tr>
+<tr><td>Patheon (Thermo Fisher Scientific)</td></tr>
+<tr><td>AGC Biologics</td></tr>
+<tr><td>Cytiva (Danaher Corporation)</td></tr>
+</tbody></table></div>
+
+<h4>北極星藥業-KY vs 主要競爭對手</h4>
+<ul><li><strong>ADI-PEG 20 (癌症代謝療法):</strong></li>
+</ul>    *   <strong>北極星藥業-KY：</strong> 核心產品ADI-PEG 20為代謝療法抗癌新藥，機制獨特，鎖定惡性胸膜間皮瘤（MPM）、膠質母細胞瘤等難治癌症，BLA已進入FDA審查。腦癌三期臨床預計2026年底至2027年初解盲。
+<p>*   <strong>競爭者：</strong> 主要來自傳統化療、標靶治療、免疫療法、細胞及基因療法等不同機制的新藥。大型藥廠如Amgen、AstraZeneca、Bayer、Bristol-Myers Squibb、Pfizer等擁有廣泛產品線。</p>
+<ul><li><strong>多肽產品CDMO (GLP-1相關):</strong></li>
+</ul>    *   <strong>北極星藥業-KY：</strong> 透過霖揚生技垂直整合GLP-1原料藥與製劑生產，規劃竹南新廠，目標搶佔司美格魯肽專利到期後學名藥市場。
+<p>*   <strong>競爭者：</strong> GLP-1藥物市場由諾和諾德和禮來等巨頭主導。CDMO領域則有提供多肽合成和生產服務的專業CDMO公司。GLP-1市場爆發性成長帶動CDMO需求。</p>
+
+<h4>台灣同業比較</h4>
+<p>根據「2025台灣生技產業價值力調查報告」，台灣生技產業總資產2024年突破1兆，營收達3585億元，稅後純益232億元。前十大公司包括智擎、藥華藥、美時、保瑞、台灣東洋等。北極星藥業-KY在2025年全年合併營收約4,080萬元，目前仍處於虧損狀態，與這些已獲利或營收規模較大的公司相比，北極星藥業-KY的營運模式更側重於未來新藥與新產能的爆發潛力。具體的營收規模、毛利率、EPS對比，需待北極星藥業-KY核心產品商業化後才能進行更直接的比較。</p>
+
+<h3>產業趨勢</h3>
+<li><strong>生物製劑與先進療法的快速發展：</strong></li>
+<p>*   <strong>具體影響：</strong> 生物藥品市場持續成長，大分子藥物如生物製劑、細胞及基因療法需求旺盛，推動高度客製化CDMO服務需求。北美在基因編輯等尖端療法領先，帶動客製化CDMO能力需求。</p>
+<p>*   <strong>對北極星藥業-KY影響：</strong> 北極星藥業-KY的ADI-PEG 20即為生物製劑，CDMO業務專注於生物製劑和多肽產品，符合趨勢，將受益於市場需求增長。</p>
+<li><strong>人工智慧（AI）在藥物研發中的整合應用：</strong></li>
+<p>*   <strong>具體影響：</strong> AI加速藥物發現與精準診斷，縮短早期研發週期，提高效率。大型藥廠利用AI縮短創藥時間。</p>
+<p>*   <strong>對北極星藥業-KY影響：</strong> AI主要影響早期研發。ADI-PEG 20已處後期臨床，直接影響較小。但AI有助於未來新藥管線探索、優化，並提升CDMO生產效率和品質控制。</p>
+<li><strong>地緣政治與供應鏈韌性：</strong></li>
+<p>*   <strong>具體影響：</strong> 地緣政治因素重塑全球製藥CDMO市場，從「成本效率」轉向「工業化精度」與「地緣政治主權」。例如，美國生物安全法案影響CDMO業務分配，預計約70億美元營收將轉移。</p>
+<p>*   <strong>對北極星藥業-KY影響：</strong> 作為跨國生技公司，全球佈局使其能適應變化。台灣CDMO業者在工程管理與國際品質系統優勢下，有望成為「亞洲高階、可信賴製造樞紐」，北極星藥業-KY在台灣擴建GLP-1產線符合此趨勢。</p>
+
+<h3>機會與威脅</h3>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>ADI-PEG 20藥證取得：</strong> 惡性胸膜間皮瘤藥證有望2026年中取得，帶來重要商業收入。
+<p>*   <strong>GLP-1市場爆發：</strong> 市場規模龐大且供不應求，北極星藥業-KY擴建GLP-1產線，有望帶來顯著營收增長。</p>
+<p>*   <strong>生物製劑CDMO需求高漲：</strong> 受惠於先進療法興起，CDMO佈局具有良好市場前景。</p>
+<p>*   <strong>台灣CDMO地位提升：</strong> 全球供應鏈重組下，台灣CDMO有機會成為高階製造中心，北極星藥業-KY可望受惠。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>新藥研發高風險與長週期：</strong> ADI-PEG 20雖進展順利，但其他管線開發仍有不確定性。FDA Form 483的後續回應與藥證取得時程仍是變數。
+<p>*   <strong>市場競爭激烈：</strong> 癌症治療與GLP-1市場競爭者眾多，可能面臨價格壓力。</p>
+<p>*   <strong>法規審核不確定性：</strong> 藥證審核仍有變數，其他國家藥證申請也需時間。</p>
+<p>*   <strong>資金投入與獲利壓力：</strong> 新藥研發和CDMO產能擴張需大量資金，短期內財務壓力較大。資金回收期調整至9年，顯示獲利時程延長。</p>
+
+<h2>近期催化劑 (2025年12月至2026年3月7日)</h2>
+<ul><li><strong>2025年12月11日：</strong> 法說會重申「雙引擎成長策略」，預期ADI-PEG 20 MPM藥證2026年中上市，GLP-1市場商機巨大。</li>
+<li><strong>2025年12月26日：</strong> 臨時股東會。</li>
+<li><strong>2025年12月：</strong> 合併營收311萬元，月增11.48%，年減40.72%。2025年全年營收約4,080萬元，年減逾六成。</li>
+<li><strong>2026年1月：</strong> 合併營收1,842.9萬元，月增492.95%，年增1,275.3%，主要來自CDMO代工收入認列。</li>
+<li><strong>2026年2月11日：</strong> 外資買超263張，自營商買超49張，三大法人合計買超312張。</li>
+<li><strong>2026年2月23日：</strong> 股價強彈近10%，市場關注新藥審查與私募進度。</li>
+<li><strong>2026年2月23日：</strong> FDA對北加州廠ADI-PEG 20藥證核准前查廠(PAI)出具Form 483（查廠缺失意見書），公司將依規定回覆。</li>
+<li><strong>2026年3月3日：</strong> 公告114年第四季合併財務報告董事會預計於2026年3月11日召開。</li>
+<li><strong>2026年3月9日：</strong> 外資賣超526張，自營商賣超78張。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能類別</th><th>詳細內容</th></tr></thead><tbody>
+<tr><td><strong>2025年4月</strong></td><td>擴廠、資本支出</td><td>竹南GLP-1新廠動土，五年分階段投資約80億元擴充產能。</td></tr>
+<tr><td><strong>2025年4月</strong></td><td>新客戶/新市場</td><td>ADI-PEG 20與Tabuk及Er-Kim簽署獨家授權及分銷協議，進入中東GCC及EMEA等36個市場。</td></tr>
+<tr><td><strong>2025年8月</strong></td><td>資金運用調整</td><td>調整113年現金增資資金運用計畫，GLP-1產品營收貢獻時程調整至2026年起，資金回收年限由4年調整為9年。</td></tr>
+<tr><td><strong>2025年底</strong></td><td>新藥里程碑</td><td>ADI-PEG 20肺間皮癌藥證目標取得。</td></tr>
+<tr><td><strong>2026年1月</strong></td><td>營收貢獻</td><td>CDMO代工收入認列，推動月營收達1,842.9萬元，年增1275.3%。</td></tr>
+<tr><td><strong>2026年3月</strong></td><td>市場機會</td><td>諾和諾德司美格魯肽核心化合物專利到期，開啟GLP-1學名藥市場巨大商機。</td></tr>
+<tr><td><strong>2026年中</strong></td><td>新藥上市</td><td>ADI-PEG 20惡性胸膜間皮瘤新藥預計上市銷售。</td></tr>
+<tr><td><strong>2026年起</strong></td><td>營收貢獻</td><td>霖揚與成都兩廠的多肽產品營業收入預計開始貢獻。</td></tr>
+<tr><td><strong>2026年底-2027年初</strong></td><td>新藥里程碑</td><td>腦癌三期臨床預計解盲。</td></tr>
+<tr><td><strong>2028年</strong></td><td>新產能上線</td><td>竹南GLP-1新廠六條產線預計通過查廠後投產。</td></tr>
+<tr><td><strong>長期</strong></td><td>產能擴充 (ADI-PEG 20)</td><td>美國、台灣、中國大陸擴增ADI-PEG 20廠房，目標年產能360萬支針劑。</td></tr>
+<tr><td><strong>長期</strong></td><td>下游需求</td><td>GLP-1市場在2型糖尿病和肥胖領域需求爆發性成長，2030年市場規模預計達900億美元。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+<p>北極星藥業-KY的2026年是關鍵轉折期，將在「雙引擎」策略下，迎接新藥上市與GLP-1業務的起飛。</p>
+
+<ul><li><strong>成長動能：</strong></li>
+</ul>    1.  <strong>ADI-PEG 20新藥上市：</strong> 惡性胸膜間皮瘤新藥ADI-PEG 20預計在2026年中上市，將帶來實質性的銷售收入，並有潛力在國際合作夥伴的協助下擴展市場。FDA查廠缺失的回應進度將是影響上市時程的重要因素。
+<p>2.  <strong>GLP-1多肽產品營收貢獻：</strong> 諾和諾德司美格魯肽專利於2026年3月到期，北極星藥業的GLP-1多肽產品預計自2026年起開始貢獻營收，並有望受惠於全球GLP-1市場的供不應求與爆發性成長。已簽約的85.4公斤年度API需求量顯示明確的市場基礎。</p>
+<p>3.  <strong>CDMO業務穩定成長：</strong> 2026年1月CDMO代工收入已展現顯著的營收增長，預期在生物製劑CDMO市場持續擴張的背景下，CDMO業務將成為穩定的營收來源。</p>
+<ul><li><strong>風險：</strong></li>
+</ul>    1.  <strong>ADI-PEG 20藥證審查風險：</strong> FDA查廠提出的Form 483意見書，其後續的改善措施與FDA的審核結果，仍可能影響藥證取得的時程與最終結果，甚至藥證的批准。
+<p>2.  <strong>GLP-1市場競爭與資金回收期延長：</strong> 儘管GLP-1市場龐大，但競爭激烈，且公司已調整GLP-1產品資金回收年限至9年，顯示短期獲利貢獻可能不如預期。</p>
+<p>3.  <strong>新藥研發與資本支出壓力：</strong> 儘管有新藥上市，但公司仍有其他新藥管線的研發投入，且未來五年80億元的資本支出計畫龐大，在尚未大規模獲利前，仍需面對較大的財務壓力。</p>
+<p>4.  <strong>營收波動性：</strong> 儘管2026年1月營收表現亮眼，但歷史營收波動劇烈，未來營收能否持續穩定成長，仍需持續觀察。</p>
+
+<h2>投資結論 (3-5 點，含具體目標價區間建議)</h2>
+
+<p>北極星藥業-KY（6550）正處於由研發階段轉向商業化與規模化生產的關鍵時期，其「雙引擎」策略具備巨大的長期成長潛力，但也伴隨顯著的短期風險。</p>
+
+<li><strong>ADI-PEG 20上市為首要催化劑：</strong> ADI-PEG 20惡性胸膜間皮瘤藥證若能如期於2026年中上市銷售，將是公司從研發走向商業化的重要里程碑。其獨特的代謝療法機制，為難治癌症提供新選擇，具備市場區隔優勢。投資人應密切關注FDA對Form 483的回應及藥證最終核准時程。</li>
+<li><strong>GLP-1市場爆發性成長提供第二成長曲線：</strong> 隨著司美格魯肽專利於2026年3月到期，加上全球GLP-1藥物市場的供不應求與龐大潛力，北極星藥業-KY在GLP-1多肽原料藥的垂直整合佈局，有望搭上這波產業浪潮，為公司帶來長期的營收動能。但資金回收期延長至9年，顯示初期貢獻仍需耐心等待。</li>
+<li><strong>CDMO業務穩定性與資金壓力並存：</strong> 雖然2026年1月營收已顯示CDMO業務的貢獻，但在新藥研發高投入與新廠建置的龐大資本支出下（未來五年80億元），公司仍將面臨短期獲利壓力，需要持續的資金注入。營收的波動性也值得投資人持續關注。</li>
+<li><strong>高成長潛力與高風險並存：</strong> 北極星藥業-KY的長期成長願景清晰，但短期營運仍有諸多不確定性，包括新藥審批、市場競爭、資金壓力及產能利用率等。這是一檔高風險高報酬的投資標的，適合對生技產業有深入了解且具備較高風險承受能力的投資人。</li>
+
+<strong>投資建議區間：</strong>
+<p>考量到北極星藥業-KY仍處於新藥研發和新業務（GLP-1 CDMO）的成長初期，營收和獲利能力尚未穩定，且市場對其未來藥證取得和CDMO業務放量的預期存在高度不確定性，目前較難給出精確的目標價。</p>
+
+<p>然而，若假設ADI-PEG 20能於2026年中順利上市且銷售逐步放量，加上GLP-1業務能從2026年起提供初步營收貢獻，則公司價值將會重估。</p>
+
+<p>基於其「雙引擎」策略的未來潛力，我們建議投資人可將目光放遠至<strong>2027年-2028年</strong>，待新藥銷售趨於穩定及GLP-1產能效益顯現後。若各項催化劑能如期兌現，公司價值有望回歸過去相對高點。</p>
+
+<strong>短期 (2026年)：</strong> 由於FDA查廠缺失及獲利不確定性，股價波動大，建議以區間操作為主，區間約落在<strong>新台幣 30-55 元</strong>，以反映利多消息與營運壓力。
+<strong>長期 (2027-2028年，具成功執行假設)：</strong> 若ADI-PEG 20成功上市，並在國際市場取得良好銷售，GLP-1業務亦順利量產並獲大單，公司營收與獲利結構將大幅改善。屆時目標價區間有望上調至<strong>新台幣 80-120 元</strong>，反映其新藥的潛在高峰銷售額與CDMO的市場價值。
+
+<strong>主要風險包括：</strong> ADI-PEG 20藥證延遲或未獲批准、GLP-1產能擴充不及預期或市場競爭加劇、以及持續的鉅額研發和資本支出對公司財務造成的壓力。
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-09 21:12</p>
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

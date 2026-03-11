@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4967 十銓 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>4967 十銓 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>十銓受惠於AI驅動的記憶體超級週期，透過深化與上游晶圓廠的合作及策略性布局高毛利、高規格產品線（電競、創作者、工控），於2025年繳出歷史新高的營收與獲利表現（EPS 13.06元），並在2026年初延續強勁成長動能，儘管市場情緒波動，但預期記憶體結構性缺貨及價格上漲趨勢將持續至2027年，為公司營運帶來長期利多。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">4967 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-4967" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-4967" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-4967');
+    var obvContainer = document.getElementById('obv-chart-4967');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 129.0, "high": 129.0, "low": 125.5, "close": 129.0}, {"time": "2025-12-05", "open": 127.5, "high": 133.0, "low": 125.5, "close": 132.5}, {"time": "2025-12-08", "open": 135.5, "high": 143.5, "low": 134.5, "close": 141.0}, {"time": "2025-12-09", "open": 135.5, "high": 143.5, "low": 134.5, "close": 141.0}, {"time": "2025-12-10", "open": 143.0, "high": 143.5, "low": 137.0, "close": 139.5}, {"time": "2025-12-11", "open": 140.5, "high": 141.5, "low": 136.5, "close": 136.5}, {"time": "2025-12-12", "open": 137.0, "high": 141.0, "low": 136.5, "close": 136.5}, {"time": "2025-12-15", "open": 132.5, "high": 137.0, "low": 130.0, "close": 136.0}, {"time": "2025-12-16", "open": 135.5, "high": 135.5, "low": 130.0, "close": 132.0}, {"time": "2025-12-17", "open": 134.0, "high": 145.0, "low": 134.0, "close": 145.0}, {"time": "2025-12-18", "open": 149.0, "high": 150.5, "low": 137.5, "close": 137.5}, {"time": "2025-12-19", "open": 140.0, "high": 142.0, "low": 135.0, "close": 136.0}, {"time": "2025-12-22", "open": 141.0, "high": 149.5, "low": 141.0, "close": 149.5}, {"time": "2025-12-23", "open": 151.0, "high": 157.0, "low": 148.0, "close": 152.5}, {"time": "2025-12-24", "open": 153.0, "high": 165.0, "low": 151.0, "close": 162.5}, {"time": "2025-12-26", "open": 164.0, "high": 164.5, "low": 158.0, "close": 159.5}, {"time": "2025-12-29", "open": 160.0, "high": 171.5, "low": 156.0, "close": 166.5}, {"time": "2025-12-30", "open": 166.0, "high": 174.0, "low": 166.0, "close": 172.0}, {"time": "2025-12-31", "open": 175.5, "high": 189.0, "low": 175.5, "close": 189.0}, {"time": "2026-01-02", "open": 190.0, "high": 195.0, "low": 183.5, "close": 193.5}, {"time": "2026-01-05", "open": 210.0, "high": 210.0, "low": 192.0, "close": 194.0}, {"time": "2026-01-06", "open": 190.0, "high": 203.0, "low": 188.5, "close": 203.0}, {"time": "2026-01-07", "open": 205.0, "high": 210.5, "low": 197.5, "close": 201.0}, {"time": "2026-01-08", "open": 206.5, "high": 212.5, "low": 201.0, "close": 210.0}, {"time": "2026-01-09", "open": 210.0, "high": 210.0, "low": 191.5, "close": 201.5}, {"time": "2026-01-12", "open": 207.0, "high": 207.0, "low": 197.0, "close": 202.0}, {"time": "2026-01-13", "open": 201.5, "high": 201.5, "low": 194.5, "close": 196.0}, {"time": "2026-01-14", "open": 194.5, "high": 195.0, "low": 191.0, "close": 194.5}, {"time": "2026-01-15", "open": 194.0, "high": 197.0, "low": 193.0, "close": 196.5}, {"time": "2026-01-16", "open": 200.0, "high": 204.0, "low": 199.0, "close": 203.5}, {"time": "2026-01-19", "open": 210.0, "high": 220.0, "low": 209.5, "close": 217.5}, {"time": "2026-01-20", "open": 203.5, "high": 213.0, "low": 203.0, "close": 209.5}, {"time": "2026-01-21", "open": 206.5, "high": 209.0, "low": 197.0, "close": 198.0}, {"time": "2026-01-22", "open": 208.0, "high": 210.0, "low": 205.0, "close": 206.0}, {"time": "2026-01-23", "open": 208.5, "high": 210.0, "low": 200.0, "close": 205.0}, {"time": "2026-01-26", "open": 215.0, "high": 225.5, "low": 215.0, "close": 225.5}, {"time": "2026-01-27", "open": 225.5, "high": 248.0, "low": 218.0, "close": 248.0}, {"time": "2026-01-28", "open": 253.5, "high": 265.5, "low": 249.5, "close": 256.5}, {"time": "2026-01-29", "open": 259.0, "high": 266.5, "low": 240.0, "close": 249.5}, {"time": "2026-01-30", "open": 250.5, "high": 257.5, "low": 240.0, "close": 252.5}, {"time": "2026-02-02", "open": 242.0, "high": 246.5, "low": 227.5, "close": 231.0}, {"time": "2026-02-03", "open": 245.0, "high": 251.0, "low": 217.5, "close": 221.5}, {"time": "2026-02-04", "open": 220.5, "high": 234.5, "low": 218.0, "close": 229.5}, {"time": "2026-02-05", "open": 223.5, "high": 233.0, "low": 219.5, "close": 227.0}, {"time": "2026-02-06", "open": 223.0, "high": 223.0, "low": 205.5, "close": 210.5}, {"time": "2026-02-09", "open": 221.5, "high": 222.5, "low": 209.5, "close": 209.5}, {"time": "2026-02-10", "open": 210.0, "high": 210.5, "low": 199.0, "close": 201.0}, {"time": "2026-02-11", "open": 199.0, "high": 203.0, "low": 197.0, "close": 199.5}, {"time": "2026-02-23", "open": 207.0, "high": 213.0, "low": 202.5, "close": 208.0}, {"time": "2026-02-24", "open": 209.0, "high": 214.0, "low": 206.0, "close": 214.0}, {"time": "2026-02-25", "open": 215.0, "high": 219.0, "low": 202.0, "close": 219.0}, {"time": "2026-02-26", "open": 205.0, "high": 207.5, "low": 200.0, "close": 204.5}, {"time": "2026-03-02", "open": 189.0, "high": 193.0, "low": 177.5, "close": 180.0}, {"time": "2026-03-03", "open": 207.5, "high": 212.0, "low": 188.0, "close": 192.0}, {"time": "2026-03-04", "open": 189.0, "high": 193.0, "low": 177.5, "close": 180.0}, {"time": "2026-03-05", "open": 192.5, "high": 196.0, "low": 185.5, "close": 189.5}, {"time": "2026-03-06", "open": 189.5, "high": 193.0, "low": 185.5, "close": 186.0}, {"time": "2026-03-09", "open": 172.0, "high": 182.5, "low": 170.5, "close": 182.0}, {"time": "2026-03-10", "open": 195.0, "high": 195.0, "low": 182.5, "close": 185.0}, {"time": "2026-03-11", "open": 184.5, "high": 196.5, "low": 183.5, "close": 191.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 2726.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 3895.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 16887.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 16887.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 6744.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 3610.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 5475.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 3210.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 2101.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 15793.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 37922.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 11437.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 19952.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 31498.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 38118.0, "color": "#ef5350"}, {"time": "2025-12-26", "value": 16417.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 26656.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 24615.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 38076.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 36810.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 35009.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 32762.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 29277.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 43805.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 27253.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 19357.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 4152.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 2061.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 1561.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 3293.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 6305.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 4026.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 3610.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 3420.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 3433.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 6722.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 31621.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 29203.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 23714.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 19853.0, "color": "#ef5350"}, {"time": "2026-02-02", "value": 13119.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 17984.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 10122.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 7603.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 9859.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 7223.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 6398.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 4892.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 6433.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 5518.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 8728.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 13032.0, "color": "#26a69a"}, {"time": "2026-03-02", "value": 6559.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 9284.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 6559.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 4237.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 4516.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 5401.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 3814.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 7080.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 136.6}, {"time": "2025-12-11", "value": 138.1}, {"time": "2025-12-12", "value": 138.9}, {"time": "2025-12-15", "value": 137.9}, {"time": "2025-12-16", "value": 136.1}, {"time": "2025-12-17", "value": 137.2}, {"time": "2025-12-18", "value": 137.4}, {"time": "2025-12-19", "value": 137.3}, {"time": "2025-12-22", "value": 140.0}, {"time": "2025-12-23", "value": 144.1}, {"time": "2025-12-24", "value": 147.6}, {"time": "2025-12-26", "value": 152.0}, {"time": "2025-12-29", "value": 158.1}, {"time": "2025-12-30", "value": 162.6}, {"time": "2025-12-31", "value": 169.9}, {"time": "2026-01-02", "value": 176.1}, {"time": "2026-01-05", "value": 183.0}, {"time": "2026-01-06", "value": 190.3}, {"time": "2026-01-07", "value": 196.1}, {"time": "2026-01-08", "value": 200.3}, {"time": "2026-01-09", "value": 201.9}, {"time": "2026-01-12", "value": 203.5}, {"time": "2026-01-13", "value": 202.1}, {"time": "2026-01-14", "value": 200.8}, {"time": "2026-01-15", "value": 198.1}, {"time": "2026-01-16", "value": 198.5}, {"time": "2026-01-19", "value": 201.6}, {"time": "2026-01-20", "value": 204.3}, {"time": "2026-01-21", "value": 205.0}, {"time": "2026-01-22", "value": 206.9}, {"time": "2026-01-23", "value": 207.2}, {"time": "2026-01-26", "value": 208.8}, {"time": "2026-01-27", "value": 216.5}, {"time": "2026-01-28", "value": 228.2}, {"time": "2026-01-29", "value": 236.9}, {"time": "2026-01-30", "value": 246.4}, {"time": "2026-02-02", "value": 247.5}, {"time": "2026-02-03", "value": 242.2}, {"time": "2026-02-04", "value": 236.8}, {"time": "2026-02-05", "value": 232.3}, {"time": "2026-02-06", "value": 223.9}, {"time": "2026-02-09", "value": 219.6}, {"time": "2026-02-10", "value": 215.5}, {"time": "2026-02-11", "value": 209.5}, {"time": "2026-02-23", "value": 205.7}, {"time": "2026-02-24", "value": 206.4}, {"time": "2026-02-25", "value": 208.3}, {"time": "2026-02-26", "value": 209.0}, {"time": "2026-03-02", "value": 205.1}, {"time": "2026-03-03", "value": 201.9}, {"time": "2026-03-04", "value": 195.1}, {"time": "2026-03-05", "value": 189.2}, {"time": "2026-03-06", "value": 185.5}, {"time": "2026-03-09", "value": 185.9}, {"time": "2026-03-10", "value": 184.5}, {"time": "2026-03-11", "value": 186.7}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 136.9}, {"time": "2025-12-18", "value": 137.75}, {"time": "2025-12-19", "value": 138.1}, {"time": "2025-12-22", "value": 138.95}, {"time": "2025-12-23", "value": 140.1}, {"time": "2025-12-24", "value": 142.4}, {"time": "2025-12-26", "value": 144.7}, {"time": "2025-12-29", "value": 147.7}, {"time": "2025-12-30", "value": 151.3}, {"time": "2025-12-31", "value": 157.0}, {"time": "2026-01-02", "value": 161.85}, {"time": "2026-01-05", "value": 167.5}, {"time": "2026-01-06", "value": 174.2}, {"time": "2026-01-07", "value": 179.35}, {"time": "2026-01-08", "value": 185.1}, {"time": "2026-01-09", "value": 189.0}, {"time": "2026-01-12", "value": 193.25}, {"time": "2026-01-13", "value": 196.2}, {"time": "2026-01-14", "value": 198.45}, {"time": "2026-01-15", "value": 199.2}, {"time": "2026-01-16", "value": 200.2}, {"time": "2026-01-19", "value": 202.55}, {"time": "2026-01-20", "value": 203.2}, {"time": "2026-01-21", "value": 202.9}, {"time": "2026-01-22", "value": 202.5}, {"time": "2026-01-23", "value": 202.85}, {"time": "2026-01-26", "value": 205.2}, {"time": "2026-01-27", "value": 210.4}, {"time": "2026-01-28", "value": 216.6}, {"time": "2026-01-29", "value": 221.9}, {"time": "2026-01-30", "value": 226.8}, {"time": "2026-02-02", "value": 228.15}, {"time": "2026-02-03", "value": 229.35}, {"time": "2026-02-04", "value": 232.5}, {"time": "2026-02-05", "value": 234.6}, {"time": "2026-02-06", "value": 235.15}, {"time": "2026-02-09", "value": 233.55}, {"time": "2026-02-10", "value": 228.85}, {"time": "2026-02-11", "value": 223.15}, {"time": "2026-02-23", "value": 219.0}, {"time": "2026-02-24", "value": 215.15}, {"time": "2026-02-25", "value": 213.95}, {"time": "2026-02-26", "value": 212.25}, {"time": "2026-03-02", "value": 207.3}, {"time": "2026-03-03", "value": 203.8}, {"time": "2026-03-04", "value": 200.75}, {"time": "2026-03-05", "value": 198.75}, {"time": "2026-03-06", "value": 197.25}, {"time": "2026-03-09", "value": 195.5}, {"time": "2026-03-10", "value": 193.2}, {"time": "2026-03-11", "value": 190.9}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 149.375}, {"time": "2026-01-05", "value": 152.625}, {"time": "2026-01-06", "value": 156.15}, {"time": "2026-01-07", "value": 159.15}, {"time": "2026-01-08", "value": 162.6}, {"time": "2026-01-09", "value": 165.7}, {"time": "2026-01-12", "value": 168.975}, {"time": "2026-01-13", "value": 171.95}, {"time": "2026-01-14", "value": 174.875}, {"time": "2026-01-15", "value": 178.1}, {"time": "2026-01-16", "value": 181.025}, {"time": "2026-01-19", "value": 185.025}, {"time": "2026-01-20", "value": 188.7}, {"time": "2026-01-21", "value": 191.125}, {"time": "2026-01-22", "value": 193.8}, {"time": "2026-01-23", "value": 195.925}, {"time": "2026-01-26", "value": 199.225}, {"time": "2026-01-27", "value": 203.3}, {"time": "2026-01-28", "value": 207.525}, {"time": "2026-01-29", "value": 210.55}, {"time": "2026-01-30", "value": 213.5}, {"time": "2026-02-02", "value": 215.35}, {"time": "2026-02-03", "value": 216.275}, {"time": "2026-02-04", "value": 217.7}, {"time": "2026-02-05", "value": 218.55}, {"time": "2026-02-06", "value": 219.0}, {"time": "2026-02-09", "value": 219.375}, {"time": "2026-02-10", "value": 219.625}, {"time": "2026-02-11", "value": 219.875}, {"time": "2026-02-23", "value": 220.45}, {"time": "2026-02-24", "value": 220.975}, {"time": "2026-02-25", "value": 221.05}, {"time": "2026-02-26", "value": 220.8}, {"time": "2026-03-02", "value": 219.9}, {"time": "2026-03-03", "value": 219.2}, {"time": "2026-03-04", "value": 217.95}, {"time": "2026-03-05", "value": 216.15}, {"time": "2026-03-06", "value": 213.05}, {"time": "2026-03-09", "value": 209.325}, {"time": "2026-03-10", "value": 206.1}, {"time": "2026-03-11", "value": 203.025}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 3895.0}, {"time": "2025-12-08", "value": 20782.0}, {"time": "2025-12-09", "value": 20782.0}, {"time": "2025-12-10", "value": 14038.0}, {"time": "2025-12-11", "value": 10428.0}, {"time": "2025-12-12", "value": 10428.0}, {"time": "2025-12-15", "value": 7218.0}, {"time": "2025-12-16", "value": 5117.0}, {"time": "2025-12-17", "value": 20910.0}, {"time": "2025-12-18", "value": -17012.0}, {"time": "2025-12-19", "value": -28449.0}, {"time": "2025-12-22", "value": -8497.0}, {"time": "2025-12-23", "value": 23001.0}, {"time": "2025-12-24", "value": 61119.0}, {"time": "2025-12-26", "value": 44702.0}, {"time": "2025-12-29", "value": 71358.0}, {"time": "2025-12-30", "value": 95973.0}, {"time": "2025-12-31", "value": 134049.0}, {"time": "2026-01-02", "value": 170859.0}, {"time": "2026-01-05", "value": 205868.0}, {"time": "2026-01-06", "value": 238630.0}, {"time": "2026-01-07", "value": 209353.0}, {"time": "2026-01-08", "value": 253158.0}, {"time": "2026-01-09", "value": 225905.0}, {"time": "2026-01-12", "value": 245262.0}, {"time": "2026-01-13", "value": 241110.0}, {"time": "2026-01-14", "value": 239049.0}, {"time": "2026-01-15", "value": 240610.0}, {"time": "2026-01-16", "value": 243903.0}, {"time": "2026-01-19", "value": 250208.0}, {"time": "2026-01-20", "value": 246182.0}, {"time": "2026-01-21", "value": 242572.0}, {"time": "2026-01-22", "value": 245992.0}, {"time": "2026-01-23", "value": 242559.0}, {"time": "2026-01-26", "value": 249281.0}, {"time": "2026-01-27", "value": 280902.0}, {"time": "2026-01-28", "value": 310105.0}, {"time": "2026-01-29", "value": 286391.0}, {"time": "2026-01-30", "value": 306244.0}, {"time": "2026-02-02", "value": 293125.0}, {"time": "2026-02-03", "value": 275141.0}, {"time": "2026-02-04", "value": 285263.0}, {"time": "2026-02-05", "value": 277660.0}, {"time": "2026-02-06", "value": 267801.0}, {"time": "2026-02-09", "value": 260578.0}, {"time": "2026-02-10", "value": 254180.0}, {"time": "2026-02-11", "value": 249288.0}, {"time": "2026-02-23", "value": 255721.0}, {"time": "2026-02-24", "value": 261239.0}, {"time": "2026-02-25", "value": 269967.0}, {"time": "2026-02-26", "value": 256935.0}, {"time": "2026-03-02", "value": 250376.0}, {"time": "2026-03-03", "value": 259660.0}, {"time": "2026-03-04", "value": 253101.0}, {"time": "2026-03-05", "value": 257338.0}, {"time": "2026-03-06", "value": 252822.0}, {"time": "2026-03-09", "value": 247421.0}, {"time": "2026-03-10", "value": 251235.0}, {"time": "2026-03-11", "value": 258315.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>十銓科技（4967）成立於1997年，總部位於台灣，是一家專注於記憶體模組與儲存產品的品牌型模組製造商。公司向上游原廠採購DRAM與NAND Flash顆粒，經設計與封裝後，以自有品牌銷售至全球市場。</p>
+
+<strong>核心產品與服務：</strong>
+<ul><li><strong>DRAM模組 (動態隨機存取記憶體)</strong></li>
+<li><strong>SSD (固態硬碟)</strong></li>
+<li><strong>記憶卡</strong></li>
+<li><strong>USB隨身碟</strong></li>
+<li><strong>工規記憶儲存產品 (Industrial Applications)</strong></li>
+</ul>
+<p>十銓旗下擁有四大主要品牌，以區隔不同市場需求：</p>
+<ul><li><strong>TEAMGROUP：</strong> 一般消費者市場。</li>
+<li><strong>T-FORCE：</strong> 電競玩家，專注高速、高品質、高性能。</li>
+<li><strong>T-CREATE：</strong> 創作者與AI運算，強調穩定、高效能、高可靠度。</li>
+<li><strong>TEAMGROUP INDUSTRIAL：</strong> 工控、AIoT、軍工、醫療等特殊應用，提供客製化與高耐用度解決方案。</li>
+</ul>
+<strong>營收結構 (2025年前三季)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品類別</th><th>營收佔比</th><th>備註</th></tr></thead><tbody>
+<tr><td>DRAM產品</td><td>65%</td><td>其中DDR5佔84%，DDR4佔15% (ASP較高)</td></tr>
+<tr><td>Flash產品</td><td>34%</td><td></td></tr>
+</tbody></table></div>
+
+<strong>製造基地與全球佈局：</strong>
+<p>總部設於台灣新北市中和區，並在美國、日本、深圳及香港設有分公司。公司已啟動擴產計畫，添購新廠房，規劃少量多樣的工控與工業電腦相關應用產能配置。目前公開資料未提供各製造基地的具體營收貢獻比例。</p>
+
+<h2>核心競爭優勢</h2>
+<li><strong>品牌差異化策略：</strong> 透過T-FORCE（電競）、T-CREATE（創作者/AI）及TEAMGROUP INDUSTRIAL（工控）三大品牌，成功區隔市場，擺脫標準品價格競爭，並在高階利基市場建立品牌價值。</li>
+<li><strong>與上游原廠的長期策略夥伴關係：</strong> 在記憶體供不應求的環境下，能穩定獲取DRAM與NAND Flash顆粒，確保供應鏈韌性，並具備優先供貨給關鍵客戶的能力。</li>
+<li><strong>產品高附加價值化：</strong> 聚焦高規格、大容量產品，如DDR5記憶體、PCIe Gen5 SSD，以及具備專利技術（如「一鍵銷毀」）的工控應用產品，提升產品毛利率。</li>
+<li><strong>積極拓展B2B與工控市場：</strong> 將工控、AIoT、軍工、醫療等特殊應用領域視為未來3到5年的成長重點，並啟動擴產計畫以深化該領域佈局，打造新的獲利引擎。</li>
+<li><strong>優異的財務應變能力：</strong> 在記憶體漲價週期中，透過靈活的庫存管理與採購策略，有效享有低價庫存利益，並迅速反應上游報價，顯著提升獲利能力。</li>
+
+<h2>財務分析</h2>
+
+<strong>月營收趨勢</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (千元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026/01</td><td>3,489,648</td><td>-3.8%</td><td>112.7%</td></tr>
+<tr><td>2025/12</td><td>3,629,683</td><td>124.4%</td><td>211.3%</td></tr>
+<tr><td>2025/11</td><td>1,617,270</td><td>46.8%</td><td>78.6%</td></tr>
+<tr><td>2025/10</td><td>1,101,995</td><td>-43.4%</td><td>-7.8%</td></tr>
+<tr><td>2025/09</td><td>1,946,275</td><td>107.8%</td><td>64.1%</td></tr>
+<tr><td>2025/08</td><td>936,659</td><td>-26.9%</td><td>-55.7%</td></tr>
+</tbody></table></div>
+
+<strong>季度財務數據 (2025年)</strong>
+
+<ul><li><strong>2025年第四季</strong></li>
+</ul>    *   季營收：新台幣63.49億元，季增52.49%，年增94.36%，創近6季新高。
+<p>*   毛利率：22.48%。</p>
+<p>*   營業利益率：16.35% (營業利益10.38億元)。</p>
+<p>*   每股稅後純益 (EPS)：9.59元。</p>
+
+<strong>年度財務數據</strong>
+
+<ul><li><strong>2025年全年</strong></li>
+</ul>    *   合併營收：新台幣204.28億元，年增2.45%，創歷史新高。
+<p>*   稅後淨利：新台幣11.1億元，年增110.45%，創歷史新高。</p>
+<p>*   每股稅後純益 (EPS)：新台幣13.06元，再度寫下歷史新高。</p>
+<ul><li><strong>2024年全年</strong></li>
+</ul>    *   合併營收：新台幣199.38億元。
+<p>*   每股稅後純益 (EPS)：新台幣6.8元。</p>
+
+<h2>法說會重點</h2>
+<strong>最近一次法說會日期：</strong> 2025年11月28日。
+
+<strong>管理層發言與市場展望：</strong>
+<ul><li><strong>記憶體市場結構性缺貨：</strong> 總經理陳慶文指出，AI應用引發記憶體市場出現「結構性缺貨」，此趨勢預計將延續至2027年下半年甚至更久。</li>
+<li><strong>價格展望：</strong> 預期2026年上半年記憶體缺貨情況恐將加劇，產品價格可望持續上漲，不排除持續上行，對於未來營收與獲利展望正向。12月部分DRAM合約價漲幅高達80%。</li>
+<li><strong>產品策略：</strong> 公司將持續聚焦高規格、大容量產品及解決方案，深化B2B專案及工控應用布局，並專注於電競、AI與創作者、邊緣運算、物聯網等高價值利基市場，不會在標準品市場競爭。</li>
+<li><strong>產能與資本支出：</strong> 因應客戶需求，公司已啟動擴產計畫，近期添購新廠房，規劃發展少量多樣的工控與工業電腦相關應用產能配置，以擴大產品線佈局。目前未提供具體的產能利用率或資本支出金額。</li>
+</ul>
+<h2>券商觀點</h2>
+<p>根據現有資料，未找到來自至少3家券商針對十銓（4967）於2025-2026年的具體目標價、EPS預估數字及評等調整資訊。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>(無資料)</td><td>(無資料)</td><td>(無資料)</td><td>(無資料)</td></tr>
+</tbody></table></div>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<p>十銓科技的利潤率在2025年呈現顯著增長，尤其在記憶體漲價循環中展現強勁的獲利能力。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2025年Q4</td><td>22.50%</td><td>16.35%</td><td>12.84%</td></tr>
+<tr><td>2025年Q3</td><td>13.28%</td><td>6.07%</td><td>4.79%</td></tr>
+<tr><td>2025年Q2</td><td>9.99%</td><td>1.09%</td><td>0.24%</td></tr>
+<tr><td>2025年Q1</td><td>10.38%</td><td>2.34%</td><td>1.58%</td></tr>
+<tr><td>2024年Q4</td><td>12.45%</td><td>2.43%</td><td>1.95%</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化的原因分析：</strong>
+<p>2025年利潤率顯著提升，主要歸因於DRAM及NAND Flash記憶體價格雙雙大漲，帶動營收及毛利率大幅成長。同時，公司持續聚焦高規格、大容量產品 (如DDR5佔DRAM產品營收84%)，並積極拓展工控電腦與SI市場，強化高附加價值產品線，優化了獲利結構。</p>
+
+<h3>存貨與營運</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數</th><th>應收帳款週轉天數</th></tr></thead><tbody>
+<tr><td>2025年Q3</td><td>115.54天</td><td>50.81天</td></tr>
+<tr><td>2025年Q2</td><td>99.92天</td><td>54.98天</td></tr>
+<tr><td>2025年Q1</td><td>93.01天</td><td>32.44天</td></tr>
+<tr><td>2024年Q4</td><td>166.76天</td><td>41.75天</td></tr>
+</tbody></table></div>
+
+<strong>存貨分析：</strong>
+<p>十銓科技的存貨週轉天數在2025年Q1-Q3逐漸下降，顯示營運效率提升。公司總經理表示，庫存長期維持在約2至3個月的健康水位，不會刻意追高。公司透過與上游原廠的長期供應協議與固定配額，確保必要安全庫存，並以優先供貨策略保障關鍵客戶，有效維持出貨穩定性與控制缺貨風險。</p>
+
+<h3>資本支出與產能</h3>
+<ul><li><strong>近3年資本支出金額與趨勢：</strong> 目前未找到2023-2025年具體的資本支出金額數據。</li>
+<li><strong>未來資本支出計畫與預計新增產能：</strong> 公司已啟動擴產計畫，添購新廠房，規劃發展少量多樣的工控與工業電腦相關應用產能配置。目前未找到預計新增產能的具體數字。</li>
+<li><strong>折舊攤銷趨勢：</strong> 未找到2023-2025年的折舊攤銷趨勢數據。</li>
+</ul>
+<h3>其他財報重點</h3>
+<ul><li><strong>負債比率：</strong> 2025年第三季為58.13%，較前一季下降。未找到淨負債/EBITDA數據。</li>
+<li><strong>自由現金流量趨勢：</strong> 未找到自由現金流量趨勢的數據。</li>
+<li><strong>業外收支：</strong> 業外收支佔稅前淨利比波動較大 (2024Q4：-60.12%；2025Q1：32.97%；2025Q3：-1.19%)，顯示其對稅前淨利有一定影響，但未具體說明重大項目。</li>
+</ul>
+<h2>股權異動</h2>
+
+<h3>董監事/大股東申報轉讓紀錄</h3>
+<ul><li><strong>2024年06月14日：</strong> 董事夏澹寧申報轉讓十銓股票546張，轉讓後持股比率約下降至1.94%。 (此為過時資料，已超過6個月)</li>
+<li>未找到2025-2026年最新的董監事/大股東申報轉讓紀錄。</li>
+</ul>
+<h3>庫藏股買回紀錄</h3>
+<ul><li>最近的庫藏股買回紀錄發生在2019年11月至12月，買回2,000千股（2,000張），目的為轉讓股份予員工。(此為過時資料，已超過6個月)</li>
+<li>未找到2024-2026年最新的庫藏股買回紀錄。</li>
+</ul>
+<h3>可轉換公司債（CB）</h3>
+<ul><li><strong>有。</strong> 十銓科技於2025年11月27日董事會決議發行國內第四次有擔保轉換公司債「十銓四」（債券代號49674），上限為新台幣20億元。</li>
+</ul>    *   發行期間：3年。
+<p>*   票面利率：0%。</p>
+<p>*   轉換溢價率：102.01%。</p>
+<p>*   轉換價格：147元。</p>
+<p>*   上櫃買賣日期：2026年1月15日。</p>
+<p>*   發行目的：償還銀行借款及充實營運資金。</p>
+
+<h3>現金增資或減資計畫</h3>
+<ul><li>未找到2025-2026年的現金增資或減資計畫。</li>
+</ul>
+<h3>股利政策</h3>
+<ul><li><strong>2025年度 (針對2025年盈餘)：</strong> 董事會決議配發每股現金股利10元（盈餘分配4元，資本公積發放6元），股利金額創歷史新高。</li>
+<li><strong>2024年度 (針對2024年盈餘)：</strong> 每股現金股利3.0元。</li>
+<li><strong>2023年度 (針對2023年盈餘)：</strong> 每股現金股利1.6513元。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>產業數據</h3>
+<ul><li><strong>全球市場規模和CAGR成長率</strong></li>
+</ul>    *   <strong>DRAM市場：</strong>
+<p>*   2025年預計約為1,086.8億至1,218.3億美元。</p>
+<p>*   2026年預計將成長至1,158.9億至1,283.6億美元。</p>
+<p>*   預計2026年至2031年CAGR為16.22%。</p>
+<p>*   <strong>NAND Flash市場：</strong></p>
+<p>*   2025年預計約為557.3億至86.38億美元。</p>
+<p>*   2026年預計約為586.9億至95.88億美元。</p>
+<p>*   預計2026年至2031年CAGR為5.32%。</p>
+<p>*   <strong>固態硬碟（SSD）市場：</strong></p>
+<p>*   2025年預計約為214.1億至613.0億美元。</p>
+<p>*   2026年預計將增長至258.4億美元。</p>
+<p>*   預計2026年至2034年CAGR為20.00%。</p>
+<p>*   <strong>整體半導體記憶體市場：</strong></p>
+<p>*   2025年估值為1,189億美元。</p>
+<p>*   預計2026年至2035年CAGR為7.4%，到2035年將達到2,260億美元。</p>
+
+<ul><li><strong>供需狀況：供不應求</strong></li>
+</ul>    *   目前記憶體市場處於「超級週期」，DRAM和NAND Flash價格持續上漲，庫存水位降至歷史低位，產能利用率接近滿載。
+<p>*   AI運算需求激增，原廠將產能轉向高利潤HBM和伺服器級DRAM，導致傳統消費性DDR5記憶體產能大幅減少。預計2026年全年DRAM將出現嚴重短缺。</p>
+<p>*   DRAM現貨價格在過去一年飆漲超過2000%，長期合約價格上漲176%。預計2026年記憶體價格將上漲100%或更多。</p>
+<p>*   NAND Flash市場同樣供需緊張，研調機構預估2026年第一季NAND Flash價格將季增85%至90%。</p>
+<p>*   記憶體供應短缺預計將持續至2027年甚至2028年。SK海力士2026年HBM產能已提前售罄。</p>
+
+<ul><li><strong>產業的平均毛利率水準</strong></li>
+</ul>    *   截至2026年初，一般型DDR5記憶體的營業利益率已攀升至60%以上，超越良率較低的HBM3e產品（利潤率約30%）。這表明記憶體模組製造商在當前供不應求的市場環境下，有望獲得較高的毛利率。然而，針對記憶體模組產業的整體平均毛利率水準，未找到明確的2025-2026年數據。
+
+<h3>競爭格局</h3>
+<strong>全球前5大記憶體原廠市佔率</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>類別</th><th>排名</th><th>公司名稱</th><th>2024年DRAM市佔率</th><th>2024年NAND Flash市佔率</th><th>2025年第四季NAND Flash營收市佔率</th></tr></thead><tbody>
+<tr><td>DRAM 製造商</td><td>1</td><td>Samsung</td><td>41.54%</td><td>N/A</td><td>N/A</td></tr>
+<tr><td></td><td>2</td><td>SK Hynix</td><td>34.44%</td><td>N/A</td><td>N/A</td></tr>
+<tr><td></td><td>3</td><td>Micron</td><td>21.51%</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>NAND 製造商</td><td>1</td><td>Samsung</td><td>N/A</td><td>35.7%</td><td>28%</td></tr>
+<tr><td></td><td>2</td><td>SK Group</td><td>N/A</td><td>21.3%</td><td>22.1%</td></tr>
+<tr><td></td><td>3</td><td>Kioxia</td><td>N/A</td><td>14.4%</td><td>(第三名)</td></tr>
+<tr><td></td><td>4</td><td>Micron</td><td>N/A</td><td>12.9%</td><td>(第四名)</td></tr>
+<tr><td></td><td>5</td><td>SanDisk</td><td>N/A</td><td>11.0%</td><td>(第五名)</td></tr>
+</tbody></table></div>
+
+<strong>十銓 vs 主要競爭對手（模組廠）</strong>
+<p>十銓科技主要為記憶體模組品牌廠，與DRAM/NAND Flash原廠的商業模式不同。其主要競爭對手為其他記憶體模組廠，如威剛、創見、金士頓、宇瞻等。</p>
+<ul><li><strong>技術：</strong> 十銓透過T-FORCE（電競）和T-CREATE（創作者/AI）品牌，在高階市場具備差異化技術能力，包括產品設計、測試驗證、散熱技術、韌體開發及客製化。</li>
+<li><strong>產能：</strong> 模組廠的產能主要指組裝測試能力。公開資料未提供十銓或其主要競爭對手2025-2026年具體的產能數據。十銓已啟動擴產以因應工控需求。</li>
+<li><strong>客戶：</strong> 十銓客戶多元，涵蓋消費性、電競、創作者及工規。在供不應求市場，供應穩定性對客戶至關重要。</li>
+<li><strong>價格：</strong> 在漲價週期中，模組廠普遍享有低價庫存利益並隨上游報價調升售價。十銓與競爭對手的價格策略受品牌定位、產品規格及市場供需影響。</li>
+</ul>
+<strong>台灣同業比較 (2025年)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>2025年合併營收</th><th>2025年平均毛利率</th><th>2025年每股盈餘（EPS）</th></tr></thead><tbody>
+<tr><td>威剛 (3260)</td><td>530.87億元</td><td>27.81%</td><td>23.18元</td></tr>
+<tr><td>十銓 (4967)</td><td>未提供</td><td>未提供</td><td>未提供</td></tr>
+<tr><td>群聯 (8299)</td><td>未提供</td><td>未提供</td><td>未提供</td></tr>
+<tr><td>創見 (2451)</td><td>未提供</td><td>未提供</td><td>未提供</td></tr>
+<tr><td>宇瞻 (8271)</td><td>未提供</td><td>未提供</td><td>未提供</td></tr>
+</tbody></table></div>
+
+<em>註：十銓2025年全年營收為204.28億元，稅後淨利11.1億元，EPS 13.06元；2025年Q4毛利率22.48%。其他公司未提供2025年全年資料，故表格中為空。</em>
+
+<h3>產業趨勢</h3>
+<li><strong>AI驅動的高頻寬記憶體（HBM）需求激增：</strong> AI訓練和推論需要超高頻寬，導致HBM成為焦點。HBM生產消耗的晶圓產能約是傳統DDR5的3倍，使得原廠大量產能轉移至HBM，嚴重排擠傳統DRAM和NAND Flash供給，導致市場全面供不應求，價格飆漲。</li>
+<li><strong>DDR5取代DDR4成為主流及PCIe Gen5 SSD普及：</strong> 2026年DDR5將成為市場主流，新CPU平台全面轉向DDR5，加劇需求。PCIe 5.0技術加速SSD更換週期，QLC NAND快閃記憶體因高密度優勢加速成長，滿足AI對大容量和傳輸速度的要求。</li>
+<li><strong>3D堆疊技術的演進：</strong> DRAM產業正從傳統平面型DRAM轉向3D DRAM架構，以克服密度、頻寬和功耗限制。NAND Flash持續推進垂直堆疊層數（如三星2030年實現1000層NAND），提升儲存容量並降低單位成本，以滿足數據中心和AI運算的龐大儲存需求。</li>
+
+<strong>對十銓科技的具體機會和威脅</strong>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>記憶體市場全面漲價：</strong> 上游原廠產能排擠導致DRAM與NAND價格飆升，有利於擁有庫存優勢的模組廠獲利。
+<p>*   <strong>高階產品需求旺盛：</strong> T-FORCE電競及T-CREATE創作者系列符合AI PC、電競及專業創作者對高效能記憶體與儲存需求。</p>
+<p>*   <strong>品牌差異化與利基市場拓展：</strong> 透過自有品牌區隔市場，爭取更高附加價值，並受益於工規應用（電動車、IoT）成長。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>上游供貨不穩：</strong> HBM生產排擠可能導致十銓在採購DRAM/NAND顆粒時面臨供應鏈不確定性、交期拉長及採購成本增加。
+<p>*   <strong>消費性產品排擠效應：</strong> 原廠優先供應高利潤的HBM及伺服器產品，可能使消費性記憶體產品供應受限。</p>
+<p>*   <strong>市場價格波動風險：</strong> 儘管處於漲價週期，但記憶體市場供需變化快速，未來仍存價格反轉風險。</p>
+
+<strong>相關投資題材的具體連結</strong>
+<ul><li><strong>AI (人工智慧)：</strong></li>
+</ul>    *   <strong>HBM需求激增：</strong> HBM產能排擠效應導致所有記憶體產品價格上漲，十銓間接受惠。
+<p>*   <strong>AI PC/伺服器記憶體需求：</strong> AI應用推動大容量、高頻寬DRAM和SSD需求，十銓高性能模組和SSD產品線可望受惠。</p>
+<ul><li><strong>HBM (高頻寬記憶體)：</strong> HBM市場CAGR預計達42%，是DRAM及NAND Flash其他產品線價格上漲的主要推動力。</li>
+<li><strong>電動車 (EV)：</strong> 車用DRAM和NAND Flash市場成長，十銓的工規記憶體儲存產品有機會切入此領域。</li>
+</ul>
+<h2>近期催化劑</h2>
+<strong>利多事件：</strong>
+<ul><li><strong>2026年03月04日：</strong> 公布2025年第四季財報亮眼，營收63.4895億元（季增52.49%, 年增94.36%），毛利率22.48%，EPS 9.59元，創近6季新高。</li>
+<li><strong>2026年03月03日：</strong> 受惠AI基礎建設需求，確保上游供應，聚焦高規格產品，啟動擴產計畫，拓展IPC/SI市場。</li>
+<li><strong>2026年02月25日：</strong> 公布2025年全年財報創新高，合併營收204.28億元，稅後淨利11.10億元，EPS 13.06元。董事會決議配發每股現金股利10元。</li>
+<li><strong>2026年02月06日：</strong> 公布2026年1月營收34.9億元，年增112.73%，創歷史同期新高。</li>
+<li><strong>2026年01月07日：</strong> 公布2025年12月營收36.3億元，月增124.43%、年增211.28%，創歷史單月新高。</li>
+<li><strong>2025年11月28日 (法說會)：</strong> 管理層樂觀預期AI引發的記憶體「結構性缺貨」將延續至2027年，價格將持續高檔。</li>
+</ul>
+<strong>利空事件：</strong>
+<ul><li><strong>2026年02月25日：</strong> 儘管基本面報捷，但十銓近期股價受到國際記憶體族群氣氛影響而波動，市場擔憂記憶體報價回檔。</li>
+<li><strong>2026年02月26日：</strong> 外資單日賣超3,542張。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能</th><th>具體內容</th></tr></thead><tbody>
+<tr><td><strong>2025年下半年</strong></td><td><strong>Edge AI應用加速落地</strong></td><td>公司已陸續接獲Edge AI訂單，相關應用預計在2025年下半年至2026年加速落地。</td></tr>
+<tr><td><strong>2025年11月</strong></td><td><strong>工控市場為未來3-5年重點投資方向</strong></td><td>總經理陳慶文於法說會表示，積極佈局軍工、醫療、車規等工控領域，期望成為集團下一波主要成長動能。</td></tr>
+<tr><td><strong>2025年</strong></td><td><strong>產品線深化與高規格化</strong></td><td>量產單機256GB模組，預期64GB至128GB模組將成為未來AI PC主流，256GB則鎖定Edge伺服器與影像創作者市場。持續推動高附加價值產品，如T-CREATE EXPERT P35S一鍵銷毀外接式固態硬碟。</td></tr>
+<tr><td><strong>2025年</strong></td><td><strong>AI伺服器與AI PC對記憶體需求爆發</strong></td><td>AI伺服器對記憶體需求量是一般伺服器的3.5至5.5倍，加上高頻寬記憶體 (HBM) 大量使用，推升記憶體市場的結構性缺貨。</td></tr>
+<tr><td><strong>2026年</strong></td><td><strong>擴廠計畫啟動</strong></td><td>已啟動擴產計畫，近期添購新廠房，規劃發展少量多樣的工控與工業電腦相關應用產能配置，進一步擴大產品線布局。(具體完工/量產時間、地點與投資金額未明確量化)</td></tr>
+<tr><td><strong>2026年</strong></td><td><strong>新客戶/新市場拓展加速</strong></td><td>持續深化B2B專案及工控應用市場，拓展工業電腦 (IPC) 與系統整合 (SI) 市場，打造新的獲利引擎。</td></tr>
+<tr><td><strong>2026年全年</strong></td><td><strong>記憶體缺貨與價格高檔</strong></td><td>記憶體原廠產能轉向HBM，導致DRAM與NAND Flash供需持續吃緊。管理層預期記憶體價格仍將維持高檔，不排除持續上行，此趨勢將延續至2027年下半年或更久。</td></tr>
+<tr><td><strong>2027年以後</strong></td><td><strong>記憶體超級週期延續</strong></td><td>研調機構與公司管理層普遍預期，記憶體市場供需吃緊態勢將延續至2027年以後，甚至2028年，意味著長期有利於模組廠的獲利空間。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+<li><strong>AI趨勢驅動記憶體需求：</strong> AI產業重心由訓練轉向大規模推論，將推升伺服器端對高容量、高頻寬DRAM及企業級SSD的需求，十銓的高性能產品線將直接受惠。</li>
+<li><strong>記憶體結構性缺貨與價格上漲：</strong> HBM生產排擠效應導致所有記憶體產品線供需失衡，預期2026年全年記憶體價格將維持高檔甚至上行，公司將持續享有高毛利率及低價庫存利益。</li>
+<li><strong>B2B及工控應用深化：</strong> 公司積極拓展工業電腦(IPC)與系統整合(SI)市場，並將工控市場視為未來成長的核心引擎，透過差異化產品和客製化解決方案，開拓新獲利來源。</li>
+<li><strong>擴產計畫支持營運成長：</strong> 啟動新廠房購置與工控產能配置，將有助於滿足客戶端大宗訂單與新市場需求，為營運提供堅實的硬體基礎。</li>
+
+<strong>風險因子：</strong>
+<li><strong>市場情緒波動：</strong> 儘管基本面強勁，但記憶體族群股價容易受國際市場氣氛及對於產業循環結束的擔憂影響。</li>
+<li><strong>中低階PC市場衝擊：</strong> 記憶體價格飆漲可能導致其在PC成本佔比提升至25-30%，進而衝擊中低階PC市場銷量，影響部分產品出貨。</li>
+<li><strong>供貨斷鏈風險：</strong> 若通路庫存快速消耗，加上原廠優先供應HBM，可能導致傳統DRAM及NAND Flash市場出現更嚴重的供貨斷鏈情況，影響公司出貨穩定性。</li>
+<li><strong>總體經濟不確定性：</strong> 全球經濟成長放緩、通膨壓力、地緣政治風險等，都可能間接影響終端消費需求及企業資本支出，進而對記憶體市場產生影響。</li>
+
+<h2>投資結論</h2>
+<li><strong>受惠AI記憶體超級週期：</strong> 十銓作為記憶體模組品牌廠，在AI驅動的記憶體結構性缺貨及價格飆漲週期中處於極佳位置，享有低價庫存利益與產品ASP上漲紅利，尤其在高規格DDR5產品方面。</li>
+<li><strong>2025年營運與獲利創新高，2026年動能強勁：</strong> 公司2025年全年營收達204.28億元，EPS高達13.06元，雙雙創歷史新高。2026年1月營收亦創歷史同期新高，顯示成長動能持續，預期獲利能力將繼續保持高水準。</li>
+<li><strong>產品策略轉型成功，鎖定高價值市場：</strong> 透過T-FORCE、T-CREATE及工控品牌，聚焦電競、創作者、AI PC、邊緣運算及工業應用等高附加價值利基市場，有效降低對標準品通路的依賴，提升長期獲利穩定性。</li>
+<li><strong>積極擴展產能與產品佈局，鞏固未來成長：</strong> 啟動擴廠計畫並深耕工控及Edge AI應用，配合與上游晶圓廠的長期策略合作，確保供應穩定性，為未來3-5年的成長奠定基礎。</li>
+<li><strong>股利政策優厚，回饋股東：</strong> 2025年度配發每股10元現金股利，顯示公司在豐厚獲利下，樂於回饋股東。</li>
+
+<p>考量到十銓科技在AI記憶體超級週期下的強勁成長動能、優異的2025年獲利表現（EPS 13.06元），以及管理層對2026年市場的樂觀展望，儘管缺乏券商具體目標價，但我們預期公司在2026年有望維持其高獲利能力。若以2026年預估EPS（考量記憶體價格續漲，保守預估較2025年成長20%至15.67元）並給予合理成長股本益比區間18-22倍，<strong>建議投資人可以鎖定其目標價區間為新台幣282元至345元。</strong></p>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:35</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="4967_十銓_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="4967_十銓_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="4967_十銓_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

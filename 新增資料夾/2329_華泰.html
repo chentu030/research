@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2329 華泰 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2329 華泰 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>華泰電子（2329）受惠於記憶體市場強勁復甦，NAND Flash封測訂單顯著增加，以及AI伺服器代工需求激增，帶動其營收與獲利顯著成長。公司積極拓展先進封裝技術與高利基市場，並展開產能擴充計畫，預期2026年營運有望再創佳績。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2329 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2329" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2329" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2329');
+    var obvContainer = document.getElementById('obv-chart-2329');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 45.8, "high": 45.8, "low": 45.2, "close": 45.35}, {"time": "2025-12-05", "open": 45.4, "high": 46.3, "low": 45.2, "close": 46.3}, {"time": "2025-12-08", "open": 46.5, "high": 47.9, "low": 46.45, "close": 47.0}, {"time": "2025-12-09", "open": 46.5, "high": 47.9, "low": 46.45, "close": 47.0}, {"time": "2025-12-10", "open": 46.6, "high": 47.15, "low": 46.15, "close": 46.55}, {"time": "2025-12-11", "open": 46.8, "high": 47.3, "low": 46.35, "close": 46.35}, {"time": "2025-12-12", "open": 47.15, "high": 50.9, "low": 47.1, "close": 50.9}, {"time": "2025-12-15", "open": 50.0, "high": 51.1, "low": 48.55, "close": 49.0}, {"time": "2025-12-16", "open": 48.35, "high": 49.4, "low": 47.15, "close": 48.75}, {"time": "2025-12-17", "open": 49.35, "high": 52.3, "low": 49.05, "close": 51.6}, {"time": "2025-12-18", "open": 51.0, "high": 53.9, "low": 50.8, "close": 51.7}, {"time": "2025-12-19", "open": 52.3, "high": 52.8, "low": 49.35, "close": 49.7}, {"time": "2025-12-22", "open": 50.0, "high": 51.3, "low": 49.8, "close": 51.0}, {"time": "2025-12-23", "open": 51.1, "high": 51.3, "low": 50.0, "close": 50.3}, {"time": "2025-12-24", "open": 51.0, "high": 52.0, "low": 50.4, "close": 51.5}, {"time": "2025-12-26", "open": 54.4, "high": 56.6, "low": 54.4, "close": 56.6}, {"time": "2025-12-29", "open": 58.0, "high": 59.0, "low": 54.3, "close": 56.0}, {"time": "2025-12-30", "open": 55.8, "high": 55.9, "low": 54.1, "close": 55.2}, {"time": "2025-12-31", "open": 56.2, "high": 59.5, "low": 55.5, "close": 56.0}, {"time": "2026-01-02", "open": 56.0, "high": 57.0, "low": 55.4, "close": 55.9}, {"time": "2026-01-05", "open": 57.4, "high": 57.9, "low": 54.4, "close": 54.7}, {"time": "2026-01-06", "open": 55.1, "high": 56.8, "low": 54.7, "close": 56.4}, {"time": "2026-01-07", "open": 57.4, "high": 58.3, "low": 56.0, "close": 56.0}, {"time": "2026-01-08", "open": 56.0, "high": 57.2, "low": 55.2, "close": 56.5}, {"time": "2026-01-09", "open": 55.9, "high": 57.3, "low": 52.6, "close": 57.3}, {"time": "2026-01-12", "open": 59.6, "high": 62.5, "low": 59.0, "close": 59.9}, {"time": "2026-01-13", "open": 60.3, "high": 64.5, "low": 59.0, "close": 59.2}, {"time": "2026-01-14", "open": 59.3, "high": 60.0, "low": 58.3, "close": 59.2}, {"time": "2026-01-15", "open": 59.2, "high": 60.0, "low": 58.1, "close": 59.9}, {"time": "2026-01-16", "open": 60.5, "high": 63.4, "low": 59.9, "close": 61.9}, {"time": "2026-01-19", "open": 65.4, "high": 68.0, "low": 65.3, "close": 68.0}, {"time": "2026-01-20", "open": 66.0, "high": 70.7, "low": 62.4, "close": 69.9}, {"time": "2026-01-21", "open": 70.0, "high": 71.1, "low": 63.2, "close": 63.8}, {"time": "2026-01-22", "open": 66.5, "high": 67.3, "low": 62.3, "close": 62.6}, {"time": "2026-01-23", "open": 63.2, "high": 63.8, "low": 60.2, "close": 62.4}, {"time": "2026-01-26", "open": 63.5, "high": 65.5, "low": 62.4, "close": 64.5}, {"time": "2026-01-27", "open": 63.8, "high": 63.8, "low": 60.8, "close": 62.7}, {"time": "2026-01-28", "open": 63.5, "high": 64.9, "low": 61.6, "close": 61.8}, {"time": "2026-01-29", "open": 62.0, "high": 62.3, "low": 60.1, "close": 60.4}, {"time": "2026-01-30", "open": 60.0, "high": 61.5, "low": 57.4, "close": 58.1}, {"time": "2026-02-02", "open": 56.7, "high": 56.8, "low": 53.0, "close": 54.6}, {"time": "2026-02-03", "open": 56.5, "high": 56.5, "low": 52.3, "close": 53.4}, {"time": "2026-02-04", "open": 53.2, "high": 54.4, "low": 53.0, "close": 54.2}, {"time": "2026-02-05", "open": 53.7, "high": 54.8, "low": 52.5, "close": 52.7}, {"time": "2026-02-06", "open": 52.6, "high": 52.6, "low": 49.0, "close": 50.2}, {"time": "2026-02-09", "open": 52.3, "high": 53.0, "low": 51.0, "close": 51.7}, {"time": "2026-02-10", "open": 52.5, "high": 52.6, "low": 50.4, "close": 50.5}, {"time": "2026-02-11", "open": 50.2, "high": 51.0, "low": 50.0, "close": 50.2}, {"time": "2026-02-23", "open": 51.0, "high": 53.0, "low": 50.3, "close": 51.6}, {"time": "2026-02-24", "open": 52.0, "high": 54.9, "low": 51.2, "close": 54.8}, {"time": "2026-02-25", "open": 56.4, "high": 58.9, "low": 54.1, "close": 55.6}, {"time": "2026-02-26", "open": 56.4, "high": 60.0, "low": 55.7, "close": 57.9}, {"time": "2026-03-02", "open": 52.0, "high": 53.0, "low": 48.8, "close": 49.35}, {"time": "2026-03-03", "open": 58.4, "high": 58.7, "low": 53.4, "close": 53.5}, {"time": "2026-03-04", "open": 52.0, "high": 53.0, "low": 48.8, "close": 49.35}, {"time": "2026-03-05", "open": 51.4, "high": 52.8, "low": 50.4, "close": 52.5}, {"time": "2026-03-06", "open": 52.0, "high": 53.0, "low": 51.0, "close": 51.6}, {"time": "2026-03-09", "open": 46.45, "high": 48.25, "low": 46.45, "close": 47.95}, {"time": "2026-03-10", "open": 50.0, "high": 50.8, "low": 48.5, "close": 49.75}, {"time": "2026-03-11", "open": 50.5, "high": 54.7, "low": 50.3, "close": 54.7}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 4798.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 3506.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 8045.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 8045.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 3350.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 3973.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 35578.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 32813.0, "color": "#26a69a"}, {"time": "2025-12-16", "value": 10579.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 39814.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 42420.0, "color": "#ef5350"}, {"time": "2025-12-19", "value": 33599.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 12532.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 6806.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 11154.0, "color": "#ef5350"}, {"time": "2025-12-26", "value": 38348.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 62296.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 19729.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 51737.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 25658.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 28583.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 19416.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 22826.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 14637.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 27171.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 52775.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 55952.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 17481.0, "color": "#26a69a"}, {"time": "2026-01-15", "value": 17694.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 46297.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 36379.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 79605.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 56549.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 36136.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 25464.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 30313.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 21992.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 21545.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 17472.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 19022.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 18757.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 14545.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 7476.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 8704.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 10803.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 7987.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 5449.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 4749.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 8304.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 12871.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 21700.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 28743.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 13924.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 18794.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 13924.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 9146.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 6035.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 10200.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 7345.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 12445.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 46.44}, {"time": "2025-12-11", "value": 46.64}, {"time": "2025-12-12", "value": 47.56}, {"time": "2025-12-15", "value": 47.96}, {"time": "2025-12-16", "value": 48.31}, {"time": "2025-12-17", "value": 49.32}, {"time": "2025-12-18", "value": 50.39}, {"time": "2025-12-19", "value": 50.15}, {"time": "2025-12-22", "value": 50.55}, {"time": "2025-12-23", "value": 50.86}, {"time": "2025-12-24", "value": 50.839999999999996}, {"time": "2025-12-26", "value": 51.82000000000001}, {"time": "2025-12-29", "value": 53.08}, {"time": "2025-12-30", "value": 53.92}, {"time": "2025-12-31", "value": 55.06}, {"time": "2026-01-02", "value": 55.94}, {"time": "2026-01-05", "value": 55.56}, {"time": "2026-01-06", "value": 55.64}, {"time": "2026-01-07", "value": 55.8}, {"time": "2026-01-08", "value": 55.9}, {"time": "2026-01-09", "value": 56.17999999999999}, {"time": "2026-01-12", "value": 57.220000000000006}, {"time": "2026-01-13", "value": 57.779999999999994}, {"time": "2026-01-14", "value": 58.42}, {"time": "2026-01-15", "value": 59.1}, {"time": "2026-01-16", "value": 60.02}, {"time": "2026-01-19", "value": 61.64}, {"time": "2026-01-20", "value": 63.779999999999994}, {"time": "2026-01-21", "value": 64.7}, {"time": "2026-01-22", "value": 65.24}, {"time": "2026-01-23", "value": 65.34}, {"time": "2026-01-26", "value": 64.64}, {"time": "2026-01-27", "value": 63.2}, {"time": "2026-01-28", "value": 62.8}, {"time": "2026-01-29", "value": 62.36}, {"time": "2026-01-30", "value": 61.5}, {"time": "2026-02-02", "value": 59.52}, {"time": "2026-02-03", "value": 57.660000000000004}, {"time": "2026-02-04", "value": 56.14}, {"time": "2026-02-05", "value": 54.6}, {"time": "2026-02-06", "value": 53.02}, {"time": "2026-02-09", "value": 52.44}, {"time": "2026-02-10", "value": 51.86}, {"time": "2026-02-11", "value": 51.06}, {"time": "2026-02-23", "value": 50.84}, {"time": "2026-02-24", "value": 51.760000000000005}, {"time": "2026-02-25", "value": 52.54}, {"time": "2026-02-26", "value": 54.02}, {"time": "2026-03-02", "value": 53.85}, {"time": "2026-03-03", "value": 54.23}, {"time": "2026-03-04", "value": 53.14}, {"time": "2026-03-05", "value": 52.52}, {"time": "2026-03-06", "value": 51.260000000000005}, {"time": "2026-03-09", "value": 50.980000000000004}, {"time": "2026-03-10", "value": 50.230000000000004}, {"time": "2026-03-11", "value": 51.3}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 47.88}, {"time": "2025-12-18", "value": 48.515}, {"time": "2025-12-19", "value": 48.855000000000004}, {"time": "2025-12-22", "value": 49.255}, {"time": "2025-12-23", "value": 49.585}, {"time": "2025-12-24", "value": 50.08}, {"time": "2025-12-26", "value": 51.105000000000004}, {"time": "2025-12-29", "value": 51.614999999999995}, {"time": "2025-12-30", "value": 52.235}, {"time": "2025-12-31", "value": 52.96}, {"time": "2026-01-02", "value": 53.39}, {"time": "2026-01-05", "value": 53.69}, {"time": "2026-01-06", "value": 54.36}, {"time": "2026-01-07", "value": 54.86}, {"time": "2026-01-08", "value": 55.48}, {"time": "2026-01-09", "value": 56.06}, {"time": "2026-01-12", "value": 56.39}, {"time": "2026-01-13", "value": 56.71}, {"time": "2026-01-14", "value": 57.11}, {"time": "2026-01-15", "value": 57.5}, {"time": "2026-01-16", "value": 58.1}, {"time": "2026-01-19", "value": 59.42999999999999}, {"time": "2026-01-20", "value": 60.779999999999994}, {"time": "2026-01-21", "value": 61.56}, {"time": "2026-01-22", "value": 62.17}, {"time": "2026-01-23", "value": 62.67999999999999}, {"time": "2026-01-26", "value": 63.14}, {"time": "2026-01-27", "value": 63.489999999999995}, {"time": "2026-01-28", "value": 63.75}, {"time": "2026-01-29", "value": 63.8}, {"time": "2026-01-30", "value": 63.42}, {"time": "2026-02-02", "value": 62.08}, {"time": "2026-02-03", "value": 60.42999999999999}, {"time": "2026-02-04", "value": 59.470000000000006}, {"time": "2026-02-05", "value": 58.48}, {"time": "2026-02-06", "value": 57.260000000000005}, {"time": "2026-02-09", "value": 55.98}, {"time": "2026-02-10", "value": 54.760000000000005}, {"time": "2026-02-11", "value": 53.6}, {"time": "2026-02-23", "value": 52.720000000000006}, {"time": "2026-02-24", "value": 52.39}, {"time": "2026-02-25", "value": 52.489999999999995}, {"time": "2026-02-26", "value": 52.94}, {"time": "2026-03-02", "value": 52.455}, {"time": "2026-03-03", "value": 52.535000000000004}, {"time": "2026-03-04", "value": 52.45}, {"time": "2026-03-05", "value": 52.529999999999994}, {"time": "2026-03-06", "value": 52.64}, {"time": "2026-03-09", "value": 52.415}, {"time": "2026-03-10", "value": 52.23}, {"time": "2026-03-11", "value": 52.220000000000006}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 50.635000000000005}, {"time": "2026-01-05", "value": 51.1025}, {"time": "2026-01-06", "value": 51.6075}, {"time": "2026-01-07", "value": 52.057500000000005}, {"time": "2026-01-08", "value": 52.532500000000006}, {"time": "2026-01-09", "value": 53.07000000000001}, {"time": "2026-01-12", "value": 53.7475}, {"time": "2026-01-13", "value": 54.1625}, {"time": "2026-01-14", "value": 54.6725}, {"time": "2026-01-15", "value": 55.23}, {"time": "2026-01-16", "value": 55.745000000000005}, {"time": "2026-01-19", "value": 56.56}, {"time": "2026-01-20", "value": 57.57000000000001}, {"time": "2026-01-21", "value": 58.21}, {"time": "2026-01-22", "value": 58.825}, {"time": "2026-01-23", "value": 59.370000000000005}, {"time": "2026-01-26", "value": 59.765}, {"time": "2026-01-27", "value": 60.1}, {"time": "2026-01-28", "value": 60.42999999999999}, {"time": "2026-01-29", "value": 60.65}, {"time": "2026-01-30", "value": 60.760000000000005}, {"time": "2026-02-02", "value": 60.754999999999995}, {"time": "2026-02-03", "value": 60.605}, {"time": "2026-02-04", "value": 60.515}, {"time": "2026-02-05", "value": 60.325}, {"time": "2026-02-06", "value": 59.970000000000006}, {"time": "2026-02-09", "value": 59.56}, {"time": "2026-02-10", "value": 59.125}, {"time": "2026-02-11", "value": 58.675}, {"time": "2026-02-23", "value": 58.260000000000005}, {"time": "2026-02-24", "value": 57.904999999999994}, {"time": "2026-02-25", "value": 57.285000000000004}, {"time": "2026-02-26", "value": 56.685}, {"time": "2026-03-02", "value": 55.9625}, {"time": "2026-03-03", "value": 55.50750000000001}, {"time": "2026-03-04", "value": 54.855}, {"time": "2026-03-05", "value": 54.254999999999995}, {"time": "2026-03-06", "value": 53.7}, {"time": "2026-03-09", "value": 53.00750000000001}, {"time": "2026-03-10", "value": 52.475}, {"time": "2026-03-11", "value": 52.30499999999999}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 3506.0}, {"time": "2025-12-08", "value": 11551.0}, {"time": "2025-12-09", "value": 11551.0}, {"time": "2025-12-10", "value": 8201.0}, {"time": "2025-12-11", "value": 4228.0}, {"time": "2025-12-12", "value": 39806.0}, {"time": "2025-12-15", "value": 6993.0}, {"time": "2025-12-16", "value": -3586.0}, {"time": "2025-12-17", "value": 36228.0}, {"time": "2025-12-18", "value": 78648.0}, {"time": "2025-12-19", "value": 45049.0}, {"time": "2025-12-22", "value": 57581.0}, {"time": "2025-12-23", "value": 50775.0}, {"time": "2025-12-24", "value": 61929.0}, {"time": "2025-12-26", "value": 100277.0}, {"time": "2025-12-29", "value": 37981.0}, {"time": "2025-12-30", "value": 18252.0}, {"time": "2025-12-31", "value": 69989.0}, {"time": "2026-01-02", "value": 44331.0}, {"time": "2026-01-05", "value": 15748.0}, {"time": "2026-01-06", "value": 35164.0}, {"time": "2026-01-07", "value": 12338.0}, {"time": "2026-01-08", "value": 26975.0}, {"time": "2026-01-09", "value": 54146.0}, {"time": "2026-01-12", "value": 106921.0}, {"time": "2026-01-13", "value": 50969.0}, {"time": "2026-01-14", "value": 50969.0}, {"time": "2026-01-15", "value": 68663.0}, {"time": "2026-01-16", "value": 114960.0}, {"time": "2026-01-19", "value": 151339.0}, {"time": "2026-01-20", "value": 230944.0}, {"time": "2026-01-21", "value": 174395.0}, {"time": "2026-01-22", "value": 138259.0}, {"time": "2026-01-23", "value": 112795.0}, {"time": "2026-01-26", "value": 143108.0}, {"time": "2026-01-27", "value": 121116.0}, {"time": "2026-01-28", "value": 99571.0}, {"time": "2026-01-29", "value": 82099.0}, {"time": "2026-01-30", "value": 63077.0}, {"time": "2026-02-02", "value": 44320.0}, {"time": "2026-02-03", "value": 29775.0}, {"time": "2026-02-04", "value": 37251.0}, {"time": "2026-02-05", "value": 28547.0}, {"time": "2026-02-06", "value": 17744.0}, {"time": "2026-02-09", "value": 25731.0}, {"time": "2026-02-10", "value": 20282.0}, {"time": "2026-02-11", "value": 15533.0}, {"time": "2026-02-23", "value": 23837.0}, {"time": "2026-02-24", "value": 36708.0}, {"time": "2026-02-25", "value": 58408.0}, {"time": "2026-02-26", "value": 87151.0}, {"time": "2026-03-02", "value": 73227.0}, {"time": "2026-03-03", "value": 92021.0}, {"time": "2026-03-04", "value": 78097.0}, {"time": "2026-03-05", "value": 87243.0}, {"time": "2026-03-06", "value": 81208.0}, {"time": "2026-03-09", "value": 71008.0}, {"time": "2026-03-10", "value": 78353.0}, {"time": "2026-03-11", "value": 90798.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>華泰電子成立於1971年，主要業務分為兩大事業中心：半導體封裝測試及電子製造服務（EMS）。</p>
+
+<strong>1. 核心產品與服務：</strong>
+<ul><li><strong>半導體封裝與測試業務：</strong> 提供客戶從晶圓測試、研磨、封裝到成品測試的一站式服務。主要以NAND Flash封測為主，亦涵蓋記憶體IC測試與封裝、邏輯IC測試與封裝服務。公司已量產覆晶封裝（Flip-chip）、結合覆晶與打線的混合式封裝（Hybrid Packaging）及系統級封裝（SiP）等多項先進製程。應用領域廣泛，包括記憶體、消費性電子、工業、車用、航太及通訊設備。</li>
+<li><strong>電子製造服務（EMS）業務：</strong> 主要提供印刷電路板組裝（PCBA），即SMT服務。產品應用重點在於伺服器、SSD（固態硬碟）及工業用產品、工控電子產品。</li>
+</ul>
+<strong>2. 營收結構 (截至2025年第一季/第三季)：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>佔全公司營收比重</th><th>備註</th></tr></thead><tbody>
+<tr><td>半導體封裝與測試</td><td>57% (2025Q1)</td><td>其中記憶體相關產品佔半導體業務營收約80%</td></tr>
+<tr><td>電子製造服務 (EMS)</td><td>38% (2025Q3)</td><td>伺服器客戶佔EMS事業營收約70%，佔整體營收約30%+ (截至2026/1/19)</td></tr>
+</tbody></table></div>
+
+<strong>3. 製造基地：</strong>
+<p>華泰電子總部位於台灣高雄。公開資料未詳細列出各製造基地的具體營收貢獻比例。2026年2月25日董事會決議通過本公司「經一廠」的「結構預算追加暨廠務設施投資計畫」案，顯示高雄廠區內設有「經一廠」。</p>
+
+<strong>4. 所屬細分產業與相關題材：</strong>
+<ul><li><strong>所屬產業：</strong> 半導體業 (IC封裝、IC測試、IC封裝測試、電子製造服務、電腦系統業)</li>
+<li><strong>相關題材：</strong></li>
+</ul>    *   <strong>記憶體市場復甦與漲價：</strong> DDR4、DDR5及NAND Flash報價上漲，帶動封測訂單湧入，預期封測廠將調漲報價。
+<p>*   <strong>AI伺服器與高速運算：</strong> AI晶片需求強勁，AI伺服器擴產推升封測及EMS代工需求。</p>
+<p>*   <strong>高毛利產品比重提升：</strong> 積極擴充SSD與伺服器相關產能，加碼CSP BGA與Flip Chip封裝技術，推進車用與工控等高利基市場。</p>
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>一站式封測服務與NAND Flash專業能力：</strong> 華泰提供從晶圓測試到成品測試的Turnkey服務，並在NAND Flash記憶體封測領域具備深厚經驗與市場地位，受惠於記憶體市場周期性復甦。</li>
+<li><strong>先進封裝技術布局：</strong> 已量產覆晶封裝（Flip-chip）、混合式封裝（Hybrid Packaging）及系統級封裝（SiP）等先進製程，符合半導體產業對高階封裝技術的需求趨勢。</li>
+<li><strong>AI伺服器EMS代工利基：</strong> 作為AI伺服器大廠美超微（Supermicro）的EMS代工客戶，承接伺服器主機板PCBA業務，直接受益於AI伺服器爆發性成長帶來的訂單與較高平均銷售單價。</li>
+<li><strong>高利基市場拓展：</strong> 積極佈局車用與工控等高毛利市場，分散業務風險並提升產品組合的獲利能力。</li>
+<li><strong>產能滿載與議價能力提升：</strong> 由於市場需求強勁，公司產能利用率達滿載，成功將部分原物料成本反映在報價中，提升了議價能力和獲利空間。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<strong>華泰電子 (2329) 近6個月月營收表現</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣千元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>1,678,535</td><td>-3.03%</td><td>+38.53%</td></tr>
+<tr><td>2025年12月</td><td>1,730,924</td><td>+1.48%</td><td>+22.78%</td></tr>
+<tr><td>2025年11月</td><td>1,705,637</td><td>-0.68%</td><td>+21.7%</td></tr>
+<tr><td>2025年10月</td><td>1,717,420</td><td>-1.42%</td><td>+30.53%</td></tr>
+<tr><td>2025年09月</td><td>1,742,109</td><td>+3.21%</td><td>+31.05%</td></tr>
+<tr><td>2025年08月</td><td>1,687,855</td><td>-3.99%</td><td>+26.03%</td></tr>
+<tr><td>2026年02月</td><td>(資料未揭露)</td><td></td><td></td></tr>
+</tbody></table></div>
+
+<h3>季度數據</h3>
+<strong>華泰電子 (2329) 2025年第四季表現</strong>
+<ul><li><strong>季營收：</strong> 新台幣 5,153,981 千元 (約 51.54 億元)</li>
+<li><strong>毛利率：</strong> 15.35%</li>
+<li><strong>營業利益率：</strong> 約 8.19% (營業淨利 422,215 千元 / 營收 5,153,981 千元)</li>
+<li><strong>每股盈餘 (EPS)：</strong> 1.04 元</li>
+</ul>
+<h3>年度趨勢</h3>
+<strong>華泰電子 (2329) 近兩年營收與EPS</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>全年度營收 (新台幣千元)</th><th>年增率 YoY</th><th>全年度 EPS (元)</th></tr></thead><tbody>
+<tr><td>2025年 (實際)</td><td>19,683,310</td><td>+20.92%</td><td>2.45</td></tr>
+<tr><td>2024年 (實際)</td><td>16,277,440</td><td></td><td>1.71</td></tr>
+</tbody></table></div>
+
+<h2>法說會重點</h2>
+
+<strong>日期：</strong> 2025年11月14日
+
+<strong>管理層發言與具體Guidance：</strong>
+<ul><li><strong>半導體封測業務：</strong> 受惠於記憶體市場復甦，NAND Flash、DDR4及DDR5封測代工訂單增加，產能利用率處於高檔水準。記憶體報價上漲，庫存回復健康水位，推升下游封測訂單。市場預期封測廠將從2025年底至2026年分階段調漲報價，調幅約在高個位數至兩位數不等。</li>
+<li><strong>EMS業務：</strong> 受益於AI伺服器需求，表現依然強勁。伺服器及工控需求穩定，展望正面。</li>
+<li><strong>產能利用率：</strong> 目前產能爆滿，且處於高檔水準。</li>
+<li><strong>資本支出金額：</strong> 法說會當時未提供2025-2026年的最新具體資本支出金額，但公司在先進製程能力（如25um晶圓厚度、16層堆疊、SiP/Flip Chip等）和數位化MES自動化系統上的投資，將鞏固競爭地位。</li>
+<li><strong>2025年第四季展望：</strong> 營運有望居高表現，但預期可能較第三季稍降。</li>
+<li><strong>2026年展望：</strong> 預期2026年有望再創佳績。封測產業的接單狀況、產能利用率與報價皆呈現向上趨勢，華泰具備2025至2026年的中期成長可見度。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<strong>華泰電子 (2329) 券商目標價與評等</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>(未找到)</td><td>(未找到)</td><td>(未找到)</td><td>(未找到)</td></tr>
+<tr><td>(未找到)</td><td>(未找到)</td><td>(未找到)</td><td>(未找到)</td></tr>
+<tr><td>(未找到)</td><td>(未找到)</td><td>(未找到)</td><td>(未找到)</td></tr>
+</tbody></table></div>
+
+<strong>EPS預估：</strong>
+<p>目前未找到2025-2026年券商對華泰的具體EPS預估數字。市場普遍預期華泰2025年EPS有機會重返2元以上（實際已達2.45元）。</p>
+
+<strong>評等調升/調降：</strong>
+<p>近期未發現針對華泰的重大券商評等調升或調降資訊。</p>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<strong>華泰電子 (2329) 近八季毛利率、營業利益率、稅後淨利率</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2025Q4</td><td>15.35</td><td>8.19</td><td>7.84</td></tr>
+<tr><td>2025Q3</td><td>16.31</td><td>9.12</td><td>8.33</td></tr>
+<tr><td>2025Q2</td><td>14.97</td><td>7.98</td><td>7.36</td></tr>
+<tr><td>2025Q1</td><td>13.21</td><td>4.83</td><td>4.59</td></tr>
+<tr><td>2024Q4</td><td>13.63</td><td>4.65</td><td>4.81</td></tr>
+<tr><td>2024Q3</td><td>12.79</td><td>4.78</td><td>4.53</td></tr>
+<tr><td>2024Q2</td><td>14.18</td><td>6.43</td><td>8.71</td></tr>
+<tr><td>2024Q1</td><td>19.79</td><td>12.41</td><td>11.96</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化的原因分析：</strong>
+<ul><li><strong>IC封測業務復甦與價格調漲：</strong> 華泰IC封測業務營收自2024年第三季度觸底後強勁復甦，2025年第三季度佔總營收比重上升至62%。主要受惠於記憶體市場轉為賣方市場與客戶積極備貨。2025年5月，NAND Flash封測及模組代工產線滿載，新訂單報價成功調漲10-15%，並於2025年11月起逐步反映原料成本於報價，推升了毛利率表現。</li>
+<li><strong>EMS業務挑戰與AI伺服器需求：</strong> EMS業務營收在2025年第二季度達高峰後略有下滑，2025年第三季度佔總營收比重降至38%。儘管AI伺服器需求強勁，但其他EMS領域表現可能拖累整體業務成長。</li>
+<li><strong>匯率影響：</strong> 2025年第一季度法說會曾提及，新台幣升值預計將對毛利率造成約3-4%的影響，為獲利主要挑戰之一。</li>
+</ul>
+<h3>存貨分析</h3>
+<strong>華泰電子 (2329) 近四季存貨及應收帳款週轉天數</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數 (天)</th><th>應收帳款收現天數 (天)</th></tr></thead><tbody>
+<tr><td>2025Q4</td><td>46.75</td><td>85.15</td></tr>
+<tr><td>2025Q3</td><td>39.68</td><td>88.66</td></tr>
+<tr><td>2025Q2</td><td>36.76</td><td>76.87</td></tr>
+<tr><td>2025Q1</td><td>42.51</td><td>89.03</td></tr>
+<tr><td>2024Q4</td><td>42.38</td><td>88.71</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>存貨狀況：</strong> 2025年第四季度存貨週轉天數略增至46.75天，較第三季度的39.68天有所放緩，可能暗示備料增加或市場去化速度微調。然而，2025年第一季至第三季度的平均存貨週轉天數為39天，較2024年同期（45天）有所改善，顯示長期存貨管理趨勢向好。</li>
+</ul>
+<h3>資本支出</h3>
+<ul><li><strong>近 3 年資本支出金額與趨勢：</strong></li>
+</ul>    *   <strong>2024年：</strong> 前三季約新台幣13億元，全年預估將超過15億元。
+<p>*   <strong>2025年：</strong> 預估資本支出將低於2024年，約落在過去平均值約新台幣12億元上下，以謹慎因應市況及客戶需求。</p>
+<p>*   <strong>2023年：</strong> 未找到具體金額，但公司表示「這幾年已進行一波投資計畫」。</p>
+<ul><li><strong>未來資本支出計畫與預計新增產能：</strong></li>
+</ul>    *   <strong>2026年2月25日：</strong> 董事會決議通過經一廠「結構預算追加暨廠務設施投資計畫」案，預計投資新台幣約16.6億元用於擴充產能，此為2022年楠梓產業科技園區廠房投資預算之追加。
+<p>*   華泰將持續積極配合AI伺服器推動高容量記憶體需求進行布局發展，並與頎邦策略合作開展覆晶封裝新業務，預計2025年對營收貢獻將持續提升。</p>
+<p>*   2025年第三季度IC產能利用率維持高檔，顯見產能擴充的必要性。</p>
+<ul><li><strong>折舊攤銷趨勢：</strong> 未找到2024-2026年的最新折舊攤銷具體數字與趨勢資料。</li>
+</ul>
+<h3>其他財報重點</h3>
+<strong>負債比率趨勢</strong>
+<ul><li>2025Q4: 46.15%</li>
+<li>2025Q3: 42.11%</li>
+<li>2025Q2: 45.1%</li>
+<li>2025Q1: 41.74%</li>
+<li>2024Q4: 40.77%</li>
+<li>2025年第三季法說會報告指出，負債比率優化顯示財務體質有所改善。</li>
+</ul>
+<strong>自由現金流量趨勢</strong>
+<ul><li>每股自由現金流量 (元)：</li>
+</ul>    *   2025Q1: -0.62
+<p>*   2024Q4: 1.82</p>
+<p>*   2024Q3: 1.86</p>
+<p>*   2024Q2: 2.02</p>
+<p>*   2024Q1: 0.46</p>
+<ul><li>每股現金流量 (元)：</li>
+</ul>    *   2025Q4: 1.81
+<p>*   2025Q3: 0.94</p>
+<p>*   2025Q2: -0.04</p>
+<p>*   2025Q1: 0.24</p>
+<p>*   2024Q4: 1.05</p>
+<ul><li>2025年第三季法說會報告提及，現金部位顯著減少，可能與資本支出或營運週轉需求有關。</li>
+</ul>
+<strong>業外收支佔營收比率</strong>
+<ul><li>2025Q4: 1.14%</li>
+<li>2025Q3: 1.27%</li>
+<li>2025Q2: -0.21%</li>
+<li>2025Q1: 0.85%</li>
+<li>2024Q4: 0.78%</li>
+<li>2024Q3: 0.84%</li>
+</ul>
+<h2>股權異動</h2>
+
+<strong>1. 近期董監事/大股東申報轉讓紀錄：</strong>
+<ul><li><strong>2025年11月：</strong> 董事頎邦科技股份有限公司申報轉讓私募股票11,924,671股，佔發行股數2.13%。</li>
+<li><strong>2024年6月：</strong> 經理人洪士(王民)信託轉讓500,000股 (2,350張)。</li>
+<li>截至2026年1月，大股東頎邦科技股份有限公司持股234,317張，持股比率為35.56%。</li>
+</ul>
+<strong>2. 庫藏股買回紀錄：</strong>
+<ul><li>未找到2024-2026年的庫藏股買回紀錄。</li>
+</ul>
+<strong>3. 可轉換公司債（CB）發行紀錄：</strong>
+<ul><li>未找到2024-2026年發行可轉換公司債的相關資料。</li>
+</ul>
+<strong>4. 現金增資或減資計畫：</strong>
+<ul><li>未找到2024-2026年的現金增資或減資計畫。</li>
+</ul>
+<strong>5. 股利政策：</strong>
+<strong>華泰電子 (2329) 近三年現金股利發放紀錄</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>現金股利 (元/股)</th><th>除息日</th><th>發放日</th></tr></thead><tbody>
+<tr><td>2026年</td><td>1.0</td><td>(待定)</td><td>(待定)</td></tr>
+<tr><td>2025年</td><td>1.0</td><td>2025/06/26</td><td>2025/07/23</td></tr>
+<tr><td>2024年</td><td>1.19</td><td>2024/06/26</td><td>2024/07/24</td></tr>
+</tbody></table></div>
+
+<ul><li>2024至2026年均未有股票股利發放紀錄。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>市場規模和 CAGR 成長率</h3>
+
+<strong>半導體封裝與測試 (OSAT) 市場：</strong>
+<ul><li><strong>2024年：</strong> 全球OSAT市場營收達到412億美元，年增5%。</li>
+<li><strong>2025年：</strong> 全球OSAT市場規模預計將再成長5%至突破430億美元，整體封測產業成長9%。</li>
+<li><strong>CAGR：</strong> 預計全球OSAT市場從2024年的401.3億美元擴大至2030年的795.4億美元，CAGR為6.08%。</li>
+<li><strong>台灣：</strong> 經濟部預估2025年封裝測試產值約達新台幣7100億元，將持續蟬聯全球第一。</li>
+</ul>
+<strong>電子製造服務 (EMS) 市場：</strong>
+<ul><li><strong>2024年：</strong> 全球EMS市場規模為626.8億美元。</li>
+<li><strong>2025年：</strong> 全球EMS市場規模估計為6481.1億美元，預計2026年將成長至6898.6億美元。</li>
+<li><strong>CAGR：</strong> 預計從2025年到2034年的CAGR為5.1%；另一預測指出，預計2025年市場規模將超過6,354.9億美元，到2035年達到1.17兆美元，CAGR約為6.3%。</li>
+</ul>
+<h3>供需狀況</h3>
+
+<ul><li><strong>半導體封裝與測試：</strong></li>
+</ul>    *   2024年隨著半導體產業庫存調整結束，市場備貨需求回升，OSAT市場回穩。
+<p>*   2025年地緣政治風險導致供應鏈提前備貨，對OSAT形成短期支撐，但可能導致下半年拉貨動能提前透支。</p>
+<p>*   AI晶片需求旺盛，推動封測廠積極擴產搶單。台積電先進封裝（如CoWoS）產能爆滿，預計缺口延續至2026年。</p>
+<p>*   記憶體供應吃緊與價格高漲，將持續至2026年，華泰受惠NAND等記憶體封測急單與AI伺服器需求爆量，產線全滿，並在2025年5月成功調漲報價10-15%。</p>
+<ul><li><strong>電子製造服務 (EMS)：</strong></li>
+</ul>    *   2025年全球前20大EMS/ODM業者合計營收年成長23.4%，主要來自AI基礎設施擴張及蘋果產品升級。
+<p>*   AI伺服器仍處於供不應求狀態，預計持續推升EMS業者的營運增長，使EMS營運擺脫傳統淡旺季規律。</p>
+
+<h3>產業的平均毛利率水準</h3>
+<p>目前未找到2024-2026年全球半導體封裝測試或電子製造服務產業的平均毛利率水準的具體數據。華泰電子自身的營業毛利率在2025年第四季為15.35%。</p>
+
+<h3>競爭格局</h3>
+
+<strong>全球前 5 大專業封測代工 (OSAT) 公司及其市佔率 (2024年)</strong>
+<p>(根據TrendForce報告，前十大合計營收為415.6億美元)</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>排名</th><th>公司名稱</th><th>2024年營收 (億美元)</th><th>年增率</th><th>市佔率 (前十大占比)</th></tr></thead><tbody>
+<tr><td>1</td><td>日月光投控</td><td>185.4</td><td>持平</td><td>44.6%</td></tr>
+<tr><td>2</td><td>Amkor (安靠)</td><td>63.2</td><td>-2.8%</td><td>-</td></tr>
+<tr><td>3</td><td>長電科技</td><td>50</td><td>19.3%</td><td>-</td></tr>
+<tr><td>4</td><td>通富微電</td><td>33.2</td><td>5.6%</td><td>-</td></tr>
+<tr><td>5</td><td>力成科技</td><td>22.8</td><td>1%</td><td>-</td></tr>
+</tbody></table></div>
+
+<strong>全球前 5 大 EMS/ODM 業者 (2025年預估營收)</strong>
+<p>(根據DIGITIMES報告，2025年台灣業者整體營收比重回升至70.2%)</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>排名</th><th>公司名稱</th><th>2025年營收 (億美元)</th><th>年增率</th></tr></thead><tbody>
+<tr><td>1</td><td>鴻海</td><td>2610</td><td>22.4%</td></tr>
+<tr><td>2</td><td>緯創</td><td>706</td><td>116.2%</td></tr>
+<tr><td>3</td><td>廣達</td><td>682</td><td>55.6%</td></tr>
+<tr><td>4</td><td>立訊精密</td><td>未提供具體營收</td><td>-</td></tr>
+<tr><td>5</td><td>和碩</td><td>未提供具體營收</td><td>-</td></tr>
+</tbody></table></div>
+
+<strong>華泰 vs 主要競爭對手的具體比較</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>華泰電子 (2329)</th><th>主要競爭對手 (OSAT)</th><th>主要競爭對手 (EMS)</th></tr></thead><tbody>
+<tr><td><strong>核心業務</strong></td><td>半導體封裝與測試 (NAND Flash為主)、EMS (PCBA)</td><td>全方位IC封裝測試服務 (日月光、Amkor)</td><td>伺服器、PC、手機等大型電子產品製造 (鴻海、緯創、廣達)</td></tr>
+<tr><td><strong>技術特點</strong></td><td>Flip-chip、Hybrid Packaging、SiP等先進製程</td><td>高階扇出型封裝、2.5D/3D封裝、CoWoS等領先技術</td><td>系統級組裝、整機代工、供應鏈整合</td></tr>
+<tr><td><strong>主要客戶</strong></td><td>金士頓、群聯、江波龍 (封測)；美超微 (EMS)</td><td>AMD、NVIDIA、高通等晶片大廠 (日月光、Amkor)</td><td>Apple、HP、Dell、AWS、Google等大型品牌商與雲端服務商</td></tr>
+<tr><td><strong>市場地位</strong></td><td>NAND Flash封測利基市場領導者，AI伺服器EMS代工商</td><td>全球OSAT龍頭 (日月光)，先進封裝關鍵夥伴 (Amkor)</td><td>全球EMS/ODM巨頭 (鴻海)，AI伺服器供應商 (緯創、廣達)</td></tr>
+<tr><td><strong>價格與產能</strong></td><td>產線全滿，新訂單報價成功調漲10-15% (2025/5)</td><td>龍頭廠產能利用率高，具較強議價權 (日月光)</td><td>AI伺服器供不應求，大型廠具規模經濟與議價能力</td></tr>
+</tbody></table></div>
+
+<strong>台灣同業比較</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>華泰電子 (2329)</th><th>日月光投控 (3711)</th><th>力成科技 (6239)</th><th>京元電子 (2449)</th></tr></thead><tbody>
+<tr><td><strong>營收 (2025年)</strong></td><td>196.83億元</td><td>185.4億美元 (2024年)</td><td>22.8億美元 (2024年)</td><td>9.1億美元 (2024年)</td></tr>
+<tr><td><strong>毛利率 (2025Q4)</strong></td><td>15.35%</td><td>(未揭露)</td><td>(未揭露)</td><td>(未揭露)</td></tr>
+<tr><td><strong>EPS (2025年)</strong></td><td>2.45元</td><td>(未揭露)</td><td>(未揭露)</td><td>(未揭露)</td></tr>
+<tr><td><strong>業務重點</strong></td><td>NAND Flash封測, AI伺服器EMS</td><td>全方位半導體封測龍頭</td><td>儲存晶片封裝, HBM</td><td>專業測試服務領導者</td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢</h3>
+
+<li><strong>AI、HPC與先進封裝技術的快速發展：</strong></li>
+<p>*   <strong>影響：</strong> AI/HPC晶片需求激增，推動半導體封裝測試與EMS市場成長。加速2.5D/3D IC、扇出型封裝、晶圓級封裝等先進封裝技術應用與產能擴張。台積電CoWoS產能預計從2024年33萬片倍增至2025年66萬片，年增100%。FOPLP也預計從2025年起快速成長。</p>
+<li><strong>記憶體市場復甦與高頻寬記憶體 (HBM) 的需求激增：</strong></li>
+<p>*   <strong>影響：</strong> NAND Flash需求強勁，記憶體大廠（如三星、SK海力士）將產能轉向DDR5、HBM等高階產品。這不僅加速記憶體市場復甦，也同步帶旺後端封裝應用，對封測廠商的技術能力和產能提出更高要求。</p>
+<li><strong>地緣政治影響下的供應鏈重組與區域化：</strong></li>
+<p>*   <strong>影響：</strong> 地緣政治風險促使全球半導體供應鏈重組。中國大陸在政策支持下OSAT產業持續擴張，對台灣業者構成挑戰。台灣廠商加速在台灣及東南亞布局產能，深耕AI晶片先進封裝技術，鞏固高階晶片封裝領域優勢。</p>
+
+<strong>對華泰電子而言的具體機會和威脅：</strong>
+
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>AI伺服器商機：</strong> 作為美超微EMS代工客戶，直接受益於AI伺服器訂單爆發性成長與較高ASP。
+<p>*   <strong>記憶體市場回溫：</strong> NAND Flash等記憶體市場復甦帶來更多封測訂單，推動營收增長。</p>
+<p>*   <strong>先進封裝布局：</strong> 已量產Flip-chip、Hybrid Packaging、SiP等先進技術，提升競爭力。</p>
+<p>*   <strong>產能滿載與議價能力：</strong> 強勁需求帶動產線滿載，成功調漲報價，有助於提升獲利。</p>
+<p>*   <strong>汽車電子領域：</strong> 車載產品已獲認證並將陸續量產，搭上電動車產業成長列車。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>消費性市場疲軟：</strong> 手機、筆記型電腦等消費性市場若持續疲弱，可能壓抑部分業務。
+<p>*   <strong>地緣政治競爭：</strong> 中國大陸封測廠商崛起可能加劇市場競爭。</p>
+<p>*   <strong>大型EMS/OSAT廠的競爭：</strong> 在AI伺服器領域，大型ODM/EMS廠「大者恆大」格局可能使華泰面臨更激烈競爭。</p>
+
+<strong>相關投資題材的具體連結：</strong>
+<ul><li><strong>AI (人工智慧)：</strong> 華泰是AI伺服器供應商美超微的EMS代工客戶，直接受益於AI伺服器訂單。公司積極深化AI伺服器產業鏈，擴展伺服器與儲存解決方案市場。</li>
+<li><strong>HBM (高頻寬記憶體)：</strong> 雖無直接HBM封測資料，但華泰主力業務為NAND Flash等記憶體封測，且深耕高端封測技術。AI對HBM需求激增，有望間接受益於高階記憶體發展帶動的封測需求。</li>
+<li><strong>電動車：</strong> 華泰EMS業務已投入車載產品認證與量產，搭上全球電動車轉型對電子元件需求增長的趨勢。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<ul><li><strong>2026年3月1日：</strong> 公告2025年第四季營收51.5398億元，季減0.66%，年增24.88%；歸屬母公司稅後淨利4.039億元，季減6.51%，年成長約103.6%，EPS 1.04元。2025年度累計營收達196.8331億元，年增20.92%；累計EPS為2.45元，年成長43.27%。</li>
+<li><strong>2026年2月26日：</strong> 盤中股價急拉4.28%，報59.4元。</li>
+<li><strong>2026年2月25日：</strong> 董事會決議發放2025年現金股利每股1.0元。同時決議分派丙種特別股股息、註銷限制員工權利新股之減資基準日，並公告取得廠務工程與通過經一廠「結構預算追加暨廠務設施投資計畫」案，預計投資新台幣約16.6億元。</li>
+<li><strong>2026年2月7日：</strong> 公告2026年1月合併營收16.79億元，月減3.03%，年增38.53%。為2025年4月以來新低，但年增率仍顯著。</li>
+<li><strong>2026年1月19日：</strong> 營運動能回升，主因記憶體封測與伺服器代工需求回溫。公司積極擴充SSD與伺服器相關產能，並加碼CSP BGA與Flip Chip封裝技術，推進車用與工控等高利基市場。主要封測客戶追單，華泰產能已達滿載，並將部分原物料成本反映在報價中，使封測端營業動能延續至2026年初。</li>
+<li><strong>2026年1月14日：</strong> 華泰股價盤中一度急拉至63.7元，漲幅達6.34%。近5日三大法人合計買超8,288張。</li>
+<li><strong>2026年1月9日：</strong> 公告2025年12月合併營收17.31億元，月增1.48%、年增22.78%，創近3個月新高。累計2025年營收約196.83億元，年增20.92%。</li>
+<li><strong>2025年12月26日：</strong> 受惠記憶體需求上揚、價格上漲，以及NAND Flash、DDR4、DDR5封測代工訂單增加，加上AI伺服器代工訂單增多，華泰產能利用率維持高檔水準，2026年展望樂觀。</li>
+<li><strong>2025年12月21日：</strong> 記憶體市況持續升溫，DDR4、DDR5及NAND Flash價格接連大漲，後段封測訂單蜂擁而入，產能利用率拉升。封測廠陸續對不同產品線與客戶協商漲價，漲幅從高個位數到兩位數百分比不等。</li>
+<li><strong>2025年12月11日：</strong> 記憶體市場復甦與急單效應，報價上漲。市場傳出封測報價將從2025年底至2026年分階段調漲，華泰有望直接受惠。</li>
+<li><strong>2025年11月14日：</strong> 法說會指出半導體封測業務強勁，EMS業務面臨挑戰，但公司投資先進製程和自動化系統將鞏固競爭地位。</li>
+<li><strong>2025年11月2日：</strong> 公布2025年第三季營收達新台幣51.88億元，年增32.55%，EPS 0.6元，創近六季新高。法人預期華泰產能已達滿載，2025年第四季營運有望維持高檔，全年營收挑戰2019年高點，EPS有機會重返2元。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能類別</th><th>具體事件與量化說明</th></tr></thead><tbody>
+<tr><td><strong>2025年5月</strong></td><td>需求面/產能</td><td>因NAND等記憶體封測急單與AI伺服器需求爆量，華泰產線全滿，新訂單報價成功調漲10-15%。</td></tr>
+<tr><td><strong>2025年11月2日</strong></td><td>產能擴充</td><td>華泰公布2025年第三季營收創近六季新高，法人預期華泰產能目前已達滿載。</td></tr>
+<tr><td><strong>2025年11月14日</strong></td><td>資本支出</td><td>法說會提及公司在先進製程能力與數位化MES自動化系統上的投資，鞏固競爭地位。</td></tr>
+<tr><td><strong>2025年底起</strong></td><td>需求面/價格</td><td>市場傳出封測報價將從2025年底至2026年分階段調漲，調幅約在高個位數至兩位數不等。</td></tr>
+<tr><td><strong>2026年1月19日</strong></td><td>新客戶/新市場</td><td>公司積極推進車用與工控等高利基市場，同時擴充SSD與伺服器相關產能，並加碼CSP BGA與Flip Chip封裝技術。</td></tr>
+<tr><td><strong>2026年1月19日</strong></td><td>需求面/產能</td><td>主要封測客戶追單，華泰產能已達滿載，且公司已將部分原物料成本反映在報價中，營運動能延續至2026年初。</td></tr>
+<tr><td><strong>2026年2月25日</strong></td><td>擴廠計畫/資本支出</td><td>董事會通過經一廠「結構預算追加暨廠務設施投資計畫」案，預計投資新台幣約16.6億元用於擴充產能。此為2022年楠梓產業科技園區廠房投資預算之追加。</td></tr>
+<tr><td><strong>2026年</strong></td><td>需求面</td><td>AI伺服器擴產、光通訊升級以及記憶體漲價這三股力量同步推升，封測產業接單狀況、產能利用率與報價皆呈現向上趨勢。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+<p>華泰電子在2026年有望持續受惠於三大核心成長動能：</p>
+<li><strong>記憶體市場強勁復甦與漲價：</strong> DDR4、DDR5及NAND Flash報價持續上漲，記憶體客戶積極備貨，將帶動華泰封測訂單持續增加，產能利用率維持高檔，並可能進一步推升報價。</li>
+<li><strong>AI伺服器需求爆發：</strong> 作為美超微（Supermicro）的重要EMS代工夥伴，華泰將直接承接AI伺服器主機板的委外代工需求，此業務具有較高的平均銷售單價，為公司帶來顯著的營收增長與獲利提升。</li>
+<li><strong>先進封裝技術與高利基市場拓展：</strong> 公司積極布局覆晶封裝（Flip-chip）、SiP等先進封裝技術，並擴大在車用、工控等高毛利利基市場的應用，有助於優化產品組合並提升整體獲利能力。</li>
+
+<p>法人普遍對華泰2026年的營運展望持樂觀態度，認為其具備中期成長可見度，並有望再創佳績。</p>
+
+<strong>風險因子：</strong>
+<ul><li><strong>股價壓力：</strong> 華泰股價在68.00元附近面臨技術性關鍵壓力，可能遭遇獲利了結賣壓，突破需巨量。</li>
+<li><strong>EMS業務表現波動：</strong> 儘管AI伺服器需求強勁，但若其他EMS業務領域持續面臨挑戰，可能影響整體營收增長。</li>
+<li><strong>財務健康狀況關注：</strong> 應收帳款與存貨週轉天數環比惡化，以及現金及約當現金減少，可能暗示營運現金流壓力或資金運用效率需密切關注。長期與短期借款增加也需考量其償債能力。</li>
+<li><strong>外資調節：</strong> 部分外資在股價區間震盪中出現逢高減碼跡象，可能對股價形成壓力。</li>
+<li><strong>營收動能高檔震盪：</strong> 近幾個月月營收的月增率變化不大，暗示營收成長動能已暫時處於高檔平台期，若後續無法再加速，則股價上漲空間可能受限。</li>
+<li><strong>總體經濟與地緣政治風險：</strong> 全球經濟不確定性，以及地緣政治變動可能導致供應鏈進一步重組或需求波動，例如部分國家對高科技晶片出口的管制，可能影響美超微及其供應鏈的運營。</li>
+</ul>
+<h2>投資結論</h2>
+
+<p>華泰電子在半導體產業的關鍵轉折點上，透過雙引擎策略（記憶體封測與AI伺服器EMS）展現出強勁的成長潛力。</p>
+
+<li><strong>AI與記憶體雙重催化，獲利動能強勁：</strong> 公司成功卡位記憶體市場復甦及AI伺服器浪潮，NAND Flash封測訂單滿載並成功調漲報價，同時作為美超微關鍵供應商，直接受益於AI伺服器擴張，預計將帶動營收與獲利持續增長。</li>
+<li><strong>先進技術布局與產能擴充，中期成長可見：</strong> 華泰在Flip-chip、SiP等先進封裝技術的投入，以及2026年2月經一廠約16.6億元的產能擴充計畫，將鞏固其在高階封測市場的競爭力，為2026年及往後年度的營運奠定基礎。</li>
+<li><strong>產品組合優化，毛利率有望維持高檔：</strong> 公司積極拓展車用、工控等高利基市場，結合記憶體報價調漲效應，有助於維持及提升整體毛利率表現，進而推動EPS成長。</li>
+<li><strong>留意潛在風險，保持追蹤：</strong> 儘管成長動能強勁，但仍需關注EMS業務多元化策略的成效、現金流與負債變化對財務體質的影響，以及整體市場的宏觀經濟與地緣政治風險。</li>
+<li><strong>目標價區間建議：</strong> 考量華泰在AI與記憶體產業鏈中的獨特地位，以及其過去一年顯著的營收與獲利成長，配合產能擴充帶來的未來動能，建議投資人可以關注其長期成長趨勢。基於2025年EPS 2.45元及2026年營運有望再創佳績的預期，若市場給予2026年EPS約25-30倍本益比，建議合理目標價區間為 <strong>新台幣75元至85元</strong>。</li>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 00:21</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2329_華泰_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2329_華泰_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2329_華泰_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

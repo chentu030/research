@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8110 華東 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>8110 華東 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>華東 (8110) 作為華新麗華集團旗下專業記憶體封測廠，2025年受惠記憶體產業「超級週期」與華邦電集團訂單挹注，帶動營收回溫並靠業外收益創造稅後淨利12.54億元及EPS 2.48元的歷史新高。儘管本業仍面臨虧損壓力，但隨著記憶體報價持續上揚，產能利用率接近滿載，預期2026年本業有望改善，整體營運可望優於2025年。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">8110 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-8110" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-8110" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-8110');
+    var obvContainer = document.getElementById('obv-chart-8110');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 38.8, "high": 39.3, "low": 37.5, "close": 37.6}, {"time": "2025-12-05", "open": 37.9, "high": 40.95, "low": 37.25, "close": 39.6}, {"time": "2025-12-08", "open": 40.45, "high": 43.55, "low": 40.45, "close": 43.55}, {"time": "2025-12-09", "open": 40.45, "high": 43.55, "low": 40.45, "close": 43.55}, {"time": "2025-12-10", "open": 50.0, "high": 51.7, "low": 48.35, "close": 49.25}, {"time": "2025-12-11", "open": 50.1, "high": 54.1, "low": 49.25, "close": 54.1}, {"time": "2025-12-12", "open": 56.0, "high": 59.5, "low": 54.5, "close": 54.6}, {"time": "2025-12-15", "open": 52.7, "high": 58.4, "low": 52.3, "close": 55.5}, {"time": "2025-12-16", "open": 53.2, "high": 53.2, "low": 49.95, "close": 50.4}, {"time": "2025-12-17", "open": 50.9, "high": 51.5, "low": 48.6, "close": 51.3}, {"time": "2025-12-18", "open": 50.6, "high": 53.0, "low": 50.6, "close": 51.6}, {"time": "2025-12-19", "open": 53.0, "high": 53.0, "low": 51.0, "close": 51.8}, {"time": "2025-12-22", "open": 51.2, "high": 53.5, "low": 51.2, "close": 53.3}, {"time": "2025-12-23", "open": 54.0, "high": 54.0, "low": 52.8, "close": 54.0}, {"time": "2025-12-24", "open": 54.0, "high": 55.9, "low": 54.0, "close": 55.7}, {"time": "2025-12-26", "open": 55.8, "high": 55.8, "low": 54.9, "close": 55.2}, {"time": "2025-12-29", "open": 55.4, "high": 55.4, "low": 53.5, "close": 53.8}, {"time": "2025-12-30", "open": 53.8, "high": 56.5, "low": 53.5, "close": 56.3}, {"time": "2025-12-31", "open": 56.2, "high": 57.2, "low": 56.2, "close": 57.2}, {"time": "2026-01-02", "open": 58.2, "high": 62.3, "low": 58.2, "close": 62.3}, {"time": "2026-01-05", "open": 67.8, "high": 68.5, "low": 65.6, "close": 68.5}, {"time": "2026-01-06", "open": 69.3, "high": 75.0, "low": 67.0, "close": 73.4}, {"time": "2026-01-07", "open": 76.0, "high": 78.5, "low": 73.4, "close": 75.1}, {"time": "2026-01-08", "open": 74.5, "high": 77.5, "low": 72.5, "close": 72.6}, {"time": "2026-01-09", "open": 72.8, "high": 73.8, "low": 66.0, "close": 71.4}, {"time": "2026-01-12", "open": 75.7, "high": 76.5, "low": 73.4, "close": 74.8}, {"time": "2026-01-13", "open": 76.2, "high": 82.2, "low": 76.0, "close": 78.0}, {"time": "2026-01-14", "open": 79.5, "high": 84.5, "low": 78.7, "close": 80.9}, {"time": "2026-01-15", "open": 80.6, "high": 82.1, "low": 79.0, "close": 79.7}, {"time": "2026-01-16", "open": 81.8, "high": 83.0, "low": 79.7, "close": 80.0}, {"time": "2026-01-19", "open": 82.9, "high": 88.0, "low": 82.9, "close": 88.0}, {"time": "2026-01-20", "open": 83.0, "high": 88.0, "low": 81.0, "close": 85.0}, {"time": "2026-01-21", "open": 85.0, "high": 85.5, "low": 78.7, "close": 80.2}, {"time": "2026-01-22", "open": 85.0, "high": 86.0, "low": 76.5, "close": 77.8}, {"time": "2026-01-23", "open": 79.5, "high": 79.9, "low": 73.6, "close": 75.5}, {"time": "2026-01-26", "open": 77.5, "high": 83.0, "low": 76.3, "close": 83.0}, {"time": "2026-01-27", "open": 83.6, "high": 84.9, "low": 79.3, "close": 80.4}, {"time": "2026-01-28", "open": 82.6, "high": 85.6, "low": 81.2, "close": 81.4}, {"time": "2026-01-29", "open": 83.0, "high": 84.8, "low": 78.8, "close": 79.1}, {"time": "2026-01-30", "open": 78.8, "high": 83.5, "low": 78.1, "close": 79.3}, {"time": "2026-02-02", "open": 76.2, "high": 77.0, "low": 71.4, "close": 71.4}, {"time": "2026-02-03", "open": 73.8, "high": 75.5, "low": 65.1, "close": 66.9}, {"time": "2026-02-04", "open": 66.6, "high": 68.5, "low": 64.4, "close": 66.3}, {"time": "2026-02-05", "open": 63.4, "high": 64.2, "low": 61.6, "close": 61.9}, {"time": "2026-02-06", "open": 61.1, "high": 61.6, "low": 58.0, "close": 58.9}, {"time": "2026-02-09", "open": 62.9, "high": 63.3, "low": 60.3, "close": 61.5}, {"time": "2026-02-10", "open": 62.0, "high": 62.0, "low": 58.3, "close": 58.5}, {"time": "2026-02-11", "open": 58.5, "high": 61.4, "low": 57.2, "close": 61.3}, {"time": "2026-02-23", "open": 63.3, "high": 64.7, "low": 61.8, "close": 62.2}, {"time": "2026-02-24", "open": 61.0, "high": 65.0, "low": 60.0, "close": 64.9}, {"time": "2026-02-25", "open": 65.9, "high": 66.4, "low": 62.2, "close": 63.5}, {"time": "2026-02-26", "open": 63.8, "high": 65.1, "low": 61.8, "close": 65.0}, {"time": "2026-03-02", "open": 55.8, "high": 56.8, "low": 52.1, "close": 52.5}, {"time": "2026-03-03", "open": 63.0, "high": 64.1, "low": 57.0, "close": 57.8}, {"time": "2026-03-04", "open": 55.8, "high": 56.8, "low": 52.1, "close": 52.5}, {"time": "2026-03-05", "open": 55.9, "high": 57.1, "low": 53.7, "close": 56.5}, {"time": "2026-03-06", "open": 55.4, "high": 56.7, "low": 54.5, "close": 54.7}, {"time": "2026-03-09", "open": 49.25, "high": 50.7, "low": 49.25, "close": 50.5}, {"time": "2026-03-10", "open": 52.6, "high": 54.0, "low": 51.6, "close": 53.6}, {"time": "2026-03-11", "open": 55.1, "high": 57.2, "low": 54.7, "close": 55.8}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 46729.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 92326.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 54708.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 54708.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 203271.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 102356.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 314671.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 200291.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 15477.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 8762.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 4930.0, "color": "#ef5350"}, {"time": "2025-12-19", "value": 3336.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 4851.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 3516.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 5365.0, "color": "#ef5350"}, {"time": "2025-12-26", "value": 4490.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 5002.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 5911.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 7609.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 12471.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 85979.0, "color": "#ef5350"}, {"time": "2026-01-06", "value": 139327.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 88712.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 72326.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 91126.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 72216.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 138306.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 106186.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 48928.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 67995.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 52924.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 88655.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 50414.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 61354.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 54992.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 60961.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 74467.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 92085.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 60166.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 58544.0, "color": "#ef5350"}, {"time": "2026-02-02", "value": 25273.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 69446.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 49268.0, "color": "#26a69a"}, {"time": "2026-02-05", "value": 28878.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 32196.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 27407.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 19089.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 40479.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 33960.0, "color": "#26a69a"}, {"time": "2026-02-24", "value": 48163.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 31999.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 22288.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 18503.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 26883.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 18503.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 17659.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 9718.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 9592.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 12305.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 13254.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 42.71}, {"time": "2025-12-11", "value": 46.010000000000005}, {"time": "2025-12-12", "value": 49.010000000000005}, {"time": "2025-12-15", "value": 51.4}, {"time": "2025-12-16", "value": 52.77}, {"time": "2025-12-17", "value": 53.17999999999999}, {"time": "2025-12-18", "value": 52.67999999999999}, {"time": "2025-12-19", "value": 52.120000000000005}, {"time": "2025-12-22", "value": 51.67999999999999}, {"time": "2025-12-23", "value": 52.4}, {"time": "2025-12-24", "value": 53.279999999999994}, {"time": "2025-12-26", "value": 54.0}, {"time": "2025-12-29", "value": 54.4}, {"time": "2025-12-30", "value": 55.0}, {"time": "2025-12-31", "value": 55.64}, {"time": "2026-01-02", "value": 56.96}, {"time": "2026-01-05", "value": 59.620000000000005}, {"time": "2026-01-06", "value": 63.54}, {"time": "2026-01-07", "value": 67.3}, {"time": "2026-01-08", "value": 70.38}, {"time": "2026-01-09", "value": 72.2}, {"time": "2026-01-12", "value": 73.46000000000001}, {"time": "2026-01-13", "value": 74.38}, {"time": "2026-01-14", "value": 75.53999999999999}, {"time": "2026-01-15", "value": 76.96000000000001}, {"time": "2026-01-16", "value": 78.67999999999999}, {"time": "2026-01-19", "value": 81.32000000000001}, {"time": "2026-01-20", "value": 82.72}, {"time": "2026-01-21", "value": 82.58}, {"time": "2026-01-22", "value": 82.2}, {"time": "2026-01-23", "value": 81.3}, {"time": "2026-01-26", "value": 80.3}, {"time": "2026-01-27", "value": 79.38}, {"time": "2026-01-28", "value": 79.62}, {"time": "2026-01-29", "value": 79.88}, {"time": "2026-01-30", "value": 80.64}, {"time": "2026-02-02", "value": 78.32000000000001}, {"time": "2026-02-03", "value": 75.62}, {"time": "2026-02-04", "value": 72.6}, {"time": "2026-02-05", "value": 69.16}, {"time": "2026-02-06", "value": 65.08}, {"time": "2026-02-09", "value": 63.1}, {"time": "2026-02-10", "value": 61.42}, {"time": "2026-02-11", "value": 60.42}, {"time": "2026-02-23", "value": 60.48}, {"time": "2026-02-24", "value": 61.67999999999999}, {"time": "2026-02-25", "value": 62.08}, {"time": "2026-02-26", "value": 63.379999999999995}, {"time": "2026-03-02", "value": 61.620000000000005}, {"time": "2026-03-03", "value": 60.739999999999995}, {"time": "2026-03-04", "value": 58.260000000000005}, {"time": "2026-03-05", "value": 56.86}, {"time": "2026-03-06", "value": 54.8}, {"time": "2026-03-09", "value": 54.4}, {"time": "2026-03-10", "value": 53.56}, {"time": "2026-03-11", "value": 54.220000000000006}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 47.945}, {"time": "2025-12-18", "value": 49.345}, {"time": "2025-12-19", "value": 50.565}, {"time": "2025-12-22", "value": 51.54}, {"time": "2025-12-23", "value": 52.585}, {"time": "2025-12-24", "value": 53.23}, {"time": "2025-12-26", "value": 53.339999999999996}, {"time": "2025-12-29", "value": 53.260000000000005}, {"time": "2025-12-30", "value": 53.339999999999996}, {"time": "2025-12-31", "value": 54.02}, {"time": "2026-01-02", "value": 55.120000000000005}, {"time": "2026-01-05", "value": 56.81}, {"time": "2026-01-06", "value": 58.970000000000006}, {"time": "2026-01-07", "value": 61.15}, {"time": "2026-01-08", "value": 63.010000000000005}, {"time": "2026-01-09", "value": 64.58}, {"time": "2026-01-12", "value": 66.53999999999999}, {"time": "2026-01-13", "value": 68.96000000000001}, {"time": "2026-01-14", "value": 71.42}, {"time": "2026-01-15", "value": 73.67}, {"time": "2026-01-16", "value": 75.44}, {"time": "2026-01-19", "value": 77.39}, {"time": "2026-01-20", "value": 78.55}, {"time": "2026-01-21", "value": 79.06}, {"time": "2026-01-22", "value": 79.58}, {"time": "2026-01-23", "value": 79.99}, {"time": "2026-01-26", "value": 80.81}, {"time": "2026-01-27", "value": 81.05}, {"time": "2026-01-28", "value": 81.1}, {"time": "2026-01-29", "value": 81.03999999999999}, {"time": "2026-01-30", "value": 80.97}, {"time": "2026-02-02", "value": 79.31}, {"time": "2026-02-03", "value": 77.5}, {"time": "2026-02-04", "value": 76.11}, {"time": "2026-02-05", "value": 74.52000000000001}, {"time": "2026-02-06", "value": 72.86}, {"time": "2026-02-09", "value": 70.71000000000001}, {"time": "2026-02-10", "value": 68.52000000000001}, {"time": "2026-02-11", "value": 66.51}, {"time": "2026-02-23", "value": 64.82000000000001}, {"time": "2026-02-24", "value": 63.379999999999995}, {"time": "2026-02-25", "value": 62.589999999999996}, {"time": "2026-02-26", "value": 62.4}, {"time": "2026-03-02", "value": 61.02}, {"time": "2026-03-03", "value": 60.61}, {"time": "2026-03-04", "value": 59.970000000000006}, {"time": "2026-03-05", "value": 59.470000000000006}, {"time": "2026-03-06", "value": 59.089999999999996}, {"time": "2026-03-09", "value": 58.010000000000005}, {"time": "2026-03-10", "value": 57.15}, {"time": "2026-03-11", "value": 56.239999999999995}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 51.532500000000006}, {"time": "2026-01-05", "value": 53.0775}, {"time": "2026-01-06", "value": 54.7675}, {"time": "2026-01-07", "value": 56.345000000000006}, {"time": "2026-01-08", "value": 57.7975}, {"time": "2026-01-09", "value": 58.904999999999994}, {"time": "2026-01-12", "value": 59.94}, {"time": "2026-01-13", "value": 61.11}, {"time": "2026-01-14", "value": 62.379999999999995}, {"time": "2026-01-15", "value": 63.845000000000006}, {"time": "2026-01-16", "value": 65.28}, {"time": "2026-01-19", "value": 67.1}, {"time": "2026-01-20", "value": 68.76}, {"time": "2026-01-21", "value": 70.10499999999999}, {"time": "2026-01-22", "value": 71.295}, {"time": "2026-01-23", "value": 72.285}, {"time": "2026-01-26", "value": 73.675}, {"time": "2026-01-27", "value": 75.005}, {"time": "2026-01-28", "value": 76.26}, {"time": "2026-01-29", "value": 77.35499999999999}, {"time": "2026-01-30", "value": 78.205}, {"time": "2026-02-02", "value": 78.35}, {"time": "2026-02-03", "value": 78.025}, {"time": "2026-02-04", "value": 77.58500000000001}, {"time": "2026-02-05", "value": 77.05}, {"time": "2026-02-06", "value": 76.425}, {"time": "2026-02-09", "value": 75.76}, {"time": "2026-02-10", "value": 74.785}, {"time": "2026-02-11", "value": 73.80499999999999}, {"time": "2026-02-23", "value": 72.92999999999999}, {"time": "2026-02-24", "value": 72.175}, {"time": "2026-02-25", "value": 70.95}, {"time": "2026-02-26", "value": 69.95}, {"time": "2026-03-02", "value": 68.565}, {"time": "2026-03-03", "value": 67.565}, {"time": "2026-03-04", "value": 66.41499999999999}, {"time": "2026-03-05", "value": 65.09}, {"time": "2026-03-06", "value": 63.80499999999999}, {"time": "2026-03-09", "value": 62.260000000000005}, {"time": "2026-03-10", "value": 60.985}, {"time": "2026-03-11", "value": 59.81}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 92326.0}, {"time": "2025-12-08", "value": 147034.0}, {"time": "2025-12-09", "value": 147034.0}, {"time": "2025-12-10", "value": 350305.0}, {"time": "2025-12-11", "value": 452661.0}, {"time": "2025-12-12", "value": 767332.0}, {"time": "2025-12-15", "value": 967623.0}, {"time": "2025-12-16", "value": 952146.0}, {"time": "2025-12-17", "value": 960908.0}, {"time": "2025-12-18", "value": 965838.0}, {"time": "2025-12-19", "value": 969174.0}, {"time": "2025-12-22", "value": 974025.0}, {"time": "2025-12-23", "value": 977541.0}, {"time": "2025-12-24", "value": 982906.0}, {"time": "2025-12-26", "value": 978416.0}, {"time": "2025-12-29", "value": 973414.0}, {"time": "2025-12-30", "value": 979325.0}, {"time": "2025-12-31", "value": 986934.0}, {"time": "2026-01-02", "value": 999405.0}, {"time": "2026-01-05", "value": 1085384.0}, {"time": "2026-01-06", "value": 1224711.0}, {"time": "2026-01-07", "value": 1313423.0}, {"time": "2026-01-08", "value": 1241097.0}, {"time": "2026-01-09", "value": 1149971.0}, {"time": "2026-01-12", "value": 1222187.0}, {"time": "2026-01-13", "value": 1360493.0}, {"time": "2026-01-14", "value": 1466679.0}, {"time": "2026-01-15", "value": 1417751.0}, {"time": "2026-01-16", "value": 1485746.0}, {"time": "2026-01-19", "value": 1538670.0}, {"time": "2026-01-20", "value": 1450015.0}, {"time": "2026-01-21", "value": 1399601.0}, {"time": "2026-01-22", "value": 1338247.0}, {"time": "2026-01-23", "value": 1283255.0}, {"time": "2026-01-26", "value": 1344216.0}, {"time": "2026-01-27", "value": 1269749.0}, {"time": "2026-01-28", "value": 1361834.0}, {"time": "2026-01-29", "value": 1301668.0}, {"time": "2026-01-30", "value": 1360212.0}, {"time": "2026-02-02", "value": 1334939.0}, {"time": "2026-02-03", "value": 1265493.0}, {"time": "2026-02-04", "value": 1216225.0}, {"time": "2026-02-05", "value": 1187347.0}, {"time": "2026-02-06", "value": 1155151.0}, {"time": "2026-02-09", "value": 1182558.0}, {"time": "2026-02-10", "value": 1163469.0}, {"time": "2026-02-11", "value": 1203948.0}, {"time": "2026-02-23", "value": 1237908.0}, {"time": "2026-02-24", "value": 1286071.0}, {"time": "2026-02-25", "value": 1254072.0}, {"time": "2026-02-26", "value": 1276360.0}, {"time": "2026-03-02", "value": 1257857.0}, {"time": "2026-03-03", "value": 1284740.0}, {"time": "2026-03-04", "value": 1266237.0}, {"time": "2026-03-05", "value": 1283896.0}, {"time": "2026-03-06", "value": 1274178.0}, {"time": "2026-03-09", "value": 1264586.0}, {"time": "2026-03-10", "value": 1276891.0}, {"time": "2026-03-11", "value": 1290145.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>華東科技 (Walton Advanced Engineering, Inc.) 成立於1995年，是華新麗華集團旗下的專業記憶體封裝測試廠商。</p>
+<ul><li><strong>核心業務：</strong> 聚焦於記憶體IC封裝測試與記憶體模組業務，提供從封裝、成品測試到模組組裝的一站式服務。</li>
+<li><strong>主要產品：</strong> 涵蓋各式DRAM封裝/測試、快閃記憶體封測及記憶體模組組裝，產品組合包括利基型DRAM、NOR Flash、SLC NAND等。</li>
+<li><strong>主要客戶：</strong> 華邦電子 (2344) 和南亞科技 (2408) 等記憶體大廠。</li>
+<li><strong>製造基地：</strong> 總部位於台灣。目前公開資訊中未詳細說明其製造基地的具體數量、地點及其各自的營收貢獻比例。</li>
+</ul>
+<strong>營收結構 (2022年第三季，⚠️資料過時)</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>佔營收比例</th><th>產品分類</th><th>佔營收比例</th></tr></thead><tbody>
+<tr><td>封裝</td><td>66%</td><td>NAND快閃記憶體</td><td>37%</td></tr>
+<tr><td>測試</td><td>23%</td><td>邏輯產品</td><td>32%</td></tr>
+<tr><td>模組</td><td>11%</td><td>DRAM動態記憶體</td><td>20%</td></tr>
+<tr><td></td><td></td><td>SiP/模組</td><td>11%</td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+<li><strong>集團資源整合：</strong> 作為華新麗華集團成員，與母公司華邦電子 (2344) 具備「前店後廠」的緊密合作關係，確保穩定且持續的訂單來源，尤其在記憶體景氣復甦時受惠明顯。華東約有60%~63%的營收來自華邦電。</li>
+<li><strong>專業記憶體封測技術：</strong> 深耕記憶體IC封裝測試領域多年，具備從封裝、成品測試到模組組裝的一站式服務能力，涵蓋DRAM、NOR Flash、SLC NAND等多元產品。</li>
+<li><strong>受惠記憶體產業超級週期：</strong> 成功搭上全球記憶體產業復甦與AI/HPC高階需求爆發的順風車，受惠於記憶體報價上漲與訂單湧入，尤其在利基型記憶體領域需求熱絡。</li>
+<li><strong>報價調漲與獲利結構優化：</strong> 隨著記憶體封測市場供不應求，公司已陸續調升報價約2~3成以反映成本，有利於優化獲利結構，毛利率有望朝10%以上邁進。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元)</th><th>月增率 MoM (%)</th><th>年增率 YoY (%)</th></tr></thead><tbody>
+<tr><td>2026/01</td><td>6.83</td><td>-4.35</td><td>+11.19</td></tr>
+<tr><td>2025/12</td><td>7.14</td><td>+13.62</td><td>+10.94</td></tr>
+<tr><td>2025/11</td><td>6.28</td><td>-2.97</td><td>+2.13</td></tr>
+<tr><td>2025/10</td><td>6.48</td><td>-0.74</td><td>-13.54</td></tr>
+<tr><td>2025/09</td><td>6.52</td><td>+2.03</td><td>+1.87</td></tr>
+<tr><td>2025/08</td><td>6.39</td><td>+10.17</td><td>-2.95</td></tr>
+</tbody></table></div>
+
+<h3>最新季度數據 (2025年第三季)</h3>
+<ul><li><strong>季營收：</strong> <strong>18.72 億元</strong></li>
+<li><strong>毛利率：</strong> <strong>3.71%</strong></li>
+<li><strong>營業利益率：</strong> <strong>-1.71%</strong> (營業淨損 3,207.5 萬元)</li>
+<li><strong>EPS：</strong> <strong>1.72 元</strong></li>
+</ul>
+<h3>全年度營收與 EPS</h3>
+<ul><li><strong>2025年實際：</strong></li>
+</ul>    *   全年度營收：<strong>73.15 億元</strong> (年減 6.92%)
+<p>*   EPS：<strong>2.48 元</strong> (創歷史獲利新高，年增 8.35 倍)</p>
+<ul><li><strong>2026年預估：</strong></li>
+</ul>    *   目前未找到明確的 2026 年全年度營收預估數字。
+<p>*   市場對 2026 年 EPS 預估樂觀，但未找到具體預估數字。</p>
+
+<h2>法說會重點</h2>
+<ul><li><strong>最近一次法說會日期：</strong> 2025年08月22日 (2025年第二季法人說明會)</li>
+<li><strong>管理層對產品線與訂單能見度說明：</strong></li>
+</ul>    *   記憶體市場處於強勁上升週期，Yole預估2024-2030年記憶體市場CAGR可維持<strong>10%</strong>，2025年年增率預估達<strong>17%</strong>。
+<p>*   AI、高效能運算 (HPC) 及車用電子等高附加價值應用將持續帶領市場成長，帶來長期穩定訂單。</p>
+<p>*   記憶體封測訂單湧入及漲價效益，預期2026年第一季有望淡季不淡，全年營收、獲利向上可期。</p>
+<p>*   2025年第三季因營收規模回升、匯率回穩，法人估已轉盈 (實際EPS 1.72元)。</p>
+<ul><li><strong>產能利用率：</strong> 華東封測產能<strong>接近滿載</strong>。</li>
+<li><strong>資本支出金額：</strong> 目前未找到 2025-2026 年具體的資本支出金額。</li>
+<li><strong>管理層給出的下季/下半年 guidance：</strong></li>
+</ul>    *   2026年第一季有望淡季不淡，全年營運看好優於2025年。
+
+<h2>券商觀點</h2>
+<p>目前未找到 2025-2026 年具體的券商目標價及 EPS 預估數字，以及重大調升/調降評等。現有資訊多為新聞報導，其中提及：</p>
+<ul><li>網路討論熱度高，投資人對 2026 年 EPS 預估樂觀，激勵短線買氣湧現。</li>
+<li>有法人正面看待其先進封裝貢獻逐步放大，產能擴充已提前被預訂，帶動長線營運展望。</li>
+</ul>
+<strong>券商目標價整理</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名</th><th>目標價 (NTD)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td><strong>無資料</strong></td><td></td><td></td><td></td></tr>
+<tr><td><strong>無資料</strong></td><td></td><td></td><td></td></tr>
+<tr><td><strong>無資料</strong></td><td></td><td></td><td></td></tr>
+</tbody></table></div>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<p>華東的利潤率在2025年呈現顯著波動，稅後淨利率在Q3因業外收益大幅提升。</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2025 Q3</td><td>3.71</td><td>-1.71</td><td>45.28</td></tr>
+<tr><td>2025 Q2</td><td>-1.93</td><td>-7.85</td><td>-22.79</td></tr>
+<tr><td>2025 Q1</td><td>1.20</td><td>-4.41</td><td>3.59</td></tr>
+<tr><td>2024 Q4</td><td>7.24</td><td>1.95</td><td>-5.06</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化的原因分析：</strong>
+<ul><li><strong>本業壓力與業外收益挹注：</strong> 2025年華東本業（封測代工）毛利率和營業利益率仍普遍呈現負值或低個位數，顯示本業仍面臨成本壓力和議價權不足的挑戰。然而，2025年第三季稅後淨利率達<strong>45.28%</strong>，主要是受惠於巨額業外收益（如匯兌利益和金融資產評價增值）的貢獻，這使得2025年全年EPS達到<strong>2.48元</strong>的歷史新高。</li>
+<li><strong>記憶體市場回溫效應：</strong> 記憶體市場的逐步回溫帶動營收規模提升，產能利用率接近滿載，對本業毛利率改善有正面幫助，但由於客戶集中度高（華邦電佔營收60-63%），可能限制了其議價能力，使本業毛利率難以出現爆發性成長。</li>
+</ul>
+<h3>存貨與營運</h3>
+<ul><li><strong>存貨金額與週轉天數：</strong> 目前未找到2024-2026年華東近4季存貨金額、存貨週轉天數及應收帳款週轉天數的具體趨勢。</li>
+<li><strong>存貨狀況：</strong> 根據2024年的資料，存貨佔總資產比例為<strong>2.9%</strong>，應收帳款佔總資產比例為<strong>11.9%</strong>。這些數據本身並未顯示異常堆積或備料現象，但缺乏詳細週轉天數資訊，無法進行深入判斷。</li>
+</ul>
+<h3>資本支出</h3>
+<ul><li>目前未找到2024-2026年華東具體的資本支出金額、未來新增產能計畫及折舊攤銷的詳細數據。</li>
+<li>但母公司華邦電有擴產計畫，將間接帶動華東的封測訂單。</li>
+</ul>
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓：</strong></li>
+</ul>    *   <strong>華邦電 (2344)：</strong> 於2026年1月處分華東5千張持股；2026年2月23日再次公告將對外處分華東共計<strong>1萬張</strong>持股，基於資金規劃與活化資產，減碼後持股比約<strong>6.77%</strong>。
+<p>*   <strong>華新 (1605)：</strong> 董事會決議處分華東<strong>6,000張</strong>持股，其中3,000張已於2025年12月15日完成交易，交易金額達1.644億元。</p>
+<p>*   <strong>總經理于鴻祺：</strong> 於2026年1月兩度申讓持股<strong>700張</strong>，其中280張於1月12日生效，估計套現約<strong>2,000萬元</strong>。</p>
+<ul><li><strong>庫藏股買回：</strong> 目前未找到2025-2026年華東的庫藏股買回紀錄。</li>
+<li><strong>可轉換公司債：</strong> 目前未找到2025-2026年華東發行可轉換公司債的相關資訊。</li>
+<li><strong>增減資：</strong> 目前未找到2025-2026年華東的現金增資或減資計畫。</li>
+<li><strong>股利政策：</strong> 華東董事會決議2025年度擬配發每股<strong>0.5元現金股利</strong>。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>產業數據</h3>
+<ul><li><strong>記憶體封裝市場規模：</strong></li>
+</ul>    *   預計從2025年的<strong>323.3億美元</strong>增長到2032年的<strong>529.8億美元</strong>，CAGR為<strong>7.31%</strong>。
+<p>*   全球先進記憶體封裝市場預計2025年為<strong>313億美元</strong>，2032年達<strong>462億美元</strong>，CAGR為<strong>5.7%</strong>。</p>
+<ul><li><strong>整體IC封裝測試市場規模：</strong></li>
+</ul>    *   預計從2026年的<strong>913.9億美元</strong>增長到2035年的<strong>1,442.3億美元</strong>，CAGR為<strong>5.2%</strong>。
+<ul><li><strong>DRAM市場規模：</strong></li>
+</ul>    *   2025年估計為<strong>1,218.3億美元</strong>，預計到2034年成長至<strong>2,237億美元</strong>，CAGR為<strong>7.20%</strong>。
+<p>*   另一報告預估2025年<strong>1,086.8億美元</strong>，2026年達<strong>1,263.1億美元</strong>，2031年前達<strong>2,677.7億美元</strong>，預測期（2026-2031年）CAGR為<strong>16.22%</strong>。</p>
+<ul><li><strong>NAND Flash市場規模：</strong></li>
+</ul>    *   預計2025年為<strong>858.4億美元</strong>，到2033年達<strong>1,408.9億美元</strong>，CAGR為<strong>6.39%</strong>。
+<p>*   另一報告預計2026年為<strong>586.9億美元</strong>，至2031年達<strong>760.3億美元</strong>，CAGR為<strong>5.32%</strong>。</p>
+<p>*   還有報告預計將以<strong>9.7%</strong>的年複合增長率增長，到2033年達到<strong>1,615億美元</strong>。</p>
+<ul><li><strong>2026年記憶體市場總規模：</strong> TrendForce預計將達到<strong>5,516億美元</strong>，年增<strong>134%</strong>。</li>
+</ul>
+<ul><li><strong>供需狀況：</strong> 目前記憶體產業正經歷「超級循環」，市場呈現<strong>供不應求</strong>的狀況，並預計將持續至2026年。</li>
+</ul>    *   AI基礎設施對高頻寬記憶體（HBM）需求的爆發性增長，導致DRAM和NAND Flash產能被排擠。
+<p>*   記憶體封測業者已陸續調升報價，漲幅最高達<strong>30%</strong>，預期可能會有第二波調漲。</p>
+<p>*   2025年DRAM行業平均庫存周期降至<strong>10週</strong>，原廠庫存僅<strong>2-4週</strong>，處於極度緊張狀態。</p>
+<p>*   2025年中期晶圓廠產能利用率保持在<strong>95%以上</strong>。</p>
+<p>*   NAND Flash市場2025年第四季全球前五大品牌廠營收合計季增<strong>23.8%</strong>至<strong>211.7億美元</strong>，集邦預估本季NAND Flash價格可能季增<strong>85%～90%</strong>。</p>
+
+<ul><li><strong>產業平均毛利率水準：</strong></li>
+</ul>    *   未找到2024-2026年記憶體封測產業的平均毛利率最新資料。
+<p>*   野村證券預計，DRAM和NAND的平均銷售價格（ASP）將分別躍升<strong>46%</strong>和<strong>65%</strong>，推動記憶體晶片製造商的營業利潤率重回歷史高位。</p>
+
+<h3>競爭格局</h3>
+<strong>DRAM市場 (2024年數據)</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司</th><th>市佔率</th></tr></thead><tbody>
+<tr><td>Samsung</td><td>41.54%</td></tr>
+<tr><td>SK Hynix</td><td>34.44%</td></tr>
+<tr><td>Micron</td><td>21.51%</td></tr>
+<tr><td>其他</td><td>0.99%</td></tr>
+</tbody></table></div>
+
+<strong>NAND Flash市場 (2024年數據)</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司</th><th>市佔率 (2024)</th><th>市佔率 (2025Q4營收)</th></tr></thead><tbody>
+<tr><td>Samsung</td><td>35.7%</td><td>28%</td></tr>
+<tr><td>SK Group (SK Hynix &amp; Solidigm)</td><td>21.3%</td><td>22.1%</td></tr>
+<tr><td>Kioxia</td><td>14.4%</td><td>16.5%</td></tr>
+<tr><td>Micron</td><td>12.9%</td><td>12.8% (約)</td></tr>
+<tr><td>SanDisk (Western Digital)</td><td>11.0%</td><td>12.8% (約)</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>華東 vs 主要競爭對手：</strong> 目前未找到2024-2026年華東與主要競爭對手在技術、產能、客戶、價格方面的具體比較最新資料。</li>
+</ul>    *   <strong>台灣同業：</strong> 力成 (6239)、南茂 (8150)、華泰 (2329) 與華東 (8110) 等業者皆受惠於記憶體景氣回溫，訂單滿載並醞釀漲價。
+<p>*   <strong>南茂：</strong> 預期記憶體相關產能滿載至2026年上半年，規劃2026年DDR5相關測試產能增加約10-20%。</p>
+<p>*   <strong>力成：</strong> 受惠美光產品結構調整與產能配置，承接高毛利訂單，產能利用率長期高檔。</p>
+
+<h3>產業趨勢</h3>
+<li><strong>高頻寬記憶體 (HBM) 與先進封裝技術：</strong></li>
+<p>*   <strong>趨勢：</strong> AI伺服器需求推動HBM普及，透過TSV垂直堆疊實現超高頻寬。HBM從HBM3e演進至HBM4。</p>
+<p>*   <strong>影響：</strong> HBM成為AI伺服器核心零組件，其製造排擠傳統DRAM產能，導致供給下降，推升整體記憶體價格。</p>
+<li><strong>DDR5/LPDDR5X 的普及與DDR4的轉換：</strong></li>
+<p>*   <strong>趨勢：</strong> 記憶體產品正從DDR4轉換至DDR5，提供翻倍頻寬。亞洲手機OEM廠多數轉向LPDDR5X。</p>
+<p>*   <strong>影響：</strong> DDR5測試需求同步升溫，為記憶體封測廠帶來新營運動能，滲透率與價格提升是獲利基礎。</p>
+<li><strong>3D NAND 技術的演進與大容量企業級SSD需求：</strong></li>
+<p>*   <strong>趨勢：</strong> 3D NAND技術持續演進至高層數堆疊，企業級SSD（eSSD）需求預計在2026年翻倍，供應商加速轉往大容量QLC企業級SSD。</p>
+<p>*   <strong>影響：</strong> 3D NAND在高密度和成本效率方面具優勢，企業級SSD需求增加有助於NAND庫存迅速下降並推高價格。</p>
+
+<h3>對華東的具體機會和威脅</h3>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>AI驅動的記憶體超級週期：</strong> 直接受益於記憶體產業復甦，DDR4、DDR5封測訂單增加和價格上漲。
+<p>*   <strong>穩固的集團客戶關係：</strong> 與華邦電、南亞科等大廠長期合作，確保穩定訂單。</p>
+<p>*   <strong>利基型記憶體需求熱絡：</strong> 公司在利基型記憶體領域的產能利用率明顯拉升。</p>
+<p>*   <strong>產業漲價趨勢：</strong> 受惠於封測報價調漲，提升營收與毛利率。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>HBM先進封裝技術的投資與競爭：</strong> HBM需要高額資本投入和先進技術，華東若在這些高階技術佈局不及主要競爭對手，可能在高毛利產品線競爭中處於劣勢。
+<p>*   <strong>記憶體市場的週期性波動：</strong> 市場供需變化快速，若未來反轉可能對營運造成壓力。</p>
+<p>*   <strong>客戶集中度風險：</strong> 華邦電佔營收比重高，可能影響華東的議價空間，壓抑本業毛利率成長爆發力。</p>
+<p>*   <strong>獲利品質風險：</strong> 2025年獲利高度依賴業外收益，本業仍有虧損，業外收益不確定性高。</p>
+<p>*   <strong>技術替代風險：</strong> 目前市場主要熱炒先進封裝，華東主要為成熟製程封測，可能在技術差異化上落後。</p>
+
+<h3>相關投資題材</h3>
+<ul><li><strong>AI (人工智慧)：</strong> AI伺服器對HBM和DDR5需求倍增，是記憶體封測訂單大增主因。華東作為記憶體封測廠，直接受益於AI帶動的記憶體需求增長。</li>
+<li><strong>HBM (高頻寬記憶體)：</strong> HBM需求排擠DRAM產能，推升整體記憶體價格。儘管華東客戶並非HBM主要供應商，但HBM對整體市場的拉抬效應及DDR5需求，仍讓華東間接受惠。</li>
+<li><strong>電動車 (EV) / 汽車電子：</strong> 先進記憶體在電動車（資訊娛樂、電池管理、自動駕駛）中的整合，以及車用DRAM、NAND Flash需求的增加，為華東的利基型記憶體產品帶來潛在機會。</li>
+<li><strong>5G與IoT：</strong> 5G部署和IoT設備普及擴大記憶體需求，華東的記憶體模組業務和封測服務可望從這些趨勢中獲得增長動能。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<h3>利多事件清單</h3>
+<ul><li><strong>記憶體超級週期確立：</strong> 全球記憶體市場因AI需求進入「超級循環」，供不應求預計延續至2026年，整體報價持續上漲。</li>
+<li><strong>封測訂單湧入與漲價效益：</strong> 記憶體封測產能接近滿載，報價已調漲約<strong>2-3成</strong>，預期可能會有第二波漲價，有利於提升華東營收與毛利率。</li>
+<li><strong>母公司華邦電訂單挹注：</strong> 華邦電Flash與DRAM產品線需求強勁，出貨動能穩定，將持續為華東帶來穩定的封測訂單。</li>
+<li><strong>2025年獲利創新高：</strong> 稅後淨利<strong>12.54億元</strong>，EPS達<strong>2.48元</strong>，激勵市場信心。</li>
+<li><strong>2026年展望樂觀：</strong> 法人預期2026年首季有望淡季不淡，全年營收、獲利向上可期。</li>
+<li><strong>外資近期買超：</strong> 2026年2月6日、2月5日、2月26日、3月4日外資買超張數分別為<strong>5,334張、6,833張、4,636張、5,309張</strong>。</li>
+</ul>
+<h3>利空事件清單</h3>
+<ul><li><strong>大股東與總經理處分持股：</strong> 華邦電累計處分<strong>1.5萬張</strong>華東持股，華新處分<strong>6,000張</strong>，總經理于鴻祺申讓<strong>700張</strong>，可能對市場情緒造成短期壓力。</li>
+<li><strong>2025年獲利品質風險：</strong> 2025年獲利創新高但本業營業淨損<strong>2.84億元</strong>，絕大部分獲利來自業外收益（匯兌、金融資產評價），獲利穩定性較低。</li>
+<li><strong>客戶集中度高：</strong> 超過<strong>60%</strong>營收來自華邦電，可能削弱華東在議價上的優勢，限制本業毛利率的爆發性成長。</li>
+<li><strong>技術替代風險：</strong> 市場熱炒先進封裝如CoWoS、HBM，這些主要掌握在大型IDM廠或一線封測廠，華東主要服務成熟製程記憶體封測，可能面臨技術升級挑戰。</li>
+<li><strong>記憶體市場循環反轉風險：</strong> 儘管目前處於上升週期，但記憶體市場的循環特性使得未來仍有報價回落、稼動率下降的風險。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能</th><th>具體內容</th></tr></thead><tbody>
+<tr><td><strong>2025 Q3</strong></td><td><strong>記憶體市場回溫</strong></td><td>營收規模回升，營業淨損收斂至<strong>3,207.5萬元</strong>，稅後淨利率因業外收益達<strong>45.28%</strong>，單季EPS達<strong>1.72元</strong>，顯示營運出現轉機。</td></tr>
+<tr><td><strong>2025 Q4</strong></td><td><strong>訂單回籠，漲價效應顯現</strong></td><td>法人預估獲利優於前季，全年EPS上看<strong>3元</strong>(⚠️實際為2.48元)。記憶體封測訂單持續湧入，部分封測服務漲價約<strong>2~3成</strong>。</td></tr>
+<tr><td><strong>2026 Q1</strong></td><td><strong>淡季不淡，價格持續上揚</strong></td><td>記憶體景氣持續復甦，法人預估華東2026年首季營運有望淡季不淡。利基型DRAM售價估季增<strong>45-50%</strong>，SLC NAND與NOR Flash估季增<strong>15-25%</strong>。</td></tr>
+<tr><td><strong>2026 H1</strong></td><td><strong>華邦電新產能陸續開出 (間接效益)</strong></td><td>華邦電高雄廠預計於2026年5、6月進行裝機，新增產能目標於2027年量產。此為集團內的重要產能擴張，預期將為華東帶來更多封測訂單。</td></tr>
+<tr><td><strong>2026 Q3</strong></td><td><strong>華邦電新產能開出 (間接效益)</strong></td><td>華邦電台中廠新產能將於2026年7月起陸續開出，全力鎖定高附加價值產品線。隨著華邦電產品線出貨穩定，華東受惠大客戶訂單釋出，有利優化獲利結構。</td></tr>
+<tr><td><strong>2026 全年</strong></td><td><strong>記憶體超級週期帶動全面成長</strong></td><td>2026年記憶體市場需求主要由伺服器市場驅動，尤其是北美雲端服務供應商 (CSP) 訂單及AI伺服器部署。DRAM需求預計年增<strong>26%</strong>，供應年增<strong>20%</strong>，至少存在<strong>6個百分點</strong>的供應缺口，帶動整體記憶體封測量價有撐。華東營收、獲利預期將優於2025年。</td></tr>
+<tr><td><strong>長期 (2027年起)</strong></td><td><strong>AI、HPC、車用等高階需求穩健增長</strong></td><td>Gartner預期AI、HPC及車用電子等高附加價值應用將持續帶領半導體市場成長，為相關記憶體供應鏈帶來長期穩定訂單。華東若能逐步拓展高階記憶體封測服務，將受益於產業結構性增長。</td></tr>
+</tbody></table></div>
+
+<strong>註：</strong> 華東自身明確的新產品、新產能、新客戶或擴廠計畫的具體時間點在資料中未詳述，上述動能時間軸多側重於產業趨勢和母公司華邦電的間接帶動效應。
+
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+<li><strong>記憶體產業超級循環：</strong> 由於AI伺服器對HBM和DDR5需求強勁，排擠傳統記憶體產能，導致整體記憶體市場供不應求，價格持續飆漲。TrendForce預計2026年DRAM需求年增<strong>26%</strong>，供給年增<strong>20%</strong>，存在顯著供需缺口。</li>
+<li><strong>封測報價上漲效益：</strong> 記憶體封測產能接近滿載，業者已陸續調漲報價約<strong>2~3成</strong>，且可能會有第二波，直接貢獻營收與毛利率。利基型DRAM、SLC NAND與NOR Flash價格預計在2026年第一季持續季增<strong>15-50%</strong>。</li>
+<li><strong>集團客戶訂單穩固：</strong> 母公司華邦電Flash與DRAM產品線需求旺盛，出貨動能穩定，其新產能（高雄廠2026年5、6月裝機，台中廠2026年7月開出）預計將為華東帶來持續且增長的封測訂單。</li>
+<li><strong>AI/HPC/車用等新興應用驅動：</strong> 高效能運算、AI伺服器、車用電子等高附加價值應用對記憶體的需求不斷增長，將為華東帶來長期穩定訂單，並有助於優化產品組合。</li>
+
+<h3>風險</h3>
+<li><strong>獲利品質不穩定：</strong> 2025年獲利雖創歷史新高，但本業仍虧損，大部分淨利來自業外收益（匯兌、金融資產評價）。這些非經常性收益具有高度不確定性，若台幣升值或金融市場波動，可能導致獲利大幅縮水甚至轉虧。</li>
+<li><strong>客戶集中度風險：</strong> 華東約有<strong>60%~63%</strong>的營收來自母公司華邦電，過度依賴單一客戶，尤其當該客戶是母公司時，可能導致議價能力受限，壓抑本業毛利率的提升空間。</li>
+<li><strong>先進封裝技術競爭壓力：</strong> 市場焦點在高頻寬記憶體(HBM)及CoWoS等先進封裝技術，這些技術門檻高、資本支出大，主要由台積電、日月光等大廠主導。華東若未能及時投入並取得領先，可能在高階封測市場的競爭中處於劣勢。</li>
+<li><strong>記憶體產業循環反轉：</strong> 儘管目前處於上行週期，但記憶體產業具高度週期性。若全球經濟下行、AI需求不如預期或產能過度擴張，可能導致供需失衡，報價回落，進而影響華東的ASP與稼動率。</li>
+
+<h2>投資結論</h2>
+<p>華東 (8110) 在記憶體「超級週期」中表現突出，2025年雖仰賴業外收益創下獲利新高，但其本業營運在產業回溫與集團訂單挹注下已見改善。展望2026年，記憶體報價上漲及產能滿載將持續推升營收與獲利。</p>
+
+<li><strong>產業景氣順風，本業營運漸入佳境：</strong> 全球記憶體產業進入供不應求的超級循環，DDR4、DDR5及NAND Flash報價全面走揚，華東作為記憶體封測廠，直接受惠於量價齊揚的趨勢。2026年首季預期淡季不淡，全年本業有望持續改善。</li>
+<li><strong>集團綜效穩固訂單基礎：</strong> 華東與母公司華邦電（2344）的緊密合作關係，確保了穩定且大量的封測訂單。華邦電的擴產計畫（台中廠2026年7月、高雄廠2026年5-6月裝機）將進一步鞏固華東的訂單來源。</li>
+<li><strong>獲利潛力與風險並存：</strong> 2025年EPS達<strong>2.48元</strong>創歷史新高，顯示其營運爆發力。然而，需警惕獲利對業外收益的依賴性，以及客戶集中度可能限制本業毛利率的提升空間。</li>
+<li><strong>估值與建議：</strong> 考量記憶體景氣高漲、集團訂單穩定與價格調漲效益，預估華東2026年EPS有望介於<strong>3.0元至3.5元</strong>。若給予合理本益比區間<strong>13倍至18倍</strong>（反映產業景氣但同時考量本業仍需改善與業外風險），建議投資目標價區間為 <strong>新台幣45元至63元</strong>。投資者應持續關注記憶體報價走勢、華東本業毛利率改善狀況以及業外收益的穩定性。</li>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:35</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="8110_華東_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="8110_華東_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="8110_華東_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8016 矽創 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>8016 矽創 深度研究報告</h1>
+
+<strong>今天日期：2026年03月06日</strong>
+
+<h2>一句話摘要</h2>
+
+<p>矽創 (8016) 受惠於車用電子與高階感測器領域的強勁成長動能，以及獨特的零電容 TDDI 技術在 AIoT 應用中持續放量，預期在2025年成功擺脫庫存調整陰霾，2026年營收及獲利將恢復成長，儘管 TDDI 面臨價格競爭，但高毛利產品組合優化有望穩定整體獲利表現。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">8016 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-8016" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-8016" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-8016');
+    var obvContainer = document.getElementById('obv-chart-8016');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 180.0, "high": 181.5, "low": 179.0, "close": 180.0}, {"time": "2025-12-05", "open": 180.0, "high": 181.0, "low": 177.0, "close": 179.5}, {"time": "2025-12-08", "open": 181.0, "high": 181.0, "low": 179.0, "close": 180.0}, {"time": "2025-12-09", "open": 185.0, "high": 188.0, "low": 182.0, "close": 182.0}, {"time": "2025-12-10", "open": 182.5, "high": 182.5, "low": 180.0, "close": 180.5}, {"time": "2025-12-11", "open": 181.5, "high": 184.5, "low": 181.5, "close": 183.0}, {"time": "2025-12-12", "open": 184.5, "high": 185.0, "low": 182.5, "close": 182.5}, {"time": "2025-12-15", "open": 179.5, "high": 180.0, "low": 177.5, "close": 178.5}, {"time": "2025-12-16", "open": 177.0, "high": 179.0, "low": 175.0, "close": 177.5}, {"time": "2025-12-17", "open": 177.5, "high": 184.0, "low": 177.5, "close": 181.0}, {"time": "2025-12-18", "open": 180.0, "high": 182.5, "low": 178.5, "close": 182.5}, {"time": "2025-12-19", "open": 184.0, "high": 184.0, "low": 180.5, "close": 181.0}, {"time": "2025-12-22", "open": 183.0, "high": 184.0, "low": 181.5, "close": 184.0}, {"time": "2025-12-23", "open": 185.0, "high": 185.0, "low": 181.5, "close": 182.5}, {"time": "2025-12-24", "open": 183.0, "high": 184.0, "low": 181.0, "close": 181.5}, {"time": "2025-12-26", "open": 182.5, "high": 182.5, "low": 178.5, "close": 178.5}, {"time": "2025-12-29", "open": 179.5, "high": 181.0, "low": 178.0, "close": 179.5}, {"time": "2025-12-30", "open": 179.0, "high": 179.5, "low": 177.5, "close": 179.0}, {"time": "2025-12-31", "open": 178.0, "high": 180.5, "low": 178.0, "close": 179.5}, {"time": "2026-01-02", "open": 180.0, "high": 183.0, "low": 179.0, "close": 180.5}, {"time": "2026-01-05", "open": 180.5, "high": 182.0, "low": 175.0, "close": 176.5}, {"time": "2026-01-06", "open": 178.0, "high": 181.5, "low": 177.5, "close": 180.5}, {"time": "2026-01-07", "open": 181.0, "high": 184.0, "low": 180.5, "close": 184.0}, {"time": "2026-01-08", "open": 187.0, "high": 188.0, "low": 182.5, "close": 186.0}, {"time": "2026-01-09", "open": 188.0, "high": 189.5, "low": 185.0, "close": 187.5}, {"time": "2026-01-12", "open": 189.0, "high": 189.5, "low": 186.5, "close": 189.5}, {"time": "2026-01-13", "open": 190.5, "high": 190.5, "low": 186.5, "close": 188.0}, {"time": "2026-01-14", "open": 188.0, "high": 193.0, "low": 187.0, "close": 191.5}, {"time": "2026-01-15", "open": 193.0, "high": 193.0, "low": 188.5, "close": 190.0}, {"time": "2026-01-16", "open": 190.5, "high": 190.5, "low": 187.5, "close": 189.0}, {"time": "2026-01-19", "open": 189.0, "high": 191.5, "low": 188.0, "close": 190.0}, {"time": "2026-01-20", "open": 188.5, "high": 193.0, "low": 188.5, "close": 191.5}, {"time": "2026-01-21", "open": 190.0, "high": 192.0, "low": 189.0, "close": 190.0}, {"time": "2026-01-22", "open": 190.5, "high": 194.5, "low": 190.5, "close": 193.0}, {"time": "2026-01-23", "open": 193.5, "high": 195.5, "low": 192.0, "close": 192.0}, {"time": "2026-01-26", "open": 193.0, "high": 193.5, "low": 191.0, "close": 191.5}, {"time": "2026-01-27", "open": 191.5, "high": 195.5, "low": 191.5, "close": 193.5}, {"time": "2026-01-28", "open": 195.0, "high": 198.0, "low": 194.0, "close": 195.5}, {"time": "2026-01-29", "open": 195.5, "high": 197.5, "low": 193.5, "close": 197.0}, {"time": "2026-01-30", "open": 197.0, "high": 198.0, "low": 194.5, "close": 195.5}, {"time": "2026-02-02", "open": 193.0, "high": 193.5, "low": 188.5, "close": 189.0}, {"time": "2026-02-03", "open": 190.5, "high": 194.0, "low": 188.5, "close": 193.0}, {"time": "2026-02-04", "open": 191.5, "high": 193.5, "low": 190.5, "close": 193.5}, {"time": "2026-02-05", "open": 192.5, "high": 195.0, "low": 189.5, "close": 190.0}, {"time": "2026-02-06", "open": 190.0, "high": 190.5, "low": 184.5, "close": 190.5}, {"time": "2026-02-09", "open": 189.0, "high": 195.5, "low": 189.0, "close": 192.5}, {"time": "2026-02-10", "open": 193.0, "high": 193.0, "low": 190.0, "close": 190.0}, {"time": "2026-02-11", "open": 190.5, "high": 191.0, "low": 188.0, "close": 190.0}, {"time": "2026-02-23", "open": 192.5, "high": 195.5, "low": 190.5, "close": 194.0}, {"time": "2026-02-24", "open": 194.0, "high": 197.0, "low": 194.0, "close": 197.0}, {"time": "2026-02-25", "open": 197.5, "high": 198.0, "low": 194.5, "close": 196.0}, {"time": "2026-02-26", "open": 198.5, "high": 200.5, "low": 196.5, "close": 199.0}, {"time": "2026-03-02", "open": 191.0, "high": 191.0, "low": 183.0, "close": 183.0}, {"time": "2026-03-03", "open": 194.5, "high": 196.0, "low": 191.0, "close": 193.0}, {"time": "2026-03-04", "open": 191.0, "high": 191.0, "low": 183.0, "close": 183.0}, {"time": "2026-03-05", "open": 188.0, "high": 190.5, "low": 186.0, "close": 190.5}, {"time": "2026-03-06", "open": 191.0, "high": 195.5, "low": 189.0, "close": 195.0}, {"time": "2026-03-09", "open": 190.0, "high": 191.0, "low": 187.0, "close": 190.0}, {"time": "2026-03-10", "open": 193.0, "high": 196.0, "low": 190.5, "close": 193.0}, {"time": "2026-03-11", "open": 193.5, "high": 196.0, "low": 193.0, "close": 194.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 359.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 440.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 340.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 1273.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 394.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 607.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 369.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 398.0, "color": "#26a69a"}, {"time": "2025-12-16", "value": 852.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 1263.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 393.0, "color": "#ef5350"}, {"time": "2025-12-19", "value": 342.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 383.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 351.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 478.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 545.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 551.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 589.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 740.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 884.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 1201.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 1115.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 1289.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 1493.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 1105.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 839.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 688.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 1070.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 613.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 524.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 815.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 619.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 477.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 610.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 619.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 419.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 677.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 677.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 757.0, "color": "#ef5350"}, {"time": "2026-01-30", "value": 712.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 610.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 463.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 259.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 462.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 655.0, "color": "#ef5350"}, {"time": "2026-02-09", "value": 521.0, "color": "#ef5350"}, {"time": "2026-02-10", "value": 442.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 548.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 977.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 698.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 762.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 902.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 956.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 514.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 956.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 649.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 595.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 946.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 409.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 535.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 180.4}, {"time": "2025-12-11", "value": 181.0}, {"time": "2025-12-12", "value": 181.6}, {"time": "2025-12-15", "value": 181.3}, {"time": "2025-12-16", "value": 180.4}, {"time": "2025-12-17", "value": 180.5}, {"time": "2025-12-18", "value": 180.4}, {"time": "2025-12-19", "value": 180.1}, {"time": "2025-12-22", "value": 181.2}, {"time": "2025-12-23", "value": 182.2}, {"time": "2025-12-24", "value": 182.3}, {"time": "2025-12-26", "value": 181.5}, {"time": "2025-12-29", "value": 181.2}, {"time": "2025-12-30", "value": 180.2}, {"time": "2025-12-31", "value": 179.6}, {"time": "2026-01-02", "value": 179.4}, {"time": "2026-01-05", "value": 179.0}, {"time": "2026-01-06", "value": 179.2}, {"time": "2026-01-07", "value": 180.2}, {"time": "2026-01-08", "value": 181.5}, {"time": "2026-01-09", "value": 182.9}, {"time": "2026-01-12", "value": 185.5}, {"time": "2026-01-13", "value": 187.0}, {"time": "2026-01-14", "value": 188.5}, {"time": "2026-01-15", "value": 189.3}, {"time": "2026-01-16", "value": 189.6}, {"time": "2026-01-19", "value": 189.7}, {"time": "2026-01-20", "value": 190.4}, {"time": "2026-01-21", "value": 190.1}, {"time": "2026-01-22", "value": 190.7}, {"time": "2026-01-23", "value": 191.3}, {"time": "2026-01-26", "value": 191.6}, {"time": "2026-01-27", "value": 192.0}, {"time": "2026-01-28", "value": 193.1}, {"time": "2026-01-29", "value": 193.9}, {"time": "2026-01-30", "value": 194.6}, {"time": "2026-02-02", "value": 194.1}, {"time": "2026-02-03", "value": 194.0}, {"time": "2026-02-04", "value": 193.6}, {"time": "2026-02-05", "value": 192.2}, {"time": "2026-02-06", "value": 191.2}, {"time": "2026-02-09", "value": 191.9}, {"time": "2026-02-10", "value": 191.3}, {"time": "2026-02-11", "value": 190.6}, {"time": "2026-02-23", "value": 191.4}, {"time": "2026-02-24", "value": 192.7}, {"time": "2026-02-25", "value": 193.4}, {"time": "2026-02-26", "value": 195.2}, {"time": "2026-03-02", "value": 193.8}, {"time": "2026-03-03", "value": 193.6}, {"time": "2026-03-04", "value": 190.8}, {"time": "2026-03-05", "value": 189.7}, {"time": "2026-03-06", "value": 188.9}, {"time": "2026-03-09", "value": 190.3}, {"time": "2026-03-10", "value": 190.3}, {"time": "2026-03-11", "value": 192.5}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 180.45}, {"time": "2025-12-18", "value": 180.7}, {"time": "2025-12-19", "value": 180.85}, {"time": "2025-12-22", "value": 181.25}, {"time": "2025-12-23", "value": 181.3}, {"time": "2025-12-24", "value": 181.4}, {"time": "2025-12-26", "value": 180.95}, {"time": "2025-12-29", "value": 180.65}, {"time": "2025-12-30", "value": 180.7}, {"time": "2025-12-31", "value": 180.9}, {"time": "2026-01-02", "value": 180.85}, {"time": "2026-01-05", "value": 180.25}, {"time": "2026-01-06", "value": 180.2}, {"time": "2026-01-07", "value": 180.2}, {"time": "2026-01-08", "value": 180.55}, {"time": "2026-01-09", "value": 181.15}, {"time": "2026-01-12", "value": 182.25}, {"time": "2026-01-13", "value": 183.1}, {"time": "2026-01-14", "value": 184.35}, {"time": "2026-01-15", "value": 185.4}, {"time": "2026-01-16", "value": 186.25}, {"time": "2026-01-19", "value": 187.6}, {"time": "2026-01-20", "value": 188.7}, {"time": "2026-01-21", "value": 189.3}, {"time": "2026-01-22", "value": 190.0}, {"time": "2026-01-23", "value": 190.45}, {"time": "2026-01-26", "value": 190.65}, {"time": "2026-01-27", "value": 191.2}, {"time": "2026-01-28", "value": 191.6}, {"time": "2026-01-29", "value": 192.3}, {"time": "2026-01-30", "value": 192.95}, {"time": "2026-02-02", "value": 192.85}, {"time": "2026-02-03", "value": 193.0}, {"time": "2026-02-04", "value": 193.35}, {"time": "2026-02-05", "value": 193.05}, {"time": "2026-02-06", "value": 192.9}, {"time": "2026-02-09", "value": 193.0}, {"time": "2026-02-10", "value": 192.65}, {"time": "2026-02-11", "value": 192.1}, {"time": "2026-02-23", "value": 191.8}, {"time": "2026-02-24", "value": 191.95}, {"time": "2026-02-25", "value": 192.65}, {"time": "2026-02-26", "value": 193.25}, {"time": "2026-03-02", "value": 192.2}, {"time": "2026-03-03", "value": 192.5}, {"time": "2026-03-04", "value": 191.75}, {"time": "2026-03-05", "value": 191.55}, {"time": "2026-03-06", "value": 192.05}, {"time": "2026-03-09", "value": 192.05}, {"time": "2026-03-10", "value": 191.95}, {"time": "2026-03-11", "value": 191.65}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 180.65}, {"time": "2026-01-05", "value": 180.475}, {"time": "2026-01-06", "value": 180.525}, {"time": "2026-01-07", "value": 180.725}, {"time": "2026-01-08", "value": 180.925}, {"time": "2026-01-09", "value": 181.275}, {"time": "2026-01-12", "value": 181.6}, {"time": "2026-01-13", "value": 181.875}, {"time": "2026-01-14", "value": 182.525}, {"time": "2026-01-15", "value": 183.15}, {"time": "2026-01-16", "value": 183.55}, {"time": "2026-01-19", "value": 183.925}, {"time": "2026-01-20", "value": 184.45}, {"time": "2026-01-21", "value": 184.75}, {"time": "2026-01-22", "value": 185.275}, {"time": "2026-01-23", "value": 185.8}, {"time": "2026-01-26", "value": 186.45}, {"time": "2026-01-27", "value": 187.15}, {"time": "2026-01-28", "value": 187.975}, {"time": "2026-01-29", "value": 188.85}, {"time": "2026-01-30", "value": 189.6}, {"time": "2026-02-02", "value": 190.225}, {"time": "2026-02-03", "value": 190.85}, {"time": "2026-02-04", "value": 191.325}, {"time": "2026-02-05", "value": 191.525}, {"time": "2026-02-06", "value": 191.675}, {"time": "2026-02-09", "value": 191.825}, {"time": "2026-02-10", "value": 191.925}, {"time": "2026-02-11", "value": 191.85}, {"time": "2026-02-23", "value": 192.05}, {"time": "2026-02-24", "value": 192.45}, {"time": "2026-02-25", "value": 192.75}, {"time": "2026-02-26", "value": 193.125}, {"time": "2026-03-02", "value": 192.775}, {"time": "2026-03-03", "value": 192.775}, {"time": "2026-03-04", "value": 192.325}, {"time": "2026-03-05", "value": 192.275}, {"time": "2026-03-06", "value": 192.35}, {"time": "2026-03-09", "value": 192.075}, {"time": "2026-03-10", "value": 191.875}, {"time": "2026-03-11", "value": 191.8}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -440.0}, {"time": "2025-12-08", "value": -100.0}, {"time": "2025-12-09", "value": 1173.0}, {"time": "2025-12-10", "value": 779.0}, {"time": "2025-12-11", "value": 1386.0}, {"time": "2025-12-12", "value": 1017.0}, {"time": "2025-12-15", "value": 619.0}, {"time": "2025-12-16", "value": -233.0}, {"time": "2025-12-17", "value": 1030.0}, {"time": "2025-12-18", "value": 1423.0}, {"time": "2025-12-19", "value": 1081.0}, {"time": "2025-12-22", "value": 1464.0}, {"time": "2025-12-23", "value": 1113.0}, {"time": "2025-12-24", "value": 635.0}, {"time": "2025-12-26", "value": 90.0}, {"time": "2025-12-29", "value": 641.0}, {"time": "2025-12-30", "value": 52.0}, {"time": "2025-12-31", "value": 792.0}, {"time": "2026-01-02", "value": 1676.0}, {"time": "2026-01-05", "value": 475.0}, {"time": "2026-01-06", "value": 1590.0}, {"time": "2026-01-07", "value": 2879.0}, {"time": "2026-01-08", "value": 4372.0}, {"time": "2026-01-09", "value": 5477.0}, {"time": "2026-01-12", "value": 6316.0}, {"time": "2026-01-13", "value": 5628.0}, {"time": "2026-01-14", "value": 6698.0}, {"time": "2026-01-15", "value": 6085.0}, {"time": "2026-01-16", "value": 5561.0}, {"time": "2026-01-19", "value": 6376.0}, {"time": "2026-01-20", "value": 6995.0}, {"time": "2026-01-21", "value": 6518.0}, {"time": "2026-01-22", "value": 7128.0}, {"time": "2026-01-23", "value": 6509.0}, {"time": "2026-01-26", "value": 6090.0}, {"time": "2026-01-27", "value": 6767.0}, {"time": "2026-01-28", "value": 7444.0}, {"time": "2026-01-29", "value": 8201.0}, {"time": "2026-01-30", "value": 7489.0}, {"time": "2026-02-02", "value": 6879.0}, {"time": "2026-02-03", "value": 7342.0}, {"time": "2026-02-04", "value": 7601.0}, {"time": "2026-02-05", "value": 7139.0}, {"time": "2026-02-06", "value": 7794.0}, {"time": "2026-02-09", "value": 8315.0}, {"time": "2026-02-10", "value": 7873.0}, {"time": "2026-02-11", "value": 7873.0}, {"time": "2026-02-23", "value": 8850.0}, {"time": "2026-02-24", "value": 9548.0}, {"time": "2026-02-25", "value": 8786.0}, {"time": "2026-02-26", "value": 9688.0}, {"time": "2026-03-02", "value": 8732.0}, {"time": "2026-03-03", "value": 9246.0}, {"time": "2026-03-04", "value": 8290.0}, {"time": "2026-03-05", "value": 8939.0}, {"time": "2026-03-06", "value": 9534.0}, {"time": "2026-03-09", "value": 8588.0}, {"time": "2026-03-10", "value": 8997.0}, {"time": "2026-03-11", "value": 9532.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>矽創電子（8016）是一家專業積體電路設計公司，提供多樣化的晶片解決方案，其營運模式為 Fabless，將晶圓製造委託給專業代工廠。</p>
+
+<strong>核心產品與服務：</strong>
+<ul><li><strong>顯示器驅動IC (DDIC)</strong>：應用於物聯網（IoT）、工控設備、車用顯示器等中小尺寸面板。</li>
+<li><strong>觸控暨顯示驅動整合晶片 (TDDI)</strong>：獨特的零電容（zerocap®）技術，應用於智慧型手機、物聯網裝置及車用領域。</li>
+<li><strong>感測器IC</strong>：透過子公司昇佳電子（6732）提供光學感測、微機電（MEMS）及電容感測晶片，為安卓一線品牌手機感測器的主要供應商，亦應用於穿戴裝置。</li>
+<li><strong>車用DDIC</strong>：透過子公司力領科技（FORCELEAD）主導，專注於車用儀表板、抬頭顯示器（HUD）及中控觸控顯示器。</li>
+<li><strong>晶圓測試探針卡</strong>：透過子公司新特系統（7815）研發與製造。</li>
+<li><strong>電源管理IC</strong>：透過子公司極創涉足。</li>
+</ul>
+<strong>營收結構（2025年第三季）：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品線分類</th><th>佔營收比例</th><th>備註</th></tr></thead><tbody>
+<tr><td>物聯網（AIoT）DDIC</td><td>43%</td><td>其中零電容TDDI產品佔此部門營收的39%</td></tr>
+<tr><td>手機感測器（昇佳）</td><td>22%</td><td></td></tr>
+<tr><td>車用DDIC（力領）</td><td>14%</td><td></td></tr>
+<tr><td>工控設備DDIC</td><td>11%</td><td></td></tr>
+<tr><td>其他</td><td>10%</td><td>包含探針卡、電源管理IC及未分類之DDIC應用等</td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>獨特的零電容TDDI技術：</strong> 矽創的零電容（zerocap®）TDDI技術能有效降低面板模組成本、厚度，並縮小邊框，符合市場對輕薄化、成本優化的趨勢，使其在物聯網與智慧型手機市場具備差異化優勢。</li>
+<li><strong>多元且高成長的產品組合：</strong> 透過子公司昇佳電子深耕安卓一線品牌手機感測器市場，並在2026年導入高階耳機光感測；力領科技則專注於高進入門檻的車用DDIC市場，受惠於智慧座艙趨勢，確保公司在不同高成長領域的佈局。</li>
+<li><strong>供應鏈風險管理：</strong> 透過分散台灣與中國的晶圓投片據點，以及集團內部子公司間的支援機制，有效分散晶圓代工與封測端的成本結構調整和產能供應風險。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>17.80</td><td>-5.6%</td><td>26.9%</td></tr>
+<tr><td>2025年12月</td><td>18.86</td><td>4.73%</td><td>20.36%</td></tr>
+<tr><td>2025年11月</td><td>18.01</td><td>11.18%</td><td>18.33%</td></tr>
+<tr><td>2025年10月</td><td>16.20</td><td>-2.27%</td><td>6.05%</td></tr>
+<tr><td>2025年9月</td><td>16.58</td><td>7.46%</td><td>4.29%</td></tr>
+<tr><td>2025年8月</td><td>15.43</td><td>1.91%</td><td>-3.39%</td></tr>
+</tbody></table></div>
+
+<strong>說明：</strong> 2025年下半年起，月營收呈現明顯回溫趨勢，尤其2025年12月營收達到近48個月新高18.86億元，並在2026年1月維持高年成長率26.9%，顯示公司營運已走出谷底。
+
+<h3>季度與年度財務數據</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季度</th><th>季營收 (新台幣億元)</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>EPS (新台幣元)</th></tr></thead><tbody>
+<tr><td>22025Q4</td><td>53.07</td><td>未公布</td><td>未公布</td><td>4.36</td></tr>
+<tr><td>2025Q3</td><td>47.1</td><td>29%</td><td>10%</td><td>3.28</td></tr>
+<tr><td>2025Q2</td><td>43.83</td><td>30.65%</td><td>11.03%</td><td>3.57</td></tr>
+<tr><td>2025Q1</td><td>43.0</td><td>32.65%</td><td>11.59%</td><td>3.45</td></tr>
+<tr><td><strong>年度</strong></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2025年</td><td>190.02</td><td>未公布</td><td>未公布</td><td>14.66</td></tr>
+<tr><td>2024年</td><td>178.265</td><td>未公布</td><td>未公布</td><td>15.42</td></tr>
+</tbody></table></div>
+
+<strong>說明：</strong> 2025年全年營收達190.02億元，年增6.6%。儘管全年EPS 14.66元較2024年15.42元有所下滑 (-5.5%)，但2025年第四季獲利季增32.8%，年增23.2%，顯示獲利動能於年底顯著回升。
+
+<h2>法說會重點 (2025年11月/12月)</h2>
+
+<strong>管理層對產品線出貨量/訂單能見度：</strong>
+<ul><li><strong>物聯網 (AIoT) DDIC：</strong> 零電容TDDI為主要成長動能，2025年第三季已佔公司總營收的16%。TDDI新規格產品已於2025年下半年推出，預期2026年將持續放量。</li>
+<li><strong>手機感測器 (昇佳電子)：</strong> 電磁波吸收率 (SAR) 感測器與高度計感測器已成功導入安卓一線品牌手機。針對韓系客戶高階耳機應用，已開發新款光感測產品，預計2026年初開始交付，可望帶來較佳的毛利貢獻。</li>
+<li><strong>車用 DDIC (力領科技)：</strong> 純車用業務出貨自2025年8月起已回溫，新規格產品與新應用的導入預計在2026年展現更明顯的貢獻。車用TDDI新規格預期將量產。</li>
+<li><strong>工控設備 DDIC：</strong> 此業務具季節性，通常上半年為採購旺季，下半年較淡。</li>
+</ul>
+<strong>產能利用率、資本支出金額：</strong>
+<ul><li>未找到 2025-2026 年的最新資料。公司表示已提前因應晶圓代工與封測成本結構調整，透過分散投片據點來分散風險。</li>
+</ul>
+<strong>管理層給出的2026年 Guidance：</strong>
+<ul><li><strong>營收展望：</strong> 公司對2026年營收展望持正面看法，預期增長會比2025年更為顯著。</li>
+<li><strong>成長動能：</strong> 主要由物聯網 (AIoT) 的TDDI產品持續放量、車用DDIC的新規格產品導入量產，以及感測器 (Sensor) 的新一代高階產品出貨所驅動。</li>
+<li><strong>毛利率指引：</strong> 公司目標在2026年維持與2025年平均水準相當的穩定毛利率。其中，車用與感測器業務的毛利率有望年對年提升，而AIoT (TDDI) 則可能因市場競爭面臨些許壓力。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>日期</th><th>目標價 (新台幣元)</th><th>評等</th><th>備註</th></tr></thead><tbody>
+<tr><td>某券商 (CMoney彙整)</td><td>2025年4月10日</td><td>185</td><td>中立</td><td>預估2025年EPS介於14.11-15.14元之間</td></tr>
+<tr><td>某券商 (CMoney彙整)</td><td>2025年12月17日</td><td>215</td><td>看多</td><td>預估2025年EPS約為14元，2026年EPS約為15元</td></tr>
+</tbody></table></div>
+
+<strong>券商2025-2026年EPS預估：</strong>
+<ul><li><strong>2025年 EPS 預估：</strong> 介於14.11至15.47元之間（法人平均）。<strong>實際為14.66元。</strong></li>
+<li><strong>2026年 EPS 預估：</strong> 法人機構平均預估年度稅後純益可達18.06億元，推估EPS介於15至15.08元之間。</li>
+</ul>
+<strong>評等調升：</strong>
+<p>根據CMoney彙整報告，市場評等從2025年4月的「中立」調升至2025年12月的「看多」，顯示市場對矽創的展望有所改善。</p>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2025Q3</td><td>28.91</td><td>9.58</td><td>10.49</td></tr>
+<tr><td>2025Q2</td><td>30.65</td><td>11.03</td><td>11.13</td></tr>
+<tr><td>2025Q1</td><td>32.65</td><td>11.59</td><td>12.44</td></tr>
+<tr><td>2024Q4</td><td>32.85</td><td>11.83</td><td>11.98</td></tr>
+<tr><td>2024Q3</td><td>33.08</td><td>13.82</td><td>12.8</td></tr>
+<tr><td>2024Q2</td><td>35.13</td><td>15.26</td><td>15.38</td></tr>
+<tr><td>2024Q1</td><td>35.54</td><td>15.15</td><td>15.11</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化分析：</strong>
+<p>矽創的利潤率在2024年初達到高峰後，於2024年下半年至2025年第三季呈現緩步下滑趨勢。主要原因為：</p>
+<li><strong>產品組合變化：</strong> 零電容TDDI產品線雖然帶來營收增長動能，但新產品初期毛利率較低，且市場競爭激烈，對整體毛利率構成壓力。</li>
+<li><strong>市場競爭：</strong> 驅動IC市場在非車用領域的競爭持續激烈。</li>
+<li><strong>匯率因素：</strong> 2025年第二、三季台幣升值對以美元計價的營收產生負面影響，若排除匯率干擾，營收年增幅度會更顯著。</li>
+<p>公司預期2026年透過車用與感測器等高毛利業務的增長，有望穩定整體毛利率在2025年平均水準。</p>
+
+<h3>存貨與營運</h3>
+
+<ul><li><strong>存貨與應收帳款週轉：</strong> 根據2025年第三季法說會資料，矽創的營運週轉天數保持在健康且穩定的水平，應收帳款週轉天數也維持在過去4年平均範圍，顯示良好的營運資金管理效率，未提及存貨有異常堆積或備料現象。</li>
+<li><strong>資本支出與折舊攤銷：</strong> 未找到2024-2026年的具體數字與趨勢資料。</li>
+</ul>
+<h3>其他財報重點</h3>
+
+<ul><li><strong>業外收支：</strong> 2025年第三季業外收入顯著增加，對淨利產生正面貢獻，但公司視為一次性或非經常性收入。</li>
+</ul>
+<h2>股權異動</h2>
+
+<ul><li><strong>董監事/大股東申報轉讓紀錄：</strong> 未找到2025-2026年的紀錄。</li>
+<li><strong>庫藏股買回紀錄：</strong> 未找到2025-2026年的紀錄。</li>
+<li><strong>發行可轉換公司債（CB）：</strong> 未找到2025-2026年的紀錄。</li>
+<li><strong>現金增資或減資計畫：</strong> 未找到2025-2026年的紀錄。</li>
+<li><strong>股利政策：</strong> 董事會決議配發2025年度盈餘現金股利每股11.5元。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>市場規模與成長率</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產業類別</th><th>2025年市場規模 (預估)</th><th>2026年市場規模 (預估)</th><th>複合年增長率 (CAGR)</th><th>成長期間</th></tr></thead><tbody>
+<tr><td>顯示驅動IC (DDIC)</td><td>43.8億美元 或 89.1億美元</td><td>47.0億美元 或 96.9億美元</td><td>7.68% 或 8.73%</td><td>2026-2032/2031</td></tr>
+<tr><td>觸控暨顯示驅動整合晶片 (TDDI)</td><td>99.9億美元</td><td>未明確</td><td>12.62%</td><td>2025-2033</td></tr>
+<tr><td>感測器IC (Sensor IC)</td><td>2666.3億美元 或 2410.6億美元</td><td>2890.3億美元 或 2584.7億美元</td><td>8.29% 或 9.30%</td><td>2026-2035/2034</td></tr>
+<tr><td>車用顯示驅動IC</td><td>未明確</td><td>未明確</td><td>15.25%</td><td>未明確</td></tr>
+</tbody></table></div>
+
+<strong>供需狀況：</strong>
+<ul><li><strong>DDIC：</strong> Omdia報告預計2025年全球DDIC出貨量同比下降2%，2026年溫和增長2%。中小尺寸DDIC總需求在2025年預計下降5%。2025年下半年出現「旺季不旺」現象。</li>
+<li><strong>成熟製程產能：</strong> 40奈米以下成熟製程的晶圓代工產能持續緊張，限制了DDIC的供應，此類產能同時也被AI加速器等高性能運算產品排擠。</li>
+<li><strong>OLED DDIC：</strong> 2025年OLED DDIC晶圓(僅28/40HV)供應量約為10.8萬片/月，需求量預計為8.7萬片/月，整體供需狀況偏好。</li>
+<li><strong>產業普遍樂觀：</strong> 晶片製造商普遍對2026年市場前景持樂觀態度，認為需求顯著超前供應，特別是在AI運算領域。</li>
+</ul>
+<strong>產業平均毛利率水準：</strong>
+<p>TDDI手機產品競爭激烈，產品持續降價壓縮毛利空間。晶圓成本上升也可能擠壓毛利率。目前未找到2024年以後顯示驅動IC設計產業的具體平均毛利率數據。</p>
+
+<h3>競爭格局</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>矽創 (8016)</th><th>敦泰 (3545)</th><th>其他主要競爭者 (全球市場)</th></tr></thead><tbody>
+<tr><td><strong>主要技術</strong></td><td>零電容 (zerocap®) TDDI、高階光學/MEMS感測器、車用DDIC</td><td>TDDI (手機應用競爭激烈)</td><td><strong>DDIC:</strong> 聯詠 (Novatek), 奇景光電 (Himax) &lt;br&gt; <strong>TDDI:</strong> 三星LSI, 聯詠, 譜瑞科技, LX Semicon, 韋爾半導體, 集創北方, 新突思電子, 晶門科技 &lt;br&gt; <strong>感測器IC:</strong> Bosch, STMicroelectronics, Texas Instruments (TI)</td></tr>
+<tr><td><strong>產品市場</strong></td><td>AIoT、智慧型手機感測器 (安卓一線)、車用顯示器、工控</td><td>智慧型手機 TDDI</td><td>各大消費性電子、車用、工業領域</td></tr>
+<tr><td><strong>市佔率</strong></td><td>未明確，但感測器在安卓一線品牌具優勢</td><td>TDDI市場主要參與者之一，但面臨價格壓力</td><td><strong>感測器IC:</strong> Bosch、STMicro、TI在2025年共佔約29.3%出貨量</td></tr>
+<tr><td><strong>競爭狀況</strong></td><td>零電容TDDI具差異化，車用及感測器毛利較佳</td><td>TDDI市場競爭激烈，產品降價、AI排擠效應，2025年認列12.37億元商譽減損 (EPS -5.8元)</td><td>各產品線均面臨激烈競爭，部分領域供需平衡或供過於求</td></tr>
+<tr><td><strong>優勢</strong></td><td>產品組合多元化，高毛利產品線佈局</td><td></td><td>規模經濟、廣泛客戶群、技術領先</td></tr>
+<tr><td><strong>劣勢</strong></td><td>TDDI初期毛利率承壓，市場較晚切入</td><td>TDDI高度依賴手機市場，易受景氣循環影響，毛利承壓</td><td></td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢與矽創的機會/威脅</h3>
+
+<strong>1. 高階顯示技術普及 (OLED、Mini-LED、Micro-LED)：</strong>
+<ul><li><strong>影響：</strong> 高階智慧型手機超過55%採用OLED，折疊式/柔性顯示器CAGR超過20%。這些技術對DDIC的性能、功耗、解析度、刷新率提出更高要求。</li>
+<li><strong>矽創機會：</strong> 矽創在中小尺寸DDIC領域的領導地位，使其能把握OLED、Mini-LED在物聯網、工控設備和特定消費電子中的應用機會。</li>
+</ul>
+<strong>2. 汽車電子化與數碼座艙趨勢：</strong>
+<ul><li><strong>影響：</strong> 汽車行業轉向複雜車載資訊娛樂系統和ADAS，對多個高解析度螢幕需求日益增加，推動車用驅動IC需求以15.25%的CAGR增長，且支持更高的ASP。</li>
+<li><strong>矽創機會：</strong> 矽創透過力領科技主導車用DDIC，直接受益於電動車普及和智慧座艙趨勢，高進入門檻帶來高利潤空間。</li>
+</ul>
+<strong>3. 物聯網 (IoT) 和邊緣AI的整合：</strong>
+<ul><li><strong>影響：</strong> IoT普及、自動化增強和智慧基礎設施項目持續推動感測器市場增長。AI將感測器轉變為智能系統，實現更快響應和更高精度。</li>
+<li><strong>矽創機會：</strong> 矽創的感測器IC (昇佳電子) 業務與AIoT緊密相關，尤其在智能駕駛、工業自動化和智能裝置領域帶來巨大增長機會。</li>
+</ul>
+<strong>矽創面臨的威脅：</strong>
+<ul><li><strong>DDIC/TDDI市場競爭加劇與價格壓力：</strong> 顯示驅動IC市場供需波動，TDDI市場產品持續降價壓縮毛利空間。</li>
+<li><strong>晶圓產能供應風險：</strong> 40奈米以下成熟製程的晶圓代工產能緊張，可能影響晶片供應和成本。</li>
+<li><strong>面板廠垂直整合：</strong> 部份面板製造商自行設計或生產驅動IC，可能縮小第三方驅動IC的市場空間。</li>
+<li><strong>總體經濟與地緣政治不確定性：</strong> 關稅政策和全球經濟環境可能影響消費電子市場需求。</li>
+</ul>
+<strong>相關投資題材連結：</strong>
+<ul><li><strong>電動車 (EV) / 汽車電子：</strong> 子公司力領科技專注車用DDIC，直接受惠。</li>
+<li><strong>人工智慧 (AI) / AIoT：</strong> 感測器IC業務與AIoT緊密相關，為智能駕駛、工業自動化等提供智能感測解決方案。</li>
+<li><strong>物聯網 (IoT)：</strong> 顯示驅動IC和感測器IC廣泛應用於各類IoT設備。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<h3>利多事件：</h3>
+<ul><li><strong>2025年第四季獲利強勁：</strong> 2026年3月5日公布2025年第四季EPS 4.36元，季增32.8%，年增23.2%，顯示獲利動能顯著回升。</li>
+<li><strong>2026年1月營收表現亮眼：</strong> 2026年2月6日公布合併營收17.80億元，年成長高達26.9%。</li>
+<li><strong>零電容TDDI技術放量：</strong> 2024年12月法說會預期2025上半年放量，並於2025年第三季佔總營收16%，持續為2026年營收成長動能。</li>
+<li><strong>車用市場回溫：</strong> 2025年8月起車用產品已見回升，並與中國車廠緊密合作，約佔車用營收50%，具備快速design-in優勢。</li>
+<li><strong>高階感測器產品出貨：</strong> 子公司昇佳電子成功導入安卓一線品牌手機感測器，並預計2026年初供應高階耳機光感測產品，毛利率較佳。</li>
+<li><strong>分散產能佈局：</strong> 2026年1月28日公告，為因應晶圓代工與封測成本調整，已分散投片據點，有效分散供應鏈風險。</li>
+<li><strong>市場評等調升：</strong> 從2025年4月的「中立」調升至2025年12月的「看多」。</li>
+</ul>
+<h3>利空事件：</h3>
+<ul><li><strong>TDDI市場價格競爭：</strong> 儘管TDDI放量，但因矽創較晚切入市場，短期仍面臨價格競爭壓力，恐壓抑其TDDI毛利率。</li>
+<li><strong>新台幣升值壓力：</strong> 2025年5月新台幣兌美元快速升值，對出口為主的IC設計公司可能帶來匯損壓力。</li>
+<li><strong>宏觀經濟不確定性：</strong> 美國關稅政策和地緣政治不穩定可能影響終端需求。</li>
+<li><strong>毛利率下滑趨勢：</strong> 連續數季毛利率、營業利益率和稅後淨利率下滑（2024Q1至2025Q3），反映產品組合與市場競爭的壓力。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能項目</th><th>具體內容</th></tr></thead><tbody>
+<tr><td><strong>2025年上半年</strong></td><td><strong>TDDI新品放量</strong></td><td>零電容觸控顯示晶片 (TDDI) 正式推出，市場滲透速度優於預期，2025年Q1佔總營收6%至7%。</td></tr>
+<tr><td><strong>2025年8月起</strong></td><td><strong>車用產品回溫</strong></td><td>純車用業務出貨已見回溫，為第三季毛利率改善貢獻。</td></tr>
+<tr><td><strong>2025年下半年</strong></td><td><strong>TDDI新規格導入與持續放量</strong></td><td>推出多項TDDI新規格產品，客戶採用度提升，持續推動營收增長。2025年Q3 TDDI營收佔比已升至16%。</td></tr>
+<tr><td><strong>2025年下半年</strong></td><td><strong>昇佳電子開拓手機感測器新客戶與應用</strong></td><td>成功將電磁波吸收率 (SAR) 及高度計感測器從穿戴裝置推向安卓手機品牌市場，打入Android手機供應鏈。</td></tr>
+<tr><td><strong>2025年下半年</strong></td><td><strong>車用產品與中系車廠合作深化</strong></td><td>與中系車廠合作緊密，約佔車用營收50%，受惠於中系車廠新車推出速度快，有利於矽創的design-in流程。</td></tr>
+<tr><td><strong>2026年初</strong></td><td><strong>高階耳機光學感測產品交付</strong></td><td>針對韓系客戶高階耳機應用，已開發新款光感測產品，預計開始交付，可望帶來較佳的毛利貢獻。</td></tr>
+<tr><td><strong>2026年上半年</strong></td><td><strong>昇佳電子新一代光感測產品出貨</strong></td><td>新一代光感測產品預計開始出貨，其毛利率較佳，將帶動整體感測器產品線毛利率明顯改善。</td></tr>
+<tr><td><strong>2026年全年</strong></td><td><strong>車用DDIC新規格導入量產</strong></td><td>隨新車款量產，新規格儀表板與抬頭顯示器 (HUD) 等車載中小尺寸顯示器出貨增溫，車用產品毛利率可望維持穩定向上。車用TDDI新規格預期將量產。</td></tr>
+<tr><td><strong>2026年全年</strong></td><td><strong>非消費性電子領域滲透率持續提升</strong></td><td>高毛利的感測器、工控及車用驅動IC等非消費性電子領域的滲透率持續提升，將是支撐2026年獲利重返成長軌道的重要關鍵。</td></tr>
+<tr><td><strong>2026年全年</strong></td><td><strong>物聯網、工控市場應用需求穩定</strong></td><td>智慧電網設備、電表等政府標案，以及工業量測儀器等長尾市場，提供穩定營收基礎。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+<p>矽創預期2026年營收將實現正向增長，主要由三大高成長產品線驅動：</p>
+<li><strong>AIoT TDDI持續放量：</strong> 零電容TDDI技術在物聯網和智慧裝置中的滲透率持續提升，預計2026年將進一步貢獻營收。</li>
+<li><strong>車用DDIC新規格導入與增溫：</strong> 隨著新車款的量產，特別是儀表板、抬頭顯示器 (HUD) 等多螢幕顯示需求增長，車用DDIC出貨量將顯著提升，且此業務毛利率有望穩定向上。</li>
+<li><strong>高階感測器產品出貨：</strong> 子公司昇佳電子新一代高毛利光感測產品（包括高階耳機應用）預計在2026年上半年開始出貨，將顯著改善感測器產品線的整體毛利率。</li>
+
+<strong>風險：</strong>
+<ul><li><strong>TDDI市場競爭與毛利壓力：</strong> 儘管TDDI業務成長，但市場競爭激烈，短期內可能仍面臨價格壓力，影響其毛利率。</li>
+<li><strong>全球經濟復甦速度：</strong> 宏觀經濟、地緣政治及通膨情勢若不如預期，可能影響終端消費電子需求及客戶下單意願。</li>
+<li><strong>晶圓代工產能與成本：</strong> 成熟製程產能持續緊張以及晶圓代工成本波動，可能影響晶片供應及產品成本。</li>
+<li><strong>匯率波動：</strong> 新台幣兌美元匯率波動仍是潛在的業外風險。</li>
+</ul>
+<p>法人機構預估矽創2026年稅後純益約18.06億元，推算EPS約在15元附近。公司目標是維持2026年全年毛利率與2025年平均水準相當。</p>
+
+<h2>投資結論</h2>
+
+<p>綜合以上分析，矽創 (8016) 在2025年成功度過庫存調整期後，其營運已見明顯復甦，並透過多元化佈局鎖定高成長市場，儘管TDDI業務仍面臨競爭挑戰，但高毛利產品組合的優化策略將是支撐未來獲利成長的關鍵。</p>
+
+<li><strong>營運轉折點已現：</strong> 2025年第四季獲利及2026年1月營收表現亮眼，顯示公司營運已走出谷底，恢復成長動能。</li>
+<li><strong>高成長動能清晰：</strong> 車用電子、高階感測器及AIoT的TDDI為三大核心成長引擎，尤其車用市場和高階感測器產品的高毛利特性，有望優化公司整體獲利結構。</li>
+<li><strong>零電容TDDI具差異化優勢：</strong> 獨特的零電容技術使其在物聯網等中小尺寸顯示應用中具備競爭力，持續貢獻營收。</li>
+<li><strong>產品組合優化穩定毛利率：</strong> 儘管TDDI面臨價格壓力，但來自車用與高階感測器的高毛利貢獻將有望抵銷衝擊，穩定公司整體毛利率表現。</li>
+
+<p>基於2026年預估EPS約15元，並考量矽創在車用、感測器領域的成長潛力以及市場對其評價的提升，給予目標價區間建議為 <strong>新台幣 210元 至 240元</strong>。此建議區間反映了未來14倍至16倍的預期本益比，考量公司走出谷底的成長性與結構性優勢。</p>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:03</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="8016_矽創_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="8016_矽創_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="8016_矽創_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

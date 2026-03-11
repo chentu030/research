@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3035 智原 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>3035 智原 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>智原（3035）作為領先的特殊應用積體電路（ASIC）設計服務與矽智財（IP）供應商，正積極受惠於AI晶片、先進製程及高階封裝的爆發性需求。儘管2025年營收創歷史新高達<strong>新台幣180億元</strong>，但受產品組合與備料因素影響，毛利率降至<strong>27.0%</strong>，EPS為<strong>新台幣2.81元</strong>。展望2026年，公司預期營運將逐季走高，全年營收有望實現<strong>低雙位數（11-13%）</strong>成長，毛利率預計回升至<strong>40%以上</strong>，顯示獲利能力將顯著改善。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">3035 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-3035" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-3035" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-3035');
+    var obvContainer = document.getElementById('obv-chart-3035');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 172.0, "high": 172.0, "low": 169.0, "close": 169.5}, {"time": "2025-12-05", "open": 171.0, "high": 173.5, "low": 169.0, "close": 173.0}, {"time": "2025-12-08", "open": 174.0, "high": 175.0, "low": 171.5, "close": 172.5}, {"time": "2025-12-09", "open": 174.0, "high": 175.5, "low": 171.0, "close": 171.0}, {"time": "2025-12-10", "open": 172.0, "high": 176.0, "low": 171.0, "close": 174.0}, {"time": "2025-12-11", "open": 174.5, "high": 175.0, "low": 169.5, "close": 170.5}, {"time": "2025-12-12", "open": 171.5, "high": 172.5, "low": 170.5, "close": 170.5}, {"time": "2025-12-15", "open": 168.0, "high": 170.5, "low": 167.0, "close": 169.5}, {"time": "2025-12-16", "open": 169.5, "high": 175.0, "low": 168.5, "close": 172.0}, {"time": "2025-12-17", "open": 172.5, "high": 174.5, "low": 169.0, "close": 169.0}, {"time": "2025-12-18", "open": 169.0, "high": 170.5, "low": 167.5, "close": 168.0}, {"time": "2025-12-19", "open": 168.5, "high": 170.0, "low": 166.0, "close": 166.0}, {"time": "2025-12-22", "open": 167.5, "high": 169.0, "low": 165.5, "close": 165.5}, {"time": "2025-12-23", "open": 166.0, "high": 166.5, "low": 164.0, "close": 164.0}, {"time": "2025-12-24", "open": 165.0, "high": 167.0, "low": 164.5, "close": 164.5}, {"time": "2025-12-26", "open": 166.0, "high": 167.0, "low": 164.0, "close": 165.0}, {"time": "2025-12-29", "open": 166.0, "high": 166.5, "low": 164.0, "close": 164.5}, {"time": "2025-12-30", "open": 166.0, "high": 169.0, "low": 164.5, "close": 168.5}, {"time": "2025-12-31", "open": 169.0, "high": 172.0, "low": 168.0, "close": 170.5}, {"time": "2026-01-02", "open": 171.0, "high": 174.0, "low": 170.0, "close": 170.5}, {"time": "2026-01-05", "open": 172.5, "high": 173.5, "low": 167.5, "close": 168.5}, {"time": "2026-01-06", "open": 169.5, "high": 175.0, "low": 169.5, "close": 171.0}, {"time": "2026-01-07", "open": 173.5, "high": 179.5, "low": 171.5, "close": 177.0}, {"time": "2026-01-08", "open": 178.0, "high": 178.5, "low": 170.5, "close": 170.5}, {"time": "2026-01-09", "open": 170.5, "high": 170.5, "low": 165.5, "close": 167.5}, {"time": "2026-01-12", "open": 168.5, "high": 172.0, "low": 167.5, "close": 170.5}, {"time": "2026-01-13", "open": 172.0, "high": 172.0, "low": 167.5, "close": 167.5}, {"time": "2026-01-14", "open": 169.5, "high": 171.5, "low": 169.0, "close": 170.0}, {"time": "2026-01-15", "open": 170.5, "high": 170.5, "low": 167.0, "close": 168.0}, {"time": "2026-01-16", "open": 169.0, "high": 169.5, "low": 166.0, "close": 166.5}, {"time": "2026-01-19", "open": 166.0, "high": 173.5, "low": 164.5, "close": 172.0}, {"time": "2026-01-20", "open": 172.0, "high": 173.0, "low": 170.0, "close": 172.5}, {"time": "2026-01-21", "open": 172.5, "high": 174.5, "low": 170.0, "close": 171.0}, {"time": "2026-01-22", "open": 174.0, "high": 175.5, "low": 171.0, "close": 172.0}, {"time": "2026-01-23", "open": 173.5, "high": 177.5, "low": 172.0, "close": 173.0}, {"time": "2026-01-26", "open": 174.0, "high": 175.5, "low": 172.5, "close": 174.5}, {"time": "2026-01-27", "open": 177.0, "high": 179.0, "low": 175.0, "close": 178.5}, {"time": "2026-01-28", "open": 180.5, "high": 181.0, "low": 175.0, "close": 177.0}, {"time": "2026-01-29", "open": 177.0, "high": 177.0, "low": 171.0, "close": 171.5}, {"time": "2026-01-30", "open": 171.5, "high": 171.5, "low": 165.5, "close": 167.0}, {"time": "2026-02-02", "open": 164.5, "high": 164.5, "low": 158.5, "close": 160.0}, {"time": "2026-02-03", "open": 163.0, "high": 164.0, "low": 159.5, "close": 161.5}, {"time": "2026-02-04", "open": 160.5, "high": 163.5, "low": 160.0, "close": 163.5}, {"time": "2026-02-05", "open": 161.5, "high": 166.0, "low": 161.0, "close": 162.0}, {"time": "2026-02-06", "open": 161.0, "high": 161.0, "low": 156.5, "close": 160.0}, {"time": "2026-02-09", "open": 160.0, "high": 161.5, "low": 156.5, "close": 157.0}, {"time": "2026-02-10", "open": 158.0, "high": 169.0, "low": 157.5, "close": 169.0}, {"time": "2026-02-11", "open": 162.5, "high": 166.0, "low": 161.0, "close": 162.0}, {"time": "2026-02-23", "open": 163.5, "high": 167.0, "low": 160.0, "close": 166.5}, {"time": "2026-02-24", "open": 165.5, "high": 167.5, "low": 164.5, "close": 166.5}, {"time": "2026-02-25", "open": 167.0, "high": 168.5, "low": 166.0, "close": 167.5}, {"time": "2026-02-26", "open": 168.5, "high": 174.5, "low": 168.0, "close": 168.0}, {"time": "2026-03-02", "open": 163.0, "high": 165.0, "low": 156.5, "close": 158.0}, {"time": "2026-03-03", "open": 169.5, "high": 174.0, "low": 164.0, "close": 164.5}, {"time": "2026-03-04", "open": 163.0, "high": 165.0, "low": 156.5, "close": 158.0}, {"time": "2026-03-05", "open": 162.0, "high": 162.5, "low": 158.0, "close": 159.0}, {"time": "2026-03-06", "open": 159.0, "high": 160.0, "low": 157.5, "close": 158.5}, {"time": "2026-03-09", "open": 143.0, "high": 147.0, "low": 143.0, "close": 144.0}, {"time": "2026-03-10", "open": 148.0, "high": 148.0, "low": 144.5, "close": 146.0}, {"time": "2026-03-11", "open": 147.0, "high": 154.5, "low": 147.0, "close": 154.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 1501.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 1909.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 3047.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 2570.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 3733.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 3218.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 1294.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 1918.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 5669.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 2956.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 1650.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 2260.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 1783.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 1407.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 1246.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 1150.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 1419.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 2128.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 2442.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 3299.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 3333.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 6778.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 10981.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 6825.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 4359.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 2607.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 2266.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 1778.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 1955.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 2329.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 5523.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 2702.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 3507.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 4018.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 5308.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 2809.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 7613.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 5701.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 4499.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 4357.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 4025.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 1477.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 1001.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 1855.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 1839.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 3062.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 5622.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 6137.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 3807.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 2940.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 2803.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 6003.0, "color": "#26a69a"}, {"time": "2026-03-02", "value": 4268.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 4833.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 4268.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 2155.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 1417.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 4192.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 1890.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 2423.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 172.0}, {"time": "2025-12-11", "value": 172.2}, {"time": "2025-12-12", "value": 171.7}, {"time": "2025-12-15", "value": 171.1}, {"time": "2025-12-16", "value": 171.3}, {"time": "2025-12-17", "value": 170.3}, {"time": "2025-12-18", "value": 169.8}, {"time": "2025-12-19", "value": 168.9}, {"time": "2025-12-22", "value": 168.1}, {"time": "2025-12-23", "value": 166.5}, {"time": "2025-12-24", "value": 165.6}, {"time": "2025-12-26", "value": 165.0}, {"time": "2025-12-29", "value": 164.7}, {"time": "2025-12-30", "value": 165.3}, {"time": "2025-12-31", "value": 166.6}, {"time": "2026-01-02", "value": 167.8}, {"time": "2026-01-05", "value": 168.5}, {"time": "2026-01-06", "value": 169.8}, {"time": "2026-01-07", "value": 171.5}, {"time": "2026-01-08", "value": 171.5}, {"time": "2026-01-09", "value": 170.9}, {"time": "2026-01-12", "value": 171.3}, {"time": "2026-01-13", "value": 170.6}, {"time": "2026-01-14", "value": 169.2}, {"time": "2026-01-15", "value": 168.7}, {"time": "2026-01-16", "value": 168.5}, {"time": "2026-01-19", "value": 168.8}, {"time": "2026-01-20", "value": 169.8}, {"time": "2026-01-21", "value": 170.0}, {"time": "2026-01-22", "value": 170.8}, {"time": "2026-01-23", "value": 172.1}, {"time": "2026-01-26", "value": 172.6}, {"time": "2026-01-27", "value": 173.8}, {"time": "2026-01-28", "value": 175.0}, {"time": "2026-01-29", "value": 174.9}, {"time": "2026-01-30", "value": 173.7}, {"time": "2026-02-02", "value": 170.8}, {"time": "2026-02-03", "value": 167.4}, {"time": "2026-02-04", "value": 164.7}, {"time": "2026-02-05", "value": 162.8}, {"time": "2026-02-06", "value": 161.4}, {"time": "2026-02-09", "value": 160.8}, {"time": "2026-02-10", "value": 162.3}, {"time": "2026-02-11", "value": 162.0}, {"time": "2026-02-23", "value": 162.9}, {"time": "2026-02-24", "value": 164.2}, {"time": "2026-02-25", "value": 166.3}, {"time": "2026-02-26", "value": 166.1}, {"time": "2026-03-02", "value": 165.3}, {"time": "2026-03-03", "value": 164.9}, {"time": "2026-03-04", "value": 163.2}, {"time": "2026-03-05", "value": 161.5}, {"time": "2026-03-06", "value": 159.6}, {"time": "2026-03-09", "value": 156.8}, {"time": "2026-03-10", "value": 153.1}, {"time": "2026-03-11", "value": 152.3}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 171.15}, {"time": "2025-12-18", "value": 171.0}, {"time": "2025-12-19", "value": 170.3}, {"time": "2025-12-22", "value": 169.6}, {"time": "2025-12-23", "value": 168.9}, {"time": "2025-12-24", "value": 167.95}, {"time": "2025-12-26", "value": 167.4}, {"time": "2025-12-29", "value": 166.8}, {"time": "2025-12-30", "value": 166.7}, {"time": "2025-12-31", "value": 166.55}, {"time": "2026-01-02", "value": 166.7}, {"time": "2026-01-05", "value": 166.75}, {"time": "2026-01-06", "value": 167.25}, {"time": "2026-01-07", "value": 168.4}, {"time": "2026-01-08", "value": 169.05}, {"time": "2026-01-09", "value": 169.35}, {"time": "2026-01-12", "value": 169.9}, {"time": "2026-01-13", "value": 170.2}, {"time": "2026-01-14", "value": 170.35}, {"time": "2026-01-15", "value": 170.1}, {"time": "2026-01-16", "value": 169.7}, {"time": "2026-01-19", "value": 170.05}, {"time": "2026-01-20", "value": 170.2}, {"time": "2026-01-21", "value": 169.6}, {"time": "2026-01-22", "value": 169.75}, {"time": "2026-01-23", "value": 170.3}, {"time": "2026-01-26", "value": 170.7}, {"time": "2026-01-27", "value": 171.8}, {"time": "2026-01-28", "value": 172.5}, {"time": "2026-01-29", "value": 172.85}, {"time": "2026-01-30", "value": 172.9}, {"time": "2026-02-02", "value": 171.7}, {"time": "2026-02-03", "value": 170.6}, {"time": "2026-02-04", "value": 169.85}, {"time": "2026-02-05", "value": 168.85}, {"time": "2026-02-06", "value": 167.55}, {"time": "2026-02-09", "value": 165.8}, {"time": "2026-02-10", "value": 164.85}, {"time": "2026-02-11", "value": 163.35}, {"time": "2026-02-23", "value": 162.85}, {"time": "2026-02-24", "value": 162.8}, {"time": "2026-02-25", "value": 163.55}, {"time": "2026-02-26", "value": 164.2}, {"time": "2026-03-02", "value": 163.65}, {"time": "2026-03-03", "value": 163.9}, {"time": "2026-03-04", "value": 163.7}, {"time": "2026-03-05", "value": 163.9}, {"time": "2026-03-06", "value": 162.85}, {"time": "2026-03-09", "value": 161.05}, {"time": "2026-03-10", "value": 159.0}, {"time": "2026-03-11", "value": 157.75}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 168.925}, {"time": "2026-01-05", "value": 168.875}, {"time": "2026-01-06", "value": 168.775}, {"time": "2026-01-07", "value": 169.0}, {"time": "2026-01-08", "value": 168.975}, {"time": "2026-01-09", "value": 168.65}, {"time": "2026-01-12", "value": 168.65}, {"time": "2026-01-13", "value": 168.5}, {"time": "2026-01-14", "value": 168.525}, {"time": "2026-01-15", "value": 168.325}, {"time": "2026-01-16", "value": 168.2}, {"time": "2026-01-19", "value": 168.4}, {"time": "2026-01-20", "value": 168.725}, {"time": "2026-01-21", "value": 169.0}, {"time": "2026-01-22", "value": 169.4}, {"time": "2026-01-23", "value": 169.825}, {"time": "2026-01-26", "value": 170.3}, {"time": "2026-01-27", "value": 171.0}, {"time": "2026-01-28", "value": 171.425}, {"time": "2026-01-29", "value": 171.475}, {"time": "2026-01-30", "value": 171.3}, {"time": "2026-02-02", "value": 170.875}, {"time": "2026-02-03", "value": 170.4}, {"time": "2026-02-04", "value": 169.725}, {"time": "2026-02-05", "value": 169.3}, {"time": "2026-02-06", "value": 168.925}, {"time": "2026-02-09", "value": 168.25}, {"time": "2026-02-10", "value": 168.325}, {"time": "2026-02-11", "value": 167.925}, {"time": "2026-02-23", "value": 167.85}, {"time": "2026-02-24", "value": 167.85}, {"time": "2026-02-25", "value": 167.625}, {"time": "2026-02-26", "value": 167.4}, {"time": "2026-03-02", "value": 166.75}, {"time": "2026-03-03", "value": 166.375}, {"time": "2026-03-04", "value": 165.625}, {"time": "2026-03-05", "value": 164.85}, {"time": "2026-03-06", "value": 163.85}, {"time": "2026-03-09", "value": 162.2}, {"time": "2026-03-10", "value": 160.925}, {"time": "2026-03-11", "value": 160.275}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 1909.0}, {"time": "2025-12-08", "value": -1138.0}, {"time": "2025-12-09", "value": -3708.0}, {"time": "2025-12-10", "value": 25.0}, {"time": "2025-12-11", "value": -3193.0}, {"time": "2025-12-12", "value": -3193.0}, {"time": "2025-12-15", "value": -5111.0}, {"time": "2025-12-16", "value": 558.0}, {"time": "2025-12-17", "value": -2398.0}, {"time": "2025-12-18", "value": -4048.0}, {"time": "2025-12-19", "value": -6308.0}, {"time": "2025-12-22", "value": -8091.0}, {"time": "2025-12-23", "value": -9498.0}, {"time": "2025-12-24", "value": -8252.0}, {"time": "2025-12-26", "value": -7102.0}, {"time": "2025-12-29", "value": -8521.0}, {"time": "2025-12-30", "value": -6393.0}, {"time": "2025-12-31", "value": -3951.0}, {"time": "2026-01-02", "value": -3951.0}, {"time": "2026-01-05", "value": -7284.0}, {"time": "2026-01-06", "value": -506.0}, {"time": "2026-01-07", "value": 10475.0}, {"time": "2026-01-08", "value": 3650.0}, {"time": "2026-01-09", "value": -709.0}, {"time": "2026-01-12", "value": 1898.0}, {"time": "2026-01-13", "value": -368.0}, {"time": "2026-01-14", "value": 1410.0}, {"time": "2026-01-15", "value": -545.0}, {"time": "2026-01-16", "value": -2874.0}, {"time": "2026-01-19", "value": 2649.0}, {"time": "2026-01-20", "value": 5351.0}, {"time": "2026-01-21", "value": 1844.0}, {"time": "2026-01-22", "value": 5862.0}, {"time": "2026-01-23", "value": 11170.0}, {"time": "2026-01-26", "value": 13979.0}, {"time": "2026-01-27", "value": 21592.0}, {"time": "2026-01-28", "value": 15891.0}, {"time": "2026-01-29", "value": 11392.0}, {"time": "2026-01-30", "value": 7035.0}, {"time": "2026-02-02", "value": 3010.0}, {"time": "2026-02-03", "value": 4487.0}, {"time": "2026-02-04", "value": 5488.0}, {"time": "2026-02-05", "value": 3633.0}, {"time": "2026-02-06", "value": 1794.0}, {"time": "2026-02-09", "value": -1268.0}, {"time": "2026-02-10", "value": 4354.0}, {"time": "2026-02-11", "value": -1783.0}, {"time": "2026-02-23", "value": 2024.0}, {"time": "2026-02-24", "value": 2024.0}, {"time": "2026-02-25", "value": 4827.0}, {"time": "2026-02-26", "value": 10830.0}, {"time": "2026-03-02", "value": 6562.0}, {"time": "2026-03-03", "value": 11395.0}, {"time": "2026-03-04", "value": 7127.0}, {"time": "2026-03-05", "value": 9282.0}, {"time": "2026-03-06", "value": 7865.0}, {"time": "2026-03-09", "value": 3673.0}, {"time": "2026-03-10", "value": 5563.0}, {"time": "2026-03-11", "value": 7986.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>智原科技主要提供客製化晶片（ASIC）設計服務、系統單晶片（SoC）解決方案及矽智財（IP）授權業務。在AI浪潮下，智原扮演關鍵的「專案經理」及「總建築師」角色，利用其豐富的IP資料庫和設計實力，協助客戶完成從規格定義到最終晶圓代工生產的全流程。公司亦提供晶片實體設計服務（DIS），並積極佈局先進製程與先進封裝的整合服務，涵蓋<strong>2奈米至55奈米</strong>製程節點。</p>
+
+<strong>主要業務與產品線：</strong>
+<ul><li><strong>ASIC設計服務 (NRE)</strong>：客製化晶片設計，從規格定義到邏輯設計。</li>
+<li><strong>晶片實體設計服務 (DIS)</strong>：協助客戶實現晶片物理設計。</li>
+<li><strong>矽智財 (IP)</strong>：提供標準化或客製化的功能區塊授權。</li>
+<li><strong>系統單晶片 (SoC) 解決方案</strong>：整合IP與設計服務，提供完整的晶片解決方案。</li>
+<li><strong>先進封裝整合服務</strong>：涵蓋2.5D、3D封裝、異質整合、高頻寬記憶體（HBM）等。</li>
+</ul>
+<strong>營收結構 (2025年)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類型</th><th>2025年全年營收 (新台幣)</th><th>2025年第四季營收 (新台幣)</th><th>22025年第四季營收佔比</th></tr></thead><tbody>
+<tr><td>NRE</td><td>22.9億元 (歷史新高)</td><td>9.3億元 (單季歷史新高)</td><td>~33%</td></tr>
+<tr><td>IP</td><td>未提供</td><td>4.1億元</td><td>~15%</td></tr>
+<tr><td>量產</td><td>141.8億元 (年增96%)</td><td>14.7億元</td><td>~52%</td></tr>
+<tr><td><strong>總計</strong></td><td><strong>180億元</strong></td><td><strong>28.1億元</strong></td><td><strong>100%</strong></td></tr>
+</tbody></table></div>
+
+<strong>製造基地與策略：</strong>
+<p>智原為無晶圓IC設計服務公司，不擁有製造基地。其生產製造環節採「多元代工（Multiple Foundry）」策略，與<strong>Intel、三星、聯電（UMC）及GlobalFoundries</strong>等四大國際晶圓代工廠緊密合作，提供廣泛的製程選擇。此策略有效降低地緣政治風險，強化供應鏈韌性，並滿足全球客戶在地製造的需求。</p>
+
+<strong>所屬細分產業與相關題材：</strong>
+<ul><li><strong>細分產業</strong>：特殊應用積體電路設計（ASIC）、矽智財（IP）。</li>
+<li><strong>相關題材</strong>：</li>
+</ul>    *   <strong>人工智慧（AI）</strong>：專用型AI加速器、邊緣AI（NPU整合）、終端AI（MCU結合NPU）。
+<p>*   <strong>先進製程</strong>：4奈米、5奈米、12/14奈米及Intel 18A製程技術。</p>
+<p>*   <strong>先進封裝</strong>：2.5D、3D封裝、異質整合、高頻寬記憶體（HBM）。</p>
+<p>*   <strong>高速運算（HPC）</strong>與<strong>車用電子</strong>。</p>
+
+<h2>核心競爭優勢</h2>
+<li><strong>全方位ASIC設計服務與IP庫</strong>：智原擁有從規格定義、邏輯設計、IP整合到最終晶圓代工生產的完整服務能力，豐富的矽智財（IP）資料庫（包含CPU、GPU、DSP、MIPI、DDR、PCIe等）可顯著縮短客戶產品開發週期與成本。</li>
+<li><strong>先進製程與高階封裝整合能力</strong>：公司在先進製程（已推進至<strong>4奈米</strong>、<strong>5奈米</strong>網通晶片專案）和高階封裝（<strong>2.5D/3D</strong>異質整合、HBM）領域的設計與整合能力，使其能承接高價值、高技術門檻的AI及HPC專案。2025年第四季NRE營收中，<strong>56%</strong>來自先進製程。</li>
+<li><strong>「多元代工」策略的供應鏈彈性</strong>：與Intel、三星、聯電及GlobalFoundries等多元晶圓代工夥伴合作，涵蓋<strong>2奈米至55奈米</strong>製程節點，不僅分散了地緣政治風險，也確保客戶在不同應用場景下獲得最佳的製程選擇。</li>
+<li><strong>深耕AI應用佈局</strong>：智原在雲端AI（專用型AI加速器）、邊緣AI（NPU整合）及終端AI（MCU結合NPU）的策略佈局，使其能快速捕捉AI晶片設計的龐大商機。AI在NRE與量產營收中的佔比持續提升，預期2026年整體AI營收占比將提升至<strong>20-30%</strong>。</li>
+<li><strong>國際客戶拓展</strong>：國際客戶開案佔比已達<strong>6成</strong>，客戶遍及歐美與日本，多與雲端AI相關，顯示其技術與服務獲得國際一線大廠認可。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>營收（新台幣千元）</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>785,062</td><td>-18.04%</td><td>-29.79%</td></tr>
+<tr><td>2025年12月</td><td>957,884</td><td>-5.75%</td><td>-13.09%</td></tr>
+<tr><td>2025年11月</td><td>1,016,327</td><td>+21.93%</td><td>+10.40%</td></tr>
+<tr><td>2025年10月</td><td>833,549</td><td>-38.64%</td><td>-10.37%</td></tr>
+<tr><td>2025年09月</td><td>1,358,400</td><td>+49.05%</td><td>+44.07%</td></tr>
+<tr><td>2025年08月</td><td>911,390</td><td>-5.64%</td><td>-6.97%</td></tr>
+</tbody></table></div>
+
+<h3>季度數據</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>會計季度</th><th>營收（新台幣億元）</th><th>季增率 QoQ</th><th>年增率 YoY</th><th>毛利率</th><th>營業利益率</th><th>EPS (新台幣元)</th></tr></thead><tbody>
+<tr><td>2025年第四季</td><td>28.1</td><td>-13.22%</td><td>-4.91%</td><td>42.2%</td><td>2.86%</td><td>0.80</td></tr>
+<tr><td>2025年第三季</td><td>32.4</td><td>-</td><td>-</td><td>未提供</td><td>未提供</td><td>未提供</td></tr>
+<tr><td>2025年第二季</td><td>33.3</td><td>-55.2%</td><td>-34.8%</td><td>24.2%</td><td>未提供</td><td>0.78</td></tr>
+<tr><td>2025年第一季</td><td>74.38</td><td>+152%</td><td>-</td><td>20.3%</td><td>未提供</td><td>1.33</td></tr>
+</tbody></table></div>
+
+<h3>年度趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>會計年度</th><th>營收（新台幣億元）</th><th>年增率 YoY</th><th>EPS (新台幣元)</th></tr></thead><tbody>
+<tr><td>2024年</td><td>110.65</td><td>-</td><td>4.04</td></tr>
+<tr><td>2025年</td><td>180.00</td><td>+62.6%</td><td>2.81</td></tr>
+</tbody></table></div>
+
+<h2>法說會重點 (2026年02月10日)</h2>
+<ul><li><strong>2025年財報回顧</strong>：</li>
+</ul>    *   全年合併營收達<strong>新台幣180億元</strong>，年增<strong>63%</strong>，創歷史新高。
+<p>*   全年毛利率為<strong>27.0%</strong>，較2024年的<strong>45.7%</strong>顯著下滑。歸屬母公司業主稅後淨利<strong>7.3億元</strong>，年減<strong>29.8%</strong>，EPS為<strong>新台幣2.81元</strong>。</p>
+<p>*   NRE營收達<strong>新台幣22.9億元</strong>，連續五年成長並創歷史新高。</p>
+<p>*   量產營收年增<strong>96%</strong>至<strong>新台幣141.8億元</strong>，同步刷新歷史紀錄。</p>
+<p>*   2025年第四季NRE營收<strong>新台幣9.3億元</strong>創單季歷史新高，其中<strong>56%</strong>來自先進製程。</p>
+<ul><li><strong>2026年第一季展望</strong>：預估營收將季減約<strong>10%</strong>，為全年谷底，毛利率約<strong>45%</strong>。IP業務季增，NRE與量產營收同步下滑。</li>
+<li><strong>2026年全年展望</strong>：扣除2025年一次性備料因素後，預估全年營收將呈現年增<strong>低雙位數（11-13%）</strong>幅度。整體營運將「季季高」，全年營運樂觀看。毛利率預期可望回升至<strong>40%以上</strong>。</li>
+<li><strong>先進製程與封裝</strong>：</li>
+</ul>    *   已拿下<strong>5奈米</strong>網通晶片專案，製程節點已推進至<strong>4奈米</strong>。
+<p>*   2025年取得<strong>5個FinFET</strong>製程Design win，超過<strong>10個FinFET</strong>專案已進入設計階段，並將於2026年開始貢獻營收。</p>
+<p>*   2025年取得<strong>10個先進封裝案件</strong>（涵蓋2.5D與3D封裝），預計2026年將有<strong>9項先進封裝產品</strong>陸續進入量產，預期第四季貢獻度最高。</p>
+<ul><li><strong>AI應用</strong>：AI在NRE中的佔比從2021年的<strong>9%</strong>增長至2025年的<strong>22%</strong>；AI在MP中的佔比從2021年的<strong>3%</strong>躍升至2025年的<strong>20%</strong>。管理層預期2026年整體AI營收占比將提升至<strong>20-30%</strong>。</li>
+<li><strong>國際客戶</strong>：國際客戶開案占比已達<strong>6成</strong>，客戶遍及歐美與日本，應用領域多與雲端AI相關（如Smart NIC與特殊領域AI加速器）。</li>
+<li><strong>股利政策</strong>：董事會決議分派2025年現金股利每股<strong>1.8元</strong>。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<h3>目標價與評等 (截至2026年03月06日)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價（新台幣元）</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>元富證券投顧</td><td>200</td><td>未提供</td><td>2026年02月24日</td></tr>
+<tr><td>FactSet (分析師中位數)</td><td>182.5</td><td>中立</td><td>2026年02月24日</td></tr>
+</tbody></table></div>
+
+<h3>EPS與營收預估</h3>
+<ul><li><strong>FactSet 2025年EPS預估中位數</strong>：<strong>新台幣2.81元</strong> (與實際公布值相同，於2026年02月11日上修自2.64元)。</li>
+<li><strong>FactSet 2026年EPS預估中位數</strong>：<strong>新台幣3.87元</strong> (於2026年02月24日下修自3.93元)。</li>
+<li><strong>FactSet 2025年營收預估中位數</strong>：<strong>新台幣18,611,000千元</strong> (於2025年10月28日)。</li>
+<li><strong>FactSet 2026年營收預估中位數</strong>：<strong>新台幣12,649,000千元</strong> (於2026年02月24日)。 (⚠️此處營收預估中位數明顯與公司管理層給出的「低雙位數成長」預期有衝突，應留意FactSet 2026年營收預估可能包含特定調整或假設，需進一步釐清。)</li>
+</ul>
+<h3>評等調升/調降</h3>
+<ul><li>FactSet於2026年02月11日將2025年EPS預估中位數由<strong>2.64元</strong>上修至<strong>2.81元</strong>。</li>
+<li>FactSet於2026年02月24日將2026年EPS預估中位數由<strong>3.93元</strong>下修至<strong>3.87元</strong>。</li>
+<li>多份券商報告顯示智原的評等多為「中立」，目前未發現近期有重大調升或調降評等。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢 (2025年)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>會計季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2025年第四季</td><td>42.2%</td><td>2.86%</td><td>7.90%</td></tr>
+<tr><td>2025年第三季</td><td>未找到</td><td>未找到</td><td>5.08%</td></tr>
+<tr><td>2025年第二季</td><td>24.2%</td><td>未找到</td><td>0.78%</td></tr>
+<tr><td>2025年第一季</td><td>20.3%</td><td>未找到</td><td>4.73%</td></tr>
+<tr><td><strong>2025年全年</strong></td><td><strong>27.0%</strong></td><td>未提供</td><td>未提供</td></tr>
+<tr><td><strong>2026年預期</strong></td><td><strong>&gt;40%</strong></td><td>未提供</td><td>未提供</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化分析：</strong>
+<ul><li><strong>2025年上半年毛利率低點</strong>：主要受產品組合變化、量產業務（MP）出貨萎縮（尤其HBM2e代採購備料進入尾聲）及NRE遞延認列影響。</li>
+<li><strong>2025年第四季毛利率顯著回升</strong>：從Q3的未提供數據，Q2的24.2%提升至<strong>42.2%</strong>，主要受惠於NRE營收創新高且其中<strong>56%</strong>來自先進製程，產品組合優化帶來高價值貢獻。</li>
+<li><strong>2026年毛利率展望</strong>：公司預期2026年毛利率將顯著優於2025年，有望回升至<strong>40%以上</strong>，主因是2025年一次性HBM備料認列對毛利稀釋的因素將不復存在。</li>
+</ul>
+<h3>存貨分析</h3>
+<ul><li><strong>近4季存貨金額與週轉天數趨勢</strong>：未找到2024-2025年具體數據。</li>
+<li><strong>存貨異常現象</strong>：2025年第二季量產出貨萎縮，主因是客戶對代採購HBM2e提前備料完畢，暗示此前存在HBM2e備料現象，但已在Q2進入尾聲。這對毛利率產生稀釋影響。</li>
+</ul>
+<h3>資本支出</h3>
+<ul><li><strong>近3年資本支出金額與趨勢 (2024-2026)</strong>：未直接找到智原自身具體的資本支出金額。作為Fabless公司，其主要資本支出為研發投入及IP購置。</li>
+<li><strong>未來資本支出計畫與預計新增產能</strong>：未找到2025-2026年的最新資料。但公司觀察到先進製程需求「爆棚」，相關產能需求已轉向與智原合作的晶圓代工夥伴。</li>
+</ul>
+<h2>股權異動</h2>
+<ul><li><strong>近期董監事/大股東申報轉讓紀錄</strong>：未找到2024年以後的最新資料。</li>
+<li><strong>庫藏股買回紀錄（張數、區間、目的）</strong>：未找到2024年以後的最新資料。</li>
+<li><strong>是否有發行可轉換公司債（CB）及轉換價格</strong>：未找到2024年以後的最新資料。</li>
+<li><strong>近期是否有現金增資或減資計畫</strong>：未找到2024年以後的最新資料。</li>
+</ul>
+<h2>產業分析</h2>
+<strong>今天日期：2026年03月06日</strong>
+
+<h3>市場規模與成長率</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>市場細分</th><th>2024/2025年市場規模 (估計)</th><th>2025-2035年預測CAGR</th></tr></thead><tbody>
+<tr><td>ASIC 設計服務 (多方數據)</td><td><strong>70.64億美元 (2024)</strong> / <strong>194-227.8億美元 (2025)</strong></td><td><strong>5.24%-7.0%</strong></td></tr>
+<tr><td>IP 及設計服務</td><td><strong>67.59億美元 (2025)</strong></td><td><strong>7.2% (2026-2032)</strong></td></tr>
+<tr><td>半導體 IP</td><td><strong>88億美元 (2024)</strong> / <strong>49.23-51.45億美元 (2025)</strong></td><td><strong>5.0%-15.1%</strong></td></tr>
+</tbody></table></div>
+
+<h3>供需狀況</h3>
+<ul><li><strong>先進製程與高階封裝</strong>：<strong>供不應求</strong>。</li>
+</ul>    *   AI需求強勁，N3、N5等先進製程產能利用率高檔。
+<p>*   CoWoS先進封裝是AI/HPC瓶頸，持續供不應求。儘管2025-2026年CoWoS產能預計分別成長<strong>113%</strong>和<strong>72%</strong>，仍有缺口。台積電預計2026年CoWoS產能將擴增至<strong>110萬片</strong>。</p>
+<p>*   2026年AI伺服器加速器製造市場預計激增<strong>78%</strong>，其中ASIC年增率將達<strong>113%</strong>。</p>
+<ul><li><strong>成熟製程</strong>：<strong>供需逐漸平衡</strong>。</li>
+</ul>    *   2024年Q4全球成熟製程晶圓廠產能利用率仍低迷，徘徊在<strong>65%-70%</strong>。
+<p>*   預計2025年下半年受關稅避險與備貨影響回穩，2026年有望受AI資料中心、矽光子、高效能電源管理晶片需求帶動，12吋與8吋產能利用率回升至<strong>8成以上</strong>。</p>
+
+<h3>產業平均毛利率水準</h3>
+<p>ASIC業務毛利率相較一般IC設計略低，並面臨CSP客戶對成本效益的計較，導致定價權益趨向客戶端，毛利率有加速下滑壓力。目前未找到2024-2026年ASIC設計服務產業的具體平均毛利率數據。</p>
+
+<h3>競爭格局</h3>
+<p>ASIC設計服務市場競爭者眾多，包含EDA工具供應商、IDM廠及專業ASIC設計服務公司。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>主要業務領域</th><th>競爭強度與市佔率 (備註)</th></tr></thead><tbody>
+<tr><td>博通 (Broadcom)</td><td>ASIC設計服務、網路通訊晶片、儲存解決方案</td><td>Google TPU主要合作夥伴，2026年CoWoS預訂量年增&gt;100%，AI業務強勁。</td></tr>
+<tr><td>Marvell</td><td>ASIC設計服務、網路通訊晶片、儲存解決方案</td><td>AWS Trainium等主要合作夥伴。</td></tr>
+<tr><td>新思科技 (Synopsys)</td><td>EDA工具、IP核、ASIC設計服務</td><td>EDA龍頭，廣泛參與ASIC設計服務市場。</td></tr>
+<tr><td>益華電腦 (Cadence)</td><td>EDA工具、IP核、ASIC設計服務</td><td>EDA重要廠商，ASIC設計服務市場主要參與者。</td></tr>
+<tr><td>ARM Holdings</td><td>CPU IP、ASIC設計服務</td><td>核心IP供應商，與ASIC設計緊密相關。</td></tr>
+<tr><td>世芯-KY (3661)</td><td>高效能運算ASIC設計服務</td><td>AI伺服器供應鏈重要角色，AWS Trainium專案受益者。</td></tr>
+<tr><td><strong>智原科技 (3035)</strong></td><td><strong>ASIC設計服務、矽智財(IP)供應商</strong></td><td><strong>本研究對象，在AI、先進製程、高階封裝具顯著優勢，國際客戶佔比達6成。</strong></td></tr>
+<tr><td>聯發科 (2454)</td><td>行動晶片、智慧裝置晶片、自研AI ASIC</td><td>積極布局自研AI ASIC，已打入Google供應鏈，將帶來潛在競爭。</td></tr>
+</tbody></table></div>
+
+<h3>智原 vs 主要競爭對手比較</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>特性</th><th>智原科技 (3035)</th><th>主要競爭對手 (世芯-KY、聯發科、博通、Marvell)</th></tr></thead><tbody>
+<tr><td><strong>技術</strong></td><td>- <strong>4奈米AI ASIC、5奈米網通晶片專案</strong>設計能力</td><td>- 博通/Marvell為CSP自研AI ASIC主要合作夥伴 (Google TPU v7, AWS Trainium 3)。</td></tr>
+<tr><td></td><td>- <strong>2.5D/3D高階封裝</strong>領域獲北美客戶專案，深化雲、邊、端AI佈局。</td><td>- 技術週期快 (1-1.5年)，競爭激烈。</td></tr>
+<tr><td><strong>產能</strong></td><td>- 無晶圓廠，依賴「多元代工」夥伴 (Intel, Samsung, UMC, GF)。</td><td>- 無晶圓廠，依賴晶圓代工夥伴。</td></tr>
+<tr><td></td><td>- 研發設計能力與專案執行能力是其核心產能。</td><td></td></tr>
+<tr><td><strong>客戶</strong></td><td>- 國際客戶開案佔比達<strong>6成</strong>，遍及歐美日，多為雲端AI相關。</td><td>- 博通/Marvell與Google/AWS等CSP巨頭深度合作。</td></tr>
+<tr><td></td><td>- 獲北美客戶高階封裝專案。</td><td>- 世芯-KY為AWS Trainium受益者。</td></tr>
+<tr><td></td><td>- 聯發科打入Google供應鏈。</td><td></td></tr>
+<tr><td><strong>價格</strong></td><td>- 2025年Q4 NRE營收中<strong>56%</strong>來自先進製程，高價值專案比重提升。</td><td>- ASIC業務毛利率面臨CSP成本計較壓力。</td></tr>
+</tbody></table></div>
+
+<h3>台灣同業比較 (2025年全年)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>營收 (新台幣億元)</th><th>毛利率 (%)</th><th>EPS (新台幣元)</th></tr></thead><tbody>
+<tr><td><strong>智原 (3035)</strong></td><td><strong>180.0</strong></td><td><strong>27.0</strong></td><td><strong>2.81</strong></td></tr>
+<tr><td>世芯-KY (3661)</td><td>未找到最新資料</td><td>未找到最新資料</td><td>未找到最新資料</td></tr>
+<tr><td>創意 (3443)</td><td>未找到最新資料</td><td>未找到最新資料</td><td>未找到最新資料</td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢</h3>
+<li><strong>AI晶片需求爆發與客製化趨勢</strong>：</li>
+<p>*   <strong>具體影響</strong>：生成式AI與HPC需求驅動AI加速器及自研AI ASIC的龐大需求。CSP為降低依賴及控制成本，加速開發自研AI ASIC，預計2026年AI ASIC將「百花齊放」，成長率將達<strong>44.6%</strong>，超越GPU的<strong>16.1%</strong>。晶片設計朝「低功耗」與「客製化」演進。</p>
+<li><strong>先進製程與先進封裝技術持續演進</strong>：</li>
+<p>*   <strong>具體影響</strong>：AI晶片對算力、電晶體密度與能效要求推升對<strong>3奈米、2奈米</strong>等先進製程採用率。2026年，<strong>3奈米以下</strong>先進製程產能預計成長逾<strong>4成</strong>。先進封裝（如CoWoS）仍為關鍵瓶頸，儘管產能擴張，仍供不應求。</p>
+
+<h3>對智原的機會與威脅</h3>
+<ul><li><strong>機會</strong>：</li>
+</ul>    *   <strong>AI ASIC需求強勁</strong>：智原在雲、邊、端AI佈局與專用AI加速器設計能力，使其能把握AI晶片爆發性商機。
+<p>*   <strong>先進製程與高階封裝領先優勢</strong>：成功獲得<strong>4奈米AI</strong>、<strong>5奈米網通</strong>及高階封裝專案，鞏固其高價值訂單來源。</p>
+<p>*   <strong>NRE業務持續成長</strong>：2025年NRE營收創新高並連續五年成長，委託設計訂單金額較2024年翻倍成長，顯示設計服務需求旺盛。</p>
+<ul><li><strong>威脅</strong>：</li>
+</ul>    *   <strong>市場競爭加劇</strong>：更多業者投入ASIC市場，如聯發科等大廠的布局。
+<p>*   <strong>毛利率壓力</strong>：CSP對ASIC成本效益日益計較，可能導致毛利率承壓。</p>
+<p>*   <strong>客戶自主設計能力提升</strong>：部分CSP內部設計團隊成熟，可能降低對第三方ASIC設計服務商的依賴。</p>
+<p>*   <strong>地緣政治與供應鏈風險</strong>：儘管採取多元代工策略，全球半導體版圖重組仍帶來不確定性。</p>
+
+<h3>相關投資題材</h3>
+<ul><li><strong>AI (人工智慧)</strong>：直接受益於AI晶片客製化趨勢，提供雲端、邊緣、終端全方位AI ASIC解決方案。</li>
+<li><strong>HBM (高頻寬記憶體)</strong>：間接受益於AI資料中心對HBM、DDR5等高速記憶體需求，智原設計的AI晶片將整合或支援HBM。</li>
+<li><strong>電動車 (EV)</strong>：車用電子是ASIC重要應用領域，尤其在電源管理、感測器介面等高精度要求，預計2027年AI伺服器和電動車將實現快速成長。</li>
+<li><strong>高速傳輸晶片 / 網通晶片</strong>：獲得<strong>5奈米網通晶片專案</strong>，符合AI資料中心對高階乙太網路交換器、光通訊元件等高速互連技術的需求。</li>
+<li><strong>物聯網 (IoT)</strong>：IoT設備推動ASIC市場成長，尤其在邊緣AI和終端AI應用方面，智原的NPU整合設計與MCU結合NPU方案高度相關。</li>
+</ul>
+<h2>近期催化劑</h2>
+<ul><li><strong>2026年03月04日</strong>：外資賣超<strong>1,174張</strong>，投信賣超<strong>111張</strong>，自營商賣超<strong>241張</strong>，三大法人合計賣超<strong>1,526張</strong>。</li>
+<li><strong>2026年03月03日</strong>：<strong>利多</strong> - 智原擴大聯電14奈米製程IP布局，新增USB、LVDS、DDR/LPDDR PHY等IP，強化在工業控制、AIoT、網通、智慧顯示及邊緣AI等應用。同步支援<strong>2.5D/3D先進封裝</strong>服務。</li>
+<li><strong>2026年02月28日</strong>：<strong>利多</strong> - ASIC市場商機蓬勃，智原受惠於去年營收<strong>179.93億元</strong>創歷史新高，NRE業績連五年增長，量產業績年增<strong>近一倍</strong>。今年已獲<strong>5奈米網通晶片</strong>專案及<strong>北美高階封裝</strong>專案。</li>
+<li><strong>2026年02月24日</strong>：<strong>利空</strong> - 法人下修2026年EPS預估中位數由<strong>3.93元</strong>至<strong>3.87元</strong>，目標價<strong>182.5元</strong>。</li>
+<li><strong>2026年02月22日</strong>：<strong>利空</strong> - 法人評等維持「中立」，目標價<strong>169元</strong>，考量成本壓力及高本益比。</li>
+<li><strong>2026年02月10日</strong>：<strong>利多</strong> - 2025年第四季法說會公布，NRE營收<strong>9.3億元</strong>創單季歷史新高，Q4毛利率回升至<strong>42.2%</strong>，展望2026年營收年增<strong>低雙位數（11-13%）</strong>，毛利率回升至<strong>40%以上</strong>。董事會決議配發現金股利每股<strong>1.8元</strong>。</li>
+<li><strong>2026年01月16日</strong>：<strong>利多</strong> - FactSet分析師將目標價中位數由<strong>165元</strong>上修至<strong>170元</strong>。</li>
+<li><strong>2025年10月30日</strong>：<strong>利多</strong> - 智原宣布斬獲<strong>4奈米AI ASIC新案</strong>，並在<strong>2.5D與3D先進封裝</strong>領域取得北美客戶訂單。預估2026年EPS上看<strong>8元</strong>。</li>
+<li><strong>2025年10月28日</strong>：<strong>利多</strong> - 法說會預期第四季NRE將創新高，全年營收挑戰歷史新高，2026年毛利率有望回升至<strong>40%以上</strong>，營收獲利皆優於2025年。</li>
+<li><strong>2025年04月23日</strong>：<strong>利多</strong> - 2025年第一季營收達<strong>74.38億元</strong>，季增<strong>152%</strong>，創歷史新高，EPS為<strong>1.33元</strong>。毛利率<strong>20.3%</strong>預期為全年低點，有望逐季走高。已拿下<strong>3顆FinFET晶片</strong>案子，全年預計突破<strong>10顆</strong>。<strong>2.5D封裝</strong>案持續擴大，<strong>3D封裝</strong>預計今年貢獻NRE，2026年量產。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+<ul><li><strong>持續深耕AI ASIC (雲、邊、端)</strong>：</li>
+</ul>    *   <strong>2025年</strong>：AI在NRE中佔比<strong>22%</strong>，在MP中佔比<strong>20%</strong>。
+<p>*   <strong>2026年</strong>：預期AI整體營收占比提升至<strong>20-30%</strong>。金融、健康醫療等專用型AI應用市場逐步打開，已接獲相關案件。</p>
+<ul><li><strong>先進製程快速擴張</strong>：</li>
+</ul>    *   <strong>2025年Q4</strong>：NRE營收中<strong>56%</strong>來自先進製程。
+<p>*   <strong>2025年</strong>：取得<strong>5個FinFET</strong>製程Design win，製程節點推進至<strong>4奈米</strong>。</p>
+<p>*   <strong>2026年Q1</strong>：已斬獲<strong>5奈米網通晶片</strong>專案。</p>
+<p>*   <strong>2026年</strong>：超過<strong>10個FinFET</strong>專案將開始貢獻營收；預計<strong>1-2個FinFET ASIC</strong>案件進入量產。</p>
+<ul><li><strong>高階封裝案件逐步放量</strong>：</li>
+</ul>    *   <strong>2025年</strong>：取得<strong>10個先進封裝案件</strong>（涵蓋2.5D與3D封裝）。
+<p>*   <strong>2026年</strong>：預計將有<strong>9項先進封裝產品</strong>陸續進入量產，其中<strong>2-3個</strong>專案可望於2026年量產，預期第四季貢獻度最高。</p>
+<ul><li><strong>新客戶與新市場拓展</strong>：</li>
+</ul>    *   <strong>2025年</strong>：國際客戶開案占比達<strong>6成</strong>，客戶遍及歐美與日本，多與雲端AI相關（如Smart NIC與特殊領域AI加速器）。
+<p>*   <strong>持續</strong>：與歐、日及亞洲大型SoC客戶洽談封裝案，轉型為完整系統解決方案供應商。</p>
+<ul><li><strong>ASIC/晶圓廠資源排擠效應</strong>：CSP自研ASIC趨勢與先進製程需求爆棚，使智原作為獨立設計服務提供商的價值更加凸顯，受惠於資源外溢效應。</li>
+</ul>
+<h2>2026 展望</h2>
+<strong>成長動能</strong>：
+<li><strong>AI ASIC市場爆發</strong>：雲、邊、端全方位AI佈局持續開花結果，AI營收佔比預計提升至<strong>20-30%</strong>。</li>
+<li><strong>先進製程設計領先</strong>：成功推進至<strong>4奈米</strong>和<strong>5奈米</strong>，<strong>10個FinFET專案</strong>及<strong>1-2個FinFET ASIC</strong>將於2026年貢獻營收及量產。</li>
+<li><strong>高階封裝進入量產期</strong>：預計<strong>9項先進封裝產品</strong>將陸續量產，尤其第四季貢獻度將顯著提升。</li>
+<li><strong>NRE業務持續放大</strong>：委託設計服務受高價值專案帶動，有望持續創新高。</li>
+<li><strong>獲利能力改善</strong>：剔除2025年HBM備料稀釋後，毛利率預計回升至<strong>40%以上</strong>，全年營收年增<strong>低雙位數（11-13%）</strong>。</li>
+
+<strong>風險</strong>：
+<li><strong>短期獲利壓力與市場審慎態度</strong>：儘管預期毛利率回升，但2025年獲利顯著下滑，市場對其獲利改善的可持續性仍持審慎態度。</li>
+<li><strong>營收結構與成本挑戰</strong>：高營收若伴隨高成本投入，EPS可能偏溫和。先進製程導入、研發與人力成本增加可能墊高營業費用率。</li>
+<li><strong>競爭加劇</strong>：更多業者投入ASIC市場，尤其聯發科等大廠的布局，可能加劇競爭。</li>
+<li><strong>總體經濟與地緣政治不確定性</strong>：全球經濟放緩、地緣政治摩擦、供應鏈重組等因素仍可能影響半導體產業發展節奏。</li>
+
+<h2>投資結論</h2>
+<p>智原在2025年成功擴大營收規模，並在AI、先進製程及高階封裝領域取得顯著進展，為2026年及中長期成長奠定基礎。儘管2025年獲利表現因特殊因素承壓，但2026年展望顯示公司已步入獲利結構改善的軌道。</p>
+
+<li><strong>AI與先進技術驅動高成長</strong>：智原在AI ASIC、4/5奈米先進製程及2.5D/3D高階封裝領域的領先佈局，使其成為AI浪潮下關鍵的受益者。2026年將有<strong>9項先進封裝產品</strong>進入量產，及<strong>10多個FinFET</strong>專案貢獻營收，為未來成長提供強勁動能。</li>
+<li><strong>獲利能力有望顯著回升</strong>：管理層預期2026年毛利率將回升至<strong>40%以上</strong>，全年營收實現<strong>低雙位數（11-13%）</strong>成長，預計將帶動獲利優於2025年，改善市場對其短期獲利的疑慮。</li>
+<li><strong>國際化與多元化策略增強韌性</strong>：國際客戶佔比達<strong>6成</strong>及「多元代工」策略，有助於分散風險、擴大市場份額，並有效應對地緣政治與供應鏈挑戰。</li>
+<li><strong>NRE積累轉化為量產動能</strong>：NRE營收連續五年創新高，顯示強勁的設計案源。這些高價值專案將陸續轉化為未來的量產營收，形成良性循環。</li>
+
+<p>綜合智原在AI、先進製程及封裝的策略佈局、2026年獲利改善的預期，以及券商普遍給出的目標價區間，建議投資人可關注智原2026年<strong>新台幣180-220元</strong>的目標價區間。此區間反映了其核心競爭力與未來成長潛力，同時考量了短期獲利恢復的挑戰。</p>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:36</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="3035_智原_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="3035_智原_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="3035_智原_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

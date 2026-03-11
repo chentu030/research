@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3209 全科 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>3209 全科 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+
+<p>全科 (3209) 作為通訊IC通路商，受惠於AI伺服器與資料中心、5G FWA及Wi-Fi 7等高速傳輸需求爆發，營收動能強勁。儘管面臨匯率波動與部分消費性電子市場放緩壓力，公司積極轉型高毛利業務，並藉由新代理產品線拓展高階市場，預期2026年AI相關業務將持續帶動獲利成長，投資人可持續關注其在高速運算與通訊基礎設施領域的深化布局。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">3209 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-3209" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-3209" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-3209');
+    var obvContainer = document.getElementById('obv-chart-3209');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 33.6, "high": 33.8, "low": 33.5, "close": 33.6}, {"time": "2025-12-05", "open": 33.65, "high": 33.65, "low": 33.25, "close": 33.45}, {"time": "2025-12-08", "open": 33.75, "high": 33.75, "low": 33.2, "close": 33.2}, {"time": "2025-12-09", "open": 33.4, "high": 33.65, "low": 33.3, "close": 33.45}, {"time": "2025-12-10", "open": 33.45, "high": 33.55, "low": 33.0, "close": 33.0}, {"time": "2025-12-11", "open": 32.6, "high": 32.7, "low": 31.7, "close": 31.85}, {"time": "2025-12-12", "open": 31.85, "high": 32.1, "low": 31.7, "close": 31.8}, {"time": "2025-12-15", "open": 31.7, "high": 32.05, "low": 31.5, "close": 31.9}, {"time": "2025-12-16", "open": 31.65, "high": 31.9, "low": 31.5, "close": 31.8}, {"time": "2025-12-17", "open": 31.5, "high": 32.0, "low": 31.5, "close": 31.55}, {"time": "2025-12-18", "open": 31.85, "high": 32.05, "low": 31.65, "close": 31.8}, {"time": "2025-12-19", "open": 31.8, "high": 31.8, "low": 31.4, "close": 31.65}, {"time": "2025-12-22", "open": 31.6, "high": 31.8, "low": 31.6, "close": 31.7}, {"time": "2025-12-23", "open": 31.7, "high": 31.85, "low": 31.6, "close": 31.7}, {"time": "2025-12-24", "open": 31.75, "high": 31.85, "low": 31.5, "close": 31.55}, {"time": "2025-12-26", "open": 31.6, "high": 31.65, "low": 31.4, "close": 31.5}, {"time": "2025-12-29", "open": 31.6, "high": 31.75, "low": 31.45, "close": 31.7}, {"time": "2025-12-30", "open": 31.7, "high": 31.7, "low": 31.35, "close": 31.5}, {"time": "2025-12-31", "open": 31.5, "high": 31.8, "low": 31.5, "close": 31.65}, {"time": "2026-01-02", "open": 31.75, "high": 32.05, "low": 31.6, "close": 31.9}, {"time": "2026-01-05", "open": 31.9, "high": 32.0, "low": 31.5, "close": 31.55}, {"time": "2026-01-06", "open": 31.65, "high": 32.15, "low": 31.6, "close": 32.1}, {"time": "2026-01-07", "open": 32.15, "high": 32.45, "low": 31.95, "close": 32.35}, {"time": "2026-01-08", "open": 32.65, "high": 32.65, "low": 31.8, "close": 31.85}, {"time": "2026-01-09", "open": 31.85, "high": 32.15, "low": 31.7, "close": 32.1}, {"time": "2026-01-12", "open": 32.1, "high": 32.55, "low": 32.1, "close": 32.35}, {"time": "2026-01-13", "open": 32.9, "high": 33.2, "low": 32.65, "close": 33.15}, {"time": "2026-01-14", "open": 33.45, "high": 33.75, "low": 33.3, "close": 33.5}, {"time": "2026-01-15", "open": 33.7, "high": 33.7, "low": 33.3, "close": 33.6}, {"time": "2026-01-16", "open": 33.75, "high": 33.9, "low": 33.5, "close": 33.6}, {"time": "2026-01-19", "open": 33.85, "high": 33.85, "low": 33.6, "close": 33.8}, {"time": "2026-01-20", "open": 34.0, "high": 34.0, "low": 33.4, "close": 33.4}, {"time": "2026-01-21", "open": 33.4, "high": 33.6, "low": 33.1, "close": 33.45}, {"time": "2026-01-22", "open": 33.45, "high": 33.6, "low": 33.35, "close": 33.55}, {"time": "2026-01-23", "open": 33.6, "high": 33.85, "low": 33.4, "close": 33.65}, {"time": "2026-01-26", "open": 33.85, "high": 34.25, "low": 33.45, "close": 33.65}, {"time": "2026-01-27", "open": 33.7, "high": 33.95, "low": 33.5, "close": 33.5}, {"time": "2026-01-28", "open": 33.6, "high": 33.7, "low": 33.2, "close": 33.6}, {"time": "2026-01-29", "open": 33.65, "high": 33.65, "low": 33.2, "close": 33.4}, {"time": "2026-01-30", "open": 33.4, "high": 33.4, "low": 32.8, "close": 33.2}, {"time": "2026-02-02", "open": 33.2, "high": 33.5, "low": 32.8, "close": 32.85}, {"time": "2026-02-03", "open": 33.0, "high": 33.6, "low": 33.0, "close": 33.2}, {"time": "2026-02-04", "open": 33.3, "high": 35.0, "low": 33.25, "close": 35.0}, {"time": "2026-02-05", "open": 34.9, "high": 35.9, "low": 34.5, "close": 35.45}, {"time": "2026-02-06", "open": 35.45, "high": 35.8, "low": 34.6, "close": 35.45}, {"time": "2026-02-09", "open": 35.8, "high": 36.4, "low": 35.2, "close": 35.7}, {"time": "2026-02-10", "open": 35.7, "high": 38.0, "low": 35.7, "close": 37.3}, {"time": "2026-02-11", "open": 37.85, "high": 37.95, "low": 36.8, "close": 37.4}, {"time": "2026-02-23", "open": 37.4, "high": 37.6, "low": 36.95, "close": 37.25}, {"time": "2026-02-24", "open": 37.25, "high": 37.4, "low": 36.65, "close": 36.85}, {"time": "2026-02-25", "open": 36.75, "high": 37.2, "low": 36.6, "close": 37.05}, {"time": "2026-02-26", "open": 37.15, "high": 37.35, "low": 36.6, "close": 36.7}, {"time": "2026-03-02", "open": 34.75, "high": 34.8, "low": 33.5, "close": 33.9}, {"time": "2026-03-03", "open": 35.7, "high": 35.9, "low": 35.0, "close": 35.2}, {"time": "2026-03-04", "open": 34.75, "high": 34.8, "low": 33.5, "close": 33.9}, {"time": "2026-03-05", "open": 34.6, "high": 35.45, "low": 34.5, "close": 35.3}, {"time": "2026-03-06", "open": 35.1, "high": 35.6, "low": 35.0, "close": 35.35}, {"time": "2026-03-09", "open": 34.45, "high": 34.85, "low": 33.6, "close": 34.1}, {"time": "2026-03-10", "open": 35.3, "high": 35.35, "low": 34.75, "close": 34.95}, {"time": "2026-03-11", "open": 35.05, "high": 37.0, "low": 35.05, "close": 36.45}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 441.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 239.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 206.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 431.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 295.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 1015.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 273.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 197.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 262.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 185.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 222.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 418.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 159.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 218.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 340.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 235.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 207.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 297.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 286.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 280.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 413.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 773.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 609.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 453.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 438.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 519.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 1282.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 874.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 527.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 622.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 475.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 438.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 561.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 375.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 443.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 706.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 533.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 491.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 270.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 420.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 337.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 389.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 2560.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 3238.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 1763.0, "color": "#ef5350"}, {"time": "2026-02-09", "value": 2957.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 6795.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 3232.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 1649.0, "color": "#26a69a"}, {"time": "2026-02-24", "value": 1381.0, "color": "#26a69a"}, {"time": "2026-02-25", "value": 1460.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 962.0, "color": "#26a69a"}, {"time": "2026-03-02", "value": 1220.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 881.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 1220.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 976.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 537.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 958.0, "color": "#26a69a"}, {"time": "2026-03-10", "value": 579.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 1663.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 33.34}, {"time": "2025-12-11", "value": 32.99}, {"time": "2025-12-12", "value": 32.660000000000004}, {"time": "2025-12-15", "value": 32.4}, {"time": "2025-12-16", "value": 32.07}, {"time": "2025-12-17", "value": 31.78}, {"time": "2025-12-18", "value": 31.77}, {"time": "2025-12-19", "value": 31.74}, {"time": "2025-12-22", "value": 31.7}, {"time": "2025-12-23", "value": 31.68}, {"time": "2025-12-24", "value": 31.68}, {"time": "2025-12-26", "value": 31.619999999999997}, {"time": "2025-12-29", "value": 31.630000000000003}, {"time": "2025-12-30", "value": 31.589999999999996}, {"time": "2025-12-31", "value": 31.580000000000002}, {"time": "2026-01-02", "value": 31.65}, {"time": "2026-01-05", "value": 31.660000000000004}, {"time": "2026-01-06", "value": 31.74}, {"time": "2026-01-07", "value": 31.910000000000004}, {"time": "2026-01-08", "value": 31.95}, {"time": "2026-01-09", "value": 31.990000000000002}, {"time": "2026-01-12", "value": 32.15}, {"time": "2026-01-13", "value": 32.36}, {"time": "2026-01-14", "value": 32.589999999999996}, {"time": "2026-01-15", "value": 32.94}, {"time": "2026-01-16", "value": 33.239999999999995}, {"time": "2026-01-19", "value": 33.53}, {"time": "2026-01-20", "value": 33.58}, {"time": "2026-01-21", "value": 33.57}, {"time": "2026-01-22", "value": 33.56}, {"time": "2026-01-23", "value": 33.57}, {"time": "2026-01-26", "value": 33.54}, {"time": "2026-01-27", "value": 33.56}, {"time": "2026-01-28", "value": 33.589999999999996}, {"time": "2026-01-29", "value": 33.56}, {"time": "2026-01-30", "value": 33.47}, {"time": "2026-02-02", "value": 33.31}, {"time": "2026-02-03", "value": 33.25}, {"time": "2026-02-04", "value": 33.53}, {"time": "2026-02-05", "value": 33.940000000000005}, {"time": "2026-02-06", "value": 34.39}, {"time": "2026-02-09", "value": 34.96}, {"time": "2026-02-10", "value": 35.78}, {"time": "2026-02-11", "value": 36.260000000000005}, {"time": "2026-02-23", "value": 36.62}, {"time": "2026-02-24", "value": 36.9}, {"time": "2026-02-25", "value": 37.17}, {"time": "2026-02-26", "value": 37.05}, {"time": "2026-03-02", "value": 36.35}, {"time": "2026-03-03", "value": 35.94}, {"time": "2026-03-04", "value": 35.35}, {"time": "2026-03-05", "value": 35.0}, {"time": "2026-03-06", "value": 34.730000000000004}, {"time": "2026-03-09", "value": 34.769999999999996}, {"time": "2026-03-10", "value": 34.72}, {"time": "2026-03-11", "value": 35.230000000000004}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 32.56}, {"time": "2025-12-18", "value": 32.38}, {"time": "2025-12-19", "value": 32.2}, {"time": "2025-12-22", "value": 32.05}, {"time": "2025-12-23", "value": 31.875}, {"time": "2025-12-24", "value": 31.73}, {"time": "2025-12-26", "value": 31.695}, {"time": "2025-12-29", "value": 31.685000000000002}, {"time": "2025-12-30", "value": 31.645}, {"time": "2025-12-31", "value": 31.630000000000003}, {"time": "2026-01-02", "value": 31.665}, {"time": "2026-01-05", "value": 31.639999999999997}, {"time": "2026-01-06", "value": 31.685000000000002}, {"time": "2026-01-07", "value": 31.75}, {"time": "2026-01-08", "value": 31.764999999999997}, {"time": "2026-01-09", "value": 31.82}, {"time": "2026-01-12", "value": 31.905}, {"time": "2026-01-13", "value": 32.05}, {"time": "2026-01-14", "value": 32.25}, {"time": "2026-01-15", "value": 32.445}, {"time": "2026-01-16", "value": 32.615}, {"time": "2026-01-19", "value": 32.839999999999996}, {"time": "2026-01-20", "value": 32.97}, {"time": "2026-01-21", "value": 33.08}, {"time": "2026-01-22", "value": 33.25}, {"time": "2026-01-23", "value": 33.405}, {"time": "2026-01-26", "value": 33.535000000000004}, {"time": "2026-01-27", "value": 33.57}, {"time": "2026-01-28", "value": 33.58}, {"time": "2026-01-29", "value": 33.56}, {"time": "2026-01-30", "value": 33.519999999999996}, {"time": "2026-02-02", "value": 33.425}, {"time": "2026-02-03", "value": 33.405}, {"time": "2026-02-04", "value": 33.56}, {"time": "2026-02-05", "value": 33.75}, {"time": "2026-02-06", "value": 33.93}, {"time": "2026-02-09", "value": 34.135000000000005}, {"time": "2026-02-10", "value": 34.515}, {"time": "2026-02-11", "value": 34.894999999999996}, {"time": "2026-02-23", "value": 35.28}, {"time": "2026-02-24", "value": 35.644999999999996}, {"time": "2026-02-25", "value": 36.065}, {"time": "2026-02-26", "value": 36.415}, {"time": "2026-03-02", "value": 36.305}, {"time": "2026-03-03", "value": 36.28}, {"time": "2026-03-04", "value": 36.125}, {"time": "2026-03-05", "value": 36.085}, {"time": "2026-03-06", "value": 35.89}, {"time": "2026-03-09", "value": 35.56}, {"time": "2026-03-10", "value": 35.33}, {"time": "2026-03-11", "value": 35.29}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 32.1125}, {"time": "2026-01-05", "value": 32.010000000000005}, {"time": "2026-01-06", "value": 31.942500000000003}, {"time": "2026-01-07", "value": 31.9}, {"time": "2026-01-08", "value": 31.82}, {"time": "2026-01-09", "value": 31.775}, {"time": "2026-01-12", "value": 31.8}, {"time": "2026-01-13", "value": 31.8675}, {"time": "2026-01-14", "value": 31.9475}, {"time": "2026-01-15", "value": 32.0375}, {"time": "2026-01-16", "value": 32.14}, {"time": "2026-01-19", "value": 32.239999999999995}, {"time": "2026-01-20", "value": 32.3275}, {"time": "2026-01-21", "value": 32.415}, {"time": "2026-01-22", "value": 32.5075}, {"time": "2026-01-23", "value": 32.6125}, {"time": "2026-01-26", "value": 32.72}, {"time": "2026-01-27", "value": 32.81}, {"time": "2026-01-28", "value": 32.915}, {"time": "2026-01-29", "value": 33.0025}, {"time": "2026-01-30", "value": 33.0675}, {"time": "2026-02-02", "value": 33.1325}, {"time": "2026-02-03", "value": 33.1875}, {"time": "2026-02-04", "value": 33.32}, {"time": "2026-02-05", "value": 33.5}, {"time": "2026-02-06", "value": 33.667500000000004}, {"time": "2026-02-09", "value": 33.835}, {"time": "2026-02-10", "value": 34.042500000000004}, {"time": "2026-02-11", "value": 34.2375}, {"time": "2026-02-23", "value": 34.42}, {"time": "2026-02-24", "value": 34.582499999999996}, {"time": "2026-02-25", "value": 34.745}, {"time": "2026-02-26", "value": 34.910000000000004}, {"time": "2026-03-02", "value": 34.9325}, {"time": "2026-03-03", "value": 35.015}, {"time": "2026-03-04", "value": 35.027499999999996}, {"time": "2026-03-05", "value": 35.11}, {"time": "2026-03-06", "value": 35.2025}, {"time": "2026-03-09", "value": 35.2275}, {"time": "2026-03-10", "value": 35.305}, {"time": "2026-03-11", "value": 35.4675}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -239.0}, {"time": "2025-12-08", "value": -445.0}, {"time": "2025-12-09", "value": -14.0}, {"time": "2025-12-10", "value": -309.0}, {"time": "2025-12-11", "value": -1324.0}, {"time": "2025-12-12", "value": -1597.0}, {"time": "2025-12-15", "value": -1400.0}, {"time": "2025-12-16", "value": -1662.0}, {"time": "2025-12-17", "value": -1847.0}, {"time": "2025-12-18", "value": -1625.0}, {"time": "2025-12-19", "value": -2043.0}, {"time": "2025-12-22", "value": -1884.0}, {"time": "2025-12-23", "value": -1884.0}, {"time": "2025-12-24", "value": -2224.0}, {"time": "2025-12-26", "value": -2459.0}, {"time": "2025-12-29", "value": -2252.0}, {"time": "2025-12-30", "value": -2549.0}, {"time": "2025-12-31", "value": -2263.0}, {"time": "2026-01-02", "value": -1983.0}, {"time": "2026-01-05", "value": -2396.0}, {"time": "2026-01-06", "value": -1623.0}, {"time": "2026-01-07", "value": -1014.0}, {"time": "2026-01-08", "value": -1467.0}, {"time": "2026-01-09", "value": -1029.0}, {"time": "2026-01-12", "value": -510.0}, {"time": "2026-01-13", "value": 772.0}, {"time": "2026-01-14", "value": 1646.0}, {"time": "2026-01-15", "value": 2173.0}, {"time": "2026-01-16", "value": 2173.0}, {"time": "2026-01-19", "value": 2648.0}, {"time": "2026-01-20", "value": 2210.0}, {"time": "2026-01-21", "value": 2771.0}, {"time": "2026-01-22", "value": 3146.0}, {"time": "2026-01-23", "value": 3589.0}, {"time": "2026-01-26", "value": 3589.0}, {"time": "2026-01-27", "value": 3056.0}, {"time": "2026-01-28", "value": 3547.0}, {"time": "2026-01-29", "value": 3277.0}, {"time": "2026-01-30", "value": 2857.0}, {"time": "2026-02-02", "value": 2520.0}, {"time": "2026-02-03", "value": 2909.0}, {"time": "2026-02-04", "value": 5469.0}, {"time": "2026-02-05", "value": 8707.0}, {"time": "2026-02-06", "value": 8707.0}, {"time": "2026-02-09", "value": 11664.0}, {"time": "2026-02-10", "value": 18459.0}, {"time": "2026-02-11", "value": 21691.0}, {"time": "2026-02-23", "value": 20042.0}, {"time": "2026-02-24", "value": 18661.0}, {"time": "2026-02-25", "value": 20121.0}, {"time": "2026-02-26", "value": 19159.0}, {"time": "2026-03-02", "value": 17939.0}, {"time": "2026-03-03", "value": 18820.0}, {"time": "2026-03-04", "value": 17600.0}, {"time": "2026-03-05", "value": 18576.0}, {"time": "2026-03-06", "value": 19113.0}, {"time": "2026-03-09", "value": 18155.0}, {"time": "2026-03-10", "value": 18734.0}, {"time": "2026-03-11", "value": 20397.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>全科科技（3209）是一家台灣領先的電子零組件通路商，專注於通訊IC通路，提供通訊網路與資料中心解決方案。</p>
+
+<h3>業務與產品線</h3>
+
+<ul><li><strong>寬頻與無線業務</strong>：</li>
+</ul>    *   產品：DSL、Cable、PON（被動光纖網路）、5G FWA（固定無線接入）、Wi-Fi 7設備。
+<p>*   應用：電信業者及網通設備製造商的最後一哩路連接與電信中心局端。</p>
+<ul><li><strong>AI伺服器與資料中心解決方案</strong>：</li>
+</ul>    *   產品：400G/800G/1.6T光模組、電源管理（伺服器電源與儲能系統）、邊緣AI及相關互聯設備（NIC、PCIe、Switch、Ethernet）。
+<p>*   應用：AI伺服器與資料中心高速運算基礎設施。</p>
+<ul><li><strong>新產品線</strong>：</li>
+</ul>    *   代理Zeiss（蔡司）檢測設備，應用於AI伺服器、汽車及航空模具檢測，拓展高階電子產業市場。
+
+<h3>營收結構</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>佔營收比例 (2025年上半年法說會資料)</th></tr></thead><tbody>
+<tr><td>寬頻與無線業務</td><td>約80%以上</td></tr>
+<tr><td>AI伺服器與資料中心業務</td><td>重要比例</td></tr>
+<tr><td>其他</td><td>剩餘比例</td></tr>
+</tbody></table></div>
+
+<strong>公司布局</strong>：擁有17處營運據點，遍及台灣、中國大陸、香港及新加坡。主要市場布局在中國大陸與北美，新增新加坡據點以強化東南亞服務。
+
+<strong>所屬細分產業與相關題材</strong>：電子通路業、無線網路IC、類比IC、IC設計、網路通訊IC、IC零組件通路商、光通訊晶片、5G、AI、雲端運算、Wi-Fi 7、AI伺服器、資料中心、FWA。
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>聚焦高成長利基市場</strong>：全科專注於通訊網路與資料中心解決方案，特別是在AI伺服器、5G FWA和Wi-Fi 7等高速成長領域深耕，精準切入產業超級週期。</li>
+<li><strong>整合型解決方案能力</strong>：作為通路商，不僅代理零組件，更能提供從IC到光模組、電源管理及互聯設備的完整AI伺服器與資料中心解決方案，協助客戶建構複雜的基礎設施。</li>
+<li><strong>產品組合轉型與高附加價值</strong>：公司積極調整產品結構，減少低毛利專案，轉向高毛利的AI伺服器與寬頻業務。同時，代理Zeiss高階檢測設備，切入AI伺服器、汽車及航空模具檢測等新市場，提升整體產品組合價值。</li>
+<li><strong>全球供應鏈管理經驗</strong>：在全球供應鏈重組和地緣政治因素驅動下，全科的全球營運據點與供應鏈管理能力，能為客戶提供專業且具彈性的一站式採購與服務，降低客戶營運風險。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>60.43</td><td>+85.41%</td><td>+17.22%</td></tr>
+<tr><td>2025年12月</td><td>32.59</td><td>-6.15%</td><td>+65.11%</td></tr>
+<tr><td>2025年11月</td><td>34.73</td><td>-33.16%</td><td>-3.03%</td></tr>
+<tr><td>2025年10月</td><td>51.96</td><td>+73.55%</td><td>+15.37%</td></tr>
+<tr><td>2025年9月</td><td>29.94</td><td>-28.97%</td><td>-1.25%</td></tr>
+<tr><td>2025年8月</td><td>42.15</td><td>-5.57%</td><td>-19.38%</td></tr>
+<tr><td>2025年7月</td><td>44.64</td><td>+115.22%</td><td>-15.53%</td></tr>
+</tbody></table></div>
+
+<em>註：2026年3月合併營收為新台幣60.89億元，月增率達95.13%，年增率達134.1%。累計2026年前3個月營收約為143.65億元，較去年同期成長33.12%。</em>
+
+<h3>季度數據 (2025年第三季)</h3>
+
+<ul><li><strong>季營收</strong>：116.72億元</li>
+<li><strong>毛利率</strong>：5.72%</li>
+<li><strong>營業利益率</strong>：1.87%</li>
+<li><strong>EPS</strong>：1.27元</li>
+</ul>
+<h3>年度趨勢</h3>
+
+<ul><li><strong>2024實際：</strong></li>
+</ul>    *   全年度營收：458.93億元
+<p>*   EPS：3.02元</p>
+<ul><li><strong>2025實際 / 預估：</strong></li>
+</ul>    *   全年度營收：累計至2025年12月為473.83億元
+<p>*   EPS：截至2025年第三季，累計EPS為1.58元。2025年全年度實際EPS需待2026年3月12日董事會公告。</p>
+
+<h2>法說會重點</h2>
+
+<strong>最近一次法說會日期</strong>：2025年8月6日及8日 (報告2025年上半年及第二季營運成果)
+
+<strong>管理層對各產品線的具體 guidance 和發言</strong>：
+
+<ul><li><strong>寬頻與無線業務 (佔營收約80%以上)</strong>：</li>
+</ul>    *   預期2025年下半年營收不低於上半年。
+<p>*   2025年第三季PON、DOCSIS 4.x、5G FWA接單量持續上升。</p>
+<p>*   FWA市場預計從2024年的1.6億連線成長至2030年的3.5億連線。</p>
+<p>*   Wi-Fi 7將成為高階手機與筆電主流，公司將加速相關設備出貨。</p>
+<ul><li><strong>AI伺服器與資料中心</strong>：</li>
+</ul>    *   AI伺服器互聯設備需求預計在2026-2027年出現黃金交叉，市場規模持續擴大。
+<p>*   2025年第三季AI伺服器業務受惠於400G/800G光模組需求。</p>
+<p>*   公司將推進800G/1.6T光模組與CPO (共封裝光學) 技術。</p>
+<ul><li><strong>新產品線</strong>：</li>
+</ul>    *   代理Zeiss (蔡司) 檢測設備，應用於AI伺服器、汽車及航空模具檢測，已成交並交付兩岸客戶。
+<ul><li><strong>產能利用率與資本支出</strong>：</li>
+</ul>    *   法說會內容未明確提及具體的產能利用率或資本支出金額。
+<p>*   管理層表示庫存天數維持在40天以下，顯示庫存去化良好。</p>
+<ul><li><strong>下季/下半年 guidance</strong>：</li>
+</ul>    *   <strong>2025年下半年</strong>：營收目標不低於上半年，毛利率目標維持在6.74%或微升，稅後淨利力求轉正 (EPS為正值)。
+<p>*   <strong>長期目標 (2026-2027年)</strong>：深化高毛利業務，目標持續改善毛利率與營業淨利率。</p>
+
+<h2>券商觀點</h2>
+
+<p>目前未找到2024年以後針對全科(3209)的具體券商目標價報告、EPS預估數字報告或重大調升/調降評等報告。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td><strong>無資料</strong></td><td><strong>無資料</strong></td><td><strong>無資料</strong></td><td><strong>無資料</strong></td></tr>
+</tbody></table></div>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th><th>備註</th></tr></thead><tbody>
+<tr><td>2024Q4</td><td>3.78%</td><td>1.28%</td><td>1.43%</td><td></td></tr>
+<tr><td>2025Q1</td><td>4.41%</td><td>1.72%</td><td>1.52%</td><td></td></tr>
+<tr><td>2025Q2</td><td>6.74%</td><td>3.79%</td><td>-1.70%</td><td>受台幣升值匯兌損失4.80億元影響</td></tr>
+<tr><td>2025Q3</td><td>5.72%</td><td>1.87%</td><td>2.57%</td><td></td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化的原因分析</strong>：
+<ul><li><strong>2025年上半年獲利受損</strong>：2025年上半年營收237.83億元，年增6.7%。毛利12.67億元（佔比5.33%）。然而，稅後淨利僅0.58億元，年減84.1%。主要由於業外收支淨損3.80億元（2024年同期為收益0.21億元），其中2025年第二季因新台幣升值產生高達4.80億元的匯兌損失，累計上半年匯兌損失為4.13億元。</li>
+<li><strong>產品組合調整效益顯現</strong>：疫情後，全科調整產品結構，減少低毛利專案，轉而聚焦高毛利的AI伺服器與寬頻業務。這項策略使2025年Q2的毛利率達到6.74%和營業淨利率3.79%，儘管受匯損影響，本業表現仍有改善。</li>
+</ul>
+<h3>存貨與營運分析</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數</th><th>應收帳款週轉天數</th></tr></thead><tbody>
+<tr><td>2024Q1</td><td>94.02天</td><td>34.13天</td></tr>
+<tr><td>2024Q2</td><td>94.83天</td><td>32.74天</td></tr>
+<tr><td>2024Q3</td><td>69.10天</td><td>32.12天</td></tr>
+<tr><td>2024Q4</td><td>71.73天</td><td>57.20天</td></tr>
+<tr><td>2025Q1</td><td>33.38天</td><td>55.46天</td></tr>
+<tr><td>2025Q2</td><td>30.08天</td><td>87.17天</td></tr>
+<tr><td>2025Q3</td><td>22.65天</td><td>59.68天</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>存貨分析</strong>：存貨週轉天數從2024年Q1的94.02天大幅下降至2025年Q3的22.65天，顯示庫存去化成果顯著，且管理層表示庫存天數維持在40天以下，表明庫存狀況健康。</li>
+<li><strong>應收帳款趨勢</strong>：應收帳款週轉天數在2025年Q2一度上升至87.17天，但在Q3回落至59.68天，需持續關注其回收效率。</li>
+</ul>
+<h3>資本支出與其他財務指標</h3>
+
+<ul><li><strong>資本支出</strong>：目前未找到全科近三年具體的資本支出金額數據及未來資本支出計畫。</li>
+<li><strong>負債比率</strong>：</li>
+</ul>    *   2024Q4：69.54%
+<p>*   2025Q1：73.23%</p>
+<p>*   2025Q2：70.82%</p>
+<p>*   2025Q3：69.38%</p>
+<p>*   負債比率維持在70%上下，2025年Q3略有下降。</p>
+<ul><li><strong>自由現金流量</strong>：2025年上半年現金流入43.70億元，較去年同期增加15.31億元，顯示財務結構穩健。</li>
+</ul>
+<h2>股權異動</h2>
+
+<h3>申報轉讓</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>申報日期</th><th>轉讓人</th><th>關係</th><th>轉讓張數 (張)</th><th>受讓人</th><th>轉讓原因</th></tr></thead><tbody>
+<tr><td>2025/11/18</td><td>董事配偶陳宏安之配偶</td><td>董事配偶</td><td>75</td><td>陳玟儒</td><td>贈與</td></tr>
+<tr><td>2025/11/18</td><td>董事陳宏安</td><td>董事</td><td>75</td><td>陳玟叡</td><td>贈與</td></tr>
+<tr><td>2025/04/30</td><td>董事吳堉文</td><td>董事</td><td>100</td><td>國立臺灣科技大學</td><td>贈與</td></tr>
+<tr><td>2024/11/12</td><td>董事配偶陳宏安之配偶</td><td>董事配偶</td><td>60</td><td>陳玟儒</td><td>贈與</td></tr>
+<tr><td>2024/11/12</td><td>董事陳宏安</td><td>董事</td><td>60</td><td>陳玟叡</td><td>贈與</td></tr>
+</tbody></table></div>
+
+<h3>庫藏股買回紀錄</h3>
+
+<p>未找到2024-2026年庫藏股買回紀錄。</p>
+
+<h3>可轉換公司債 (CB)</h3>
+
+<ul><li><strong>全科四 (代碼：32094)</strong>：</li>
+</ul>    *   發行日：2022-07-21
+<p>*   到期日：2025-07-21</p>
+<p>*   目前轉換價：28.3元</p>
+<p>*   2025年4月19日至2025年6月17日停止受理轉交換登記。</p>
+
+<h3>增減資計畫</h3>
+
+<p>未找到2024-2026年現金增資或減資計畫。</p>
+
+<h3>股利政策</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>現金股利 (元/股)</th><th>股票股利 (元/股)</th><th>除權息日</th><th>現金發放日</th></tr></thead><tbody>
+<tr><td>2025</td><td>2.485</td><td>0</td><td>2025/08/12</td><td>2025/08/29</td></tr>
+<tr><td>2024</td><td>2.098</td><td>0</td><td>2024/08/01</td><td>2024/08/21</td></tr>
+<tr><td>2023</td><td>3.578</td><td>0</td><td>(未提供)</td><td>(未提供)</td></tr>
+<tr><td>2022</td><td>2.40</td><td>0.80</td><td>(未提供)</td><td>(未提供)</td></tr>
+</tbody></table></div>
+
+<h2>產業分析</h2>
+
+<h3>產業數據</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>市場名稱</th><th>2025年市場規模預估 (美元)</th><th>2026年市場規模預估 (美元)</th><th>CAGR (區間)</th></tr></thead><tbody>
+<tr><td>全球AI伺服器市場</td><td>1,946.2億</td><td>2,622.2億</td><td>34.73% (2025-2034)</td></tr>
+<tr><td>光模組市場 (LightCounting)</td><td>預計增長48%</td><td>預計增長35%</td><td>22% (未來5年)</td></tr>
+<tr><td>1.6T光模組市場</td><td>5億</td><td>(未提供)</td><td>超過35% (2025-2030)</td></tr>
+<tr><td>全球寬頻網路服務市場</td><td>4,184.3億</td><td>(未提供)</td><td>4.0% (2024-2025)</td></tr>
+<tr><td>全球網路基礎設施市場</td><td>2,666.1億</td><td>2,857.3億</td><td>7.17% (2024-2035)</td></tr>
+<tr><td>Wi-Fi 7市場</td><td>(未提供)</td><td>(未提供)</td><td>47% (預估)</td></tr>
+<tr><td>全球半導體市場 (WSTS)</td><td>7,720億</td><td>9,750億</td><td>22.5% (2025), 26.3% (2026)</td></tr>
+</tbody></table></div>
+
+<strong>供需狀況</strong>：
+<ul><li><strong>AI相關晶片與高速傳輸元件</strong>：目前呈現<strong>供不應求</strong>。NAND Flash供需缺口擴大，價格預計季增85%。HBM需求強勁導致DRAM/NAND供應吃緊。光模組市場增長受限於InP激光芯片產能，需求是供給的兩倍。先進製程產能持續供不應求，3奈米以下先進製程產能2026年將成長逾4成。</li>
+<li><strong>一般消費性電子產品</strong>：面臨<strong>成長趨緩</strong>和部分庫存去化壓力。智慧手機、筆電等終端產品普遍成長停滯。家用路由器市場尚未完全復甦，Wi-Fi 7因價格較高，一般用戶仍以Wi-Fi 6/6E為主，預計2025下半年平價機種上市後買氣回溫。</li>
+</ul>
+<strong>產業的平均毛利率水準</strong>：
+<p>電子零組件通路產業平均毛利率通常較低。參考台灣主要同業：文曄（3036）預估2026年Q1毛利率3.2%-3.3%；大聯大（3702）預估2025年Q3毛利率3.7-3.9%。全科作為通路商，其毛利率應在相似範圍，但具體數值會依產品線、代理權利金和客戶結構而定。</p>
+
+<h3>競爭格局</h3>
+
+<strong>全球主要電子零組件通路商</strong>：
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>總部</th><th>主要業務</th></tr></thead><tbody>
+<tr><td>Avnet (艾睿電子)</td><td>美國</td><td>半導體、互連、無源和機電元件、嵌入式產品</td></tr>
+<tr><td>Arrow Electronics</td><td>美國</td><td>半導體、被動元件、機電元件、電腦產品</td></tr>
+<tr><td>WPG Holdings (大聯大)</td><td>台灣</td><td>半導體、電子元件通路商</td></tr>
+<tr><td>WT Microelectronics (文曄)</td><td>台灣</td><td>半導體、電子元件通路商</td></tr>
+<tr><td>TTI, Inc.</td><td>美國</td><td>被動元件、互連、機電元件和分立元件</td></tr>
+<tr><td>Future Electronics</td><td>加拿大</td><td>半導體、被動元件、機電元件</td></tr>
+</tbody></table></div>
+
+<em>註：此表格為全球知名電子零組件通路商，並非直接針對通訊IC通路的精確排名與2025-2026年市佔率，因最新數據未找到。</em>
+
+<strong>全科 vs. 主要競爭對手比較</strong>：
+
+<div class="table-wrapper"><table>
+<thead><tr><th>特性</th><th>全科 (3209)</th><th>大聯大 (3702)</th><th>文曄 (3036)</th><th>增你強 (3028)</th></tr></thead><tbody>
+<tr><td><strong>技術/產品線</strong></td><td>專注通訊IC、AI/資料中心解決方案 (光模組、電源管理、互聯設備、Zeiss檢測設備)</td><td>廣泛產品線，多數應用領域，一站式服務</td><td>廣泛產品線，AI數據中心與通訊領域表現強勁</td><td>微控制器、記憶體、電源管理IC等，應用多元</td></tr>
+<tr><td><strong>產能 (通路服務)</strong></td><td>深度專業知識，快速反應，庫存管理能力 (存貨天數22.65天)</td><td>全球據點、倉儲物流、技術支援規模龐大</td><td>全球據點，積極併購擴大市佔，供應鏈服務廣泛</td><td>代理產品與技術支援能力</td></tr>
+<tr><td><strong>客戶</strong></td><td>電信業者、網通設備製造商、AI伺服器/汽車/航空模具檢測客戶</td><td>全球各大電子製造商、品牌廠及中小企業</td><td>全球各大電子製造商、品牌廠，AI數據中心客戶強勁</td><td>多元客戶群，各應用領域製造商</td></tr>
+<tr><td><strong>價格</strong></td><td>透過專業與客製化解決方案創造價值</td><td>採購量大具成本優勢，一站式服務</td><td>採購量大具成本優勢，服務價值維持合理毛利率</td><td>依產品獨特性、原廠議價能力而定</td></tr>
+</tbody></table></div>
+
+<strong>台灣同業財務數據比較</strong>：
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>股票代號</th><th>最新可得營收數據</th><th>最新可得毛利率</th><th>最新可得EPS (單季)</th></tr></thead><tbody>
+<tr><td>全科</td><td>3209</td><td>2025年Q3：116.72億元</td><td>2025年Q3：5.72%</td><td>2025年Q3：1.27元</td></tr>
+<tr><td>大聯大</td><td>3702</td><td>2025年Q3預估：2,450-2,650億元</td><td>2025年Q3預估：3.7-3.9%</td><td>2025年Q3預估：1.48-1.8元</td></tr>
+<tr><td>文曄</td><td>3036</td><td>2026年Q1預估：4,600-4,900億元</td><td>2026年Q1預估：3.2-3.3%</td><td>2026年Q1預估：4.49-5.14元</td></tr>
+<tr><td>增你強</td><td>3028</td><td>(未找到最新數據)</td><td>(未找到最新數據)</td><td>(未找到最新數據)</td></tr>
+</tbody></table></div>
+
+<em>⚠️註：上述數據部分為公司財測或預估，非最終財報數據。</em>
+
+<h3>產業趨勢</h3>
+
+<li><strong>AI運算與資料中心基礎設施的飛速發展</strong></li>
+<p>*   <strong>具體影響</strong>：生成式AI、雲端與邊緣運算爆發，推動資料中心頻寬需求從Gbps級躍升至Tbps級。AI伺服器晶片、高速乙太網路交換器（800G、1.6T）、光通訊元件（400G/800G/1.6T光模組）、電源管理和散熱解決方案需求急遽攀升。共封裝光學（CPO）技術預計在2027-2028年放量。</p>
+<p>*   <strong>對全科影響</strong>：直接受益於AI基礎設施建置的超級週期，相關高階零組件出貨量和產值顯著提升，需提供完整解決方案並快速供貨。</p>
+
+<li><strong>5G-Advanced (5.5G) / 早期6G及Wi-Fi 7的普及</strong></li>
+<p>*   <strong>具體影響</strong>：5G固定無線接入（FWA）成為5G最成功的商業應用之一，對電信業者而言是頻寬變現的極佳手段。Wi-Fi 7正式商品化，支援MLO多鏈路技術與320MHz頻寬，提升XR、智慧家庭應用體驗，帶動企業端網路升級。</p>
+<p>*   <strong>對全科影響</strong>：刺激5G FWA設備、Wi-Fi 7相關晶片和模組需求，全科可提供最新無線通訊解決方案，滿足電信業者和企業市場的升級需求。</p>
+
+<li><strong>地緣政治與供應鏈重組</strong></li>
+<p>*   <strong>具體影響</strong>：地緣政治驅動客戶生產基地轉移至東南亞或美國。各國推動「主權AI」建設，AI工廠成為國家競爭力重點。關稅政策可能增加光纖組件等成本。</p>
+<p>*   <strong>對全科影響</strong>：作為全球化通路商，供應鏈與貿易複雜化反而凸顯其競爭優勢，能依客戶需求進行最佳安排，提供一站式採購與全球供應鏈管理服務。台灣在AI「互連競賽」中可轉型為全球策略夥伴。</p>
+
+<h3>對 全科 而言的具體機會和威脅</h3>
+
+<strong>機會</strong>：
+<ul><li><strong>受益於AI伺服器與資料中心成長</strong>：全科在400G/800G/1.6T光模組、電源管理、邊緣AI及互聯設備等AI核心領域布局，直接受惠於產業爆發性增長。</li>
+<li><strong>5G FWA與Wi-Fi 7升級</strong>：寬頻與無線業務作為營收主力，穩定受益於通訊技術升級帶來的市場需求。</li>
+<li><strong>高階產品線拓展</strong>：代理Zeiss檢測設備切入AI伺服器、汽車、航空模具檢測，有助於提升產品組合價值和毛利率。</li>
+<li><strong>供應鏈管理優勢</strong>：在全球供應鏈重組下，通路商的專業供應鏈管理能力更顯價值。</li>
+</ul>
+<strong>威脅</strong>：
+<ul><li><strong>匯率衝擊</strong>：新台幣升值可能導致巨額匯兌損失，如2025年上半年因匯兌損失4.13億元，嚴重影響獲利能力。</li>
+<li><strong>非AI相關業務成長趨緩</strong>：消費性電子產品市場成長放緩，可能對其非AI核心業務帶來壓力。</li>
+<li><strong>毛利率稀釋壓力</strong>：大型通路商同業指出AI資料中心相關產品的平均毛利率可能低於公司平均水準，可能對整體毛利率造成稀釋。</li>
+<li><strong>供應限制與成本上升</strong>：關鍵零組件如InP激光芯片可能面臨產能短缺，以及半導體零組件價格上漲壓力。</li>
+<li><strong>市場競爭激烈</strong>：面臨大聯大、文曄等規模更大的台灣同業及其他國際通路商的激烈競爭。</li>
+</ul>
+<h3>相關投資題材</h3>
+
+<ul><li><strong>AI (人工智慧)</strong>：<strong>核心投資題材</strong>。全科的核心業務之一即為AI伺服器與資料中心解決方案，提供光模組、電源管理、邊緣AI及互聯設備，直接受惠於AI基礎設施擴張。</li>
+<li><strong>HBM (高頻寬記憶體)</strong>：目前全科未直接提及代理HBM產品線，連結性較弱。</li>
+<li><strong>電動車</strong>：間接連結。全科代理Zeiss檢測設備應用於汽車模具檢測，但並非其核心業務或主要營收驅動力。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<h3>利多事件清單</h3>
+
+<ul><li><strong>AI伺服器與資料中心需求爆發</strong>：AI伺服器互聯設備（Ethernet、Switch）需求預計在2026-2027年呈現黃金交叉，400G/800G/1.6T光模組需求強勁，是全科最核心的成長動能。</li>
+<li><strong>寬頻與無線業務穩定成長</strong>：10G PON穩定成長、DOCSIS 4.x出貨量上升及5G FWA快速部署，FWA市場預計至2030年達3.5億連線，提供穩健營收基礎。</li>
+<li><strong>新產品線拓展高階市場</strong>：新增代理Zeiss檢測設備，切入AI伺服器、汽車與航空模具檢測等高階電子產業市場，提升產品組合價值。</li>
+<li><strong>營運據點擴展</strong>：新增新加坡據點，提升AI伺服器與FWA業務的全球競爭力，服務全球電信業者與科技巨頭。</li>
+<li><strong>庫存去化良好</strong>：存貨週轉天數從2024年上半年的91天大幅下降至2025年Q3的22.65天，營運效率改善。</li>
+<li><strong>近期營收表現亮眼</strong>：2026年1月營收達60.43億元，月增85.41%，年增17.22%。2026年3月合併營收60.89億元，月增95.13%，年增134.1%，顯示短期營收動能強勁。</li>
+<li><strong>高現金股利</strong>：2025年度擬發放現金股利2.485元，現金殖利率約6.96%，具吸引力。</li>
+<li><strong>法人買超</strong>：2026年1月11日報導指出近5日三大法人合計買超324張，其中外資買超356張，顯示法人對其後市看好。</li>
+</ul>
+<h3>利空事件清單</h3>
+
+<ul><li><strong>匯率衝擊導致獲利下滑</strong>：2025年上半年因新台幣升值導致4.13億元匯兌損失，嚴重影響稅後淨利，使2025年上半年基本EPS從2024年同期的1.33元下降至0.30元。</li>
+<li><strong>營收短期波動性</strong>：2025年Q2營收較Q1減少34.4%，主因中國大陸客戶提前拉貨及政治不確定性，預計下半年市場仍不明朗，客戶需求調整需密切觀察。</li>
+<li><strong>ESG高股息指數剔除</strong>：2026年2月10日報導指出，全科將自ESG高股息報酬指數成分股剔除，儘管短線影響有限，但可能影響部分被動式資金配置。</li>
+<li><strong>總體經濟風險</strong>：全球經濟成長存在不確定性，中國經濟成長放緩，以及地緣政治衝突可能引發匯率波動，皆為潛在風險。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能</th><th>具體細節</th></tr></thead><tbody>
+<tr><td><strong>2024年Q4</strong></td><td>需求回溫</td><td>電信業者與網通ODM需求開始回溫。</td></tr>
+<tr><td><strong>2025年上半年</strong></td><td>庫存去化、新業務動能</td><td>營收成長6.7%，庫存去化完成，Book-to-Bill Ratio回升至1以上；AI伺服器與寬頻無線業務動能強勁。</td></tr>
+<tr><td><strong>2025年</strong></td><td>1.6T光模組商業化元年</td><td>1.6T光模組預計全球出貨量將突破10萬台，市場規模約5億美元。</td></tr>
+<tr><td><strong>2025年Q3</strong></td><td>AI伺服器與寬頻業務接單上升</td><td>PON、DOCSIS 4.x、5G FWA接單量持續上升；AI伺服器業務受惠400G/800G光模組需求。</td></tr>
+<tr><td><strong>2025年下半年</strong></td><td>Wi-Fi 7平價機種上市、FWA市場持續擴大</td><td>Wi-Fi 7更多平價機種上市後，市場將有新一波買氣；FWA連線數持續增長。</td></tr>
+<tr><td><strong>2025年8月10日法說會資訊</strong></td><td>新市場/新客戶拓展</td><td>代理Zeiss檢測設備已交付兩岸客戶；新增新加坡據點，服務全球電信與科技巨頭；聚焦高毛利業務。</td></tr>
+<tr><td><strong>2026年</strong></td><td>1.6T光模組市場增長</td><td>預計市場規模持續擴大。</td></tr>
+<tr><td><strong>2026-2027年</strong></td><td>AI伺服器互聯設備黃金交叉</td><td>AI伺服器互聯設備（Ethernet、Switch）需求預計出現黃金交叉，市場規模持續擴大；1.6T交換器進入導入期。</td></tr>
+<tr><td><strong>2027-2028年</strong></td><td>CPO (共封裝光學) 技術放量</td><td>CPO技術因解決散熱和訊號衰減問題，預計進入放量階段，成長力道最強。</td></tr>
+<tr><td><strong>2030年</strong></td><td>FWA連線數大幅增長</td><td>FWA市場預計從2024年的1.6億連線成長至3.5億連線，佔固定寬頻市場的18%。</td></tr>
+<tr><td><strong>2030年</strong></td><td>1.6T光模組市場規模</td><td>預計市場規模有望突破150億美元。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+
+<p>2026年全科的核心成長動能將聚焦於AI伺服器與資料中心解決方案的持續強勁需求。AI伺服器互聯設備市場預計在2026-2027年進入「黃金交叉」，帶動400G/800G光模組出貨量大幅提升，同時1.6T光模組的商業化落地將開啟新一波成長曲線。在寬頻與無線業務方面，5G FWA的快速部署和Wi-Fi 7在高階手機、筆電市場的滲透率提升，將為公司提供穩健的營收支撐。此外，新代理的Zeiss檢測設備切入高階AI伺服器、汽車與航空模具檢測市場，預計將貢獻新的高毛利營收。公司轉型聚焦高毛利業務、優化產品組合，以及全球營運據點的擴張（如新加坡），亦有助於提升其在全球供應鏈中的競爭力與獲利能力。</p>
+
+<h3>風險因子</h3>
+
+<p>2026年全科面臨的主要風險包括：</p>
+<li><strong>匯率波動衝擊</strong>：新台幣或其他主要貨幣的劇烈波動可能導致重大的匯兌損失，如同2025年上半年所經歷，嚴重侵蝕獲利。</li>
+<li><strong>非AI業務成長遲緩</strong>：儘管AI業務強勁，但全球消費性電子市場的疲軟及高通膨壓力，可能限制其非AI相關業務的表現。</li>
+<li><strong>產業競爭與毛利率稀釋</strong>：電子通路產業競爭激烈，AI資料中心相關產品的平均毛利率可能低於公司平均水準，若AI業務佔比持續提升，可能對整體毛利率造成壓力。</li>
+<li><strong>供應鏈限制與成本上升</strong>：關鍵零組件（如光模組中的InP激光芯片）可能面臨產能短缺，以及半導體原物料成本上漲，可能影響供貨穩定性與毛利空間。</li>
+<li><strong>總體經濟與地緣政治風險</strong>：全球經濟成長的不確定性，中國經濟成長放緩，以及地緣政治緊張情勢，都可能影響客戶需求、供應鏈穩定性和國際貿易環境。</li>
+
+<h2>投資結論</h2>
+
+<p>全科 (3209) 在2026年展現了明確的成長潛力，主要基於以下幾點：</p>
+
+<li><strong>AI伺服器與高速傳輸核心受惠者</strong>：全科精準布局於AI伺服器與資料中心解決方案，提供光模組及互聯設備等核心零組件。隨著AI產業進入高速成長期，特別是2026-2027年AI伺服器互聯設備的黃金交叉，將成為公司最主要的業績催化劑。</li>
+<li><strong>寬頻與無線業務穩固基礎</strong>：作為其營收主力，5G FWA與Wi-Fi 7的普及與升級週期，確保了公司在通訊基礎設施領域的穩定市場需求。</li>
+<li><strong>產品結構優化與新業務拓展</strong>：公司積極轉型至高毛利業務，並透過代理Zeiss檢測設備切入高階市場，顯示管理層致力於提升獲利能力的決心。健康的庫存水位（2025Q3存貨週轉天數22.65天）也體現了營運效率的改善。</li>
+<li><strong>匯率波動為短期主要不確定性</strong>：儘管本業動能強勁，但匯率波動對獲利的影響不容忽視，投資人應持續關注公司在匯率風險管理上的策略。</li>
+
+<p>綜合考量全科在AI與高速通訊產業鏈的關鍵地位及其成長動能，儘管通路商的毛利率相對較低且面臨匯率等營運風險，其在AI趨勢下的營收成長潛力值得期待。以2024年EPS 3.02元為基底，若假設2026年EPS能達成5%的成長至約3.17元，並給予其作為AI高速成長領域受惠者15至18倍的本益比區間，建議的目標價區間為 <strong>新台幣48元至58元</strong>。</p>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 14:22</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="3209_全科_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="3209_全科_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="3209_全科_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

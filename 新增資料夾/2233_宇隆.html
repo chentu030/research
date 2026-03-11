@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2233 宇隆 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2233 宇隆 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>宇隆 (2233) 於2025年歷經短期營運逆風與產品結構調整，然其策略性佈局人形機器人減速機（TUF ONE）、AI伺服器液冷快接頭（UQD/NVQD）及E-Bike等高成長新興業務已逐步成熟。公司預計2026年將進入量產與放量階段，在汽車、自行車業務回溫與新興業務強勁動能下，營收有望實現雙位數成長，獲利結構亦將優化，開啟新一輪成長週期。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2233 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2233" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2233" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2233');
+    var obvContainer = document.getElementById('obv-chart-2233');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 194.5, "high": 200.0, "low": 192.0, "close": 192.0}, {"time": "2025-12-05", "open": 196.5, "high": 205.0, "low": 195.0, "close": 195.0}, {"time": "2025-12-08", "open": 195.0, "high": 197.5, "low": 193.0, "close": 195.5}, {"time": "2025-12-09", "open": 195.5, "high": 195.5, "low": 190.5, "close": 191.0}, {"time": "2025-12-10", "open": 191.0, "high": 193.0, "low": 188.0, "close": 189.5}, {"time": "2025-12-11", "open": 190.5, "high": 192.0, "low": 186.5, "close": 187.5}, {"time": "2025-12-12", "open": 189.5, "high": 190.5, "low": 186.5, "close": 187.5}, {"time": "2025-12-15", "open": 185.5, "high": 187.5, "low": 183.5, "close": 186.0}, {"time": "2025-12-16", "open": 184.0, "high": 186.5, "low": 181.5, "close": 184.5}, {"time": "2025-12-17", "open": 184.5, "high": 191.5, "low": 184.0, "close": 185.5}, {"time": "2025-12-18", "open": 185.0, "high": 185.0, "low": 181.0, "close": 181.5}, {"time": "2025-12-19", "open": 185.5, "high": 187.0, "low": 182.0, "close": 185.0}, {"time": "2025-12-22", "open": 186.0, "high": 189.5, "low": 184.5, "close": 189.0}, {"time": "2025-12-23", "open": 191.5, "high": 196.0, "low": 189.0, "close": 195.0}, {"time": "2025-12-24", "open": 195.0, "high": 202.5, "low": 195.0, "close": 202.0}, {"time": "2025-12-26", "open": 203.0, "high": 210.0, "low": 203.0, "close": 209.5}, {"time": "2025-12-29", "open": 208.5, "high": 221.5, "low": 207.5, "close": 219.0}, {"time": "2025-12-30", "open": 217.5, "high": 221.0, "low": 212.5, "close": 216.5}, {"time": "2025-12-31", "open": 220.0, "high": 223.5, "low": 216.5, "close": 219.0}, {"time": "2026-01-02", "open": 219.5, "high": 228.0, "low": 219.5, "close": 225.5}, {"time": "2026-01-05", "open": 227.5, "high": 228.5, "low": 218.5, "close": 218.5}, {"time": "2026-01-06", "open": 222.0, "high": 222.0, "low": 210.5, "close": 211.0}, {"time": "2026-01-07", "open": 211.0, "high": 211.0, "low": 205.5, "close": 209.0}, {"time": "2026-01-08", "open": 209.0, "high": 215.5, "low": 207.0, "close": 208.0}, {"time": "2026-01-09", "open": 212.0, "high": 213.5, "low": 204.5, "close": 209.0}, {"time": "2026-01-12", "open": 213.0, "high": 223.0, "low": 212.0, "close": 220.0}, {"time": "2026-01-13", "open": 223.5, "high": 242.0, "low": 222.5, "close": 242.0}, {"time": "2026-01-14", "open": 248.0, "high": 248.0, "low": 234.0, "close": 239.0}, {"time": "2026-01-15", "open": 241.0, "high": 255.0, "low": 237.5, "close": 242.0}, {"time": "2026-01-16", "open": 244.5, "high": 245.0, "low": 235.0, "close": 238.0}, {"time": "2026-01-19", "open": 236.0, "high": 236.5, "low": 225.5, "close": 232.0}, {"time": "2026-01-20", "open": 229.5, "high": 243.0, "low": 227.5, "close": 237.0}, {"time": "2026-01-21", "open": 233.5, "high": 236.5, "low": 225.5, "close": 226.0}, {"time": "2026-01-22", "open": 228.5, "high": 240.0, "low": 224.0, "close": 238.0}, {"time": "2026-01-23", "open": 242.0, "high": 243.0, "low": 232.0, "close": 234.0}, {"time": "2026-01-26", "open": 235.5, "high": 246.0, "low": 235.5, "close": 239.5}, {"time": "2026-01-27", "open": 239.5, "high": 239.5, "low": 231.0, "close": 233.5}, {"time": "2026-01-28", "open": 234.0, "high": 242.5, "low": 228.5, "close": 240.5}, {"time": "2026-01-29", "open": 246.5, "high": 264.5, "low": 246.0, "close": 264.5}, {"time": "2026-01-30", "open": 267.0, "high": 290.5, "low": 258.0, "close": 289.5}, {"time": "2026-02-02", "open": 279.0, "high": 298.0, "low": 278.5, "close": 288.5}, {"time": "2026-02-03", "open": 292.0, "high": 303.0, "low": 262.0, "close": 262.0}, {"time": "2026-02-04", "open": 265.0, "high": 276.0, "low": 252.0, "close": 255.0}, {"time": "2026-02-05", "open": 253.0, "high": 254.0, "low": 232.5, "close": 233.0}, {"time": "2026-02-06", "open": 234.0, "high": 234.0, "low": 221.5, "close": 222.0}, {"time": "2026-02-09", "open": 228.0, "high": 230.0, "low": 223.5, "close": 228.5}, {"time": "2026-02-10", "open": 229.0, "high": 230.0, "low": 221.0, "close": 223.0}, {"time": "2026-02-11", "open": 223.0, "high": 226.0, "low": 218.5, "close": 223.0}, {"time": "2026-02-23", "open": 232.0, "high": 243.0, "low": 225.5, "close": 235.5}, {"time": "2026-02-24", "open": 237.0, "high": 239.0, "low": 232.0, "close": 234.0}, {"time": "2026-02-25", "open": 236.0, "high": 236.0, "low": 228.0, "close": 229.0}, {"time": "2026-02-26", "open": 229.5, "high": 239.0, "low": 228.5, "close": 233.5}, {"time": "2026-03-02", "open": 230.5, "high": 231.0, "low": 220.0, "close": 223.0}, {"time": "2026-03-03", "open": 235.0, "high": 239.5, "low": 228.5, "close": 235.0}, {"time": "2026-03-04", "open": 230.5, "high": 231.0, "low": 220.0, "close": 223.0}, {"time": "2026-03-05", "open": 229.0, "high": 232.5, "low": 223.5, "close": 229.5}, {"time": "2026-03-06", "open": 229.0, "high": 234.0, "low": 225.5, "close": 227.0}, {"time": "2026-03-09", "open": 209.0, "high": 214.0, "low": 205.0, "close": 207.0}, {"time": "2026-03-10", "open": 211.0, "high": 214.5, "low": 208.5, "close": 211.0}, {"time": "2026-03-11", "open": 212.5, "high": 222.5, "low": 212.5, "close": 220.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 901.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 2086.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 353.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 426.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 387.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 330.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 287.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 199.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 427.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 333.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 464.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 472.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 239.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 589.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 930.0, "color": "#ef5350"}, {"time": "2025-12-26", "value": 1140.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 2154.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 800.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 659.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 1592.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 1115.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 1080.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 710.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 731.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 623.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 1986.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 5153.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 3625.0, "color": "#26a69a"}, {"time": "2026-01-15", "value": 3421.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 1812.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 2011.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 1484.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 1518.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 2436.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 2256.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 2556.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 1533.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 2001.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 9517.0, "color": "#ef5350"}, {"time": "2026-01-30", "value": 12013.0, "color": "#ef5350"}, {"time": "2026-02-02", "value": 9508.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 10589.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 6226.0, "color": "#26a69a"}, {"time": "2026-02-05", "value": 4763.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 2150.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 1430.0, "color": "#ef5350"}, {"time": "2026-02-10", "value": 1082.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 806.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 1987.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 1201.0, "color": "#26a69a"}, {"time": "2026-02-25", "value": 1086.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 1179.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 1350.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 1234.0, "color": "#ef5350"}, {"time": "2026-03-04", "value": 1350.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 1082.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 753.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 1109.0, "color": "#26a69a"}, {"time": "2026-03-10", "value": 451.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 504.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 192.6}, {"time": "2025-12-11", "value": 191.7}, {"time": "2025-12-12", "value": 190.2}, {"time": "2025-12-15", "value": 188.3}, {"time": "2025-12-16", "value": 187.0}, {"time": "2025-12-17", "value": 186.2}, {"time": "2025-12-18", "value": 185.0}, {"time": "2025-12-19", "value": 184.5}, {"time": "2025-12-22", "value": 185.1}, {"time": "2025-12-23", "value": 187.2}, {"time": "2025-12-24", "value": 190.5}, {"time": "2025-12-26", "value": 196.1}, {"time": "2025-12-29", "value": 202.9}, {"time": "2025-12-30", "value": 208.4}, {"time": "2025-12-31", "value": 213.2}, {"time": "2026-01-02", "value": 217.9}, {"time": "2026-01-05", "value": 219.7}, {"time": "2026-01-06", "value": 218.1}, {"time": "2026-01-07", "value": 216.6}, {"time": "2026-01-08", "value": 214.4}, {"time": "2026-01-09", "value": 211.1}, {"time": "2026-01-12", "value": 211.4}, {"time": "2026-01-13", "value": 217.6}, {"time": "2026-01-14", "value": 223.6}, {"time": "2026-01-15", "value": 230.4}, {"time": "2026-01-16", "value": 236.2}, {"time": "2026-01-19", "value": 238.6}, {"time": "2026-01-20", "value": 237.6}, {"time": "2026-01-21", "value": 235.0}, {"time": "2026-01-22", "value": 234.2}, {"time": "2026-01-23", "value": 233.4}, {"time": "2026-01-26", "value": 234.9}, {"time": "2026-01-27", "value": 234.2}, {"time": "2026-01-28", "value": 237.1}, {"time": "2026-01-29", "value": 242.4}, {"time": "2026-01-30", "value": 253.5}, {"time": "2026-02-02", "value": 263.3}, {"time": "2026-02-03", "value": 269.0}, {"time": "2026-02-04", "value": 271.9}, {"time": "2026-02-05", "value": 265.6}, {"time": "2026-02-06", "value": 252.1}, {"time": "2026-02-09", "value": 240.1}, {"time": "2026-02-10", "value": 232.3}, {"time": "2026-02-11", "value": 225.9}, {"time": "2026-02-23", "value": 226.4}, {"time": "2026-02-24", "value": 228.8}, {"time": "2026-02-25", "value": 228.9}, {"time": "2026-02-26", "value": 231.0}, {"time": "2026-03-02", "value": 231.0}, {"time": "2026-03-03", "value": 230.9}, {"time": "2026-03-04", "value": 228.7}, {"time": "2026-03-05", "value": 228.8}, {"time": "2026-03-06", "value": 227.5}, {"time": "2026-03-09", "value": 224.3}, {"time": "2026-03-10", "value": 219.5}, {"time": "2026-03-11", "value": 218.9}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 189.4}, {"time": "2025-12-18", "value": 188.35}, {"time": "2025-12-19", "value": 187.35}, {"time": "2025-12-22", "value": 186.7}, {"time": "2025-12-23", "value": 187.1}, {"time": "2025-12-24", "value": 188.35}, {"time": "2025-12-26", "value": 190.55}, {"time": "2025-12-29", "value": 193.7}, {"time": "2025-12-30", "value": 196.75}, {"time": "2025-12-31", "value": 200.2}, {"time": "2026-01-02", "value": 204.2}, {"time": "2026-01-05", "value": 207.9}, {"time": "2026-01-06", "value": 210.5}, {"time": "2026-01-07", "value": 212.5}, {"time": "2026-01-08", "value": 213.8}, {"time": "2026-01-09", "value": 214.5}, {"time": "2026-01-12", "value": 215.55}, {"time": "2026-01-13", "value": 217.85}, {"time": "2026-01-14", "value": 220.1}, {"time": "2026-01-15", "value": 222.4}, {"time": "2026-01-16", "value": 223.65}, {"time": "2026-01-19", "value": 225.0}, {"time": "2026-01-20", "value": 227.6}, {"time": "2026-01-21", "value": 229.3}, {"time": "2026-01-22", "value": 232.3}, {"time": "2026-01-23", "value": 234.8}, {"time": "2026-01-26", "value": 236.75}, {"time": "2026-01-27", "value": 235.9}, {"time": "2026-01-28", "value": 236.05}, {"time": "2026-01-29", "value": 238.3}, {"time": "2026-01-30", "value": 243.45}, {"time": "2026-02-02", "value": 249.1}, {"time": "2026-02-03", "value": 251.6}, {"time": "2026-02-04", "value": 254.5}, {"time": "2026-02-05", "value": 254.0}, {"time": "2026-02-06", "value": 252.8}, {"time": "2026-02-09", "value": 251.7}, {"time": "2026-02-10", "value": 250.65}, {"time": "2026-02-11", "value": 248.9}, {"time": "2026-02-23", "value": 246.0}, {"time": "2026-02-24", "value": 240.45}, {"time": "2026-02-25", "value": 234.5}, {"time": "2026-02-26", "value": 231.65}, {"time": "2026-03-02", "value": 228.45}, {"time": "2026-03-03", "value": 228.65}, {"time": "2026-03-04", "value": 228.75}, {"time": "2026-03-05", "value": 228.85}, {"time": "2026-03-06", "value": 229.25}, {"time": "2026-03-09", "value": 227.65}, {"time": "2026-03-10", "value": 225.2}, {"time": "2026-03-11", "value": 223.8}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 196.8}, {"time": "2026-01-05", "value": 198.125}, {"time": "2026-01-06", "value": 198.925}, {"time": "2026-01-07", "value": 199.6}, {"time": "2026-01-08", "value": 200.45}, {"time": "2026-01-09", "value": 201.425}, {"time": "2026-01-12", "value": 203.05}, {"time": "2026-01-13", "value": 205.775}, {"time": "2026-01-14", "value": 208.425}, {"time": "2026-01-15", "value": 211.3}, {"time": "2026-01-16", "value": 213.925}, {"time": "2026-01-19", "value": 216.45}, {"time": "2026-01-20", "value": 219.05}, {"time": "2026-01-21", "value": 220.9}, {"time": "2026-01-22", "value": 223.05}, {"time": "2026-01-23", "value": 224.65}, {"time": "2026-01-26", "value": 226.15}, {"time": "2026-01-27", "value": 226.875}, {"time": "2026-01-28", "value": 228.075}, {"time": "2026-01-29", "value": 230.35}, {"time": "2026-01-30", "value": 233.55}, {"time": "2026-02-02", "value": 237.05}, {"time": "2026-02-03", "value": 239.6}, {"time": "2026-02-04", "value": 241.9}, {"time": "2026-02-05", "value": 243.15}, {"time": "2026-02-06", "value": 243.8}, {"time": "2026-02-09", "value": 244.225}, {"time": "2026-02-10", "value": 243.275}, {"time": "2026-02-11", "value": 242.475}, {"time": "2026-02-23", "value": 242.15}, {"time": "2026-02-24", "value": 241.95}, {"time": "2026-02-25", "value": 241.8}, {"time": "2026-02-26", "value": 241.625}, {"time": "2026-03-02", "value": 241.475}, {"time": "2026-03-03", "value": 241.325}, {"time": "2026-03-04", "value": 240.775}, {"time": "2026-03-05", "value": 240.275}, {"time": "2026-03-06", "value": 239.95}, {"time": "2026-03-09", "value": 238.275}, {"time": "2026-03-10", "value": 235.6}, {"time": "2026-03-11", "value": 232.125}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 2086.0}, {"time": "2025-12-08", "value": 2439.0}, {"time": "2025-12-09", "value": 2013.0}, {"time": "2025-12-10", "value": 1626.0}, {"time": "2025-12-11", "value": 1296.0}, {"time": "2025-12-12", "value": 1296.0}, {"time": "2025-12-15", "value": 1097.0}, {"time": "2025-12-16", "value": 670.0}, {"time": "2025-12-17", "value": 1003.0}, {"time": "2025-12-18", "value": 539.0}, {"time": "2025-12-19", "value": 1011.0}, {"time": "2025-12-22", "value": 1250.0}, {"time": "2025-12-23", "value": 1839.0}, {"time": "2025-12-24", "value": 2769.0}, {"time": "2025-12-26", "value": 3909.0}, {"time": "2025-12-29", "value": 6063.0}, {"time": "2025-12-30", "value": 5263.0}, {"time": "2025-12-31", "value": 5922.0}, {"time": "2026-01-02", "value": 7514.0}, {"time": "2026-01-05", "value": 6399.0}, {"time": "2026-01-06", "value": 5319.0}, {"time": "2026-01-07", "value": 4609.0}, {"time": "2026-01-08", "value": 3878.0}, {"time": "2026-01-09", "value": 4501.0}, {"time": "2026-01-12", "value": 6487.0}, {"time": "2026-01-13", "value": 11640.0}, {"time": "2026-01-14", "value": 8015.0}, {"time": "2026-01-15", "value": 11436.0}, {"time": "2026-01-16", "value": 9624.0}, {"time": "2026-01-19", "value": 7613.0}, {"time": "2026-01-20", "value": 9097.0}, {"time": "2026-01-21", "value": 7579.0}, {"time": "2026-01-22", "value": 10015.0}, {"time": "2026-01-23", "value": 7759.0}, {"time": "2026-01-26", "value": 10315.0}, {"time": "2026-01-27", "value": 8782.0}, {"time": "2026-01-28", "value": 10783.0}, {"time": "2026-01-29", "value": 20300.0}, {"time": "2026-01-30", "value": 32313.0}, {"time": "2026-02-02", "value": 22805.0}, {"time": "2026-02-03", "value": 12216.0}, {"time": "2026-02-04", "value": 5990.0}, {"time": "2026-02-05", "value": 1227.0}, {"time": "2026-02-06", "value": -923.0}, {"time": "2026-02-09", "value": 507.0}, {"time": "2026-02-10", "value": -575.0}, {"time": "2026-02-11", "value": -575.0}, {"time": "2026-02-23", "value": 1412.0}, {"time": "2026-02-24", "value": 211.0}, {"time": "2026-02-25", "value": -875.0}, {"time": "2026-02-26", "value": 304.0}, {"time": "2026-03-02", "value": -1046.0}, {"time": "2026-03-03", "value": 188.0}, {"time": "2026-03-04", "value": -1162.0}, {"time": "2026-03-05", "value": -80.0}, {"time": "2026-03-06", "value": -833.0}, {"time": "2026-03-09", "value": -1942.0}, {"time": "2026-03-10", "value": -1491.0}, {"time": "2026-03-11", "value": -987.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>宇隆科技主要從事精密金屬零件的加工、製造及貿易，其核心能力在於精密金屬加工製程設計、夾治具開發及自動化生產。</p>
+
+<h3>業務與產品線</h3>
+<p>宇隆產品廣泛應用於四大領域：</p>
+<ul><li><strong>汽車零組件：</strong> 汽柴油直噴系統、高壓油泵、變速箱控制單元、汽門正時控制單元、燃料電池、ADAS等。主要客戶為德國Bosch、BorgWarner、Denso等全球知名Tier 1供應商。</li>
+<li><strong>工業應用：</strong> 減速機（微型行星、RV、諧波減速機，自有品牌「TUF ONE」）、工業自動化用感測器、液壓控制單元，應用於人形機器人、無人機、低空經濟等領域。</li>
+<li><strong>自行車零組件：</strong> 前後避震器、前叉、花鼓、座桿零件及電動自行車（E-Bike）後軸馬達（與BOSCH合作開發）。</li>
+<li><strong>醫療器材：</strong> 胰島素注射筆關鍵零組件及胰島素給藥系統，主要客戶為丹麥Novo Nordisk。另已開發AI伺服器液冷快接頭（UQD/NVQD），並已針對輝達（NVIDIA）GB200及GB300伺服器送樣。</li>
+</ul>
+<h3>營收結構（2025年第一季產品銷售分布）</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>產品類別</th><th>營收佔比</th></tr></thead><tbody>
+<tr><td>汽車產品</td><td>約 74%</td></tr>
+<tr><td>自行車產品</td><td>約 14%</td></tr>
+<tr><td>工業應用及其他</td><td>約 8%</td></tr>
+<tr><td>醫療類產品</td><td>約 4%</td></tr>
+</tbody></table></div>
+<strong>未來目標：</strong> 公司目標在未來三年內將汽車業務營收佔比從目前的70%降至50%至55%，並提升人形機器人、E-Bike、AI伺服器液冷快接頭(UQD)及低空經濟等新興業務的貢獻。
+
+<h3>製造基地</h3>
+<ul><li><strong>傳統生產基地：</strong> 宇鑽浙江廠、信豐東莞廠 (主要產品涵蓋汽車、工業、醫療)。</li>
+<li><strong>策略性轉型基地：</strong></li>
+</ul>    *   <strong>宇隆台灣廠：</strong> 聚焦自行車、工業及TUF ONE產品，作為減速機研發生產中心，並積極建置醫療生產線（預計2025年小量交貨）。
+<p>*   <strong>宇隆墨西哥廠：</strong> 規劃中，貼近目標市場與協力廠商，享有USMCA免稅優勢。</p>
+<ul><li><strong>新廠建置：</strong> 子公司浙江宇鑽精密元件公司於2026年1月21日公告自地委建興建新廠營建工程預算為人民幣2.3億元，以因應未來營運發展規劃及產能需求。</li>
+</ul>
+<h2>核心競爭優勢</h2>
+<li><strong>精密金屬加工技術領先：</strong> 宇隆具備精密金屬加工零件、加工製程設計、夾治具開發及刀具壽命管理的核心能力，能生產高精度、高可靠性的關鍵零組件。</li>
+<li><strong>全球Tier 1客戶基礎：</strong> 長期與Bosch、Denso等全球知名汽車零件Tier 1大廠建立穩固的合作關係，確保訂單能見度與技術驗證能力。</li>
+<li><strong>自主減速機研發實力：</strong> 成功開發自有品牌「TUF ONE」微型行星、RV及諧波減速機，性能與日系競品媲美，並已導入機器人、低空經濟等高成長應用。</li>
+<li><strong>產品應用多元化：</strong> 積極從汽車單一重心轉向工業、自行車、醫療及AI伺服器液冷散熱等高附加價值領域，降低單一產業景氣波動風險。</li>
+<li><strong>前瞻佈局新興科技：</strong> 精準切入人形機器人、AI伺服器液冷快接頭、E-Bike等產業趨勢，將成為未來營收與獲利的新成長引擎。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元)</th><th>月增率 MoM (%)</th><th>年增率 YoY (%)</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>2.72</td><td>5.98</td><td>-3.09</td></tr>
+<tr><td>2025年12月</td><td>2.57</td><td>3.78</td><td>-7.98</td></tr>
+<tr><td>2025年11月</td><td>2.47</td><td>-5.49</td><td>-21.39</td></tr>
+<tr><td>2025年10月</td><td>2.62</td><td>-5.35</td><td>-11.50</td></tr>
+<tr><td>2025年09月</td><td>2.77</td><td>17.80</td><td>-10.70</td></tr>
+<tr><td>2025年08月</td><td>2.35</td><td>-16.80</td><td>-22.50</td></tr>
+</tbody></table></div>
+
+<h3>季度數據</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>季營收 (億元)</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2025年Q3</td><td>7.9368</td><td>30.86</td><td>12.58</td><td>1.71</td></tr>
+</tbody></table></div>
+
+<h3>年度趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>全年營收 (億元)</th><th>年增率 YoY (%)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2024年</td><td>36.59</td><td>+9.62</td><td>10.96</td></tr>
+<tr><td>2025年</td><td>32.75</td><td>-10.49</td><td>6.70</td></tr>
+</tbody></table></div>
+
+<strong>註：</strong> 2025年全年營收與EPS數據已於2026年3月4日董事會通過並公告。2025年營收與獲利表現較2024年衰退，主要受全球經濟逆風、客戶庫存調整及部分產品線客戶降價壓力影響。
+
+<h2>法說會重點 (2025年11月13日)</h2>
+<p>宇隆於2025年11月13日召開法人說明會，另有提及2025年6月27日亦有召開。</p>
+<ul><li><strong>訂單能見度：</strong> 至2025年上半年。</li>
+<li><strong>各產品線展望：</strong></li>
+</ul>    *   <strong>汽車零組件 (佔比約72%)：</strong> 2025年日系客戶動能可能較弱，但供應鏈集中效應使汽車產品營收動能向上。2026年車廠客戶訂單成長「迅猛」，過年期間需加班因應。
+<p>*   <strong>工業應用 (含機器人，佔比約9%)：</strong> 自主品牌「TUF ONE」減速機已成功開發，性能不遜於日本主要競品，產品線涵蓋諧波、行星、微型減速機。2025年工業應用有機會回溫，行星減速器在中國市場將有所斬獲。預計2026年減速機業務將佔營業額的雙位數比重，成為營收、獲利主要貢獻。</p>
+<p>*   <strong>自行車零組件 (佔比約13%)：</strong> E-Bike後驅輪轂馬達與德國Bosch合作開發，預計2025年9月開始量產出貨。自行車庫存去化告一段落，市場需求回升。2026年訂單動能較去年回升，中高階車款訂單來得又快又急，過年期間同樣需縮減休假天數因應。</p>
+<p>*   <strong>醫療器材 (佔比約4%)：</strong> 主要客戶諾和諾德因庫存消化導致出貨放緩，台灣廠積極建置醫療生產線，預計2025年小量交貨，未來3年營收比重逐年攀升。預計2025年第四季逐步恢復正常。</p>
+<ul><li><strong>產能利用率：</strong> 2025上半年平均稼動率約60%，預期下半年將隨新訂單挹注而提升。</li>
+<li><strong>資本支出：</strong> 未提供2025-2026年具體金額，但提及台中新廠已於2024年落成，並正籌備浙江嘉善新廠建廠（擴增至70畝，預計2027年完工啟用）。</li>
+<li><strong>2026年展望：</strong> 管理層對2026年抱持樂觀看法，認為在AI伺服器、人形機器人關鍵零件等全球浪潮下不缺席，將迎來跨產業應用蓬勃發展的一年。2026年營運重心將從「產品被看見」轉向「產品開始放量」。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<h3>目標價與評等</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (元)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>兆豐證券</td><td>320</td><td>買進</td><td>2026年02月06日</td></tr>
+<tr><td>CMoney投資網誌報告</td><td>320</td><td>看多</td><td>2026年02月04日</td></tr>
+</tbody></table></div>
+
+<h3>2025-2026年EPS預估</h3>
+<ul><li><strong>兆豐證券：</strong> 預估2025年EPS約6.63元。</li>
+<li><strong>CMoney投資網誌報告：</strong> 預估2025年EPS約5.72元；預估2026年EPS約5.35元。</li>
+<li><strong>法人機構平均預估：</strong> 2025年EPS落在6.7~8.62元之間。</li>
+<li><strong>經濟日報分析師預估 (2025年07月12日)：</strong> 2025年全年EPS約7.3元。</li>
+<li><strong>其他法人預估 (2025年06月23日)：</strong> 2026年EPS可望回升至10.80元。</li>
+</ul>
+<h3>評等異動</h3>
+<ul><li>2026年02月04日有1家券商發布績效評等報告，評價為「看多」。</li>
+<li>永豐金證券於2025年07月12日對後市維持「區間操作」的評價。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2025Q3</td><td>30.86</td><td>12.58</td><td>12.91</td></tr>
+<tr><td>2025Q2</td><td>32.18</td><td>13.55</td><td>9.16</td></tr>
+<tr><td>2025Q1</td><td>30.30</td><td>13.39</td><td>13.74</td></tr>
+<tr><td>2024Q4</td><td>37.46</td><td>16.80</td><td>15.89</td></tr>
+<tr><td>2024Q3</td><td>37.86</td><td>19.61</td><td>19.34</td></tr>
+<tr><td>2024Q2</td><td>38.00</td><td>19.99</td><td>19.17</td></tr>
+<tr><td>2024Q1</td><td>35.23</td><td>18.74</td><td>17.32</td></tr>
+<tr><td>2023Q4</td><td>36.05</td><td>17.31</td><td>16.84</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化分析：</strong>
+<p>2024年宇隆平均毛利率維持在37%以上高水位，受惠於營收規模擴大、醫療產品比重提升及稼動率提高。然而，2025年毛利率與獲利能力明顯下滑，主要受到：</p>
+<ul><li>年初客戶年度降價壓力。</li>
+<li>日系汽車客戶訂單不如預期。</li>
+<li>醫療業務因主要客戶諾和諾德庫存消化導致出貨放緩，營收佔比從2024年9%降至2025年Q1的4%。</li>
+</ul>公司正積極轉型，透過提升高毛利新興業務（減速機、UQD、E-Bike）比重，以期在2026年逐步改善整體利潤結構。
+
+<h3>存貨分析</h3>
+<ul><li><strong>存貨狀況：</strong> 宇隆的自行車領域庫存已逐步消化，市場需求回升。醫療業務的庫存去化預計在2025年第四季逐步恢復正常。整體來看，雖存貨金額可能有所增加以因應新業務量產備料，但並未有異常堆積或備料過剩的跡象。</li>
+</ul>
+<h3>資本支出</h3>
+<ul><li><strong>2024年：</strong> 宇隆於2024年第三季開始加大設備資本支出，台中新廠已於2024年落成。</li>
+<li><strong>2026年：</strong> 公司預計2026年資本支出將創新高，除了台灣擴產外，也將增加北美產能。</li>
+<li><strong>長期佈局：</strong> 子公司浙江宇鑽精密元件公司規劃興建新廠（預算人民幣2.3億元），並籌備浙江嘉善新廠（土地擴增至70畝，預計2027年完工啟用，用於生產車用、醫療和減速機），顯示公司正為長期成長進行產能擴充。</li>
+</ul>
+<h2>股權異動</h2>
+<ul><li><strong>申報轉讓：</strong> 近期未發現董監事/大股東申報轉讓紀錄。</li>
+<li><strong>庫藏股：</strong> 近期未發現庫藏股買回紀錄。</li>
+<li><strong>可轉債：</strong> 宇隆於2025年11月05日公告，將發行上限13億元的國內第一次無擔保轉換公司債(CB)，以因應未來發展需求。</li>
+<li><strong>增減資：</strong> 近期未發現現金增資或減資計畫。</li>
+<li><strong>股利政策：</strong> 2026年3月4日董事會通過2025年度擬發放現金股利新台幣4.0000元。2025年7月30日曾發放2024年度現金股利7元，殖利率為3.91%。近五年平均現金股利5.49元，平均現金殖利率4.26%。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>市場規模與成長趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>產業類別</th><th>2025年市場規模 (億美元)</th><th>2026年市場規模 (億美元)</th><th>2030/2035年預估 (億美元)</th><th>CAGR (2026-2035) (%)</th></tr></thead><tbody>
+<tr><td>全球精密零件</td><td>2318.3</td><td>2514.6</td><td>3472.4 (2030)</td><td>8.4-13.2</td></tr>
+<tr><td>全球汽車零部件</td><td>-</td><td>4530</td><td>-</td><td>-</td></tr>
+<tr><td>全球電動車零件</td><td>2392.5</td><td>2749.3</td><td>4942.5 (2030)</td><td>14.9-15.8</td></tr>
+<tr><td>全球工業自動化</td><td>2152</td><td>2336</td><td>5333.1 (2035)</td><td>9.5</td></tr>
+<tr><td>全球減速機</td><td>-</td><td>160</td><td>312.2 (2035)</td><td>8.7</td></tr>
+<tr><td>全球精密減速機 (機器人)</td><td>31.1</td><td>32.9</td><td>54.2 (2035)</td><td>5.7</td></tr>
+</tbody></table></div>
+
+<strong>供需狀況：</strong>
+<ul><li><strong>汽車零組件：</strong> 全球汽車銷量成長停滯，尤其燃油車轉電動化帶來供應鏈重塑與競爭加劇。但ADAS與智慧網聯功能需求持續增加，電動車零件市場高速成長。</li>
+<li><strong>工業自動化與減速機：</strong> 智慧製造、工業4.0與機器人自動化普及，帶動自動化組件、感測器及精密減速機需求強勁。工業機器人產量顯著增長，特別是機器人減速器需求水漲船高。</li>
+</ul>
+<strong>產業平均毛利率：</strong>
+<ul><li>汽車零部件板塊2024年毛利率為17.68%，2025年Q1為17.63%。中國汽車製造業毛利率更低，顯示競爭激烈。精密零件市場面臨原材料價格波動挑戰。</li>
+</ul>
+<h3>競爭格局</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>領域</th><th>主要廠商 (市佔率/特性)</th><th>宇隆定位與競爭策略</th></tr></thead><tbody>
+<tr><td><strong>汽車零組件</strong></td><td>Bosch (543.7億美元, 1st), Denso (479億美元, 2nd), Magna (428.36億美元, 3rd) 等Tier 1大廠。市場集中度低，企業眾多。</td><td>作為Tier 2供應商，憑藉精密加工技術與Tier 1大廠合作，穩固原有市場。轉向燃料電池、ADAS等新能源與智慧化領域零件開發。</td></tr>
+<tr><td><strong>精密減速機</strong></td><td>Nabtesco (約60%), Harmonic Drive Systems Inc. (HDSI, 約15%, 其中諧波減速機佔85%)。日本廠商主導市場，技術門檻高。</td><td>自有品牌「TUF ONE」已開發出微型行星、RV、諧波減速機，性能與日系競品媲美，積極切入協作型、人形機器人、eVTOL等新興應用，挑戰市場寡佔局面。與信邦策略合作，模組化切入市場。</td></tr>
+<tr><td><strong>台灣同業</strong></td><td>台灣精銳 (4583-TW)、鈞興-KY (4571-TW) 等。台灣廠商普遍面臨全球供應鏈在地化，需分散市場並發展高附加價值產品。</td><td>積極佈局海外生產基地（墨西哥、嘉善新廠），提升競爭力。透過發展TUF ONE減速機等高毛利產品，與傳統汽車零件同業差異化競爭，提升產業地位。</td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢與影響</h3>
+<li><strong>電動化與智慧化 (EV &amp; ADAS)：</strong> 電動車零件市場CAGR達14.9%-15.8%，ADAS、燃料電池等電子零組件需求增加。</li>
+<p>*   <strong>宇隆機會：</strong> 在燃料電池、ADAS相關零件的佈局將迎來成長，電動車輕量化也符合精密加工需求。</p>
+<p>*   <strong>宇隆威脅：</strong> 燃油車零件需求可能受衝擊，需加速轉型。</p>
+<li><strong>工業4.0、智慧製造與機器人自動化 (AI &amp; Robotics)：</strong> 全球工業自動化市場CAGR超過9.5%，機器人減速器需求強勁。人形機器人與協作機器人對小型化、高精度減速機需求激增。</li>
+<p>*   <strong>宇隆機會：</strong> 自有品牌TUF ONE減速機直接受惠於機器人自動化浪潮，已導入多種機器人平台，預期2026年將放量。AI伺服器液冷快接頭 (UQD) 需求爆發。</p>
+<p>*   <strong>宇隆威脅：</strong> 技術迭代快速，日系大廠仍具主導地位，競爭激烈。</p>
+<li><strong>小型化與高精度要求：</strong> 各產業對關鍵組件的尺寸公差與小型化要求日益提高。</li>
+<p>*   <strong>宇隆機會：</strong> 宇隆在精密金屬加工的核心能力使其能滿足市場對更精細、公差更嚴格零件的需求。</p>
+
+<h2>近期催化劑 (2025年12月至2026年3月)</h2>
+<ul><li><strong>2026年03月04日 股利政策：</strong> 董事會通過2025年度擬發放現金股利新台幣4.0000元。</li>
+<li><strong>2026年02月26日 股價表現：</strong> 股價上揚3%，特定買盤進駐，顯示市場樂觀期待。</li>
+<li><strong>2026年02月22日 營收符合預期：</strong> 2026年1月營收2.7億元，月增5.9%、年減3%，符合預期，主要受惠車用訂單增加。</li>
+<li><strong>2026年02月09日 醫療業務新商機：</strong> 積極佈局GLP-1減肥藥供應鏈，受惠專利到期商機。</li>
+<li><strong>2026年02月03日 人形機器人與營收展望：</strong> 正式進軍人形機器人，預估2026年全年營收雙位數成長。車用、自行車與UQD三大業務動能轉強，春節期間產線加班。</li>
+<li><strong>2026年01月30日 機器人減速機題材：</strong> 股價勁揚至280元，受惠伸興集團機器人與eVTOL減速機佈局，宇隆營收結構朝高毛利轉型。</li>
+<li><strong>2026年01月21日 擴廠計畫：</strong> 公告子公司浙江宇鑽精密元件新廠營建工程預算人民幣2.3億元，因應未來產能需求。</li>
+<li><strong>2026年01月16日 資本支出增加：</strong> 計劃發債擴大資本支出，因應訂單量增加。</li>
+<li><strong>2026年01月13日 AI/機器人減速機題材：</strong> 股價勁揚，因減速機產品切入協作型、人形機器人及eVTOL等新興領域，搭上AI與智慧製造趨勢，法人持續加碼。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>成長動能</th><th>具體內容</th><th>預計時間點</th></tr></thead><tbody>
+<tr><td><strong>新產品量產</strong></td><td><strong>E-Bike後驅輪轂馬達零件：</strong> 與德國Bosch合作開發，預計於2025年9月開始量產出貨。</td><td>2025年Q3末</td></tr>
+<tr><td></td><td><strong>AI伺服器液冷快接頭 (UQD/NVQD)：</strong> 預計於2025年Q3末至Q4初（約9-10月）開始量產。輝達GB200/GB300伺服器驗證通過，預期2026年下半年逐步放量，每個GB200機櫃需144顆UQD，GB300機櫃需216顆NVQD。</td><td>2025年Q3末起，2026年H2放量</td></tr>
+<tr><td></td><td><strong>人形機器人減速機 (TUF ONE)：</strong> 減速機系列產品已導入協作型、人形機器人、機器狗、eVTOL等平台，進入實測階段。公司預期2026年減速機事業將進入量產週期，成為營收成長動能主力。2026年營運重心從「產品被看見」轉向「產品開始放量」，佔營業額雙位數比重。</td><td>2026年起量產</td></tr>
+<tr><td><strong>新客戶/市場</strong></td><td><strong>人形機器人市場：</strong> 已打入各種人形、動物型機器人供應鏈，TUF ONE諧波減速機獲國際大廠認可。</td><td>持續拓展</td></tr>
+<tr><td></td><td><strong>低空經濟 (eVTOL)：</strong> TUF One行星減速機已應用於電動垂直起降飛行器。</td><td>持續拓展</td></tr>
+<tr><td></td><td><strong>策略合作：</strong> 與信邦（3023）簽署策略合作備忘錄，以「模組化形式」切入機器人、無人機等市場，縮短客戶導入時間。外傳不排除與鴻海（2317）等合作。</td><td>已啟動</td></tr>
+<tr><td></td><td><strong>醫療客戶：</strong> 台中新廠將導入全球前五大手術器械耗材廠的新醫療客戶，預期2025年開始小量交貨 (2024年11月15日資訊 ⚠️過時)。</td><td>2025年起</td></tr>
+<tr><td><strong>擴廠與產能</strong></td><td><strong>台中新廠：</strong> 已於2024年落成，全力支應未來機器人所需產能，預計2026年帶來明顯貢獻 (2025年06月27日資訊 ⚠️過時)。</td><td>2024年已落成</td></tr>
+<tr><td></td><td><strong>浙江嘉善新廠：</strong> 土地面積由60畝擴增至70畝，預計2027年完工啟用，用於生產車用、醫療和減速機。</td><td>2027年完工</td></tr>
+<tr><td></td><td><strong>墨西哥減速機產線：</strong> 規劃設立，目標是使2026年減速機業績翻倍成長。</td><td>2026年起</td></tr>
+<tr><td></td><td><strong>資本支出：</strong> 2026年資本支出將創新高，除台灣外，將增加北美產能 (2025年11月05日資訊 ⚠️過時)。2026年1月16日已發債擴大資本支出以應對訂單增加。</td><td>2026年</td></tr>
+<tr><td><strong>需求面</strong></td><td><strong>人形機器人：</strong> 輝達、特斯拉等龍頭看好人形機器人為下一個數兆美元產業。特斯拉馬斯克預計2027年Optimus產量上看50萬台。</td><td>2026年起需求爆發</td></tr>
+<tr><td></td><td><strong>AI伺服器液冷快接頭 (UQD)：</strong> GB200/GB300伺服器需求推動，預計2026年下半年逐步放量。</td><td>2026年H2</td></tr>
+<tr><td></td><td><strong>自行車產業：</strong> 庫存去化後，中高階車款訂單回流優於預期。E-Bike市場需求強勁。</td><td>2025年Q4起回溫</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+<li><strong>AI伺服器液冷快接頭 (UQD/NVQD) 貢獻顯著：</strong> 輝達GB200/GB300伺服器驗證通過並預計2026年下半年放量，單機櫃高用量將推動UQD業務進入成長起飛期，成為重要營收與獲利動能。</li>
+<li><strong>人形機器人減速機 (TUF ONE) 大爆發：</strong> 公司自有品牌減速機產品已進入量產週期，切入協作型、人形機器人、機器狗及eVTOL等高成長應用，管理層預期2026年減速機事業將佔營業額雙位數比重，實現從「被看見」到「放量」的轉變。</li>
+<li><strong>車用與E-Bike業務回溫：</strong> 汽車零組件在客戶訂單「迅猛」成長帶動下將重拾動能。E-Bike後驅輪轂馬達與Bosch合作於2025年Q3末量產，將顯著貢獻自行車業務，預計其營收佔比將提升。</li>
+<li><strong>全球化產能佈局：</strong> 墨西哥廠規劃設立減速機產線，嘉善新廠持續擴建，配合台灣廠，形成全球多點生產，降低地緣政治風險並貼近客戶。</li>
+<li><strong>策略合作與模組化服務：</strong> 與信邦等夥伴合作，以模組化形式切入市場，有助於縮短客戶導入時間，加速新興業務滲透。</li>
+
+<h3>風險</h3>
+<li><strong>新業務放量不及預期：</strong> 人形機器人、UQD等新興業務的實際出貨量和客戶導入速度，可能與管理層的樂觀預期存在時間差。</li>
+<li><strong>競爭加劇：</strong> 減速機市場由日系大廠主導，宇隆的TUF ONE產品雖具競爭力，但仍需面對強大對手的競爭壓力。</li>
+<li><strong>總體經濟與產業逆風：</strong> 汽車產業轉型仍有不確定性，醫療業務亦可能受客戶庫存調整影響，若全球經濟下行，可能影響整體需求。</li>
+<li><strong>匯率與原材料價格波動：</strong> 作為精密金屬加工業，匯率波動與原材料成本上漲可能壓縮毛利率。</li>
+<li><strong>高資本支出壓力：</strong> 擴廠與新產品開發初期，高額資本支出可能對短期獲利能力造成壓力。</li>
+
+<h2>投資結論</h2>
+<p>綜合以上分析，宇隆 (2233) 雖然在2025年面臨短期獲利挑戰，但其在核心競爭力的基礎上，積極佈局高成長性新興業務，正迎來重要的轉型與成長契機。</p>
+
+<li><strong>成長動能強勁：</strong> 2026年AI伺服器液冷快接頭(UQD/NVQD)與人形機器人減速機(TUF ONE)將進入放量階段，預期成為營收與獲利的主要驅動力。管理層預期2026年營收將有雙位數成長，此展望具備達成潛力。</li>
+<li><strong>產品結構優化：</strong> 公司積極降低傳統汽車業務比重，轉向高附加價值的工業應用、E-Bike及AI伺服器散熱，有助於改善整體毛利率和獲利能力。</li>
+<li><strong>全球產能擴張：</strong> 台灣、中國嘉善及墨西哥的策略性擴廠計劃，將為未來數年的成長提供堅實的產能基礎，並強化區域供應鏈韌性。</li>
+<li><strong>長期趨勢受益者：</strong> 宇隆精準切入AI、機器人、電動車等長期成長趨勢，作為關鍵零組件供應商，有望分享這些兆元級市場的紅利。</li>
+
+<p>考量宇隆在2026年的明確成長動能與新業務的獲利潛力，結合券商平均目標價320元，我們建議投資人可關注其2026年的營收與獲利表現。</p>
+
+<strong>目標價區間建議：290元至330元</strong>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 12:58</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2233_宇隆_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2233_宇隆_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2233_宇隆_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

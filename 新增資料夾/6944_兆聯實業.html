@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6944 兆聯實業 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>6944 兆聯實業 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>兆聯實業（6944）為高科技水資源系統統包工程領導者，受惠全球半導體先進製程擴產及海外建廠動能，在手訂單已創新高逾234.6億元。公司積極拓展海外市場（美國、新加坡營收貢獻顯著成長），並切入AI伺服器液冷監控方案，預計2026年營運將持續維持高成長軌跡，法人預估EPS有望達34.77~38.01元。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">6944 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-6944" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-6944" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-6944');
+    var obvContainer = document.getElementById('obv-chart-6944');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 585.0, "high": 614.0, "low": 581.0, "close": 587.0}, {"time": "2025-12-05", "open": 593.0, "high": 613.0, "low": 590.0, "close": 601.0}, {"time": "2025-12-08", "open": 605.0, "high": 620.0, "low": 600.0, "close": 616.0}, {"time": "2025-12-09", "open": 605.0, "high": 620.0, "low": 600.0, "close": 616.0}, {"time": "2025-12-10", "open": 623.0, "high": 645.0, "low": 611.0, "close": 637.0}, {"time": "2025-12-11", "open": 640.0, "high": 668.0, "low": 626.0, "close": 627.0}, {"time": "2025-12-12", "open": 643.0, "high": 655.0, "low": 630.0, "close": 636.0}, {"time": "2025-12-15", "open": 625.0, "high": 656.0, "low": 625.0, "close": 654.0}, {"time": "2025-12-16", "open": 664.0, "high": 678.0, "low": 653.0, "close": 678.0}, {"time": "2025-12-17", "open": 686.0, "high": 724.0, "low": 682.0, "close": 706.0}, {"time": "2025-12-18", "open": 705.0, "high": 707.0, "low": 675.0, "close": 683.0}, {"time": "2025-12-19", "open": 696.0, "high": 708.0, "low": 682.0, "close": 708.0}, {"time": "2025-12-22", "open": 714.0, "high": 719.0, "low": 682.0, "close": 684.0}, {"time": "2025-12-23", "open": 690.0, "high": 692.0, "low": 674.0, "close": 684.0}, {"time": "2025-12-24", "open": 696.0, "high": 696.0, "low": 681.0, "close": 685.0}, {"time": "2025-12-26", "open": 690.0, "high": 719.0, "low": 685.0, "close": 710.0}, {"time": "2025-12-29", "open": 714.0, "high": 716.0, "low": 689.0, "close": 693.0}, {"time": "2025-12-30", "open": 694.0, "high": 694.0, "low": 680.0, "close": 691.0}, {"time": "2025-12-31", "open": 694.0, "high": 714.0, "low": 682.0, "close": 692.0}, {"time": "2026-01-02", "open": 693.0, "high": 709.0, "low": 693.0, "close": 699.0}, {"time": "2026-01-05", "open": 715.0, "high": 725.0, "low": 696.0, "close": 703.0}, {"time": "2026-01-06", "open": 702.0, "high": 732.0, "low": 699.0, "close": 727.0}, {"time": "2026-01-07", "open": 739.0, "high": 745.0, "low": 718.0, "close": 735.0}, {"time": "2026-01-08", "open": 747.0, "high": 765.0, "low": 733.0, "close": 733.0}, {"time": "2026-01-09", "open": 738.0, "high": 742.0, "low": 724.0, "close": 726.0}, {"time": "2026-01-12", "open": 753.0, "high": 774.0, "low": 726.0, "close": 740.0}, {"time": "2026-01-13", "open": 770.0, "high": 784.0, "low": 742.0, "close": 770.0}, {"time": "2026-01-14", "open": 776.0, "high": 795.0, "low": 770.0, "close": 785.0}, {"time": "2026-01-15", "open": 779.0, "high": 779.0, "low": 752.0, "close": 767.0}, {"time": "2026-01-16", "open": 794.0, "high": 803.0, "low": 732.0, "close": 732.0}, {"time": "2026-01-19", "open": 730.0, "high": 764.0, "low": 722.0, "close": 759.0}, {"time": "2026-01-20", "open": 742.0, "high": 783.0, "low": 742.0, "close": 756.0}, {"time": "2026-01-21", "open": 752.0, "high": 754.0, "low": 733.0, "close": 734.0}, {"time": "2026-01-22", "open": 749.0, "high": 752.0, "low": 727.0, "close": 737.0}, {"time": "2026-01-23", "open": 740.0, "high": 760.0, "low": 739.0, "close": 748.0}, {"time": "2026-01-26", "open": 752.0, "high": 755.0, "low": 732.0, "close": 733.0}, {"time": "2026-01-27", "open": 734.0, "high": 739.0, "low": 720.0, "close": 720.0}, {"time": "2026-01-28", "open": 727.0, "high": 739.0, "low": 727.0, "close": 729.0}, {"time": "2026-01-29", "open": 733.0, "high": 738.0, "low": 720.0, "close": 721.0}, {"time": "2026-01-30", "open": 724.0, "high": 724.0, "low": 698.0, "close": 698.0}, {"time": "2026-02-02", "open": 703.0, "high": 707.0, "low": 677.0, "close": 691.0}, {"time": "2026-02-03", "open": 706.0, "high": 709.0, "low": 692.0, "close": 704.0}, {"time": "2026-02-04", "open": 700.0, "high": 702.0, "low": 691.0, "close": 693.0}, {"time": "2026-02-05", "open": 685.0, "high": 693.0, "low": 676.0, "close": 678.0}, {"time": "2026-02-06", "open": 671.0, "high": 687.0, "low": 658.0, "close": 677.0}, {"time": "2026-02-09", "open": 690.0, "high": 704.0, "low": 682.0, "close": 697.0}, {"time": "2026-02-10", "open": 677.0, "high": 685.0, "low": 655.0, "close": 667.0}, {"time": "2026-02-11", "open": 676.0, "high": 691.0, "low": 668.0, "close": 677.0}, {"time": "2026-02-23", "open": 685.0, "high": 713.0, "low": 679.0, "close": 685.0}, {"time": "2026-02-24", "open": 695.0, "high": 703.0, "low": 687.0, "close": 701.0}, {"time": "2026-02-25", "open": 704.0, "high": 742.0, "low": 704.0, "close": 728.0}, {"time": "2026-02-26", "open": 738.0, "high": 774.0, "low": 726.0, "close": 766.0}, {"time": "2026-03-02", "open": 699.0, "high": 705.0, "low": 663.0, "close": 667.0}, {"time": "2026-03-03", "open": 737.0, "high": 742.0, "low": 716.0, "close": 718.0}, {"time": "2026-03-04", "open": 699.0, "high": 705.0, "low": 663.0, "close": 667.0}, {"time": "2026-03-05", "open": 690.0, "high": 733.0, "low": 690.0, "close": 733.0}, {"time": "2026-03-06", "open": 740.0, "high": 765.0, "low": 739.0, "close": 752.0}, {"time": "2026-03-09", "open": 694.0, "high": 712.0, "low": 678.0, "close": 690.0}, {"time": "2026-03-10", "open": 741.0, "high": 750.0, "low": 716.0, "close": 727.0}, {"time": "2026-03-11", "open": 745.0, "high": 761.0, "low": 740.0, "close": 743.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 1563.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 1724.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 1442.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 1442.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 2408.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 2525.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 1175.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 1194.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 1917.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 3254.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 1634.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 1499.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 1023.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 578.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 388.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 1051.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 625.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 548.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 954.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 445.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 1188.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 1532.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 950.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 1151.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 612.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 1244.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 2388.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 1197.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 1179.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 2619.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 1017.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 1004.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 833.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 714.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 812.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 549.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 639.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 490.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 438.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 1092.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 777.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 384.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 387.0, "color": "#26a69a"}, {"time": "2026-02-05", "value": 487.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 519.0, "color": "#ef5350"}, {"time": "2026-02-09", "value": 502.0, "color": "#ef5350"}, {"time": "2026-02-10", "value": 1776.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 718.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 1072.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 374.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 972.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 1456.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 1228.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 710.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 1228.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 1099.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 1783.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 979.0, "color": "#26a69a"}, {"time": "2026-03-10", "value": 961.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 830.0, "color": "#26a69a"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 611.4}, {"time": "2025-12-11", "value": 619.4}, {"time": "2025-12-12", "value": 626.4}, {"time": "2025-12-15", "value": 634.0}, {"time": "2025-12-16", "value": 646.4}, {"time": "2025-12-17", "value": 660.2}, {"time": "2025-12-18", "value": 671.4}, {"time": "2025-12-19", "value": 685.8}, {"time": "2025-12-22", "value": 691.8}, {"time": "2025-12-23", "value": 693.0}, {"time": "2025-12-24", "value": 688.8}, {"time": "2025-12-26", "value": 694.2}, {"time": "2025-12-29", "value": 691.2}, {"time": "2025-12-30", "value": 692.6}, {"time": "2025-12-31", "value": 694.2}, {"time": "2026-01-02", "value": 697.0}, {"time": "2026-01-05", "value": 695.6}, {"time": "2026-01-06", "value": 702.4}, {"time": "2026-01-07", "value": 711.2}, {"time": "2026-01-08", "value": 719.4}, {"time": "2026-01-09", "value": 724.8}, {"time": "2026-01-12", "value": 732.2}, {"time": "2026-01-13", "value": 740.8}, {"time": "2026-01-14", "value": 750.8}, {"time": "2026-01-15", "value": 757.6}, {"time": "2026-01-16", "value": 758.8}, {"time": "2026-01-19", "value": 762.6}, {"time": "2026-01-20", "value": 759.8}, {"time": "2026-01-21", "value": 749.6}, {"time": "2026-01-22", "value": 743.6}, {"time": "2026-01-23", "value": 746.8}, {"time": "2026-01-26", "value": 741.6}, {"time": "2026-01-27", "value": 734.4}, {"time": "2026-01-28", "value": 733.4}, {"time": "2026-01-29", "value": 730.2}, {"time": "2026-01-30", "value": 720.2}, {"time": "2026-02-02", "value": 711.8}, {"time": "2026-02-03", "value": 708.6}, {"time": "2026-02-04", "value": 701.4}, {"time": "2026-02-05", "value": 692.8}, {"time": "2026-02-06", "value": 688.6}, {"time": "2026-02-09", "value": 689.8}, {"time": "2026-02-10", "value": 682.4}, {"time": "2026-02-11", "value": 679.2}, {"time": "2026-02-23", "value": 680.6}, {"time": "2026-02-24", "value": 685.4}, {"time": "2026-02-25", "value": 691.6}, {"time": "2026-02-26", "value": 711.4}, {"time": "2026-03-02", "value": 709.4}, {"time": "2026-03-03", "value": 716.0}, {"time": "2026-03-04", "value": 709.2}, {"time": "2026-03-05", "value": 710.2}, {"time": "2026-03-06", "value": 707.4}, {"time": "2026-03-09", "value": 712.0}, {"time": "2026-03-10", "value": 713.8}, {"time": "2026-03-11", "value": 729.0}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 635.8}, {"time": "2025-12-18", "value": 645.4}, {"time": "2025-12-19", "value": 656.1}, {"time": "2025-12-22", "value": 662.9}, {"time": "2025-12-23", "value": 669.7}, {"time": "2025-12-24", "value": 674.5}, {"time": "2025-12-26", "value": 682.8}, {"time": "2025-12-29", "value": 688.5}, {"time": "2025-12-30", "value": 692.2}, {"time": "2025-12-31", "value": 693.6}, {"time": "2026-01-02", "value": 692.9}, {"time": "2026-01-05", "value": 694.9}, {"time": "2026-01-06", "value": 696.8}, {"time": "2026-01-07", "value": 701.9}, {"time": "2026-01-08", "value": 706.8}, {"time": "2026-01-09", "value": 710.9}, {"time": "2026-01-12", "value": 713.9}, {"time": "2026-01-13", "value": 721.6}, {"time": "2026-01-14", "value": 731.0}, {"time": "2026-01-15", "value": 738.5}, {"time": "2026-01-16", "value": 741.8}, {"time": "2026-01-19", "value": 747.4}, {"time": "2026-01-20", "value": 750.3}, {"time": "2026-01-21", "value": 750.2}, {"time": "2026-01-22", "value": 750.6}, {"time": "2026-01-23", "value": 752.8}, {"time": "2026-01-26", "value": 752.1}, {"time": "2026-01-27", "value": 747.1}, {"time": "2026-01-28", "value": 741.5}, {"time": "2026-01-29", "value": 736.9}, {"time": "2026-01-30", "value": 733.5}, {"time": "2026-02-02", "value": 726.7}, {"time": "2026-02-03", "value": 721.5}, {"time": "2026-02-04", "value": 717.4}, {"time": "2026-02-05", "value": 711.5}, {"time": "2026-02-06", "value": 704.4}, {"time": "2026-02-09", "value": 700.8}, {"time": "2026-02-10", "value": 695.5}, {"time": "2026-02-11", "value": 690.3}, {"time": "2026-02-23", "value": 686.7}, {"time": "2026-02-24", "value": 687.0}, {"time": "2026-02-25", "value": 690.7}, {"time": "2026-02-26", "value": 696.9}, {"time": "2026-03-02", "value": 694.3}, {"time": "2026-03-03", "value": 698.3}, {"time": "2026-03-04", "value": 697.3}, {"time": "2026-03-05", "value": 700.9}, {"time": "2026-03-06", "value": 709.4}, {"time": "2026-03-09", "value": 710.7}, {"time": "2026-03-10", "value": 714.9}, {"time": "2026-03-11", "value": 719.1}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 664.35}, {"time": "2026-01-05", "value": 670.15}, {"time": "2026-01-06", "value": 676.45}, {"time": "2026-01-07", "value": 682.4}, {"time": "2026-01-08", "value": 688.25}, {"time": "2026-01-09", "value": 692.7}, {"time": "2026-01-12", "value": 698.35}, {"time": "2026-01-13", "value": 705.05}, {"time": "2026-01-14", "value": 711.6}, {"time": "2026-01-15", "value": 716.05}, {"time": "2026-01-16", "value": 717.35}, {"time": "2026-01-19", "value": 721.15}, {"time": "2026-01-20", "value": 723.55}, {"time": "2026-01-21", "value": 726.05}, {"time": "2026-01-22", "value": 728.7}, {"time": "2026-01-23", "value": 731.85}, {"time": "2026-01-26", "value": 733.0}, {"time": "2026-01-27", "value": 734.35}, {"time": "2026-01-28", "value": 736.25}, {"time": "2026-01-29", "value": 737.7}, {"time": "2026-01-30", "value": 737.65}, {"time": "2026-02-02", "value": 737.05}, {"time": "2026-02-03", "value": 735.9}, {"time": "2026-02-04", "value": 733.8}, {"time": "2026-02-05", "value": 731.05}, {"time": "2026-02-06", "value": 728.6}, {"time": "2026-02-09", "value": 726.45}, {"time": "2026-02-10", "value": 721.3}, {"time": "2026-02-11", "value": 715.9}, {"time": "2026-02-23", "value": 711.8}, {"time": "2026-02-24", "value": 710.25}, {"time": "2026-02-25", "value": 708.7}, {"time": "2026-02-26", "value": 709.2}, {"time": "2026-03-02", "value": 705.85}, {"time": "2026-03-03", "value": 704.9}, {"time": "2026-03-04", "value": 700.85}, {"time": "2026-03-05", "value": 700.85}, {"time": "2026-03-06", "value": 702.45}, {"time": "2026-03-09", "value": 700.5}, {"time": "2026-03-10", "value": 700.8}, {"time": "2026-03-11", "value": 703.05}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 1724.0}, {"time": "2025-12-08", "value": 3166.0}, {"time": "2025-12-09", "value": 3166.0}, {"time": "2025-12-10", "value": 5574.0}, {"time": "2025-12-11", "value": 3049.0}, {"time": "2025-12-12", "value": 4224.0}, {"time": "2025-12-15", "value": 5418.0}, {"time": "2025-12-16", "value": 7335.0}, {"time": "2025-12-17", "value": 10589.0}, {"time": "2025-12-18", "value": 8955.0}, {"time": "2025-12-19", "value": 10454.0}, {"time": "2025-12-22", "value": 9431.0}, {"time": "2025-12-23", "value": 9431.0}, {"time": "2025-12-24", "value": 9819.0}, {"time": "2025-12-26", "value": 10870.0}, {"time": "2025-12-29", "value": 10245.0}, {"time": "2025-12-30", "value": 9697.0}, {"time": "2025-12-31", "value": 10651.0}, {"time": "2026-01-02", "value": 11096.0}, {"time": "2026-01-05", "value": 12284.0}, {"time": "2026-01-06", "value": 13816.0}, {"time": "2026-01-07", "value": 14766.0}, {"time": "2026-01-08", "value": 13615.0}, {"time": "2026-01-09", "value": 13003.0}, {"time": "2026-01-12", "value": 14247.0}, {"time": "2026-01-13", "value": 16635.0}, {"time": "2026-01-14", "value": 17832.0}, {"time": "2026-01-15", "value": 16653.0}, {"time": "2026-01-16", "value": 14034.0}, {"time": "2026-01-19", "value": 15051.0}, {"time": "2026-01-20", "value": 14047.0}, {"time": "2026-01-21", "value": 13214.0}, {"time": "2026-01-22", "value": 13928.0}, {"time": "2026-01-23", "value": 14740.0}, {"time": "2026-01-26", "value": 14191.0}, {"time": "2026-01-27", "value": 13552.0}, {"time": "2026-01-28", "value": 14042.0}, {"time": "2026-01-29", "value": 13604.0}, {"time": "2026-01-30", "value": 12512.0}, {"time": "2026-02-02", "value": 11735.0}, {"time": "2026-02-03", "value": 12119.0}, {"time": "2026-02-04", "value": 11732.0}, {"time": "2026-02-05", "value": 11245.0}, {"time": "2026-02-06", "value": 10726.0}, {"time": "2026-02-09", "value": 11228.0}, {"time": "2026-02-10", "value": 9452.0}, {"time": "2026-02-11", "value": 10170.0}, {"time": "2026-02-23", "value": 11242.0}, {"time": "2026-02-24", "value": 11616.0}, {"time": "2026-02-25", "value": 12588.0}, {"time": "2026-02-26", "value": 14044.0}, {"time": "2026-03-02", "value": 12816.0}, {"time": "2026-03-03", "value": 13526.0}, {"time": "2026-03-04", "value": 12298.0}, {"time": "2026-03-05", "value": 13397.0}, {"time": "2026-03-06", "value": 15180.0}, {"time": "2026-03-09", "value": 14201.0}, {"time": "2026-03-10", "value": 15162.0}, {"time": "2026-03-11", "value": 15992.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>兆聯實業是一家專精於高科技產業水資源系統的統包工程服務公司，主要提供半導體、光電、封裝測試等高科技廠房的純水及廢水回收系統工程與維運服務。</p>
+
+<strong>核心產品與服務：</strong>
+<ul><li><strong>設計、施工、維運一條龍解決方案</strong>：涵蓋超純水系統建置、廢水回收與處理、水處理系統代操作（O&amp;M）、耗材清洗與更換服務（如RO膜、樹脂再生等）、特用化學品銷售。</li>
+<li><strong>再生水與海水淡化系統規劃工程</strong>：積極投入再生水廠與海水淡化廠業務，以擴大水資源循環利用技術應用。</li>
+<li><strong>AI伺服器液冷監控方案</strong>：與喬越集團合作，推出冷卻液過濾監控方案，針對AI伺服器散熱需求提供精準監控電導度、pH值與濁度的解決方案，有助於延長系統壽命並提升散熱效率。</li>
+</ul>
+<strong>營收結構（截至2025年第三季）：</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類型</th><th>佔營收比重</th></tr></thead><tbody>
+<tr><td>工程業務</td><td>80%</td></tr>
+<tr><td>服務業務</td><td>20%</td></tr>
+</tbody></table></div>
+
+<strong>製造基地與海外佈局：</strong>
+<ul><li><strong>台灣</strong>：總部設於桃園，在新竹、台南設有工廠與服務據點。</li>
+<li><strong>海外</strong>：設有中國子公司（上海、深圳辦公室、南京）、新加坡子公司（成立於2018年）及美國子公司（成立於2024年）。</li>
+</ul>    *   <strong>海外營收貢獻</strong>：海外營收佔比已由2024年約<strong>15%</strong>提升至2025年第二季約<strong>50%</strong>。
+<p>*   <strong>美國與新加坡</strong>：2025年營運成長主要來自於美國的營收貢獻，預計將是2026年最重要的成長來源之一。美國子公司目前已有約60名當地員工及百人以上的台灣外派團隊。</p>
+
+<strong>所屬細分產業與相關題材：</strong>
+<p>兆聯實業隸屬於<strong>綠能環保產業</strong>，細分產業為<strong>高科技水資源系統統包工程</strong>。</p>
+<ul><li><strong>半導體先進製程與先進封裝擴產</strong>：主要客戶為台積電(2330-TW)，受惠全球高階晶圓廠建廠動能及先進封裝製程對水處理需求大增。</li>
+<li><strong>水資源稀缺與循環經濟</strong>：提供純水循環再利用及工業廢水回收淨化服務，符合減少碳排及永續發展趨勢。</li>
+<li><strong>AI伺服器液冷散熱</strong>：切入AI機櫃液冷市場，提供冷卻液過濾監控方案。</li>
+<li><strong>海外擴廠商機</strong>：隨半導體客戶在全球（如美國、新加坡）擴廠，帶動其海外工程訂單成長。</li>
+</ul>
+<h2>核心競爭優勢</h2>
+
+<li><strong>高科技水處理統包能力</strong>：提供從設計、施工到維運的一條龍解決方案，尤其在半導體超純水與廢水回收處理領域經驗豐富，具備處理奈米級顆粒、高濃度廢水等高難度挑戰的能力。</li>
+<li><strong>與大客戶深度綁定</strong>：約七成業績來自某半導體大廠，顯示其在產業鏈中具備穩固的客戶關係與高度信任，可優先承接大型擴建專案。</li>
+<li><strong>全球化佈局與執行能力</strong>：在美國、新加坡等關鍵半導體擴廠地區設立據點並擴編團隊，能就近服務國際客戶，掌握海外建廠的巨大商機。</li>
+<li><strong>前瞻性技術應用</strong>：積極投入再生水、海水淡化，並及時切入AI伺服器液冷監控方案，展現公司在水資源和新興應用領域的技術創新與市場拓展能力。</li>
+<li><strong>高能見度訂單</strong>：截至2026年2月，在手訂單逾234.6億元，訂單能見度長達兩至三年，為未來營運提供堅實保障。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<strong>兆聯實業 (6944) 近期月合併營收</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>13.77</td><td>-31.64%</td><td>51.58%</td></tr>
+<tr><td>2025年12月</td><td>20.15</td><td>11.29%</td><td>73.11%</td></tr>
+<tr><td>2025年11月</td><td>18.10</td><td>18.26%</td><td>77.59%</td></tr>
+<tr><td>2025年10月</td><td>15.31</td><td>-21.39%</td><td>69.65%</td></tr>
+<tr><td>2025年09月</td><td>19.47</td><td>34.57%</td><td>101.51%</td></tr>
+<tr><td>2025年08月</td><td>14.47</td><td>4.01%</td><td>66.39%</td></tr>
+</tbody></table></div>
+
+<em>備註：2026年1月營收月減，主要反映台灣專案工程推進步調，但較去年同期仍有顯著成長。</em>
+
+<h3>季度數據</h3>
+<strong>兆聯實業 (6944) 2025年第三季關鍵財務數據</strong>
+<ul><li><strong>季營收</strong>：47.86 億元</li>
+<li><strong>毛利率</strong>：29.77%</li>
+<li><strong>營業利益率</strong>：17.0%</li>
+<li><strong>EPS</strong>：8.95 元</li>
+</ul>
+<h3>年度趨勢</h3>
+<strong>兆聯實業 (6944) 全年度營收與EPS</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>全年度營收 (億元)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2024</td><td>103</td><td>22.33</td></tr>
+<tr><td>2025</td><td>169.13 (累計至12月)</td><td>34.77 ~ 38.01 (法人預估)</td></tr>
+</tbody></table></div>
+
+<em>備註：2025年EPS法人機構平均預估介於34.77至38.01元之間 (截至2026年02月13日)。</em>
+
+<h2>法說會重點</h2>
+
+<strong>最近法說會與重點日期：</strong>
+<ul><li><strong>2026年03月18日</strong>：受邀參加富邦證券舉辦之法人說明會 (預計舉行)。</li>
+<li><strong>2025年12月04日</strong>：2025年第四季財報法說會。</li>
+</ul>
+<strong>管理層具體指引與發言：</strong>
+<ul><li><strong>在手訂單創新高</strong>：截至2026年02月02日，在手訂單已逾<strong>234.6億元</strong>，再創歷史新高（2025年10月法說會曾報告在手訂單突破222億元）。</li>
+<li><strong>訂單能見度</strong>：訂單能見度已延伸至未來兩至三年，為營運提供穩固基礎。</li>
+<li><strong>海外擴張成果</strong>：</li>
+</ul>    *   <strong>美國</strong>：美國子公司於2024年設立，目前已有約60名當地員工及百人以上台灣外派團隊。P2廢水處理工程已於2025年下半年開始入帳；年底啟動的第二廠工程預期將挹注2026年動能。
+<p>*   <strong>新加坡</strong>：世界先進建廠專案自2025年第二季起進入高峰，為2025年9月與第三季營收創高的關鍵。</p>
+<p>*   海外營收佔比已由2024年約<strong>15%</strong>提升至2025年第二季約<strong>50%</strong>。</p>
+<ul><li><strong>新成長動能</strong>：推出「液冷冷卻液回收監控方案」，應用於資料中心與AI伺服器冷卻系統，此方案列入服務營收範疇，預計是未來成長動能之一。</li>
+<li><strong>2026年展望</strong>：公司看好隨著美國、新加坡等海外業績成長挹注下，2026年展望維持正向。</li>
+</ul>    *   市場預估，兆聯2026年全年營收有望挑戰<strong>250億元</strong>。
+
+<h2>券商觀點</h2>
+
+<strong>兆聯實業 (6944) 目標價與評等</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (元)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>群益證券</td><td>740</td><td>買進</td><td>2025/11/07</td></tr>
+<tr><td>某券商 (理財寶)</td><td>620</td><td>買進</td><td>2025/11/11</td></tr>
+</tbody></table></div>
+
+<em>備註：上述目標價日期較早，最新報告未公開揭露。</em>
+
+<strong>兆聯實業 (6944) 法人EPS預估</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商/機構</th><th>年度</th><th>EPS預估 (元)</th><th>日期</th></tr></thead><tbody>
+<tr><td>群益證券</td><td>2025</td><td>30.79</td><td>2025/11/07</td></tr>
+<tr><td>群益證券</td><td>2026</td><td>37.98</td><td>2025/11/07</td></tr>
+<tr><td>某券商 (理財寶)</td><td>2025</td><td>30.6</td><td>2025/11/11</td></tr>
+<tr><td>某券商 (理財寶)</td><td>2026</td><td>37.99</td><td>2025/11/11</td></tr>
+<tr><td>法人機構平均預估</td><td>2025</td><td>34.77 ~ 38.01</td><td>2026/02/13</td></tr>
+</tbody></table></div>
+
+<strong>評等調整：</strong>
+<ul><li>法人機構對兆聯實業的獲利修正方向「由保守轉為樂觀」，2025年盈餘預估較上月調升逾<strong>兩成</strong> (2026/02/13)。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<strong>兆聯實業 (6944) 近期季度利潤率</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅前淨利率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2024年Q4</td><td>23.54%</td><td>19.25%</td><td>19.85%</td><td>15.69%</td></tr>
+<tr><td>2025年Q1</td><td>22.02%</td><td>17.38%</td><td>17.44%</td><td>13.79%</td></tr>
+<tr><td>2025年Q2</td><td>20.99%</td><td>17.86%</td><td>18.57%</td><td>13.69%</td></tr>
+<tr><td>2025年Q3</td><td>29.77%</td><td>17.0%</td><td>19.35%</td><td>14.27%</td></tr>
+</tbody></table></div>
+
+<em>備註：2025年Q3毛利率29.77%與營業利益率17.0%雙雙創歷史新高，顯示AI液冷等高毛利業務比重提升。</em>
+
+<strong>利潤率變化原因分析：</strong>
+<ul><li><strong>產品組合優化</strong>：2025年Q3毛利率與營益率大幅優於預期，主因AI液冷相關業務的超額利潤貢獻。法人看好2025年Q4液冷佔比將持續提升。</li>
+<li><strong>工程業務比重</strong>：2025年上半年，毛利率受到工資上漲、匯率波動及工程業務比重提升（工程業務毛利率約20%）影響，略有下降。但服務類業務毛利率約24%至28%，隨著服務業務（含液冷監控）的擴展，將有助於整體毛利率回溫。</li>
+</ul>
+<h3>資本支出與產能</h3>
+<strong>兆聯實業 (6944) 近期季度資本支出</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>資本支出 (千元)</th></tr></thead><tbody>
+<tr><td>2024年Q4</td><td>233,405</td></tr>
+<tr><td>2025年Q1</td><td>392,178</td></tr>
+<tr><td>2025年Q2</td><td>59,196</td></tr>
+<tr><td>2025年Q3</td><td>21,519</td></tr>
+</tbody></table></div>
+
+<strong>未來資本支出計畫與預計新增產能：</strong>
+<ul><li>公司持續進行海外擴張，2024年設立美國子公司，已承接P2廢水處理工程並預計於2025年下半年入帳；2024年底啟動的第二廠工程將挹注2026年動能。</li>
+<li>在新加坡，世界先進的建廠專案自2025年Q2起進入高峰。</li>
+<li>兆聯實業將持續以技術創新為核心，拓展新南向及美國市場，精進產品與系統升級、推動循環經濟工程，並加強垂直整合服務能力。</li>
+</ul>
+<strong>兆聯實業 (6944) 折舊攤銷趨勢</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>折舊 (千元)</th><th>攤銷 (千元)</th></tr></thead><tbody>
+<tr><td>2024年Q4</td><td>17,608</td><td>2,096</td></tr>
+<tr><td>2025年Q1</td><td>17,542</td><td>2,688</td></tr>
+<tr><td>2025年Q2</td><td>20,572</td><td>2,808</td></tr>
+<tr><td>2025年Q3</td><td>23,624</td><td>2,593</td></tr>
+</tbody></table></div>
+
+<h3>存貨與營運</h3>
+
+<strong>兆聯實業 (6944) 近期季度存貨及應收帳款週轉</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉次數</th><th>存貨週轉天數</th><th>應收帳款週轉次數</th><th>應收帳款週轉天數</th></tr></thead><tbody>
+<tr><td>2024年Q4</td><td>2.96</td><td>N/A</td><td>1.80</td><td>N/A</td></tr>
+<tr><td>2025年Q1</td><td>2.59</td><td>N/A</td><td>1.87</td><td>N/A</td></tr>
+<tr><td>2025年Q2</td><td>3.11</td><td>51.14</td><td>2.10</td><td>N/A</td></tr>
+<tr><td>2025年Q3</td><td>4.27</td><td>21.10</td><td>1.76</td><td>51.04</td></tr>
+</tbody></table></div>
+
+<em>備註：2025年Q3存貨週轉天數顯著下降至21.10天，營運效率提升。</em>
+<ul><li>目前未有兆聯實業存貨異常堆積或備料現象的具體資料。</li>
+</ul>
+<h3>其他財報重點</h3>
+<ul><li><strong>負債比率趨勢</strong>：</li>
+</ul>    *   2024年Q4：54.17%。
+<p>*   2025年Q1：52.42%。</p>
+<p>*   2025年Q2：51.82%。</p>
+<p>*   2025年Q3：47.45%，持續下降，顯示財務結構穩健。</p>
+<ul><li><strong>自由現金流量趨勢</strong>：</li>
+</ul>    *   22024年Q4：831,789千元。
+<p>*   2025年Q1：172,056千元。</p>
+<p>*   2025年Q2：-263,159千元。</p>
+<p>*   2025年Q3：575,982千元。</p>
+<p>*   2025年Q2出現負值後，Q3顯著回升，顯示現金流波動與工程進度認列有關。</p>
+<ul><li><strong>業外收支</strong>：2025年Q3業外損益合計為0.29億元，佔營業收入0.25%，佔比較小。海外專案的推進是重要的營收與獲利成長來源。</li>
+</ul>
+<h2>股權異動</h2>
+
+<h3>近期董監事/大股東申報轉讓紀錄</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>日期</th><th>申報人</th><th>身份</th><th>轉讓張數</th><th>轉讓方式</th></tr></thead><tbody>
+<tr><td>2026年03月02日</td><td>周志銘配偶</td><td>董事</td><td>300</td><td>贈與</td></tr>
+<tr><td>2025年03月03日</td><td>林宏恩</td><td>經理人</td><td>120</td><td>洽特定人</td></tr>
+<tr><td>2024年11月13日</td><td>吳秉融</td><td>經理人</td><td>150</td><td>洽特定人</td></tr>
+<tr><td>2024年08月14日</td><td>陳鏡廉配偶</td><td>經理人</td><td>350</td><td>洽特定人</td></tr>
+<tr><td>2024年08月13日</td><td>蕭雅婷</td><td>經理人</td><td>200</td><td>洽特定人</td></tr>
+<tr><td>2024年05月30日</td><td>鄧惟心</td><td>經理人</td><td>50</td><td>洽特定人</td></tr>
+</tbody></table></div>
+
+<em>備註：上述轉讓多為經理人或其配偶，且轉讓方式主要為洽特定人或贈與，需持續觀察是否有集中性轉讓或高階主管持股大幅變動。</em>
+
+<h3>其他股權異動</h3>
+<ul><li><strong>庫藏股買回</strong>：未找到2024-2026年兆聯實業庫藏股買回紀錄的最新資料。</li>
+<li><strong>可轉換公司債 (CB)</strong>：未找到2024-2026年兆聯實業發行可轉換公司債（CB）及轉換價格的最新資料。</li>
+<li><strong>增減資計畫</strong>：未找到2024-2026年兆聯實業現金增資或減資計畫的最新資料。</li>
+</ul>
+<h3>股利政策</h3>
+<strong>兆聯實業 (6944) 近期股利發放</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>現金股利 (元)</th><th>股票股利 (元)</th><th>除息日</th><th>發放日</th></tr></thead><tbody>
+<tr><td>2024</td><td>8.0</td><td>1.0</td><td>2024/07/12</td><td>2024/08/02</td></tr>
+<tr><td>2025</td><td>14.0</td><td>0</td><td>2025/07/11</td><td>2025/08/01</td></tr>
+</tbody></table></div>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與成長率</h3>
+<p>全球水處理市場預計在2026年達到約<strong>5,600億美元</strong>，年均增長率約為<strong>7.5%</strong>。聚焦於高科技產業相關細分市場：</p>
+
+<ul><li><strong>超純水市場 (Ultrapure Water Market)</strong>：</li>
+</ul>    *   預計從2025年的<strong>101.5億美元</strong>成長到2026年的<strong>109.6億美元</strong>，並預計在2026年至2035年間以約<strong>8.9%</strong>的複合年增長率（CAGR）成長，到2035年達到<strong>238.1億美元</strong>。
+<p>*   另有報告預計從2025年的<strong>26.5億美元</strong>成長到2026年的<strong>29.1億美元</strong>，並在2026年至2031年間以<strong>9.66%</strong>的CAGR成長，到2031年達到<strong>46.1億美元</strong>。</p>
+<p>*   半導體製造用超純水裝置市場預計到2031年將以<strong>6.7%</strong>的CAGR成長。</p>
+<ul><li><strong>工業廢水處理市場 (Industrial Wastewater Treatment Market)</strong>：</li>
+</ul>    *   預計從2025年的<strong>471.8億美元</strong>成長到2035年的<strong>614.7億美元</strong>，預計在2025年至2035年間的CAGR為<strong>2.68%</strong>。
+<p>*   另有報告指出，全球工業廢水處理市場規模在2024年約為<strong>3344.692億美元</strong>，預計2025年達到<strong>3505.237億美元</strong>，到2026年穩步增長至約<strong>3673.488億美元</strong>，到2035年進一步飆升至<strong>5601.834億美元</strong>，複合年增長率為<strong>4.8%</strong>。</p>
+<p>*   亞太地區在工業廢水處理市場中佔據<strong>41%</strong>的市場份額，北美佔<strong>24%</strong>，歐洲佔<strong>21%</strong>。</p>
+<ul><li><strong>水處理系統市場 (Water Treatment Systems Market)</strong>：</li>
+</ul>    *   預計從2025年的<strong>444億美元</strong>成長到2026年的<strong>476.4億美元</strong>，並在2026年至2035年間以超過<strong>8.1%</strong>的複合年增長率成長，預計到2035年將超過<strong>967.5億美元</strong>。
+
+<h3>供需狀況</h3>
+<p>全球高科技產業對水處理技術的需求正處於<strong>供不應求或需求持續強勁</strong>的階段，主要驅動因素為：</p>
+<ul><li><strong>半導體產業需求強勁</strong>：半導體製造廠對超純水和廢水回收處理的需求旺盛，兆聯實業及同業在2025年營收和在手訂單均呈現雙成長，並持續看好2026年。兆聯實業約七成業績來自某半導體大廠，其在美國持續規劃建廠將推升2026年接單量能。</li>
+<li><strong>水資源短缺與再生水需求</strong>：台灣等水資源匱乏地區積極導入閉環再利用系統。國土署預計2026年底達成全台再生水每日供應量<strong>28.5萬噸</strong>，以滿足高科技產業用水需求。</li>
+<li><strong>先進製程對超純水要求提高</strong>：7奈米以下的次世代邏輯與記憶體生產線，需要多個濕式清洗製程和嚴格的有機污染物限制（低於<strong>0.1ppb</strong>），超純水需求量是28奈米製程的<strong>6倍</strong>，推動整合型處理方案導入。</li>
+</ul>
+<h3>產業平均毛利率水準</h3>
+<p>針對高科技水資源系統統包工程服務的產業平均毛利率，目前未找到2024年以後的直接具體數據。一般而言，水務行業（公用事業型）的盈利模式相對穩定，但毛利率可能受政府補貼影響。兆聯實業在高科技廠務工程領域的毛利率，特別是服務業務（24%~28%）和AI液冷等高附加價值業務，預計將優於傳統公用事業型水務公司。</p>
+
+<h3>競爭格局</h3>
+<strong>全球主要工業廢水處理市場參與者：</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>國家</th><th>備註</th></tr></thead><tbody>
+<tr><td>維奧利亞 (Veolia)</td><td>法國</td><td>全球知名水務及廢物處理巨頭</td></tr>
+<tr><td>蘇伊士 (Suez)</td><td>法國</td><td>全球知名水務及廢物處理巨頭</td></tr>
+<tr><td>賽萊默 (Xylem)</td><td>美國</td><td>專注於水技術解決方案</td></tr>
+<tr><td>Evoqua水技術</td><td>美國</td><td>工業、市政水處理解決方案</td></tr>
+<tr><td>Aquatech國際</td><td>美國</td><td>工業水處理與海水淡化</td></tr>
+<tr><td>Pentair</td><td>美國</td><td>多元化工業集團，包含水處理產品與解決方案</td></tr>
+<tr><td>GE水與過程技術</td><td>美國</td><td>廣泛的水處理產品與服務</td></tr>
+<tr><td>栗田工業 (Kurita Water Industries)</td><td>日本</td><td>綜合水處理服務與化學品供應商</td></tr>
+<tr><td>Aqua-Aerobic系統</td><td>美國</td><td>專注於廢水處理技術</td></tr>
+</tbody></table></div>
+
+<em>備註：目前未找到2024年以後全球高科技水處理系統或超純水設備市場前五大公司及其市佔率的直接、具體數據。</em>
+
+<strong>兆聯實業 (6944) vs 主要競爭對手比較：</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>特性</th><th>兆聯實業 (6944)</th><th>國際大廠 (如Veolia, Suez, Kurita)</th></tr></thead><tbody>
+<tr><td><strong>技術</strong></td><td>專精高科技廠房（半導體）超純水與廢水回收一條龍方案；切入AI伺服器液冷監控方案。注重高精密、客製化。</td><td>更廣泛的全球佈局、技術組合，如膜技術、生物處理、智慧水務平台。可能在大型綜合項目、海水淡化有優勢。</td></tr>
+<tr><td><strong>客戶</strong></td><td>約七成業績來自某半導體大廠，客戶集中度高，但關係穩固。</td><td>客戶類型廣泛，包含市政、石化、電力等多元產業。</td></tr>
+<tr><td><strong>產能/訂單</strong></td><td>截至2025Q3在手訂單逾235億元，其中海外訂單約100億元。將在美國設立洗膜廠。</td><td>規模龐大，全球各地均有大型專案，產能和資源投入遠超專業廠。</td></tr>
+<tr><td><strong>市場定位</strong></td><td>高科技產業特定利基市場領導者，尤其是半導體領域。</td><td>綜合性水處理巨頭，覆蓋廣泛市場。</td></tr>
+</tbody></table></div>
+
+<strong>台灣同業比較（高科技廠務水處理相關）：</strong>
+<p>台灣同業主要為衛司特（6894）和山林水（8473），以及其他廠務工程公司如漢唐（2404）、聖暉（5536）等。</p>
+<ul><li><strong>兆聯實業 (6944)</strong>：2025年前三季營收115.57億元，年增60%。在手訂單達235億元，訂單能見度高。</li>
+<li><strong>衛司特 (6894)</strong>：2025年前11月合併營收12.48億元、年增43.86％。專注於貴金屬回收等。</li>
+<li><strong>山林水 (8473)</strong>：以高階水處理與生質能為雙引擎，對2026年營運抱持審慎樂觀態度。</li>
+<li><strong>整體而言</strong>：受半導體擴廠拉動，台灣水處理相關廠商在2025年均表現不俗，2026年展望正向。具體毛利率和EPS數據需參考各公司最新財報。</li>
+</ul>
+<h3>產業趨勢</h3>
+<li><strong>智能化與數位化 (AI、物聯網、大數據)</strong>：</li>
+<p>*   <strong>趨勢</strong>：AI、大數據和物聯網正變革水處理行業，實現水廠全生命週期的智慧化營運，優化工藝參數，實現預測性維護。</p>
+<p>*   <strong>具體影響</strong>：可實現全流程水質參數毫秒級採集與AI異常預警，提升效率，降低人工依賴，並預防樹脂飽和、膜污染等故障。</p>
+<li><strong>高效膜分離技術與再生水利用 (RO、UF、MBR、ZLD)</strong>：</li>
+<p>*   <strong>趨勢</strong>：反滲透（RO）、超濾（UF）、MBR等膜技術成本持續下降，零排放（ZLD）技術日趨成熟，是海水淡化、工業廢水回用和再生水製備的核心。</p>
+<p>*   <strong>具體影響</strong>：膜技術進步提高廢水處理效率，降低成本並改善資源回收。再生水已成為緩解水資源壓力的關鍵，應用範圍擴大。</p>
+<li><strong>綠色低碳運行與材料創新</strong>：</li>
+<p>*   <strong>趨勢</strong>：水處理系統向綠色低碳運行與材料創新方向演進，減少化學品消耗、廢液產生及能耗。</p>
+<p>*   <strong>具體影響</strong>：電容去離子（CDI）與石墨烯基吸附材料有望替代傳統耗材。能量回收裝置與變頻泵控技術顯著削減系統運行功耗。</p>
+
+<h3>對兆聯實業的具體機會和威脅</h3>
+<ul><li><strong>機會</strong>：</li>
+</ul>    *   <strong>半導體產業擴張</strong>：全球半導體景氣回升，2026年預計有18座新晶圓廠動工或投產，半導體設備資本支出將創歷史新高，直接帶動兆聯水處理系統需求。
+<p>*   <strong>海外市場拓展</strong>：海外訂單已約<strong>100億元</strong>，美國洗膜廠設立計畫進一步擴大海外營收貢獻。</p>
+<p>*   <strong>再生水與海水淡化業務</strong>：符合全球水資源短缺和永續發展趨勢，有望擴大業務範圍。</p>
+<p>*   <strong>AI伺服器液冷監控方案</strong>：切入AI伺服器散熱市場，拓展新興應用，具備高毛利潛力。</p>
+<p>*   <strong>智能化升級</strong>：利用AI、IoT技術提升水處理系統效率和可靠性，提供智慧水務解決方案。</p>
+<ul><li><strong>威脅</strong>：</li>
+</ul>    *   <strong>技術快速迭代</strong>：超純水處理面臨奈米級顆粒控制等挑戰，若研發投入不足，恐落後競爭者。
+<p>*   <strong>運營和維護成本增加</strong>：海外建廠人力需求大，工資上漲及工安管理是潛在風險。</p>
+<p>*   <strong>客戶集中度高</strong>：主要客戶集中於半導體大廠，若客戶資本支出計畫調整，可能影響訂單。</p>
+<p>*   <strong>全球競爭加劇</strong>：面對國際水處理巨頭的競爭，需持續提升技術與服務競爭力。</p>
+<p>*   <strong>原材料供應與成本波動</strong>：供應鏈穩定性、原材料價格及地緣政治因素可能構成挑戰。</p>
+
+<h3>相關投資題材的具體連結</h3>
+<ul><li><strong>AI 與 HBM (高頻寬記憶體)</strong>：</li>
+</ul>    *   <strong>關聯</strong>：AI伺服器對散熱需求巨大，液冷技術是重要解決方案。兆聯實業與喬越集團合作推出「AI伺服器液冷監控方案」，精準監控電導度、pH值與濁度，直接連結AI產業對高效能運算基礎設施的需求。
+<p>*   <strong>影響</strong>：AI晶片需求激增帶動數據中心投資和半導體設備支出，進而拉動兆聯水處理系統服務。</p>
+<ul><li><strong>電動車 (EV)</strong>：</li>
+</ul>    *   <strong>關聯</strong>：電動車電池製造過程涉及大量水處理需求。兆聯實業在高科技產業水資源系統的經驗和技術，未來有可能延伸應用到電動車電池等相關供應鏈的潔淨水和廢水處理需求。
+<p>*   <strong>影響</strong>：若能拓展至電動車供應鏈市場，將能抓住電動車產業成長帶來的機會。</p>
+
+<h2>近期催化劑</h2>
+
+<ul><li><strong>2026年03月05日</strong>：兆聯實業股價亮燈漲停（上漲<strong>9.9%</strong>至<strong>733元</strong>），受惠高檔在手訂單和海外擴產題材，以及AI伺服器液冷監控方案關注。</li>
+<li><strong>2026年03月04日</strong>：公告將於3月12日召開董事會提報2025年度合併財報，並於3月18日受邀參加富邦證券法說會。</li>
+<li><strong>2026年02月02日</strong>：公司宣布在手訂單金額已突破<strong>234.6億元</strong>，創歷史新高，並看好2026年展望正向。同時揭示AI伺服器「冷卻液過濾監控方案」。</li>
+<li><strong>2026年01月30日</strong>：南亞科技向兆聯實業採購廠務設備一批，金額達<strong>36.57億元</strong>。</li>
+<li><strong>2026年01月09日</strong>：公告2025年12月合併營收為<strong>20.15億元</strong>，創歷史新高。累計2025年1-12月營收約<strong>169.13億元</strong>，年增<strong>64.2%</strong>。</li>
+<li><strong>2025年12月24日</strong>：董事會決議通過子公司MUAQUA ENGINEERING INC.擬購置美國亞利桑那土地案，上限<strong>1200萬美元</strong>。</li>
+<li><strong>2025年10月28日</strong>：公司於法說會表示，截至10月在手訂單餘額首度突破<strong>222億元</strong>，2025年前三季合併營收達<strong>115.57億元</strong>，年增<strong>60.2%</strong>，已超越2024年全年。</li>
+<li><strong>2025年05月28日</strong>：兆聯實業以每股<strong>262元</strong>掛牌上市。</li>
+<li><strong>2024年</strong>：設立兆聯美國子公司。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間</th><th>成長動能類別</th><th>具體內容</th></tr></thead><tbody>
+<tr><td><strong>2024年</strong></td><td>擴廠/新市場</td><td>設立兆聯美國子公司，積極評估新加坡、歐洲新客戶建廠商機。</td></tr>
+<tr><td><strong>2025年Q2</strong></td><td>新客戶/產能</td><td>新加坡世界先進建廠專案進入密集施工高峰期，帶動2025年9月及Q3營收創高。</td></tr>
+<tr><td><strong>2025年H2</strong></td><td>擴廠/訂單</td><td>美國P2廢水處理工程開始入帳，貢獻營收。在手訂單持續創新高，2025年10月突破<strong>222億元</strong>，2025年底再增至逾<strong>235億元</strong>。海外營收佔比從2024年的15%提升至2025年Q2的50%。</td></tr>
+<tr><td><strong>2026年</strong></td><td>擴廠/需求</td><td>美國子公司年底啟動的第二廠工程將顯著挹注2026年營運動能。全球半導體與先進封裝廠持續擴產，對超純水及廢水處理需求維持強勁。預期2026年半導體設備資本支出將創歷史新高，帶動兆聯實業的訂單量與營收。</td></tr>
+<tr><td><strong>2026年2月</strong></td><td>新客戶/新市場</td><td>與喬越集團合作，正式推出AI伺服器「液冷冷卻液回收監控方案」，成功切入AI伺服器散熱市場，開拓全新高附加價值服務營收來源。</td></tr>
+<tr><td><strong>中長期</strong></td><td>擴廠/需求</td><td>持續在美國亞利桑那州評估設立洗膜廠，就近服務客戶，提升美國地區營收占比。積極投入再生水與海水淡化系統規劃工程，符合水資源永續趨勢。在手訂單能見度長達兩至三年，確保未來營運成長動能。管理層看好隨著美國、新加坡等海外業績成長挹注下，2026年展望正向，市場預估全年營收有望挑戰<strong>250億元</strong>。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+<li><strong>海外業務持續爆發</strong>：美國及新加坡大型建廠專案進入密集施工與入帳高峰，其中美國將成為2026年最主要的成長引擎，海外營收貢獻預期將維持高檔甚至進一步提升。</li>
+<li><strong>半導體與先進封裝擴產</strong>：受惠全球晶圓代工與記憶體大廠的資本支出增長，尤其先進製程及先進封裝對超純水及廢水處理的需求倍增，兆聯將直接受益。</li>
+<li><strong>AI伺服器液冷市場</strong>：AI液冷監控方案的推出，成功切入新興高成長市場，預計將貢獻高毛利服務營收，並成為新的成長驅動力。</li>
+<li><strong>高額在手訂單</strong>：截至2026年2月逾234.6億元的歷史新高在手訂單，為未來兩三年的營收提供高度確定性。</li>
+
+<strong>風險：</strong>
+<li><strong>客戶集中度</strong>：對單一大客戶依賴度高，若其資本支出計畫或時程有變，可能對兆聯營運造成影響。</li>
+<li><strong>匯率波動與成本控管</strong>：海外工程以美元計價，儘管有避險措施，匯率仍可能影響獲利。海外建廠人力與原物料成本上漲，對毛利率構成壓力。</li>
+<li><strong>全球經濟與地緣政治</strong>：半導體產業易受總體經濟景氣及地緣政治影響，可能間接衝擊客戶建廠意願及訂單。</li>
+<li><strong>競爭加劇與技術迭代</strong>：水處理技術持續演進，國際大廠競爭激烈，兆聯需持續投入研發以維持技術領先。</li>
+
+<h2>投資結論</h2>
+
+<li><strong>產業結構性成長</strong>：兆聯實業深耕於半導體等高科技產業水資源系統，受惠於全球半導體擴產、水資源稀缺及循環經濟趨勢，其服務需求具備長期且穩健的成長動能。</li>
+<li><strong>海外擴張成果豐碩</strong>：海外營收佔比已達50%，且美國、新加坡等新據點及專案進入收穫期，為2026年營收成長提供強勁支撐。</li>
+<li><strong>新應用拓展市場</strong>：成功切入AI伺服器液冷監控市場，不僅帶來新的成長潛力，亦有助於優化產品組合，提升整體毛利率。</li>
+<li><strong>高能見度訂單確保營運</strong>：逾234.6億元的在手訂單，訂單能見度長達2~3年，為公司未來營收與獲利提供高度確定性。</li>
+<li><strong>獲利能力持續提升</strong>：法人對2026年EPS平均預估可達34.77~38.01元，顯示公司在營收規模擴大的同時，獲利能力亦同步成長。</li>
+
+<p>綜合以上分析，考量其在高科技水處理領域的領導地位、顯著的海外成長動能及AI新應用潛力，我們認為兆聯實業具備長期投資價值。以2026年預估EPS區間<strong>37-38元</strong>，並給予合理本益比<strong>20-23倍</strong>，建議目標價區間為<strong>740元至874元</strong>。</p>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 14:50</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="6944_兆聯實業_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="6944_兆聯實業_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="6944_兆聯實業_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

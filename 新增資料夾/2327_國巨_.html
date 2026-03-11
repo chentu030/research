@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2327 國巨_ 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2327 國巨 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>國巨受惠於AI伺服器、車用電子與工業自動化等高階利基型應用需求強勁，憑藉其全球領先的晶片電阻、鉭質電容及整合式被動元件解決方案，成功驅動營收、獲利雙創新高，並透過多次漲價展現定價能力，結合策略性併購效益與產品組合優化，展望2026年成長動能可期，預期AI相關營收佔比將突破兩成。</p>
+
+<hr>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2327 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2327" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2327" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2327');
+    var obvContainer = document.getElementById('obv-chart-2327');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 234.5, "high": 237.5, "low": 233.5, "close": 236.0}, {"time": "2025-12-05", "open": 236.5, "high": 238.0, "low": 235.0, "close": 237.0}, {"time": "2025-12-08", "open": 238.5, "high": 240.0, "low": 234.5, "close": 237.0}, {"time": "2025-12-09", "open": 239.5, "high": 241.0, "low": 237.5, "close": 239.5}, {"time": "2025-12-10", "open": 241.0, "high": 248.5, "low": 238.5, "close": 245.5}, {"time": "2025-12-11", "open": 248.0, "high": 248.0, "low": 236.0, "close": 236.0}, {"time": "2025-12-12", "open": 237.5, "high": 238.5, "low": 233.5, "close": 237.5}, {"time": "2025-12-15", "open": 233.0, "high": 235.0, "low": 231.0, "close": 231.0}, {"time": "2025-12-16", "open": 230.0, "high": 230.5, "low": 220.0, "close": 223.0}, {"time": "2025-12-17", "open": 224.5, "high": 225.5, "low": 220.5, "close": 221.0}, {"time": "2025-12-18", "open": 220.0, "high": 223.0, "low": 218.0, "close": 218.0}, {"time": "2025-12-19", "open": 222.0, "high": 224.5, "low": 220.0, "close": 222.0}, {"time": "2025-12-22", "open": 224.5, "high": 227.5, "low": 223.5, "close": 226.0}, {"time": "2025-12-23", "open": 227.5, "high": 227.5, "low": 222.5, "close": 222.5}, {"time": "2025-12-24", "open": 224.0, "high": 227.0, "low": 222.0, "close": 222.5}, {"time": "2025-12-26", "open": 224.0, "high": 225.0, "low": 222.0, "close": 224.0}, {"time": "2025-12-29", "open": 225.0, "high": 226.0, "low": 222.5, "close": 222.5}, {"time": "2025-12-30", "open": 222.5, "high": 226.5, "low": 220.5, "close": 225.5}, {"time": "2025-12-31", "open": 225.5, "high": 232.5, "low": 222.5, "close": 231.0}, {"time": "2026-01-02", "open": 232.5, "high": 243.0, "low": 230.0, "close": 241.0}, {"time": "2026-01-05", "open": 245.0, "high": 249.0, "low": 239.0, "close": 244.0}, {"time": "2026-01-06", "open": 248.0, "high": 254.0, "low": 247.0, "close": 253.5}, {"time": "2026-01-07", "open": 257.0, "high": 260.0, "low": 252.5, "close": 253.0}, {"time": "2026-01-08", "open": 256.0, "high": 256.5, "low": 236.0, "close": 237.5}, {"time": "2026-01-09", "open": 238.5, "high": 244.5, "low": 234.5, "close": 241.5}, {"time": "2026-01-12", "open": 244.5, "high": 253.0, "low": 242.5, "close": 247.5}, {"time": "2026-01-13", "open": 252.0, "high": 260.5, "low": 248.0, "close": 260.5}, {"time": "2026-01-14", "open": 268.0, "high": 285.0, "low": 265.5, "close": 278.5}, {"time": "2026-01-15", "open": 280.0, "high": 285.0, "low": 272.5, "close": 273.5}, {"time": "2026-01-16", "open": 279.0, "high": 284.0, "low": 268.0, "close": 283.0}, {"time": "2026-01-19", "open": 285.0, "high": 300.0, "low": 278.0, "close": 295.5}, {"time": "2026-01-20", "open": 289.0, "high": 292.0, "low": 285.0, "close": 289.5}, {"time": "2026-01-21", "open": 282.0, "high": 287.5, "low": 277.0, "close": 277.5}, {"time": "2026-01-22", "open": 287.5, "high": 300.0, "low": 286.5, "close": 296.0}, {"time": "2026-01-23", "open": 302.0, "high": 304.5, "low": 290.5, "close": 291.5}, {"time": "2026-01-26", "open": 293.5, "high": 294.0, "low": 285.0, "close": 287.0}, {"time": "2026-01-27", "open": 288.5, "high": 295.0, "low": 288.0, "close": 295.0}, {"time": "2026-01-28", "open": 297.0, "high": 297.0, "low": 282.0, "close": 285.5}, {"time": "2026-01-29", "open": 286.0, "high": 286.0, "low": 275.0, "close": 277.0}, {"time": "2026-01-30", "open": 278.0, "high": 282.0, "low": 274.0, "close": 277.5}, {"time": "2026-02-02", "open": 267.0, "high": 270.0, "low": 255.5, "close": 258.0}, {"time": "2026-02-03", "open": 270.0, "high": 270.0, "low": 259.5, "close": 266.5}, {"time": "2026-02-04", "open": 262.5, "high": 268.0, "low": 261.0, "close": 267.0}, {"time": "2026-02-05", "open": 264.5, "high": 266.0, "low": 257.0, "close": 258.0}, {"time": "2026-02-06", "open": 250.5, "high": 254.0, "low": 243.5, "close": 248.5}, {"time": "2026-02-09", "open": 257.0, "high": 257.0, "low": 250.0, "close": 250.0}, {"time": "2026-02-10", "open": 255.5, "high": 258.0, "low": 250.5, "close": 254.0}, {"time": "2026-02-11", "open": 256.0, "high": 256.0, "low": 252.5, "close": 256.0}, {"time": "2026-02-23", "open": 281.5, "high": 281.5, "low": 277.5, "close": 281.5}, {"time": "2026-02-24", "open": 287.0, "high": 304.0, "low": 285.5, "close": 301.0}, {"time": "2026-02-25", "open": 306.0, "high": 306.5, "low": 292.0, "close": 300.0}, {"time": "2026-02-26", "open": 298.5, "high": 300.0, "low": 289.0, "close": 298.0}, {"time": "2026-03-02", "open": 270.0, "high": 275.0, "low": 256.0, "close": 259.0}, {"time": "2026-03-03", "open": 298.5, "high": 299.0, "low": 280.0, "close": 280.5}, {"time": "2026-03-04", "open": 270.0, "high": 275.0, "low": 256.0, "close": 259.0}, {"time": "2026-03-05", "open": 271.0, "high": 274.5, "low": 264.0, "close": 267.5}, {"time": "2026-03-06", "open": 266.0, "high": 269.5, "low": 262.0, "close": 265.0}, {"time": "2026-03-09", "open": 242.5, "high": 248.5, "low": 240.0, "close": 248.5}, {"time": "2026-03-10", "open": 260.0, "high": 264.0, "low": 253.0, "close": 258.5}, {"time": "2026-03-11", "open": 264.0, "high": 267.5, "low": 263.0, "close": 264.5}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 16507.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 14794.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 16539.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 24833.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 65283.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 47383.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 17471.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 17658.0, "color": "#26a69a"}, {"time": "2025-12-16", "value": 27712.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 14299.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 15697.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 15740.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 10107.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 10615.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 10851.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 7964.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 10560.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 19686.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 34452.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 53714.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 65325.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 62212.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 47713.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 57300.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 38572.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 31141.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 90858.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 132227.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 75276.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 82272.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 104665.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 55120.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 57195.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 75945.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 42464.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 24894.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 28787.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 46590.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 39012.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 23881.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 42685.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 22094.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 14152.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 19276.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 30007.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 16342.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 17854.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 17028.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 36452.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 82390.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 37098.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 46680.0, "color": "#26a69a"}, {"time": "2026-03-02", "value": 42761.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 42404.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 42761.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 25411.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 15481.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 30091.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 21596.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 18952.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 239.0}, {"time": "2025-12-11", "value": 239.0}, {"time": "2025-12-12", "value": 239.1}, {"time": "2025-12-15", "value": 237.9}, {"time": "2025-12-16", "value": 234.6}, {"time": "2025-12-17", "value": 229.7}, {"time": "2025-12-18", "value": 226.1}, {"time": "2025-12-19", "value": 223.0}, {"time": "2025-12-22", "value": 222.0}, {"time": "2025-12-23", "value": 221.9}, {"time": "2025-12-24", "value": 222.2}, {"time": "2025-12-26", "value": 223.4}, {"time": "2025-12-29", "value": 223.5}, {"time": "2025-12-30", "value": 223.4}, {"time": "2025-12-31", "value": 225.1}, {"time": "2026-01-02", "value": 228.8}, {"time": "2026-01-05", "value": 232.8}, {"time": "2026-01-06", "value": 239.0}, {"time": "2026-01-07", "value": 244.5}, {"time": "2026-01-08", "value": 245.8}, {"time": "2026-01-09", "value": 245.9}, {"time": "2026-01-12", "value": 246.6}, {"time": "2026-01-13", "value": 248.0}, {"time": "2026-01-14", "value": 253.1}, {"time": "2026-01-15", "value": 260.3}, {"time": "2026-01-16", "value": 268.6}, {"time": "2026-01-19", "value": 278.2}, {"time": "2026-01-20", "value": 284.0}, {"time": "2026-01-21", "value": 283.8}, {"time": "2026-01-22", "value": 288.3}, {"time": "2026-01-23", "value": 290.0}, {"time": "2026-01-26", "value": 288.3}, {"time": "2026-01-27", "value": 289.4}, {"time": "2026-01-28", "value": 291.0}, {"time": "2026-01-29", "value": 287.2}, {"time": "2026-01-30", "value": 284.4}, {"time": "2026-02-02", "value": 278.6}, {"time": "2026-02-03", "value": 272.9}, {"time": "2026-02-04", "value": 269.2}, {"time": "2026-02-05", "value": 265.4}, {"time": "2026-02-06", "value": 259.6}, {"time": "2026-02-09", "value": 258.0}, {"time": "2026-02-10", "value": 255.5}, {"time": "2026-02-11", "value": 253.3}, {"time": "2026-02-23", "value": 258.0}, {"time": "2026-02-24", "value": 268.5}, {"time": "2026-02-25", "value": 278.5}, {"time": "2026-02-26", "value": 287.3}, {"time": "2026-03-02", "value": 287.9}, {"time": "2026-03-03", "value": 287.7}, {"time": "2026-03-04", "value": 279.3}, {"time": "2026-03-05", "value": 272.8}, {"time": "2026-03-06", "value": 266.2}, {"time": "2026-03-09", "value": 264.1}, {"time": "2026-03-10", "value": 259.7}, {"time": "2026-03-11", "value": 260.8}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 234.35}, {"time": "2025-12-18", "value": 232.55}, {"time": "2025-12-19", "value": 231.05}, {"time": "2025-12-22", "value": 229.95}, {"time": "2025-12-23", "value": 228.25}, {"time": "2025-12-24", "value": 225.95}, {"time": "2025-12-26", "value": 224.75}, {"time": "2025-12-29", "value": 223.25}, {"time": "2025-12-30", "value": 222.7}, {"time": "2025-12-31", "value": 223.5}, {"time": "2026-01-02", "value": 225.5}, {"time": "2026-01-05", "value": 228.1}, {"time": "2026-01-06", "value": 231.25}, {"time": "2026-01-07", "value": 233.95}, {"time": "2026-01-08", "value": 235.45}, {"time": "2026-01-09", "value": 237.35}, {"time": "2026-01-12", "value": 239.7}, {"time": "2026-01-13", "value": 243.5}, {"time": "2026-01-14", "value": 248.8}, {"time": "2026-01-15", "value": 253.05}, {"time": "2026-01-16", "value": 257.25}, {"time": "2026-01-19", "value": 262.4}, {"time": "2026-01-20", "value": 266.0}, {"time": "2026-01-21", "value": 268.45}, {"time": "2026-01-22", "value": 274.3}, {"time": "2026-01-23", "value": 279.3}, {"time": "2026-01-26", "value": 283.25}, {"time": "2026-01-27", "value": 286.7}, {"time": "2026-01-28", "value": 287.4}, {"time": "2026-01-29", "value": 287.75}, {"time": "2026-01-30", "value": 287.2}, {"time": "2026-02-02", "value": 283.45}, {"time": "2026-02-03", "value": 281.15}, {"time": "2026-02-04", "value": 280.1}, {"time": "2026-02-05", "value": 276.3}, {"time": "2026-02-06", "value": 272.0}, {"time": "2026-02-09", "value": 268.3}, {"time": "2026-02-10", "value": 264.2}, {"time": "2026-02-11", "value": 261.25}, {"time": "2026-02-23", "value": 261.7}, {"time": "2026-02-24", "value": 264.05}, {"time": "2026-02-25", "value": 268.25}, {"time": "2026-02-26", "value": 271.4}, {"time": "2026-03-02", "value": 270.6}, {"time": "2026-03-03", "value": 272.85}, {"time": "2026-03-04", "value": 273.9}, {"time": "2026-03-05", "value": 275.65}, {"time": "2026-03-06", "value": 276.75}, {"time": "2026-03-09", "value": 276.0}, {"time": "2026-03-10", "value": 273.7}, {"time": "2026-03-11", "value": 270.05}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 229.925}, {"time": "2026-01-05", "value": 230.325}, {"time": "2026-01-06", "value": 231.15}, {"time": "2026-01-07", "value": 231.95}, {"time": "2026-01-08", "value": 231.85}, {"time": "2026-01-09", "value": 231.65}, {"time": "2026-01-12", "value": 232.225}, {"time": "2026-01-13", "value": 233.375}, {"time": "2026-01-14", "value": 235.75}, {"time": "2026-01-15", "value": 238.275}, {"time": "2026-01-16", "value": 241.375}, {"time": "2026-01-19", "value": 245.25}, {"time": "2026-01-20", "value": 248.625}, {"time": "2026-01-21", "value": 251.2}, {"time": "2026-01-22", "value": 254.875}, {"time": "2026-01-23", "value": 258.325}, {"time": "2026-01-26", "value": 261.475}, {"time": "2026-01-27", "value": 265.1}, {"time": "2026-01-28", "value": 268.1}, {"time": "2026-01-29", "value": 270.4}, {"time": "2026-01-30", "value": 272.225}, {"time": "2026-02-02", "value": 272.925}, {"time": "2026-02-03", "value": 273.575}, {"time": "2026-02-04", "value": 274.275}, {"time": "2026-02-05", "value": 275.3}, {"time": "2026-02-06", "value": 275.65}, {"time": "2026-02-09", "value": 275.775}, {"time": "2026-02-10", "value": 275.45}, {"time": "2026-02-11", "value": 274.325}, {"time": "2026-02-23", "value": 274.725}, {"time": "2026-02-24", "value": 275.625}, {"time": "2026-02-25", "value": 275.85}, {"time": "2026-02-26", "value": 276.275}, {"time": "2026-03-02", "value": 275.35}, {"time": "2026-03-03", "value": 274.575}, {"time": "2026-03-04", "value": 272.95}, {"time": "2026-03-05", "value": 271.975}, {"time": "2026-03-06", "value": 270.475}, {"time": "2026-03-09", "value": 268.625}, {"time": "2026-03-10", "value": 267.7}, {"time": "2026-03-11", "value": 267.05}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 14794.0}, {"time": "2025-12-08", "value": 14794.0}, {"time": "2025-12-09", "value": 39627.0}, {"time": "2025-12-10", "value": 104910.0}, {"time": "2025-12-11", "value": 57527.0}, {"time": "2025-12-12", "value": 74998.0}, {"time": "2025-12-15", "value": 57340.0}, {"time": "2025-12-16", "value": 29628.0}, {"time": "2025-12-17", "value": 15329.0}, {"time": "2025-12-18", "value": -368.0}, {"time": "2025-12-19", "value": 15372.0}, {"time": "2025-12-22", "value": 25479.0}, {"time": "2025-12-23", "value": 14864.0}, {"time": "2025-12-24", "value": 14864.0}, {"time": "2025-12-26", "value": 22828.0}, {"time": "2025-12-29", "value": 12268.0}, {"time": "2025-12-30", "value": 31954.0}, {"time": "2025-12-31", "value": 66406.0}, {"time": "2026-01-02", "value": 120120.0}, {"time": "2026-01-05", "value": 185445.0}, {"time": "2026-01-06", "value": 247657.0}, {"time": "2026-01-07", "value": 199944.0}, {"time": "2026-01-08", "value": 142644.0}, {"time": "2026-01-09", "value": 181216.0}, {"time": "2026-01-12", "value": 212357.0}, {"time": "2026-01-13", "value": 303215.0}, {"time": "2026-01-14", "value": 435442.0}, {"time": "2026-01-15", "value": 360166.0}, {"time": "2026-01-16", "value": 442438.0}, {"time": "2026-01-19", "value": 547103.0}, {"time": "2026-01-20", "value": 491983.0}, {"time": "2026-01-21", "value": 434788.0}, {"time": "2026-01-22", "value": 510733.0}, {"time": "2026-01-23", "value": 468269.0}, {"time": "2026-01-26", "value": 443375.0}, {"time": "2026-01-27", "value": 472162.0}, {"time": "2026-01-28", "value": 425572.0}, {"time": "2026-01-29", "value": 386560.0}, {"time": "2026-01-30", "value": 410441.0}, {"time": "2026-02-02", "value": 367756.0}, {"time": "2026-02-03", "value": 389850.0}, {"time": "2026-02-04", "value": 404002.0}, {"time": "2026-02-05", "value": 384726.0}, {"time": "2026-02-06", "value": 354719.0}, {"time": "2026-02-09", "value": 371061.0}, {"time": "2026-02-10", "value": 388915.0}, {"time": "2026-02-11", "value": 405943.0}, {"time": "2026-02-23", "value": 442395.0}, {"time": "2026-02-24", "value": 524785.0}, {"time": "2026-02-25", "value": 487687.0}, {"time": "2026-02-26", "value": 441007.0}, {"time": "2026-03-02", "value": 398246.0}, {"time": "2026-03-03", "value": 440650.0}, {"time": "2026-03-04", "value": 397889.0}, {"time": "2026-03-05", "value": 423300.0}, {"time": "2026-03-06", "value": 407819.0}, {"time": "2026-03-09", "value": 377728.0}, {"time": "2026-03-10", "value": 399324.0}, {"time": "2026-03-11", "value": 418276.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>國巨股份有限公司 (Yageo Corp.) 是一家全球領先的被動元件製造商，致力於提供客戶「一站式被動元件解決方案」。</p>
+
+<strong>核心產品線：</strong>
+<ul><li><strong>積層陶瓷電容 (MLCC)</strong>：全球市佔率排名第三。</li>
+<li><strong>晶片電阻 (Chip Resistors, R-Chip)</strong>：全球市佔率排名第一。</li>
+<li><strong>鉭質電容 (Tantalum Capacitors)</strong>：全球市佔率排名第一。</li>
+<li><strong>電感 (Inductors)</strong>：全球市佔率排名第三。</li>
+<li><strong>感測器 (Sensors)</strong>：透過收購日本芝浦電子 (NTC熱敏電阻) 及法國施耐德電機的Telemecanique Sensors擴展。</li>
+<li>其他產品包括高頻天線、電解電容、磁性材料、繼電器和電路保護元件。</li>
+</ul>
+<strong>製造基地：</strong>
+<p>國巨在全球擁有9個生產基地、21個銷售辦事處、8個即時物流中心和2個研發中心。蘇州基地產能佔比約70%。台灣高雄大發工業區新廠正逐步量產車用高壓MLCC與工規高階電阻，預計2026年開始貢獻營收。</p>
+
+<strong>營收結構：</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>產品組合 (2024年)</th><th>佔比</th></tr></thead><tbody>
+<tr><td>無線與進階電子元件</td><td>29%</td></tr>
+<tr><td>積層陶瓷電容 (MLCC)</td><td>19%</td></tr>
+<tr><td>鉭質電容</td><td>18%</td></tr>
+<tr><td>晶片電阻 (R-Chip)</td><td>14%</td></tr>
+<tr><td>感測器</td><td>10%</td></tr>
+<tr><td>其他</td><td>10%</td></tr>
+</tbody></table></div>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品營收佔比 (2025年第四季)</th><th>佔比</th></tr></thead><tbody>
+<tr><td>磁性元件</td><td>26.4%</td></tr>
+<tr><td>鉭質電容</td><td>21.7%</td></tr>
+<tr><td>積層陶瓷電容</td><td>17.7%</td></tr>
+<tr><td>晶片電阻 (R-Chip)</td><td>13.6%</td></tr>
+<tr><td>感測元件</td><td>11.2%</td></tr>
+</tbody></table></div>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>主要應用領域 (2024年)</th><th>佔比</th></tr></thead><tbody>
+<tr><td>工業與自動化設備</td><td>32%</td></tr>
+<tr><td>運算及企業系統</td><td>24%</td></tr>
+<tr><td>車用</td><td>20%</td></tr>
+<tr><td>消費性電子</td><td>12%</td></tr>
+<tr><td>電信通訊</td><td>9%</td></tr>
+<tr><td>國防醫藥</td><td>4%</td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>全球領導地位與完整產品線：</strong> 在晶片電阻、鉭質電容領域居全球第一，MLCC與電感位列全球第三，透過策略性併購提供「一站式被動元件解決方案」，滿足客戶從標準品到高階應用的全面需求。</li>
+<li><strong>深耕高階利基市場：</strong> 產品應用聚焦於AI/HPC、車用電子、工業控制、5G通訊及國防醫藥等高毛利領域，有效提升獲利能力並降低消費性電子市場波動影響。</li>
+<li><strong>強勁的定價能力：</strong> 受益於高端產品供需吃緊及原物料成本上漲，國巨於2025年兩度調漲鉭質電容價格，並於2026年1月、2月及4月陸續調漲磁珠、晶片電阻及鉭質電容價格，顯示其在產業鏈中的定價主導權。</li>
+<li><strong>策略性併購整合：</strong> 透過收購日本芝浦電子與Telemecanique Sensors，強化感測器業務，並藉由KEMET與Pulse補齊高階應用版圖，擴大客戶基礎與市場份額。</li>
+<li><strong>進入Nvidia AI伺服器供應鏈：</strong> 憑藉高階MLCC、鉭質電容、電感和晶片電阻的技術與產能，成功打入全球最領先的AI伺服器供應鏈，為未來營運注入強勁成長動能。</li>
+
+<hr>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>130.30</td><td>5.5%</td><td>27.13%</td></tr>
+<tr><td>2025年12月</td><td>123.51</td><td>0.7%</td><td>29.74%</td></tr>
+<tr><td>2025年11月</td><td>122.65</td><td>8.04%</td><td>22.4%</td></tr>
+<tr><td>2025年10月</td><td>未找到明確數據</td><td>未找到明確數據</td><td>未找到明確數據</td></tr>
+<tr><td>2025年9月</td><td>116.8</td><td>-</td><td>12.15%</td></tr>
+<tr><td>2025年8月</td><td>未找到明確數據</td><td>未找到明確數據</td><td>未找到明確數據</td></tr>
+</tbody></table></div>
+
+<h3>季度數據 (2025年第四季)</h3>
+<ul><li><strong>季營收</strong>：新台幣359.68億元，季增8.7%，年增19.9%。</li>
+<li><strong>毛利率</strong>：37.3%，季增1.1個百分點，年增4.1個百分點。</li>
+<li><strong>營業利益率</strong>：24.3%，季增1.4個百分點，年增6.4個百分點。</li>
+<li><strong>EPS</strong>：新台幣3.29元，季增6.2%，年增82.0%。</li>
+<li><strong>備註</strong>：此季度因併購整合產生一次性支出6.5億元，對單季EPS影響約減少0.32元。</li>
+</ul>
+<h3>年度趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>營收 (新台幣億元)</th><th>年增率</th><th>EPS (新台幣元)</th><th>年增率</th></tr></thead><tbody>
+<tr><td>2024年 (實際)</td><td>1,216.67</td><td>13.1%</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>2025年 (實際)</td><td>1,329.30</td><td>9.3%</td><td>11.51</td><td>22.1%</td></tr>
+<tr><td>2026年 (預估)</td><td>1,549 ~ 1,689.9 (券商預估中位數 1,587)</td><td>19.4% (以1,587計算)</td><td>13.68 ~ 18.27 (券商預估中位數 16.1)</td><td>39.9% (以16.1計算)</td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>法說會重點 (2026年2月25日)</h2>
+
+<ul><li><strong>營運概況</strong>：2025年第四季營收達新台幣359.68億元，稅後純益67.51億元，單季EPS 3.29元。全年營收新台幣1,329.30億元，稅後純益236.34億元，EPS 11.51元。</li>
+<li><strong>產品線動能</strong>：</li>
+</ul>    *   各終端市場BB Ratio（訂單出貨比）均維持在1以上，AI相關需求最為強勁。
+<p>*   AI伺服器帶動高電容值MLCC與鉭聚合物電容同步增長，具備互補效益。</p>
+<p>*   併購芝浦電子後，溫度感測器與熱敏電阻將成為新的成長產品線，特別是在電源、高壓直流電 (HVDC) 應用中。</p>
+<p>*   歐洲工業需求已出現復甦訊號，車用市場仍在恢復階段；消費電子需求相對較弱。</p>
+<p>*   AI相關營收約佔13%。</p>
+<ul><li><strong>產能利用率</strong>：預期2026年第一季高階（Premium）與標準（Standard）產品稼動率都可望較上季增加3-5%。</li>
+<li><strong>資本支出</strong>：2026年資本支出以維護與效率提升為主，暫無大規模產能擴張計畫，因現有產能仍有空間。</li>
+<li><strong>下季/下半年 Guidance</strong>：</li>
+</ul>    *   預期2026年第一季營收可望小幅季增並續創新高，毛利率與營業利益率也可望呈現雙增。
+<p>*   公司對2026年展望審慎樂觀，預期AI需求強勁，產品組合持續優化，將為2026年建立更穩固的成長基礎。</p>
+<p>*   客戶庫存已達到健康水平，AI相關產品需求持續成長。</p>
+
+<hr>
+
+<h2>券商觀點</h2>
+
+<h3>目標價整理</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>摩根大通 (小摩)</td><td>364</td><td>買進</td><td>2026年2月26日</td></tr>
+<tr><td>富邦投顧</td><td>362</td><td>買進</td><td>2026年2月26日</td></tr>
+<tr><td>獨立券商旗下投顧</td><td>360</td><td>買進</td><td>2026年1月20日</td></tr>
+<tr><td>滙豐證券</td><td>351</td><td>買進</td><td>2026年2月26日</td></tr>
+<tr><td>野村</td><td>350</td><td>買進</td><td>2026年2月26日</td></tr>
+<tr><td>FactSet調查綜合分析師</td><td>350 (中位數)</td><td>積極樂觀</td><td>2026年3月3日</td></tr>
+<tr><td>摩根士丹利 (大摩)</td><td>325</td><td>買進</td><td>2026年2月26日</td></tr>
+<tr><td>本土法人</td><td>300</td><td>買進</td><td>2026年1月13日</td></tr>
+<tr><td>CMoney彙整報告</td><td>230 ~ 364</td><td>-</td><td>2026年2月26日</td></tr>
+</tbody></table></div>
+
+<h3>2025-2026年 EPS 預估</h3>
+<ul><li><strong>2025年EPS</strong>：</li>
+</ul>    *   法人報告 (2026年3月1日)：新台幣11.51元。
+<p>*   FactSet調查綜合分析師 (2026年2月24/25日)：中位數新台幣11.45元。</p>
+<p>*   本土法人/獨立券商旗下投顧 (2026年1月13/20日)：新台幣11.19元。</p>
+<p>*   CMoney彙整報告 (2026年2月26日)：約新台幣11.4元。</p>
+<ul><li><strong>2026年EPS</strong>：</li>
+</ul>    *   法人報告 (2026年3月1日)：大幅上修至新台幣16.1元。
+<p>*   FactSet調查綜合分析師 (2026年3月3日)：中位數新台幣15.72元 (最高18.64元，最低13.79元)。</p>
+<p>*   本土法人/獨立券商旗下投顧 (2026年1月13/20日)：新台幣13.68元。</p>
+<p>*   CMoney彙整報告 (2026年2月26日)：新台幣15.27～18.27元。</p>
+<p>*   富邦投顧：新台幣15.42元。</p>
+<p>*   永豐投顧：新台幣14.72元。</p>
+
+<h3>評等異動</h3>
+<p>FactSet調查顯示，多數分析師對國巨評級偏向積極樂觀，2026年2月26日有11位分析師中9位給予「積極樂觀」評價。有券商在2026年1月20日將國巨的本益比從20倍提升至25倍，顯示對未來獲利能力看法樂觀。</p>
+
+<hr>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2024年Q1</td><td>33.8</td><td>17.34</td><td>16.17</td><td>累計</td></tr>
+<tr><td>2024年Q2</td><td>34.5</td><td>19.03</td><td>16.81</td><td>累計</td></tr>
+<tr><td>2024年Q3</td><td>34.75</td><td>19.66</td><td>17.17</td><td>累計</td></tr>
+<tr><td>2024年Q4</td><td>34.36</td><td>19.22</td><td>16.02</td><td>全年累計</td></tr>
+<tr><td>2025年Q1</td><td>N/A</td><td>N/A</td><td>N/A</td><td>未提供</td></tr>
+<tr><td>2025年Q2</td><td>35.6</td><td>N/A</td><td>N/A</td><td>單季</td></tr>
+<tr><td>2025年Q3</td><td>36.19</td><td>22.86</td><td>19.33</td><td>單季</td></tr>
+<tr><td>2025年Q4</td><td>37.3</td><td>24.3</td><td>18.77 (67.51億/359.68億)</td><td>單季</td></tr>
+<tr><td>2025年全年</td><td>36.2</td><td>22.4</td><td>17.78 (236.34億/1329.3億)</td><td>全年累計</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化的原因分析：</strong>
+<ul><li><strong>產品組合優化</strong>：受惠於AI相關應用需求強勁，帶動高階產品出貨比重提升，是毛利率與營業利益率持續增長的主要動能。</li>
+<li><strong>費用控管</strong>：2025年Q2獲利穩健亦歸因於有效的費用控管。</li>
+<li><strong>匯兌影響</strong>：2025年Q2受台幣升值影響產生匯損4.15億元；2025年Q4有匯兌損失3.01億元，部分抵銷了淨利息收入。</li>
+<li><strong>併購整合支出</strong>：2025年Q4因併購整合產生一次性支出6.5億元，影響單季EPS約0.32元。</li>
+<li><strong>價格調漲</strong>：自2025年11月起至2026年4月，國巨針對鉭質電容、磁珠、晶片電阻等多項產品進行漲價，有效轉嫁原物料成本壓力並提升獲利空間。</li>
+</ul>
+<h3>存貨分析</h3>
+<ul><li>2025年Q2法說會提及，公司對於車用與工業市場的需求仍採保守態度，但整體訂單動能穩健，B/B值維持大於1。客戶庫存水位已回到健康區間。</li>
+<li>2025年12月數據顯示庫存天數從去年同期的132天降至117天，回到110至120天的健康區間。</li>
+<li>目前未有異常存貨堆積或備料現象。</li>
+</ul>
+<h3>資本支出</h3>
+<ul><li><strong>2023年</strong>：資本支出約新台幣140億元，為新高水位，連續3年站穩百億元以上，主要用於廠區建設（如高雄大發三廠）及高階機器設備支出。</li>
+<li><strong>2024年</strong>：法人推估資本支出仍有機會超過百億元。</li>
+<li><strong>未來計畫</strong>：2026年資本支出以維護與效率提升為主，暫無大規模產能擴張計畫，因現有產能仍有空間。</li>
+</ul>
+<hr>
+
+<h2>股權異動</h2>
+
+<h3>董監事/大股東申報轉讓</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>日期</th><th>轉讓人</th><th>受讓人</th><th>股數</th><th>轉讓方式</th><th>目的</th></tr></thead><tbody>
+<tr><td>2025年4月30日</td><td>法人董事代表人泰銘傳承股份有限公司</td><td>陳氏傳承股份有限公司</td><td>6,139,914</td><td>洽特定人</td><td>家族傳承，強化持股</td></tr>
+<tr><td>2025年3月3日</td><td>法人董事代表人本人陳泰銘</td><td>泰銘傳承股份有限公司籌備處代表人陳泰銘</td><td>6,139,914</td><td>洽特定人</td><td>家族傳承，避免股權分散</td></tr>
+<tr><td>2024年11月29日</td><td>法人董事代表人陳氏家族股份有限公司</td><td>陳氏傳承股份有限公司</td><td>29,214,379</td><td>洽特定人</td><td>家族傳承，長期持有</td></tr>
+<tr><td>2024年10月4日</td><td>董事長陳泰銘</td><td>陳氏家族股份有限公司籌備處</td><td>29,214,379</td><td>洽特定人</td><td>家族內持股轉換，穩固家族長期持股</td></tr>
+</tbody></table></div>
+
+<h3>庫藏股</h3>
+<ul><li>未找到2024-2026年的最新庫藏股買回紀錄。</li>
+</ul>
+<h3>可轉換公司債 (CB)</h3>
+<ul><li>未找到2024-2026年國巨發行可轉換公司債的最新資訊。</li>
+</ul>
+<h3>現金增資或減資</h3>
+<ul><li>未找到2024-2026年國巨有現金增資或減資計畫的最新資訊。</li>
+<li><strong>2025年8月13日</strong>：公告進行股票分割，將每股面額由新台幣10元調整為2.5元，即「1拆4」，新股票於2025年8月25日上市。</li>
+</ul>
+<h3>股利政策 (每股)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>現金股利 (元)</th><th>股票股利 (元)</th><th>除息日/除權日</th><th>發放日</th></tr></thead><tbody>
+<tr><td>2026</td><td>6.0 (預計)</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>2025</td><td>20.0</td><td>-</td><td>2025年6月13日</td><td>2025年7月4日</td></tr>
+<tr><td>2024</td><td>19.9724</td><td>1.9484</td><td>2024年6月27日 (現金)/2024年8月15日 (股票)</td><td>2024年7月19日</td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>產業分析</h2>
+
+<h3>產業全球市場規模與成長率</h3>
+<p>被動元件整體市場預計從2025年的418.3億美元成長至2030年的478.4億美元，2025年至2026年的複合年成長率（CAGR）為6.2%。</p>
+
+<strong>主要產品線市場規模及成長率：</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>產品線</th><th>2025年市場規模 (美元)</th><th>2026年市場規模 (美元)</th><th>2026-2035年CAGR</th></tr></thead><tbody>
+<tr><td>MLCC (廣義)</td><td>349億</td><td>396.2億</td><td>13.52% (至2035)</td></tr>
+<tr><td>MLCC (狹義)</td><td>163.9億</td><td>176.1億</td><td>10.2% (至2036)</td></tr>
+<tr><td>小型MLCC</td><td>125.5億</td><td>137.7億</td><td>10.81% (至2032)</td></tr>
+<tr><td>晶片電阻</td><td>13.5億</td><td>14.3億</td><td>6.5% (至2035)</td></tr>
+<tr><td>鉭質電容 (廣義)</td><td>56億</td><td>58.4億</td><td>4.28% (至2035)</td></tr>
+<tr><td>鉭質電容 (狹義)</td><td>14.1億</td><td>14.9億</td><td>5.54% (至2034)</td></tr>
+<tr><td>電感</td><td>84.2億</td><td>89.1億</td><td>6.5% (至2035)</td></tr>
+<tr><td>整合式被動元件</td><td>19.2億</td><td>21.1億</td><td>9.6%</td></tr>
+</tbody></table></div>
+
+<h3>供需狀況</h3>
+<p>2025年底至2026年初，被動元件產業迎來罕見的全面漲價潮，高端被動元件市場供需關係預計將保持緊平衡狀態。</p>
+<ul><li><strong>MLCC</strong>：高階MLCC因AI應用需求逆勢爆發，日、韓大廠稼動率維持80%以上並預期訂單續增。中低階MLCC因淡季及原物料成本，台、陸系稼動率控制在60-70%，庫存調節。</li>
+<li><strong>鉭質電容</strong>：AI伺服器全面導入導致需求大幅躍升，擴產門檻極高，全球供應長期偏緊。國巨旗下KEMET已於2026年3月初發出漲價通知，4月1日生效。</li>
+<li><strong>晶片電阻</strong>：國巨及中國大廠風華高科已陸續調漲15-20%，主因貴金屬成本飆漲。</li>
+</ul>
+<h3>產業平均毛利率水準</h3>
+<p>被動元件產業毛利率因產品技術與市場而異。高階產品如國巨的利基型產品毛利率表現優異，中國大陸廠商風華高科2024年綜合毛利率為19.17%，順絡電子(電感)則維持在30%左右。</p>
+
+<h3>競爭格局</h3>
+
+<h4>全球前 5 大公司及其市佔率</h4>
+<strong>2024年全球MLCC市場份額</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>排名</th><th>公司名稱</th><th>市佔率</th></tr></thead><tbody>
+<tr><td>1</td><td>村田製作所</td><td>31.8%</td></tr>
+<tr><td>2</td><td>三星電機</td><td>22.9%</td></tr>
+<tr><td>3</td><td>太陽誘電</td><td>11.2%</td></tr>
+<tr><td>4</td><td>TDK</td><td>5.9%</td></tr>
+<tr><td>5</td><td>京瓷</td><td>5.5%</td></tr>
+</tbody></table></div>
+<em>註：國巨公司在使用者提供的資訊中被列為MLCC全球第三大，但在2024年市場份額報告中未進入前五，顯示其市場份額可能略低於前三大日韓廠，但仍具備領先地位。</em>
+
+<strong>鉭質電容</strong>
+<ul><li>國巨旗下KEMET在全球鉭質電容市場份額已超過50%。</li>
+<li>主要廠商包括Vishay Intertechnology、KEMET（國巨）、京瓷AVX元件、Panasonic等。美系廠商AVX、Vishay與基美合計掌握全球約60%至70%市占率。</li>
+</ul>
+<strong>晶片電阻</strong>
+<ul><li>國巨在全球晶片電阻領域為龍頭。</li>
+<li>主要廠商包括國巨、華新科技、KOA Corporation、ROHM Co., Ltd.等。</li>
+</ul>
+<strong>電感</strong>
+<ul><li>國巨在電感器和車規級磁件領域為全球第三大。</li>
+<li>主要廠商包括Coilcraft, Inc.、Bourns, Inc.、Wurth Elektronik GmbH &amp; Co. KG、村田製作所等。</li>
+</ul>
+<h4>國巨 vs 主要競爭對手的具體比較 (以MLCC領域為例)</h4>
+<div class="table-wrapper"><table>
+<thead><tr><th>特性/公司</th><th>國巨</th><th>村田、三星電機、太陽誘電 (日韓大廠)</th></tr></thead><tbody>
+<tr><td><strong>技術</strong></td><td>- 「一站式被動元件解決方案」</td><td>- 高階MLCC技術領先，小型化、高容量、高頻特性卓越</td></tr>
+<tr><td></td><td>- 高容值、低ESR、高精度電阻持續提升</td><td>- 掌握AI、車用等高階應用關鍵料源</td></tr>
+<tr><td><strong>產能</strong></td><td>- 鉭質電容、晶片電阻產能利用率高，有漲價行動</td><td>- 高階MLCC稼動率80%以上，產能滿載</td></tr>
+<tr><td></td><td>- 中低階MLCC稼動率60-70%，庫存調節</td><td>- 三星電機評估MLCC漲價</td></tr>
+<tr><td><strong>客戶</strong></td><td>- AI伺服器、圖形顯示卡、車用、工業、電信通訊</td><td>- AI伺服器、Apple新機、CSP大廠ASIC備貨</td></tr>
+<tr><td></td><td>- 已打入輝達（Nvidia）AI伺服器供應鏈</td><td></td></tr>
+<tr><td><strong>價格</strong></td><td>- 已調漲鉭質電容、晶片電阻、磁珠，展現定價力</td><td>- 高階MLCC需求爆發，產能滿載，紛紛上修財測</td></tr>
+</tbody></table></div>
+
+<h4>台灣同業比較</h4>
+<p>台灣被動元件廠普遍受惠於AI相關需求。國巨因產品線完整且全球市占領先，在漲價潮中具「全產品受惠」優勢。華新科AI相關營收約佔10%，預計2026年有望倍增。立隆電、蜜望實(太陽誘電代理商)等業者亦因AI伺服器需求強勁，業績表現亮眼。</p>
+
+<h3>產業趨勢</h3>
+
+<li><strong>高階化、小型化與高容量需求</strong>：</li>
+<p>*   <strong>趨勢</strong>：AI伺服器、5G通訊、電動車等驅動元件朝更小尺寸 (如01005 MLCC)、更高容量、更高電壓、更高可靠度與更低ESR發展。</p>
+<p>*   <strong>影響</strong>：市場呈現兩極化，高階產品需求爆發，要求廠商投入更多研發於先進材料與製程技術。</p>
+<li><strong>高頻與高功率應用</strong>：</li>
+<p>*   <strong>趨勢</strong>：AI伺服器、5G通訊、電動車、HPC系統對高頻濾波、電源穩定、大功率/高電流被動元件需求極高。</p>
+<p>*   <strong>影響</strong>：需要具備卓越高頻特性、低ESR、高可靠度且能承受大功率的元件，帶動鉭質電容、高功率電感及高精度晶片電阻需求。</p>
+<li><strong>整合式被動元件 (IPD) 發展</strong>：</li>
+<p>*   <strong>趨勢</strong>：為應對設備微型化與高功能性，將多個被動元件整合至單一封裝。</p>
+<p>*   <strong>影響</strong>：IPD在5G通訊、射頻模組、IoT裝置中關鍵，有助於減少空間、提高效能、簡化設計。</p>
+
+<h3>對 國巨 的具體機會和威脅</h3>
+
+<strong>機會：</strong>
+<ul><li><strong>AI/HPC強勁需求</strong>：AI伺服器對高階被動元件需求呈倍數成長，國巨產品線完整且為領導者，將是最大受益者。AI相關營收貢獻有望突破150億元。</li>
+<li><strong>車用電子與工業應用擴張</strong>：電動車、ADAS、工業自動化對高可靠度、高性能元件需求穩健，國巨透過併購擴展感測器業務，並強化車用佈局。</li>
+<li><strong>產品線整合優勢</strong>：提供「一站式解決方案」策略，深化客戶合作關係。</li>
+<li><strong>定價能力提升</strong>：高端產品供需吃緊及原物料成本壓力下，國巨成功對多項產品漲價，有助維持毛利率。</li>
+</ul>
+<strong>威脅：</strong>
+<ul><li><strong>原物料價格波動</strong>：貴金屬價格飆漲直接墊高製造成本，雖已轉嫁，但仍需持續關注。</li>
+<li><strong>中低階產品競爭加劇</strong>：消費性電子需求疲弱，中低階產品市場競爭激烈，價格承壓。</li>
+<li><strong>地緣政治風險</strong>：供應鏈重組、貿易關稅及匯率波動可能影響營運。</li>
+<li><strong>主要競爭者技術領先</strong>：日韓大廠在特定高階MLCC技術仍具優勢。</li>
+</ul>
+<h3>相關投資題材的具體連結</h3>
+
+<ul><li><strong>AI (人工智慧) 與 HPC (高效能運算)</strong>：</li>
+</ul>    *   AI伺服器對高階被動元件（鉭質電容、高階MLCC、晶片電阻）用量是傳統伺服器的2~3倍。NVIDIA GB200/300伺服器機櫃甚至高達45萬顆MLCC，規格嚴苛。
+<p>*   國巨因產品線及高階市場佈局，在AI伺服器、HPC領域受益最大，AI相關營收佔比持續提升。</p>
+<ul><li><strong>HBM (高頻寬記憶體)</strong>：</li>
+</ul>    *   HBM雖非被動元件，但其激增需求帶動電源管理與信號傳輸相關的高階被動元件需求，以確保系統穩定高效。
+<ul><li><strong>電動車 (EV) 與 ADAS (先進駕駛輔助系統)</strong>：</li>
+</ul>    *   電動車普及和ADAS複雜化，大幅增加車載電子元件數量和可靠性要求，推動車規級MLCC、鉭質電容、晶片電阻和感測器需求。國巨積極搶佔此市場。
+<ul><li><strong>5G通訊</strong>：</li>
+</ul>    *   5G基礎設施與手機對被動元件在高頻特性、小型化、低功耗等方面提出更高要求，MLCC、晶片電阻及整合式被動元件扮演關鍵角色。
+
+<hr>
+
+<h2>近期催化劑</h2>
+
+<h3>利多事件清單</h3>
+<ul><li><strong>2025年11月</strong>：二度調漲鉭質電容T520、T521、T530系列價格，漲幅二至三成。</li>
+<li><strong>2025年12月</strong>：11月營收新台幣122.65億元，月增8.04%、年增22.4%，創歷史單月新高。庫存天數降至117天健康區間。</li>
+<li><strong>2026年1月1日</strong>：磁珠產品（公制尺寸1608以上）實施價格調整，漲幅約一成，主因銀價長期居高不下。</li>
+<li><strong>2026年1月9日</strong>：12月營收新台幣123.51億元，年增29.7%，連續第二個月創單月歷史新高。2025全年營收新台幣1,329.3億元，創歷史新高。2025年第四季營收新台幣359.68億元，創歷年單季新高。</li>
+<li><strong>2026年1月13日</strong>：本土券商給予目標價300元，看好「漲價」及「新品」主旋律。</li>
+<li><strong>2026年1月18日</strong>：發出漲價通知，2月起調漲RC0402、RC0603、RC0805、RC1206等多項主流電阻產品價格，漲幅15-20%，因貴金屬成本飆漲。</li>
+<li><strong>2026年1月20日</strong>：獨立券商旗下投顧將目標價從300元拉升至360元，看好定價能力、日本大廠訂單外溢及資料中心需求。</li>
+<li><strong>2026年2月23日</strong>：因日、韓大廠醞釀MLCC漲價題材，股價攻上漲停281.5元。</li>
+<li><strong>2026年2月25日</strong>：法說會公布2025年Q4稅後純益季增6.2%、年增82.1%，全年EPS 11.51元，並預期2026年Q1營收、毛利率與營業利益率將續創新高。</li>
+<li><strong>2026年2月26日</strong>：多家券商上調國巨目標價，摩根大通給予最高364元。</li>
+<li><strong>2026年3月1日</strong>：法人將2026年EPS大幅上修至16.1元，預估營收挑戰1,587億元。再度向客戶發出鉭質電容漲價通知，新價格4月1日生效。</li>
+<li><strong>近期法人買超</strong>：3月2日外資買超4,918張，投信3月3日買超442張、3月4日買超1,098張。</li>
+</ul>
+<h3>利空事件清單</h3>
+<ul><li><strong>2025年12月中旬</strong>：外資累計賣超2.6萬張，主要集中在美國聯準會公布鷹派利率決策後的調節賣壓。</li>
+<li><strong>2025年Q4</strong>：併購整合產生一次性支出6.5億元，對單季EPS影響約減少0.32元。</li>
+<li><strong>2026年3月2日-3日</strong>：FactSet最新調查，共14-15位分析師對國巨2026年EPS預估中位數由16.18元下修至15.72元。</li>
+<li><strong>近期法人賣超</strong>：3月3日外資賣超6,719張，3月4日外資賣超5,089張。</li>
+</ul>
+<hr>
+
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間</th><th>類別</th><th>詳細描述</th></tr></thead><tbody>
+<tr><td>2024年1月</td><td>新市場</td><td>完成收購Telemecanique Sensors 100%股權，進一步強化感測器業務。</td></tr>
+<tr><td>2025年10月21日</td><td>新市場</td><td>完成對日本芝浦電子株式會社的公開收購 (接受率達87.3%)，預計2026年第一季完全納入旗下子公司，擴展NTC熱敏電阻業務，應用於汽車、消費性電子及工業領域。</td></tr>
+<tr><td>2025年11月</td><td>需求/價格</td><td>二度調漲鉭質電容價格，T520、T521、T530系列漲幅二至三成，顯示AI伺服器對高階鉭質電容需求強勁。</td></tr>
+<tr><td>2025年12月</td><td>需求</td><td>AI伺服器與資料中心成為國巨營收成長重要支柱，客戶庫存天數從132天降至117天健康區間。</td></tr>
+<tr><td>2026年1月1日</td><td>價格</td><td>旗下普思（PULSE）針對公制尺寸1608以上磁珠產品實施價格調整，業界推估漲幅約一成，主因關鍵原物料銀價長期居高不下。</td></tr>
+<tr><td>2026年1月</td><td>新客戶/市場</td><td>積極送樣高壓高容MLCC、功率電感及耐大電流磁珠等新品給GPU伺服器大廠，隨著其採用HVDC，可望成功打入供應鏈，下半年出現新營收動能。</td></tr>
+<tr><td>2026年2月1日</td><td>價格</td><td>正式對客戶發出漲價通知，調漲RC0402、RC0603、RC0805、RC1206等多項主流電阻產品價格15-20%，主因白銀、釕、鈀等貴金屬價格飆漲。</td></tr>
+<tr><td>2026年Q1 (預計)</td><td>擴廠/產能</td><td>台灣高雄大發工業區新廠將逐步量產車用高壓MLCC與工規高階電阻，預計2026年將開始貢獻集團營收。</td></tr>
+<tr><td>2026年Q1 (預計)</td><td>產能</td><td>高階（Premium）與標準（Standard）產品稼動率都可望較上季增加3-5%。公司將進一步提升特殊品稼動率至85%的水準，以支應高端與利基應用需求。</td></tr>
+<tr><td>2026年Q1 (預計)</td><td>新市場</td><td>併購芝浦電子的整合效益開始顯現，提升感測器產品佔比，促進汽車、消費性電子及工業等終端應用領域的營收成長。</td></tr>
+<tr><td>226年4月1日</td><td>價格</td><td>國巨旗下KEMET再度向客戶發出漲價通知，部分鉭質電容料號（T523系列）將調整價格，主要因聚合物鉭電容需求大幅躍升及成本攀升。</td></tr>
+<tr><td>2026年全年</td><td>需求</td><td>AI伺服器對MLCC、鉭質電容等被動元件的需求量與規格要求持續提升，且需求密度遠勝一般PC，具有結構性成長潛力。村田製作所預估AI資本支出熱潮至少持續三年。AI相關產品營收占比預計將從2025年的10-12%躍升至20%。</td></tr>
+<tr><td>2026年全年</td><td>產品組合</td><td>高階產品比重提升，超過75%的營收來自「利基型產品」，使得獲利能力不再完全受制於消費電子景氣榮枯。</td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+<li><strong>AI/HPC需求爆發：</strong> AI伺服器為最主要成長引擎，單機被動元件用量為傳統伺服器的數倍。國巨在AI伺服器供應鏈中的高階MLCC、鉭質電容、晶片電阻和電感產品需求持續強勁，預期AI相關產品營收貢獻在2026年有望突破兩成。</li>
+<li><strong>產品組合持續優化：</strong> 高階利基型產品佔比提升至75%以上，降低受消費電子景氣波動影響，並帶動整體毛利率與營業利益率提升。</li>
+<li><strong>併購整合效益顯現：</strong> 芝浦電子和Telemecanique Sensors的併入，擴大了感測器產品線，強化車用、工業及特定利基市場佈局，貢獻新的營收增長。</li>
+<li><strong>漲價循環與定價能力：</strong> 2025年底至2026年以來多次成功調漲鉭質電容、磁珠、晶片電阻價格，顯示國巨具備強勁的成本轉嫁能力與市場定價權，將持續支撐獲利能力。</li>
+<li><strong>車用與工控市場復甦：</strong> 電動車與先進駕駛輔助系統（ADAS）滲透率提升，加上歐洲工控市場復甦跡象，將持續推動對高可靠度、高規格被動元件的需求。</li>
+<li><strong>日本大廠訂單外溢：</strong> 村田製作所等日系大廠高階MLCC稼動率接近滿載，可能產生訂單外溢效應，使國巨等台廠受惠。</li>
+
+<strong>風險：</strong>
+<li><strong>全球經濟放緩</strong>：若全球經濟成長不如預期，可能拖累國巨約25%的標準品業務需求，抵銷高階產品的部分成長。</li>
+<li><strong>匯率波動</strong>：被動元件產業對匯率敏感，儘管強勢美元有利於財報，但匯率反轉恐侵蝕獲利。</li>
+<li><strong>原物料價格波動</strong>：貴金屬（銀、釕、鈀）價格持續飆漲，雖已成功轉嫁，未來仍考驗成本控制與轉嫁能力。</li>
+<li><strong>地緣政治不確定性</strong>：國際貿易政策、關稅變化及地緣政治緊張，可能影響供應鏈穩定性與市場佈局。</li>
+<li><strong>中低階市場競爭</strong>：消費性電子需求疲弱，中低階產品市場仍面臨競爭壓力，稼動率與價格可能承壓。</li>
+<li><strong>估值風險</strong>：部分法人認為國巨本益比已達20倍，高於過去未有缺料漲價時的15倍區間上緣，股價可能面臨估值修正壓力。</li>
+
+<hr>
+
+<h2>投資結論</h2>
+
+<li><strong>AI與高階應用為核心成長引擎：</strong> 國巨憑藉其在AI伺服器及HPC領域的深厚佈局，特別是高階MLCC、鉭質電容及晶片電阻的領先地位，將成為此波AI產業趨勢的最大受益者。2026年AI相關營收佔比預計將提升至20%，為公司營收與獲利帶來結構性成長。</li>
+<li><strong>產品組合優化與定價能力提升盈利質量：</strong> 公司持續聚焦利基型高毛利產品，並在原物料成本壓力下成功多次調漲產品價格，展現了卓越的定價能力。這使得國巨的獲利能力不再完全受制於傳統消費性電子景氣，盈利質量顯著提升。</li>
+<li><strong>穩健的財務體質與策略性併購效益：</strong> 國巨庫存水位已回歸健康，財務槓桿穩健。透過對芝浦電子及Telemecanique Sensors的併購，不僅拓寬了產品線（感測器），也強化了在車用與工業等高成長市場的地位，預期併購整合效益將在2026年進一步顯現。</li>
+<li><strong>儘管有宏觀與估值壓力，但長期動能不變：</strong> 雖然全球經濟放緩、匯率波動及部分市場估值已達相對高點，可能帶來短期股價震盪，但國巨深耕高階市場、具備完整產品線及定價權的護城河，使其在被動元件產業中具備長期競爭優勢。</li>
+<li><strong>目標價區間建議：</strong> 綜合券商預估、公司成長動能與產業前景，考量其在全球被動元件高階市場的領導地位及AI趨勢帶來的長期增長潛力，給予國巨 <strong>新台幣350元至380元</strong> 的目標價區間建議。此區間反映了公司在AI應用、產品組合優化和定價能力上的優勢，同時考量了市場估值與宏觀經濟潛在風險。</li>
+
+<hr>
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 09:36</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2327_國巨__company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2327_國巨__industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2327_國巨__investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5269 祥碩 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>5269 祥碩 深度研究報告</h1>
+
+<strong>今天日期：2026年03月06日</strong>
+
+<h2>一句話摘要</h2>
+<p>祥碩 (5269) 受惠於 USB4、PCIe Gen4 高速介面晶片需求爆發、AMD 平台市佔提升，以及車用電子子公司 Techpoint 的挹注，2025 年營收與 EPS 雙創歷史新高。展望 2026 年，隨著新代工客戶、下一代 PCIe Gen5/USB V2 產品推出，搭配 AI PC/伺服器與電動車應用持續擴張，公司營運有望再締新猷，管理層與法人預期營收與獲利將持續雙位數成長。近期董事會決議實施庫藏股，更彰顯管理層對公司未來發展的信心。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">5269 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-5269" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-5269" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-5269');
+    var obvContainer = document.getElementById('obv-chart-5269');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 1250.0, "high": 1255.0, "low": 1230.0, "close": 1230.0}, {"time": "2025-12-05", "open": 1230.0, "high": 1235.0, "low": 1205.0, "close": 1225.0}, {"time": "2025-12-08", "open": 1225.0, "high": 1240.0, "low": 1215.0, "close": 1230.0}, {"time": "2025-12-09", "open": 1240.0, "high": 1265.0, "low": 1225.0, "close": 1245.0}, {"time": "2025-12-10", "open": 1245.0, "high": 1265.0, "low": 1240.0, "close": 1260.0}, {"time": "2025-12-11", "open": 1275.0, "high": 1285.0, "low": 1230.0, "close": 1230.0}, {"time": "2025-12-12", "open": 1240.0, "high": 1245.0, "low": 1200.0, "close": 1200.0}, {"time": "2025-12-15", "open": 1165.0, "high": 1205.0, "low": 1165.0, "close": 1200.0}, {"time": "2025-12-16", "open": 1190.0, "high": 1200.0, "low": 1160.0, "close": 1190.0}, {"time": "2025-12-17", "open": 1210.0, "high": 1215.0, "low": 1180.0, "close": 1180.0}, {"time": "2025-12-18", "open": 1180.0, "high": 1180.0, "low": 1160.0, "close": 1165.0}, {"time": "2025-12-19", "open": 1180.0, "high": 1200.0, "low": 1160.0, "close": 1185.0}, {"time": "2025-12-22", "open": 1195.0, "high": 1210.0, "low": 1180.0, "close": 1190.0}, {"time": "2025-12-23", "open": 1205.0, "high": 1205.0, "low": 1170.0, "close": 1170.0}, {"time": "2025-12-24", "open": 1180.0, "high": 1200.0, "low": 1150.0, "close": 1150.0}, {"time": "2025-12-26", "open": 1160.0, "high": 1165.0, "low": 1130.0, "close": 1160.0}, {"time": "2025-12-29", "open": 1160.0, "high": 1175.0, "low": 1150.0, "close": 1170.0}, {"time": "2025-12-30", "open": 1165.0, "high": 1190.0, "low": 1150.0, "close": 1175.0}, {"time": "2025-12-31", "open": 1185.0, "high": 1230.0, "low": 1180.0, "close": 1210.0}, {"time": "2026-01-02", "open": 1210.0, "high": 1210.0, "low": 1160.0, "close": 1160.0}, {"time": "2026-01-05", "open": 1165.0, "high": 1195.0, "low": 1150.0, "close": 1190.0}, {"time": "2026-01-06", "open": 1205.0, "high": 1215.0, "low": 1185.0, "close": 1190.0}, {"time": "2026-01-07", "open": 1195.0, "high": 1305.0, "low": 1190.0, "close": 1305.0}, {"time": "2026-01-08", "open": 1345.0, "high": 1385.0, "low": 1275.0, "close": 1275.0}, {"time": "2026-01-09", "open": 1315.0, "high": 1400.0, "low": 1310.0, "close": 1400.0}, {"time": "2026-01-12", "open": 1480.0, "high": 1480.0, "low": 1380.0, "close": 1380.0}, {"time": "2026-01-13", "open": 1380.0, "high": 1380.0, "low": 1285.0, "close": 1300.0}, {"time": "2026-01-14", "open": 1310.0, "high": 1360.0, "low": 1275.0, "close": 1345.0}, {"time": "2026-01-15", "open": 1330.0, "high": 1400.0, "low": 1320.0, "close": 1335.0}, {"time": "2026-01-16", "open": 1345.0, "high": 1345.0, "low": 1300.0, "close": 1300.0}, {"time": "2026-01-19", "open": 1300.0, "high": 1315.0, "low": 1265.0, "close": 1300.0}, {"time": "2026-01-20", "open": 1300.0, "high": 1315.0, "low": 1285.0, "close": 1290.0}, {"time": "2026-01-21", "open": 1280.0, "high": 1280.0, "low": 1220.0, "close": 1220.0}, {"time": "2026-01-22", "open": 1245.0, "high": 1250.0, "low": 1220.0, "close": 1230.0}, {"time": "2026-01-23", "open": 1250.0, "high": 1350.0, "low": 1250.0, "close": 1350.0}, {"time": "2026-01-26", "open": 1350.0, "high": 1420.0, "low": 1340.0, "close": 1375.0}, {"time": "2026-01-27", "open": 1420.0, "high": 1435.0, "low": 1360.0, "close": 1400.0}, {"time": "2026-01-28", "open": 1405.0, "high": 1405.0, "low": 1365.0, "close": 1375.0}, {"time": "2026-01-29", "open": 1385.0, "high": 1385.0, "low": 1325.0, "close": 1330.0}, {"time": "2026-01-30", "open": 1325.0, "high": 1330.0, "low": 1285.0, "close": 1290.0}, {"time": "2026-02-02", "open": 1260.0, "high": 1290.0, "low": 1250.0, "close": 1250.0}, {"time": "2026-02-03", "open": 1280.0, "high": 1325.0, "low": 1260.0, "close": 1315.0}, {"time": "2026-02-04", "open": 1310.0, "high": 1345.0, "low": 1290.0, "close": 1335.0}, {"time": "2026-02-05", "open": 1300.0, "high": 1320.0, "low": 1255.0, "close": 1255.0}, {"time": "2026-02-06", "open": 1255.0, "high": 1260.0, "low": 1195.0, "close": 1235.0}, {"time": "2026-02-09", "open": 1275.0, "high": 1275.0, "low": 1230.0, "close": 1230.0}, {"time": "2026-02-10", "open": 1270.0, "high": 1310.0, "low": 1265.0, "close": 1300.0}, {"time": "2026-02-11", "open": 1295.0, "high": 1295.0, "low": 1270.0, "close": 1270.0}, {"time": "2026-02-23", "open": 1280.0, "high": 1285.0, "low": 1205.0, "close": 1205.0}, {"time": "2026-02-24", "open": 1215.0, "high": 1275.0, "low": 1215.0, "close": 1265.0}, {"time": "2026-02-25", "open": 1310.0, "high": 1350.0, "low": 1290.0, "close": 1315.0}, {"time": "2026-02-26", "open": 1315.0, "high": 1350.0, "low": 1310.0, "close": 1315.0}, {"time": "2026-03-02", "open": 1205.0, "high": 1210.0, "low": 1140.0, "close": 1165.0}, {"time": "2026-03-03", "open": 1290.0, "high": 1295.0, "low": 1230.0, "close": 1235.0}, {"time": "2026-03-04", "open": 1205.0, "high": 1210.0, "low": 1140.0, "close": 1165.0}, {"time": "2026-03-05", "open": 1225.0, "high": 1280.0, "low": 1200.0, "close": 1280.0}, {"time": "2026-03-06", "open": 1295.0, "high": 1360.0, "low": 1285.0, "close": 1285.0}, {"time": "2026-03-09", "open": 1180.0, "high": 1230.0, "low": 1160.0, "close": 1220.0}, {"time": "2026-03-10", "open": 1235.0, "high": 1265.0, "low": 1190.0, "close": 1220.0}, {"time": "2026-03-11", "open": 1245.0, "high": 1265.0, "low": 1235.0, "close": 1260.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 198.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 293.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 212.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 605.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 356.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 537.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 510.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 358.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 507.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 298.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 275.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 587.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 485.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 300.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 536.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 543.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 588.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 579.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 920.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 966.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 793.0, "color": "#ef5350"}, {"time": "2026-01-06", "value": 964.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 1779.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 3754.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 3848.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 3022.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 3959.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 2813.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 2588.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 1349.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 1051.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 595.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 1491.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 907.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 2346.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 2753.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 2374.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 1173.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 959.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 825.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 984.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 945.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 845.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 1918.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 1100.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 728.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 1189.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 555.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 1435.0, "color": "#26a69a"}, {"time": "2026-02-24", "value": 1120.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 1680.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 1293.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 1220.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 974.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 1220.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 1490.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 3224.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 1969.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 1760.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 1139.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 1238.0}, {"time": "2025-12-11", "value": 1238.0}, {"time": "2025-12-12", "value": 1233.0}, {"time": "2025-12-15", "value": 1227.0}, {"time": "2025-12-16", "value": 1216.0}, {"time": "2025-12-17", "value": 1200.0}, {"time": "2025-12-18", "value": 1187.0}, {"time": "2025-12-19", "value": 1184.0}, {"time": "2025-12-22", "value": 1182.0}, {"time": "2025-12-23", "value": 1178.0}, {"time": "2025-12-24", "value": 1172.0}, {"time": "2025-12-26", "value": 1171.0}, {"time": "2025-12-29", "value": 1168.0}, {"time": "2025-12-30", "value": 1165.0}, {"time": "2025-12-31", "value": 1173.0}, {"time": "2026-01-02", "value": 1175.0}, {"time": "2026-01-05", "value": 1181.0}, {"time": "2026-01-06", "value": 1185.0}, {"time": "2026-01-07", "value": 1211.0}, {"time": "2026-01-08", "value": 1224.0}, {"time": "2026-01-09", "value": 1272.0}, {"time": "2026-01-12", "value": 1310.0}, {"time": "2026-01-13", "value": 1332.0}, {"time": "2026-01-14", "value": 1340.0}, {"time": "2026-01-15", "value": 1352.0}, {"time": "2026-01-16", "value": 1332.0}, {"time": "2026-01-19", "value": 1316.0}, {"time": "2026-01-20", "value": 1314.0}, {"time": "2026-01-21", "value": 1289.0}, {"time": "2026-01-22", "value": 1268.0}, {"time": "2026-01-23", "value": 1278.0}, {"time": "2026-01-26", "value": 1293.0}, {"time": "2026-01-27", "value": 1315.0}, {"time": "2026-01-28", "value": 1346.0}, {"time": "2026-01-29", "value": 1366.0}, {"time": "2026-01-30", "value": 1354.0}, {"time": "2026-02-02", "value": 1329.0}, {"time": "2026-02-03", "value": 1312.0}, {"time": "2026-02-04", "value": 1304.0}, {"time": "2026-02-05", "value": 1289.0}, {"time": "2026-02-06", "value": 1278.0}, {"time": "2026-02-09", "value": 1274.0}, {"time": "2026-02-10", "value": 1271.0}, {"time": "2026-02-11", "value": 1258.0}, {"time": "2026-02-23", "value": 1248.0}, {"time": "2026-02-24", "value": 1254.0}, {"time": "2026-02-25", "value": 1271.0}, {"time": "2026-02-26", "value": 1274.0}, {"time": "2026-03-02", "value": 1253.0}, {"time": "2026-03-03", "value": 1259.0}, {"time": "2026-03-04", "value": 1239.0}, {"time": "2026-03-05", "value": 1232.0}, {"time": "2026-03-06", "value": 1226.0}, {"time": "2026-03-09", "value": 1237.0}, {"time": "2026-03-10", "value": 1234.0}, {"time": "2026-03-11", "value": 1253.0}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 1219.0}, {"time": "2025-12-18", "value": 1212.5}, {"time": "2025-12-19", "value": 1208.5}, {"time": "2025-12-22", "value": 1204.5}, {"time": "2025-12-23", "value": 1197.0}, {"time": "2025-12-24", "value": 1186.0}, {"time": "2025-12-26", "value": 1179.0}, {"time": "2025-12-29", "value": 1176.0}, {"time": "2025-12-30", "value": 1173.5}, {"time": "2025-12-31", "value": 1175.5}, {"time": "2026-01-02", "value": 1173.5}, {"time": "2026-01-05", "value": 1176.0}, {"time": "2026-01-06", "value": 1176.5}, {"time": "2026-01-07", "value": 1188.0}, {"time": "2026-01-08", "value": 1198.5}, {"time": "2026-01-09", "value": 1223.5}, {"time": "2026-01-12", "value": 1245.5}, {"time": "2026-01-13", "value": 1258.5}, {"time": "2026-01-14", "value": 1275.5}, {"time": "2026-01-15", "value": 1288.0}, {"time": "2026-01-16", "value": 1302.0}, {"time": "2026-01-19", "value": 1313.0}, {"time": "2026-01-20", "value": 1323.0}, {"time": "2026-01-21", "value": 1314.5}, {"time": "2026-01-22", "value": 1310.0}, {"time": "2026-01-23", "value": 1305.0}, {"time": "2026-01-26", "value": 1304.5}, {"time": "2026-01-27", "value": 1314.5}, {"time": "2026-01-28", "value": 1317.5}, {"time": "2026-01-29", "value": 1317.0}, {"time": "2026-01-30", "value": 1316.0}, {"time": "2026-02-02", "value": 1311.0}, {"time": "2026-02-03", "value": 1313.5}, {"time": "2026-02-04", "value": 1325.0}, {"time": "2026-02-05", "value": 1327.5}, {"time": "2026-02-06", "value": 1316.0}, {"time": "2026-02-09", "value": 1301.5}, {"time": "2026-02-10", "value": 1291.5}, {"time": "2026-02-11", "value": 1281.0}, {"time": "2026-02-23", "value": 1268.5}, {"time": "2026-02-24", "value": 1266.0}, {"time": "2026-02-25", "value": 1272.5}, {"time": "2026-02-26", "value": 1272.5}, {"time": "2026-03-02", "value": 1255.5}, {"time": "2026-03-03", "value": 1253.5}, {"time": "2026-03-04", "value": 1246.5}, {"time": "2026-03-05", "value": 1251.5}, {"time": "2026-03-06", "value": 1250.0}, {"time": "2026-03-09", "value": 1245.0}, {"time": "2026-03-10", "value": 1246.5}, {"time": "2026-03-11", "value": 1246.0}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 1196.25}, {"time": "2026-01-05", "value": 1194.25}, {"time": "2026-01-06", "value": 1192.5}, {"time": "2026-01-07", "value": 1196.25}, {"time": "2026-01-08", "value": 1197.75}, {"time": "2026-01-09", "value": 1204.75}, {"time": "2026-01-12", "value": 1212.25}, {"time": "2026-01-13", "value": 1217.25}, {"time": "2026-01-14", "value": 1224.5}, {"time": "2026-01-15", "value": 1231.75}, {"time": "2026-01-16", "value": 1237.75}, {"time": "2026-01-19", "value": 1244.5}, {"time": "2026-01-20", "value": 1249.75}, {"time": "2026-01-21", "value": 1251.25}, {"time": "2026-01-22", "value": 1254.25}, {"time": "2026-01-23", "value": 1264.25}, {"time": "2026-01-26", "value": 1275.0}, {"time": "2026-01-27", "value": 1286.5}, {"time": "2026-01-28", "value": 1296.5}, {"time": "2026-01-29", "value": 1302.5}, {"time": "2026-01-30", "value": 1309.0}, {"time": "2026-02-02", "value": 1312.0}, {"time": "2026-02-03", "value": 1318.25}, {"time": "2026-02-04", "value": 1319.75}, {"time": "2026-02-05", "value": 1318.75}, {"time": "2026-02-06", "value": 1310.5}, {"time": "2026-02-09", "value": 1303.0}, {"time": "2026-02-10", "value": 1303.0}, {"time": "2026-02-11", "value": 1299.25}, {"time": "2026-02-23", "value": 1292.75}, {"time": "2026-02-24", "value": 1291.0}, {"time": "2026-02-25", "value": 1291.75}, {"time": "2026-02-26", "value": 1293.0}, {"time": "2026-03-02", "value": 1290.25}, {"time": "2026-03-03", "value": 1290.5}, {"time": "2026-03-04", "value": 1281.25}, {"time": "2026-03-05", "value": 1276.5}, {"time": "2026-03-06", "value": 1270.75}, {"time": "2026-03-09", "value": 1263.0}, {"time": "2026-03-10", "value": 1257.5}, {"time": "2026-03-11", "value": 1256.0}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -293.0}, {"time": "2025-12-08", "value": -81.0}, {"time": "2025-12-09", "value": 524.0}, {"time": "2025-12-10", "value": 880.0}, {"time": "2025-12-11", "value": 343.0}, {"time": "2025-12-12", "value": -167.0}, {"time": "2025-12-15", "value": -167.0}, {"time": "2025-12-16", "value": -674.0}, {"time": "2025-12-17", "value": -972.0}, {"time": "2025-12-18", "value": -1247.0}, {"time": "2025-12-19", "value": -660.0}, {"time": "2025-12-22", "value": -175.0}, {"time": "2025-12-23", "value": -475.0}, {"time": "2025-12-24", "value": -1011.0}, {"time": "2025-12-26", "value": -468.0}, {"time": "2025-12-29", "value": 120.0}, {"time": "2025-12-30", "value": 699.0}, {"time": "2025-12-31", "value": 1619.0}, {"time": "2026-01-02", "value": 653.0}, {"time": "2026-01-05", "value": 1446.0}, {"time": "2026-01-06", "value": 1446.0}, {"time": "2026-01-07", "value": 3225.0}, {"time": "2026-01-08", "value": -529.0}, {"time": "2026-01-09", "value": 3319.0}, {"time": "2026-01-12", "value": 297.0}, {"time": "2026-01-13", "value": -3662.0}, {"time": "2026-01-14", "value": -849.0}, {"time": "2026-01-15", "value": -3437.0}, {"time": "2026-01-16", "value": -4786.0}, {"time": "2026-01-19", "value": -4786.0}, {"time": "2026-01-20", "value": -5381.0}, {"time": "2026-01-21", "value": -6872.0}, {"time": "2026-01-22", "value": -5965.0}, {"time": "2026-01-23", "value": -3619.0}, {"time": "2026-01-26", "value": -866.0}, {"time": "2026-01-27", "value": 1508.0}, {"time": "2026-01-28", "value": 335.0}, {"time": "2026-01-29", "value": -624.0}, {"time": "2026-01-30", "value": -1449.0}, {"time": "2026-02-02", "value": -2433.0}, {"time": "2026-02-03", "value": -1488.0}, {"time": "2026-02-04", "value": -643.0}, {"time": "2026-02-05", "value": -2561.0}, {"time": "2026-02-06", "value": -3661.0}, {"time": "2026-02-09", "value": -4389.0}, {"time": "2026-02-10", "value": -3200.0}, {"time": "2026-02-11", "value": -3755.0}, {"time": "2026-02-23", "value": -5190.0}, {"time": "2026-02-24", "value": -4070.0}, {"time": "2026-02-25", "value": -2390.0}, {"time": "2026-02-26", "value": -2390.0}, {"time": "2026-03-02", "value": -3610.0}, {"time": "2026-03-03", "value": -2636.0}, {"time": "2026-03-04", "value": -3856.0}, {"time": "2026-03-05", "value": -2366.0}, {"time": "2026-03-06", "value": 858.0}, {"time": "2026-03-09", "value": -1111.0}, {"time": "2026-03-10", "value": -1111.0}, {"time": "2026-03-11", "value": 28.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>祥碩科技成立於2004年3月，為華碩（2357）轉投資的IC設計公司，專注於高速介面控制晶片的開發與設計，擁有高速實體層（PHY）的自主研發能力。</p>
+
+<strong>核心產品與服務：</strong>
+<ul><li><strong>高速介面控制晶片：</strong> 專精於USB（例如：USB4、下一代USB V2 80Gbps）、PCIe（例如：PCIe Gen4/5/6/7 Packet Switch）以及SATA控制晶片。</li>
+<li><strong>代工業務 (ASIC)：</strong> 為主要客戶（如AMD）研發晶片組。</li>
+<li><strong>自有品牌產品：</strong> 以「ASMedia」品牌開發及銷售控制晶片，供應全球主機板大廠及OEM客戶。</li>
+<li><strong>車用電子：</strong> 透過併購子公司Techpoint，成功將業務版圖從消費性電子擴展至車載與安防監控領域，提供影像傳輸、導航、電子後視鏡（E-Mirror）等應用晶片。</li>
+</ul>
+<strong>營收結構 (2025年第一季資料)：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務項目</th><th>營收佔比 (2025 Q1)</th><th>備註</th></tr></thead><tbody>
+<tr><td>Host高速介面控制晶片</td><td>約84%</td><td>包含自有品牌產品及為主要客戶代工的晶片組業務</td></tr>
+<tr><td>Device裝置端高速介面控制晶片及其他</td><td>約16%</td><td></td></tr>
+<tr><td>代工業務 (ASIC)</td><td>約50-55%</td><td>佔公司整體營收比例，與 Host 端晶片業務重疊</td></tr>
+<tr><td>Techpoint車用監控產品</td><td>約10% (累計)</td><td>2025年前三季累計，預計自2026年起貢獻全年營收</td></tr>
+</tbody></table></div>
+
+<strong>製造基地：</strong> 祥碩為一家IC設計公司（Fabless模式），無自有製造基地，晶片製造委託晶圓代工廠（例如台積電FinFET製程）。
+
+<h2>核心競爭優勢</h2>
+<ul><li><strong>領先的高速介面技術與自主PHY能力：</strong> 祥碩具備 USB (如 USB4、下一代 USB V2 80Gbps)、PCIe (Gen4/5/6/7) 和 SATA 控制晶片的自主研發能力，尤其在高速實體層（PHY）的掌握，使其在產品性能、成本控制及客製化能力上優於依賴授權 IP 的競爭對手。USB4 在高階市場市佔率接近 100%。</li>
+<li><strong>強大的客戶合作關係：</strong> 作為 AMD 晶片組的主要設計合作夥伴，受惠於 AMD 在 PC 市場佔有率的提升，確保了穩定的代工業務收入。</li>
+<li><strong>拓展多元應用市場：</strong> 透過併購 Techpoint 成功切入高成長的車用電子市場 (車載影像、ADAS)，提供公司第二條成長曲線。同時，PCIe Packet Switch 產品線積極布局 AI 伺服器、邊緣運算、NAS 等高成長領域。</li>
+<li><strong>AI 浪潮下的核心價值：</strong> 隨著 AI PC/伺服器與邊緣 AI 的普及，對高頻寬、低延遲高速傳輸介面（USB4、PCIe）的需求激增，祥碩的產品扮演資料流動的關鍵角色，將直接受惠。</li>
+<li><strong>產品組合優化與高階化：</strong> USB4 及 PCIe Gen5/Gen6/Gen7 等新一代產品的平均單價 (ASP) 顯著提升，有助於維持公司高毛利率及獲利能力。</li>
+</ul>
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<strong>最近 6 個月的月營收數字 (截至2026年03月06日)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元)</th><th>月增率 MoM</th><th>年增率 YoY</th><th>備註</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>13.47</td><td>+17.78%</td><td>+58.31%</td><td>受益於 Techpoint 併入及客戶需求強勁</td></tr>
+<tr><td>2025年12月</td><td>11.43</td><td>-3.63%</td><td>+79.69%</td><td></td></tr>
+<tr><td>2025年11月</td><td>11.86</td><td>-0.34%</td><td>+85.2%</td><td></td></tr>
+<tr><td>2025年10月</td><td>11.90</td><td>-16.27%</td><td>+91.15%</td><td></td></tr>
+<tr><td>2025年09月</td><td>14.22</td><td>+8.76%</td><td>+169.49%</td><td></td></tr>
+<tr><td>2025年08月</td><td>13.07</td><td>+3.51%</td><td>+62.63%</td><td></td></tr>
+<tr><td>2026年02月</td><td>未公布</td><td>-</td><td>-</td><td>截至目前 (2026/03/06) 尚未找到最新月營收資料</td></tr>
+</tbody></table></div>
+
+<h3>季度與年度財務數據</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2024年EPS (實際)</th><th>2025年營收 (實際)</th><th>2025年EPS (實際)</th><th>2025年Q4營收 (實際)</th><th>2025年Q4毛利率 (實際)</th><th>2025年Q4營業利益率 (實際)</th><th>2025年Q4 EPS (實際)</th></tr></thead><tbody>
+<tr><td>數據</td><td>51.57元</td><td>134.15億元 (+66.01% YoY)</td><td>72.7元</td><td>35.21億元</td><td>51.26%</td><td>22.92%</td><td>20.08元</td></tr>
+<tr><td>備註</td><td>(2024全年營收未找到具體數字)</td><td>創歷史新高</td><td>創歷史新高</td><td></td><td></td><td></td><td></td></tr>
+</tbody></table></div>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>預估項目</th><th>2025年營收 (預估)</th><th>2025年EPS (預估)</th><th>2026年營收 (預估)</th><th>2026年EPS (預估)</th></tr></thead><tbody>
+<tr><td>群益證券</td><td>134.15億元</td><td>70.57元</td><td>174.39億元</td><td>91元</td></tr>
+<tr><td>花旗美邦證券</td><td>-</td><td>72.54元</td><td>-</td><td>-</td></tr>
+<tr><td>法人平均</td><td>-</td><td>-</td><td>-</td><td>77.6元 ~ 101.85元 (+20% YoY)</td></tr>
+</tbody></table></div>
+
+<h2>法說會重點</h2>
+<strong>最近一次法說會日期：</strong> 2025年11月11日 (線上法說會)
+
+<strong>管理層對各產品線的具體 guidance 及發言：</strong>
+<ul><li><strong>2026年營運展望：</strong> 祥碩總經理林哲偉表示，預期2026年營運表現將優於2025年，推升公司整體營收與獲利再創新高。</li>
+<li><strong>USB4 產品線：</strong> 持續放量，在高階市場（特別是經 Thunderbolt 4 認證產品）幾乎獨占。隨著高階電腦朝高效能、多 port 數發展，主控端 (Host) 產品滲透率高，將帶動裝置端 (Device) 同步成長。</li>
+<li><strong>PCIe Packet Switch 產品線：</strong> PCIe Gen4 產品出貨穩定，應用於 AI 邊緣端、中低階伺服器、NAS、安防及工控等領域。祥碩作為台灣唯一、亞洲少數具備此技術及量產能力者，將受惠於高 Lane 數新客戶及既有客戶升級需求。</li>
+<li><strong>代工業務：</strong> 與主要代工客戶 AMD 合作穩定，且已拿下第二家代工新客戶，預計於2026年下半年開始貢獻營收。</li>
+<li><strong>車用業務 (Techpoint)：</strong> 自2026年起將貢獻全年營收，成為公司第三個成長引擎。新的 ISP 產品即將推出，2026年將有 test chip 問世。公司將運用 SerDes 技術拓展新產品線，並持續優化電子後視鏡 (E-Mirror) 與導航系統等產品線。</li>
+<li><strong>新產品時程：</strong> PCIe Gen5 與 USB4 V2 晶片預計 2026 年後陸續設計定案 (tape-out)，並於 2027 年量產，有望帶動平均單價 (ASP) 增長。</li>
+</ul>
+<h2>券商觀點</h2>
+<strong>券商目標價與評等 (截至2026年03月06日)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名</th><th>目標價 (元)</th><th>評等</th><th>日期</th><th>2025 EPS 預估</th><th>2026 EPS 預估</th><th>備註</th></tr></thead><tbody>
+<tr><td>花旗美邦證券</td><td>1,600</td><td>看多</td><td>2026/03/06</td><td>72.54</td><td>-</td><td></td></tr>
+<tr><td>群益證券</td><td>1,600</td><td>看多</td><td>2026/01/26</td><td>70.57</td><td>91.00</td><td></td></tr>
+<tr><td>FactSet調查中位數</td><td>2,225</td><td>-</td><td>2025/10/02</td><td>71.34</td><td>-</td><td>較早的市場共識，後有券商調降目標價</td></tr>
+</tbody></table></div>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>51.04</td><td>29.12</td><td>39.65</td><td>毛利率較上季微降2個百分點，主要因代工業務比重增加</td></tr>
+<tr><td>2025年第二季</td><td>53.00 (估)</td><td>-</td><td>-</td><td></td></tr>
+<tr><td>2025年第一季</td><td>55.00</td><td>-</td><td>-</td><td>較上季增加2個百分點，較去年同期減少4個百分點</td></tr>
+<tr><td>2025年全年</td><td>-</td><td>-</td><td>-</td><td>公司預期毛利率可望維持在50%至55%之間</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化的原因分析：</strong>
+<ul><li><strong>產品組合：</strong> 代工業務 (佔比約六成) 的毛利率通常略低於自有品牌業務，當代工比重增加時，可能對整體毛利率造成輕微壓力。然而，自有品牌高階產品 (如 USB4) 的高單價與高毛利，持續為獲利帶來動能。</li>
+<li><strong>高階產品動能：</strong> USB4.0 Host controller 產品在高階市場的獨占性及高單價，有效支撐並推升營收與獲利。</li>
+<li><strong>併購效益：</strong> Techpoint 併入後，自 2025 年第三季開始完整貢獻營收，其車用產品線有助於維持整體毛利率水平並開拓新市場。</li>
+</ul>
+<h3>存貨與營運週轉</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數</th><th>應收帳款週轉天數</th><th>備註</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>85.33</td><td>49.54</td><td>存貨與應收帳款週轉天數較上季略為上升</td></tr>
+<tr><td>2025年第二季</td><td>71.86</td><td>47.60</td><td></td></tr>
+<tr><td>2025年第一季</td><td>51.16</td><td>47.01</td><td>存貨週轉天數下降，顯示存貨控管能力提升</td></tr>
+<tr><td>2024年第四季</td><td>57.69</td><td>43.85</td><td></td></tr>
+</tbody></table></div>
+
+<strong>趨勢分析：</strong>
+<ul><li><strong>存貨：</strong> 2024年第四季至2025年第一季存貨週轉天數明顯下降，顯示公司存貨去化效率提升。然而，2025年第二季及第三季呈現上升趨勢，可能反映了公司為未來成長動能進行備料，或市場需求變化影響。</li>
+<li><strong>應收帳款：</strong> 應收帳款週轉天數在2024年第四季至2025年第一季有下降趨勢，隨後在2025年第二、三季略有上升，顯示收款能力在近期略有放緩，但仍維持在健康水平。</li>
+</ul>
+<h3>資本支出與折舊攤銷</h3>
+<ul><li><strong>近3年資本支出金額與趨勢：</strong> 目前未找到具體的近3年（2023-2025年）祥碩資本支出金額與趨勢的詳細數據。</li>
+<li><strong>未來資本支出計畫與預計新增產能：</strong> 祥碩積極投入研發，新一代採用 FinFET 製程的 PCIe Gen 5 及 USB4 V2 產品預計於 2026 年送樣，2027 年量產。這些研發投資將是未來的成長動能。</li>
+<li><strong>折舊攤銷趨勢：</strong></li>
+</ul>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>折舊 (千元)</th><th>攤銷 (千元)</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>75,258</td><td>33,898</td></tr>
+<tr><td>2025年第二季</td><td>72</td><td>32</td></tr>
+<tr><td>2025年第一季</td><td>75</td><td>32</td></tr>
+<tr><td>2024年第四季</td><td>78</td><td>32</td></tr>
+</tbody></table></div>
+
+<h2>股權異動</h2>
+<ul><li><strong>近期董監事/大股東申報轉讓紀錄：</strong></li>
+</ul>    *   2025年10月：多位經理人申報以信託方式轉讓 1 至 3 張股份，轉讓期間為2025/10/22至2025/10/24。
+<p>*   2024年1月：大股東文曄科技股份有限公司申報以鉅額逐筆交易方式轉讓 4,500 張股份，轉讓期間為2024/01/22至2024/02/21。</p>
+<ul><li><strong>庫藏股買回紀錄：</strong></li>
+</ul>    *   <strong>2026年03月06日：</strong> 祥碩董事會決議啟動上市以來首次庫藏股買回計畫，預計自今日起至5月5日實施。
+<p>*   買回數量：900張普通股。</p>
+<p>*   買回區間價位：每股896元至1,939元。</p>
+<p>*   目的：維護公司信用及股東權益，買回股份將於完成後註銷，以提升每股盈餘（EPS）及整體財務績效。此舉約佔公司已發行股數1.2%。</p>
+<ul><li><strong>是否發行可轉換公司債（CB）及轉換價格：</strong> 未找到2024-2026年祥碩發行可轉換公司債的最新資料。</li>
+<li><strong>近期是否有現金增資或減資計畫：</strong> 未找到2024-2026年祥碩現金增資或減資計畫的最新資料。</li>
+<li><strong>股利政策：</strong></li>
+</ul>    *   <strong>2024年度：</strong> 公司於2025/04/22公告發放現金股利30元，除息日為2025/07/23，發放日為2025/08/15。
+<p>*   <strong>2025年度：</strong> 截至2026年3月6日，2025年度股利尚未公告。公司預計2025年度沒有股票股利和現金股利。</p>
+
+<h2>產業分析</h2>
+
+<h3>產業數據</h3>
+<ul><li><strong>全球市場規模和 CAGR 成長率：</strong></li>
+</ul>    *   <strong>USB 控制晶片：</strong> 預計市場規模從 2024 年的 95.5 億美元成長至 2033 年的 199 億美元，CAGR 達 8.5% (2026-2033)。
+<p>*   <strong>USB Type-C 市場：</strong> 全球市場規模於 2025 年超過 406.6 億美元，預計 CAGR 約 14.2% (2026-2035)。</p>
+<p>*   <strong>PCIe 交換晶片：</strong> 預計 2026 年全球市場規模為 14.31 億美元，預計到 2035 年將達到 48.27 億美元，CAGR 達 12.5% (2026-2035)。</p>
+<p>*   <strong>PCIe IC：</strong> 預計 CAGR 達 11.3% (2025-2031)。</p>
+<p>*   <strong>車用半導體：</strong> 預計市場規模從 2025 年的 663.5 億美元成長至 2026 年的 740.4 億美元 (YoY +11.6%)；另一報告預計 CAGR 達 10.0% (2026-2032) 至 84.19 億美元。</p>
+<p>*   <strong>整體半導體市場：</strong> IDC 預測 2026 年全球半導體市場規模將達到 8,900 億美元，YoY +11%。</p>
+
+<ul><li><strong>供需狀況：</strong></li>
+</ul>    *   <strong>先進封裝 (CoWoS)：</strong> 儘管台積電 2026 年全年產能將擴增至 110 萬片，仍存在供需缺口，市場對 AI 晶片需求龐大。
+<p>*   <strong>成熟製程：</strong> 歷經兩年調整後已走出谷底，2026 年平均產能利用率預計穩定維持在 80% 以上。</p>
+<p>*   <strong>AI 晶片：</strong> 需求旺盛，AI 伺服器核心晶片預計成長 32%，穩居成長最快領域。</p>
+
+<ul><li><strong>產業的平均毛利率水準：</strong> 未找到高速介面控制晶片產業的具體平均毛利率數據。但 IC 設計產業因技術門檻高，毛利率通常高於晶圓代工和封測環節。</li>
+</ul>
+<h3>競爭格局</h3>
+
+<ul><li><strong>全球主要參與者 (按細分領域)：</strong></li>
+</ul>    *   <strong>車用半導體：</strong> Infineon Technologies、STMicroelectronics、NXP、Renesas Electronics、Texas Instruments 等。
+<p>*   <strong>PCIe 交換晶片：</strong> Intel、Broadcom、Microchip、Astera Labs、祥碩 (ASMedia)、Texas Instruments 等。</p>
+<p>*   <strong>整體 IC 設計 (2025 年第一季營收佔比前三大)：</strong> 輝達 (NVIDIA，約 55%)、高通 (Qualcomm) 和博通 (Broadcom)。</p>
+
+<ul><li><strong>祥碩 vs 主要競爭對手的具體比較：</strong></li>
+</ul>
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>祥碩 (ASMedia)</th><th>PCIe 競爭對手 (如 Astera Labs)</th><th>備註</th></tr></thead><tbody>
+<tr><td><strong>技術與產品線</strong></td><td>專精 USB (USB4, USB V2 80Gbps)、PCIe (Gen4/5/6/7 Packet Switch) 和 SATA 控制晶片。透過 Techpoint 擴展至車用電子 (影像傳輸、導航、電子後視鏡)。在 CES 2026 展示支援 P2P 傳輸的 PCIe Switch (ASM58048, 48 Lanes) 及針對 AI 加速器優化的 USB4 裝置端控制方案 (ASM2464PDX)，應用於 AI 邊緣運算、eGPU 擴充、高效能儲存與 AI 加速器互連。</td><td>以 Retimer IC 在 AI 伺服器市場佔有大部分份額，並延伸開發 PCIe 交換器晶片。部分高速傳輸 IP 來自美商新思 (Synopsys) 授權。</td><td>祥碩擁有高速實體層 (PHY) 的自主研發能力，可能在成本結構上具優勢。</td></tr>
+<tr><td><strong>客戶</strong></td><td>「ASMedia」品牌供應全球主機板大廠及 OEM 客戶。代工業務 (ASIC) 為主要客戶 AMD 研發晶片組。車用領域 Techpoint 客戶群為車載與安防監控。</td><td>主要客戶為 AI 伺服器、資料中心等。</td><td>祥碩客戶群更廣泛，涵蓋消費性、工控及車用領域。</td></tr>
+<tr><td><strong>產能與價格</strong></td><td>未找到祥碩與主要競爭對手在產能和價格上的具體比較數據。</td><td>未找到具體比較數據。</td><td></td></tr>
+</tbody></table></div>
+
+<ul><li><strong>台灣同業比較 (2024/2025年度部分數據，請參考最新財報)</strong></li>
+</ul>    ⚠️ <strong>過時資訊警示</strong>：由於網路搜尋結果未能提供所有公司 2025-2026 年的完整財務數據（營收、毛利率、EPS），以下表格僅提供部分資訊，建議查閱各公司最新公布之財務報告以獲取最即時的數據。
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司代號 (公司名稱)</th><th>最新年度 (2025/2024) 營收 (億新台幣)</th><th>最新年度 (2025/2024) 毛利率 (%)</th><th>最新年度 (2025/2024) EPS (新台幣)</th><th>備註</th></tr></thead><tbody>
+<tr><td><strong>5269 祥碩</strong></td><td>2025: 134.15</td><td>2025Q4: 51.26</td><td>2025: 72.7</td><td>創歷史新高，高速傳輸、車用電子為主要動能</td></tr>
+<tr><td><strong>2379 瑞昱</strong></td><td>2025 Q1 營收季增 31% 至 10.6 億美元以上</td><td>2025 Q1 獲利成長主要受惠於產品組合優化</td><td>未找到 2025-2026 年的最新財務資料</td><td>受益於 PC 相關客戶增加庫存、Wi-Fi 7 滲透率提升和車用乙太網路需求漸增</td></tr>
+<tr><td><strong>2388 威盛</strong></td><td>未找到 2025-2026 年的最新財務資料</td><td>未找到 2025-2026 年的最新財務資料</td><td>未找到 2025-2026 年的最新財務資料</td><td></td></tr>
+<tr><td><strong>8299 群聯</strong></td><td>未找到 2025-2026 年的最新財務資料</td><td>未找到 2025-2026 年的最新財務資料</td><td>未找到 2025-2026 年的最新財務資料</td><td>積極投入重計時器、訊號中繼器晶片 (Redriver IC) 市場</td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢</h3>
+<li><strong>AI 驅動高速介面需求激增與世代演進：</strong></li>
+<p>*   <strong>趨勢：</strong> AI 應用從雲端擴展至邊緣端 (AI PC、AI 手機)，對高頻寬、低延遲的裝置互連需求急遽攀升。 PCIe (Gen6、Gen7)、USB4v2 等高速介面標準以前所未有的速度演進。</p>
+<p>*   <strong>具體影響：</strong> 推動控制器和交換器 IC 的開發，確保 AI 加速器、高效能運算 (HPC) 和高速網路的頻寬需求。祥碩 PCIe Switch 技術和 USB4 控制器將直接受惠。</p>
+
+<li><strong>異質整合與先進封裝技術的發展：</strong></li>
+<p>*   <strong>趨勢：</strong> Chiplet 架構、CoWoS 等異質整合和先進封裝成為解決 AI 運算需求的方案。CXL 技術整合也日益重要，旨在實現 CPU、GPU 和其他加速器之間的快取連貫記憶體共享。</p>
+<p>*   <strong>具體影響：</strong> 晶片間互連複雜性增加，大幅提升對高速傳輸介面晶片 (如 SerDes 技術) 的需求。同時，功耗與散熱問題也變得更嚴峻，促使晶片發展更精良的電源管理。</p>
+
+<li><strong>車用電子自動化與電動化浪潮：</strong></li>
+<p>*   <strong>趨勢：</strong> ADAS、電動車 (EV) 和車聯網 (IoV) 普及，推動對高性能運算晶片、影像處理器、雷達晶片等核心半導體技術的需求。</p>
+<p>*   <strong>具體影響：</strong> 對車用影像傳輸、導航、電子後視鏡等晶片提出更高要求，同時要求晶片具備長壽命和高可靠性。祥碩透過 Techpoint 成功切入此高成長市場。</p>
+
+<ul><li><strong>對祥碩而言的具體機會和威脅：</strong></li>
+</ul>    *   <strong>機會：</strong> AI 基礎建設與邊緣運算商機、車用電子市場擴張、自主研發能力優勢 (PHY)、PCIe 世代升級帶動 ASP 提升。
+<p>*   <strong>威脅：</strong> 激烈市場競爭 (Intel、Broadcom、Astera Labs 等)、技術快速迭代壓力、AI 晶片高價戰場主要由國際大廠主導、全球供應鏈不確定性。</p>
+
+<ul><li><strong>相關投資題材的具體連結：</strong></li>
+</ul>    *   <strong>AI (人工智慧)：</strong> AI 伺服器、AI PC、邊緣 AI 設備對 USB4、PCIe 高速傳輸介面和交換晶片的需求爆炸性成長。
+<p>*   <strong>電動車 (EV)：</strong> 子公司 Techpoint 深入車用電子市場，受益於電動車與自動駕駛技術快速發展。</p>
+<p>*   <strong>高速傳輸與資料中心：</strong> 雲端運算、AI 和 HPC 發展，推動對高速以太網路 (800G/1.6T) 和 PCIe 交換器晶片需求。</p>
+<p>*   <strong>HBM (高頻寬記憶體)：</strong> 雖不直接生產 HBM，但其高速介面晶片在確保 HBM 與處理器間高效資料傳輸至關重要，間接受惠。</p>
+
+<h2>近期催化劑</h2>
+<ul><li><strong>2026年3月6日：</strong></li>
+</ul>    *   <strong>實施庫藏股：</strong> 董事會決議自今日起至5月5日買回900張股票 (佔已發行股數1.2%)，價格區間896元至1,939元，買回後註銷以提升 EPS。
+<p>*   <strong>2025年財報公布：</strong> 全年合併營收達134.15億元，稅後純益54.26億元，每股盈餘（EPS）72.7元，均創歷史新高。</p>
+<p>*   <strong>2026年Q1營運展望：</strong> 法人預期將優於傳統季節性水準，受惠於主要客戶市占率提升及部分客戶提前拉貨，單季營收有機會季持平。</p>
+<ul><li><strong>2026年2月9日：</strong> 公布 2026年1月合併營收13.47億元，月增17.78%、年增58.31%。法人平均預估 2026 年度稅後純益有望較去年成長兩成，達64.25億元，EPS 預估落在77.6~101.85元之間。</li>
+<li><strong>2026年1月26日：</strong> 群益證券發布「看多」評等，目標價1,600元，預估2026年度營收174.39億元、EPS 91元。</li>
+<li><strong>2026年1月12日：</strong> 2025年12月營收11.43億元，年增79.69%；2025年全年累計營收達134.15億元，成長強勁。</li>
+<li><strong>2026年1月5日：</strong> CES 2026 展出針對 AI 基礎建設與邊緣運算的最新高速傳輸解決方案，包括 PCIe Switch (ASM58048) 和 USB4 裝置端 (ASM2464PDX)。</li>
+<li><strong>2025年12月31日：</strong> 外資連兩日合計買超325張，市場關注祥碩受惠於 AMD 市佔提升、USB4.0 晶片業務擴張，加上 Techpoint 營收挹注。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能</th><th>具體事件/產品/市場</th></tr></thead><tbody>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+<p>祥碩總經理林哲偉預期，2026 年營運表現將優於 2025 年，推升公司整體營收與獲利再創新高。</p>
+
+<h3>成長動能</h3>
+<ul><li><strong>USB4 持續放量：</strong> 祥碩的 USB4 全系列產品皆獲 Thunderbolt 4 認證，在高階 PC/筆電市場幾乎獨佔，受惠於高效能電腦對多 port 數的需求，Host 端產品滲透率持續提升，並帶動 Device 端同步成長。</li>
+<li><strong>PCIe Gen4/Gen5 產品出貨：</strong> AI 需求從雲端擴散至邊緣端及中低階伺服器，對 PCIe Packet Switch 需求強勁。祥碩作為亞洲少數具備此技術及量產能力者，將受惠於高 Lane 數新客戶及既有客戶升級需求，應用面涵蓋伺服器、邊緣運算、NAS、安防及工控等。PCIe Gen5 預計 2026 年送樣，2027 年量產，將進一步推升 ASP 與市場份額。</li>
+<li><strong>AMD AM5 平台架構紅利倍增 (2026-2027年)：</strong> 隨著 AMD Ryzen 9000 系列與 X870/X870E 高階晶片組普及，主機板架構將採用「雙晶片組 + 獨立 USB4 主控」設計，顯著提升祥碩在單一主機板上的矽含量價值，直接驅動營收與毛利擴張。</li>
+<li><strong>第二家代工新客戶：</strong> 已拿下第二家代工新客戶，預計於 2026 年下半年開始貢獻營收，分散客戶風險並擴大代工業務規模。</li>
+<li><strong>車用業務 Techpoint 全年貢獻：</strong> 子公司 Techpoint 自 2026 年起將貢獻全年營收，新的 ISP 產品及 SerDes 技術將拓展新產品線，優化電子後視鏡 (E-Mirror) 與導航系統等，為中長期成長提供新動能。</li>
+<li><strong>AI 邊緣運算引爆高速傳輸需求：</strong> AI PC 浪潮推升邊緣裝置間的高速數據傳輸需求。祥碩的 ASM2464PDX 裝置端晶片成為連接外接顯卡盒 (eGPU)、AI 加速器與高速 NVMe SSD 的標準配備，直接受惠於邊緣 AI 生態系的爆發。</li>
+</ul>
+<h3>風險因子</h3>
+<ul><li><strong>激烈市場競爭：</strong> 高速介面控制晶片市場競爭者眾多，尤其來自大陸同業的挑戰，祥碩需持續維持技術領先和品牌信任度。</li>
+<li><strong>PC 市場不確定性：</strong> 儘管有 AMD 平台市佔提升抵銷部分影響，但整體 PC 市場仍可能受記憶體價格上升等因素影響，導致需求波動。</li>
+<li><strong>技術快速迭代：</strong> 高速介面標準更新迅速，公司需持續投入大量研發以確保產品的領先性與相容性，以應對技術演進的壓力。</li>
+<li><strong>總體經濟風險：</strong> 全球經濟成長放緩、地緣政治、供應鏈不穩定性及關稅、匯率波動等總體經濟因素，仍可能影響公司營運。</li>
+</ul>
+<h2>投資結論</h2>
+<p>祥碩 (5269) 在高速傳輸介面領域具備深厚的技術護城河與市場領先地位，多重成長動能清晰，展望 2026 年營運有望再創高峰。</p>
+
+<li><strong>AI 趨勢下的核心受惠者：</strong> 隨著 AI PC/伺服器及邊緣 AI 的發展，對高速、低延遲的 USB4 和 PCIe 傳輸介面需求將呈爆發性成長，祥碩作為關鍵晶片供應商將直接受惠。AMD AM5 平台架構的紅利倍增效應，將顯著提升祥碩在單一主機板上的價值。</li>
+<li><strong>多元成長引擎確立：</strong> 除 PC/NB 市場外，透過 Techpoint 併購成功切入具高成長潛力的車用電子市場，加上第二家代工新客戶的貢獻，公司的營收來源更加多元，有效降低對單一市場的依賴性。</li>
+<li><strong>產品高階化與技術升級：</strong> USB4 在高階市場的獨佔地位，以及 PCIe Gen5/USB4 V2 等新一代產品的研發與送樣時程，確保公司產品的平均單價 (ASP) 維持高檔，並持續推動毛利率表現。</li>
+<li><strong>穩健的財務表現與管理層信心：</strong> 2025 年營收與 EPS 創歷史新高，展現強勁成長動能。管理層對 2026 年營運優於 2025 年的明確展望，搭配近期實施庫藏股，均強化了市場對公司未來發展的信心。</li>
+<li><strong>估值吸引力：</strong> 綜合考量群益證券預估 2026 年 EPS 91 元及法人平均預估 EPS 區間 77.6~101.85 元，對應目前股價，其本益比相較於高速成長的 IC 設計產業仍具投資吸引力。</li>
+
+<strong>綜合評估上述成長動能與風險，建議祥碩的目標價區間為 </strong>1,600元至1,850元**。
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 12:57</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="5269_祥碩_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="5269_祥碩_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="5269_祥碩_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

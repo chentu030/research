@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2441 超豐 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2441 超豐 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>超豐受惠於AI與記憶體市場強勁需求，積極轉型高階封裝技術（Flip Chip, SiP），產能擴張明確，且獲得轉單及漲價效益，營運前景正向。法人預計2026年營收有望雙位數成長，EPS上看6-7元，深具成長潛力。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2441 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2441" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2441" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2441');
+    var obvContainer = document.getElementById('obv-chart-2441');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 70.8, "high": 70.8, "low": 68.7, "close": 68.9}, {"time": "2025-12-05", "open": 68.8, "high": 68.9, "low": 67.7, "close": 68.1}, {"time": "2025-12-08", "open": 68.1, "high": 70.2, "low": 68.0, "close": 69.7}, {"time": "2025-12-09", "open": 70.1, "high": 72.5, "low": 69.5, "close": 72.5}, {"time": "2025-12-10", "open": 72.8, "high": 79.7, "low": 71.1, "close": 79.7}, {"time": "2025-12-11", "open": 80.0, "high": 87.0, "low": 74.2, "close": 83.8}, {"time": "2025-12-12", "open": 84.4, "high": 84.9, "low": 80.3, "close": 80.8}, {"time": "2025-12-15", "open": 80.0, "high": 85.1, "low": 78.5, "close": 83.8}, {"time": "2025-12-16", "open": 83.8, "high": 85.7, "low": 78.5, "close": 82.3}, {"time": "2025-12-17", "open": 83.7, "high": 88.5, "low": 80.7, "close": 86.2}, {"time": "2025-12-18", "open": 85.4, "high": 85.8, "low": 82.0, "close": 83.4}, {"time": "2025-12-19", "open": 85.6, "high": 90.3, "low": 83.9, "close": 88.7}, {"time": "2025-12-22", "open": 88.7, "high": 92.8, "low": 87.6, "close": 88.2}, {"time": "2025-12-23", "open": 88.8, "high": 89.0, "low": 86.4, "close": 87.4}, {"time": "2025-12-24", "open": 87.8, "high": 90.4, "low": 85.2, "close": 86.3}, {"time": "2025-12-26", "open": 87.1, "high": 90.4, "low": 86.1, "close": 88.9}, {"time": "2025-12-29", "open": 89.6, "high": 90.8, "low": 87.6, "close": 88.4}, {"time": "2025-12-30", "open": 89.3, "high": 90.7, "low": 87.7, "close": 88.5}, {"time": "2025-12-31", "open": 88.7, "high": 92.6, "low": 88.7, "close": 89.0}, {"time": "2026-01-02", "open": 89.5, "high": 91.0, "low": 86.1, "close": 90.2}, {"time": "2026-01-05", "open": 92.1, "high": 92.3, "low": 87.3, "close": 88.7}, {"time": "2026-01-06", "open": 89.0, "high": 90.7, "low": 87.9, "close": 89.7}, {"time": "2026-01-07", "open": 90.2, "high": 91.5, "low": 87.9, "close": 88.5}, {"time": "2026-01-08", "open": 88.4, "high": 88.8, "low": 87.0, "close": 87.6}, {"time": "2026-01-09", "open": 87.6, "high": 93.8, "low": 86.2, "close": 91.5}, {"time": "2026-01-12", "open": 91.6, "high": 97.0, "low": 90.2, "close": 93.9}, {"time": "2026-01-13", "open": 95.3, "high": 97.9, "low": 92.0, "close": 93.0}, {"time": "2026-01-14", "open": 94.0, "high": 96.5, "low": 91.7, "close": 95.8}, {"time": "2026-01-15", "open": 95.7, "high": 96.9, "low": 93.6, "close": 96.2}, {"time": "2026-01-16", "open": 98.8, "high": 105.5, "low": 95.2, "close": 102.0}, {"time": "2026-01-19", "open": 103.5, "high": 105.0, "low": 99.8, "close": 102.0}, {"time": "2026-01-20", "open": 99.8, "high": 111.0, "low": 98.6, "close": 107.5}, {"time": "2026-01-21", "open": 107.0, "high": 107.5, "low": 98.3, "close": 98.7}, {"time": "2026-01-22", "open": 100.0, "high": 103.5, "low": 99.5, "close": 99.6}, {"time": "2026-01-23", "open": 100.5, "high": 102.0, "low": 97.0, "close": 99.6}, {"time": "2026-01-26", "open": 100.0, "high": 103.5, "low": 97.7, "close": 102.5}, {"time": "2026-01-27", "open": 103.5, "high": 105.5, "low": 101.5, "close": 103.0}, {"time": "2026-01-28", "open": 97.7, "high": 97.7, "low": 92.7, "close": 94.0}, {"time": "2026-01-29", "open": 94.5, "high": 98.2, "low": 91.5, "close": 91.9}, {"time": "2026-01-30", "open": 91.9, "high": 94.0, "low": 88.8, "close": 89.4}, {"time": "2026-02-02", "open": 87.4, "high": 88.8, "low": 85.2, "close": 86.3}, {"time": "2026-02-03", "open": 87.4, "high": 89.0, "low": 84.1, "close": 86.4}, {"time": "2026-02-04", "open": 85.7, "high": 87.0, "low": 85.3, "close": 85.7}, {"time": "2026-02-05", "open": 85.4, "high": 89.9, "low": 84.4, "close": 86.2}, {"time": "2026-02-06", "open": 85.9, "high": 86.9, "low": 82.3, "close": 83.8}, {"time": "2026-02-09", "open": 87.3, "high": 91.4, "low": 87.0, "close": 89.7}, {"time": "2026-02-10", "open": 90.6, "high": 90.6, "low": 87.8, "close": 87.9}, {"time": "2026-02-11", "open": 87.0, "high": 89.0, "low": 87.0, "close": 88.6}, {"time": "2026-02-23", "open": 89.6, "high": 93.2, "low": 88.8, "close": 90.9}, {"time": "2026-02-24", "open": 90.9, "high": 93.3, "low": 90.4, "close": 93.3}, {"time": "2026-02-25", "open": 94.4, "high": 94.5, "low": 92.0, "close": 93.2}, {"time": "2026-02-26", "open": 94.0, "high": 96.7, "low": 92.2, "close": 95.9}, {"time": "2026-03-02", "open": 88.0, "high": 89.2, "low": 84.4, "close": 84.6}, {"time": "2026-03-03", "open": 94.1, "high": 95.4, "low": 90.0, "close": 90.1}, {"time": "2026-03-04", "open": 88.0, "high": 89.2, "low": 84.4, "close": 84.6}, {"time": "2026-03-05", "open": 88.1, "high": 89.7, "low": 86.8, "close": 88.1}, {"time": "2026-03-06", "open": 88.0, "high": 89.1, "low": 87.0, "close": 87.8}, {"time": "2026-03-09", "open": 79.1, "high": 80.2, "low": 79.1, "close": 79.1}, {"time": "2026-03-10", "open": 81.5, "high": 84.5, "low": 79.7, "close": 81.9}, {"time": "2026-03-11", "open": 82.6, "high": 89.4, "low": 82.5, "close": 87.8}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 1298.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 1520.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 1432.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 3619.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 15196.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 49480.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 13339.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 20263.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 26404.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 29256.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 13672.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 25959.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 28368.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 10684.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 13086.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 14392.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 11745.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 10355.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 16637.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 15085.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 18042.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 10911.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 8669.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 5584.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 19902.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 24060.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 28514.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 15429.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 9404.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 28611.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 15778.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 23119.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 28065.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 13887.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 10605.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 13752.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 11545.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 34181.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 16920.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 8524.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 7766.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 7870.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 4358.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 9485.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 5246.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 10084.0, "color": "#ef5350"}, {"time": "2026-02-10", "value": 7192.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 3709.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 8457.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 4908.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 4182.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 9151.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 4387.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 5664.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 4387.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 3486.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 2036.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 2688.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 3886.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 4483.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 71.78}, {"time": "2025-12-11", "value": 74.76}, {"time": "2025-12-12", "value": 77.3}, {"time": "2025-12-15", "value": 80.12}, {"time": "2025-12-16", "value": 82.08}, {"time": "2025-12-17", "value": 83.38}, {"time": "2025-12-18", "value": 83.3}, {"time": "2025-12-19", "value": 84.88}, {"time": "2025-12-22", "value": 85.76}, {"time": "2025-12-23", "value": 86.78}, {"time": "2025-12-24", "value": 86.8}, {"time": "2025-12-26", "value": 87.9}, {"time": "2025-12-29", "value": 87.84}, {"time": "2025-12-30", "value": 87.9}, {"time": "2025-12-31", "value": 88.22}, {"time": "2026-01-02", "value": 89.0}, {"time": "2026-01-05", "value": 88.96000000000001}, {"time": "2026-01-06", "value": 89.22}, {"time": "2026-01-07", "value": 89.22}, {"time": "2026-01-08", "value": 88.94}, {"time": "2026-01-09", "value": 89.2}, {"time": "2026-01-12", "value": 90.24}, {"time": "2026-01-13", "value": 90.9}, {"time": "2026-01-14", "value": 92.36}, {"time": "2026-01-15", "value": 94.08}, {"time": "2026-01-16", "value": 96.17999999999999}, {"time": "2026-01-19", "value": 97.8}, {"time": "2026-01-20", "value": 100.7}, {"time": "2026-01-21", "value": 101.28}, {"time": "2026-01-22", "value": 101.96000000000001}, {"time": "2026-01-23", "value": 101.47999999999999}, {"time": "2026-01-26", "value": 101.58}, {"time": "2026-01-27", "value": 100.67999999999999}, {"time": "2026-01-28", "value": 99.74}, {"time": "2026-01-29", "value": 98.2}, {"time": "2026-01-30", "value": 96.16}, {"time": "2026-02-02", "value": 92.92}, {"time": "2026-02-03", "value": 89.6}, {"time": "2026-02-04", "value": 87.94000000000001}, {"time": "2026-02-05", "value": 86.8}, {"time": "2026-02-06", "value": 85.67999999999999}, {"time": "2026-02-09", "value": 86.36}, {"time": "2026-02-10", "value": 86.66}, {"time": "2026-02-11", "value": 87.24}, {"time": "2026-02-23", "value": 88.17999999999999}, {"time": "2026-02-24", "value": 90.08}, {"time": "2026-02-25", "value": 90.78}, {"time": "2026-02-26", "value": 92.38}, {"time": "2026-03-02", "value": 91.58}, {"time": "2026-03-03", "value": 91.42}, {"time": "2026-03-04", "value": 89.67999999999999}, {"time": "2026-03-05", "value": 88.66}, {"time": "2026-03-06", "value": 87.03999999999999}, {"time": "2026-03-09", "value": 85.94}, {"time": "2026-03-10", "value": 84.3}, {"time": "2026-03-11", "value": 84.94}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 77.58}, {"time": "2025-12-18", "value": 79.03}, {"time": "2025-12-19", "value": 81.09}, {"time": "2025-12-22", "value": 82.94}, {"time": "2025-12-23", "value": 84.42999999999999}, {"time": "2025-12-24", "value": 85.09}, {"time": "2025-12-26", "value": 85.6}, {"time": "2025-12-29", "value": 86.36}, {"time": "2025-12-30", "value": 86.83000000000001}, {"time": "2025-12-31", "value": 87.5}, {"time": "2026-01-02", "value": 87.9}, {"time": "2026-01-05", "value": 88.43}, {"time": "2026-01-06", "value": 88.53}, {"time": "2026-01-07", "value": 88.56}, {"time": "2026-01-08", "value": 88.58}, {"time": "2026-01-09", "value": 89.1}, {"time": "2026-01-12", "value": 89.6}, {"time": "2026-01-13", "value": 90.06}, {"time": "2026-01-14", "value": 90.78999999999999}, {"time": "2026-01-15", "value": 91.51}, {"time": "2026-01-16", "value": 92.69}, {"time": "2026-01-19", "value": 94.02000000000001}, {"time": "2026-01-20", "value": 95.8}, {"time": "2026-01-21", "value": 96.82000000000001}, {"time": "2026-01-22", "value": 98.02000000000001}, {"time": "2026-01-23", "value": 98.83}, {"time": "2026-01-26", "value": 99.69}, {"time": "2026-01-27", "value": 100.69}, {"time": "2026-01-28", "value": 100.51}, {"time": "2026-01-29", "value": 100.08}, {"time": "2026-01-30", "value": 98.82000000000001}, {"time": "2026-02-02", "value": 97.25}, {"time": "2026-02-03", "value": 95.14}, {"time": "2026-02-04", "value": 93.84}, {"time": "2026-02-05", "value": 92.5}, {"time": "2026-02-06", "value": 90.92}, {"time": "2026-02-09", "value": 89.64}, {"time": "2026-02-10", "value": 88.13000000000001}, {"time": "2026-02-11", "value": 87.59}, {"time": "2026-02-23", "value": 87.49}, {"time": "2026-02-24", "value": 87.88}, {"time": "2026-02-25", "value": 88.57000000000001}, {"time": "2026-02-26", "value": 89.52000000000001}, {"time": "2026-03-02", "value": 89.41}, {"time": "2026-03-03", "value": 89.8}, {"time": "2026-03-04", "value": 89.88}, {"time": "2026-03-05", "value": 89.72}, {"time": "2026-03-06", "value": 89.71000000000001}, {"time": "2026-03-09", "value": 88.76}, {"time": "2026-03-10", "value": 87.86}, {"time": "2026-03-11", "value": 87.31}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 82.74}, {"time": "2026-01-05", "value": 83.72999999999999}, {"time": "2026-01-06", "value": 84.81}, {"time": "2026-01-07", "value": 85.75}, {"time": "2026-01-08", "value": 86.505}, {"time": "2026-01-09", "value": 87.095}, {"time": "2026-01-12", "value": 87.6}, {"time": "2026-01-13", "value": 88.21000000000001}, {"time": "2026-01-14", "value": 88.81}, {"time": "2026-01-15", "value": 89.50500000000001}, {"time": "2026-01-16", "value": 90.295}, {"time": "2026-01-19", "value": 91.225}, {"time": "2026-01-20", "value": 92.16499999999999}, {"time": "2026-01-21", "value": 92.69}, {"time": "2026-01-22", "value": 93.3}, {"time": "2026-01-23", "value": 93.965}, {"time": "2026-01-26", "value": 94.64500000000001}, {"time": "2026-01-27", "value": 95.375}, {"time": "2026-01-28", "value": 95.65}, {"time": "2026-01-29", "value": 95.795}, {"time": "2026-01-30", "value": 95.755}, {"time": "2026-02-02", "value": 95.635}, {"time": "2026-02-03", "value": 95.47}, {"time": "2026-02-04", "value": 95.33}, {"time": "2026-02-05", "value": 95.26}, {"time": "2026-02-06", "value": 94.875}, {"time": "2026-02-09", "value": 94.66499999999999}, {"time": "2026-02-10", "value": 94.41}, {"time": "2026-02-11", "value": 94.05}, {"time": "2026-02-23", "value": 93.785}, {"time": "2026-02-24", "value": 93.35}, {"time": "2026-02-25", "value": 92.91}, {"time": "2026-02-26", "value": 92.33}, {"time": "2026-03-02", "value": 91.625}, {"time": "2026-03-03", "value": 91.15}, {"time": "2026-03-04", "value": 90.4}, {"time": "2026-03-05", "value": 89.67999999999999}, {"time": "2026-03-06", "value": 88.92}, {"time": "2026-03-09", "value": 88.175}, {"time": "2026-03-10", "value": 87.675}, {"time": "2026-03-11", "value": 87.595}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -1520.0}, {"time": "2025-12-08", "value": -88.0}, {"time": "2025-12-09", "value": 3531.0}, {"time": "2025-12-10", "value": 18727.0}, {"time": "2025-12-11", "value": 68207.0}, {"time": "2025-12-12", "value": 54868.0}, {"time": "2025-12-15", "value": 75131.0}, {"time": "2025-12-16", "value": 48727.0}, {"time": "2025-12-17", "value": 77983.0}, {"time": "2025-12-18", "value": 64311.0}, {"time": "2025-12-19", "value": 90270.0}, {"time": "2025-12-22", "value": 61902.0}, {"time": "2025-12-23", "value": 51218.0}, {"time": "2025-12-24", "value": 38132.0}, {"time": "2025-12-26", "value": 52524.0}, {"time": "2025-12-29", "value": 40779.0}, {"time": "2025-12-30", "value": 51134.0}, {"time": "2025-12-31", "value": 67771.0}, {"time": "2026-01-02", "value": 82856.0}, {"time": "2026-01-05", "value": 64814.0}, {"time": "2026-01-06", "value": 75725.0}, {"time": "2026-01-07", "value": 67056.0}, {"time": "2026-01-08", "value": 61472.0}, {"time": "2026-01-09", "value": 81374.0}, {"time": "2026-01-12", "value": 105434.0}, {"time": "2026-01-13", "value": 76920.0}, {"time": "2026-01-14", "value": 92349.0}, {"time": "2026-01-15", "value": 101753.0}, {"time": "2026-01-16", "value": 130364.0}, {"time": "2026-01-19", "value": 130364.0}, {"time": "2026-01-20", "value": 153483.0}, {"time": "2026-01-21", "value": 125418.0}, {"time": "2026-01-22", "value": 139305.0}, {"time": "2026-01-23", "value": 139305.0}, {"time": "2026-01-26", "value": 153057.0}, {"time": "2026-01-27", "value": 164602.0}, {"time": "2026-01-28", "value": 130421.0}, {"time": "2026-01-29", "value": 113501.0}, {"time": "2026-01-30", "value": 104977.0}, {"time": "2026-02-02", "value": 97211.0}, {"time": "2026-02-03", "value": 105081.0}, {"time": "2026-02-04", "value": 100723.0}, {"time": "2026-02-05", "value": 110208.0}, {"time": "2026-02-06", "value": 104962.0}, {"time": "2026-02-09", "value": 115046.0}, {"time": "2026-02-10", "value": 107854.0}, {"time": "2026-02-11", "value": 111563.0}, {"time": "2026-02-23", "value": 120020.0}, {"time": "2026-02-24", "value": 124928.0}, {"time": "2026-02-25", "value": 120746.0}, {"time": "2026-02-26", "value": 129897.0}, {"time": "2026-03-02", "value": 125510.0}, {"time": "2026-03-03", "value": 131174.0}, {"time": "2026-03-04", "value": 126787.0}, {"time": "2026-03-05", "value": 130273.0}, {"time": "2026-03-06", "value": 128237.0}, {"time": "2026-03-09", "value": 125549.0}, {"time": "2026-03-10", "value": 129435.0}, {"time": "2026-03-11", "value": 133918.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>超豐（2441）為台灣專業的半導體封裝與測試服務提供商，總部位於苗栗竹南。公司核心業務圍繞積體電路（IC）的封裝、晶圓凸塊（Bumping &amp; DPS）及測試服務，近年積極發展覆晶封裝（Flip Chip）和系統級封裝（SiP）等高階封裝技術。終端產品應用廣泛，涵蓋消費性電子、電腦、通訊、車用、工業/醫療以及AI等領域。</p>
+
+<h3>營收結構（2025年）</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>服務項目</th><th>營收佔比</th><th>終端應用市場（2025年下半年）</th><th>營收佔比</th></tr></thead><tbody>
+<tr><td>封裝業務</td><td>76.3%</td><td>消費性電子應用</td><td>54.3%</td></tr>
+<tr><td>晶圓凸塊與雙面封裝業務</td><td>7.5%</td><td>運算應用</td><td>27.4%</td></tr>
+<tr><td>測試業務</td><td>16.2%</td><td>通訊應用</td><td>8.6%</td></tr>
+<tr><td><strong>合計</strong></td><td><strong>100%</strong></td><td>車用應用</td><td>4.8%</td></tr>
+<tr><td></td><td></td><td>工業與醫療應用</td><td>3.1%</td></tr>
+<tr><td></td><td></td><td>AI應用</td><td>1.8%</td></tr>
+<tr><td></td><td></td><td><strong>合計</strong></td><td><strong>100%</strong></td></tr>
+</tbody></table></div>
+
+<p>公司製造基地主要位於苗栗竹南，公開資料未詳細揭露各基地的營收貢獻比例。</p>
+
+<h2>核心競爭優勢</h2>
+<li><strong>高階封裝技術佈局：</strong> 超豐積極投入覆晶封裝（Flip Chip）和系統級封裝（SiP）等高階技術，並採購全球封裝設備龍頭BESI的先進設備，正式跨足高階封裝領域，迎合AI、HPC及車用電子等高成長應用。</li>
+<li><strong>AI與記憶體需求受惠者：</strong> 受益於AI資料中心封裝需求持續增加及記憶體市場供不應求，公司承接更多高容量應用及高頻寬記憶體（HBM）相關封測訂單。2025年AI相關業務佔營收比重高達37%。</li>
+<li><strong>訂單外溢承接能力：</strong> 由於一線封測廠（如台積電CoWoS）產能供不應求，訂單外溢至OSAT業者，超豐作為專業封測廠能有效承接轉單效益。</li>
+<li><strong>產品轉型與成本轉嫁：</strong> 公司啟動產品轉型策略，汰弱留強，並透過調漲價格（約5%至10%）以反映銅線、金線、導線架等材料成本及電費、人事成本上漲壓力，有助於維持毛利率。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣千元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年02月</td><td>1,471,456</td><td>-8.14%</td><td>+19.00%</td></tr>
+<tr><td>2026年01月</td><td>1,601,842</td><td>+15.03%</td><td>+31.65%</td></tr>
+<tr><td>2025年12月</td><td>1,392,572</td><td>-2.50%</td><td>+3.70%</td></tr>
+<tr><td>2025年11月</td><td>1,429,112</td><td>-3.10%</td><td>+11.30%</td></tr>
+<tr><td>2025年10月</td><td>1,474,273</td><td>+5.20%</td><td>+16.90%</td></tr>
+<tr><td>2025年09月</td><td>1,401,242</td><td>-2.60%</td><td>+11.90%</td></tr>
+</tbody></table></div>
+<p>累計2026年前2個月營收約新台幣30.73億元，較去年同期年增25.28%。</p>
+
+<h3>季度數據 (2025年第四季)</h3>
+<ul><li><strong>季營收：</strong> 新台幣42.9596億元，季增1.06%，年成長10.51%。</li>
+<li><strong>毛利率：</strong> 19.91%。</li>
+<li><strong>營業利益率：</strong> 約12.12% (根據法說會資料，計算自2025年全年營業利益27.11億元減去2025年Q1-Q3營業利益21.90335億元，得出Q4營業利益5.20665億元，再除以Q4營收42.9596億元)。</li>
+<li><strong>EPS：</strong> 新台幣1.13元。</li>
+</ul>
+<h3>年度趨勢</h3>
+<ul><li><strong>2024年實際營收：</strong> 新台幣152.13億元。</li>
+<li><strong>2024年實際EPS：</strong> 新台幣4.39元。</li>
+<li><strong>2025年實際營收：</strong> 新台幣167.64億元，年增10.19%。</li>
+<li><strong>2025年實際EPS：</strong> 新台幣4.31元，年減1.8%。</li>
+<li><strong>2025年全年毛利率：</strong> 20.2%，較2024年的22.1%下滑1.9個百分點。</li>
+<li><strong>2025年全年稅後淨利：</strong> 新台幣24.49億元。</li>
+<li><strong>2025年全年營業利益率：</strong> 約16.17% (27.11億/167.64億)。</li>
+<li><strong>2025年全年稅後淨利率：</strong> 約14.61% (24.49億/167.64億)。</li>
+</ul>
+<h2>法說會重點 (2026年1月27日)</h2>
+<ul><li><strong>營運展望：</strong> 公司總經理紀有章對2026年上半年營運前景持正向態度，預期AI資料中心及記憶體市場需求將持續增長，為營運注入主要動能。</li>
+<li><strong>產品線表現：</strong></li>
+</ul>    *   覆晶（Flip Chip）與QFN封裝產能幾乎滿載。
+<p>*   傳統導線架產能利用率偏低，公司將啟動產品轉型策略「汰弱留強」。</p>
+<p>*   金線製程成長主要受惠於記憶體需求提升及金價上漲；覆晶製程強勁增長與AI需求帶動的功率元件（Power Device）增加相關，成為擴產重點專案。</p>
+<p>*   網通、MCU及TV面板市場需求略顯疲弱，客戶備貨保守。</p>
+<ul><li><strong>產能擴充：</strong> 公司將持續擴充覆晶產能。</li>
+</ul>    *   2026年第一季底月產能預計達<strong>170M</strong>（百萬顆）。
+<p>*   2026年第二季月產能將達<strong>200M</strong>。</p>
+<p>*   220M至第三季底或第四季初，總產能將達<strong>220M</strong>，較2025年底大幅提升。</p>
+<ul><li><strong>資本支出：</strong> 未提供2025-2026年具體資本支出金額，但公司表示為因應產能擴充，將持續投入資本支出。</li>
+<li><strong>AI業務佔比：</strong> AI相關業務在2025年成長顯著，佔營收比重達<strong>37%</strong>。</li>
+<li><strong>毛利率壓力：</strong> 2025年毛利率衰退主要歸因於匯率波動、部分材料價格上漲及電價調漲等外部成本壓力。</li>
+</ul>
+<h2>券商觀點</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>本土大型研究機構</td><td>110元</td><td>買進</td><td>2026年03月05日</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>2026年EPS預估：</strong> 法人預估超豐2026年EPS有機會站上<strong>6元、上看7元</strong>，另有法人研究機構對超豐2026年EPS期望值設定為<strong>5.25元</strong>。</li>
+<li><strong>評等調整：</strong> 目前未找到具名券商在2025-2026年有明確的「調升/調降」評等。市場分析師指出，法說會後因未超出市場預期，曾出現「利多出盡」的技術性拉回。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>營收 (仟元)</th><th>毛利 (仟元)</th><th>營業費用 (仟元)</th><th>稅前淨利 (仟元)</th><th>稅後淨利 (仟元)</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td><strong>2025 Q3</strong></td><td>4,250,756</td><td>776,201</td><td>181,243</td><td>840,064</td><td>744,605</td><td>18.26%</td><td>14.00%</td><td>17.52%</td></tr>
+<tr><td><strong>225 Q2</strong></td><td>4,321,062</td><td>944,936</td><td>147,013</td><td>622,666</td><td>474,370</td><td>21.87%</td><td>18.47%</td><td>10.98%</td></tr>
+<tr><td><strong>2025 Q1</strong></td><td>3,896,438</td><td>809,082</td><td>165,635</td><td>727,605</td><td>592,480</td><td>20.76%</td><td>16.51%</td><td>15.21%</td></tr>
+<tr><td><strong>2024 Q4</strong></td><td>3,887,481</td><td>767,893</td><td>169,669</td><td>706,702</td><td>577,667</td><td>19.75%</td><td>15.39%</td><td>14.86%</td></tr>
+<tr><td><strong>2024 Q3 (估)</strong></td><td>4,295,960</td><td>871,560</td><td>180,300</td><td>756,800</td><td>619,000</td><td>20.29%</td><td>16.11%</td><td>14.41%</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>利潤率變化的原因分析：</strong></li>
+</ul>    *   <strong>成本因素：</strong> 2025年毛利率下滑主要歸因於新台幣升值、電費上漲及金價上漲等外部成本壓力。公司已透過調漲價格反映部分成本。
+<p>*   <strong>產品組合優化：</strong> 超豐積極轉向高階覆晶（Flip Chip）和系統級封裝（SiP）技術，應用於AI/HPC、車用電子等領域，有助於優化毛利結構。2025年覆晶製程顯著成長6.5個百分點。</p>
+<p>*   <strong>市場需求差異：</strong> 傳統消費性電子需求復甦緩慢，導致部分傳統導線架封裝產能利用率偏低，對整體毛利產生負面影響。而AI與記憶體需求的強勁增長則帶來高毛利業務機會。</p>
+<p>*   <strong>業外收支：</strong> 2025年第二季因新台幣急升產生<strong>2.16億元</strong>匯兌損失，影響單季EPS約<strong>0.38元</strong>。然而，2025年下半年業外收益則因匯兌利益及股利收入而增加。</p>
+
+<h3>存貨分析</h3>
+<ul><li><strong>存貨金額 (新台幣仟元)：</strong></li>
+</ul>    *   2025 Q3: 767,067
+<p>*   2025 Q2: 701,901</p>
+<p>*   2025 Q1: 710,902</p>
+<p>*   2024 Q4: 802,138</p>
+<p>*   2024 Q3: 831,581</p>
+<ul><li>存貨金額在2024年Q3達到高峰後呈現緩步下降趨勢，顯示庫存去化狀況良好，未見異常堆積現象。</li>
+<li>未找到2024-2026年具體存貨週轉天數數值。</li>
+</ul>
+<h3>資本支出與產能</h3>
+<ul><li><strong>近3年投資活動淨現金流 (仟元)：</strong></li>
+</ul>    *   2025 Q3: -653,025
+<p>*   2025 Q2: -1,556,014</p>
+<p>*   2025 Q1: -801,375</p>
+<p>*   2024 Q4: -680,491</p>
+<p>*   2024 Q3: -793,470</p>
+<p>*   2023 Q4: -1,709,560</p>
+<p>*   2023 Q3: -664,912</p>
+<p>*   2023 Q2: -525,595</p>
+<p>*   2023 Q1: -529,909</p>
+<p>*   趨勢顯示公司在2023年Q4有較大的投資活動淨現金流出，2025年各季投資活動現金流出仍維持一定水準，反映公司持續投入資本支出以擴充產能。</p>
+<ul><li><strong>未來資本支出計畫與預計新增產能：</strong></li>
+</ul>    *   2025年7月董事會已決議斥資新台幣<strong>5億多元</strong>向BESI採購最新一代先進封裝設備，擴張覆晶（Flip Chip）與系統級封裝（SiP）產能。
+<p>*   覆晶封裝機台預計於2026年第二、第三季陸續開出。</p>
+<p>*   2026年第一季底月產能將達<strong>170M</strong>，第二季達<strong>200M</strong>，第三季底或第四季初總產能將達<strong>220M</strong>，較2025年底大幅提升。</p>
+<ul><li><strong>折舊攤銷趨勢 (仟元)：</strong></li>
+</ul>    *   <strong>折舊：</strong> 2025 Q3 (747,589) &gt; Q2 (731,621) &gt; Q1 (722,342) &gt; 2024 Q4 (713,332)。
+<p>*   <strong>攤銷：</strong> 2025 Q3 (4,690) &gt; Q2 (4,505) &gt; Q1 (3,938) &gt; 2024 Q4 (4,151)。</p>
+<p>*   折舊與攤銷金額近幾季呈現緩步上升趨勢，符合持續投資擴產的狀況。</p>
+
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東持股：</strong> 董事長（力成科技股份有限公司）持股比例於2025年9月為42.9%，2026年1月至3月為43.9%。未找到2024-2026年間有董監事/大股東申報轉讓的具體紀錄。</li>
+<li><strong>庫藏股：</strong> 未找到2024-2026年間庫藏股買回紀錄。</li>
+<li><strong>可轉換公司債：</strong> 目前無發行可轉換公司債資料。</li>
+<li><strong>增減資：</strong> 未找到2024-2026年間現金增資或減資計畫。</li>
+<li><strong>股利政策：</strong></li>
+</ul>    *   2025年度（114年度）：擬配發<strong>現金股利每股3元</strong>。
+<p>*   2024年度（113年度）：配發現金股利每股2.5元。</p>
+<p>*   2023年度（112年度）：配發現金股利每股3.7元。</p>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與成長率</h3>
+<p>全球委外半導體封裝測試（OSAT）市場規模預計將從2025年的<strong>444億美元</strong>成長到2035年的<strong>996.5億美元</strong>，複合年增長率（CAGR）為<strong>8.42%</strong>。另一份報告預計OSAT市場在2025年估值為<strong>470.9億美元</strong>，預計到2031年將成長至<strong>771.2億美元</strong>，複合年增長率為<strong>8.56%</strong> (2026-2031)。DIGITIMES預計2025年全球OSAT營收將達到<strong>459.2億美元</strong>，年增<strong>11.6%</strong>，並在2026年進一步成長<strong>12.8%</strong>。</p>
+
+<h3>供需狀況</h3>
+<p>目前半導體封測產業在高階先進封裝方面呈現<strong>供不應求</strong>的狀況。AI晶片對CoWoS等先進封裝的需求大幅增加，導致台積電產能供不應求，訂單外溢至OSAT業者。儘管台積電在2026年底CoWoS月產能將達到11萬片，但市場供需依然吃緊。OSAT廠正加速承接外溢訂單，例如日月光投控的先進封裝產能預計將從2025年底的5 Kwpm快速成長至2026年底的20 Kwpm。成熟製程方面，預計2026年平均產能利用率將穩定維持在<strong>80%以上</strong>。</p>
+
+<h3>產業平均毛利率水準</h3>
+<p>根據ASMPT財報，其2025年第四季調整後毛利率為<strong>35.8%</strong>，全年為<strong>38.3%</strong>。DRAM產業的營運利潤率（OPM）預計在2024年初超過<strong>20%</strong>，並可能在年底攀升至<strong>30-40%</strong>。台積電在先進製程的領先優勢使其能維持長期<strong>53%以上</strong>的毛利率目標，近期更將目標拉升至<strong>56%</strong>。封測業毛利率增長主要來源於先進封裝佔比提升、AI相關封裝需求增長及整體產能利用率的改善。</p>
+
+<h3>競爭格局</h3>
+
+<h4>全球主要OSAT廠商</h4>
+<p>全球主要委外半導體封裝測試（OSAT）廠商包括日月光投控（ASE Technology Holding Co Ltd）、艾克爾（Amkor Technology Inc）、長電科技（Jiangsu Changjiang Electronics Technology Co Ltd JCET）、矽品（Siliconware Precision Industries Co Ltd SPIL）、力成科技（Powertech Technology Inc）等。若以包含晶圓代工廠先進封裝的「封裝總市值」重新排名，台積電預計將在2026年超越傳統封測廠，成為全球封裝市值的實質龍頭。</p>
+
+<h4>超豐 vs 台灣主要競爭對手比較</h4>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>營收規模 (2025年)</th><th>毛利率 (2025年Q4/全年)</th><th>EPS (2025年/2026年預估)</th><th>技術與發展重心</th><th>產能與資本支出</th><th>客戶與市場</th></tr></thead><tbody>
+<tr><td><strong>超豐 (2441)</strong></td><td>167.64億元</td><td>Q4: 19.91% / 全年: 20.2%</td><td>2025: 4.31元 / 2026預估: 5.25~7元</td><td>覆晶(Flip Chip)、SiP等高階封裝；AI、HPC、車用</td><td>覆晶產能2026年底達220M；持續投資先進設備。</td><td>消費性電子54.3%、運算27.4%、通訊8.6%、車用4.8%、AI 1.8%；獲轉單</td></tr>
+<tr><td><strong>力成 (6239)</strong></td><td>Q4: 214億元</td><td>未提供</td><td>Q4: 2.52元 / 2026預估: 12.07元</td><td>FOPLP、AI晶片先進封裝、記憶體封裝</td><td>2026年資本支出預估達400億元，聚焦AI晶片先進封裝。</td><td>博通、超微等美系大廠。</td></tr>
+<tr><td><strong>京元電 (2449)</strong></td><td>未提供</td><td>未提供</td><td>未提供</td><td>輝達AI晶片後段測試</td><td>2026年資本支出預計達393.72億元，創歷史新高。</td><td>輝達主力供應商。</td></tr>
+<tr><td><strong>矽格 (6257)</strong></td><td>未提供</td><td>未提供</td><td>未提供</td><td>AI相關封測業務</td><td>2026年資本支出預計達59.3億元 (合計台星科115.78億元)。</td><td>衝刺AI商機。</td></tr>
+<tr><td><strong>欣銓 (3264)</strong></td><td>未提供</td><td>未提供</td><td>未提供</td><td>受惠一線廠外溢訂單</td><td>設備資本支出將較前一年提升。</td><td>一線封測廠訂單外溢客戶。</td></tr>
+<tr><td><strong>福懋科 (8131)</strong></td><td>Q4: 29.54億元</td><td>Q4: 17.51%</td><td>Q4: 0.91元 / 2026預估: 4.6元</td><td>記憶體封測</td><td>未提供</td><td>未提供</td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢</h3>
+<li><strong>先進封裝技術：</strong> AI、高效能運算（HPC）晶片對CoWoS、2.5D/3D封裝、SiP、FOPLP等先進封裝需求井噴，成為延續摩爾定律、實現異質整合的關鍵。這促使OSAT業者加速擴產，並將先進封裝提升為戰略地位。超豐積極投入覆晶與SiP，直接受惠此趨勢。</li>
+<li><strong>晶片組架構與異質整合：</strong> AI與HPC發展驅動產業從單純後端製程轉變為提升晶片效能的核心戰場，旨在突破「記憶體牆」瓶頸。異質整合技術創新將推動OSAT產業長期擴張，超豐切入高階封裝有助於搭上此波浪潮。</li>
+<li><strong>高頻寬記憶體（HBM）與測試複雜度提升：</strong> AI晶片對HBM需求激增，帶動相關封測產能填滿。AI GPU與ASIC測試過程複雜度及功耗不斷拉高，推升老化測試（Burn-in）、系統級測試（SLT）等測試需求與產值。超豐作為IC封測服務商，特別是在記憶體相關應用方面，將直接受益於HBM市場的爆發性成長。</li>
+
+<h3>對超豐的具體機會和威脅</h3>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>高階封裝需求增長：</strong> 積極發展覆晶封裝和SiP等高階技術，可望抓住AI與記憶體市場先進封裝訂單外溢的機會。
+<p>*   <strong>產品轉型與技術升級：</strong> 產品轉型與產業趨勢高度吻合，有助於提升競爭力及產品平均售價（ASP）。</p>
+<p>*   <strong>終端應用市場廣泛：</strong> 多元化的應用（AI、HPC、車用）有助於分散風險並抓住不同市場的成長機會。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>市場競爭加劇：</strong> 全球OSAT產業競爭激烈，大型業者投入大量資源，超豐需持續投資創新。
+<p>*   <strong>資本支出壓力：</strong> 跟上先進封裝技術發展需投入大量資本支出，可能對財務造成壓力。</p>
+<p>*   <strong>記憶體價格波動：</strong> 記憶體產業景氣循環可能影響封測訂單和獲利。</p>
+<p>*   <strong>傳統業務拖累：</strong> 傳統消費性電子需求復甦緩慢，部分傳統導線架封裝的產能利用率偏低，可能拖累整體毛利率。</p>
+<p>*   <strong>成本壓力：</strong> 匯率波動、材料價格、電價及人事成本上漲可能持續侵蝕利潤。</p>
+
+<h2>近期催化劑</h2>
+
+<ul><li><strong>2026年03月06日 (利多/中性)：</strong></li>
+</ul>    *   2月合併營收新台幣<strong>14.71億元</strong>，年增<strong>19%</strong>，累計前2月年增<strong>25.28%</strong>。
+<p>*   董事會決議114年（2025年）年度股利分派，每股配發新台幣<strong>3元</strong>現金股利。</p>
+<p>*   董事會通過民國114年（2025年）合併財報，營業收入<strong>167.64億元</strong>，年增<strong>10.2%</strong>；每股盈餘<strong>4.31元</strong>。</p>
+<ul><li><strong>2026年03月02日 (利空)：</strong> 外資單日賣超<strong>575張</strong>，三大法人合計賣超<strong>638張</strong>。</li>
+<li><strong>2026年02月26日 (利多)：</strong> 外資單日買超<strong>1,951張</strong>，三大法人合計買超<strong>2,302張</strong>。</li>
+<li><strong>2026年02月07日 (利多)：</strong> 1月營收新台幣<strong>16.02億元</strong>，月增<strong>15.03%</strong>，年增<strong>31.65%</strong>，創近45個月新高。</li>
+<li><strong>2026年01月28日 (利多)：</strong> 法人研究機構對超豐2026年EPS期望值設定為<strong>5.25元</strong>。</li>
+<li><strong>2026年01月27日 (利多/中性)：</strong></li>
+</ul>    *   法說會：公司對2026年上半年營運前景持正向態度。
+<p>*   覆晶與QFN封裝產能幾乎滿載，傳統導線架產能利用率偏低。</p>
+<p>*   覆晶封裝機台預計於2026年第二、第三季陸續開出，總產能將大幅提升至<strong>220M</strong>。</p>
+<p>*   AI相關業務在2025年佔營收比重高達<strong>37%</strong>。</p>
+<p>*   毛利率衰退歸因於匯率、材料、電價等外部成本壓力。</p>
+<ul><li><strong>2026年01月09日 (利多)：</strong> 法人預估超豐2026年營收有機會拚雙位數成長，EPS有機會站上<strong>6元、上看7元</strong>。</li>
+<li><strong>2025年12月12日 (利多)：</strong> 公司將自2026年起調漲封測價格，幅度約落在<strong>5%至10%</strong>，以反映成本上漲。</li>
+<li><strong>2025年12月04日 (利多)：</strong> 超豐於2025年7月董事會拍板，向BESI採購最新一代先進封裝設備，擴張Flip Chip與SiP產能，正式跨向高階封裝領域。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<ul><li><strong>2025年07月：</strong> 董事會決議斥資新台幣<strong>5億多元</strong>，向BESI購買先進封裝設備，積極擴充高階Flip Chip及系統級封裝（SiP）產能。</li>
+<li><strong>2025年下半年起：</strong></li>
+</ul>    *   受惠於美系客戶因地緣政治因素將訂單轉往台廠，超豐接獲大量轉單。
+<p>*   拿下美系GPU大廠電源管理IC供應商的測試訂單，搭上AI伺服器趨勢浪潮。</p>
+<p>*   採購更多高階封裝所需設備，搶攻AI、HPC及車用電子等應用商機。</p>
+<p>*   AI商機帶動周邊相關電源管理、網通晶片封測需求持續提升，訂單從一線封測廠外溢到二、三線廠。</p>
+<p>*   記憶體供不應求牽動整體封裝市場，記憶體IC封裝為主的企業產能吃緊，非記憶體IC封測訂單出現外溢效應。</p>
+<ul><li><strong>2026年起：</strong> 公司將自2026年起調漲封測價格，幅度約落在<strong>5%至10%</strong>。</li>
+<li><strong>2026年第一季底：</strong> 覆晶封裝月產能將達<strong>170M</strong>（百萬顆）。</li>
+<li><strong>2026年第二季：</strong> 覆晶封裝月產能將達<strong>200M</strong>，新覆晶封裝機台陸續開出。</li>
+<li><strong>2026年第三季底或第四季初：</strong> 新機台到位後，覆晶封裝總月產能將達<strong>220M</strong>，較2025年底大幅提升。</li>
+<li><strong>長期：</strong> Flip Chip與SiP是AI/HPC、車用電子、伺服器平台的核心封裝技術，超豐切入這些領域有望與母公司共同擴大AI/HPC供應鏈版圖。</li>
+</ul>
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+<li><strong>AI與記憶體需求引領成長：</strong> AI資料中心封裝需求持續增加，記憶體市場供不應求推動客戶轉向高容量應用，公司將受惠於封測訂單外溢效應，預期2026年營收有望實現雙位數成長。2025年AI相關業務佔營收比重已達37%。</li>
+<li><strong>高階產能顯著擴張：</strong> 覆晶封裝產能將從2026年第一季底的<strong>170M</strong>逐步提升至第四季的<strong>220M</strong>，新機台的陸續開出將有效滿足市場對高階封裝的強勁需求，推動營收逐季向上。</li>
+<li><strong>產品組合優化與價格上漲：</strong> 公司積極進行產品轉型，汰弱留強，並透過調漲價格（約5%至10%）以反映成本，有助於改善毛利率結構及提升產品平均售價（ASP）。</li>
+<li><strong>法人預期高成長：</strong> 法人預估2026年營收有機會拚雙位數成長，EPS有望站上<strong>6元</strong>、上看<strong>7元</strong>。</li>
+
+<h3>風險</h3>
+<li><strong>毛利率壓力：</strong> 儘管產品轉型與漲價，但匯率波動、材料價格上漲及電價調漲等外部成本壓力可能持續侵蝕利潤，需觀察成本轉嫁效益能否完全抵銷壓力。</li>
+<li><strong>傳統應用產品需求疲弱：</strong> NB/PC與消費性電子終端市場需求復甦緩慢，客戶持續低庫存、保守下單，導致傳統導線架封裝的產能利用率偏低，可能拖累整體獲利表現。網通與MCU、TV面板市場的疲軟也增加了不確定性。</li>
+<li><strong>競爭加劇與資本支出壓力：</strong> 儘管積極擴產，但全球OSAT產業競爭激烈，大型業者在先進封裝領域投入巨資，超豐需持續巨額資本支出以維持競爭力，這可能對公司財務造成壓力。</li>
+<li><strong>獲利成長放緩影響股利：</strong> 若獲利成長未能如預期，可能影響未來股利配發水準，對於看重超豐過往高配息特性的長線收益型買盤吸引力可能下降。</li>
+
+<h2>投資結論</h2>
+<p>超豐（2441）在半導體產業經歷低谷後展現強勁復甦動能，尤其在AI與記憶體需求帶動下，其轉型高階封裝的策略正逢其時。</p>
+
+<li><strong>高階封裝轉型與產能擴張：</strong> 公司積極投入Flip Chip及SiP等高階技術，並明確規劃2026年產能將大幅提升至220M，將有效抓住AI與HBM所帶來的先進封裝龐大商機。</li>
+<li><strong>營收成長動能明確：</strong> 受益於AI資料中心需求、記憶體市場供不應求及客戶訂單外溢，超豐營收已連續數月展現強勁年增率，且法人預期2026年營收將雙位數成長。</li>
+<li><strong>獲利改善可期：</strong> 儘管面臨成本壓力，但透過產品組合優化（高毛利高階產品佔比提升）和價格調漲策略，預期2026年毛利率有望止跌回升，EPS有機會挑戰6-7元。</li>
+<li><strong>風險管理與穩定股利：</strong> 公司維持穩健的財務結構（負債比率約13.82%），並持續保持正向自由現金流量。2025年度配發每股3元現金股利，顯示公司在追求成長的同時仍注重股東回報。</li>
+
+<p>綜合考量產業趨勢、公司成長動能與財務表現，超豐具備顯著的投資價值。鑑於法人給出的<strong>110元</strong>目標價，以及2026年EPS有望達<strong>6-7元</strong>，給予超豐「區間買進」建議。</p>
+
+<strong>建議目標價區間：新台幣105元至120元。</strong>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-08 12:33</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2441_超豐_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2441_超豐_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2441_超豐_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

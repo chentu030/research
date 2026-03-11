@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6282 康舒 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>6282 康舒 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>康舒（6282）成功轉型為電源與能源解決方案供應商，藉由OmniOn Power併購大幅優化產品組合與獲利能力，並深耕AI伺服器高功率電源與HVDC解決方案，預計在2026年AI產品營收佔比達30%，營收與EPS將迎來爆發性成長。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">6282 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-6282" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-6282" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-6282');
+    var obvContainer = document.getElementById('obv-chart-6282');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 37.65, "high": 37.9, "low": 37.4, "close": 37.7}, {"time": "2025-12-05", "open": 37.8, "high": 38.25, "low": 37.6, "close": 38.05}, {"time": "2025-12-08", "open": 38.65, "high": 39.15, "low": 38.0, "close": 39.0}, {"time": "2025-12-09", "open": 39.55, "high": 40.2, "low": 38.55, "close": 40.1}, {"time": "2025-12-10", "open": 40.15, "high": 43.45, "low": 39.8, "close": 40.85}, {"time": "2025-12-11", "open": 41.3, "high": 43.1, "low": 41.05, "close": 41.35}, {"time": "2025-12-12", "open": 42.2, "high": 45.0, "low": 42.0, "close": 42.5}, {"time": "2025-12-15", "open": 41.25, "high": 43.3, "low": 41.05, "close": 42.65}, {"time": "2025-12-16", "open": 42.95, "high": 44.4, "low": 40.6, "close": 41.65}, {"time": "2025-12-17", "open": 41.5, "high": 42.4, "low": 40.35, "close": 40.9}, {"time": "2025-12-18", "open": 40.5, "high": 42.15, "low": 39.85, "close": 40.95}, {"time": "2025-12-19", "open": 41.4, "high": 42.0, "low": 40.95, "close": 41.6}, {"time": "2025-12-22", "open": 42.05, "high": 42.8, "low": 41.8, "close": 42.25}, {"time": "2025-12-23", "open": 42.9, "high": 42.95, "low": 41.05, "close": 41.1}, {"time": "2025-12-24", "open": 41.5, "high": 41.5, "low": 40.5, "close": 40.9}, {"time": "2025-12-26", "open": 40.9, "high": 41.3, "low": 40.3, "close": 40.7}, {"time": "2025-12-29", "open": 41.3, "high": 41.65, "low": 40.3, "close": 40.9}, {"time": "2025-12-30", "open": 42.0, "high": 43.8, "low": 41.9, "close": 42.8}, {"time": "2025-12-31", "open": 43.45, "high": 44.9, "low": 42.1, "close": 42.3}, {"time": "2026-01-02", "open": 42.9, "high": 44.8, "low": 42.8, "close": 43.8}, {"time": "2026-01-05", "open": 44.6, "high": 44.65, "low": 41.85, "close": 42.15}, {"time": "2026-01-06", "open": 42.2, "high": 43.8, "low": 41.8, "close": 43.3}, {"time": "2026-01-07", "open": 43.5, "high": 44.75, "low": 42.75, "close": 43.3}, {"time": "2026-01-08", "open": 42.95, "high": 44.6, "low": 42.25, "close": 42.35}, {"time": "2026-01-09", "open": 43.5, "high": 46.45, "low": 43.5, "close": 45.55}, {"time": "2026-01-12", "open": 48.1, "high": 50.1, "low": 48.05, "close": 48.75}, {"time": "2026-01-13", "open": 49.5, "high": 52.5, "low": 48.2, "close": 52.0}, {"time": "2026-01-14", "open": 53.5, "high": 56.5, "low": 52.3, "close": 54.4}, {"time": "2026-01-15", "open": 55.0, "high": 58.0, "low": 54.0, "close": 56.5}, {"time": "2026-01-16", "open": 58.0, "high": 59.2, "low": 53.4, "close": 54.7}, {"time": "2026-01-19", "open": 56.6, "high": 59.0, "low": 55.6, "close": 58.0}, {"time": "2026-01-20", "open": 57.0, "high": 63.8, "low": 56.5, "close": 63.8}, {"time": "2026-01-21", "open": 65.0, "high": 65.9, "low": 60.4, "close": 61.1}, {"time": "2026-01-22", "open": 63.5, "high": 65.0, "low": 58.5, "close": 59.3}, {"time": "2026-01-23", "open": 59.1, "high": 60.4, "low": 56.9, "close": 59.5}, {"time": "2026-01-26", "open": 60.0, "high": 60.4, "low": 57.2, "close": 58.8}, {"time": "2026-01-27", "open": 58.8, "high": 59.1, "low": 53.3, "close": 53.8}, {"time": "2026-01-28", "open": 54.4, "high": 55.8, "low": 53.8, "close": 55.5}, {"time": "2026-01-29", "open": 55.8, "high": 55.8, "low": 52.5, "close": 53.4}, {"time": "2026-01-30", "open": 53.4, "high": 53.7, "low": 49.3, "close": 49.8}, {"time": "2026-02-02", "open": 48.8, "high": 50.5, "low": 48.0, "close": 48.3}, {"time": "2026-02-03", "open": 49.75, "high": 49.75, "low": 47.6, "close": 48.0}, {"time": "2026-02-04", "open": 48.25, "high": 50.9, "low": 48.25, "close": 50.6}, {"time": "2026-02-05", "open": 49.8, "high": 51.0, "low": 48.45, "close": 48.6}, {"time": "2026-02-06", "open": 48.0, "high": 48.15, "low": 45.6, "close": 46.85}, {"time": "2026-02-09", "open": 48.5, "high": 49.45, "low": 47.45, "close": 48.65}, {"time": "2026-02-10", "open": 49.6, "high": 49.7, "low": 47.1, "close": 47.3}, {"time": "2026-02-11", "open": 47.2, "high": 48.2, "low": 46.8, "close": 48.0}, {"time": "2026-02-23", "open": 49.1, "high": 50.9, "low": 48.55, "close": 50.5}, {"time": "2026-02-24", "open": 50.6, "high": 52.7, "low": 49.65, "close": 52.3}, {"time": "2026-02-25", "open": 52.6, "high": 52.6, "low": 50.4, "close": 51.3}, {"time": "2026-02-26", "open": 51.0, "high": 52.0, "low": 50.4, "close": 52.0}, {"time": "2026-03-02", "open": 47.9, "high": 48.35, "low": 44.15, "close": 44.45}, {"time": "2026-03-03", "open": 52.1, "high": 53.9, "low": 49.0, "close": 49.05}, {"time": "2026-03-04", "open": 47.9, "high": 48.35, "low": 44.15, "close": 44.45}, {"time": "2026-03-05", "open": 46.6, "high": 47.4, "low": 45.5, "close": 46.95}, {"time": "2026-03-06", "open": 46.45, "high": 47.45, "low": 45.9, "close": 46.4}, {"time": "2026-03-09", "open": 42.35, "high": 43.25, "low": 41.8, "close": 43.1}, {"time": "2026-03-10", "open": 44.7, "high": 45.4, "low": 43.9, "close": 45.1}, {"time": "2026-03-11", "open": 46.5, "high": 47.2, "low": 46.15, "close": 47.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 4340.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 6740.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 14471.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 23422.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 62326.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 53569.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 83777.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 29078.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 64655.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 28897.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 20886.0, "color": "#ef5350"}, {"time": "2025-12-19", "value": 17493.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 17421.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 17039.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 10356.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 10168.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 10983.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 90595.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 60987.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 61038.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 40203.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 27399.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 30821.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 31588.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 122383.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 153882.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 226828.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 204252.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 173792.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 154583.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 130654.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 153671.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 179865.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 164498.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 86287.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 62373.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 89510.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 48071.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 43927.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 50574.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 41234.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 24761.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 44893.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 34552.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 23697.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 23894.0, "color": "#ef5350"}, {"time": "2026-02-10", "value": 25572.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 13552.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 28246.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 34016.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 25309.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 20586.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 27612.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 34103.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 27612.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 16576.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 8479.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 15656.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 11733.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 10589.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 39.14}, {"time": "2025-12-11", "value": 39.87}, {"time": "2025-12-12", "value": 40.760000000000005}, {"time": "2025-12-15", "value": 41.489999999999995}, {"time": "2025-12-16", "value": 41.8}, {"time": "2025-12-17", "value": 41.81}, {"time": "2025-12-18", "value": 41.730000000000004}, {"time": "2025-12-19", "value": 41.55}, {"time": "2025-12-22", "value": 41.47}, {"time": "2025-12-23", "value": 41.36}, {"time": "2025-12-24", "value": 41.36}, {"time": "2025-12-26", "value": 41.31}, {"time": "2025-12-29", "value": 41.17}, {"time": "2025-12-30", "value": 41.28}, {"time": "2025-12-31", "value": 41.519999999999996}, {"time": "2026-01-02", "value": 42.1}, {"time": "2026-01-05", "value": 42.39}, {"time": "2026-01-06", "value": 42.87}, {"time": "2026-01-07", "value": 42.97}, {"time": "2026-01-08", "value": 42.98}, {"time": "2026-01-09", "value": 43.33}, {"time": "2026-01-12", "value": 44.65}, {"time": "2026-01-13", "value": 46.39}, {"time": "2026-01-14", "value": 48.61}, {"time": "2026-01-15", "value": 51.44}, {"time": "2026-01-16", "value": 53.27}, {"time": "2026-01-19", "value": 55.120000000000005}, {"time": "2026-01-20", "value": 57.48}, {"time": "2026-01-21", "value": 58.82000000000001}, {"time": "2026-01-22", "value": 59.379999999999995}, {"time": "2026-01-23", "value": 60.339999999999996}, {"time": "2026-01-26", "value": 60.5}, {"time": "2026-01-27", "value": 58.5}, {"time": "2026-01-28", "value": 57.379999999999995}, {"time": "2026-01-29", "value": 56.2}, {"time": "2026-01-30", "value": 54.260000000000005}, {"time": "2026-02-02", "value": 52.160000000000004}, {"time": "2026-02-03", "value": 51.0}, {"time": "2026-02-04", "value": 50.019999999999996}, {"time": "2026-02-05", "value": 49.06}, {"time": "2026-02-06", "value": 48.47}, {"time": "2026-02-09", "value": 48.54}, {"time": "2026-02-10", "value": 48.4}, {"time": "2026-02-11", "value": 47.88}, {"time": "2026-02-23", "value": 48.260000000000005}, {"time": "2026-02-24", "value": 49.35}, {"time": "2026-02-25", "value": 49.879999999999995}, {"time": "2026-02-26", "value": 50.82}, {"time": "2026-03-02", "value": 50.11}, {"time": "2026-03-03", "value": 49.82}, {"time": "2026-03-04", "value": 48.25}, {"time": "2026-03-05", "value": 47.38}, {"time": "2026-03-06", "value": 46.260000000000005}, {"time": "2026-03-09", "value": 45.989999999999995}, {"time": "2026-03-10", "value": 45.2}, {"time": "2026-03-11", "value": 45.71}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 40.475}, {"time": "2025-12-18", "value": 40.8}, {"time": "2025-12-19", "value": 41.155}, {"time": "2025-12-22", "value": 41.480000000000004}, {"time": "2025-12-23", "value": 41.58}, {"time": "2025-12-24", "value": 41.585}, {"time": "2025-12-26", "value": 41.519999999999996}, {"time": "2025-12-29", "value": 41.36}, {"time": "2025-12-30", "value": 41.375}, {"time": "2025-12-31", "value": 41.44}, {"time": "2026-01-02", "value": 41.730000000000004}, {"time": "2026-01-05", "value": 41.85}, {"time": "2026-01-06", "value": 42.019999999999996}, {"time": "2026-01-07", "value": 42.125}, {"time": "2026-01-08", "value": 42.25}, {"time": "2026-01-09", "value": 42.714999999999996}, {"time": "2026-01-12", "value": 43.519999999999996}, {"time": "2026-01-13", "value": 44.629999999999995}, {"time": "2026-01-14", "value": 45.79}, {"time": "2026-01-15", "value": 47.209999999999994}, {"time": "2026-01-16", "value": 48.3}, {"time": "2026-01-19", "value": 49.885000000000005}, {"time": "2026-01-20", "value": 51.935}, {"time": "2026-01-21", "value": 53.714999999999996}, {"time": "2026-01-22", "value": 55.410000000000004}, {"time": "2026-01-23", "value": 56.80499999999999}, {"time": "2026-01-26", "value": 57.81}, {"time": "2026-01-27", "value": 57.989999999999995}, {"time": "2026-01-28", "value": 58.1}, {"time": "2026-01-29", "value": 57.79}, {"time": "2026-01-30", "value": 57.3}, {"time": "2026-02-02", "value": 56.33}, {"time": "2026-02-03", "value": 54.75}, {"time": "2026-02-04", "value": 53.7}, {"time": "2026-02-05", "value": 52.629999999999995}, {"time": "2026-02-06", "value": 51.364999999999995}, {"time": "2026-02-09", "value": 50.35}, {"time": "2026-02-10", "value": 49.7}, {"time": "2026-02-11", "value": 48.95}, {"time": "2026-02-23", "value": 48.660000000000004}, {"time": "2026-02-24", "value": 48.910000000000004}, {"time": "2026-02-25", "value": 49.21}, {"time": "2026-02-26", "value": 49.61}, {"time": "2026-03-02", "value": 48.995}, {"time": "2026-03-03", "value": 49.04}, {"time": "2026-03-04", "value": 48.8}, {"time": "2026-03-05", "value": 48.63}, {"time": "2026-03-06", "value": 48.54}, {"time": "2026-03-09", "value": 48.05}, {"time": "2026-03-10", "value": 47.510000000000005}, {"time": "2026-03-11", "value": 46.980000000000004}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 41.1025}, {"time": "2026-01-05", "value": 41.325}, {"time": "2026-01-06", "value": 41.5875}, {"time": "2026-01-07", "value": 41.802499999999995}, {"time": "2026-01-08", "value": 41.915}, {"time": "2026-01-09", "value": 42.15}, {"time": "2026-01-12", "value": 42.519999999999996}, {"time": "2026-01-13", "value": 42.995}, {"time": "2026-01-14", "value": 43.582499999999996}, {"time": "2026-01-15", "value": 44.325}, {"time": "2026-01-16", "value": 45.015}, {"time": "2026-01-19", "value": 45.8675}, {"time": "2026-01-20", "value": 46.9775}, {"time": "2026-01-21", "value": 47.92}, {"time": "2026-01-22", "value": 48.83}, {"time": "2026-01-23", "value": 49.76}, {"time": "2026-01-26", "value": 50.665}, {"time": "2026-01-27", "value": 51.31}, {"time": "2026-01-28", "value": 51.94500000000001}, {"time": "2026-01-29", "value": 52.5}, {"time": "2026-01-30", "value": 52.8}, {"time": "2026-02-02", "value": 53.1075}, {"time": "2026-02-03", "value": 53.342499999999994}, {"time": "2026-02-04", "value": 53.7075}, {"time": "2026-02-05", "value": 54.02}, {"time": "2026-02-06", "value": 54.085}, {"time": "2026-02-09", "value": 54.08}, {"time": "2026-02-10", "value": 53.845000000000006}, {"time": "2026-02-11", "value": 53.525}, {"time": "2026-02-23", "value": 53.225}, {"time": "2026-02-24", "value": 53.105}, {"time": "2026-02-25", "value": 52.77}, {"time": "2026-02-26", "value": 52.17999999999999}, {"time": "2026-03-02", "value": 51.347500000000004}, {"time": "2026-03-03", "value": 50.834999999999994}, {"time": "2026-03-04", "value": 50.082499999999996}, {"time": "2026-03-05", "value": 49.489999999999995}, {"time": "2026-03-06", "value": 49.12}, {"time": "2026-03-09", "value": 48.5}, {"time": "2026-03-10", "value": 48.085}, {"time": "2026-03-11", "value": 47.945}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 6740.0}, {"time": "2025-12-08", "value": 21211.0}, {"time": "2025-12-09", "value": 44633.0}, {"time": "2025-12-10", "value": 106959.0}, {"time": "2025-12-11", "value": 160528.0}, {"time": "2025-12-12", "value": 244305.0}, {"time": "2025-12-15", "value": 273383.0}, {"time": "2025-12-16", "value": 208728.0}, {"time": "2025-12-17", "value": 179831.0}, {"time": "2025-12-18", "value": 200717.0}, {"time": "2025-12-19", "value": 218210.0}, {"time": "2025-12-22", "value": 235631.0}, {"time": "2025-12-23", "value": 218592.0}, {"time": "2025-12-24", "value": 208236.0}, {"time": "2025-12-26", "value": 198068.0}, {"time": "2025-12-29", "value": 209051.0}, {"time": "2025-12-30", "value": 299646.0}, {"time": "2025-12-31", "value": 238659.0}, {"time": "2026-01-02", "value": 299697.0}, {"time": "2026-01-05", "value": 259494.0}, {"time": "2026-01-06", "value": 286893.0}, {"time": "2026-01-07", "value": 286893.0}, {"time": "2026-01-08", "value": 255305.0}, {"time": "2026-01-09", "value": 377688.0}, {"time": "2026-01-12", "value": 531570.0}, {"time": "2026-01-13", "value": 758398.0}, {"time": "2026-01-14", "value": 962650.0}, {"time": "2026-01-15", "value": 1136442.0}, {"time": "2026-01-16", "value": 981859.0}, {"time": "2026-01-19", "value": 1112513.0}, {"time": "2026-01-20", "value": 1266184.0}, {"time": "2026-01-21", "value": 1086319.0}, {"time": "2026-01-22", "value": 921821.0}, {"time": "2026-01-23", "value": 1008108.0}, {"time": "2026-01-26", "value": 945735.0}, {"time": "2026-01-27", "value": 856225.0}, {"time": "2026-01-28", "value": 904296.0}, {"time": "2026-01-29", "value": 860369.0}, {"time": "2026-01-30", "value": 809795.0}, {"time": "2026-02-02", "value": 768561.0}, {"time": "2026-02-03", "value": 743800.0}, {"time": "2026-02-04", "value": 788693.0}, {"time": "2026-02-05", "value": 754141.0}, {"time": "2026-02-06", "value": 730444.0}, {"time": "2026-02-09", "value": 754338.0}, {"time": "2026-02-10", "value": 728766.0}, {"time": "2026-02-11", "value": 742318.0}, {"time": "2026-02-23", "value": 770564.0}, {"time": "2026-02-24", "value": 804580.0}, {"time": "2026-02-25", "value": 779271.0}, {"time": "2026-02-26", "value": 799857.0}, {"time": "2026-03-02", "value": 772245.0}, {"time": "2026-03-03", "value": 806348.0}, {"time": "2026-03-04", "value": 778736.0}, {"time": "2026-03-05", "value": 795312.0}, {"time": "2026-03-06", "value": 786833.0}, {"time": "2026-03-09", "value": 771177.0}, {"time": "2026-03-10", "value": 782910.0}, {"time": "2026-03-11", "value": 793499.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>康舒科技 (6282) 正積極從傳統電源供應器製造商轉型為「電源與能源解決方案供應商」。透過2023年收購ABB旗下電源轉換事業部門（現更名為OmniOn Power），公司成功跨足高毛利的企業與電信級電源市場，並將重心放在AI伺服器電源、電信電源、燃料電池與新能源等高成長領域。</p>
+
+<strong>核心產品/服務：</strong>
+<ul><li><strong>AI伺服器電源：</strong> 針對AI伺服器高算力需求，已推出33kW至72kW機架式電源系統，符合Rubin架構，並已切入市場。目標2026年推出72KW產品，2027年瞄準機櫃式HVDC電源產品以符合Rubin ultra架構。</li>
+<li><strong>電信級電源：</strong> 透過OmniOn Power，深耕北美電信市場，提供電信電源產品。</li>
+<li><strong>企業用電源：</strong> 包含燃料電池相關電源產品，為美國燃料電池大廠Bloom Energy的電源轉換器供應商。</li>
+<li><strong>新能源：</strong> 佈局高壓直流 (HVDC) 技術與電動動力系統，提供能源管理、綠電媒合、太陽光電建置解決方案。</li>
+<li><strong>車用電源：</strong> 開發逆變器 (Inverter)、車載充電器 (OBC) 及直流電壓轉換器 (DC-DC) 等產品，已通過Automotive SPICE (ASPICE) 流程評鑑。</li>
+</ul>
+<strong>2025年營收結構</strong> (根據2025年12月數據):
+
+<div class="table-wrapper"><table>
+<thead><tr><th>事業群</th><th>佔比</th><th>主要產品/說明</th></tr></thead><tbody>
+<tr><td>企業用電源</td><td>45%</td><td>燃料電池、美國市場資料中心電源產品</td></tr>
+<tr><td>電信電源</td><td>36%</td><td>透過OmniOn Power服務北美市場</td></tr>
+<tr><td>消費用電源</td><td>13%</td><td>主要為手機電源產品 (佔比持續下降)</td></tr>
+<tr><td>新事業</td><td>4%</td><td>能源及電動車相關</td></tr>
+<tr><td>金屬沖壓</td><td>3%</td><td></td></tr>
+<tr><td><strong>總計</strong></td><td><strong>101%</strong></td><td>(註：數據來源可能因四捨五入略有差異，約100%)</td></tr>
+</tbody></table></div>
+
+<strong>製造基地與策略：</strong>
+<p>康舒的擴產策略著重「去風險化」與「貼近市場」。全球佈局包括越南廠（非中產能）、OmniOn在北美/墨西哥工廠（服務北美電信與高階資料中心），以及中國產線（部分AI產品已於2025年第三季量產）。</p>
+
+<h2>核心競爭優勢</h2>
+<li><strong>AI伺服器電源技術領先：</strong> 已開發並量產33kW機架式電源，72kW產品預計2026年出貨，並積極佈局兆瓦級HVDC電源系統，符合未來AI資料中心高功率密度需求。</li>
+<li><strong>OmniOn Power併購綜效：</strong> 成功整合OmniOn在北美電信與資料中心板端電源的技術與客戶基礎，形成AC-DC與DC-DC完整解決方案，大幅提升企業與電信級高毛利產品比重。</li>
+<li><strong>燃料電池電源供應鏈：</strong> 作為美國燃料電池大廠Bloom Energy的電源轉換器主要供應商，穩定掌握新能源市場成長動能，燃料電池產品佔營收比重達10-20%。</li>
+<li><strong>車用電源認證：</strong> 通過Automotive SPICE (ASPICE) 評鑑，並規劃ISO/SAE 21434驗證，為未來切入國際車廠供應鏈奠定基礎。</li>
+<li><strong>集團資源整合：</strong> 與關係企業金仁寶集團（金寶、仁寶）合作，在自動化製造及AI伺服器供應鏈形成策略聯盟，加速HVDC電力系統的量產與客戶拓展。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢 (近6個月)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>226年01月</td><td>27.09</td><td>-20.00%</td><td>28.77%</td></tr>
+<tr><td>2025年12月</td><td>33.86</td><td>5.74%</td><td>5.91%</td></tr>
+<tr><td>2025年11月</td><td>32.02</td><td>22.65%</td><td>21.06%</td></tr>
+<tr><td>2025年10月</td><td>26.10</td><td>-15.84%</td><td>10.51%</td></tr>
+<tr><td>2025年09月</td><td>31.02</td><td>15.80%</td><td>-2.94%</td></tr>
+<tr><td>2025年08月</td><td>26.78</td><td>16.91%</td><td>-3.35%</td></tr>
+</tbody></table></div>
+
+<h3>季度數據</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>季營收 (新台幣億元)</th><th>季增率</th><th>年增率</th><th>毛利率</th><th>營業利益率</th><th>EPS (新台幣元)</th></tr></thead><tbody>
+<tr><td>2025年第四季</td><td>91.98</td><td>13.96%</td><td>12.12%</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>2025年第三季</td><td>80.71</td><td>10.00%</td><td>-4.20%</td><td>25.2%</td><td>3.49%</td><td>0.3</td></tr>
+</tbody></table></div>
+
+<h3>年度趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>全年營收 (新台幣億元)</th><th>年增率</th><th>EPS (新台幣元)</th></tr></thead><tbody>
+<tr><td>2025年實際</td><td>317.55</td><td>-0.09%</td><td>0.27 (截至11月自結) / 預估0.5 (全年度)</td></tr>
+<tr><td>2024年實際</td><td>317.85</td><td>N/A</td><td>-0.04</td></tr>
+<tr><td>2026年預估</td><td>N/A</td><td>N/A</td><td>2.8</td></tr>
+<tr><td>2027年預估</td><td>N/A</td><td>N/A</td><td>4.5</td></tr>
+<tr><td>2028年預估</td><td>640.00 (20億美元)</td><td>N/A</td><td>6.0</td></tr>
+</tbody></table></div>
+
+<h2>法說會重點</h2>
+<strong>日期：</strong> 2025年11月13日
+<strong>管理層發言與 Guidance：</strong>
+<ul><li><strong>轉型目標：</strong> 2025年為康舒轉型落實的一年，以「技術升級、系統整合與策略聯盟」為三大發展支柱，從伺服器到整櫃級電源系統打造完整解決方案。</li>
+<li><strong>AI伺服器電源：</strong></li>
+</ul>    *   33kW Power shelf產品已推出並在客戶端驗證中，預計2026年量產。
+<p>*   72kW產品預計2026年出貨並讓客戶驗證，符合Rubin架構。</p>
+<p>*   2027年則瞄準機櫃式HVDC電源產品，符合Rubin ultra架構。</p>
+<p>*   AI相關產品營收佔比目標：從2025年的約20%拉升至2026年的30%。</p>
+<ul><li><strong>OmniOn Power：</strong> 預計2026年在資料中心業務將成長2-3倍，並已順利進入一些雲端服務供應商（CSP）客戶的供應鏈。</li>
+<li><strong>燃料電池：</strong> 康舒為Bloom Energy的主要供應商，燃料電池產品佔營收比重約10%~20%，動能強勁。</li>
+<li><strong>電信電源：</strong> 2025年第三季季增30%、年增55%，表現強勁。</li>
+<li><strong>消費用電源：</strong> 比重持續下降，2025年12月營收占比約13%，主要減少為手機電源產品。</li>
+<li><strong>營收目標：</strong> 管理層設定2028年挑戰20億美元（約640億台幣）營收的目標，預計未來三年營收將實現翻倍增長。</li>
+<li><strong>獲利展望：</strong> 2025年第四季預估營運持穩，2025全年力拚虧損收斂。2026年看好企業、電信電源需求帶動獲利成長。</li>
+<li><strong>產能利用率/資本支出：</strong> 未提供2025-2026年最新具體數字，但公司持續投入AI相關研發。</li>
+</ul>
+<h2>券商觀點</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商/報告來源</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期</th><th>備註</th></tr></thead><tbody>
+<tr><td>CMoney彙整</td><td>45</td><td>看多</td><td>2026/06/03</td><td>僅一家券商評等</td></tr>
+<tr><td>群益證券</td><td>39</td><td>中立</td><td>2024/05/22</td><td>報告已過時，預估2024年EPS 0.38元</td></tr>
+<tr><td>分析報告預估</td><td>56</td><td>N/A</td><td>2026/03/08</td><td>對應2026年EPS 2.8元預估</td></tr>
+<tr><td>分析報告預估</td><td>90</td><td>N/A</td><td>2026/03/08</td><td>對應2027年EPS 4.5元預估</td></tr>
+<tr><td>分析報告預估</td><td>120</td><td>N/A</td><td>2026/03/08</td><td>對應2028年EPS 6.0元預估</td></tr>
+</tbody></table></div>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢 (季)</h3>
+<p>康舒的利潤率在2025年呈現明顯改善趨勢，主要歸因於產品組合轉型至高毛利的企業與電信電源。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>25.22%</td><td>3.49%</td><td>3.15%</td></tr>
+<tr><td>2025年第二季</td><td>25.43%</td><td>1.45%</td><td>-7.35%</td></tr>
+<tr><td>2025年第一季</td><td>25.59%</td><td>-0.46%</td><td>-0.64%</td></tr>
+<tr><td>2024年第四季</td><td>22.58%</td><td>-0.55%</td><td>1.77%</td></tr>
+<tr><td>2024年第三季</td><td>22.82%</td><td>-1.01%</td><td>-2.63%</td></tr>
+<tr><td>2024年第二季</td><td>24.34%</td><td>0.82%</td><td>1.76%</td></tr>
+<tr><td>2024年第一季</td><td>23.46%</td><td>-0.81%</td><td>-1.10%</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化原因：</strong>
+<p>康舒成功將消費性電源比重降至18%，提升企業用電源與電信相關產品占比至76%，此策略帶動毛利率自2025年第三季起顯著提升至25%以上。AI伺服器與資料中心電源及電信電源出貨穩定成長，使第三季營業利益達到近十年新高。OmniOn Power的併購也對提升北美電信市占與集團毛利率有正面效益。</p>
+
+<h3>存貨與應收帳款週轉天數趨勢</h3>
+<p>2025年存貨與應收帳款週轉天數在Q1達到高峰後，Q2和Q3呈現下降趨勢，顯示營運效率有所改善。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>應收帳款收現天數</th><th>存貨週轉天數</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>81.77天</td><td>102.09天</td></tr>
+<tr><td>2025年第二季</td><td>84.31天</td><td>107.27天</td></tr>
+<tr><td>2025年第一季</td><td>102.97天</td><td>118.94天</td></tr>
+<tr><td>2024年第四季</td><td>95.10天</td><td>101.65天</td></tr>
+</tbody></table></div>
+
+<p>目前未有公開資訊顯示康舒存貨有異常堆積或備料現象。</p>
+
+<h3>資本支出</h3>
+<p>康舒積極布局高功率AI伺服器電源和HVDC產品，已量產33kW機架式電源，預計2026年出貨72kW機架式電源，並瞄準2027年機櫃式HVDC電源。公司亦斥資新台幣12億元參與金仁寶總部資產開發案，強化策略聯盟布局。</p>
+
+<h3>其他財務數據</h3>
+<ul><li><strong>負債比率：</strong> 2025年第三季為53.41%，略高於前一季的52.21%。</li>
+<li><strong>自由現金流量：</strong> 2025年第三季為-53,598千元。</li>
+</ul>
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓：</strong> 2025年10月30日，經理人古忠平申報轉讓30張，轉讓後持股為81.96張。第一大股東金寶（2312）持股18.82%。</li>
+<li><strong>庫藏股：</strong> 未發現2024年以後的庫藏股買回紀錄。</li>
+<li><strong>可轉換公司債 (CB)：</strong> 康舒發行「康舒二」（62822），轉換價格調整為新台幣46.10元，下次提前賣回日為2026年6月13日。公司已完成異議處理程序，有助於增強資本運用彈性。</li>
+<li><strong>增減資計畫：</strong> 未發現2024年以後的現金增資或減資計畫。</li>
+<li><strong>股利政策：</strong> 近年主要發放現金股利，無股票股利。</li>
+</ul>    *   2025年：現金股利0.5元。
+<p>*   2024年：現金股利0.5元。</p>
+<p>*   2023年：現金股利0.2元。</p>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與成長趨勢</h3>
+<ul><li><strong>整體電源供應器市場：</strong> 預計2025年全球規模達358.6億美元，至2030年將達492.9億美元，複合年成長率 (CAGR) 為6.57%。</li>
+<li><strong>AI伺服器電源市場：</strong> 預計從2024年的13.74億美元成長至2025年的21.34億美元，並於2031年達到65.67億美元，2026-2032年CAGR達20.6%。僅NVIDIA平台電源供應器市場預計將從2025年的29億美元成長至2026年的45億美元，年增率高達56%。</li>
+</ul>
+<h3>供需狀況</h3>
+<p>AI伺服器電源市場目前呈現供不應求。隨著AI應用和生成式AI需求爆發，數據中心對高性能、高效率電源單位的需求強勁增長。</p>
+
+<h3>產業平均毛利率</h3>
+<p>康舒在2025年第三季的毛利率為25.2%。電信電源業務的常態毛利率超過35%，屬於高附加價值的領域。整體電源供應器市場，特別是高階產品，毛利率呈現穩步提升趨勢。</p>
+
+<h3>競爭格局</h3>
+<strong>全球主要AI伺服器電源供應商與康舒的市場地位：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>說明</th></tr></thead><tbody>
+<tr><td><strong>Delta Electronics (台達電)</strong></td><td>全球電源龍頭，AI電源市佔率約65%，技術領先，高毛利產品如伺服器電源、自動化與資料中心解決方案營收佔比持續提升。</td></tr>
+<tr><td><strong>Lite-On Technology (光寶科)</strong></td><td>主要競爭者之一，AI伺服器相關產品持續成長，預估2025年AI伺服器相關零組件營收佔比將超過10%。</td></tr>
+<tr><td><strong>AcBel Polytech (康舒)</strong></td><td>全球前五大AI伺服器電源供應商之一，積極轉型至高毛利企業與電信級電源市場，包含AI伺服器電源、電信電源、燃料電池等。</td></tr>
+<tr><td><strong>Chicony Power Technology (群光電能)</strong></td><td>主要競爭者之一，High Power伺服器電源與智慧低碳解決方案於2025年1月均呈現雙位數年增長。</td></tr>
+<tr><td><strong>Advanced Energy</strong></td><td>全球AI伺服器電源主要廠商之一。</td></tr>
+</tbody></table></div>
+
+<strong>康舒 vs. 主要競爭對手比較：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>特性</th><th>康舒 (6282)</th><th>台達電 (2308)</th><th>光寶科 (2301)</th></tr></thead><tbody>
+<tr><td><strong>技術</strong></td><td>專注於AI伺服器電源，已推出33kW至72kW機架式電源系統 (符合Rubin架構)，2026年將推出72KW產品，2027年瞄準機櫃式HVDC電源產品 (符合Rubin ultra架構)。2026年1月發表1MW HVDC電源系統解決方案，對標80 PLUS最高效率RUBY等級，整合100kW機架式電源與備援電池模組，支援±400V或800V HVDC輸出架構。透過併購OmniOn Power，取得電信級電源及資料中心板端電源 (DC-DC) 的技術與客戶關係。</td><td>高階電源領域領先，包含伺服器電源、自動化與資料中心解決方案。2025年第一季液冷解決方案大規模生產。預計2026年下半年出貨400V電源櫃，2027年導入800V更高規格版本。</td><td>液冷產品方面，Liquid to Air系統解決方案樣機已出貨，預計2025年啟動量產動能。</td></tr>
+<tr><td><strong>產能</strong></td><td>藉由關係企業金寶自動化製造能量，快速承接HVDC電力系統量產需求。</td><td>N/A</td><td>N/A</td></tr>
+<tr><td><strong>客戶</strong></td><td>透過OmniOn Power在北美電信市場擁有深厚客戶關係，為美國燃料電池大廠Bloom Energy的電源轉換器供應商。在AI伺服器領域，積極與關係企業仁寶合作，搶攻利基型電源市場。</td><td>主要客戶為大型CSP（雲端服務供應商），資本支出計畫透明且明確。</td><td>N/A</td></tr>
+<tr><td><strong>獲利</strong></td><td>2025年第三季毛利率25.2%，電信電源業務常態毛利率高於35%。透過轉型至高毛利產品，獲利能力有望提升。</td><td>營收規模、毛利率與營益率表現最佳，為Tier1主要供應商。</td><td>法人預估其本業獲利均有23%以上的成長空間。</td></tr>
+<tr><td><strong>營收規模</strong></td><td>2025年全年營收317.55億元。</td><td>2025年12月單月營收536.86億元 (全年營收遠大於康舒)。</td><td>N/A</td></tr>
+<tr><td><strong>2026年EPS預估</strong></td><td>2.8元</td><td>未找到</td><td>未找到</td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢</h3>
+<li><strong>AI伺服器高功率密度與效率提升：</strong> AI算力激增使伺服器功耗飆升，電源供應器需具備更高功率密度、更穩定輸出與更高轉換效率。這促使電源供應器從傳統「瓦數比拼」轉向「系統效能與能源經濟性」的全棧解決方案。</li>
+<li><strong>高壓直流 (HVDC) 供電架構導入：</strong> 為應對高功耗與銅耗，HVDC供電架構如Meta、Google、Microsoft的±400V Mt.Diablo和NVIDIA的800V架構正加速導入。HVDC能減少轉換損耗，提高電力傳輸效率，是AI資料中心供電架構的革命。</li>
+<li><strong>液冷散熱技術普及：</strong> 當AI伺服器單櫃功率突破百kW時，傳統空冷散熱不足，液冷技術勢在必行。電源供應器需與液冷系統整合設計，確保在高功率、高熱負載下的穩定運作。</li>
+
+<h3>對康舒的機會與威脅</h3>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>AI伺服器電源需求爆發：</strong> 康舒憑藉高功率AI伺服器電源產品切入市場，預計2026年AI產品營收佔比達25-30%，成為主要成長動能。
+<p>*   <strong>OmniOn併購綜效：</strong> 結合其在北美電信的客戶關係與電源解決方案，提供完整服務，帶動營收與獲利增長。</p>
+<p>*   <strong>轉機性獲利結構改善：</strong> 透過轉型聚焦高毛利業務，毛利率顯著提升，營運表現改善。</p>
+<p>*   <strong>HVDC技術佈局：</strong> 發表1MW HVDC電源系統解決方案，符合產業趨勢，有望搶佔市場先機。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>市場競爭激烈：</strong> 面臨台達電、光寶科等產業龍頭的強大競爭，技術領先與市場份額優勢巨大。
+<p>*   <strong>技術迭代速度快：</strong> AI技術發展迅速，需持續投入研發以保持領先。</p>
+<p>*   <strong>併購整合挑戰：</strong> OmniOn初期整合曾面臨挑戰，仍需持續關注效益發揮。</p>
+
+<h3>相關投資題材</h3>
+<ul><li><strong>AI (人工智慧)：</strong> 康舒核心成長題材，AI伺服器電源為AI資料中心提供高算力電源與HVDC解決方案。</li>
+<li><strong>HBM (高頻寬記憶體)：</strong> 間接受益於HBM推升AI伺服器功耗，進而帶動對高功率電源需求。</li>
+<li><strong>新能源 / 電動車：</strong> 燃料電池電源供應商（Bloom Energy），佈局HVDC技術與電動動力系統，新能源相關佔2025年營收4%。車用電源已通過ASPICE評鑑。</li>
+<li><strong>智慧電網：</strong> HVDC電源系統的開發與智慧電網的發展方向相符。</li>
+</ul>
+<h2>近期催化劑</h2>
+<ul><li><strong>2026年03月07日：</strong> 啟動2026年校園徵才，聚焦資料中心電源、電動車與新能源人才。</li>
+<li><strong>2026年03月04日：</strong> 通過Automotive SPICE (ASPICE) 流程評鑑，強化車用電源市場競爭力。</li>
+<li><strong>2026年02月12日：</strong> 2026年1月營收27.09億元，月減20%，年增28.77%。</li>
+<li><strong>2026年01月21日：</strong> 正式發表專為AI資料中心設計的1MW HVDC電源系統解決方案，並與金寶合作。</li>
+<li><strong>2026年01月15日：</strong> HVDC新產品展示與市場傳出將推出符合Rubin架構的72KW機架式電源。</li>
+<li><strong>2026年01月09日：</strong> 公布2025全年營收317.55億元，年減0.09%，為歷年第二高；2025年12月營收33.86億元，為單月歷史第三高。</li>
+<li><strong>2025年12月17日：</strong> 完成第二次無擔保轉換公司債異議處理程序，增強資本運用彈性。</li>
+<li><strong>2025年11月20日：</strong> 法說會報告2025年第三季營運轉佳，毛利率達25.2%，AI相關產品佔比由2024年13%提升至2025年前三季近20%。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<ul><li><strong>2025年第三季：</strong></li>
+</ul>    *   AI伺服器電源產品正式進入量產階段。
+<p>*   電信電源季增30%、年增55%，企業用電源季增4%。</p>
+<p>*   AI相關產品營收佔比提升至近20%。</p>
+<p>*   毛利率達25.2%，獲利能力顯著改善。</p>
+<ul><li><strong>2025年第四季：</strong></li>
+</ul>    *   營收達91.98億元，季增13.96%、年增12.12%，為近九個季度新高。
+<p>*   33kW機架式電源已量產，並接受大型系統廠認證，足以支援NVIDIA GB300 NVL72等AI平台。</p>
+<ul><li><strong>2026年：</strong></li>
+</ul>    *   <strong>AI伺服器電源：</strong>
+<p>*   AI相關產品營收佔比目標提升至25-30%。</p>
+<p>*   72kW Power Shelf產品預計出貨並讓客戶驗證，符合Rubin架構。</p>
+<p>*   OmniOn在資料中心業務預計成長2-3倍，並進入CSP客戶供應鏈。</p>
+<p>*   1MW HVDC電源系統解決方案發表，瞄準兆瓦級AI資料中心。</p>
+<p>*   <strong>電信市場：</strong> 隨市場回溫及美國利率可能下降，企業客戶對電信基礎設施佈局增加，預期為重要成長動能。</p>
+<p>*   <strong>車用電源：</strong> 通過Automotive SPICE (ASPICE) 評鑑，規劃於第三季完成ISO/SAE 21434驗證，強化進入國際車廠供應鏈的能力。</p>
+<p>*   <strong>人才佈局：</strong> 啟動校園徵才，擴大招募資料中心電源、電動車與新能源等領域人才。</p>
+<ul><li><strong>2027年：</strong></li>
+</ul>    *   瞄準機櫃式HVDC電源產品，符合Rubin ultra架構。
+<p>*   投入研發百萬瓦（MegaWatt）等級電力平台，應對後續高密度AI需求。</p>
+<ul><li><strong>2028年：</strong></li>
+</ul>    *   挑戰20億美元（約640億台幣）營收目標，意味著從2025年起三年內營收翻倍成長。
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+<ul><li><strong>AI伺服器電源爆發：</strong> 隨著33kW機架式電源量產及72kW產品出貨，AI產品佔營收比重將從2025年的20%大幅提升至2026年的30%，成為主要成長引擎。</li>
+<li><strong>OmniOn Power綜效顯現：</strong> 併購效益持續發酵，OmniOn在北美電信市場與資料中心業務的強勁成長，特別是資料中心業務預計將成長2-3倍，將顯著貢獻營收與獲利。</li>
+<li><strong>HVDC解決方案領先佈局：</strong> 1MW HVDC電源系統的推出，精準切合AI資料中心對高電壓直流供電的迫切需求，康舒在下一代電源架構取得先發優勢。</li>
+<li><strong>燃料電池穩定增長：</strong> 與Bloom Energy的合作持續貢獻穩定營收，佔比達10-20%。</li>
+<li><strong>獲利能力改善：</strong> 產品組合轉型至高毛利業務，加上規模經濟效益，預計2026年EPS將從2025年的約0.5元大幅增長至2.8元。</li>
+</ul>
+<strong>風險：</strong>
+<ul><li><strong>市場競爭激烈：</strong> 面臨台達電等龍頭大廠在技術和市場份額上的強大競爭，可能壓縮康舒的市佔率和毛利率。</li>
+<li><strong>AI技術迭代速度：</strong> AI伺服器技術快速演進，若康舒研發投入不及時或產品開發未能跟上市場需求，可能錯失商機。</li>
+<li><strong>總體經濟波動：</strong> 全球經濟景氣若不如預期，可能影響企業資本支出意願，進而影響電信和資料中心業務的需求。</li>
+<li><strong>併購整合效益不確定性：</strong> OmniOn的整合效益雖已顯現，但長期營運仍需持續觀察其是否能完全發揮綜效。</li>
+</ul>
+<h2>投資結論</h2>
+<li><strong>轉型效益顯著，重塑成長曲線：</strong> 康舒已成功從傳統電源供應器廠轉型為高附加價值的電源與能源解決方案供應商。OmniOn Power的併購不僅優化了產品組合，更帶來了高毛利的電信與企業級客戶，為未來的爆發性成長奠定堅實基礎。</li>
+<li><strong>AI伺服器電源為核心驅動力：</strong> AI算力需求爆發為康舒帶來歷史性機遇。公司在高功率AI伺服器電源（33kW、72kW）與HVDC架構的領先佈局，使其直接受益於AI資料中心的龐大需求，預計2026年AI產品營收佔比將達30%。</li>
+<li><strong>獲利能力大幅改善可期：</strong> 隨著高毛利產品比重提升，康舒的毛利率與營業利益率已在2025年第三季顯著改善。法人預估2026年EPS將達2.8元，較2025年預估的0.5元呈現強勁成長，顯示公司已從轉型陣痛期邁入收穫期。</li>
+<li><strong>長期成長目標清晰，具備想像空間：</strong> 管理層設定2028年挑戰20億美元營收的宏偉目標，加上HVDC等前瞻技術的佈局，為康舒提供了明確的長期成長路徑與估值提升的想像空間。</li>
+<li><strong>目標價區間建議：</strong> 綜合考量康舒在AI伺服器電源的成長動能、產品組合優化帶來的獲利改善，以及2026年預估EPS 2.8元，配合產業平均本益比區間18-22倍，建議短期目標價區間為 <strong>新台幣 50-62 元</strong>。若2027年成長動能如期實現，預估EPS達4.5元，目標價可望進一步上修。</li>
+
+<hr>
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-09 13:36</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="6282_康舒_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="6282_康舒_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="6282_康舒_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

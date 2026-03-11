@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4938 和碩 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>4938 和碩 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>和碩正積極轉型，透過AI伺服器與電動車電子兩大成長引擎，輔以全球產能重配，雖短期受消費性電子淡季影響，但2026年伺服器與車用業務有望實現三位數及雙位數成長，營收與獲利結構將持續優化。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">4938 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-4938" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-4938" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-4938');
+    var obvContainer = document.getElementById('obv-chart-4938');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 72.5, "high": 73.2, "low": 72.0, "close": 72.0}, {"time": "2025-12-05", "open": 72.0, "high": 72.1, "low": 70.9, "close": 71.2}, {"time": "2025-12-08", "open": 71.0, "high": 71.0, "low": 70.4, "close": 70.6}, {"time": "2025-12-09", "open": 70.7, "high": 71.0, "low": 69.9, "close": 70.0}, {"time": "2025-12-10", "open": 70.5, "high": 70.8, "low": 70.1, "close": 70.5}, {"time": "2025-12-11", "open": 70.5, "high": 70.6, "low": 68.8, "close": 69.5}, {"time": "2025-12-12", "open": 69.6, "high": 69.8, "low": 68.9, "close": 68.9}, {"time": "2025-12-15", "open": 68.5, "high": 70.5, "low": 67.5, "close": 70.5}, {"time": "2025-12-16", "open": 69.5, "high": 70.5, "low": 69.0, "close": 70.5}, {"time": "2025-12-17", "open": 70.5, "high": 70.6, "low": 69.2, "close": 69.2}, {"time": "2025-12-18", "open": 69.0, "high": 69.1, "low": 68.2, "close": 68.3}, {"time": "2025-12-19", "open": 68.4, "high": 70.4, "low": 68.4, "close": 70.4}, {"time": "2025-12-22", "open": 70.3, "high": 70.7, "low": 69.8, "close": 70.1}, {"time": "2025-12-23", "open": 70.0, "high": 70.0, "low": 68.8, "close": 69.1}, {"time": "2025-12-24", "open": 69.4, "high": 69.7, "low": 69.0, "close": 69.4}, {"time": "2025-12-26", "open": 69.5, "high": 69.5, "low": 68.2, "close": 68.7}, {"time": "2025-12-29", "open": 69.0, "high": 69.2, "low": 68.4, "close": 68.7}, {"time": "2025-12-30", "open": 68.9, "high": 68.9, "low": 67.8, "close": 68.5}, {"time": "2025-12-31", "open": 68.7, "high": 68.8, "low": 68.1, "close": 68.6}, {"time": "2026-01-02", "open": 68.8, "high": 69.2, "low": 68.3, "close": 68.9}, {"time": "2026-01-05", "open": 69.2, "high": 69.3, "low": 68.0, "close": 68.7}, {"time": "2026-01-06", "open": 69.0, "high": 69.2, "low": 68.3, "close": 68.9}, {"time": "2026-01-07", "open": 68.8, "high": 69.7, "low": 68.5, "close": 69.6}, {"time": "2026-01-08", "open": 70.3, "high": 70.8, "low": 69.6, "close": 70.5}, {"time": "2026-01-09", "open": 70.5, "high": 70.5, "low": 69.1, "close": 69.4}, {"time": "2026-01-12", "open": 69.8, "high": 70.8, "low": 69.7, "close": 70.8}, {"time": "2026-01-13", "open": 71.0, "high": 71.3, "low": 69.9, "close": 70.2}, {"time": "2026-01-14", "open": 70.8, "high": 71.5, "low": 70.2, "close": 71.4}, {"time": "2026-01-15", "open": 71.5, "high": 71.5, "low": 70.5, "close": 71.3}, {"time": "2026-01-16", "open": 71.5, "high": 71.8, "low": 70.9, "close": 71.3}, {"time": "2026-01-19", "open": 71.1, "high": 71.7, "low": 70.7, "close": 70.8}, {"time": "2026-01-20", "open": 70.8, "high": 71.0, "low": 69.4, "close": 69.5}, {"time": "2026-01-21", "open": 69.5, "high": 69.7, "low": 68.3, "close": 68.5}, {"time": "2026-01-22", "open": 69.2, "high": 69.6, "low": 68.8, "close": 69.5}, {"time": "2026-01-23", "open": 69.8, "high": 70.5, "low": 69.3, "close": 70.2}, {"time": "2026-01-26", "open": 71.0, "high": 71.3, "low": 70.4, "close": 70.9}, {"time": "2026-01-27", "open": 71.0, "high": 71.1, "low": 70.2, "close": 70.3}, {"time": "2026-01-28", "open": 70.8, "high": 70.9, "low": 70.0, "close": 70.6}, {"time": "2026-01-29", "open": 70.6, "high": 70.8, "low": 69.8, "close": 70.1}, {"time": "2026-01-30", "open": 70.1, "high": 70.1, "low": 69.1, "close": 69.7}, {"time": "2026-02-02", "open": 69.8, "high": 70.4, "low": 69.1, "close": 69.9}, {"time": "2026-02-03", "open": 70.6, "high": 70.9, "low": 69.0, "close": 69.3}, {"time": "2026-02-04", "open": 69.3, "high": 69.8, "low": 69.0, "close": 69.6}, {"time": "2026-02-05", "open": 69.6, "high": 70.4, "low": 69.4, "close": 69.5}, {"time": "2026-02-06", "open": 70.0, "high": 70.3, "low": 69.0, "close": 70.3}, {"time": "2026-02-09", "open": 71.2, "high": 71.2, "low": 69.9, "close": 70.0}, {"time": "2026-02-10", "open": 70.5, "high": 70.9, "low": 69.9, "close": 70.7}, {"time": "2026-02-11", "open": 70.4, "high": 70.9, "low": 69.6, "close": 70.5}, {"time": "2026-02-23", "open": 71.0, "high": 72.4, "low": 70.7, "close": 70.9}, {"time": "2026-02-24", "open": 70.9, "high": 71.9, "low": 70.9, "close": 71.9}, {"time": "2026-02-25", "open": 72.3, "high": 73.4, "low": 72.3, "close": 73.1}, {"time": "2026-02-26", "open": 73.1, "high": 74.2, "low": 72.8, "close": 73.5}, {"time": "2026-03-02", "open": 69.8, "high": 70.0, "low": 68.0, "close": 68.5}, {"time": "2026-03-03", "open": 72.0, "high": 72.2, "low": 70.3, "close": 70.8}, {"time": "2026-03-04", "open": 69.8, "high": 70.0, "low": 68.0, "close": 68.5}, {"time": "2026-03-05", "open": 69.6, "high": 70.1, "low": 69.1, "close": 69.4}, {"time": "2026-03-06", "open": 69.1, "high": 71.0, "low": 69.1, "close": 71.0}, {"time": "2026-03-09", "open": 68.1, "high": 70.1, "low": 67.9, "close": 69.5}, {"time": "2026-03-10", "open": 70.6, "high": 70.8, "low": 69.5, "close": 70.3}, {"time": "2026-03-11", "open": 69.9, "high": 70.6, "low": 69.7, "close": 70.1}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 4522.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 6495.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 8532.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 9455.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 5156.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 12517.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 6664.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 9123.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 10395.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 12369.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 9239.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 48171.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 8663.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 8493.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 5321.0, "color": "#ef5350"}, {"time": "2025-12-26", "value": 11503.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 11154.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 11424.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 10241.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 11311.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 12527.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 11676.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 16646.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 14105.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 8215.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 8285.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 5752.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 8312.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 6045.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 7450.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 8855.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 10521.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 12692.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 7440.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 7815.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 11658.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 7671.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 7120.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 6035.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 8011.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 5442.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 7416.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 4264.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 4837.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 6822.0, "color": "#ef5350"}, {"time": "2026-02-09", "value": 5413.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 6400.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 8178.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 11178.0, "color": "#26a69a"}, {"time": "2026-02-24", "value": 10075.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 11772.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 25180.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 11804.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 8742.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 11804.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 5256.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 6800.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 10910.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 5444.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 5245.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 70.86}, {"time": "2025-12-11", "value": 70.36}, {"time": "2025-12-12", "value": 69.9}, {"time": "2025-12-15", "value": 69.88}, {"time": "2025-12-16", "value": 69.97999999999999}, {"time": "2025-12-17", "value": 69.72}, {"time": "2025-12-18", "value": 69.47999999999999}, {"time": "2025-12-19", "value": 69.78}, {"time": "2025-12-22", "value": 69.7}, {"time": "2025-12-23", "value": 69.42}, {"time": "2025-12-24", "value": 69.46000000000001}, {"time": "2025-12-26", "value": 69.53999999999999}, {"time": "2025-12-29", "value": 69.2}, {"time": "2025-12-30", "value": 68.88}, {"time": "2025-12-31", "value": 68.78}, {"time": "2026-01-02", "value": 68.67999999999999}, {"time": "2026-01-05", "value": 68.67999999999999}, {"time": "2026-01-06", "value": 68.72}, {"time": "2026-01-07", "value": 68.94}, {"time": "2026-01-08", "value": 69.32000000000001}, {"time": "2026-01-09", "value": 69.42}, {"time": "2026-01-12", "value": 69.84}, {"time": "2026-01-13", "value": 70.1}, {"time": "2026-01-14", "value": 70.46000000000001}, {"time": "2026-01-15", "value": 70.62}, {"time": "2026-01-16", "value": 71.0}, {"time": "2026-01-19", "value": 71.0}, {"time": "2026-01-20", "value": 70.86}, {"time": "2026-01-21", "value": 70.28}, {"time": "2026-01-22", "value": 69.92}, {"time": "2026-01-23", "value": 69.7}, {"time": "2026-01-26", "value": 69.72}, {"time": "2026-01-27", "value": 69.88}, {"time": "2026-01-28", "value": 70.3}, {"time": "2026-01-29", "value": 70.42}, {"time": "2026-01-30", "value": 70.32000000000001}, {"time": "2026-02-02", "value": 70.12}, {"time": "2026-02-03", "value": 69.92}, {"time": "2026-02-04", "value": 69.72}, {"time": "2026-02-05", "value": 69.6}, {"time": "2026-02-06", "value": 69.72}, {"time": "2026-02-09", "value": 69.74}, {"time": "2026-02-10", "value": 70.02000000000001}, {"time": "2026-02-11", "value": 70.2}, {"time": "2026-02-23", "value": 70.47999999999999}, {"time": "2026-02-24", "value": 70.8}, {"time": "2026-02-25", "value": 71.42}, {"time": "2026-02-26", "value": 71.97999999999999}, {"time": "2026-03-02", "value": 71.58}, {"time": "2026-03-03", "value": 71.56}, {"time": "2026-03-04", "value": 70.88}, {"time": "2026-03-05", "value": 70.14}, {"time": "2026-03-06", "value": 69.64}, {"time": "2026-03-09", "value": 69.84}, {"time": "2026-03-10", "value": 69.74}, {"time": "2026-03-11", "value": 70.06}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 70.28999999999999}, {"time": "2025-12-18", "value": 69.92}, {"time": "2025-12-19", "value": 69.84}, {"time": "2025-12-22", "value": 69.78999999999999}, {"time": "2025-12-23", "value": 69.7}, {"time": "2025-12-24", "value": 69.59}, {"time": "2025-12-26", "value": 69.51}, {"time": "2025-12-29", "value": 69.49}, {"time": "2025-12-30", "value": 69.28999999999999}, {"time": "2025-12-31", "value": 69.1}, {"time": "2026-01-02", "value": 69.07000000000001}, {"time": "2026-01-05", "value": 69.11}, {"time": "2026-01-06", "value": 68.96000000000001}, {"time": "2026-01-07", "value": 68.91}, {"time": "2026-01-08", "value": 69.05}, {"time": "2026-01-09", "value": 69.05}, {"time": "2026-01-12", "value": 69.26}, {"time": "2026-01-13", "value": 69.41}, {"time": "2026-01-14", "value": 69.7}, {"time": "2026-01-15", "value": 69.97}, {"time": "2026-01-16", "value": 70.21000000000001}, {"time": "2026-01-19", "value": 70.42}, {"time": "2026-01-20", "value": 70.47999999999999}, {"time": "2026-01-21", "value": 70.37}, {"time": "2026-01-22", "value": 70.27000000000001}, {"time": "2026-01-23", "value": 70.35}, {"time": "2026-01-26", "value": 70.36}, {"time": "2026-01-27", "value": 70.37}, {"time": "2026-01-28", "value": 70.28999999999999}, {"time": "2026-01-29", "value": 70.17}, {"time": "2026-01-30", "value": 70.01}, {"time": "2026-02-02", "value": 69.92}, {"time": "2026-02-03", "value": 69.9}, {"time": "2026-02-04", "value": 70.01}, {"time": "2026-02-05", "value": 70.01}, {"time": "2026-02-06", "value": 70.02000000000001}, {"time": "2026-02-09", "value": 69.92999999999999}, {"time": "2026-02-10", "value": 69.97}, {"time": "2026-02-11", "value": 69.96000000000001}, {"time": "2026-02-23", "value": 70.03999999999999}, {"time": "2026-02-24", "value": 70.26}, {"time": "2026-02-25", "value": 70.58}, {"time": "2026-02-26", "value": 71.0}, {"time": "2026-03-02", "value": 70.89}, {"time": "2026-03-03", "value": 71.02000000000001}, {"time": "2026-03-04", "value": 70.84}, {"time": "2026-03-05", "value": 70.78}, {"time": "2026-03-06", "value": 70.81}, {"time": "2026-03-09", "value": 70.71000000000001}, {"time": "2026-03-10", "value": 70.65}, {"time": "2026-03-11", "value": 70.47}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 69.67999999999999}, {"time": "2026-01-05", "value": 69.515}, {"time": "2026-01-06", "value": 69.4}, {"time": "2026-01-07", "value": 69.35}, {"time": "2026-01-08", "value": 69.375}, {"time": "2026-01-09", "value": 69.32000000000001}, {"time": "2026-01-12", "value": 69.385}, {"time": "2026-01-13", "value": 69.45}, {"time": "2026-01-14", "value": 69.495}, {"time": "2026-01-15", "value": 69.535}, {"time": "2026-01-16", "value": 69.64}, {"time": "2026-01-19", "value": 69.765}, {"time": "2026-01-20", "value": 69.72}, {"time": "2026-01-21", "value": 69.64}, {"time": "2026-01-22", "value": 69.66}, {"time": "2026-01-23", "value": 69.7}, {"time": "2026-01-26", "value": 69.81}, {"time": "2026-01-27", "value": 69.89}, {"time": "2026-01-28", "value": 69.995}, {"time": "2026-01-29", "value": 70.07000000000001}, {"time": "2026-01-30", "value": 70.11}, {"time": "2026-02-02", "value": 70.17}, {"time": "2026-02-03", "value": 70.19}, {"time": "2026-02-04", "value": 70.19}, {"time": "2026-02-05", "value": 70.14}, {"time": "2026-02-06", "value": 70.185}, {"time": "2026-02-09", "value": 70.14500000000001}, {"time": "2026-02-10", "value": 70.17}, {"time": "2026-02-11", "value": 70.125}, {"time": "2026-02-23", "value": 70.10499999999999}, {"time": "2026-02-24", "value": 70.135}, {"time": "2026-02-25", "value": 70.25}, {"time": "2026-02-26", "value": 70.45}, {"time": "2026-03-02", "value": 70.45}, {"time": "2026-03-03", "value": 70.515}, {"time": "2026-03-04", "value": 70.42999999999999}, {"time": "2026-03-05", "value": 70.35499999999999}, {"time": "2026-03-06", "value": 70.39}, {"time": "2026-03-09", "value": 70.33500000000001}, {"time": "2026-03-10", "value": 70.345}, {"time": "2026-03-11", "value": 70.365}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -6495.0}, {"time": "2025-12-08", "value": -15027.0}, {"time": "2025-12-09", "value": -24482.0}, {"time": "2025-12-10", "value": -19326.0}, {"time": "2025-12-11", "value": -31843.0}, {"time": "2025-12-12", "value": -38507.0}, {"time": "2025-12-15", "value": -29384.0}, {"time": "2025-12-16", "value": -29384.0}, {"time": "2025-12-17", "value": -41753.0}, {"time": "2025-12-18", "value": -50992.0}, {"time": "2025-12-19", "value": -2821.0}, {"time": "2025-12-22", "value": -11484.0}, {"time": "2025-12-23", "value": -19977.0}, {"time": "2025-12-24", "value": -14656.0}, {"time": "2025-12-26", "value": -26159.0}, {"time": "2025-12-29", "value": -26159.0}, {"time": "2025-12-30", "value": -37583.0}, {"time": "2025-12-31", "value": -27342.0}, {"time": "2026-01-02", "value": -16031.0}, {"time": "2026-01-05", "value": -28558.0}, {"time": "2026-01-06", "value": -16882.0}, {"time": "2026-01-07", "value": -236.0}, {"time": "2026-01-08", "value": 13869.0}, {"time": "2026-01-09", "value": 5654.0}, {"time": "2026-01-12", "value": 13939.0}, {"time": "2026-01-13", "value": 8187.0}, {"time": "2026-01-14", "value": 16499.0}, {"time": "2026-01-15", "value": 10454.0}, {"time": "2026-01-16", "value": 10454.0}, {"time": "2026-01-19", "value": 1599.0}, {"time": "2026-01-20", "value": -8922.0}, {"time": "2026-01-21", "value": -21614.0}, {"time": "2026-01-22", "value": -14174.0}, {"time": "2026-01-23", "value": -6359.0}, {"time": "2026-01-26", "value": 5299.0}, {"time": "2026-01-27", "value": -2372.0}, {"time": "2026-01-28", "value": 4748.0}, {"time": "2026-01-29", "value": -1287.0}, {"time": "2026-01-30", "value": -9298.0}, {"time": "2026-02-02", "value": -3856.0}, {"time": "2026-02-03", "value": -11272.0}, {"time": "2026-02-04", "value": -7008.0}, {"time": "2026-02-05", "value": -11845.0}, {"time": "2026-02-06", "value": -5023.0}, {"time": "2026-02-09", "value": -10436.0}, {"time": "2026-02-10", "value": -4036.0}, {"time": "2026-02-11", "value": -12214.0}, {"time": "2026-02-23", "value": -1036.0}, {"time": "2026-02-24", "value": 9039.0}, {"time": "2026-02-25", "value": 20811.0}, {"time": "2026-02-26", "value": 45991.0}, {"time": "2026-03-02", "value": 34187.0}, {"time": "2026-03-03", "value": 42929.0}, {"time": "2026-03-04", "value": 31125.0}, {"time": "2026-03-05", "value": 36381.0}, {"time": "2026-03-06", "value": 43181.0}, {"time": "2026-03-09", "value": 32271.0}, {"time": "2026-03-10", "value": 37715.0}, {"time": "2026-03-11", "value": 32470.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>和碩（4938）是全球領先的電子代工製造商（EMS）與原始設計製造（ODM）服務供應商。公司主要業務涵蓋資訊與運算產品、通訊產品、消費性電子產品及車用電子，近年更積極拓展AI相關產品線。</p>
+
+<strong>主要產品與服務：</strong>
+<ul><li><strong>資訊與運算產品</strong>：筆記型電腦、桌上型電腦、伺服器、平板電腦、主機板等。</li>
+<li><strong>通訊產品</strong>：智慧型手機、通訊設備、5G通訊模組等。</li>
+<li><strong>消費性電子產品</strong>：遊戲機、語音助理、穿戴式裝置、其他消費性電子產品。</li>
+<li><strong>車用電子</strong>：ADAS運算系統、ECU、充電樁、車聯網（V2X）系統、電池管理系統（BMS），已打入Tesla的ADAS供應鏈。</li>
+<li><strong>AI相關產品</strong>：AI伺服器、HPC設備、邊緣運算裝置代工，與NVIDIA合作GPU伺服器、AI機櫃，並投資韓國AI推理晶片公司Rebellions。</li>
+</ul>
+<strong>營收結構（2025年第三季資料）：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品線</th><th>營收佔比</th></tr></thead><tbody>
+<tr><td>通訊產品</td><td>60%</td></tr>
+<tr><td>資訊產品</td><td>14%</td></tr>
+<tr><td>其他業務（含車用電子）</td><td>18%</td></tr>
+<tr><td>消費性產品</td><td>8%</td></tr>
+</tbody></table></div>
+
+<strong>製造基地概覽：</strong>
+<p>和碩在全球擁有多處生產基地，包括台灣（桃園、高雄）、中國、美國（德州）、印度、越南、墨西哥等地。公司近年持續分散產能，以應對地緣政治與客戶要求。目前未找到各製造基地的具體營收貢獻比例資料。</p>
+
+<h2>核心競爭優勢</h2>
+<li><strong>多元化產品線與客戶基礎：</strong> 具備涵蓋資訊、通訊、消費性電子及車用電子的全方位製造能力，並擁有穩定的全球一線品牌客戶，降低對單一產品或客戶的依賴。</li>
+<li><strong>AI伺服器領域深耕：</strong> 積極投入AI伺服器代工，與NVIDIA合作並投資AI晶片新創，具備從L1到L11製程的完整整合能力，有望受惠AI爆發性成長。</li>
+<li><strong>車用電子先發優勢：</strong> 早已切入電動車供應鏈，特別是Tesla ADAS系統，並持續拓展新客戶與新產品，在電動車市場佔據有利位置。</li>
+<li><strong>全球化產能佈局：</strong> 透過在美國德州、墨西哥、印度、越南等地設立或擴建產能，有效因應地緣政治風險、關稅政策及客戶對供應鏈韌性的要求。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元新台幣)</th><th>月增率 MoM (%)</th><th>年增率 YoY (%)</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>921.58</td><td>-7.74</td><td>-12.50</td></tr>
+<tr><td>2025年12月</td><td>998.94</td><td>-1.90</td><td>-2.50</td></tr>
+<tr><td>2025年11月</td><td>1,018.01</td><td>-13.60</td><td>-3.74</td></tr>
+<tr><td>2025年10月</td><td>1,178.26</td><td>2.54</td><td>-0.82</td></tr>
+<tr><td>2025年9月</td><td>1,149.09</td><td>74.52</td><td>5.17</td></tr>
+<tr><td>2025年8月</td><td>658.44</td><td>-14.60</td><td>-25.55</td></tr>
+</tbody></table></div>
+
+<h3>季度財務數據</h3>
+<ul><li><strong>2025年第四季營收：</strong> 3,195.21億元，季增23.9%，年減2.3%。</li>
+<li><strong>2025年第三季EPS：</strong> 1.70元，季增1600%，年增6%。稅後純益45.45億元，季增14.84倍，年增5.8%。毛利率與營益率均季增。</li>
+<li><strong>2025年第二季EPS：</strong> 0.11元。</li>
+<li><strong>2025年第二季營收：</strong> 2,673.36億元。</li>
+<li><strong>2024年第四季營收：</strong> 3,270.04億元，季增11.1%，年減4.4%。</li>
+<li><strong>2024年第四季毛利率：</strong> 3.6%。</li>
+<li><strong>2024年第四季營業利益率：</strong> 0.9%。</li>
+<li><strong>2024年第四季EPS：</strong> 1.41元。</li>
+</ul>
+<h3>年度財務數據</h3>
+<ul><li><strong>2025年全年營收：</strong> 1兆1171.53億元，年減0.73%。</li>
+<li><strong>2025年預估EPS（FactSet中位數，截至2026/02/13）：</strong> 4.83元（最高5.3元，最低3.86元）。</li>
+<li><strong>2024年實際營收：</strong> 1.13兆元，年減10.5%。</li>
+<li><strong>2024年實際EPS：</strong> 6.34元。</li>
+</ul>
+<h2>法說會重點</h2>
+<p>（最近一次法說會日期：2025年11月12日）</p>
+
+<ul><li><strong>2026年展望：</strong> 管理層看好2026年伺服器業務將顯著成長，有望帶動整體運算業務的營收和獲利率改善。資訊、消費性電子、網通及電動車四大業務皆可望成長。</li>
+<li><strong>伺服器業務：</strong> 預計2026年伺服器業務將較2025年呈現三位數的倍數成長。GB200與GB300晶片AI伺服器已於2025年第三季開始出貨，相關案子有機會在2026年下半年開出。</li>
+<li><strong>筆電出貨：</strong> 2025年12月筆電出貨90至95萬台，月增30.3%，年增23.3%。2025年第四季出貨約240萬台，季對季持平，年增23.6%。累計2025全年出貨約900萬台，年增12.5%。</li>
+<li><strong>消費電子：</strong> 受惠於新遊戲機的推出，將迎來增長。</li>
+<li><strong>通訊產品：</strong> 2025年第四季為傳統旺季，出貨預期增加。</li>
+<li><strong>電動車業務：</strong> 持續拓展客戶，預計2026年下半年起將啟動放量。</li>
+<li><strong>產能利用率與資本支出：</strong> 美國德州廠預計2026年3月量產GB300伺服器，初期聚焦NVIDIA GB300與B300。墨西哥及其他海外據點已完成多項伺服器產線配置。</li>
+<li><strong>2026年第一季Guidance：</strong> 受到傳統消費性電子淡季影響與農曆春節假期工作天數減少，預估2026年第一季業績將呈現季減與年減趨勢。</li>
+<li><strong>2026年全年Guidance：</strong> 資訊產品預估個位數成長，消費性電子受惠遊戲機新客戶與新產品加入，動能可望回升；網通及電動車產品也有機會上揚。伺服器業務預計將維持三位數增長。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>FactSet調查</td><td>72</td><td>N/A</td><td>2026年2月13日</td></tr>
+<tr><td>外資報告</td><td>125</td><td>中立</td><td>2024年6月26日</td></tr>
+</tbody></table></div>
+
+<em>註：FactSet調查為分析師預估中位數。外資報告已屬較舊資訊。</em>
+
+<strong>2025-2026年EPS預估：</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>FactSet分析師預估中位數 (截至2026/02/13)</th><th>FactSet分析師預估範圍 (最高-最低)</th></tr></thead><tbody>
+<tr><td>2025</td><td>4.83元</td><td>5.3元 - 3.86元</td></tr>
+<tr><td>2026</td><td>5.59元</td><td>6.75元 - 5.01元</td></tr>
+</tbody></table></div>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2025 Q3</td><td>4.23</td><td>1.25</td><td>2.13</td></tr>
+<tr><td>2025 Q2</td><td>3.13</td><td>0.55</td><td>0.40</td></tr>
+<tr><td>2025 Q1</td><td>3.73</td><td>0.91</td><td>1.89</td></tr>
+<tr><td>2024 Q4</td><td>3.61</td><td>0.89</td><td>1.28</td></tr>
+<tr><td>2024 Q3</td><td>4.09</td><td>1.24</td><td>1.69</td></tr>
+<tr><td>2024 Q2</td><td>4.57</td><td>1.16</td><td>2.45</td></tr>
+<tr><td>2024 Q1</td><td>4.06</td><td>1.06</td><td>1.19</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化分析：</strong>
+<p>2025年第三季毛利率達4.23%，相較第二季的3.13%顯著提升，主要受惠於產品組合優化。稅後淨利率亦從第二季的0.40%大幅增至2.13%，顯示公司在營運效率及成本控制方面有所改善。2024年全年毛利率為4.1%，優於2023年。業外收益，尤其是在2025年第一季和第三季，對稅後淨利的貢獻顯著，分別達到41.86億元和44.57億元。</p>
+
+<h3>存貨分析</h3>
+<p>目前未找到2025-2026年的最新存貨金額、存貨週轉天數及應收帳款週轉天數趨勢資料。也未有具體分析指出存貨異常堆積或備料現象。</p>
+
+<h3>資本支出</h3>
+<ul><li><strong>近3年資本支出金額與趨勢：</strong> 2024年資本支出預算約5億美元，高於2023年的3-3.5億美元。2025年資本支出約3億美元至3.5億美元（約新台幣98.9億元至115.4億元），原本規劃用於擴充產能，但因應關稅不確定性，可能擴增新產能，資本支出也可能上調。</li>
+<li><strong>未來資本支出計畫與預計新增產能：</strong></li>
+</ul>    *   <strong>美國德州廠：</strong> 預計於2026年3月量產GB300伺服器。
+<p>*   <strong>墨西哥及其他海外據點：</strong> 已完成多項伺服器產線可用配置。2025年至2026年間墨西哥二廠與三廠陸續投產。</p>
+<p>*   <strong>桃園廠區：</strong> 2026年3月新廠產能開出，並調整部分廠房用於伺服器產線。</p>
+<p>*   <strong>馬來西亞：</strong> 新廠預計於2025年量產消費性電子產品。</p>
+<p>*   <strong>印度：</strong> 正在擴建新廠房，投入運算與消費性電子產品。</p>
+<ul><li><strong>折舊攤銷趨勢：</strong></li>
+</ul>    *   2024年折舊費用：155.5億元。
+<p>*   2023年折舊費用：151.8億元。</p>
+<p>*   2022年折舊費用：146.7億元。</p>
+<p>*   折舊費用呈現逐年緩步上升趨勢，反映資產投入增加。</p>
+
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓：</strong> 未找到2025-2026年最新紀錄。</li>
+<li><strong>庫藏股買回紀錄：</strong> 未找到2025-2026年最新紀錄。</li>
+<li><strong>可轉換公司債（CB）：</strong> 未找到2025-2026年最新發行紀錄。</li>
+<li><strong>增資或減資計畫：</strong> 未找到2025-2026年最新計畫。</li>
+<li><strong>股利政策：</strong> 2025年度現金股利預計發放4.503元，除息日為2025/06/17。2024年每股現金股利為4.5元。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>市場規模與成長率</h3>
+<p>全球EMS與ODM市場規模在2024年為8,671.2億美元，預計2025年成長至9,286.9億美元，並以7.1%的複合年增長率（CAGR）從2026年成長至2033年，達到16,076.2億美元。若僅看3C EMS和ODM市場，2025年全球市場規模約為4,734.62億美元，預計2026年將擴大至4,905.06億美元，年增率約3.6%，並預計在2026-2035年預測期內，複合年增長率將達到3.6%。</p>
+
+<strong>供需狀況：</strong>
+<p>整體EMS/ODM產業在AI基礎建設、蘋果產品規格升級及電動車普及下，需求強勁成長。然而，部分關鍵零組件市場存在供需不平衡，例如記憶體市場出現「結構性失衡」，預計供給缺口將延續至2026年下半年，DRAM與Flash晶圓代工價格持續走揚。晶圓代工與封測（OSAT）報價也持續上調，反映AI相關應用驅動下，部分半導體元件和先進製程產能供不應求。</p>
+
+<strong>產業平均毛利率水準：</strong>
+<p>目前未有全面的行業平均數據。但高附加價值的產品線如AI伺服器、電動車電子等，有助於提升毛利率。例如，啟碁在低軌衛星和800G交換器等高毛利產品線的發力，使其毛利率跳升至14.1%。</p>
+
+<h3>競爭格局</h3>
+<strong>全球前五大EMS/ODM業者（2025年預估）：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>排名</th><th>公司名稱</th><th>2025年營收 (億美元)</th><th>主要成長動能</th></tr></thead><tbody>
+<tr><td>1</td><td>鴻海</td><td>2,610</td><td>AI伺服器機櫃、模組與基板、iPhone 17</td></tr>
+<tr><td>2</td><td>緯創</td><td>706</td><td>AI伺服器、緯穎營收認列</td></tr>
+<tr><td>3</td><td>廣達</td><td>682</td><td>AI伺服器（CSP機櫃）</td></tr>
+<tr><td>4</td><td>立訊精密</td><td>未提供具體數據</td><td>蘋果訂單及策略性併購</td></tr>
+<tr><td>5</td><td>和碩</td><td>未提供具體數據</td><td>-</td></tr>
+</tbody></table></div>
+
+<strong>和碩 vs 主要競爭對手比較：</strong>
+<p>目前未提供和碩與鴻海、緯創、廣達在技術、產能、客戶和價格方面的詳細具體比較數據。然而，AI伺服器與機櫃訂單正集中於鴻海、緯創及廣達等領先業者，呈現「大者恆大」格局。和碩在電動車領域，尤其已打入Tesla ADAS供應鏈，是其明確的差異化優勢。</p>
+
+<h3>產業趨勢</h3>
+<li><strong>AI基礎設施與高效能運算 (HPC)：</strong> AI技術（特別是生成式AI）的爆炸性發展，是EMS/ODM產業最主要的成長動能。AI資料中心、AI伺服器、HPC設備及邊緣運算裝置需求強勁增長，帶動對先進製程晶圓代工與先進封裝的需求。</li>
+<li><strong>電動車（EV）與車用電子：</strong> 電動車普及推動對BMS、電力電子、ADAS和資訊娛樂系統等複雜電子設備的需求，使得EMS/ODM廠積極投入車用電子領域。</li>
+<li><strong>5G、物聯網 (IoT) 與智慧裝置：</strong> 智慧型手機、穿戴式裝置、物聯網及5G技術的廣泛應用，持續推動全球EMS和ODM產業的成長，需要更精密的電子製造服務。</li>
+
+<strong>對和碩的具體機會和威脅：</strong>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>AI相關產品線擴張：</strong> 積極拓展AI伺服器、HPC，並與NVIDIA合作，投資AI晶片新創。
+<p>*   <strong>電動車領域深耕：</strong> 打入Tesla ADAS供應鏈，並持續拓展新客戶，是重要成長引擎。</p>
+<p>*   <strong>蘋果訂單動向：</strong> 作為蘋果供應鏈一員，受惠於新產品週期及高單價機種。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>AI伺服器市場競爭加劇：</strong> 訂單集中於領先業者，和碩需在該領域展現更強競爭力。
+<p>*   <strong>關鍵零組件供應鏈風險：</strong> 記憶體供應吃緊、晶圓代工與封測報價上漲，影響成本與生產效率。</p>
+<p>*   <strong>全球經濟不確定性與地緣政治：</strong> 影響非AI應用需求，供應鏈重組帶來挑戰。</p>
+
+<strong>相關投資題材：</strong>
+<p>AI（AI伺服器、HPC）、電動車（ADAS、BMS）、先進封裝/HBM（間接受惠）、5G/IoT。</p>
+
+<h2>近期催化劑</h2>
+<h3>利多事件</h3>
+<ul><li><strong>2026年03月06日：</strong> 和碩將於MWC展示AI驅動5G解決方案與AI-RAN發展藍圖，並強化Open RAN系統整合能力。AI伺服器業務佈局四年，研發與製造人力擴編至千人以上，桃園、墨西哥、美國廠將投入或擴大GPU與ASIC伺服器供應。</li>
+<li><strong>2026年02月06日：</strong> 和碩擴大AI布局，入股系統電，攜手衝刺AI及伺服器備援電池模組（BBU）市場，確保資料中心電力系統穩定。相關供應鏈如AES、新盛力、順達出貨看增。</li>
+<li><strong>2026年01月28日：</strong> 投資韓國AI推理晶片公司Rebellions，參與C輪增資。</li>
+<li><strong>2026年01月23日：</strong> GB200、GB300晶片AI伺服器已開始出貨，相關案子預計2026年下半年開出。</li>
+<li><strong>2025年11月13日：</strong> 第三季稅後純益45.45億元，季增14.84倍，年增5.8%，每股純益1.69元，毛利率與營益率均季增，顯示獲利結構改善。</li>
+</ul>
+<h3>利空事件</h3>
+<ul><li><strong>2026年02月10日：</strong> 1月營收921.58億元，月減7.74%、年減12.5%，主要受傳統消費性電子淡季影響，預計2月營收將因農曆春節進一步下滑，首季業績可能呈現季減、年減。</li>
+<li><strong>2026年03月04日：</strong> 外資單日賣超4,462張，三大法人合計賣超4,750張。</li>
+<li><strong>2025年11月13日：</strong> 法說會後，內外資報告聯袂調降目標價。主力與外資在11月連續多日賣超，外資近十日累計賣超逾1.6萬張。</li>
+<li><strong>記憶體成本推升：</strong> 筆記型電腦出貨量受記憶體價格上漲及組件成本推升影響，月減幅達24% (2026年1月)。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能</th><th>具體內容</th></tr></thead><tbody>
+<tr><td><strong>2025年Q3</strong></td><td>AI伺服器出貨</td><td>GB200與GB300晶片AI伺服器已開始出貨。</td></tr>
+<tr><td><strong>2025年下半年</strong></td><td>墨西哥廠AI伺服器產能完工</td><td>墨西哥廠AI伺服器產能已完工，場地規模比桃園大5倍。具備從L1至L11的完整製造與整合能力。</td></tr>
+<tr><td><strong>2025年下半年</strong></td><td>網通產品線穩定成長</td><td>網通產品線已回到穩定成長軌道。</td></tr>
+<tr><td><strong>2025年底</strong></td><td>5G O-RAN相關產品少量出貨</td><td>5G開放式無線接取網路（O-RAN）相關產品已開始少量出貨，2026年將列為營運重點之一。</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td>產能開出：美國德州廠、桃園新廠</td><td>美國德州新廠預計2026年2月完工，力拚3月底前完成試產，專注AI伺服器（NVIDIA GB300伺服器，製程涵蓋L6至L11）。桃園新廠產能也預計2026年3月開出，部分區域調整作伺服器相關產線。</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td>AI伺服器人力擴編</td><td>伺服器團隊人力將擴編至千人以上。</td></tr>
+<tr><td><strong>2026年全年</strong></td><td>AI伺服器營收三位數成長</td><td>管理層預期2026年伺服器業務與2025年相比，將實現三位數增長。內部目標上看千億元。</td></tr>
+<tr><td><strong>2026年全年</strong></td><td>電動車業務維持雙位數成長，營收佔比達10%+</td><td>儘管市場成長保守，但和碩市占率可望提升，力拚電動車業務維持兩位數成長，目標營收佔比正式突破雙位數。公司原先在台灣生產的電動車產品，多數將轉往墨西哥與北美生產，以符合在地化與關稅條件。</td></tr>
+<tr><td><strong>2026年全年</strong></td><td>消費性電子產品成長</td><td>受惠於遊戲機新客戶與新產品加入，動能可望回升。</td></tr>
+<tr><td><strong>2026年全年</strong></td><td>網通產品表現不錯</td><td>網通產品線預期2026年表現不錯。持續強化AI驅動的5G解決方案與AI-RAN發展藍圖，並推動Open RAN架構。</td></tr>
+<tr><td><strong>2026年下半年</strong></td><td>AI伺服器新案量產</td><td>和碩GB200、GB300晶片AI伺服器相關案子有機會在下半年開出。同時，和碩也將出貨ASIC伺服器，並積極與AI晶片新創合作開發AI伺服器系統。</td></tr>
+<tr><td><strong>2026年下半年</strong></td><td>記憶體供給缺口延續</td><td>記憶體市場「結構性失衡」預計將延續。</td></tr>
+<tr><td><strong>22027年下半年</strong></td><td>電動車新客戶產品量產</td><td>2025年至今拿下不少電動車新客戶，目前在NPI（新產品導入）階段，預估2027下半年將量產。既有客戶方面也新增其他生產項目，新車廠導入通常需2至3年時間，2026年至2027年可望看到新客戶量產貢獻逐步浮現。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+<ul><li><strong>AI伺服器大爆發：</strong> 和碩管理層預期2026年AI伺服器業務將實現三位數（倍數）成長，並力拚營收突破千億元。美國德州廠與桃園新廠將在2026年Q1陸續開出產能，專注高階AI伺服器（NVIDIA GB300等），墨西哥廠的AI伺服器產能也已於2025年下半年完工。與NVIDIA的合作以及對AI推理晶片新創Rebellions的投資，強化了其在AI生態系的佈局。</li>
+<li><strong>電動車業務放量：</strong> 儘管全球電動車市場增速放緩，但和碩預計2026年電動車業務仍可實現雙位數成長，營收佔比目標突破10%以上。新客戶的產品預計在2027年下半年量產，顯示長期增長潛力。墨西哥與北美產能的擴充，將有助於就近供應北美大客戶並符合在地化要求。</li>
+<li><strong>消費性電子產品復甦：</strong> 受益於新遊戲機的推出，消費性電子產品業務有望在2026年回升。</li>
+<li><strong>網通業務穩健成長：</strong> 5G開放式無線接取網路（O-RAN）產品在2025年底少量出貨後，2026年將成為營運重點，並積極拓展戶外型分散式單元（ODU）等業務。</li>
+</ul>
+<strong>風險因子：</strong>
+<ul><li><strong>客戶集中度風險：</strong> 截至2025年第三季，通訊產品（主要為iPhone組裝）仍佔營收60%，儘管公司致力於轉型，但對單一客戶的依賴仍是潛在風險。</li>
+<li><strong>總經與地緣政治不確定性：</strong> 全球經濟放緩可能影響部分產品線需求；中美貿易摩擦及關稅政策持續推動供應鏈重組，增加營運複雜度與成本。</li>
+<li><strong>關鍵零組件成本上漲：</strong> 記憶體市場的「結構性失衡」導致價格上漲，以及晶圓代工與封測報價上調，將推升生產成本，可能壓縮毛利率，尤其影響資訊產品線。</li>
+<li><strong>新事業導入期：</strong> AI伺服器及電動車新客戶的訂單放量仍需時間，短期內可能對整體營收與獲利貢獻有限。</li>
+</ul>
+<h2>投資結論</h2>
+<p>綜合以上分析，和碩正處於關鍵轉型期，雖然短期面臨消費性電子淡季和總經不確定性，但長期成長動能強勁。</p>
+
+<li><strong>AI伺服器與電動車雙引擎驅動：</strong> 和碩在AI伺服器和電動車電子領域的積極佈局和產能擴充（美國德州廠、墨西哥廠），預計在2026年將為公司帶來顯著的營收成長。AI伺服器三位數成長的目標，顯示其對此業務的信心，將是公司未來幾年的主要成長亮點。</li>
+<li><strong>獲利結構優化：</strong> 2025年第三季毛利率與營益率的提升，以及業外收益的顯著貢獻，表明公司在產品組合調整和成本控制方面取得成效。隨著高附加價值AI伺服器和車用電子業務比重提升，預計獲利能力將持續改善。</li>
+<li><strong>全球產能重配：</strong> 透過在北美（德州、墨西哥）、印度等地擴建或新增產能，有效降低地緣政治風險，並能更好地滿足客戶在地化生產需求，提升供應鏈韌性與服務效率。</li>
+<li><strong>估值具有潛在空間：</strong> 根據FactSet分析師最新預估，2026年EPS中位數為5.59元。考量AI伺服器和電動車帶來的結構性成長機會，市場可能給予更高的本益比區間。目前FactSet目標價為72元，若能成功轉型並實現AI及電動車的爆發性成長，目標價存在上修空間。</li>
+
+<strong>投資建議目標價區間：</strong> 考量到FactSet分析師最新目標價為72元，而和碩在AI及電動車領域的長期成長潛力尚未完全反應。若以2026年預估EPS 5.59元計算，給予其15-18倍本益比，目標價區間為 <strong>83.85元至100.62元</strong>。建議投資人可在此區間內密切關注其AI及電動車業務的實際進展和客戶訂單落地情況。
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 14:50</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="4938_和碩_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="4938_和碩_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="4938_和碩_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

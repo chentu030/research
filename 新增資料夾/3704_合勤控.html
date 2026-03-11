@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3704 合勤控 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>3704 合勤控 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>合勤控受惠於全球寬頻網路升級趨勢，積極布局Wi-Fi 7/8、50G PON等次世代通訊技術，並深耕AI資安與國防通訊市場，搭配越南新廠效益，預期2026年營收及獲利將迎來雙位數成長，毛利率持續優化，展現從硬體銷售轉型為解決方案服務商的強勁動能。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">3704 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-3704" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-3704" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-3704');
+    var obvContainer = document.getElementById('obv-chart-3704');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 36.35, "high": 36.5, "low": 35.5, "close": 35.65}, {"time": "2025-12-05", "open": 35.65, "high": 35.9, "low": 35.25, "close": 35.35}, {"time": "2025-12-08", "open": 35.5, "high": 36.0, "low": 35.15, "close": 35.75}, {"time": "2025-12-09", "open": 35.85, "high": 37.4, "low": 35.75, "close": 35.8}, {"time": "2025-12-10", "open": 35.9, "high": 36.7, "low": 35.5, "close": 35.65}, {"time": "2025-12-11", "open": 34.2, "high": 34.2, "low": 32.4, "close": 32.7}, {"time": "2025-12-12", "open": 32.85, "high": 33.8, "low": 32.85, "close": 33.3}, {"time": "2025-12-15", "open": 33.0, "high": 33.95, "low": 33.0, "close": 33.2}, {"time": "2025-12-16", "open": 33.2, "high": 33.2, "low": 32.0, "close": 32.35}, {"time": "2025-12-17", "open": 32.6, "high": 32.75, "low": 32.1, "close": 32.1}, {"time": "2025-12-18", "open": 32.1, "high": 32.25, "low": 31.5, "close": 31.5}, {"time": "2025-12-19", "open": 31.75, "high": 32.2, "low": 31.75, "close": 31.95}, {"time": "2025-12-22", "open": 32.4, "high": 32.75, "low": 32.15, "close": 32.65}, {"time": "2025-12-23", "open": 32.8, "high": 33.25, "low": 32.6, "close": 32.8}, {"time": "2025-12-24", "open": 33.15, "high": 33.4, "low": 32.75, "close": 32.9}, {"time": "2025-12-26", "open": 33.2, "high": 33.2, "low": 32.5, "close": 32.7}, {"time": "2025-12-29", "open": 32.85, "high": 33.2, "low": 32.6, "close": 32.6}, {"time": "2025-12-30", "open": 32.7, "high": 32.7, "low": 32.15, "close": 32.4}, {"time": "2025-12-31", "open": 32.5, "high": 32.5, "low": 32.0, "close": 32.0}, {"time": "2026-01-02", "open": 32.2, "high": 32.7, "low": 32.2, "close": 32.6}, {"time": "2026-01-05", "open": 32.7, "high": 33.2, "low": 32.3, "close": 32.65}, {"time": "2026-01-06", "open": 32.65, "high": 33.15, "low": 32.65, "close": 32.9}, {"time": "2026-01-07", "open": 33.3, "high": 34.2, "low": 33.25, "close": 33.35}, {"time": "2026-01-08", "open": 33.4, "high": 33.4, "low": 32.95, "close": 32.95}, {"time": "2026-01-09", "open": 33.15, "high": 33.45, "low": 32.35, "close": 32.5}, {"time": "2026-01-12", "open": 32.55, "high": 33.1, "low": 32.05, "close": 33.05}, {"time": "2026-01-13", "open": 32.8, "high": 32.95, "low": 32.05, "close": 32.4}, {"time": "2026-01-14", "open": 32.6, "high": 33.4, "low": 32.5, "close": 33.0}, {"time": "2026-01-15", "open": 33.0, "high": 33.2, "low": 32.45, "close": 32.75}, {"time": "2026-01-16", "open": 32.85, "high": 32.9, "low": 32.3, "close": 32.4}, {"time": "2026-01-19", "open": 32.5, "high": 35.0, "low": 32.25, "close": 34.4}, {"time": "2026-01-20", "open": 35.8, "high": 37.1, "low": 34.25, "close": 36.05}, {"time": "2026-01-21", "open": 37.1, "high": 39.65, "low": 36.8, "close": 39.65}, {"time": "2026-01-22", "open": 39.7, "high": 40.2, "low": 38.1, "close": 38.35}, {"time": "2026-01-23", "open": 38.35, "high": 39.35, "low": 37.3, "close": 38.7}, {"time": "2026-01-26", "open": 38.45, "high": 39.35, "low": 38.0, "close": 39.15}, {"time": "2026-01-27", "open": 39.35, "high": 40.5, "low": 38.05, "close": 39.15}, {"time": "2026-01-28", "open": 38.5, "high": 39.3, "low": 37.8, "close": 37.8}, {"time": "2026-01-29", "open": 37.7, "high": 38.7, "low": 37.35, "close": 37.8}, {"time": "2026-01-30", "open": 37.65, "high": 37.7, "low": 35.8, "close": 36.45}, {"time": "2026-02-02", "open": 36.1, "high": 37.05, "low": 35.95, "close": 36.35}, {"time": "2026-02-03", "open": 37.05, "high": 37.4, "low": 35.7, "close": 36.55}, {"time": "2026-02-04", "open": 36.6, "high": 36.9, "low": 35.9, "close": 36.65}, {"time": "2026-02-05", "open": 36.65, "high": 36.65, "low": 34.7, "close": 34.7}, {"time": "2026-02-06", "open": 34.65, "high": 34.65, "low": 33.15, "close": 33.65}, {"time": "2026-02-09", "open": 34.55, "high": 34.55, "low": 33.35, "close": 33.35}, {"time": "2026-02-10", "open": 33.45, "high": 33.55, "low": 32.8, "close": 33.2}, {"time": "2026-02-11", "open": 33.0, "high": 33.1, "low": 32.35, "close": 32.7}, {"time": "2026-02-23", "open": 33.0, "high": 33.8, "low": 33.0, "close": 33.6}, {"time": "2026-02-24", "open": 33.6, "high": 33.75, "low": 33.0, "close": 33.5}, {"time": "2026-02-25", "open": 33.7, "high": 34.85, "low": 33.7, "close": 34.05}, {"time": "2026-02-26", "open": 34.1, "high": 34.6, "low": 33.5, "close": 34.45}, {"time": "2026-03-02", "open": 32.4, "high": 32.4, "low": 30.65, "close": 31.1}, {"time": "2026-03-03", "open": 34.05, "high": 34.4, "low": 32.45, "close": 32.75}, {"time": "2026-03-04", "open": 32.4, "high": 32.4, "low": 30.65, "close": 31.1}, {"time": "2026-03-05", "open": 32.1, "high": 32.9, "low": 31.8, "close": 32.45}, {"time": "2026-03-06", "open": 32.05, "high": 32.65, "low": 31.9, "close": 32.55}, {"time": "2026-03-09", "open": 30.75, "high": 31.4, "low": 30.0, "close": 30.95}, {"time": "2026-03-10", "open": 31.7, "high": 32.15, "low": 30.8, "close": 31.9}, {"time": "2026-03-11", "open": 32.2, "high": 32.65, "low": 32.2, "close": 32.35}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 1635.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 1261.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 1170.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 5678.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 2629.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 7481.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 2796.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 1847.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 2887.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 1278.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 1752.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 946.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 882.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 1390.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 1452.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 1262.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 1187.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 871.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 1090.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 1025.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 1575.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 1583.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 3261.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 1545.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 1384.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 1646.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 2626.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 2598.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 1663.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 1859.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 5667.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 15911.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 50334.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 31826.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 9200.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 8061.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 16189.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 6129.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 6281.0, "color": "#ef5350"}, {"time": "2026-01-30", "value": 4765.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 3003.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 3458.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 2189.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 3636.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 2095.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 1777.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 2553.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 2902.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 2083.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 2975.0, "color": "#26a69a"}, {"time": "2026-02-25", "value": 3580.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 4054.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 3649.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 4435.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 3649.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 2081.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 1020.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 1707.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 2232.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 1072.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 35.64}, {"time": "2025-12-11", "value": 35.05}, {"time": "2025-12-12", "value": 34.64}, {"time": "2025-12-15", "value": 34.13}, {"time": "2025-12-16", "value": 33.44}, {"time": "2025-12-17", "value": 32.730000000000004}, {"time": "2025-12-18", "value": 32.489999999999995}, {"time": "2025-12-19", "value": 32.22}, {"time": "2025-12-22", "value": 32.11}, {"time": "2025-12-23", "value": 32.2}, {"time": "2025-12-24", "value": 32.36}, {"time": "2025-12-26", "value": 32.6}, {"time": "2025-12-29", "value": 32.730000000000004}, {"time": "2025-12-30", "value": 32.68}, {"time": "2025-12-31", "value": 32.519999999999996}, {"time": "2026-01-02", "value": 32.46}, {"time": "2026-01-05", "value": 32.45}, {"time": "2026-01-06", "value": 32.510000000000005}, {"time": "2026-01-07", "value": 32.7}, {"time": "2026-01-08", "value": 32.89}, {"time": "2026-01-09", "value": 32.87}, {"time": "2026-01-12", "value": 32.95}, {"time": "2026-01-13", "value": 32.85}, {"time": "2026-01-14", "value": 32.78}, {"time": "2026-01-15", "value": 32.739999999999995}, {"time": "2026-01-16", "value": 32.72}, {"time": "2026-01-19", "value": 32.989999999999995}, {"time": "2026-01-20", "value": 33.72}, {"time": "2026-01-21", "value": 35.05}, {"time": "2026-01-22", "value": 36.17}, {"time": "2026-01-23", "value": 37.43}, {"time": "2026-01-26", "value": 38.38}, {"time": "2026-01-27", "value": 39.0}, {"time": "2026-01-28", "value": 38.63}, {"time": "2026-01-29", "value": 38.519999999999996}, {"time": "2026-01-30", "value": 38.07}, {"time": "2026-02-02", "value": 37.510000000000005}, {"time": "2026-02-03", "value": 36.989999999999995}, {"time": "2026-02-04", "value": 36.760000000000005}, {"time": "2026-02-05", "value": 36.14}, {"time": "2026-02-06", "value": 35.58}, {"time": "2026-02-09", "value": 34.980000000000004}, {"time": "2026-02-10", "value": 34.31}, {"time": "2026-02-11", "value": 33.52}, {"time": "2026-02-23", "value": 33.3}, {"time": "2026-02-24", "value": 33.27}, {"time": "2026-02-25", "value": 33.410000000000004}, {"time": "2026-02-26", "value": 33.660000000000004}, {"time": "2026-03-02", "value": 33.339999999999996}, {"time": "2026-03-03", "value": 33.17}, {"time": "2026-03-04", "value": 32.69}, {"time": "2026-03-05", "value": 32.370000000000005}, {"time": "2026-03-06", "value": 31.99}, {"time": "2026-03-09", "value": 31.96}, {"time": "2026-03-10", "value": 31.79}, {"time": "2026-03-11", "value": 32.04}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 34.185}, {"time": "2025-12-18", "value": 33.769999999999996}, {"time": "2025-12-19", "value": 33.43}, {"time": "2025-12-22", "value": 33.12}, {"time": "2025-12-23", "value": 32.82}, {"time": "2025-12-24", "value": 32.545}, {"time": "2025-12-26", "value": 32.545}, {"time": "2025-12-29", "value": 32.475}, {"time": "2025-12-30", "value": 32.394999999999996}, {"time": "2025-12-31", "value": 32.36}, {"time": "2026-01-02", "value": 32.410000000000004}, {"time": "2026-01-05", "value": 32.525}, {"time": "2026-01-06", "value": 32.62}, {"time": "2026-01-07", "value": 32.69}, {"time": "2026-01-08", "value": 32.705}, {"time": "2026-01-09", "value": 32.665}, {"time": "2026-01-12", "value": 32.7}, {"time": "2026-01-13", "value": 32.68}, {"time": "2026-01-14", "value": 32.739999999999995}, {"time": "2026-01-15", "value": 32.815}, {"time": "2026-01-16", "value": 32.795}, {"time": "2026-01-19", "value": 32.97}, {"time": "2026-01-20", "value": 33.285000000000004}, {"time": "2026-01-21", "value": 33.915}, {"time": "2026-01-22", "value": 34.455}, {"time": "2026-01-23", "value": 35.075}, {"time": "2026-01-26", "value": 35.685}, {"time": "2026-01-27", "value": 36.36}, {"time": "2026-01-28", "value": 36.839999999999996}, {"time": "2026-01-29", "value": 37.345}, {"time": "2026-01-30", "value": 37.75}, {"time": "2026-02-02", "value": 37.945}, {"time": "2026-02-03", "value": 37.995}, {"time": "2026-02-04", "value": 37.695}, {"time": "2026-02-05", "value": 37.33}, {"time": "2026-02-06", "value": 36.825}, {"time": "2026-02-09", "value": 36.245}, {"time": "2026-02-10", "value": 35.65}, {"time": "2026-02-11", "value": 35.14}, {"time": "2026-02-23", "value": 34.72}, {"time": "2026-02-24", "value": 34.425}, {"time": "2026-02-25", "value": 34.195}, {"time": "2026-02-26", "value": 33.985}, {"time": "2026-03-02", "value": 33.43}, {"time": "2026-03-03", "value": 33.235}, {"time": "2026-03-04", "value": 32.980000000000004}, {"time": "2026-03-05", "value": 32.89}, {"time": "2026-03-06", "value": 32.825}, {"time": "2026-03-09", "value": 32.65}, {"time": "2026-03-10", "value": 32.480000000000004}, {"time": "2026-03-11", "value": 32.364999999999995}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 33.2975}, {"time": "2026-01-05", "value": 33.1475}, {"time": "2026-01-06", "value": 33.025}, {"time": "2026-01-07", "value": 32.905}, {"time": "2026-01-08", "value": 32.7625}, {"time": "2026-01-09", "value": 32.605000000000004}, {"time": "2026-01-12", "value": 32.6225}, {"time": "2026-01-13", "value": 32.5775}, {"time": "2026-01-14", "value": 32.5675}, {"time": "2026-01-15", "value": 32.5875}, {"time": "2026-01-16", "value": 32.6025}, {"time": "2026-01-19", "value": 32.7475}, {"time": "2026-01-20", "value": 32.9525}, {"time": "2026-01-21", "value": 33.302499999999995}, {"time": "2026-01-22", "value": 33.58}, {"time": "2026-01-23", "value": 33.87}, {"time": "2026-01-26", "value": 34.1925}, {"time": "2026-01-27", "value": 34.519999999999996}, {"time": "2026-01-28", "value": 34.79}, {"time": "2026-01-29", "value": 35.08}, {"time": "2026-01-30", "value": 35.2725}, {"time": "2026-02-02", "value": 35.457499999999996}, {"time": "2026-02-03", "value": 35.64}, {"time": "2026-02-04", "value": 35.805}, {"time": "2026-02-05", "value": 35.8925}, {"time": "2026-02-06", "value": 35.95}, {"time": "2026-02-09", "value": 35.964999999999996}, {"time": "2026-02-10", "value": 36.005}, {"time": "2026-02-11", "value": 35.989999999999995}, {"time": "2026-02-23", "value": 36.0325}, {"time": "2026-02-24", "value": 36.0875}, {"time": "2026-02-25", "value": 36.07}, {"time": "2026-02-26", "value": 35.989999999999995}, {"time": "2026-03-02", "value": 35.5625}, {"time": "2026-03-03", "value": 35.2825}, {"time": "2026-03-04", "value": 34.902499999999996}, {"time": "2026-03-05", "value": 34.5675}, {"time": "2026-03-06", "value": 34.2375}, {"time": "2026-03-09", "value": 33.894999999999996}, {"time": "2026-03-10", "value": 33.6}, {"time": "2026-03-11", "value": 33.394999999999996}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -1261.0}, {"time": "2025-12-08", "value": -91.0}, {"time": "2025-12-09", "value": 5587.0}, {"time": "2025-12-10", "value": 2958.0}, {"time": "2025-12-11", "value": -4523.0}, {"time": "2025-12-12", "value": -1727.0}, {"time": "2025-12-15", "value": -3574.0}, {"time": "2025-12-16", "value": -6461.0}, {"time": "2025-12-17", "value": -7739.0}, {"time": "2025-12-18", "value": -9491.0}, {"time": "2025-12-19", "value": -8545.0}, {"time": "2025-12-22", "value": -7663.0}, {"time": "2025-12-23", "value": -6273.0}, {"time": "2025-12-24", "value": -4821.0}, {"time": "2025-12-26", "value": -6083.0}, {"time": "2025-12-29", "value": -7270.0}, {"time": "2025-12-30", "value": -8141.0}, {"time": "2025-12-31", "value": -9231.0}, {"time": "2026-01-02", "value": -8206.0}, {"time": "2026-01-05", "value": -6631.0}, {"time": "2026-01-06", "value": -5048.0}, {"time": "2026-01-07", "value": -1787.0}, {"time": "2026-01-08", "value": -3332.0}, {"time": "2026-01-09", "value": -4716.0}, {"time": "2026-01-12", "value": -3070.0}, {"time": "2026-01-13", "value": -5696.0}, {"time": "2026-01-14", "value": -3098.0}, {"time": "2026-01-15", "value": -4761.0}, {"time": "2026-01-16", "value": -6620.0}, {"time": "2026-01-19", "value": -953.0}, {"time": "2026-01-20", "value": 14958.0}, {"time": "2026-01-21", "value": 65292.0}, {"time": "2026-01-22", "value": 33466.0}, {"time": "2026-01-23", "value": 42666.0}, {"time": "2026-01-26", "value": 50727.0}, {"time": "2026-01-27", "value": 50727.0}, {"time": "2026-01-28", "value": 44598.0}, {"time": "2026-01-29", "value": 44598.0}, {"time": "2026-01-30", "value": 39833.0}, {"time": "2026-02-02", "value": 36830.0}, {"time": "2026-02-03", "value": 40288.0}, {"time": "2026-02-04", "value": 42477.0}, {"time": "2026-02-05", "value": 38841.0}, {"time": "2026-02-06", "value": 36746.0}, {"time": "2026-02-09", "value": 34969.0}, {"time": "2026-02-10", "value": 32416.0}, {"time": "2026-02-11", "value": 29514.0}, {"time": "2026-02-23", "value": 31597.0}, {"time": "2026-02-24", "value": 28622.0}, {"time": "2026-02-25", "value": 32202.0}, {"time": "2026-02-26", "value": 36256.0}, {"time": "2026-03-02", "value": 32607.0}, {"time": "2026-03-03", "value": 37042.0}, {"time": "2026-03-04", "value": 33393.0}, {"time": "2026-03-05", "value": 35474.0}, {"time": "2026-03-06", "value": 36494.0}, {"time": "2026-03-09", "value": 34787.0}, {"time": "2026-03-10", "value": 37019.0}, {"time": "2026-03-11", "value": 38091.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>合勤控（3704）是一家全球領先的寬頻、網路通訊與AI驅動管理解決方案供應商，旗下擁有合勤科技、兆勤科技和盟創科技等子公司，分別專注於品牌、通路和代工市場。公司正從傳統硬體銷售轉型為提供整體網路解決方案與雲端訂閱服務。</p>
+
+<strong>核心產品與服務：</strong>
+<ul><li><strong>無線通訊設備</strong>：積極發展Wi-Fi 7和Wi-Fi 8技術，兆勤科技於2026年1月21日推出首款工業等級Wi-Fi 7雙頻工業用基地台IAP500BE。合勤控已於CES 2026展示Wi-Fi 8產品，預計2027年上市。</li>
+<li><strong>寬頻接取設備</strong>：提供光纖網路解決方案（OLT/ONU），並將於MWC 2026展示下一代50G PON光纖技術。</li>
+<li><strong>行動寬頻設備</strong>：支援5G FWA（固定無線接取）產品，在CES 2026與Plume合作展示雲端管理的5G FWA與Wi-Fi 7 NR5331。</li>
+<li><strong>網路交換器</strong>：加速採用多千兆（multi-gigabit）交換器。</li>
+<li><strong>網路資安與雲端管理</strong>：提供USG FLEX H系列防火牆及透過Zyxel One、Nebula雲端平台提供AI智能管理服務。</li>
+<li><strong>國防通訊產品</strong>：專注於雷達偵測、電子反制干擾技術，延伸至偵蒐雷達、無人機航控與反無人機系統、無人機船載具專用資料鏈路無線電及AI航行模組等，為中科院及海巡署穩定供應商。</li>
+</ul>
+<strong>營收地區結構（2025年前三季）：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>地區</th><th>佔比</th></tr></thead><tbody>
+<tr><td>歐洲</td><td>52%</td></tr>
+<tr><td>新興市場及亞太區</td><td>26%</td></tr>
+<tr><td>美洲地區</td><td>22%</td></tr>
+</tbody></table></div>
+
+<strong>製造基地：</strong>
+<p>目前在台灣和中國大陸設有生產基地。為因應地緣政治變化及歐美客戶需求，越南新廠預計於2026年7月起投產，未來將與既有產線互補，提升供應鏈韌性並強化歐美市場競爭力。</p>
+
+<h2>核心競爭優勢</h2>
+<li><strong>次世代技術領先佈局</strong>：在Wi-Fi 7/8、50G PON光纖技術、5G FWA等領域具備前瞻性，多款產品已推出或即將上市，確保在未來網路升級潮中佔據有利位置。</li>
+<li><strong>高毛利產品組合優化</strong>：積極轉型至AI資安與雲端管理訂閱服務，並聚焦高附加價值產品（如PON、FWA、企業級設備），有效提升毛利率，2025年第四季毛利率達30.62%創近15年新高。</li>
+<li><strong>國防通訊藍海市場</strong>：在台灣國防自主政策下，公司於軍用通訊及反無人機系統領域的深厚技術累積，使其成為中科院及海巡署等單位的穩定供應商，為營收提供獨特且高毛利的增長動能。</li>
+<li><strong>多生產基地策略</strong>：投資越南新廠，預計2026年下半年投產，建立台灣、中國、越南的三角供應體系，有效降低地緣政治風險，滿足歐美客戶對非中國製造的需求，提升國際市場競爭力。</li>
+<li><strong>ESG實踐與品牌價值</strong>：持續推動永續發展，獲得EcoVadis白金獎和SBTi碳減排目標認證，強化企業形象與國際競爭力。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 MoM (%)</th><th>年增率 YoY (%)</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>17.78</td><td>-12.69</td><td>-33.72</td></tr>
+<tr><td>2025年12月</td><td>20.36</td><td>17.09</td><td>-37.39</td></tr>
+<tr><td>2025年11月</td><td>17.39</td><td>-7.55</td><td>-23.22</td></tr>
+<tr><td>2025年10月</td><td>18.81</td><td>-14.65</td><td>-5.19</td></tr>
+<tr><td>2025年9月</td><td>22.38 (2024年9月數據)</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>2025年8月</td><td>未找到具體數據</td><td>N/A</td><td>N/A</td></tr>
+</tbody></table></div>
+<em>註：2025年9月及8月月營收未找到直接數據，2025年第三季總營收為64.17億元。2025年9月月增率及年增率無法計算。</em>
+
+<h3>季度數據</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2025年Q4 (自結)</th><th>2025年Q3</th></tr></thead><tbody>
+<tr><td>季營收</td><td>56.56億元</td><td>64.17億元</td></tr>
+<tr><td>季增率 QoQ</td><td>-11.9%</td><td>3.73%</td></tr>
+<tr><td>年增率 YoY</td><td>N/A</td><td>0.25%</td></tr>
+<tr><td>毛利率</td><td>30.62%</td><td>29.88%</td></tr>
+<tr><td>營業利益</td><td>8,860萬元</td><td>4.82億元</td></tr>
+<tr><td>歸屬母公司業主淨利</td><td>1.78億元</td><td>5.55億元</td></tr>
+<tr><td>EPS</td><td>0.43元</td><td>1.37元</td></tr>
+</tbody></table></div>
+
+<strong>季度表現分析：</strong>
+<ul><li>2025年第四季毛利率達30.62%，優於第三季的29.88%及2024年同期的26.4%，創近15年新高，顯示產品組合優化與成本控管成效顯著。</li>
+<li>2025年第四季營收雖季減11.9%至56.56億元，主要受到部分客戶拉貨動能調整影響。</li>
+<li>2025年第四季營業利益與淨利季減幅度較大，公司說明主因受到南美客戶影響，提列呆帳損失。</li>
+</ul>
+<h3>年度趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2024年實際</th><th>2025年實際 (累計至Q4自結)</th><th>2026年預估 (法人)</th></tr></thead><tbody>
+<tr><td>全年度營收</td><td>259.69億元</td><td>252.95億元</td><td>285.5億元</td></tr>
+<tr><td>年增率</td><td>N/A</td><td>-2.6%</td><td>10.5%</td></tr>
+<tr><td>EPS</td><td>1.41元</td><td>1.56元</td><td>3.0元至3.6元</td></tr>
+</tbody></table></div>
+
+<strong>年度表現分析：</strong>
+<ul><li>2025年全年營收略為年減2.6%至252.95億元，EPS則年增至1.56元，主要得益於下半年毛利率的顯著改善。</li>
+<li>法人普遍預期2026年營收將重回雙位數成長，達285.5億元，年增10.5%，EPS有望挑戰3元以上，甚至高達3.6元，獲利將實現翻倍成長，創歷史新高。</li>
+</ul>
+<h2>法說會重點 (2025年11月5日)</h2>
+<ul><li><strong>產品組合 (2025年Q3)</strong>：固網寬頻佔60%、無線寬頻(FWA)佔16%、企業網通佔14%、其他佔10%。</li>
+<li><strong>國防業務</strong>：看好國防預算增加，積極爭取無人機反制系統等標案。2025年國防相關標案認列金額預估可達數億元，甚至超過10億元，預計2026年將較2025年更加成長。</li>
+<li><strong>電信端業務</strong>：歐美電信營運商加速升級10G PON，推升OLT與ONU換機需求；南亞寬頻基礎建設持續增長，帶動PON、5G FWA需求。</li>
+<li><strong>中小企業市場</strong>：對雲端及資安需求快速成長。</li>
+<li><strong>5G FWA</strong>：成功整合5G與Wi-Fi 7技術推出旗艦產品，並打入歐洲多家一線電信運營商供應鏈，訂單能見度已延伸至2025年底。</li>
+<li><strong>Wi-Fi 8</strong>：預計2027年Wi-Fi 8產品正式上市，可搭配DDR5記憶體，整體成本與Wi-Fi 7相近，將促使系統商更積極評估導入。</li>
+<li><strong>產能擴充</strong>：盟創科技於2025年7月宣布投資4.87億元於越南設廠，預計2026年第三季試產、第四季量產，將成為第三個主要生產據點，強化產能彈性與交貨穩定度。</li>
+<li><strong>2025年第四季展望</strong>：南亞客戶拉貨動能略有調整，預期營收較第三季微幅減少，但高毛利產品出貨動能可望延續。</li>
+<li><strong>2026年展望</strong>：管理層看好2026年營收將年增雙位數百分比。法人維持2026年成長展望不變，預期歐洲與南亞需求續揚、北美逐步回溫，且國防通訊產品組合更趨完整、能見度升高，帶動毛利率進一步走揚，獲利有望翻倍成長。</li>
+</ul>
+<h2>券商觀點</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名</th><th>日期</th><th>目標價 (新台幣元)</th><th>評等</th><th>預估2025年EPS</th><th>預估2026年EPS</th></tr></thead><tbody>
+<tr><td>未具名法人</td><td>2025年11月6日</td><td>43-45</td><td>看多</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>第一金證券</td><td>2025年8月6日</td><td>35</td><td>N/A</td><td>0.99</td><td>N/A</td></tr>
+<tr><td>某法人 (註1)</td><td>2025年10月17日</td><td>40</td><td>增加持股</td><td>1.59</td><td>3.6 (2025/12)</td></tr>
+<tr><td>英為財情分析師共識</td><td>2025年11月9日</td><td>39</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>CMoney (券商彙整)</td><td>N/A</td><td>N/A</td><td>N/A</td><td>1.77-1.9</td><td>3.63</td></tr>
+</tbody></table></div>
+
+<em>註1：該法人於2025年10月17日上調目標價至40元，以2026年預估EPS乘以15倍本益比計算，但其對2026年EPS的預估在2025年12月28日上修至3.6元，暗示若以最新EPS計算，目標價將更高。</em>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2025年Q4 (自結)</th><th>2025年Q3</th><th>2025年Q2</th><th>2025年Q1</th><th>2024年Q4</th><th>2024年Q3</th><th>2024年Q2</th><th>2024年Q1</th></tr></thead><tbody>
+<tr><td>毛利率</td><td>30.62%</td><td>29.88%</td><td>24.33%</td><td>22.64%</td><td>26.44%</td><td>22.73%</td><td>24.29%</td><td>25.46%</td></tr>
+<tr><td>營業利益率</td><td>N/A</td><td>7.51%</td><td>2.32%</td><td>2.18%</td><td>6.57%</td><td>-1.17%</td><td>0.91%</td><td>-0.64%</td></tr>
+<tr><td>稅後淨利率</td><td>N/A</td><td>8.72%</td><td>-6.15%</td><td>4.11%</td><td>6.8%</td><td>-1.64%</td><td>2.08%</td><td>0.91%</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化原因分析：</strong>
+<ul><li><strong>毛利率提升</strong>：2025年第三、四季毛利率顯著提升，分別達29.88%和30.62%，創多年新高，主要受惠於產品組合優化、國防產品出貨增加、新台幣貶值以及部分保固準備金迴轉等因素。公司正積極轉向高附加價值產品（PON、FWA、企業級設備）和訂閱服務。</li>
+<li><strong>營業利益率與淨利率波動</strong>：2025年第二季因新台幣對美元大幅升值導致匯損，侵蝕獲利，稅後淨利率為負值。2025年第四季淨利受南美客戶呆帳損失影響而季減。</li>
+</ul>
+<h3>存貨與營運</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2025年Q3</th><th>2025年Q2</th><th>2025年Q1</th><th>2024年Q4</th></tr></thead><tbody>
+<tr><td>存貨週轉天數</td><td>117.34天</td><td>109.43天</td><td>87.45天</td><td>86.78天</td></tr>
+<tr><td>應收帳款週轉天數</td><td>95.44天</td><td>109.61天</td><td>103.64天</td><td>83.22天</td></tr>
+</tbody></table></div>
+
+<strong>存貨分析：</strong>
+<ul><li>2024年公司整體存貨金額已降至疫情以來最低水準，接近2020年第一季，顯示庫存去化工作已接近完成。2025年存貨週轉天數略有上升，但仍在可控範圍。目前主要堆積的為高毛利的品牌通路庫存。</li>
+</ul>
+<h3>資本支出</h3>
+<ul><li><strong>未來資本支出計畫</strong>：盟創科技於2025年7月宣布投資新台幣4.87億元於越南設廠。該新廠預計2026年第三季試產、第四季量產，將強化產能彈性並分散地域風險，滿足歐美與新興市場客戶需求。</li>
+<li><strong>折舊攤銷趨勢</strong>：未找到2024-2026年具體折舊攤銷數據。</li>
+</ul>
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓紀錄</strong>：未找到2024-2026年最新資料。</li>
+<li><strong>庫藏股買回紀錄</strong>：未找到2024-2026年最新資料。</li>
+<li><strong>可轉換公司債 (CB)</strong>：未找到2024-2026年發行可轉換公司債的最新資料。</li>
+<li><strong>現金增資或減資計畫</strong>：未找到2024-2026年最新資料。</li>
+<li><strong>股利政策</strong>：</li>
+</ul>    *   2025年度：預計發放現金股利0.2992元 (除息日2025年7月4日)。
+<p>*   2024年度：發放現金股利1.4952元 (除息日2024年7月5日)。</p>
+<p>*   近年皆以發放現金股利為主。</p>
+
+<h2>產業分析</h2>
+<strong>【產業數據】</strong>
+
+<ul><li><strong>全球市場規模與CAGR成長率</strong></li>
+</ul>    *   <strong>全球網路基礎設施市場</strong>：2024年估計2,487.8億美元，2025年成長至2,666.1億美元，2026年達2,857.3億美元，至2035年有望達5,328.6億美元，CAGR為7.17%。
+<p>*   <strong>Wi-Fi 7 市場</strong>：</p>
+<p>*   2025年價值65億美元，預計2026年從86.3億美元增長至2031年356.6億美元，CAGR 32.8%。</p>
+<p>*   另有報告預測2025年達61.6億美元，並於2025-2035年間以26.31% CAGR增長至636.9億美元。</p>
+<p>*   全球Wi-Fi 7市場到2030年將達229億美元，2025-2030年CAGR 61.5%。</p>
+<p>*   台灣預計2025年Wi-Fi 7全球出貨量將突破2億台，CAGR達60%以上。</p>
+<p>*   <strong>5G FWA CPE 市場</strong>：</p>
+<p>*   預計2024年約31.54億美元，2025年增長到41.32億美元，2026-2031年CAGR 21.7%，至2031年達134.2億美元。</p>
+<p>*   另有報告預測2024年45億美元，到2032年增長至327.5億美元，2025-2032年CAGR 28.1%。</p>
+<p>*   <strong>光纖電纜市場</strong>：</p>
+<p>*   預計2025年841.5億美元成長到2026年891.6億美元，CAGR 5.9%。</p>
+<p>*   預計到2030年達1,157.9億美元，CAGR 6.8%。</p>
+<p>*   <strong>AI數據中心光互連市場</strong>：</p>
+<p>*   2025年達99.4億美元，預計到2033年達310.4億美元，2026-2033年CAGR 15.3%。</p>
+
+<ul><li><strong>供需狀況</strong>：</li>
+</ul>    *   網路通訊產業受AI、5G/6G、Wi-Fi 7/8、光纖網路升級等多重因素推動，需求端保持強勁。
+<p>*   <strong>記憶體供需</strong>：記憶體缺貨及漲價是挑戰，預期延續至2027年上半年。網通廠已將多數漲價成本轉嫁給客戶，合勤控也已預先備貨並將協調價格以反映成本，減輕毛利率壓力。</p>
+
+<ul><li><strong>產業平均毛利率水準</strong>：</li>
+</ul>    *   雖然無直接產業平均數據，但參考台灣同業，啟碁2025年第四季毛利率從過往10%跳升至14.1%。達發2025年第四季毛利率為53.6%。合勤控轉型高附加價值產品及雲端訂閱服務，有助於其毛利率提升至30.62%（2025年Q4），顯著優於部分同業。
+
+<strong>【競爭格局】</strong>
+
+<ul><li><strong>全球主要網通設備製造商</strong></li>
+</ul>    *   全球前五大企業在銷售額方面約佔5G FWA CPE市場48.0%的份額，主要參與者包括中興通訊（ZTE）、華為（Huawei）、智易（Gemtek）、Vantiva、Inseego、Tozed Kangwei、烽火通信（FiberHome）、NETGEAR、諾基亞（Nokia）、合勤控（Zyxel Group）等。
+<p>*   Wi-Fi 7市場主要參與者包括Broadcom、Qualcomm、Intel、Cisco、TP-Link、Netgear、Aruba Networks、D-Link、MikroTik等。</p>
+
+<ul><li><strong>合勤控 vs 主要競爭對手比較</strong></li>
+</ul><div class="table-wrapper"><table>
+<thead><tr><th>特點</th><th>合勤控 (3704)</th><th>主要競爭對手 (如智邦、啟碁、達發、中磊)</th></tr></thead><tbody>
+<tr><td><strong>技術領先性</strong></td><td>- Wi-Fi 7/8 (工業級Wi-Fi 7基地台已上市，Wi-Fi 8 CES展示、2027年上市) &lt;br&gt; - 50G PON (MWC 2026展示，三模光學架構) &lt;br&gt; - 5G FWA (與Plume合作，支援3GPP Release 18) &lt;br&gt; - AI智能資安與雲端管理 (Nebula生態系，雲地聯防)</td><td><strong>智邦</strong>：高速交換器 (800G成主流) &lt;br&gt; <strong>啟碁</strong>：WLAN、固網CPE、低軌衛星等，營運重回雙位數成長 &lt;br&gt; <strong>達發</strong>：光通訊 (逐年倍數成長)、乙太網路 &lt;br&gt; <strong>中磊</strong>：固網寬頻、行動通訊、物聯網</td></tr>
+<tr><td><strong>產能佈局</strong></td><td>台灣、中國大陸。越南新廠預計2026年Q3試產、Q4量產，強化供應鏈韌性與「非中製造」能力。</td><td>多數廠商也佈局多生產基地，但越南佈局進度可能不同。</td></tr>
+<tr><td><strong>客戶結構</strong></td><td>歐美電信商、新興市場及亞太區客戶。國防領域為中科院、海巡署等穩定供應商。</td><td>各自深耕不同電信商、企業客戶及垂直市場。</td></tr>
+<tr><td><strong>產品定價策略</strong></td><td>因應記憶體漲價，已預先備貨並與客戶協調價格轉嫁成本，以維持毛利率。</td><td>面臨相似成本壓力，多數網通廠也採取漲價轉嫁策略。</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>台灣同業比較</strong></li>
+</ul><div class="table-wrapper"><table>
+<thead><tr><th>公司</th><th>2025年全年營收 (新台幣億元)</th><th>2025年全年EPS (新台幣元)</th><th>2025年Q4毛利率</th><th>主要優勢/展望</th></tr></thead><tbody>
+<tr><td><strong>合勤控 (3704)</strong></td><td>252.95 (年減2.6%)</td><td>1.56 (累計至Q4自結)</td><td>30.62%</td><td>次世代技術領先，國防業務，轉型雲端服務，越南新廠。</td></tr>
+<tr><td><strong>智邦 (2345)</strong></td><td>2,482.7 (年增124.8%)</td><td>N/A</td><td>N/A</td><td>高速交換器 (800G) 領先者，AI數據中心受惠者。</td></tr>
+<tr><td><strong>啟碁 (6285)</strong></td><td>N/A (預估1200億以上, 2026)</td><td>N/A (預估挑戰10元, 2026)</td><td>14.1%</td><td>車用、網通、低軌衛星多角化發展，營收獲利重回成長。</td></tr>
+<tr><td><strong>達發 (6526)</strong></td><td>209 (年增9.4%)</td><td>17.32</td><td>53.6%</td><td>光通訊、乙太網路晶片設計，高毛利IC設計廠。</td></tr>
+<tr><td><strong>中磊 (5388)</strong></td><td>N/A (2025年小幅衰退)</td><td>N/A</td><td>N/A</td><td>寬頻設備代工龍頭，2025年Q4營運回溫，展望2026年成長。</td></tr>
+</tbody></table></div>
+
+<strong>【產業趨勢】</strong>
+
+<li><strong>次世代無線通訊技術 (Wi-Fi 7/8 及 5G FWA)</strong>：</li>
+<p>*   <strong>具體影響</strong>：Wi-Fi 7/8帶來超高速率、低延遲、高頻譜效率，支援XR、智慧家庭等應用。5G FWA提供高速無線寬頻，彌補有線網路不足。合勤控在這些領域的領先布局使其能抓住市場先機，提升產品競爭力與市佔率。</p>
+<li><strong>光纖網路與高速交換器升級 (10G/50G PON, 800G/1.6T 交換器)</strong>：</li>
+<p>*   <strong>具體影響</strong>：AI應用、5G、雲端數據中心擴展推動對超高頻寬的需求。10G/50G PON等光纖技術和800G/1.6T交換器是基礎設施升級的關鍵。合勤控的PON產品與多千兆交換器將直接受惠於此升級潮，尤其在電信商市場。</p>
+<li><strong>AI 驅動的網路管理與資安解決方案</strong>：</li>
+<p>*   <strong>具體影響</strong>：AI技術深度整合至網路管理與資安，提供更智慧、自動化的網路效能優化和更強大的資安防護。合勤控透過Nebula生態系及AI智能資安方案，將產品從單純硬體銷售轉向提供整體解決方案與訂閱服務，增加經常性收入與客戶黏著度，提升長期毛利率。</p>
+
+<strong>【對合勤控的具體機會和威脅】</strong>
+
+<ul><li><strong>機會</strong>：</li>
+</ul>    *   <strong>技術領先</strong>：Wi-Fi 7/8、50G PON、5G FWA等次世代技術布局早，產品成熟度高。
+<p>*   <strong>轉型效益</strong>：向雲端訂閱服務與AI資安解決方案轉型，有望提升毛利率與客戶黏著度。</p>
+<p>*   <strong>國防商機</strong>：國防預算增加及台灣自主政策，帶動軍用通訊及反無人機系統出貨。</p>
+<p>*   <strong>供應鏈韌性</strong>：越南新廠降低地緣政治風險，滿足歐美客戶對非中製造的需求。</p>
+<ul><li><strong>威脅</strong>：</li>
+</ul>    *   <strong>記憶體漲價</strong>：記憶體供應吃緊及漲價恐延續至2027年上半年，雖已協調客戶轉嫁，仍有毛利率承壓風險。
+<p>*   <strong>市場競爭</strong>：網通產業競爭激烈，同業在高速通訊、AI應用、低軌衛星等領域積極布局，可能擠壓市場份額。</p>
+<p>*   <strong>總經不確定性</strong>：全球經濟、匯率、地緣政治變化可能影響客戶拉貨動能。</p>
+
+<strong>【相關投資題材】</strong>
+
+<ul><li><strong>AI (人工智慧)</strong>：</li>
+</ul>    *   <strong>AI驅動管理解決方案</strong>：合勤控推動AI智能資安與雲端管理技術，透過Nebula生態系統提供次世代雲端AI網路資安解決方案，支援AI數據中心基礎設施升級。
+<p>*   <strong>AI數據中心與高速傳輸</strong>：AI應用快速發展帶動資料中心對運算能力的極大需求，直接推動對高速交換器 (800G/1.6T) 和光互連技術 (如1.6T光模組) 的需求。合勤控的光纖產品和多千兆交換器受惠。</p>
+<p>*   <strong>邊緣AI</strong>：合勤控的網路設備作為邊緣節點，在支援製造、醫療、電信等領域導入AI Box與邊緣推論方案方面具潛力。</p>
+<ul><li><strong>HBM (高頻寬記憶體)</strong>：HBM主要受益者為半導體晶片製造商。對於合勤控，HBM需求的激增間接帶動整個AI數據中心的建設和網路升級，增加對高速網通設備的需求。</li>
+<li><strong>電動車</strong>：合勤控目前業務與電動車產業的直接連結較不明顯。</li>
+</ul>
+<h2>近期催化劑 (2024年以後)</h2>
+<strong>【利多事件】</strong>
+<ul><li><strong>2026年3月</strong>：合勤科技參展MWC 2026，展示Wi-Fi 8、50G PON光纖技術及Zyxel One雲端AI智能管理解決方案，並與國家資通安全研究院簽署MOU強化供應鏈安全。</li>
+<li><strong>2026年2月24日</strong>：合勤控再度獲選標普全球永續年鑑。</li>
+<li><strong>2026年1月30日</strong>：公布2025年第四季自結毛利率達30.62%，創近15年新高，每股純益0.43元。累計2025年每股純益1.56元。</li>
+<li><strong>2026年1月27日</strong>：兆勤科技擴大企業網通佈局，搶攻AI資安與訂閱經濟商機，Nebula生態系已部署逾百萬台裝置。同時，合勤集團與NICS結盟強化全球供應鏈安全。</li>
+<li><strong>2026年1月21日</strong>：兆勤科技推出首款工業等級Wi-Fi 7無線基地台IAP500BE。</li>
+<li><strong>2026年1月20日</strong>：法人看好2026年營收在網通本業及國防通訊布局雙引擎帶動下，有望實現雙位數成長。</li>
+<li><strong>2026年1月15日</strong>：Zyxel Networks預期2026年在Wi-Fi 7、多千兆網路技術、資安和託管服務方面將有顯著增長。</li>
+<li><strong>2026年1月5日</strong>：合勤通訊於CES 2026展示Wi-Fi 8創新技術，強調頻譜效率、擴展覆蓋範圍及AI就緒連線能力。</li>
+<li><strong>2025年11月26日</strong>：國防標案已開始出貨，預計2025年及2026年將持續為營收帶來貢獻，並有望帶動毛利率走升。</li>
+<li><strong>2025年11月6日</strong>：法說會中管理層預期2026年營收將年增雙位數百分比，受惠於國防預算增加、電信固網與無線寬頻成長、中小企業雲端資安需求。越南新廠預計2026年7月投產。</li>
+<li><strong>2025年10月17日</strong>：2025年第三季毛利率29.88%創14年新高，EPS 1.37元。法人上修2025年營收預估至258億元，EPS預估1.59元，並上調目標價至40元。</li>
+<li><strong>2025年1月25日</strong>：歐盟擬禁用華為、中興等中國電信設備，合勤控深耕歐洲市場，可望受惠轉單。</li>
+</ul>
+<strong>【利空事件/短期挑戰】</strong>
+<ul><li><strong>2026年2月12日</strong>：2026年1月營收17.78億元，月減12.69%，年減33.72%，顯示短期營收仍面臨壓力。</li>
+<li><strong>2025年第四季法說會指引</strong>：南亞客戶拉貨動能略有調整，預期營收將較第三季微幅減少。</li>
+<li><strong>記憶體漲價風險</strong>：法說會中提及若2026年記憶體維持漲價態勢，恐影響毛利率約4到5個百分點。</li>
+<li><strong>南美客戶呆帳損失</strong>：影響2025年第四季淨利減少。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能類別</th><th>具體內容</th></tr></thead><tbody>
+<tr><td><strong>2025年7月</strong></td><td>擴廠計畫</td><td>盟創科技宣布投資新台幣4.87億元於越南設廠，旨在強化供應鏈韌性、降低對外包產能依賴。</td></tr>
+<tr><td><strong>2025年起</strong></td><td>新客戶/新市場</td><td>國防業務開始出貨，成為中科院及海巡署等單位的穩定供應商，積極爭取無人機反制系統等標案。</td></tr>
+<tr><td><strong>2025年底</strong></td><td>需求面</td><td>5G FWA打入歐洲多家一線電信運營商供應鏈，訂單能見度延伸至2025年底。</td></tr>
+<tr><td><strong>2026年1月5日</strong></td><td>新產品</td><td>於CES 2026展示Wi-Fi 8創新技術，預計2027年上市。</td></tr>
+<tr><td><strong>2026年1月21日</strong></td><td>新產品</td><td>兆勤科技推出首款工業等級Wi-Fi 7雙頻工業用基地台IAP500BE。</td></tr>
+<tr><td><strong>2026年1月起</strong></td><td>新客戶/新市場</td><td>兆勤科技擴大企業網通佈局，透過Nebula生態系鎖定中小企業市場，推動AI智能資安與雲端管理服務，預期帶來穩定經常性收入。</td></tr>
+<tr><td><strong>2026年3月</strong></td><td>新產品</td><td>於MWC 2026展示Wi-Fi 8、50G PON光纖技術及Zyxel One雲端AI智能管理解決方案。50G PON採用三模光學架構，大幅提升部署效率。</td></tr>
+<tr><td><strong>2026年Q3 (預計)</strong></td><td>產能擴充</td><td>越南新廠預計開始試產。</td></tr>
+<tr><td><strong>2026年Q4 (預計)</strong></td><td>產能擴充</td><td>越南新廠預計開始量產，與台灣及中國無錫廠形成三角供應體系，提升供應鏈彈性及交貨穩定度。</td></tr>
+<tr><td><strong>2026年 (持續)</strong></td><td>需求面</td><td>歐美電信營運商加速升級10G PON/50G PON光纖網路，推升OLT與ONU換機需求。 &lt;br&gt; 南亞寬頻網路基礎建設需求持續增長，帶動PON、5G FWA產品需求。 &lt;br&gt; 企業網通市場轉向MSP模式，訂閱制軟體與授權營收比重提升。 &lt;br&gt; AI應用、雲端服務與即時連線需求持續升溫，推動對新一代寬頻網路服務的需求。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+<strong>成長動能：</strong>
+<p>合勤控2026年將受益於多重成長引擎：</p>
+<li><strong>次世代技術普及</strong>：Wi-Fi 7/8、50G PON光纖技術與5G FWA產品陸續推出或深化市場，將成為營收主要驅動力，尤其受惠於全球寬頻升級與AI應用對高速低延遲網路的需求。</li>
+<li><strong>國防業務成長</strong>：隨著國防預算增加，公司在軍用通訊及反無人機系統領域的出貨將顯著提升，預期2026年國防相關營收將較2025年更高。</li>
+<li><strong>雲端與資安轉型</strong>：積極推動AI智能資安與雲端管理訂閱服務，特別是兆勤科技的Nebula生態系在中小企業市場的拓展，將帶來穩定的經常性收入並提升整體毛利率。</li>
+<li><strong>越南新廠效益</strong>：2026年下半年越南新廠試產與量產，將強化供應鏈韌性，滿足歐美客戶對非中國製造的需求，並提升成本競爭力。</li>
+<li><strong>市場回溫</strong>：歐美電信商對10G PON升級需求持續，南亞寬頻基礎建設推動PON、5G FWA需求，法人預估北美市場也將逐步回溫。</li>
+<strong>量化目標</strong>：法人預估2026年營收將達新台幣285.5億元，年成長10.5%；稅後淨利將年增91.3%達14.9億元，每股盈餘（EPS）有望挑戰3.6元，創下歷史新高。
+
+<strong>風險：</strong>
+<li><strong>記憶體價格波動</strong>：記憶體供需吃緊及漲價壓力恐持續至2027年上半年，雖公司已備貨並與客戶協調價格，仍可能對毛利率造成潛在影響。</li>
+<li><strong>短期營收壓力</strong>：受南亞客戶拉貨動能調整及部分舊有產品需求放緩影響，2025年第四季至2026年第一季營收面臨短期衰退挑戰，需密切觀察後續訂單回溫狀況。</li>
+<li><strong>市場競爭加劇</strong>：網通產業技術迭代快速且競爭激烈，同業在各領域積極布局，合勤控需持續創新以維持競爭優勢。</li>
+<li><strong>總體經濟與地緣政治風險</strong>：全球經濟放緩、高通膨、匯率波動及地緣政治的不確定性，可能影響客戶資本支出和拉貨意願。</li>
+
+<h2>投資結論</h2>
+<li><strong>雙位數成長動能明確</strong>：合勤控2026年營收預期受惠於Wi-Fi 7/8、50G PON等次世代技術升級、AI資安服務滲透，以及國防業務的穩定貢獻，法人預估年增10.5%至285.5億元。</li>
+<li><strong>獲利結構顯著優化</strong>：轉型至高附加價值產品與訂閱服務，推動毛利率持續走高，2025年Q4已達30.62%創近15年新高。搭配國防業務較高毛利，預期2026年EPS有望翻倍成長至3.6元，獲利能力大幅提升。</li>
+<li><strong>供應鏈韌性與市場擴張</strong>：越南新廠預計2026年下半年量產，將有效降低地緣政治風險，並滿足歐美客戶對非中國製造的需求，提升國際市場競爭力，為長期發展奠定基礎。</li>
+<li><strong>產業趨勢下的機會</strong>：受益於AI數據中心、5G普及、智慧家庭等對高速穩定網路的龐大需求，合勤控在關鍵技術上的領先布局，使其能抓住新一波網通產業的成長紅利。</li>
+<li><strong>目標價區間建議</strong>：考量公司2026年預估EPS達3.6元，若給予市場合理本益比區間13-15倍（介於網通產業平均與成長型公司評價之間），則目標價區間可落在<strong>新台幣46.8元至54元</strong>。建議投資人可在此區間內分批建立部位，並持續關注新產品出貨進度與國防標案得標狀況。</li>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:36</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="3704_合勤控_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="3704_合勤控_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="3704_合勤控_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3596 智易 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>3596 智易 深度研究報告</h1>
+
+<strong>今日日期：2026年03月06日</strong>
+
+<h2>一句話摘要</h2>
+<p>智易（3596）憑藉在Wi-Fi 7、5G FWA及10G PON等高階網通設備的領先佈局，成功抵銷零組件成本壓力，2025年營收與EPS雙雙創歷史新高。展望2026年，在電信客戶強勁的升級需求及AI應用擴展帶動下，公司營運有望再攀高峰，並透過產能優化及新市場拓展，強化長期成長動能。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">3596 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-3596" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-3596" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-3596');
+    var obvContainer = document.getElementById('obv-chart-3596');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 187.5, "high": 190.5, "low": 184.5, "close": 188.5}, {"time": "2025-12-05", "open": 188.0, "high": 188.0, "low": 182.5, "close": 183.0}, {"time": "2025-12-08", "open": 183.5, "high": 184.5, "low": 183.0, "close": 184.5}, {"time": "2025-12-09", "open": 183.5, "high": 184.5, "low": 182.5, "close": 182.5}, {"time": "2025-12-10", "open": 183.0, "high": 184.5, "low": 182.5, "close": 182.5}, {"time": "2025-12-11", "open": 184.0, "high": 184.0, "low": 181.5, "close": 182.5}, {"time": "2025-12-12", "open": 183.5, "high": 184.5, "low": 181.5, "close": 182.5}, {"time": "2025-12-15", "open": 182.0, "high": 183.5, "low": 180.5, "close": 181.0}, {"time": "2025-12-16", "open": 180.0, "high": 181.0, "low": 176.5, "close": 178.0}, {"time": "2025-12-17", "open": 180.5, "high": 183.5, "low": 178.5, "close": 179.5}, {"time": "2025-12-18", "open": 179.5, "high": 180.0, "low": 177.5, "close": 177.5}, {"time": "2025-12-19", "open": 178.0, "high": 180.5, "low": 177.5, "close": 180.5}, {"time": "2025-12-22", "open": 182.5, "high": 183.5, "low": 180.5, "close": 183.5}, {"time": "2025-12-23", "open": 186.0, "high": 186.0, "low": 180.5, "close": 181.0}, {"time": "2025-12-24", "open": 181.0, "high": 182.0, "low": 179.0, "close": 179.5}, {"time": "2025-12-26", "open": 180.0, "high": 180.5, "low": 178.0, "close": 178.0}, {"time": "2025-12-29", "open": 178.0, "high": 179.5, "low": 177.5, "close": 178.5}, {"time": "2025-12-30", "open": 178.0, "high": 178.0, "low": 175.0, "close": 175.5}, {"time": "2025-12-31", "open": 175.0, "high": 176.0, "low": 173.5, "close": 174.0}, {"time": "2026-01-02", "open": 176.0, "high": 177.5, "low": 174.5, "close": 174.5}, {"time": "2026-01-05", "open": 175.5, "high": 183.0, "low": 175.5, "close": 181.0}, {"time": "2026-01-06", "open": 182.0, "high": 182.0, "low": 176.0, "close": 178.0}, {"time": "2026-01-07", "open": 180.0, "high": 180.0, "low": 175.0, "close": 177.5}, {"time": "2026-01-08", "open": 178.0, "high": 178.0, "low": 172.0, "close": 172.0}, {"time": "2026-01-09", "open": 173.0, "high": 175.0, "low": 172.5, "close": 173.0}, {"time": "2026-01-12", "open": 175.5, "high": 177.5, "low": 174.0, "close": 177.0}, {"time": "2026-01-13", "open": 178.0, "high": 178.0, "low": 170.0, "close": 170.0}, {"time": "2026-01-14", "open": 172.0, "high": 176.5, "low": 172.0, "close": 174.5}, {"time": "2026-01-15", "open": 175.5, "high": 176.0, "low": 173.5, "close": 174.0}, {"time": "2026-01-16", "open": 175.5, "high": 176.5, "low": 172.5, "close": 173.0}, {"time": "2026-01-19", "open": 174.0, "high": 186.0, "low": 174.0, "close": 179.0}, {"time": "2026-01-20", "open": 182.0, "high": 187.5, "low": 178.5, "close": 181.0}, {"time": "2026-01-21", "open": 180.0, "high": 184.0, "low": 178.0, "close": 178.0}, {"time": "2026-01-22", "open": 179.5, "high": 187.0, "low": 179.5, "close": 184.0}, {"time": "2026-01-23", "open": 184.5, "high": 188.5, "low": 182.0, "close": 183.0}, {"time": "2026-01-26", "open": 183.5, "high": 186.0, "low": 181.0, "close": 181.0}, {"time": "2026-01-27", "open": 181.5, "high": 184.5, "low": 177.5, "close": 177.5}, {"time": "2026-01-28", "open": 178.0, "high": 181.5, "low": 178.0, "close": 179.0}, {"time": "2026-01-29", "open": 179.5, "high": 182.0, "low": 177.0, "close": 178.5}, {"time": "2026-01-30", "open": 177.5, "high": 182.0, "low": 176.5, "close": 179.5}, {"time": "2026-02-02", "open": 179.0, "high": 183.0, "low": 177.0, "close": 177.5}, {"time": "2026-02-03", "open": 180.0, "high": 185.0, "low": 179.0, "close": 180.5}, {"time": "2026-02-04", "open": 182.5, "high": 184.5, "low": 180.5, "close": 183.5}, {"time": "2026-02-05", "open": 181.0, "high": 182.5, "low": 178.0, "close": 178.0}, {"time": "2026-02-06", "open": 177.5, "high": 179.5, "low": 174.0, "close": 179.0}, {"time": "2026-02-09", "open": 181.0, "high": 184.5, "low": 179.0, "close": 183.0}, {"time": "2026-02-10", "open": 184.5, "high": 184.5, "low": 180.5, "close": 181.0}, {"time": "2026-02-11", "open": 181.0, "high": 185.0, "low": 180.0, "close": 184.0}, {"time": "2026-02-23", "open": 188.0, "high": 189.0, "low": 186.0, "close": 189.0}, {"time": "2026-02-24", "open": 189.0, "high": 190.5, "low": 186.5, "close": 189.0}, {"time": "2026-02-25", "open": 189.5, "high": 190.0, "low": 186.0, "close": 186.5}, {"time": "2026-02-26", "open": 190.0, "high": 202.5, "low": 189.0, "close": 197.0}, {"time": "2026-03-02", "open": 198.0, "high": 200.5, "low": 194.5, "close": 194.5}, {"time": "2026-03-03", "open": 198.0, "high": 204.0, "low": 194.5, "close": 200.0}, {"time": "2026-03-04", "open": 198.0, "high": 200.5, "low": 194.5, "close": 194.5}, {"time": "2026-03-05", "open": 200.0, "high": 207.0, "low": 199.0, "close": 201.0}, {"time": "2026-03-06", "open": 199.5, "high": 205.5, "low": 197.0, "close": 203.0}, {"time": "2026-03-09", "open": 193.0, "high": 197.5, "low": 191.0, "close": 197.0}, {"time": "2026-03-10", "open": 201.0, "high": 205.5, "low": 196.0, "close": 196.5}, {"time": "2026-03-11", "open": 197.5, "high": 205.5, "low": 197.5, "close": 204.5}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 773.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 721.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 318.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 309.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 287.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 383.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 314.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 368.0, "color": "#26a69a"}, {"time": "2025-12-16", "value": 637.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 543.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 576.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 418.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 337.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 385.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 204.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 344.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 224.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 441.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 268.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 418.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 1086.0, "color": "#ef5350"}, {"time": "2026-01-06", "value": 1056.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 570.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 1028.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 492.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 520.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 1217.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 945.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 470.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 483.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 1572.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 2108.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 1276.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 1968.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 1271.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 1140.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 1519.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 863.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 1044.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 1123.0, "color": "#ef5350"}, {"time": "2026-02-02", "value": 911.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 1059.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 862.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 1289.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 1110.0, "color": "#ef5350"}, {"time": "2026-02-09", "value": 1209.0, "color": "#ef5350"}, {"time": "2026-02-10", "value": 990.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 832.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 1303.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 1609.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 1130.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 4472.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 4204.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 4301.0, "color": "#ef5350"}, {"time": "2026-03-04", "value": 4204.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 3559.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 3435.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 2343.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 3368.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 2745.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 184.2}, {"time": "2025-12-11", "value": 183.0}, {"time": "2025-12-12", "value": 182.9}, {"time": "2025-12-15", "value": 182.2}, {"time": "2025-12-16", "value": 181.3}, {"time": "2025-12-17", "value": 180.7}, {"time": "2025-12-18", "value": 179.7}, {"time": "2025-12-19", "value": 179.3}, {"time": "2025-12-22", "value": 179.8}, {"time": "2025-12-23", "value": 180.4}, {"time": "2025-12-24", "value": 180.4}, {"time": "2025-12-26", "value": 180.5}, {"time": "2025-12-29", "value": 180.1}, {"time": "2025-12-30", "value": 178.5}, {"time": "2025-12-31", "value": 177.1}, {"time": "2026-01-02", "value": 176.1}, {"time": "2026-01-05", "value": 176.7}, {"time": "2026-01-06", "value": 176.6}, {"time": "2026-01-07", "value": 177.0}, {"time": "2026-01-08", "value": 176.6}, {"time": "2026-01-09", "value": 176.3}, {"time": "2026-01-12", "value": 175.5}, {"time": "2026-01-13", "value": 173.9}, {"time": "2026-01-14", "value": 173.3}, {"time": "2026-01-15", "value": 173.7}, {"time": "2026-01-16", "value": 173.7}, {"time": "2026-01-19", "value": 174.1}, {"time": "2026-01-20", "value": 176.3}, {"time": "2026-01-21", "value": 177.0}, {"time": "2026-01-22", "value": 179.0}, {"time": "2026-01-23", "value": 181.0}, {"time": "2026-01-26", "value": 181.4}, {"time": "2026-01-27", "value": 180.7}, {"time": "2026-01-28", "value": 180.9}, {"time": "2026-01-29", "value": 179.8}, {"time": "2026-01-30", "value": 179.1}, {"time": "2026-02-02", "value": 178.4}, {"time": "2026-02-03", "value": 179.0}, {"time": "2026-02-04", "value": 179.9}, {"time": "2026-02-05", "value": 179.8}, {"time": "2026-02-06", "value": 179.7}, {"time": "2026-02-09", "value": 180.8}, {"time": "2026-02-10", "value": 180.9}, {"time": "2026-02-11", "value": 181.0}, {"time": "2026-02-23", "value": 183.2}, {"time": "2026-02-24", "value": 185.2}, {"time": "2026-02-25", "value": 185.9}, {"time": "2026-02-26", "value": 189.1}, {"time": "2026-03-02", "value": 191.2}, {"time": "2026-03-03", "value": 193.4}, {"time": "2026-03-04", "value": 194.5}, {"time": "2026-03-05", "value": 197.4}, {"time": "2026-03-06", "value": 198.6}, {"time": "2026-03-09", "value": 199.1}, {"time": "2026-03-10", "value": 198.4}, {"time": "2026-03-11", "value": 200.4}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 182.45}, {"time": "2025-12-18", "value": 181.35}, {"time": "2025-12-19", "value": 181.1}, {"time": "2025-12-22", "value": 181.0}, {"time": "2025-12-23", "value": 180.85}, {"time": "2025-12-24", "value": 180.55}, {"time": "2025-12-26", "value": 180.1}, {"time": "2025-12-29", "value": 179.7}, {"time": "2025-12-30", "value": 179.15}, {"time": "2025-12-31", "value": 178.75}, {"time": "2026-01-02", "value": 178.25}, {"time": "2026-01-05", "value": 178.6}, {"time": "2026-01-06", "value": 178.35}, {"time": "2026-01-07", "value": 177.75}, {"time": "2026-01-08", "value": 176.85}, {"time": "2026-01-09", "value": 176.2}, {"time": "2026-01-12", "value": 176.1}, {"time": "2026-01-13", "value": 175.25}, {"time": "2026-01-14", "value": 175.15}, {"time": "2026-01-15", "value": 175.15}, {"time": "2026-01-16", "value": 175.0}, {"time": "2026-01-19", "value": 174.8}, {"time": "2026-01-20", "value": 175.1}, {"time": "2026-01-21", "value": 175.15}, {"time": "2026-01-22", "value": 176.35}, {"time": "2026-01-23", "value": 177.35}, {"time": "2026-01-26", "value": 177.75}, {"time": "2026-01-27", "value": 178.5}, {"time": "2026-01-28", "value": 178.95}, {"time": "2026-01-29", "value": 179.4}, {"time": "2026-01-30", "value": 180.05}, {"time": "2026-02-02", "value": 179.9}, {"time": "2026-02-03", "value": 179.85}, {"time": "2026-02-04", "value": 180.4}, {"time": "2026-02-05", "value": 179.8}, {"time": "2026-02-06", "value": 179.4}, {"time": "2026-02-09", "value": 179.6}, {"time": "2026-02-10", "value": 179.95}, {"time": "2026-02-11", "value": 180.45}, {"time": "2026-02-23", "value": 181.5}, {"time": "2026-02-24", "value": 182.45}, {"time": "2026-02-25", "value": 183.35}, {"time": "2026-02-26", "value": 185.0}, {"time": "2026-03-02", "value": 186.1}, {"time": "2026-03-03", "value": 188.3}, {"time": "2026-03-04", "value": 189.85}, {"time": "2026-03-05", "value": 191.65}, {"time": "2026-03-06", "value": 193.85}, {"time": "2026-03-09", "value": 195.15}, {"time": "2026-03-10", "value": 195.9}, {"time": "2026-03-11", "value": 197.45}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 180.35}, {"time": "2026-01-05", "value": 179.975}, {"time": "2026-01-06", "value": 179.725}, {"time": "2026-01-07", "value": 179.375}, {"time": "2026-01-08", "value": 178.85}, {"time": "2026-01-09", "value": 178.375}, {"time": "2026-01-12", "value": 178.1}, {"time": "2026-01-13", "value": 177.475}, {"time": "2026-01-14", "value": 177.15}, {"time": "2026-01-15", "value": 176.95}, {"time": "2026-01-16", "value": 176.625}, {"time": "2026-01-19", "value": 176.7}, {"time": "2026-01-20", "value": 176.725}, {"time": "2026-01-21", "value": 176.45}, {"time": "2026-01-22", "value": 176.6}, {"time": "2026-01-23", "value": 176.775}, {"time": "2026-01-26", "value": 176.925}, {"time": "2026-01-27", "value": 176.875}, {"time": "2026-01-28", "value": 177.05}, {"time": "2026-01-29", "value": 177.275}, {"time": "2026-01-30", "value": 177.525}, {"time": "2026-02-02", "value": 177.35}, {"time": "2026-02-03", "value": 177.475}, {"time": "2026-02-04", "value": 177.775}, {"time": "2026-02-05", "value": 178.075}, {"time": "2026-02-06", "value": 178.375}, {"time": "2026-02-09", "value": 178.675}, {"time": "2026-02-10", "value": 179.225}, {"time": "2026-02-11", "value": 179.7}, {"time": "2026-02-23", "value": 180.45}, {"time": "2026-02-24", "value": 181.25}, {"time": "2026-02-25", "value": 181.625}, {"time": "2026-02-26", "value": 182.425}, {"time": "2026-03-02", "value": 183.25}, {"time": "2026-03-03", "value": 184.05}, {"time": "2026-03-04", "value": 184.625}, {"time": "2026-03-05", "value": 185.625}, {"time": "2026-03-06", "value": 186.9}, {"time": "2026-03-09", "value": 187.8}, {"time": "2026-03-10", "value": 188.7}, {"time": "2026-03-11", "value": 189.95}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -721.0}, {"time": "2025-12-08", "value": -403.0}, {"time": "2025-12-09", "value": -712.0}, {"time": "2025-12-10", "value": -712.0}, {"time": "2025-12-11", "value": -712.0}, {"time": "2025-12-12", "value": -712.0}, {"time": "2025-12-15", "value": -1080.0}, {"time": "2025-12-16", "value": -1717.0}, {"time": "2025-12-17", "value": -1174.0}, {"time": "2025-12-18", "value": -1750.0}, {"time": "2025-12-19", "value": -1332.0}, {"time": "2025-12-22", "value": -995.0}, {"time": "2025-12-23", "value": -1380.0}, {"time": "2025-12-24", "value": -1584.0}, {"time": "2025-12-26", "value": -1928.0}, {"time": "2025-12-29", "value": -1704.0}, {"time": "2025-12-30", "value": -2145.0}, {"time": "2025-12-31", "value": -2413.0}, {"time": "2026-01-02", "value": -1995.0}, {"time": "2026-01-05", "value": -909.0}, {"time": "2026-01-06", "value": -1965.0}, {"time": "2026-01-07", "value": -2535.0}, {"time": "2026-01-08", "value": -3563.0}, {"time": "2026-01-09", "value": -3071.0}, {"time": "2026-01-12", "value": -2551.0}, {"time": "2026-01-13", "value": -3768.0}, {"time": "2026-01-14", "value": -2823.0}, {"time": "2026-01-15", "value": -3293.0}, {"time": "2026-01-16", "value": -3776.0}, {"time": "2026-01-19", "value": -2204.0}, {"time": "2026-01-20", "value": -96.0}, {"time": "2026-01-21", "value": -1372.0}, {"time": "2026-01-22", "value": 596.0}, {"time": "2026-01-23", "value": -675.0}, {"time": "2026-01-26", "value": -1815.0}, {"time": "2026-01-27", "value": -3334.0}, {"time": "2026-01-28", "value": -2471.0}, {"time": "2026-01-29", "value": -3515.0}, {"time": "2026-01-30", "value": -2392.0}, {"time": "2026-02-02", "value": -3303.0}, {"time": "2026-02-03", "value": -2244.0}, {"time": "2026-02-04", "value": -1382.0}, {"time": "2026-02-05", "value": -2671.0}, {"time": "2026-02-06", "value": -1561.0}, {"time": "2026-02-09", "value": -352.0}, {"time": "2026-02-10", "value": -1342.0}, {"time": "2026-02-11", "value": -510.0}, {"time": "2026-02-23", "value": 793.0}, {"time": "2026-02-24", "value": 793.0}, {"time": "2026-02-25", "value": -337.0}, {"time": "2026-02-26", "value": 4135.0}, {"time": "2026-03-02", "value": -69.0}, {"time": "2026-03-03", "value": 4232.0}, {"time": "2026-03-04", "value": 28.0}, {"time": "2026-03-05", "value": 3587.0}, {"time": "2026-03-06", "value": 7022.0}, {"time": "2026-03-09", "value": 4679.0}, {"time": "2026-03-10", "value": 1311.0}, {"time": "2026-03-11", "value": 4056.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>智易科技（3596）是一家專業的網通設備研發與製造商，主要客戶為全球電信營運商。</p>
+
+<strong>核心產品與業務範圍：</strong>
+<ul><li><strong>寬頻固網產品：</strong> xDSL、多功能整合接取裝置（IAD）、PON用戶端設備、Cable Modem、Wi-Fi路由器與Wi-Fi延伸器。主要應用於光纖到府（FTTH）與有線電視網路（Cable）架構。</li>
+<li><strong>智慧家庭產品：</strong> Wi-Fi 6/6E Gateway、Extender、Wi-Fi Module、Android STB/IP STB。提供家庭無線網路解決方案與物聯網裝置整合應用。</li>
+<li><strong>行動通訊網路產品：</strong> 5G NR終端網路接取設備（5G FWA）、相關天線模組、小型基地台（Small Cell）及智慧家庭物聯網應用。</li>
+<li><strong>企業市場佈局：</strong> 積極開發企業級資安交換器，期望從家用市場跨入高附加價值的企業市場。</li>
+</ul>
+<strong>營收結構（依產品線，2025年）：</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>產品線</th><th>2025年第三季營收佔比</th><th>2025/2026年趨勢 (法人預估)</th></tr></thead><tbody>
+<tr><td>智慧家庭產品</td><td>46%</td><td>穩定成長</td></tr>
+<tr><td>行動通訊產品</td><td>36%</td><td>穩定成長</td></tr>
+<tr><td>寬頻固網產品</td><td>18%</td><td>成長最快，預計2025/2026年將超過25%</td></tr>
+</tbody></table></div>
+
+<strong>製造基地：</strong>
+<p>主要生產基地為<strong>越南</strong>，並持續提升生產效率與智慧化程度。越南二期廠已完成大幅擴充，公司現階段以優化既有產能為主，未來計畫優先提升生產效率，包含產線AI智慧化與人員效率改善。公司會依客戶需求調整區域生產配置，並在評估其他地區的生產據點。</p>
+
+<h2>核心競爭優勢</h2>
+<li><strong>領先的Wi-Fi 7技術佈局：</strong> 2025年Wi-Fi 7出貨佔比已近3成，優於產業平均，且相關專案效益預計在2026年持續顯現，將顯著帶動產品ASP與毛利率提升（較Wi-Fi 6產品單價增加10-15%）。</li>
+<li><strong>5G FWA市場領導地位：</strong> 作為北美龍頭電信商（如T-Mobile、Verizon）5G FWA CPE的重要供應商，並積極拓展至歐洲與亞洲市場，掌握快速成長的FWA商機。</li>
+<li><strong>高附加價值產品組合：</strong> 積極佈局10G PON光纖網路升級、Edge AI及企業級交換器等高階產品，優化產品結構並提升獲利能力。</li>
+<li><strong>穩健的財務表現與成本轉嫁能力：</strong> 2025年營收、獲利、EPS及股利連續多年創新高，且成功將記憶體漲價成本轉嫁客戶，展現強勁的營運韌性。</li>
+<li><strong>多元化客戶與市場策略：</strong> 透過出貨歐洲與亞洲電信商，有效分散市場風險，並藉由越南廠區強化全球供應鏈彈性。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>22026年1月</td><td>42.33</td><td>N/A</td><td>7.43%</td></tr>
+<tr><td>22025年12月</td><td>42.08</td><td>-2.96%</td><td>5.0%</td></tr>
+<tr><td>22025年11月</td><td>(未提供)</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>22025年10月</td><td>(未提供)</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>22025年9月</td><td>(未提供)</td><td>N/A</td><td>N/A</td></tr>
+<tr><td>22025年8月</td><td>(未提供)</td><td>N/A</td><td>N/A</td></tr>
+</tbody></table></div>
+
+<strong>註：</strong> 2025年第四季營收為新台幣130億元；2025年第三季營收為新台幣138.08億元。
+
+<h3>最新季度與年度數據</h3>
+<ul><li><strong>2025年第四季：</strong></li>
+</ul>    *   季營收：新台幣130億元
+<p>*   毛利率：15.29%</p>
+<p>*   營業利益率：6.31%</p>
+<p>*   EPS：3.08元</p>
+<ul><li><strong>2025年全年（實際）：</strong></li>
+</ul>    *   營收：新台幣529.76億元，年增8.2%
+<p>*   稅後淨利：27.77億元，年增11.7%</p>
+<p>*   EPS：12.6元，連續八年創歷史新高</p>
+<ul><li><strong>2024年全年（實際）：</strong></li>
+</ul>    *   營收：新台幣490.52億元 (依2025年營收年增8.2%推算)
+<p>*   EPS：11.28元</p>
+<ul><li><strong>2026年預估EPS：</strong></li>
+</ul>    *   CMoney (2026年3月3日)：新台幣13.45～13.81元
+<p>*   本土金控投顧 (2025年12月19日)：新台幣17.1元</p>
+<p>*   FactSet (2025年11月3日，中位數)：新台幣15.13元</p>
+
+<h2>法說會重點</h2>
+<strong>最近一次法說會：</strong>
+<ul><li>2026年3月2日：富邦證券舉辦之「智易2025 Q4線上法人說明會」</li>
+<li>2026年3月4日：統一證券舉辦之「2026 Q1 春季投資論壇」</li>
+</ul>
+<strong>管理層發言與 guidance：</strong>
+<ul><li><strong>2026年展望：</strong> 公司對2026年展望保持正向，預期在Wi-Fi 7升級週期及低成本AI應用擴展帶動下，三大產品線（寬頻固網、無線網路、智慧家庭應用）將持續成長，法人看好智易2026年營收與獲利有機會續創新高。</li>
+<li><strong>Wi-Fi 7專案：</strong> 智易於2025年已與客戶共同開發多項Wi-Fi 7相關專案，預計效益將在2026年持續顯現。電信營運商客戶庫存水位健康，並積極推出Wi-Fi 7新規產品。</li>
+<li><strong>產能與效率：</strong> 智易以越南為主要生產基地，越南二期廠已完成擴充，公司將優先提升生產效率，包含產線AI智慧化與人員效率改善。</li>
+<li><strong>成本轉嫁：</strong> 面對記憶體價格上漲，公司將依慣例與客戶協商調價，同時透過規格優化與提前備料降低衝擊。多數客戶已接受調價，現有庫存足以支應至第一季底。</li>
+</ul>
+<strong>資本支出與產能利用率：</strong>
+<ul><li>未提供2025-2026年具體的產能利用率和資本支出金額數據，但越南二期廠擴充與AI智慧化產線導入，顯示持續有資本投入。</li>
+</ul>
+<h2>券商觀點</h2>
+<h3>目標價彙整</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>FactSet (中位數)</td><td>240</td><td>N/A</td><td>2026年3月4日</td></tr>
+<tr><td>國泰</td><td>215</td><td>看多</td><td>2025年12月16日</td></tr>
+<tr><td>本土金控投顧</td><td>291</td><td>買進</td><td>2025年12月19日</td></tr>
+</tbody></table></div>
+
+<h3>2025-2026年EPS預估</h3>
+<ul><li><strong>2025年EPS預估：</strong></li>
+</ul>    *   FactSet (綜合7位分析師，2025年11月3日)：中位數12.63元
+<p>*   國泰 (2025年12月16日)：約12.57元</p>
+<p>*   本土金控投顧 (2025年12月19日)：12.38元</p>
+<p>*   <strong>實際EPS (2025年)：12.6元</strong></p>
+<ul><li><strong>2026年EPS預估：</strong></li>
+</ul>    *   本土金控投顧 (2025年12月19日)：17.1元
+<p>*   CMoney (綜合2家券商，2026年3月3日)：13.45～13.81元</p>
+<p>*   FactSet (綜合7位分析師，2025年11月3日)：中位數15.13元 (最高值16.94元，最低值13.43元)</p>
+
+<strong>近期評等調整：</strong>
+<ul><li>FactSet於2026年3月4日將目標價中位數由220元上修至240元，顯示分析師看法正向調整。</li>
+</ul>
+<h2>財報深度分析</h2>
+<h3>利潤率趨勢</h3>
+<p>智易2025年實現「三率三升」（毛利率、營業利益率、稅後淨利率均提升）的良好態勢。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>指標</th><th>2025年第四季</th><th>2025年全年</th><th>2025年全年 vs. 2024年變動</th><th>主要原因</th></tr></thead><tbody>
+<tr><td>毛利率</td><td>15.29%</td><td>15.3%</td><td>年增0.2個百分點</td><td>產品規格升級、規模經濟效益，抵銷記憶體漲價壓力</td></tr>
+<tr><td>營業利益率</td><td>6.31%</td><td>6.6%</td><td>年增0.4個百分點</td><td>產品規格升級、規模經濟效益</td></tr>
+<tr><td>稅後淨利率</td><td>5.23%</td><td>5.2%</td><td>年增0.1個百分點</td><td>產品規格升級、規模經濟效益</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化分析：</strong>
+<p>2025年整體利潤率提升主要受惠於Wi-Fi 7等高規格產品出貨比重提升，其單價較Wi-Fi 6產品增加10-15%，有助於優化產品組合和提升平均售價。儘管記憶體價格上漲構成壓力，公司成功透過產品組合優化和成本轉嫁策略維持並提升獲利能力。</p>
+
+<h3>存貨分析</h3>
+<ul><li><strong>2025年第四季存貨淨額：</strong> 145億元，較前一季小幅增加6億元。</li>
+<li><strong>原因：</strong> 主要為因應客戶對記憶體等零組件的提前備貨指示，以及為農曆春節期間順利出貨所做的準備。</li>
+<li><strong>評估：</strong> 公司認為存貨水準健康且可控。</li>
+</ul>
+<h3>資本支出與產能</h3>
+<ul><li><strong>資本支出金額與趨勢：</strong> 未找到2024-2026年具體的最新數據。</li>
+<li><strong>未來資本支出計畫與預計新增產能：</strong> 越南二期廠已完成擴充，公司未來將優先投入提升生產效率，包含產線AI智慧化與人員效率改善。其他地區的生產據點評估中。</li>
+<li><strong>折舊攤銷趨勢：</strong> 未找到2024-2026年具體數據。</li>
+</ul>
+<h3>其他財務重點</h3>
+<ul><li><strong>現金部位：</strong> 截至2025年第四季，現金及約當現金加上定存合計約136億元，公司維持強勁的淨現金部位。</li>
+<li><strong>每股淨值：</strong> 截至2025年12月31日，每股淨值為76.9元。</li>
+<li><strong>負債比率與自由現金流量：</strong> 未找到2024-2026年具體數據。</li>
+</ul>
+<h2>股權異動</h2>
+<ul><li><strong>股利政策：</strong> 董事會決議2025年度每股配發現金股利9元，配發率約71%。股利金額連續七年創歷史新高。以2026年3月2日收盤價195元計算，殖利率約4.6%。</li>
+<li><strong>庫藏股買回紀錄：</strong> 未找到2024-2026年最新資料。</li>
+<li><strong>董監事/大股東申報轉讓紀錄：</strong> 未找到2024-2026年最新資料。</li>
+<li><strong>可轉換公司債 (CB) 發行紀錄：</strong> 未找到2024-2026年最新資料。</li>
+<li><strong>現金增資或減資計畫：</strong> 未找到2024-2026年最新資料。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>市場規模和 CAGR 成長率</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>產業細分</th><th>參考市場規模與CAGR</th></tr></thead><tbody>
+<tr><td><strong>網路基礎設施</strong></td><td>2024年2,487.8億美元 → 2025年2,666.1億美元 → 2026年2,857.3億美元。預計2035年達5,328.6億美元，CAGR 7.17%。</td></tr>
+<tr><td><strong>寬頻網路服務</strong></td><td>2024年4,024.8億美元 → 2025年4,184.3億美元 (CAGR 4.0%)。預計2029年達4,985.2億美元，CAGR 4.5%。</td></tr>
+<tr><td><strong>全球通信設備</strong></td><td>2024年7,478.9億美元 → 2032年1兆330.3億美元 (2025-2032年CAGR 4.12%)。其中寬頻接取產品2024年佔34.2%。移動通信設備市場2025年約1兆2216億美元，預計2026-2031年CAGR約4%。</td></tr>
+<tr><td><strong>乙太網路交換器</strong></td><td>2025年372.5億美元 → 2030年549.6億美元 (CAGR 8.09%)。</td></tr>
+<tr><td><strong>智慧家庭</strong></td><td>2025年1,475.2億美元 → 2026年1,801.2億美元。預計2026-2034年CAGR 21.40%。另有預測2026年達1,785億美元。Technavio預計2025-2030年成長980.161億美元，CAGR 20.6%。</td></tr>
+<tr><td><strong>5G FWA</strong></td><td>2025年576億美元 → 2035年1,661億美元 (2026-2035年CAGR 40%)。2026年預計規模806億美元。TrendForce預估2025年年增33%達720億美元。2024年CPE出貨量3,700萬台，年增23%。預計到2026年，FWA CPE總出貨量每年以25%增長。</td></tr>
+</tbody></table></div>
+
+<h3>供需狀況</h3>
+<ul><li><strong>總體網通設備：</strong> 全球電信流量爆炸式增長，但ARPU持平，促使業者尋求AI成本控制。電信業者資本支出佔收入比例預計將從2024年的22.9%微幅回升。</li>
+<li><strong>5G FWA：</strong> 5G FWA為5G最成功的商業應用，部署成本低於光纖。全球5G FWA連接數將從2024年的1.6億戶成長至2030年的3.5億戶。</li>
+<li><strong>寬頻固網：</strong> 美國BEAD計畫訂單可能延遲至2027年，但私人資本（如AT&amp;T）驅動的光纖建設依然強勁。</li>
+<li><strong>家用Wi-Fi：</strong> 家用路由器市場需求尚未完全復甦。Wi-Fi 7產品因價格較高且與前代產品差異不大，目前用戶仍以Wi-Fi 6/6E為主。預計2025年下半年平價機種上市後將帶動買氣。</li>
+</ul>
+<h3>產業的平均毛利率水準</h3>
+<p>網通設備產業平均毛利率數據較難取得。作為參考，網路設備大廠Arista Networks 2026全年毛利率指引維持在62%至64%。達發科技2025年第四季毛利率為53.6%。這些為個別公司數據，不代表產業平均。</p>
+
+<h3>競爭格局</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>智易 (3596)</th><th>台灣主要競爭對手</th><th>全球主要廠商 (參考)</th></tr></thead><tbody>
+<tr><td><strong>產品/市場</strong></td><td>寬頻固網、智慧家庭、行動通訊、企業級資安交換器</td><td>中磊 (5388, CPE北美市場)；啟碁 (6285, 直供美國); 智邦 (2345, 高速交換器); 達發科技 (6526, 晶片)</td><td>Huawei, Nokia, Samsung, ZTE, Ciena, Juniper (通訊設備)；Honeywell, ABB, Siemens, Alphabet (智慧家庭)</td></tr>
+<tr><td><strong>FWA市場策略</strong></td><td>2022年起出貨歐洲與亞洲電信商，分散風險。</td><td>中磊 CPE主要出貨美國電信商。</td><td>ZTE (5G FWA &amp; MBB全球市佔第一)。</td></tr>
+<tr><td><strong>技術/產能/價格</strong></td><td>越南為主要生產基地，導入AI智慧化產線。</td><td>(缺乏詳細量化比較數據)</td><td>(缺乏詳細量化比較數據)</td></tr>
+<tr><td><strong>2026年1月營收</strong></td><td>42.33億元 (YoY +7.43%)</td><td>中磊：51.8億元 (YoY +32.9%)</td><td>(未提供直接比較)</td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢</h3>
+<li><strong>AI與網通設備深度融合 (AI-driven Networking)：</strong></li>
+<p>*   <strong>影響：</strong> AI革命帶動數據中心對800G/1.6T交換器等高速網路設備的強勁需求。網通產業成為支撐生成式AI的神經系統。智慧家庭產品也將深度嵌入AI，實現情境感知。</p>
+<li><strong>Wi-Fi 7 (802.11be) 普及：</strong></li>
+<p>*   <strong>影響：</strong> Wi-Fi 7將成為未來數年企業級市場網絡更新換代的驅動力。家用市場預計在2025年下半年平價機種上市後，帶動新一波換機潮。Wi-Fi 7支援MLO和320MHz頻寬，有助於XR、智慧家庭等應用。</p>
+<li><strong>5G 固定無線接入 (FWA) 的快速成長：</strong></li>
+<p>*   <strong>影響：</strong> 5G FWA已成為5G最成功的商業應用，為電信業者「利用餘裕頻寬進行變現」的極佳手段。部署成本遠低於光纖，成為寬頻普及核心動力。全球連接數預計從2024年的1.6億戶成長至2030年的3.5億戶。</p>
+<li><strong>光纖到戶 (FTTH) 的持續部署：</strong></li>
+<p>*   <strong>影響：</strong> 全球固定寬頻用戶中光纖接取比例已從2015年的34%提升至2024年的72%。美國私人資本驅動的光纖建設仍強勁，例如AT&amp;T計劃到2030年將光纖覆蓋點擴展至6,000萬個。</p>
+
+<h3>對智易的具體機會和威脅</h3>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>5G FWA市場成長：</strong> 受惠於全球5G FWA連接數快速增長。
+<p>*   <strong>多元化市場策略：</strong> 出貨歐洲與亞洲電信商，分散市場風險，拓展新增長點。</p>
+<p>*   <strong>Wi-Fi 7升級潮：</strong> 隨著平價機種普及，帶動家用與企業級Wi-Fi產品換機潮。</p>
+<p>*   <strong>智慧家庭市場擴大：</strong> AI嵌入式智慧功能與全屋互聯趨勢，符合智易產品發展方向。</p>
+<p>*   <strong>AI驅動網路升級：</strong> 間接受益於AI對高速網路基礎設施的強勁需求。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>美國BEAD計畫進度延後：</strong> 實質訂單流入可能推遲到2027年。
+<p>*   <strong>家用路由器市場觀望：</strong> Wi-Fi 7平價機種上市前的觀望期可能影響出貨量。</p>
+<p>*   <strong>激烈市場競爭：</strong> 網通設備市場競爭激烈，特別是來自中國品牌。</p>
+<p>*   <strong>電信商資本支出轉向：</strong> 資本支出重心轉向AI和數據中心基礎設施，可能影響傳統網通產品採購。</p>
+<p>*   <strong>記憶體價格波動：</strong> 記憶體價格高漲可能影響毛利率，但公司已成功轉嫁部分成本。</p>
+
+<h3>相關投資題材的具體連結</h3>
+<ul><li><strong>AI (人工智慧)：</strong> 網通設備是AI基礎設施的重要組成，AI革命拉動對高速網路設備需求。智易產品為AI數據傳輸提供底層網路支持，間接受益於AI基礎設施投資。其智慧家庭產品中AI功能日益普及，亦為新商機。</li>
+<li><strong>HBM (高頻寬記憶體) 和 電動車：</strong> 目前未發現智易與HBM或電動車產業有直接產品或業務連結，公司核心業務仍聚焦於網通設備。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<h3>利多事件清單 (2025年12月 - 2026年3月)</h3>
+<ul><li><strong>2026年3月3日：</strong> 財訊快報報導，AI驅動Wi-Fi 7升級及應用擴大，智易2026年營運有望再創新高。公司「三率三升」主因產品規格升級與規模經濟，成功抵銷記憶體漲價壓力。</li>
+<li><strong>2026年3月2日：</strong> 舉行2025年第四季線上法人說明會，公告2025年全年營收達新台幣529.76億元（年增8%），EPS達12.6元（連八年創歷史新高）。董事會決議2025年度每股配發現金股利9元（配發率約71%），連七年創歷史新高。</li>
+<li><strong>2026年2月26日：</strong> 獲利創新高激勵，股價開高走高，創近4個月新高。</li>
+<li><strong>2026年2月25日：</strong> 董事會通過2025年財報，稅後純益27.77億元（年增11.7%）。將於MWC 2026展出Edge AI及企業級交換器等新產品，積極爭取新訂單。</li>
+<li><strong>2026年2月9日：</strong> 傳出成功將記憶體漲價成本轉嫁給客戶，緩解毛利率壓力。公司表示多數客戶已接受調價，且現有庫存可支應至第一季底。</li>
+<li><strong>2026年2月6日：</strong> 2026年1月營收達新台幣42.33億元，年增7.43%，顯示核心業務動能穩健。</li>
+<li><strong>2026年1月8日：</strong> 2025年12月營收新台幣42.08億元，累計全年營收新台幣529.76億元，年增8.2%。</li>
+<li><strong>長期動能：</strong> 法人看好智易訂單能見度直達2026上半年，受惠歐洲光纖復甦及升級需求，伴隨北美有線電視客戶新產品出貨，成為下半年及明年營運持續成長主要動能。</li>
+<li><strong>榮譽獎項：</strong> 2025年獲得「外資精選台灣100強」及「FinanceAsia ASIA'S BEST COMPANIES 2025 Best Mid Cap Company 銀牌」等ESG獎項。</li>
+</ul>
+<h3>利空事件清單 (2025年12月 - 2026年3月)</h3>
+<ul><li><strong>2026年3月4日：</strong> 2025年第四季財務報告與第三季相比，部分關鍵財務指標呈現季度性下滑，顯示獲利能力有所承壓。</li>
+<li><strong>2026年3月2日：</strong> 法說會內容指出，2026年第一季展望略低於預期，短期毛利率仍受記憶體漲價影響。</li>
+<li><strong>2026年3月3日：</strong> 近三個月（2025年12月至2026年3月3日）外資與投信呈現淨賣超，其中2026年3月3日外資賣超1,453張，投信買超15張，自營（自買）買超161張，總計三大法人賣超1,303張。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+<ul><li><strong>擴廠計畫：</strong></li>
+</ul>    *   <strong>越南二期廠 (已完成擴充)：</strong> 公司現階段以優化既有產能為主，優先提升生產效率，包含產線AI智慧化與人員效率改善（<strong>2026年</strong>）。
+<p>*   <strong>未來五年成長空間 (2025年11月)：</strong> 越南廠區提供了未來五年成長所需的彈性空間。</p>
+<p>*   <strong>其他生產據點 (評估中)：</strong> 會依客戶需求調整區域生產配置，並在評估其他地區的生產據點（<strong>2026年</strong>）。</p>
+<ul><li><strong>新客戶/新市場：</strong></li>
+</ul>    *   <strong>持續掌握 (2026年)：</strong> 持續掌握新客戶、新產品商機。
+<p>*   <strong>新企業/家用網通客戶 (2026年3月)：</strong> 帶來長遠貢獻值得期待。</p>
+<p>*   <strong>跨入企業市場 (2025年11月)：</strong> 正悄然佈局，準備從家用市場跨入利潤更豐厚的企業市場心臟地帶，包括深化5G FWA應用及企業級資安交換器。</p>
+<p>*   <strong>拓展歐洲與亞洲市場 (2025年7月)：</strong> 積極拓展FWA領域。</p>
+<ul><li><strong>產能擴充：</strong></li>
+</ul>    *   <strong>越南二期廠 (已完成)：</strong> 完成擴充後，將優先提升生產效率並導入AI智慧化生產（<strong>2025年11月</strong>）。
+<ul><li><strong>需求面：</strong></li>
+</ul>    *   <strong>Wi-Fi 7 升級週期 (2026年持續顯現)：</strong> 電信營運商客戶庫存水位健康，積極推出Wi-Fi 7新規產品。公司於<strong>2025年</strong>已與客戶共同開發多項Wi-Fi 7相關專案，預計效益在<strong>2026年</strong>持續顯現。低成本AI帶動邊緣運算傳輸需求，拓展Wi-Fi 7應用場景。
+<p>*   <strong>寬頻固網 (2025年起導入，2025/2026成長最快)：</strong> 歐洲光纖寬頻升級（導入10G PON與Wi-Fi 7）與北美Cable產品線擴展（新產品開始放量出貨），預計在<strong>2025年</strong>與<strong>2026年</strong>將成為成長最快的產品線。</p>
+<p>*   <strong>5G FWA (2025年7月起拓展)：</strong> 作為北美龍頭電信商（如T-Mobile和Verizon）5G FWA CPE重要供應商，並逐步拓展至歐洲與亞洲市場。Verizon預期在<strong>2025年底前</strong>，FWA用戶將達到500萬戶；T-Mobile截至<strong>2025年第二季底</strong>，其「5G Home Internet」用戶已達640萬戶，年增140萬戶。</p>
+<p>*   <strong>智慧家庭 (2026年增長動能重現)：</strong> 隨著Wi-Fi 7滲透率逐漸提高，預計<strong>2026年</strong>增長動能可望重新出現（<strong>2025年7月</strong>）。</p>
+
+<h2>2026 展望</h2>
+<p>智易對2026年營運維持樂觀看法，預期營收與獲利有望再創新高。</p>
+
+<h3>成長動能</h3>
+<li><strong>Wi-Fi 7升級週期驅動：</strong> 公司在2025年Wi-Fi 7出貨佔比已達30%，相關專案效益將在2026年持續顯現，帶動產品ASP與毛利率提升（較Wi-Fi 6產品單價增加10-15%）。</li>
+<li><strong>低成本AI應用擴展：</strong> 終端AI（On-device AI）運算擴大邊緣與終端傳輸需求，進而拓展Wi-Fi 7應用場景，為三大產品線帶來持續商機。</li>
+<li><strong>寬頻固網產品線強勁成長：</strong> 受惠於歐洲10G PON光纖網路部署與北美Cable產品線新產品出貨放量，預計將成為2026年成長最快的產品線。</li>
+<li><strong>5G FWA市場持續擴張：</strong> 作為主要供應商，將受惠於全球5G FWA連接數從2024年的1.6億戶大幅成長至2030年的3.5億戶。</li>
+<li><strong>高附加價值產品組合優化：</strong> 積極佈局Edge AI及企業級交換器，提升整體獲利結構。</li>
+
+<h3>風險因子</h3>
+<li><strong>記憶體價格波動：</strong> 記憶體（DDR4）價格高漲可能對2026年毛利率構成壓力。儘管公司已成功轉嫁部分成本，但若漲幅超預期，仍可能影響獲利。</li>
+<li><strong>全球總體經濟不確定性：</strong> 全球經濟與地緣政治風險，包括貿易關稅政策，可能影響電信商資本支出及消費性電子市場需求。不過，智易銷往美國的Wi-Fi 7路由器、PON光纖及GSW產品目前均列入關稅豁免清單，維持免關稅優勢。</li>
+<li><strong>消費性電子市場週期性波動：</strong> 家用路由器市場需求尚未完全復甦，Wi-Fi 7平價機種上市前的觀望期可能影響短期出貨量。</li>
+
+<strong>2026年量化展望：</strong>
+<ul><li><strong>營收預估：</strong> FactSet分析師預估中位數為新台幣580.795億元 (最高值606.08億元，最低值566.49億元)。</li>
+<li><strong>EPS預估：</strong> FactSet分析師預估中位數為新台幣15.13元 (最高值16.94元，最低值13.43元)。</li>
+</ul>
+<h2>投資結論</h2>
+<p>綜合以上分析，智易（3596）在網通產業的數個關鍵趨勢中（Wi-Fi 7、5G FWA、AI應用、光纖升級）均佔據有利位置，且擁有穩健的財務體質和成本轉嫁能力。儘管記憶體成本和總經不確定性構成潛在風險，但其核心成長動能明確。</p>
+
+<li><strong>高階產品週期啟動，營收與獲利有望再創新高：</strong> 智易在Wi-Fi 7與10G PON等高階產品線的領先佈局，將帶動產品組合優化、ASP提升及毛利率改善。法人預期2026年營收有望挑戰新台幣580億元以上，EPS有望達到新台幣15元以上。</li>
+<li><strong>多元化市場策略分散風險：</strong> 智易透過拓展歐洲與亞洲電信客戶，降低對單一市場的依賴，尤其在5G FWA領域持續擴大市場份額。</li>
+<li><strong>財務體質強健，股利政策具吸引力：</strong> 2025年EPS達12.6元，配發9元現金股利，配發率約71%，顯示公司經營穩健且願意回饋股東。充裕的現金部位也為未來發展提供彈性。</li>
+<li><strong>AI與企業市場拓展，增添長期成長動能：</strong> 積極佈局Edge AI及企業級資安交換器，顯示公司正向高附加價值領域轉型，為長期成長奠定基礎。</li>
+
+<strong>基於上述分析及券商預估，建議智易的目標價區間為新台幣240元至280元。</strong> 此區間考量了市場對其2026年EPS增長潛力，並參考券商最新目標價中位數及較高估值，反映其在網通升級週期中的成長機會與產業領導地位。
+
+<hr>
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:04</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="3596_智易_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="3596_智易_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="3596_智易_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

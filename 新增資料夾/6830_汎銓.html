@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6830 汎銓 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>6830 汎銓 深度研究報告</h1>
+<p>今天日期：2026年03月06日</p>
+
+<h2>一句話摘要</h2>
+<p>汎銓（6830）為半導體檢測驗證服務領導廠商，受惠於AI晶片與先進製程強勁需求，2026年更以自研「MSS HG」矽光子測試設備切入設備銷售新藍海。在全球12個廠區佈局完成與新產能陸續開出的效益下，公司預期2026年營收將大幅成長30%至50%，且獲利成長幅度有望遠高於營收，挑戰歷年新高。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">6830 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-6830" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-6830" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-6830');
+    var obvContainer = document.getElementById('obv-chart-6830');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 169.0, "high": 172.5, "low": 168.5, "close": 169.0}, {"time": "2025-12-05", "open": 169.5, "high": 169.5, "low": 166.5, "close": 169.0}, {"time": "2025-12-08", "open": 170.5, "high": 172.0, "low": 168.5, "close": 171.0}, {"time": "2025-12-09", "open": 170.5, "high": 172.0, "low": 168.5, "close": 171.0}, {"time": "2025-12-10", "open": 169.0, "high": 169.5, "low": 166.5, "close": 167.5}, {"time": "2025-12-11", "open": 169.0, "high": 172.0, "low": 168.5, "close": 169.0}, {"time": "2025-12-12", "open": 171.0, "high": 171.0, "low": 166.0, "close": 167.0}, {"time": "2025-12-15", "open": 164.5, "high": 169.0, "low": 161.0, "close": 169.0}, {"time": "2025-12-16", "open": 168.0, "high": 181.5, "low": 166.5, "close": 179.0}, {"time": "2025-12-17", "open": 186.0, "high": 186.0, "low": 170.0, "close": 170.0}, {"time": "2025-12-18", "open": 169.5, "high": 172.0, "low": 166.5, "close": 169.5}, {"time": "2025-12-19", "open": 171.5, "high": 171.5, "low": 166.5, "close": 166.5}, {"time": "2025-12-22", "open": 169.5, "high": 177.5, "low": 169.0, "close": 176.5}, {"time": "2025-12-23", "open": 180.0, "high": 180.0, "low": 173.5, "close": 175.0}, {"time": "2025-12-24", "open": 177.5, "high": 177.5, "low": 170.0, "close": 172.5}, {"time": "2025-12-26", "open": 173.0, "high": 178.0, "low": 171.5, "close": 175.0}, {"time": "2025-12-29", "open": 177.5, "high": 177.5, "low": 170.5, "close": 172.0}, {"time": "2025-12-30", "open": 170.5, "high": 172.0, "low": 167.0, "close": 171.0}, {"time": "2025-12-31", "open": 171.0, "high": 175.5, "low": 171.0, "close": 174.0}, {"time": "2026-01-02", "open": 175.0, "high": 183.0, "low": 175.0, "close": 179.0}, {"time": "2026-01-05", "open": 183.0, "high": 184.5, "low": 176.5, "close": 180.0}, {"time": "2026-01-06", "open": 182.0, "high": 187.0, "low": 178.5, "close": 180.0}, {"time": "2026-01-07", "open": 181.0, "high": 185.0, "low": 178.5, "close": 181.5}, {"time": "2026-01-08", "open": 181.5, "high": 184.0, "low": 180.5, "close": 183.0}, {"time": "2026-01-09", "open": 184.5, "high": 186.0, "low": 178.0, "close": 184.5}, {"time": "2026-01-12", "open": 185.0, "high": 192.0, "low": 183.0, "close": 189.0}, {"time": "2026-01-13", "open": 192.5, "high": 192.5, "low": 178.0, "close": 179.0}, {"time": "2026-01-14", "open": 180.0, "high": 184.0, "low": 177.5, "close": 182.0}, {"time": "2026-01-15", "open": 182.0, "high": 187.0, "low": 179.5, "close": 185.0}, {"time": "2026-01-16", "open": 187.0, "high": 190.0, "low": 182.5, "close": 188.5}, {"time": "2026-01-19", "open": 190.5, "high": 190.5, "low": 181.5, "close": 182.0}, {"time": "2026-01-20", "open": 180.0, "high": 187.0, "low": 180.0, "close": 186.0}, {"time": "2026-01-21", "open": 183.0, "high": 184.0, "low": 180.5, "close": 182.0}, {"time": "2026-01-22", "open": 183.5, "high": 184.5, "low": 178.5, "close": 178.5}, {"time": "2026-01-23", "open": 179.0, "high": 181.0, "low": 176.5, "close": 177.5}, {"time": "2026-01-26", "open": 177.5, "high": 181.0, "low": 174.0, "close": 175.0}, {"time": "2026-01-27", "open": 178.0, "high": 187.0, "low": 176.0, "close": 179.0}, {"time": "2026-01-28", "open": 180.0, "high": 182.5, "low": 178.5, "close": 179.5}, {"time": "2026-01-29", "open": 181.5, "high": 181.5, "low": 175.5, "close": 176.0}, {"time": "2026-01-30", "open": 174.5, "high": 177.0, "low": 170.0, "close": 176.5}, {"time": "2026-02-02", "open": 181.0, "high": 187.0, "low": 176.5, "close": 183.5}, {"time": "2026-02-03", "open": 189.0, "high": 195.0, "low": 185.5, "close": 188.5}, {"time": "2026-02-04", "open": 189.0, "high": 207.0, "low": 189.0, "close": 207.0}, {"time": "2026-02-05", "open": 213.5, "high": 227.5, "low": 211.0, "close": 227.5}, {"time": "2026-02-06", "open": 224.5, "high": 227.0, "low": 205.0, "close": 205.0}, {"time": "2026-02-09", "open": 210.5, "high": 225.5, "low": 197.0, "close": 225.5}, {"time": "2026-02-10", "open": 227.0, "high": 231.5, "low": 220.5, "close": 222.0}, {"time": "2026-02-11", "open": 222.5, "high": 229.0, "low": 212.5, "close": 218.5}, {"time": "2026-02-23", "open": 224.0, "high": 240.0, "low": 224.0, "close": 226.5}, {"time": "2026-02-24", "open": 224.5, "high": 239.0, "low": 221.5, "close": 236.0}, {"time": "2026-02-25", "open": 250.0, "high": 259.5, "low": 249.5, "close": 259.5}, {"time": "2026-02-26", "open": 279.0, "high": 285.0, "low": 274.0, "close": 285.0}, {"time": "2026-03-02", "open": 300.0, "high": 332.0, "low": 288.0, "close": 329.0}, {"time": "2026-03-03", "open": 312.0, "high": 325.0, "low": 292.0, "close": 310.5}, {"time": "2026-03-04", "open": 300.0, "high": 332.0, "low": 288.0, "close": 329.0}, {"time": "2026-03-05", "open": 335.0, "high": 361.5, "low": 335.0, "close": 361.5}, {"time": "2026-03-06", "open": 381.0, "high": 397.5, "low": 381.0, "close": 397.5}, {"time": "2026-03-09", "open": 369.0, "high": 411.0, "low": 367.0, "close": 386.5}, {"time": "2026-03-10", "open": 404.0, "high": 404.0, "low": 375.0, "close": 377.0}, {"time": "2026-03-11", "open": 375.0, "high": 396.0, "low": 375.0, "close": 393.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 362.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 177.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 217.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 217.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 162.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 358.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 175.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 278.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 2071.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 2465.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 423.0, "color": "#ef5350"}, {"time": "2025-12-19", "value": 335.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 938.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 723.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 519.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 485.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 390.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 440.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 427.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 1315.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 1267.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 1502.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 893.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 833.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 1438.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 1412.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 1596.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 771.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 648.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 1112.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 922.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 628.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 540.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 657.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 413.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 592.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 1276.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 391.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 522.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 524.0, "color": "#ef5350"}, {"time": "2026-02-02", "value": 2477.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 3621.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 4883.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 5551.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 6181.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 6574.0, "color": "#ef5350"}, {"time": "2026-02-10", "value": 5425.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 3870.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 6273.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 4814.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 2838.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 3976.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 7992.0, "color": "#ef5350"}, {"time": "2026-03-03", "value": 7612.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 7992.0, "color": "#ef5350"}, {"time": "2026-03-05", "value": 2438.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 2657.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 2431.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 639.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 798.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 169.5}, {"time": "2025-12-11", "value": 169.5}, {"time": "2025-12-12", "value": 169.1}, {"time": "2025-12-15", "value": 168.7}, {"time": "2025-12-16", "value": 170.3}, {"time": "2025-12-17", "value": 170.8}, {"time": "2025-12-18", "value": 170.9}, {"time": "2025-12-19", "value": 170.8}, {"time": "2025-12-22", "value": 172.3}, {"time": "2025-12-23", "value": 171.5}, {"time": "2025-12-24", "value": 172.0}, {"time": "2025-12-26", "value": 173.1}, {"time": "2025-12-29", "value": 174.2}, {"time": "2025-12-30", "value": 173.1}, {"time": "2025-12-31", "value": 172.9}, {"time": "2026-01-02", "value": 174.2}, {"time": "2026-01-05", "value": 175.2}, {"time": "2026-01-06", "value": 176.8}, {"time": "2026-01-07", "value": 178.9}, {"time": "2026-01-08", "value": 180.7}, {"time": "2026-01-09", "value": 181.8}, {"time": "2026-01-12", "value": 183.6}, {"time": "2026-01-13", "value": 183.4}, {"time": "2026-01-14", "value": 183.5}, {"time": "2026-01-15", "value": 183.9}, {"time": "2026-01-16", "value": 184.7}, {"time": "2026-01-19", "value": 183.3}, {"time": "2026-01-20", "value": 184.7}, {"time": "2026-01-21", "value": 184.7}, {"time": "2026-01-22", "value": 183.4}, {"time": "2026-01-23", "value": 181.2}, {"time": "2026-01-26", "value": 179.8}, {"time": "2026-01-27", "value": 178.4}, {"time": "2026-01-28", "value": 177.9}, {"time": "2026-01-29", "value": 177.4}, {"time": "2026-01-30", "value": 177.2}, {"time": "2026-02-02", "value": 178.9}, {"time": "2026-02-03", "value": 180.8}, {"time": "2026-02-04", "value": 186.3}, {"time": "2026-02-05", "value": 196.6}, {"time": "2026-02-06", "value": 202.3}, {"time": "2026-02-09", "value": 210.7}, {"time": "2026-02-10", "value": 217.4}, {"time": "2026-02-11", "value": 219.7}, {"time": "2026-02-23", "value": 219.5}, {"time": "2026-02-24", "value": 225.7}, {"time": "2026-02-25", "value": 232.5}, {"time": "2026-02-26", "value": 245.1}, {"time": "2026-03-02", "value": 267.2}, {"time": "2026-03-03", "value": 284.0}, {"time": "2026-03-04", "value": 302.6}, {"time": "2026-03-05", "value": 323.0}, {"time": "2026-03-06", "value": 345.5}, {"time": "2026-03-09", "value": 357.0}, {"time": "2026-03-10", "value": 370.3}, {"time": "2026-03-11", "value": 383.1}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 170.15}, {"time": "2025-12-18", "value": 170.2}, {"time": "2025-12-19", "value": 169.95}, {"time": "2025-12-22", "value": 170.5}, {"time": "2025-12-23", "value": 170.9}, {"time": "2025-12-24", "value": 171.4}, {"time": "2025-12-26", "value": 172.0}, {"time": "2025-12-29", "value": 172.5}, {"time": "2025-12-30", "value": 172.7}, {"time": "2025-12-31", "value": 172.2}, {"time": "2026-01-02", "value": 173.1}, {"time": "2026-01-05", "value": 174.15}, {"time": "2026-01-06", "value": 175.5}, {"time": "2026-01-07", "value": 176.0}, {"time": "2026-01-08", "value": 176.8}, {"time": "2026-01-09", "value": 178.0}, {"time": "2026-01-12", "value": 179.4}, {"time": "2026-01-13", "value": 180.1}, {"time": "2026-01-14", "value": 181.2}, {"time": "2026-01-15", "value": 182.3}, {"time": "2026-01-16", "value": 183.25}, {"time": "2026-01-19", "value": 183.45}, {"time": "2026-01-20", "value": 184.05}, {"time": "2026-01-21", "value": 184.1}, {"time": "2026-01-22", "value": 183.65}, {"time": "2026-01-23", "value": 182.95}, {"time": "2026-01-26", "value": 181.55}, {"time": "2026-01-27", "value": 181.55}, {"time": "2026-01-28", "value": 181.3}, {"time": "2026-01-29", "value": 180.4}, {"time": "2026-01-30", "value": 179.2}, {"time": "2026-02-02", "value": 179.35}, {"time": "2026-02-03", "value": 179.6}, {"time": "2026-02-04", "value": 182.1}, {"time": "2026-02-05", "value": 187.0}, {"time": "2026-02-06", "value": 189.75}, {"time": "2026-02-09", "value": 194.8}, {"time": "2026-02-10", "value": 199.1}, {"time": "2026-02-11", "value": 203.0}, {"time": "2026-02-23", "value": 208.05}, {"time": "2026-02-24", "value": 214.0}, {"time": "2026-02-25", "value": 221.6}, {"time": "2026-02-26", "value": 231.25}, {"time": "2026-03-02", "value": 243.45}, {"time": "2026-03-03", "value": 251.75}, {"time": "2026-03-04", "value": 264.15}, {"time": "2026-03-05", "value": 277.75}, {"time": "2026-03-06", "value": 295.3}, {"time": "2026-03-09", "value": 312.1}, {"time": "2026-03-10", "value": 327.15}, {"time": "2026-03-11", "value": 342.85}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 171.625}, {"time": "2026-01-05", "value": 172.175}, {"time": "2026-01-06", "value": 172.725}, {"time": "2026-01-07", "value": 173.25}, {"time": "2026-01-08", "value": 173.85}, {"time": "2026-01-09", "value": 174.7}, {"time": "2026-01-12", "value": 175.7}, {"time": "2026-01-13", "value": 176.3}, {"time": "2026-01-14", "value": 176.95}, {"time": "2026-01-15", "value": 177.25}, {"time": "2026-01-16", "value": 178.175}, {"time": "2026-01-19", "value": 178.8}, {"time": "2026-01-20", "value": 179.775}, {"time": "2026-01-21", "value": 180.05}, {"time": "2026-01-22", "value": 180.225}, {"time": "2026-01-23", "value": 180.475}, {"time": "2026-01-26", "value": 180.475}, {"time": "2026-01-27", "value": 180.825}, {"time": "2026-01-28", "value": 181.25}, {"time": "2026-01-29", "value": 181.35}, {"time": "2026-01-30", "value": 181.225}, {"time": "2026-02-02", "value": 181.4}, {"time": "2026-02-03", "value": 181.825}, {"time": "2026-02-04", "value": 183.1}, {"time": "2026-02-05", "value": 185.325}, {"time": "2026-02-06", "value": 186.35}, {"time": "2026-02-09", "value": 188.175}, {"time": "2026-02-10", "value": 190.325}, {"time": "2026-02-11", "value": 192.15}, {"time": "2026-02-23", "value": 194.225}, {"time": "2026-02-24", "value": 196.6}, {"time": "2026-02-25", "value": 200.475}, {"time": "2026-02-26", "value": 205.425}, {"time": "2026-03-02", "value": 212.775}, {"time": "2026-03-03", "value": 219.375}, {"time": "2026-03-04", "value": 226.95}, {"time": "2026-03-05", "value": 236.275}, {"time": "2026-03-06", "value": 247.2}, {"time": "2026-03-09", "value": 257.55}, {"time": "2026-03-10", "value": 267.6}, {"time": "2026-03-11", "value": 278.425}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 0}, {"time": "2025-12-08", "value": 217.0}, {"time": "2025-12-09", "value": 217.0}, {"time": "2025-12-10", "value": 55.0}, {"time": "2025-12-11", "value": 413.0}, {"time": "2025-12-12", "value": 238.0}, {"time": "2025-12-15", "value": 516.0}, {"time": "2025-12-16", "value": 2587.0}, {"time": "2025-12-17", "value": 122.0}, {"time": "2025-12-18", "value": -301.0}, {"time": "2025-12-19", "value": -636.0}, {"time": "2025-12-22", "value": 302.0}, {"time": "2025-12-23", "value": -421.0}, {"time": "2025-12-24", "value": -940.0}, {"time": "2025-12-26", "value": -455.0}, {"time": "2025-12-29", "value": -845.0}, {"time": "2025-12-30", "value": -1285.0}, {"time": "2025-12-31", "value": -858.0}, {"time": "2026-01-02", "value": 457.0}, {"time": "2026-01-05", "value": 1724.0}, {"time": "2026-01-06", "value": 1724.0}, {"time": "2026-01-07", "value": 2617.0}, {"time": "2026-01-08", "value": 3450.0}, {"time": "2026-01-09", "value": 4888.0}, {"time": "2026-01-12", "value": 6300.0}, {"time": "2026-01-13", "value": 4704.0}, {"time": "2026-01-14", "value": 5475.0}, {"time": "2026-01-15", "value": 6123.0}, {"time": "2026-01-16", "value": 7235.0}, {"time": "2026-01-19", "value": 6313.0}, {"time": "2026-01-20", "value": 6941.0}, {"time": "2026-01-21", "value": 6401.0}, {"time": "2026-01-22", "value": 5744.0}, {"time": "2026-01-23", "value": 5331.0}, {"time": "2026-01-26", "value": 4739.0}, {"time": "2026-01-27", "value": 6015.0}, {"time": "2026-01-28", "value": 6406.0}, {"time": "2026-01-29", "value": 5884.0}, {"time": "2026-01-30", "value": 6408.0}, {"time": "2026-02-02", "value": 8885.0}, {"time": "2026-02-03", "value": 12506.0}, {"time": "2026-02-04", "value": 17389.0}, {"time": "2026-02-05", "value": 22940.0}, {"time": "2026-02-06", "value": 16759.0}, {"time": "2026-02-09", "value": 23333.0}, {"time": "2026-02-10", "value": 17908.0}, {"time": "2026-02-11", "value": 14038.0}, {"time": "2026-02-23", "value": 20311.0}, {"time": "2026-02-24", "value": 25125.0}, {"time": "2026-02-25", "value": 27963.0}, {"time": "2026-02-26", "value": 31939.0}, {"time": "2026-03-02", "value": 39931.0}, {"time": "2026-03-03", "value": 32319.0}, {"time": "2026-03-04", "value": 40311.0}, {"time": "2026-03-05", "value": 42749.0}, {"time": "2026-03-06", "value": 45406.0}, {"time": "2026-03-09", "value": 42975.0}, {"time": "2026-03-10", "value": 42336.0}, {"time": "2026-03-11", "value": 43134.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>汎銓主要提供半導體檢測分析服務及設備製造，是半導體產業鏈中不可或缺的關鍵一環。</p>
+
+<strong>核心產品與服務：</strong>
+<ul><li><strong>材料分析（MA）服務：</strong> 協助客戶分析半導體材料的特性與缺陷，尤其專精於埃米世代先進製程（A14/A10）的原子級材料分析技術（如APT）。</li>
+<li><strong>故障分析（FA）服務：</strong> 診斷半導體元件的失效原因，確保產品良率與可靠度。</li>
+<li><strong>矽光子測試設備：</strong> 自主研發並推出「MSS HG」矽光子分析設備，適用於量產端（PD）與品質驗證（QA），從服務供應商延伸至設備銷售。</li>
+</ul>
+<strong>營收結構與佈局（2025年12月法說會資料）：</strong>
+<p>汎銓的營收高度聚焦於半導體先進製程研發分析、AI高效能運算產品驗證分析，以及矽光子（SiPh）量測與分析等高附加價值領域，這三大應用合計營收比重已接近9成。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2024 H1 佔比</th><th>2025/12 法說會佔比</th><th>備註</th></tr></thead><tbody>
+<tr><td><strong>服務項目</strong></td><td></td><td></td><td></td></tr>
+<tr><td>材料分析(MA)</td><td>85%-90%</td><td>80%-85%</td><td>高度聚焦先進製程研發分析</td></tr>
+<tr><td>故障分析(FA)</td><td>10%-15%</td><td>15%-20%</td><td></td></tr>
+<tr><td>矽光子/AI晶片業務</td><td>-</td><td>~7% (2025)</td><td>預計2025年可望成長至15%</td></tr>
+<tr><td><strong>地區分佈</strong></td><td></td><td></td><td></td></tr>
+<tr><td>台灣</td><td>~每月1.5億元</td><td>75%-80%</td><td></td></tr>
+<tr><td>中國大陸</td><td>~每月2千萬元</td><td>20%-25%</td><td>南京據點獲高新技術企業資格，稅率從25%降至15%</td></tr>
+<tr><td>其他海外</td><td>-</td><td>0% (2025年底啟用)</td><td>預期未來四年內提升至40%</td></tr>
+</tbody></table></div>
+
+<p>汎銓已完成全球化佈局，在台灣、中國大陸、美國及日本等四大半導體重鎮合計擁有12個營運據點，多處廠區為公司自購資產，旨在降低營運成本波動。</p>
+
+<h2>核心競爭優勢</h2>
+<li><strong>先進製程技術領先：</strong> 掌握埃米（Angstrom Era）世代製程分析關鍵技術，已建置SAC-TEM Center並配置高階CS-TEM設備，能承接A14/A10等高階製程的材料分析需求，單價維持高水準。</li>
+<li><strong>矽光子技術獨家優勢：</strong> 成立「矽光子工程處」，自主研發「MSS HG」矽光子測試設備並取得台灣及日本專利，從服務供應商延伸至設備銷售，搶佔矽光子市場爆發先機。</li>
+<li><strong>AI晶片深度合作：</strong> 與美系AI晶片大廠深度合作，於竹北設有「AI專區」，採「包場低消」模式，提供高保密性與穩定營收來源。專區規模預計2026年中將從25%擴增至75%。</li>
+<li><strong>全球化佈局與成本效益：</strong> 在全球四大半導體重鎮設有12個營運據點，多處自購廠區，有助於降低營運成本波動。中國南京廠取得高新技術企業資格，享有15%稅率優惠。</li>
+
+<h2>財務分析</h2>
+<p>汎銓在2025年經歷資本支出高峰導致折舊壓力較大，但營收已在下半年回溫並屢創歷史新高，2026年成長動能顯現。</p>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026/01</td><td>2.02</td><td>-5.35%</td><td>25.49%</td></tr>
+<tr><td>2025/12</td><td>2.13</td><td>3.06%</td><td>22.11%</td></tr>
+<tr><td>2025/11</td><td>2.07</td><td>20.73%</td><td>22.96%</td></tr>
+<tr><td>2025/10</td><td>1.72</td><td>-11.35%</td><td>6.74%</td></tr>
+<tr><td>2025/09</td><td>1.94</td><td>0.52%</td><td>16.24%</td></tr>
+<tr><td>2025/08</td><td>1.93</td><td>0.88%</td><td>12.67%</td></tr>
+</tbody></table></div>
+
+<ul><li>2026年1月營收達2.02億元，較去年同期成長25.5%，續創同期新高。</li>
+<li>2025年12月營收達2.13億元，月增3.06%、年增22.12%，連續兩個月創單月歷史新高。</li>
+</ul>
+<h3>季度數據與年度趨勢</h3>
+<ul><li><strong>2025年第四季：</strong> 合併營收達5.92億元，季增2.65%、年增17.5%，創歷年單季新高。</li>
+</ul>    *   2025年12月單月毛利率衝上<strong>42%</strong>，稅後純益1,441萬元，每股純益達0.28元。
+<ul><li><strong>2025年第三季：</strong></li>
+</ul>    *   季營收：5.77億元
+<p>*   毛利率：25.29%</p>
+<p>*   稅後淨利：3,053萬元 (然因折舊高漲，該季累積稅後淨損達3,301萬元，累積EPS為-0.64元)</p>
+<ul><li><strong>2025年全年：</strong> 合併營收達21.8億元，年增10.78%，刷新歷年營收新高。</li>
+<li><strong>2024年全年：</strong> 合併營收19.67億元，全年EPS 1.34元。</li>
+</ul>
+<h2>法說會重點 (2026年03月05日)</h2>
+<p>汎銓於2026年03月05日參加凱基證券舉辦之「凱基證券2026年第一季投資論壇」，管理層釋出高度樂觀展望。</p>
+
+<strong>管理層對各產品線的具體出貨量/訂單能見度：</strong>
+<ul><li><strong>先進製程（埃米世代）：</strong> 針對埃米世代製程（A14/A10）建置的SAC-TEM Center已通過客戶稽核，配置高階CS-TEM設備，預計<strong>2026年初</strong>開始貢獻營收。</li>
+<li><strong>矽光子業務：</strong> 推出「MSS HG」矽光子測試設備，定價區間為<strong>4,000萬元至6,000萬元</strong>（依選配不同），預計<strong>2026年</strong>開始貢獻營收，預期單月相關業績成長將達<strong>3,000萬元</strong>。</li>
+<li><strong>美國AI晶片大廠專區：</strong> 與美系AI晶片大廠深度合作，該客戶在汎銓竹北廠區的專用空間將於<strong>2026年中</strong>從25%擴增至75%，合作模式採「包場低消」概念，確保營收穩定性。</li>
+<li><strong>全球佈局：</strong> 台灣、中國、日本、美國的全球12個據點佈局已完成，預期海外營收比重將在未來四年內提升至40%。日本與美國據點目標於<strong>2026年6月之後</strong>單月損益兩平。</li>
+</ul>
+<strong>產能利用率、資本支出金額：</strong>
+<ul><li>過去兩年（2024-2025）為資本支出高峰，累計投資達<strong>40億元</strong>，導致2025年折舊壓力大。</li>
+<li>未來資本支出將趨緩，預計2026年起控制在<strong>每年約5億元以下</strong>，折舊壓力將隨營收規模擴大而稀釋。</li>
+<li>新實驗室產能自<strong>2026年3月起</strong>將陸續開出。</li>
+</ul>
+<strong>管理層給出的下季/下半年 guidance：</strong>
+<ul><li>2026年是「豐收的一年」，預期營運將顯著回升，營收將逐季攀升。</li>
+<li>目標2026年營收可望年增<strong>30%~50%</strong>。</li>
+<li>目標2026年單月營收突破2億元時，單月毛利率可回升至<strong>35%以上</strong>；全年目標平均毛利率<strong>超過30%</strong>。</li>
+<li>2026年費用率預計會下降至<strong>18.8%</strong>左右。</li>
+<li>毛利率及獲利成長幅度可望遠高於營收，挑戰歷年新高。</li>
+<li>公司營運已於2025年11月回溫，12月持續增長，真正的成長起跑點預計落在2026年第二季之後。</li>
+</ul>
+<h2>券商觀點</h2>
+<p>以下為券商對於汎銓的目標價及評等資訊。由於檢測產業具高機密性，券商報告更新頻率較不密集。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (NTD)</th><th>評等</th><th>日期</th><th>備註</th></tr></thead><tbody>
+<tr><td>(未具名法人)</td><td>175</td><td>(未評等)</td><td>2026/03/03</td><td>最新報導提及法人上修目標價</td></tr>
+<tr><td>中信投顧</td><td>N/A</td><td>逢低布局</td><td>2025/04/29</td><td></td></tr>
+<tr><td>宏遠投顧</td><td>175</td><td>買進</td><td>2024/09/12</td><td></td></tr>
+<tr><td>華南投顧</td><td>145</td><td>區間持有</td><td>2024/09/14</td><td></td></tr>
+</tbody></table></div>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<p>汎銓的毛利率在2025年因全球佈局及擴產導致折舊與費用高漲而受壓，但隨著營收規模擴大及高附加價值業務比重提升，毛利率已顯著回升。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2025 Q3</th><th>2025 Q4</th><th>2025/12 單月</th><th>2026年目標</th><th>備註</th></tr></thead><tbody>
+<tr><td>營收 (億元)</td><td>5.77</td><td>5.92</td><td>2.13</td><td>年增30%-50%</td><td></td></tr>
+<tr><td>毛利率 (%)</td><td>25.29</td><td>(未公布)</td><td><strong>42</strong></td><td>全年平均&gt;30%, 單月破2億元&gt;35%</td><td>12月毛利率顯著回升，顯示營運拐點。</td></tr>
+<tr><td>稅後淨利</td><td>3,053萬元 (季淨損3,301萬元)</td><td>(未公布)</td><td>1,441萬元</td><td>成長幅度遠高於營收</td><td>獲利在2026年有望大幅躍進。</td></tr>
+<tr><td>EPS (元)</td><td>0.59 (累計至Q3為-0.64)</td><td>(未公布)</td><td>0.28</td><td>獲利逐年創新高</td><td></td></tr>
+<tr><td>費用率 (%)</td><td>(未公布)</td><td>(未公布)</td><td>(未公布)</td><td>預計下降至18.8%</td><td>營收規模擴大將稀釋費用。</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化的原因分析：</strong>
+<p>2025年因全球佈局及擴產導致折舊與費用高漲，使EPS表現不佳。然而，隨著AI先進製程晶片材料分析（MA）委案量和矽光子相關檢測分析業務委案放量，加上前期投入的資本支出及人力擴增費用陸續轉化為實質產能與營運貢獻，帶動2025年12月毛利率顯著提升至<strong>42%</strong>。2026年起，每月營運損益兩平點（成本）約落在2億元左右，隨著營收超越此門檻，營運槓桿效益將顯現，帶動獲利大幅成長。</p>
+
+<h3>存貨分析</h3>
+<ul><li><strong>目前無2025-2026年的最新存貨數據。</strong> 由於汎銓主要提供服務與設備，而非大量實體產品，存貨對其營運影響相對較小。</li>
+</ul>
+<h3>資本支出</h3>
+<ul><li><strong>近3年資本支出金額與趨勢：</strong> 過去兩年（推估2024-2025年）為資本支出高峰期，累計投資額達<strong>44億元新台幣</strong>，主要用於擴建全球12個廠區及添購先進檢測設備。</li>
+<li><strong>未來資本支出計畫與預計新增產能：</strong> 2026年起資本支出預計將控制在<strong>每年5億元新台幣以下</strong>，回歸常態。前期建置的新實驗室產能自<strong>2026年3月起</strong>將陸續開出，有望進一步堆疊營運成長動能，主要來自埃米世代材料分析（MA）需求及針對Tier-1 AI客戶設立的專區。</li>
+<li><strong>折舊攤銷趨勢：</strong> 2025年因全球佈局及擴產導致折舊壓力較大，但隨著2026年營收規模擴大及高毛利業務比重提升，折舊壓力將被有效稀釋。</li>
+</ul>
+<h2>股權異動</h2>
+
+<ul><li><strong>董監事/大股東申報轉讓紀錄：</strong> 未找到2024年以後的最新公開資料。</li>
+<li><strong>庫藏股買回紀錄：</strong> 未找到2024年以後的最新公開資料。</li>
+<li><strong>可轉換公司債（CB）：</strong> 汎銓發行國內第一次有擔保轉換公司債，其停止轉換期間為2025年04月12日至2025年06月10日。</li>
+<li><strong>現金增資或減資計畫：</strong> 未找到2024年以後的最新公開資料。</li>
+<li><strong>股利政策：</strong></li>
+</ul>    *   2025年06月10日股東會通過承認2024年度盈餘配發每股<strong>1.0元</strong>現金股利，配發率達<strong>74.63%</strong>，已連續四年現金股利配發率超過七成。
+<p>*   2024年現金股利為<strong>4.50元</strong>。</p>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與趨勢</h3>
+<p>半導體檢測驗證服務及相關設備市場受惠於半導體產業的強勁成長，特別是AI、HPC、先進製程與矽光子等領域的驅動，呈現供不應求的狀況。</p>
+
+<ul><li><strong>整體半導體市場：</strong> WSTS預計2026年全球半導體市場規模將達<strong>9,750億美元</strong>，成長26.3%，逼近1兆美元。IDC預測2024-2030年CAGR估達<strong>8.8%</strong>，2028年有望達成1兆美元里程碑。</li>
+<li><strong>半導體檢測系統市場：</strong> 2025年全球半導體檢測系統市場規模超過<strong>72.4億美元</strong>，預計到2026年將達到<strong>77.7億美元</strong>，預測期（2026年至2035年）的CAGR將超過<strong>8.1%</strong>。</li>
+<li><strong>矽光子市場：</strong> 市場研究機構YOLE Group預估，全球矽光子市場規模將自2024年的<strong>2.78億美元</strong>，快速成長至2030年的<strong>27億美元</strong>，CAGR高達<strong>46%</strong>。Co-Packaged Optics (CPO) 市場規模從2024年的<strong>4,600萬美元</strong>跳漲到2026年的<strong>35.1億美元</strong>。</li>
+<li><strong>產業供需狀況：</strong> 先進製程產能、檢測介面、HBM及CoWoS先進封裝均呈現<strong>供不應求</strong>的熱況，台積電CoWoS產能預計2026年全年擴增至<strong>110萬片</strong>仍有缺口。晶圓代工廠2026年平均產能利用率預計穩定維持在<strong>80%以上</strong>。</li>
+<li><strong>產業平均毛利率水準：</strong> 半導體檢測設備業的毛利動輒<strong>6成以上</strong>，高於整體半導體製造業。</li>
+</ul>
+<h3>競爭格局</h3>
+
+<p>由於汎銓的核心業務為材料分析（MA）和故障分析（FA）服務，以及新推出的矽光子測試設備，其直接競爭對手可分為全球半導體檢測分析服務商和台灣同業。目前未找到全球MA/FA服務市場前五大公司及其市佔率的具體資料。</p>
+
+<strong>台灣同業比較：</strong>
+<p>台灣在半導體檢測分析服務領域的同業主要有閎康（3587）、宜特（3289）和中華精測（6510）。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>股票代碼</th><th>主要業務 (汎銓比較基準)</th><th>2025年營收 (預估/已實現)</th><th>2025年毛利率 (預估/已實現)</th><th>2025年EPS (預估/已實現)</th></tr></thead><tbody>
+<tr><td><strong>汎銓</strong></td><td><strong>6830</strong></td><td>材料分析(MA)、故障分析(FA) - 聚焦先進製程/AI/矽光子、自研矽光子測試設備銷售</td><td><strong>21.79億元 (實際)</strong></td><td>Q3: <strong>25.29%</strong>, 12月: <strong>42%</strong></td><td>Q3: <strong>0.59元</strong> (累計至Q3為-0.64)</td></tr>
+<tr><td>閎康</td><td>3587</td><td>材料分析、故障分析、可靠度驗證 (直接服務競爭)</td><td>(未公布) 預計2025年成長60%+</td><td>(未公布)</td><td>(未公布)</td></tr>
+<tr><td>宜特</td><td>3289</td><td>材料分析、故障分析、可靠度驗證、化學材料分析 (競爭者)</td><td>(未公布)</td><td>(未公布)</td><td>(未公布)</td></tr>
+<tr><td>中華精測</td><td>6510</td><td>探針卡、測試板 (高階半導體測試介面，非直接服務競爭)</td><td>(未公布)</td><td>(未公布)</td><td>(未公布)</td></tr>
+</tbody></table></div>
+
+<em>註：2025年台灣同業完整財務數據尚未全部公布。</em>
+<ul><li>閎康（3587）受惠於AI晶片檢測需求成長，2025年營收預計成長60%以上。</li>
+<li>中華精測（6510）預估2026年全球探針卡市場規模提升，MEMS探針卡市值成長，為公司帶來全新成長契機。</li>
+</ul>
+<h3>產業趨勢與對汎銓的影響</h3>
+<li><strong>AI與高效能運算 (HPC) 的爆炸性需求：</strong></li>
+<p>*   <strong>具體影響：</strong> AI加速器預計將佔資料中心晶片營收的50%以上。AI晶片設計複雜、製程先進且單價高昂，對檢測設備與服務需求大幅提升。汎銓在AI晶片高階材料分析與先進量測的委案需求顯著增加，尤其受惠於美系AI晶片大廠的擴大合作，將直接搭上AI浪潮。</p>
+<li><strong>先進製程與先進封裝技術的演進：</strong></li>
+<p>*   <strong>具體影響：</strong> 隨著製程微縮至埃米世代（如2026年量產的2奈米加強版A16）及GAA、背面供電、小晶片等新技術導入，晶片結構複雜度提升，測試難度增加，推升對高階材料分析與故障分析服務的需求。先進封裝（如CoWoS）的產能持續擴張，其供不應求亦帶動相關檢測分析需求。</p>
+<li><strong>矽光子技術的大規模商轉與「光進銅退」：</strong></li>
+<p>*   <strong>具體影響：</strong> AI算力提升對傳輸速度要求嚴苛，矽光子（Co-Packaged Optics, CPO）技術預計在2026年正式進入大規模商轉，實現更快、更節能的資料傳輸。汎銓自主研發的「MSS HG」矽光子測試設備，將使其從服務供應商延伸至設備銷售，精準切入這個爆發性成長市場。</p>
+
+<strong>對汎銓的具體機會與威脅：</strong>
+<ul><li><strong>機會：</strong> 汎銓核心業務高度聚焦於AI、先進製程和矽光子等高成長領域，技術領先（埃米世代分析、矽光子設備），且透過全球佈局擴大市場份額。產業高毛利特性為其獲利提供空間。</li>
+<li><strong>威脅：</strong> 半導體技術快速迭代需持續高研發投入，高階設備與產能擴充的資金壓力，以及與美系AI大廠的客戶集中風險。同時，隨著市場成長，競爭可能加劇。</li>
+</ul>
+<strong>相關投資題材連結：</strong>
+<p>汎銓與AI、HBM (高頻寬記憶體)、矽光子技術、Co-Packaged Optics (CPO) 等熱門投資題材有直接關聯，同時也間接受益於電動車（EV）等車用電子對半導體可靠性檢測的需求。</p>
+
+<h2>近期催化劑</h2>
+<p>汎銓在2025年下半年起營收動能顯著增溫，2026年多項利多事件將推動其營運進入爆發性成長期。</p>
+
+<ul><li><strong>2026年03月06日：</strong> 汎銓法說會正式公開命名為「MSS HG」的全套矽光子檢測設備和選配設備規格，售價區間為<strong>4,000萬元至6,000萬元</strong>，正式跨足矽光子檢測設備銷售。</li>
+<li><strong>2026年03月05日：</strong> 參加凱基證券2026年第一季投資論壇，強調已完成全球12個廠房佈局，累計投資達<strong>40億元</strong>。自製矽光子分析載台「MSS HG」將於2026年成為營收新亮點，預期單月相關業績成長將達<strong>3,000萬元</strong>。</li>
+<li><strong>2026年02月06日：</strong> 公布2026年1月合併營收達<strong>2.02億元</strong>，較去年同期成長25.5%，續創歷年同期新高。</li>
+<li><strong>2026年02月02日：</strong> 董事長柳紀綸樂觀展望2026年營運，預期將進入「年年豐收」階段，目標營收成長<strong>50%</strong>。</li>
+<li><strong>2026年02月01日：</strong> 汎銓尾牙，董事長表示新廠產能將自<strong>2026年3月起</strong>陸續開出，將明顯貢獻業績。矽光子分析設備已自主研發並組裝完成3台。</li>
+<li><strong>2026年01月14日：</strong> 與美系AI晶片大廠輝達（Nvidia）深化合作，輝達更進一步提出擴大AI專區合作的需求。</li>
+<li><strong>2026年01月08日：</strong> 公布2025年12月合併營收達<strong>2.13億元</strong>，月增3.06％、年增22.12％，連續兩個月創單月營收歷史新高。2025年第四季合併營收達<strong>5.92億元</strong>，季增2.65％、年增17.5％，創歷年單季新高。2025年累計全年合併營收達<strong>21.8億元</strong>，年增10.78％，亦刷新歷年營收新高。</li>
+<li><strong>2025年12月16日：</strong> 法人說明會宣布2026年起的四大成長主軸：先進製程埃米世代、矽光子業務擴大（推出設備）、美國AI晶片大廠專區擴建、全球佈局完成。</li>
+<li><strong>2025年12月10日：</strong> 公布2025年11月合併營收達<strong>2.07億元</strong>，月增20.74％、年增22.96％，創單月歷史新高紀錄。</li>
+<li><strong>2024年9月20日：</strong> 表示已於2024年執行約<strong>15億元</strong>的資本支出用於添購設備，因應2025-2027年業務成長需求。</li>
+</ul>
+<strong>利空事件：</strong>
+<ul><li><strong>2025年全年EPS表現不佳：</strong> 由於全球佈局及擴產導致折舊與費用高漲，2025年累積至第三季EPS為-0.64元，影響短期獲利，但此為公司為長期成長進行投資所致。</li>
+<li><strong>法人與主力近期調節觀望：</strong> 近期籌碼面顯示法人與主力有調節觀望現象，外資近五日偏賣超，但股價仍上漲，顯示市場對公司2026年營運成長動能高度期待。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+<p>汎銓的成長動能強勁且具體，多項關鍵計畫將在2026年陸續兌現。</p>
+
+<ul><li><strong>2026年初：</strong> 針對埃米世代製程（A14/A10）建置的SAC-TEM Center已通過客戶稽核，將正式開始貢獻營收。</li>
+<li><strong>2026年3月起：</strong> 全球12個廠區中，新實驗室產能將陸續開出，顯著提升整體分析產能，直接貢獻營收。</li>
+<li><strong>2026年中：</strong> 與美系AI晶片大廠合作的竹北廠區「AI專區」將從25%擴增至75%，「包場低消」模式將為公司帶來穩定且高成長的收入。</li>
+<li><strong>2026年6月後：</strong> 位於日本與美國的營運據點目標實現單月損益兩平，將進一步提升海外市場獲利貢獻。</li>
+<li><strong>2026年內：</strong> 自主研發的「MSS HG」矽光子測試設備將正式推出銷售，開啟新的設備銷售商業模式，預期單月相關業績成長將達<strong>3,000萬元</strong>。</li>
+<li><strong>長期動能：</strong></li>
+</ul>    *   <strong>新市場/新客戶：</strong> 鎖定全球半導體產業最關鍵的第一階段研發案源，包括設備商與材料商的初期研發，特別是埃米世代先進製程與小晶片（Chiplets）相關應用。
+<p>*   <strong>產能擴充：</strong> 已完成全球12個營運據點配置，累積投資達<strong>40億元</strong>，未來資本支出將趨緩，前期投資將轉化為實質營收與獲利。</p>
+<p>*   <strong>需求面：</strong> 全球半導體產業的強勁成長動能，主要由AI伺服器、資料中心、先進製程、先進封裝及矽光子技術驅動，均為汎銓高附加價值服務的核心應用領域。</p>
+
+<h2>2026 展望</h2>
+<p>汎銓董事長柳紀綸表示，2026年將是汎銓「年年豐收」的一年，營運已正式進入高成長期。</p>
+
+<strong>成長動能：</strong>
+<ul><li><strong>營收爆發性成長：</strong> 受益於AI晶片、埃米世代先進製程研發分析的強勁需求，以及矽光子測試設備銷售的全新營收來源，公司目標2026年營收年增<strong>30%~50%</strong>，預期將逐季攀升。</li>
+<li><strong>獲利能力顯著提升：</strong> 隨著新產能開出、營收規模擴大，以及高毛利業務比重增加，2025年12月毛利率已達<strong>42%</strong>。公司預期2026年全年平均毛利率將超過<strong>30%</strong>，單月營收突破2億元時可回升至<strong>35%以上</strong>，且費用率預計下降至<strong>18.8%</strong>，帶動獲利成長幅度遠高於營收，有望挑戰歷年新高。</li>
+<li><strong>新事業開啟成長第二曲線：</strong> 矽光子測試設備的推出，將汎銓的業務從純服務延伸至高毛利的設備銷售，搶佔矽光子市場爆發的先機。</li>
+</ul>
+<strong>風險：</strong>
+<ul><li><strong>技術快速迭代：</strong> 半導體技術發展迅速，汎銓需持續投入大量研發以保持技術領先地位。</li>
+<li><strong>客戶集中風險：</strong> 儘管與美系AI晶片大廠的深度合作帶來可觀營收，但也需留意潛在的客戶集中度風險。</li>
+<li><strong>全球經濟不確定性：</strong> 儘管公司營收結構聚焦高附加價值領域，受短期景氣或區域衝突影響相對有限，但全球經濟波動仍可能影響客戶的長期研發支出計畫。</li>
+<li><strong>折舊壓力短期影響：</strong> 2025年因擴產導致的折舊壓力雖將被2026年營收成長稀釋，但初期仍需注意對獲利基期的影響。</li>
+</ul>
+<h2>投資結論</h2>
+<p>基於汎銓在半導體檢測驗證領域的技術領先地位、對AI與先進製程需求的精準捕捉，以及積極佈局矽光子新藍海，我們認為其2026年具備強勁的成長潛力。</p>
+
+<li><strong>AI與先進製程驅動核心業務爆發：</strong> 汎銓高度聚焦於AI晶片與埃米世代先進製程的高階材料分析與故障分析，受惠於全球半導體產業升級浪潮，其核心服務將持續獲得高單價委案，確保穩定且高附加價值的營收。</li>
+<li><strong>矽光子新事業開啟設備銷售藍海：</strong> 自主研發的「MSS HG」矽光子測試設備，精準切入市場爆發前夕的矽光子領域，使汎銓從服務延伸至設備銷售，顯著擴展營收來源與獲利空間，有望成為新的成長引擎。</li>
+<li><strong>全球化佈局效益顯現，獲利能力迎來拐點：</strong> 過去兩年的資本支出高峰已過，全球12個廠區新產能將自2026年3月起陸續開出，加上營收規模擴大稀釋費用，以及2025年12月毛利率衝上<strong>42%</strong>的表現，顯示公司獲利能力已迎來顯著改善的拐點。</li>
+<li><strong>管理層樂觀指引奠定成長基石：</strong> 管理層給出2026年營收年增<strong>30%~50%</strong>，且獲利成長幅度有望遠高於營收的指引，展現對未來的高度信心，預期將推升公司進入「年年豐收」的營運新階段。</li>
+
+<p>綜合上述分析與公司強勁的成長動能，建議投資人可將汎銓的目標價區間設定在 <strong>新台幣 190元 至 230元</strong>，以反映其在AI與矽光子領域的領先地位及未來獲利能力提升空間。</p>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 12:54</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="6830_汎銓_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="6830_汎銓_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="6830_汎銓_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

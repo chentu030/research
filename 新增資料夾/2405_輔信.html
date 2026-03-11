@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2405 輔信 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2405 輔信 深度研究報告</h1>
+
+<strong>今天日期：2026年03月06日</strong>
+
+<h2>一句話摘要</h2>
+
+<p>輔信 (2405) 已成功轉型為迷你化邊緣AI運算解決方案供應商，受惠於全球邊緣AI應用加速落地、產業數位轉型與Windows 10換機潮，2026年營運展望樂觀，管理層預期營收將實現雙位數成長。公司聚焦智慧零售、視訊監控、機器視覺與智慧城市等高潛力應用領域，並透過多元晶片平台與小型化產品策略，有望在快速成長的邊緣AI市場中佔據一席之地。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2405 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2405" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2405" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2405');
+    var obvContainer = document.getElementById('obv-chart-2405');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 17.4, "high": 17.75, "low": 17.4, "close": 17.5}, {"time": "2025-12-05", "open": 17.5, "high": 17.9, "low": 17.3, "close": 17.4}, {"time": "2025-12-08", "open": 17.45, "high": 17.6, "low": 17.3, "close": 17.5}, {"time": "2025-12-09", "open": 17.45, "high": 17.6, "low": 17.3, "close": 17.5}, {"time": "2025-12-10", "open": 17.9, "high": 18.3, "low": 17.9, "close": 18.0}, {"time": "2025-12-11", "open": 18.05, "high": 18.4, "low": 18.0, "close": 18.3}, {"time": "2025-12-12", "open": 18.45, "high": 18.55, "low": 18.25, "close": 18.45}, {"time": "2025-12-15", "open": 18.15, "high": 18.95, "low": 18.15, "close": 18.85}, {"time": "2025-12-16", "open": 18.95, "high": 18.95, "low": 18.3, "close": 18.65}, {"time": "2025-12-17", "open": 18.8, "high": 18.95, "low": 18.55, "close": 18.65}, {"time": "2025-12-18", "open": 18.7, "high": 18.8, "low": 18.5, "close": 18.5}, {"time": "2025-12-19", "open": 18.8, "high": 18.8, "low": 18.25, "close": 18.5}, {"time": "2025-12-22", "open": 18.65, "high": 18.75, "low": 18.45, "close": 18.6}, {"time": "2025-12-23", "open": 18.75, "high": 18.9, "low": 18.4, "close": 18.45}, {"time": "2025-12-24", "open": 18.6, "high": 18.75, "low": 18.2, "close": 18.4}, {"time": "2025-12-26", "open": 18.4, "high": 18.55, "low": 18.05, "close": 18.1}, {"time": "2025-12-29", "open": 18.2, "high": 18.4, "low": 18.1, "close": 18.15}, {"time": "2025-12-30", "open": 18.15, "high": 18.2, "low": 17.8, "close": 18.0}, {"time": "2025-12-31", "open": 18.1, "high": 18.3, "low": 17.8, "close": 17.8}, {"time": "2026-01-02", "open": 17.9, "high": 18.3, "low": 17.85, "close": 18.0}, {"time": "2026-01-05", "open": 18.05, "high": 18.2, "low": 17.5, "close": 17.5}, {"time": "2026-01-06", "open": 17.55, "high": 18.0, "low": 17.4, "close": 17.8}, {"time": "2026-01-07", "open": 18.0, "high": 18.25, "low": 17.95, "close": 18.15}, {"time": "2026-01-08", "open": 18.3, "high": 18.3, "low": 17.4, "close": 17.45}, {"time": "2026-01-09", "open": 17.4, "high": 17.5, "low": 17.0, "close": 17.25}, {"time": "2026-01-12", "open": 17.2, "high": 17.4, "low": 17.0, "close": 17.1}, {"time": "2026-01-13", "open": 17.15, "high": 17.25, "low": 16.85, "close": 17.05}, {"time": "2026-01-14", "open": 17.05, "high": 17.75, "low": 17.05, "close": 17.7}, {"time": "2026-01-15", "open": 17.75, "high": 17.75, "low": 17.15, "close": 17.25}, {"time": "2026-01-16", "open": 17.4, "high": 17.4, "low": 17.15, "close": 17.25}, {"time": "2026-01-19", "open": 17.25, "high": 17.85, "low": 17.15, "close": 17.8}, {"time": "2026-01-20", "open": 17.8, "high": 17.8, "low": 17.25, "close": 17.35}, {"time": "2026-01-21", "open": 17.25, "high": 17.6, "low": 17.15, "close": 17.5}, {"time": "2026-01-22", "open": 17.7, "high": 18.0, "low": 17.5, "close": 17.5}, {"time": "2026-01-23", "open": 17.7, "high": 17.9, "low": 17.35, "close": 17.5}, {"time": "2026-01-26", "open": 17.7, "high": 17.9, "low": 17.5, "close": 17.6}, {"time": "2026-01-27", "open": 17.6, "high": 17.75, "low": 17.2, "close": 17.3}, {"time": "2026-01-28", "open": 17.3, "high": 17.45, "low": 17.0, "close": 17.05}, {"time": "2026-01-29", "open": 17.2, "high": 17.2, "low": 16.7, "close": 16.7}, {"time": "2026-01-30", "open": 16.7, "high": 16.75, "low": 16.2, "close": 16.3}, {"time": "2026-02-02", "open": 16.0, "high": 16.2, "low": 15.9, "close": 16.05}, {"time": "2026-02-03", "open": 16.3, "high": 16.4, "low": 16.0, "close": 16.2}, {"time": "2026-02-04", "open": 16.25, "high": 16.45, "low": 16.1, "close": 16.4}, {"time": "2026-02-05", "open": 16.3, "high": 16.5, "low": 16.2, "close": 16.2}, {"time": "2026-02-06", "open": 16.2, "high": 16.2, "low": 15.6, "close": 15.8}, {"time": "2026-02-09", "open": 16.05, "high": 16.1, "low": 15.8, "close": 15.8}, {"time": "2026-02-10", "open": 15.9, "high": 16.0, "low": 15.7, "close": 15.7}, {"time": "2026-02-11", "open": 15.75, "high": 15.75, "low": 15.55, "close": 15.6}, {"time": "2026-02-23", "open": 15.8, "high": 16.2, "low": 15.55, "close": 16.15}, {"time": "2026-02-24", "open": 16.15, "high": 16.35, "low": 16.05, "close": 16.15}, {"time": "2026-02-25", "open": 16.25, "high": 16.35, "low": 16.0, "close": 16.05}, {"time": "2026-02-26", "open": 16.05, "high": 16.2, "low": 15.95, "close": 16.15}, {"time": "2026-03-02", "open": 15.3, "high": 15.3, "low": 14.55, "close": 14.6}, {"time": "2026-03-03", "open": 16.0, "high": 16.2, "low": 15.5, "close": 15.6}, {"time": "2026-03-04", "open": 15.3, "high": 15.3, "low": 14.55, "close": 14.6}, {"time": "2026-03-05", "open": 15.25, "high": 15.4, "low": 15.0, "close": 15.35}, {"time": "2026-03-06", "open": 15.3, "high": 15.45, "low": 15.05, "close": 15.35}, {"time": "2026-03-09", "open": 14.4, "high": 14.85, "low": 14.25, "close": 14.85}, {"time": "2026-03-10", "open": 15.15, "high": 15.25, "low": 14.9, "close": 14.95}, {"time": "2026-03-11", "open": 15.0, "high": 15.3, "low": 15.0, "close": 15.2}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 913.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 1809.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 623.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 623.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 3807.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 2138.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 2079.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 2678.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 2005.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 1512.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 1147.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 1347.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 1093.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 1301.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 1096.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 1200.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 1004.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 947.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 1442.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 1269.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 2054.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 1634.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 2160.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 2746.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 1758.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 3943.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 2391.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 3123.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 2521.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 1555.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 3488.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 2977.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 2413.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 2461.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 2367.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 2237.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 2666.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 2674.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 2294.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 2099.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 1491.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 1268.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 1172.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 1238.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 1962.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 1010.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 1531.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 1406.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 1761.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 1469.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 1117.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 1792.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 2758.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 1885.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 2758.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 1319.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 929.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 1807.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 788.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 2966.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 17.580000000000002}, {"time": "2025-12-11", "value": 17.740000000000002}, {"time": "2025-12-12", "value": 17.95}, {"time": "2025-12-15", "value": 18.22}, {"time": "2025-12-16", "value": 18.45}, {"time": "2025-12-17", "value": 18.580000000000002}, {"time": "2025-12-18", "value": 18.619999999999997}, {"time": "2025-12-19", "value": 18.630000000000003}, {"time": "2025-12-22", "value": 18.580000000000002}, {"time": "2025-12-23", "value": 18.54}, {"time": "2025-12-24", "value": 18.490000000000002}, {"time": "2025-12-26", "value": 18.41}, {"time": "2025-12-29", "value": 18.34}, {"time": "2025-12-30", "value": 18.22}, {"time": "2025-12-31", "value": 18.09}, {"time": "2026-01-02", "value": 18.009999999999998}, {"time": "2026-01-05", "value": 17.89}, {"time": "2026-01-06", "value": 17.82}, {"time": "2026-01-07", "value": 17.85}, {"time": "2026-01-08", "value": 17.78}, {"time": "2026-01-09", "value": 17.630000000000003}, {"time": "2026-01-12", "value": 17.55}, {"time": "2026-01-13", "value": 17.4}, {"time": "2026-01-14", "value": 17.31}, {"time": "2026-01-15", "value": 17.27}, {"time": "2026-01-16", "value": 17.27}, {"time": "2026-01-19", "value": 17.41}, {"time": "2026-01-20", "value": 17.47}, {"time": "2026-01-21", "value": 17.43}, {"time": "2026-01-22", "value": 17.48}, {"time": "2026-01-23", "value": 17.53}, {"time": "2026-01-26", "value": 17.490000000000002}, {"time": "2026-01-27", "value": 17.48}, {"time": "2026-01-28", "value": 17.39}, {"time": "2026-01-29", "value": 17.23}, {"time": "2026-01-30", "value": 16.990000000000002}, {"time": "2026-02-02", "value": 16.68}, {"time": "2026-02-03", "value": 16.46}, {"time": "2026-02-04", "value": 16.330000000000002}, {"time": "2026-02-05", "value": 16.23}, {"time": "2026-02-06", "value": 16.130000000000003}, {"time": "2026-02-09", "value": 16.080000000000002}, {"time": "2026-02-10", "value": 15.98}, {"time": "2026-02-11", "value": 15.819999999999999}, {"time": "2026-02-23", "value": 15.809999999999999}, {"time": "2026-02-24", "value": 15.879999999999999}, {"time": "2026-02-25", "value": 15.929999999999998}, {"time": "2026-02-26", "value": 16.02}, {"time": "2026-03-02", "value": 15.819999999999999}, {"time": "2026-03-03", "value": 15.709999999999999}, {"time": "2026-03-04", "value": 15.4}, {"time": "2026-03-05", "value": 15.26}, {"time": "2026-03-06", "value": 15.1}, {"time": "2026-03-09", "value": 15.15}, {"time": "2026-03-10", "value": 15.02}, {"time": "2026-03-11", "value": 15.14}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 18.080000000000002}, {"time": "2025-12-18", "value": 18.18}, {"time": "2025-12-19", "value": 18.29}, {"time": "2025-12-22", "value": 18.4}, {"time": "2025-12-23", "value": 18.494999999999997}, {"time": "2025-12-24", "value": 18.535}, {"time": "2025-12-26", "value": 18.515}, {"time": "2025-12-29", "value": 18.485}, {"time": "2025-12-30", "value": 18.4}, {"time": "2025-12-31", "value": 18.315}, {"time": "2026-01-02", "value": 18.25}, {"time": "2026-01-05", "value": 18.15}, {"time": "2026-01-06", "value": 18.080000000000002}, {"time": "2026-01-07", "value": 18.035}, {"time": "2026-01-08", "value": 17.935}, {"time": "2026-01-09", "value": 17.82}, {"time": "2026-01-12", "value": 17.72}, {"time": "2026-01-13", "value": 17.61}, {"time": "2026-01-14", "value": 17.580000000000002}, {"time": "2026-01-15", "value": 17.525}, {"time": "2026-01-16", "value": 17.45}, {"time": "2026-01-19", "value": 17.48}, {"time": "2026-01-20", "value": 17.435}, {"time": "2026-01-21", "value": 17.369999999999997}, {"time": "2026-01-22", "value": 17.375}, {"time": "2026-01-23", "value": 17.4}, {"time": "2026-01-26", "value": 17.45}, {"time": "2026-01-27", "value": 17.475}, {"time": "2026-01-28", "value": 17.41}, {"time": "2026-01-29", "value": 17.355}, {"time": "2026-01-30", "value": 17.259999999999998}, {"time": "2026-02-02", "value": 17.085}, {"time": "2026-02-03", "value": 16.97}, {"time": "2026-02-04", "value": 16.86}, {"time": "2026-02-05", "value": 16.73}, {"time": "2026-02-06", "value": 16.56}, {"time": "2026-02-09", "value": 16.380000000000003}, {"time": "2026-02-10", "value": 16.22}, {"time": "2026-02-11", "value": 16.075}, {"time": "2026-02-23", "value": 16.02}, {"time": "2026-02-24", "value": 16.005}, {"time": "2026-02-25", "value": 16.005}, {"time": "2026-02-26", "value": 16.0}, {"time": "2026-03-02", "value": 15.819999999999999}, {"time": "2026-03-03", "value": 15.76}, {"time": "2026-03-04", "value": 15.64}, {"time": "2026-03-05", "value": 15.594999999999999}, {"time": "2026-03-06", "value": 15.559999999999999}, {"time": "2026-03-09", "value": 15.485}, {"time": "2026-03-10", "value": 15.365}, {"time": "2026-03-11", "value": 15.27}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 18.165}, {"time": "2026-01-05", "value": 18.165}, {"time": "2026-01-06", "value": 18.185}, {"time": "2026-01-07", "value": 18.2175}, {"time": "2026-01-08", "value": 18.215}, {"time": "2026-01-09", "value": 18.177500000000002}, {"time": "2026-01-12", "value": 18.1175}, {"time": "2026-01-13", "value": 18.0475}, {"time": "2026-01-14", "value": 17.990000000000002}, {"time": "2026-01-15", "value": 17.919999999999998}, {"time": "2026-01-16", "value": 17.85}, {"time": "2026-01-19", "value": 17.815}, {"time": "2026-01-20", "value": 17.7575}, {"time": "2026-01-21", "value": 17.7025}, {"time": "2026-01-22", "value": 17.655}, {"time": "2026-01-23", "value": 17.61}, {"time": "2026-01-26", "value": 17.585}, {"time": "2026-01-27", "value": 17.5425}, {"time": "2026-01-28", "value": 17.494999999999997}, {"time": "2026-01-29", "value": 17.44}, {"time": "2026-01-30", "value": 17.355}, {"time": "2026-02-02", "value": 17.2825}, {"time": "2026-02-03", "value": 17.2025}, {"time": "2026-02-04", "value": 17.115000000000002}, {"time": "2026-02-05", "value": 17.052500000000002}, {"time": "2026-02-06", "value": 16.98}, {"time": "2026-02-09", "value": 16.915}, {"time": "2026-02-10", "value": 16.8475}, {"time": "2026-02-11", "value": 16.7425}, {"time": "2026-02-23", "value": 16.6875}, {"time": "2026-02-24", "value": 16.6325}, {"time": "2026-02-25", "value": 16.544999999999998}, {"time": "2026-02-26", "value": 16.485}, {"time": "2026-03-02", "value": 16.34}, {"time": "2026-03-03", "value": 16.244999999999997}, {"time": "2026-03-04", "value": 16.1}, {"time": "2026-03-05", "value": 15.9875}, {"time": "2026-03-06", "value": 15.89}, {"time": "2026-03-09", "value": 15.779999999999998}, {"time": "2026-03-10", "value": 15.692499999999999}, {"time": "2026-03-11", "value": 15.6375}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -1809.0}, {"time": "2025-12-08", "value": -1186.0}, {"time": "2025-12-09", "value": -1186.0}, {"time": "2025-12-10", "value": 2621.0}, {"time": "2025-12-11", "value": 4759.0}, {"time": "2025-12-12", "value": 6838.0}, {"time": "2025-12-15", "value": 9516.0}, {"time": "2025-12-16", "value": 7511.0}, {"time": "2025-12-17", "value": 7511.0}, {"time": "2025-12-18", "value": 6364.0}, {"time": "2025-12-19", "value": 6364.0}, {"time": "2025-12-22", "value": 7457.0}, {"time": "2025-12-23", "value": 6156.0}, {"time": "2025-12-24", "value": 5060.0}, {"time": "2025-12-26", "value": 3860.0}, {"time": "2025-12-29", "value": 4864.0}, {"time": "2025-12-30", "value": 3917.0}, {"time": "2025-12-31", "value": 2475.0}, {"time": "2026-01-02", "value": 3744.0}, {"time": "2026-01-05", "value": 1690.0}, {"time": "2026-01-06", "value": 3324.0}, {"time": "2026-01-07", "value": 5484.0}, {"time": "2026-01-08", "value": 2738.0}, {"time": "2026-01-09", "value": 980.0}, {"time": "2026-01-12", "value": -2963.0}, {"time": "2026-01-13", "value": -5354.0}, {"time": "2026-01-14", "value": -2231.0}, {"time": "2026-01-15", "value": -4752.0}, {"time": "2026-01-16", "value": -4752.0}, {"time": "2026-01-19", "value": -1264.0}, {"time": "2026-01-20", "value": -4241.0}, {"time": "2026-01-21", "value": -1828.0}, {"time": "2026-01-22", "value": -1828.0}, {"time": "2026-01-23", "value": -1828.0}, {"time": "2026-01-26", "value": 409.0}, {"time": "2026-01-27", "value": -2257.0}, {"time": "2026-01-28", "value": -4931.0}, {"time": "2026-01-29", "value": -7225.0}, {"time": "2026-01-30", "value": -9324.0}, {"time": "2026-02-02", "value": -10815.0}, {"time": "2026-02-03", "value": -9547.0}, {"time": "2026-02-04", "value": -8375.0}, {"time": "2026-02-05", "value": -9613.0}, {"time": "2026-02-06", "value": -11575.0}, {"time": "2026-02-09", "value": -11575.0}, {"time": "2026-02-10", "value": -13106.0}, {"time": "2026-02-11", "value": -14512.0}, {"time": "2026-02-23", "value": -12751.0}, {"time": "2026-02-24", "value": -12751.0}, {"time": "2026-02-25", "value": -13868.0}, {"time": "2026-02-26", "value": -12076.0}, {"time": "2026-03-02", "value": -14834.0}, {"time": "2026-03-03", "value": -12949.0}, {"time": "2026-03-04", "value": -15707.0}, {"time": "2026-03-05", "value": -14388.0}, {"time": "2026-03-06", "value": -14388.0}, {"time": "2026-03-09", "value": -16195.0}, {"time": "2026-03-10", "value": -15407.0}, {"time": "2026-03-11", "value": -12441.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>輔信科技 (2405) 前身為準系統廠商浩鑫電腦，於2020年更名後，業務重心已轉向迷你化邊緣AI運算電腦解決方案。其核心業務為開發與製造適用於商業與工業領域的智慧解決方案。</p>
+
+<strong>核心產品與服務：</strong>
+
+<ul><li><strong>迷你化邊緣運算電腦：</strong> 產品線完整，涵蓋基礎運算、特定邊緣任務到高階邊緣AI推論，已推出0.45公升迷你邊緣PC，並規劃開發下一代0.25公升產品。</li>
+<li><strong>工業電腦 (IPC)：</strong> 提供高可靠度嵌入式電腦解決方案，應用於工廠自動化、機器人應用、機器視覺等嚴苛環境，2025年台灣市場銷售額年增逾50%。</li>
+<li><strong>AI電腦：</strong> 持續推進AI電腦開發，新一代系列已於2025年第三季陸續量產，支援Intel、AMD、NVIDIA三大平台，高階工作站算力最高可達400 TOPS。</li>
+<li><strong>數位看板與顯示產品：</strong> 基於雲端的互動式顯示器、數位看板、Kiosk等產品，在日本市場有穩定交付專案。</li>
+<li><strong>醫療級產品線：</strong> 透過子公司暄達醫學提供醫材產品與專案服務，出貨穩定。</li>
+</ul>
+<strong>營收結構（依地區別，2024年數據）：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>地區</th><th>營收金額 (新台幣)</th><th>佔比 (%)</th></tr></thead><tbody>
+<tr><td>歐洲</td><td>8.01 億元</td><td>48.06</td></tr>
+<tr><td>美國</td><td>5.59 億元</td><td>33.54</td></tr>
+<tr><td>亞洲</td><td>1.80 億元</td><td>10.79</td></tr>
+<tr><td>台灣</td><td>6,393.40 萬元</td><td>3.84</td></tr>
+<tr><td>其他</td><td>5,694.10 萬元</td><td>3.42</td></tr>
+<tr><td>中國</td><td>608.60 萬元</td><td>0.37</td></tr>
+<tr><td><strong>合計</strong></td><td><strong>16.67 億元</strong></td><td><strong>100</strong></td></tr>
+</tbody></table></div>
+
+<strong>製造基地：</strong> 輔信在全球設有子公司，並具備在地組裝與客製化產線，主要位於德國、美國和日本。新建總部大樓預計於2026年投入使用。
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>迷你化邊緣AI運算領導者：</strong> 專注於開發0.45公升甚至未來0.25公升的超緊湊邊緣PC，在空間受限場域具備獨特優勢，榮獲2026年台灣精品獎。</li>
+<li><strong>多元晶片平台整合能力：</strong> 產品支援Intel、AMD、NVIDIA三大主流晶片平台，並可整合NPU/GPU，提供最高達400 TOPS的AI推論算力，具備高度彈性與客製化能力。</li>
+<li><strong>深耕垂直應用市場：</strong> 透過在地化團隊，將邊緣AI解決方案深入應用於智慧零售、視訊監控、機器視覺、智慧城市、工廠自動化、醫療影像輔助等利基市場，並具備多個成功案例。</li>
+<li><strong>全球化佈局與服務網絡：</strong> 在德國、美國、日本等地設有子公司與組裝客製化產線，能夠提供在地化的快速響應與專案支援服務，有助於承接大型國際專案。</li>
+<li><strong>子公司醫療級產品線支撐：</strong> 子公司暄達醫學的醫療級產品線提供穩定營收，有助於熨平景氣循環波動，並擴大醫療科技應用。</li>
+
+<h2>財務分析</h2>
+
+<strong>月營收趨勢 (最近 6 個月)：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣)</th><th>月增率 MoM (%)</th><th>年增率 YoY (%)</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>1.35 億元</td><td>-1.46</td><td>14.47</td></tr>
+<tr><td>2025年12月</td><td>1.37 億元</td><td>-20.61</td><td>10.62</td></tr>
+<tr><td>2025年11月</td><td>1.73 億元</td><td>18.93</td><td>28.74</td></tr>
+<tr><td>2025年10月</td><td>1.46 億元</td><td>-8.73</td><td>3.75</td></tr>
+<tr><td>2025年09月</td><td>1.60 億元</td><td>5.51</td><td>26.45</td></tr>
+<tr><td>2025年08月</td><td>1.51 億元</td><td>11.59</td><td>22.62</td></tr>
+</tbody></table></div>
+
+<em>註：輔信已連續六個月實現年增正成長，顯示營運韌性。</em>
+
+<strong>季度數據：</strong>
+
+<ul><li><strong>2025年第四季</strong></li>
+</ul>    *   季營收：4.56 億元，季增率 (QoQ) 2.3%，年增率 (YoY) 14.3%。
+<p>*   毛利率、營業利益率、EPS 等詳細數據未公開，預計將於後續財報揭露。</p>
+<ul><li><strong>2025年第三季</strong></li>
+</ul>    *   季營收：約 4.46 億元 (計算自Q4季增率)。
+<p>*   EPS：0.00 元。</p>
+<p>*   累計EPS (Q1-Q3)：-0.15 元。</p>
+<p>*   毛利率：38.26% (鉅亨網資料)。</p>
+<p>*   營業利益率：-3.61% (鉅亨網資料)。</p>
+
+<strong>年度趨勢：</strong>
+
+<ul><li><strong>2025年全年營收：</strong> 17.42 億元 (實際)，年增率 4.47%。</li>
+<li><strong>2024年全年 EPS：</strong> 0.03 元 (實際)。</li>
+<li><strong>2025年全年 EPS：</strong> 截至2025年第三季累計EPS為-0.15元。2025年全年EPS明確預估數字目前未找到。</li>
+</ul>
+<h2>法說會重點</h2>
+
+<strong>最近一次法說會日期：</strong> 2025年12月1日
+
+<strong>管理層發言與 Guidance：</strong>
+
+<ul><li><strong>2026年營運展望：</strong> 對2026年營運發展持審慎樂觀看法，預期營運將重返成長軌跡，並有望實現<strong>兩位數百分比的年增長</strong>。預計第二季後營運能見度將逐步明朗。</li>
+<li><strong>產品策略：</strong> 持續聚焦智慧零售、視訊監控、機器視覺與智慧城市等AI邊緣運算領域，深化軟硬整合能力。邊緣AI PC新產品布局已於2025年底完成，預計2026年第二季啟動新年度產品開發規劃，提前因應主要晶片平台世代更新節奏。</li>
+<li><strong>海外專案進展：</strong></li>
+</ul>    *   <strong>美國市場：</strong> 企業資料管理與備援應用專案持續出貨，並在醫療與電信通路訂單方面有所推動。部分長期訂單能見度已看到2027年。
+<p>*   <strong>日本市場：</strong> 互動式終端服務機 (Kiosk) 與視訊監控專案交付穩定，藥妝通路應用專案持續出貨，既有監控應用客戶進行產品平台升級，新年度訂單逐步導入新機種。</p>
+<p>*   <strong>歐洲市場：</strong> 儘管受記憶體及部分關鍵零組件價格波動影響，客戶拉貨節奏轉趨保守，但公司持續與客戶協調專案時程與交付規劃。</p>
+<p>*   <strong>亞洲市場：</strong> 台灣工業電腦銷售額年增逾50%，印度與澳洲市場同樣升溫。</p>
+<ul><li><strong>供應鏈管理：</strong> 面對記憶體及部分關鍵零組件價格波動，公司採取策略性備貨，並靈活運用多元供應商與規格選項，以維持零組件供應彈性，降低對營運的影響。</li>
+<li><strong>新總部大樓：</strong> 已新建總部大樓，預計於2026年投入使用，以擴大營運規模及優化工作環境。</li>
+<li><strong>子公司表現：</strong> 子公司暄達醫學出貨穩定。</li>
+</ul>
+<strong>產能利用率、資本支出金額：</strong>
+<ul><li>未提供2024年以後具體產能利用率及資本支出金額數據。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<p>目前未找到2025-2026年間有具體券商針對輔信 (2405) 發布目標價或EPS預估的報告。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
+</tbody></table></div>
+
+<h2>財報深度分析</h2>
+
+<strong>利潤率趨勢 (季)：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2024 Q1</td><td>40.72</td><td>-1.15</td><td>5.17</td></tr>
+<tr><td>2024 Q2</td><td>41.73</td><td>-2.89</td><td>0.35</td></tr>
+<tr><td>2024 Q3</td><td>39.86</td><td>-4.15</td><td>-2.42</td></tr>
+<tr><td>2024 Q4</td><td>41.87</td><td>-4.07</td><td>-1.23</td></tr>
+<tr><td>2025 Q1</td><td>40.54</td><td>-3.12</td><td>1.15</td></tr>
+<tr><td>2025 Q2</td><td>41.11</td><td>-4.42</td><td>-14.96</td></tr>
+<tr><td>2025 Q3</td><td>38.26</td><td>-3.61</td><td>-0.28</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化分析：</strong>
+<p>輔信的毛利率在40%左右震盪，顯示產品具有一定的競爭力。然而，營業利益率和稅後淨利率在2024年和2025年多數季度呈現負值，主要受外部因素影響，包括美國關稅、美元匯率波動及歐洲經濟復甦緩慢。2025年Q2受業外損失影響，稅後淨利率大幅下降。公司管理層預期隨著邊緣AI PC新產品佈局完成，2026年第二季後營運能見度將逐步明朗，若新產品能順利放量，將有助於優化產品組合並提升獲利表現。</p>
+
+<strong>存貨分析：</strong>
+<p>輔信為因應記憶體及部分關鍵零組件價格波動，已採取策略性備貨措施，並透過多元供應商體系維持規格選項的彈性。這顯示公司採取預防性備料以確保供應鏈穩定，而非異常堆積。</p>
+<em>   </em>備註：近4季存貨金額與存貨週轉天數趨勢、應收帳款週轉天數趨勢，目前未找到2024-2026年具體數據。*
+
+<strong>資本支出：</strong>
+<p>輔信已新建總部大樓，預計於2026年投入使用，此為擴大營運規模及優化工作環境的資本支出計畫。公司也將持續擴大工業電腦客戶基礎，並利用各地子公司的在地化組裝、測試與客製化能力，爭取更多專案型合作機會。</p>
+<em>   </em>備註：近3年資本支出金額與趨勢、預計新增產能、折舊攤銷趨勢，目前未找到2024-2026年具體數據。*
+
+<h2>股權異動</h2>
+
+<ul><li><strong>董監事/大股東申報轉讓：</strong> 未找到2024-2026年最新紀錄。</li>
+<li><strong>庫藏股買回：</strong> 未找到2024-2026年最新紀錄。</li>
+<li><strong>可轉換公司債 (CB) 發行：</strong> 未找到2024-2026年最新資訊。</li>
+<li><strong>現金增資或減資計畫：</strong> 未找到2024-2026年最新計畫。</li>
+<li><strong>股利政策：</strong></li>
+</ul>    *   2024年度現金股利：0.17元。
+<p>*   除息日：2025年07月03日。</p>
+<p>*   現金股利發放日：2025年07月23日。</p>
+<p>*   以2025年7月1日收盤價15.85元計算，現金股利殖利率為1.07%。</p>
+<p>*   近五年平均現金股利為0.11元，平均現金殖利率為0.62%。</p>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與趨勢</h3>
+
+<p>邊緣AI運算市場正處於高速成長階段，主要動力來自物聯網(IoT)設備、自駕車與智慧基礎設施對即時數據處理的需求，以及5G網路的普及。</p>
+
+<ul><li><strong>全球邊緣運算市場：</strong></li>
+</ul>    *   2025年預計市場規模超過304.3億美元，或達358億美元。
+<p>*   2026年預計達到396億美元。</p>
+<p>*   2026年至2035年CAGR約為33.5%；另有預測2026年至2032年CAGR為24.43%。</p>
+<ul><li><strong>全球邊緣AI市場：</strong></li>
+</ul>    *   2024年價值87億美元，2025年預計增長至118億美元。
+<p>*   2025年至2030年預計以36.9% CAGR擴張，到2030年將達到568億美元。</p>
+<ul><li><strong>全球邊緣AI晶片市場：</strong></li>
+</ul>    *   2024年達到75億美元。
+<p>*   ABI Research報告指出，2025年邊緣AI晶片組市場規模將達到122億美元，首次超過雲端AI晶片組市場規模。</p>
+<p>*   2025年至2032年CAGR為17.4%，預計到2032年達到271億美元。</p>
+<ul><li><strong>工業邊緣運算市場：</strong></li>
+</ul>    *   2025年全球市場規模預計達564.6億美元。
+<p>*   並將於2030年增至1062.5億美元，年複合成長率達13.48%。</p>
+
+<strong>供需狀況：</strong> 目前邊緣AI運算產業呈現<strong>需求旺盛、供不應求</strong>的態勢，驅動產業持續投資與發展。MIC指出，由於產業AI運算需求旺盛，將帶動邊緣AI硬體滲透率成長至接近2成。
+
+<strong>產業平均毛利率水準：</strong> 目前未找到2024年以後邊緣AI運算產業或工業電腦產業的平均毛利率水準具體數據。
+
+<h3>競爭格局</h3>
+
+<p>邊緣AI運算和工業電腦領域競爭激烈且分散，主要參與者包括晶片大廠、傳統IPC業者和雲服務提供商。</p>
+
+<strong>主要競爭對手比較：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>相關領域及影響力</th><th>輔信 (2405) 優勢/差異點</th></tr></thead><tbody>
+<tr><td><strong>NVIDIA (輝達)</strong></td><td>邊緣AI晶片、模組（如Jetson系列），提供強大AI推論算力，主導AI半導體市場。</td><td>輔信是其重要的應用夥伴，專注於提供<strong>小型化、整合性</strong>的邊緣AI電腦解決方案，而非晶片本身。</td></tr>
+<tr><td><strong>Intel (英特爾)</strong></td><td>推出Gaudi 3 Edge AI處理器，在邊緣AI晶片組市場中佔重要地位，提供OpenVINO等軟體平台。</td><td>輔信亦是Intel平台的合作夥伴，並在<strong>迷你化準系統</strong>設計、特定垂直市場應用上形成差異。</td></tr>
+<tr><td><strong>Qualcomm (高通)</strong></td><td>Edge AI 100加速器晶片系列，專注於超低功耗NPU，實現物聯網和穿戴式裝置即時推論。</td><td>輔信可將高通的低功耗晶片整合至其超小型化產品中，擴展物聯網節點應用。</td></tr>
+<tr><td><strong>研華 (Advantech)</strong></td><td>工業電腦(IPC)領域全球領導廠商，也推出中高階算力AI Box產品，客戶群廣泛。</td><td>輔信的差異化在於其<strong>「迷你化」</strong>和<strong>「準系統」</strong>解決方案，更專注於機器人視覺、醫療及利基邊緣AI等特定應用，提供彈性客製方案。</td></tr>
+<tr><td><strong>Amazon Web Services (AWS)</strong></td><td>提供雲端服務與IoT解決方案，利用AWS IoT在邊緣部署AI。</td><td>輔信提供<strong>地端邊緣硬體</strong>解決方案，可與雲端服務商的平台整合，作為其生態系中的硬體供應商。</td></tr>
+<tr><td><strong>Microsoft (微軟)</strong></td><td>透過Azure AI提供AI解決方案，部署和管理跨邊緣裝置的模型。</td><td>同AWS，輔信作為其<strong>地端邊緣硬體供應商</strong>，協助將AI模型高效運行於實體邊緣設備。</td></tr>
+<tr><td><strong>輔信 (2405)</strong></td><td>迷你化邊緣AI運算電腦解決方案供應商，產品支援Intel、AMD、NVIDIA三大平台，從0.45L到規劃0.25L超小型PC，高階工作站算力最高400 TOPS。專注智慧零售、機器視覺、醫療等垂直市場。</td><td><strong>優勢：</strong> 獨特的迷你化設計能力、多平台整合彈性、深耕利基垂直市場的解決方案經驗、全球在地化服務能力。 <strong>劣勢：</strong> 相較於大型業者，品牌知名度、規模經濟、研發資源投入可能較小。</td></tr>
+</tbody></table></div>
+
+<em>   </em>備註：目前未找到輔信與主要競爭對手在產能、客戶、價格等方面的直接具體比較資料。也未找到輔信及其台灣同業的最新營收規模、毛利率、EPS直接對比資料。*
+
+<h3>產業趨勢</h3>
+
+<li><strong>邊緣AI晶片算力提升與模型優化：</strong></li>
+<p>*   <strong>趨勢：</strong> 邊緣AI晶片算力持續增強，且AI模型壓縮與量化運算技術進步，使小型模型能在有限資源的邊緣設備上高效運行。</p>
+<p>*   <strong>影響：</strong> 邊緣裝置具備更強大的本地AI推論能力，大幅降低對雲端運算的依賴，減少延遲與頻寬成本。這加速了智慧工廠、智慧醫療等領域的AI落地，提升即時決策力與數據安全。</p>
+<p>*   <strong>對輔信影響：</strong> <strong>機會</strong> - 輔信可整合最新高效能、低功耗邊緣AI晶片，持續提升其迷你化產品的算力與能效，鞏固技術領先地位，滿足市場對高性能邊緣AI的需求。</p>
+
+<li><strong>5G網路普及與物聯網 (IoT) 設備激增：</strong></li>
+<p>*   <strong>趨勢：</strong> 全球5G網路持續推廣，IoT設備數量爆發性增長，為邊緣運算提供高速、低延遲的連接基礎和海量數據來源。</p>
+<p>*   <strong>影響：</strong> 5G與IoT的融合促使更多數據在邊緣產生並被即時處理，推動製造業、醫療保健、零售等行業對邊緣AI解決方案的強勁需求。</p>
+<p>*   <strong>對輔信影響：</strong> <strong>機會</strong> - 輔信的邊緣運算解決方案是IoT/IIoT實現智能化的核心組件，能直接受惠於5G和IoT的廣泛部署，擴大其產品應用範圍和市場滲透率。</p>
+
+<li><strong>Windows 10 終止支援與AI PC換機潮：</strong></li>
+<p>*   <strong>趨勢：</strong> Windows 10將逐步終止支援，加上AI晶片普遍整合NPU，預期將帶動企業與個人用戶對AI PC的換機需求。</p>
+<p>*   <strong>影響：</strong> AI PC市場將迎來爆發性成長，帶動邊緣運算相關硬體需求。</p>
+<p>*   <strong>對輔信影響：</strong> <strong>機會</strong> - 儘管輔信不主攻消費級AI PC，但在商用/工業級AI PC或特定邊緣工作站領域，其迷你化、高效能、多平台支援的產品線有望抓住企業換機潮中的利基市場需求。</p>
+
+<strong>相關投資題材連結：</strong>
+<ul><li><strong>AI (人工智慧) / 邊緣運算 (Edge Computing)：</strong> 輔信的業務核心即是「迷你化邊緣AI運算電腦解決方案」，直接受惠於邊緣AI市場的爆發性成長。</li>
+<li><strong>AI PC：</strong> 雖然非消費級AI PC，但輔信的邊緣AI電腦可視為專業級或工業級AI PC，受惠於AI算力下放至終端的趨勢及Windows 10換機需求。</li>
+<li><strong>物聯網 (IoT) / 工業物聯網 (IIoT)：</strong> 輔信的迷你邊緣運算電腦和工業電腦是IoT/IIoT實現智慧化、自動化的關鍵硬件，與此題材高度結合。</li>
+<li><strong>5G：</strong> 作為邊緣運算和邊緣AI發展的基礎設施，5G網路的普及直接支持輔信解決方案在需要即時數據傳輸處理場景的應用。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<strong>利多事件：</strong>
+
+<ul><li><strong>2026年01月營收強勁：</strong> 2026年1月合併營收達1.35億元，年增14.47%，已連續六個月實現年增正成長，展現營運韌性。</li>
+<li><strong>2025年全年營收成長：</strong> 2025年全年合併營收達17.42億元，年增4.47%，繳出全年正成長成績單。</li>
+<li><strong>2026年營運展望樂觀：</strong> 管理層預期2026年營收可望年增二位數百分比，營運能見度預計第二季後逐步明朗。</li>
+<li><strong>AI邊緣運算產品布局完善：</strong> 輔信已於2025年底前完成多數邊緣AI PC產品開發，並規劃2026年第二季啟動新年度產品開發，持續領先晶片平台世代更新。</li>
+<li><strong>榮獲台灣精品獎：</strong> 旗下SPC系列工業級邊緣AI電腦新品榮獲2026年台灣精品獎，肯定其產品創新與競爭力。</li>
+<li><strong>海外專案持續推進：</strong> 美國企業資料管理與備援應用、日本互動式終端服務機與藥妝通路、既有監控應用客戶產品平台升級訂單穩定且導入新機種，部分訂單能見度已看到2027年。</li>
+<li><strong>新總部大樓啟用：</strong> 新建總部大樓預計2026年投入使用，擴大營運規模並優化工作環境。</li>
+<li><strong>與KIOSK Information Systems合作：</strong> KIOSK Information Systems選擇AOPEN為HIMSS 2026提供關鍵任務醫療解決方案 (2026年02月19日)。</li>
+</ul>
+<strong>利空事件：</strong>
+
+<ul><li><strong>記憶體及關鍵零組件價格波動：</strong> 記憶體及部分關鍵零組件價格波動影響客戶出貨安排，歐洲市場客戶拉貨節奏轉趨保守，短期內可能影響單季營收表現。</li>
+<li><strong>法人賣超壓力：</strong> 近一個月 (2026年02月03日至2026年03月04日) 外資累計賣超較多，顯示法人對短期展望或評價持謹慎態度。</li>
+</ul>
+<strong>外資/投信近期買賣超張數 (2026年02月03日 - 2026年03月04日)：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>日期</th><th>外資買賣超 (張)</th><th>投信買賣超 (張)</th><th>自營商買賣超 (張)</th><th>總計買賣超 (張)</th></tr></thead><tbody>
+<tr><td>2026年03月04日</td><td>-278</td><td>0</td><td>0</td><td>-278</td></tr>
+<tr><td>2026年03月03日</td><td>-607</td><td>0</td><td>0</td><td>-607</td></tr>
+<tr><td>2026年02月26日</td><td>-180</td><td>0</td><td>-7</td><td>-187</td></tr>
+<tr><td>2026年02月25日</td><td>-41</td><td>0</td><td>0</td><td>-41</td></tr>
+<tr><td>2026年02月24日</td><td>-217</td><td>0</td><td>1</td><td>-216</td></tr>
+<tr><td>2026年02月23日</td><td>685</td><td>0</td><td>0</td><td>685</td></tr>
+<tr><td>2026年02月11日</td><td>-12</td><td>0</td><td>2</td><td>-10</td></tr>
+<tr><td>2026年02月10日</td><td>341</td><td>0</td><td>3</td><td>344</td></tr>
+<tr><td>2026年02月09日</td><td>13</td><td>0</td><td>-35</td><td>-22</td></tr>
+<tr><td>2026年02月06日</td><td>-828</td><td>0</td><td>0</td><td>-828</td></tr>
+<tr><td>2026年02月05日</td><td>103</td><td>0</td><td>32</td><td>135</td></tr>
+<tr><td>2026年02月04日</td><td>101</td><td>0</td><td>2</td><td>103</td></tr>
+<tr><td>2026年02月03日</td><td>-68</td><td>0</td><td>3</td><td>-65</td></tr>
+</tbody></table></div>
+
+<h2>⭐ 成長動能時間軸</h2>
+
+<ul><li><strong>2025年第三季：</strong></li>
+</ul>    *   新一代AI電腦系列陸續量產，支援Intel、AMD、NVIDIA三大平台。
+<ul><li><strong>2025年底：</strong></li>
+</ul>    *   完成多數邊緣AI PC產品開發，以保持產品線完整性。
+<p>*   美國企業資料管理與備援應用專案、日本Kiosk與藥妝通路專案訂單啟動出貨，並延續至2026年第三季。</p>
+<ul><li><strong>2026年：</strong></li>
+</ul>    *   <strong>總部大樓啟用：</strong> 新建總部大樓預計投入使用，擴大營運規模及優化工作環境。
+<p>*   <strong>新年度產品開發：</strong> 預計第二季啟動新年度產品開發規劃，提前因應主要晶片平台世代更新節奏。</p>
+<p>*   <strong>產品小型化推進：</strong> 持續因應客戶需求打造下一代0.25公升迷你邊緣PC產品。</p>
+<p>*   <strong>垂直應用深化：</strong> 持續聚焦智慧零售、視訊監控、機器視覺與智慧城市等領域，深化軟硬整合能力。</p>
+<p>*   <strong>新市場拓展：</strong> 公司計劃將更多資源投入東南亞與新興市場，看好無人化與智慧場域帶起的AI與邊緣運算需求。</p>
+<p>*   <strong>訂單能見度：</strong> 部分客戶專案訂單能見度已看到2027年。</p>
+<ul><li><strong>2026年第二季後：</strong></li>
+</ul>    *   營運能見度逐步明朗，預期新年度專案陸續放量，帶動營收成長。
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+
+<li><strong>邊緣AI市場爆發式成長：</strong> 全球邊緣AI市場預計在2025-2030年以36.9%的CAGR擴張，輔信作為迷你化邊緣AI解決方案供應商，直接受惠於此趨勢。</li>
+<li><strong>管理層樂觀指引：</strong> 管理層預期2026年營收將實現<strong>兩位數百分比的年增長</strong>，顯示對公司轉型成果與未來訂單的高度信心。</li>
+<li><strong>產品競爭力提升：</strong> 新一代AI電腦系列已量產，產品線支援三大平台且具備高算力，小型化產品設計符合市場利基需求，榮獲台灣精品獎肯定。</li>
+<li><strong>全球專案落地加速：</strong> 美、日市場長期專案訂單持續出貨，亞洲市場（台灣IPC、印度、澳洲）成長亮眼，並積極拓展東南亞與新興市場，海外營收貢獻可期。</li>
+<li><strong>產業換機潮與數位轉型：</strong> Windows 10終止支援、代理式AI興起及模型小型化趨勢，將持續推動對AI PC與邊緣AI運算的需求，加速各產業的數位轉型。</li>
+
+<strong>風險：</strong>
+
+<li><strong>競爭加劇：</strong> 邊緣AI運算市場潛力大，將吸引更多國內外業者投入，可能導致價格競爭與技術快速迭代壓力。</li>
+<li><strong>訂單延續性與新應用落地速度：</strong> 輔信營運高度依賴專案型訂單，其延續性及新應用市場的實際落地速度，將直接影響未來營收成長幅度。</li>
+<li><strong>供應鏈波動與成本壓力：</strong> 記憶體及部分關鍵零組件價格波動，雖有策略性備貨因應，仍可能影響客戶拉貨節奏，對短期毛利率與營運造成挑戰。</li>
+<li><strong>總體經濟不確定性：</strong> 全球政經環境不確定性、美國關稅、美元匯率波動及歐洲經濟復甦緩慢等外部因素，仍是影響公司獲利表現的關鍵變數。</li>
+<li><strong>獲利能力待提升：</strong> 2025年前三季累計EPS仍為負值，若新產品放量速度不如預期或費用控制不佳，可能影響2026年轉虧為盈的進度。</li>
+
+<h2>投資結論</h2>
+
+<li><strong>明確轉型與市場契合度高：</strong> 輔信成功轉型為迷你化邊緣AI運算解決方案供應商，其產品線高度契合全球邊緣AI、AIoT與智慧應用市場的爆發性成長趨勢，具備中長期成長潛力。</li>
+<li><strong>2026年營收成長動能強勁：</strong> 管理層預期2026年營收將實現兩位數百分比成長，加上美日海外專案訂單能見度高，且積極拓展新興市場，營收展望樂觀。</li>
+<li><strong>產品差異化與技術優勢：</strong> 在迷你化邊緣PC設計、多平台晶片整合能力及垂直應用解決方案方面具備競爭優勢，榮獲台灣精品獎肯定其創新實力。</li>
+<li><strong>短期獲利承壓，但營運效率改善可期：</strong> 儘管2025年獲利受外部因素影響，但公司積極應對供應鏈挑戰並投入新產品開發，若新產品能在2026年第二季後順利放量，配合嚴謹的費用管控，有望逐步改善利潤率並實現轉虧為盈。</li>
+<li><strong>投資目標價區間建議：</strong> 考量邊緣AI市場的長期成長潛力、公司2026年營收雙位數成長的指引，以及未來若能成功改善獲利能力，輔信有望獲得市場重估。若公司能如期實現營收成長並同步提升獲利水準，預期其股價將有重新評價的空間，<strong>目標價區間建議為新台幣 25 - 30 元</strong>，此區間反應了市場對AI題材的溢價及公司未來潛在的獲利成長動能。</li>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:02</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2405_輔信_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2405_輔信_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2405_輔信_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

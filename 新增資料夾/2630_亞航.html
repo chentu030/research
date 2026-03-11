@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2630 亞航 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2630 亞航 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>亞航受惠台灣國防預算增長與「無人機國造」政策，核心維修業務穩定，並獨家取得中科院中型無人機複材機體製造技術授權，「銳鳶二代」無人機預計2026年進入量產，疊加全球MRO市場復甦與海外市場拓展，預期2026年後營運將顯著回溫，是台灣軍工航太轉型關鍵參與者。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2630 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2630" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2630" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2630');
+    var obvContainer = document.getElementById('obv-chart-2630');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 51.3, "high": 53.7, "low": 51.2, "close": 51.2}, {"time": "2025-12-05", "open": 51.2, "high": 51.2, "low": 50.0, "close": 51.0}, {"time": "2025-12-08", "open": 50.7, "high": 51.0, "low": 50.1, "close": 51.0}, {"time": "2025-12-09", "open": 51.1, "high": 52.0, "low": 50.9, "close": 50.9}, {"time": "2025-12-10", "open": 51.0, "high": 51.6, "low": 50.0, "close": 50.1}, {"time": "2025-12-11", "open": 50.4, "high": 51.2, "low": 50.0, "close": 50.4}, {"time": "2025-12-12", "open": 50.9, "high": 51.8, "low": 50.2, "close": 50.4}, {"time": "2025-12-15", "open": 50.1, "high": 52.2, "low": 49.6, "close": 51.2}, {"time": "2025-12-16", "open": 50.9, "high": 51.2, "low": 49.1, "close": 49.7}, {"time": "2025-12-17", "open": 50.0, "high": 50.2, "low": 49.0, "close": 49.1}, {"time": "2025-12-18", "open": 49.1, "high": 49.55, "low": 48.7, "close": 49.3}, {"time": "2025-12-19", "open": 50.3, "high": 51.3, "low": 49.95, "close": 50.8}, {"time": "2025-12-22", "open": 51.2, "high": 51.8, "low": 50.8, "close": 51.4}, {"time": "2025-12-23", "open": 52.6, "high": 56.5, "low": 52.3, "close": 54.6}, {"time": "2025-12-24", "open": 54.5, "high": 55.0, "low": 53.2, "close": 54.0}, {"time": "2025-12-26", "open": 54.2, "high": 54.5, "low": 53.1, "close": 53.4}, {"time": "2025-12-29", "open": 54.5, "high": 55.4, "low": 54.0, "close": 54.5}, {"time": "2025-12-30", "open": 55.7, "high": 57.0, "low": 53.0, "close": 53.6}, {"time": "2025-12-31", "open": 53.0, "high": 53.0, "low": 52.1, "close": 52.1}, {"time": "2026-01-02", "open": 52.7, "high": 52.9, "low": 51.8, "close": 51.8}, {"time": "2026-01-05", "open": 52.0, "high": 52.5, "low": 51.0, "close": 51.0}, {"time": "2026-01-06", "open": 51.1, "high": 52.2, "low": 51.0, "close": 51.6}, {"time": "2026-01-07", "open": 51.6, "high": 51.6, "low": 50.5, "close": 51.3}, {"time": "2026-01-08", "open": 51.3, "high": 54.5, "low": 51.3, "close": 52.6}, {"time": "2026-01-09", "open": 54.5, "high": 55.5, "low": 52.7, "close": 53.4}, {"time": "2026-01-12", "open": 52.3, "high": 55.6, "low": 51.6, "close": 54.7}, {"time": "2026-01-13", "open": 55.7, "high": 55.8, "low": 53.8, "close": 55.5}, {"time": "2026-01-14", "open": 54.9, "high": 55.8, "low": 54.4, "close": 54.9}, {"time": "2026-01-15", "open": 54.9, "high": 55.2, "low": 54.3, "close": 55.0}, {"time": "2026-01-16", "open": 55.5, "high": 55.5, "low": 53.8, "close": 54.0}, {"time": "2026-01-19", "open": 53.5, "high": 55.5, "low": 53.5, "close": 54.0}, {"time": "2026-01-20", "open": 55.6, "high": 57.4, "low": 54.8, "close": 55.5}, {"time": "2026-01-21", "open": 55.0, "high": 58.1, "low": 54.6, "close": 55.9}, {"time": "2026-01-22", "open": 56.5, "high": 56.7, "low": 55.1, "close": 55.5}, {"time": "2026-01-23", "open": 56.0, "high": 56.0, "low": 54.0, "close": 54.4}, {"time": "2026-01-26", "open": 54.7, "high": 55.8, "low": 54.1, "close": 55.2}, {"time": "2026-01-27", "open": 55.1, "high": 55.1, "low": 53.2, "close": 53.4}, {"time": "2026-01-28", "open": 53.6, "high": 53.8, "low": 52.6, "close": 52.9}, {"time": "2026-01-29", "open": 53.1, "high": 54.0, "low": 52.3, "close": 52.5}, {"time": "2026-01-30", "open": 52.6, "high": 52.7, "low": 50.0, "close": 50.1}, {"time": "2026-02-02", "open": 49.7, "high": 50.6, "low": 48.25, "close": 48.4}, {"time": "2026-02-03", "open": 49.65, "high": 49.65, "low": 48.6, "close": 49.1}, {"time": "2026-02-04", "open": 49.2, "high": 50.1, "low": 48.7, "close": 50.1}, {"time": "2026-02-05", "open": 50.0, "high": 50.0, "low": 48.7, "close": 48.7}, {"time": "2026-02-06", "open": 48.55, "high": 48.55, "low": 47.1, "close": 48.3}, {"time": "2026-02-09", "open": 48.85, "high": 49.05, "low": 48.3, "close": 48.35}, {"time": "2026-02-10", "open": 48.8, "high": 48.8, "low": 48.3, "close": 48.6}, {"time": "2026-02-11", "open": 48.6, "high": 50.4, "low": 48.5, "close": 50.4}, {"time": "2026-02-23", "open": 51.2, "high": 53.6, "low": 51.2, "close": 52.8}, {"time": "2026-02-24", "open": 53.0, "high": 54.2, "low": 52.3, "close": 53.8}, {"time": "2026-02-25", "open": 53.9, "high": 53.9, "low": 52.8, "close": 53.0}, {"time": "2026-02-26", "open": 52.6, "high": 53.2, "low": 51.7, "close": 52.9}, {"time": "2026-03-02", "open": 53.4, "high": 54.6, "low": 52.5, "close": 53.1}, {"time": "2026-03-03", "open": 52.5, "high": 53.6, "low": 52.0, "close": 52.8}, {"time": "2026-03-04", "open": 53.4, "high": 54.6, "low": 52.5, "close": 53.1}, {"time": "2026-03-05", "open": 53.9, "high": 54.5, "low": 52.2, "close": 52.4}, {"time": "2026-03-06", "open": 52.3, "high": 52.3, "low": 51.2, "close": 51.8}, {"time": "2026-03-09", "open": 49.5, "high": 49.5, "low": 47.55, "close": 48.0}, {"time": "2026-03-10", "open": 48.9, "high": 49.2, "low": 48.3, "close": 48.4}, {"time": "2026-03-11", "open": 48.6, "high": 50.6, "low": 48.6, "close": 50.2}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 4498.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 1330.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 1404.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 1736.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 1031.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 1077.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 1808.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 2390.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 1850.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 921.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 660.0, "color": "#ef5350"}, {"time": "2025-12-19", "value": 2396.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 1306.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 16224.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 5880.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 2249.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 5062.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 7474.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 1827.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 1505.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 1700.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 1306.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 1549.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 9132.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 8565.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 10808.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 10134.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 4558.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 2365.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 2662.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 2394.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 9296.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 9178.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 5959.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 3026.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 3010.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 3258.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 1805.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 3180.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 2640.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 1644.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 965.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 760.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 992.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 849.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 829.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 715.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 1449.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 2905.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 3067.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 1327.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 1015.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 7424.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 2208.0, "color": "#ef5350"}, {"time": "2026-03-04", "value": 7424.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 2464.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 1200.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 2106.0, "color": "#26a69a"}, {"time": "2026-03-10", "value": 916.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 1154.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 50.839999999999996}, {"time": "2025-12-11", "value": 50.68}, {"time": "2025-12-12", "value": 50.56}, {"time": "2025-12-15", "value": 50.6}, {"time": "2025-12-16", "value": 50.36}, {"time": "2025-12-17", "value": 50.160000000000004}, {"time": "2025-12-18", "value": 49.94}, {"time": "2025-12-19", "value": 50.019999999999996}, {"time": "2025-12-22", "value": 50.06}, {"time": "2025-12-23", "value": 51.04}, {"time": "2025-12-24", "value": 52.02}, {"time": "2025-12-26", "value": 52.839999999999996}, {"time": "2025-12-29", "value": 53.58}, {"time": "2025-12-30", "value": 54.02}, {"time": "2025-12-31", "value": 53.52}, {"time": "2026-01-02", "value": 53.08}, {"time": "2026-01-05", "value": 52.6}, {"time": "2026-01-06", "value": 52.02}, {"time": "2026-01-07", "value": 51.56}, {"time": "2026-01-08", "value": 51.660000000000004}, {"time": "2026-01-09", "value": 51.98}, {"time": "2026-01-12", "value": 52.720000000000006}, {"time": "2026-01-13", "value": 53.5}, {"time": "2026-01-14", "value": 54.220000000000006}, {"time": "2026-01-15", "value": 54.7}, {"time": "2026-01-16", "value": 54.82000000000001}, {"time": "2026-01-19", "value": 54.67999999999999}, {"time": "2026-01-20", "value": 54.67999999999999}, {"time": "2026-01-21", "value": 54.879999999999995}, {"time": "2026-01-22", "value": 54.98}, {"time": "2026-01-23", "value": 55.06}, {"time": "2026-01-26", "value": 55.3}, {"time": "2026-01-27", "value": 54.879999999999995}, {"time": "2026-01-28", "value": 54.279999999999994}, {"time": "2026-01-29", "value": 53.67999999999999}, {"time": "2026-01-30", "value": 52.82000000000001}, {"time": "2026-02-02", "value": 51.46}, {"time": "2026-02-03", "value": 50.6}, {"time": "2026-02-04", "value": 50.04}, {"time": "2026-02-05", "value": 49.28}, {"time": "2026-02-06", "value": 48.92}, {"time": "2026-02-09", "value": 48.910000000000004}, {"time": "2026-02-10", "value": 48.81}, {"time": "2026-02-11", "value": 48.87}, {"time": "2026-02-23", "value": 49.69}, {"time": "2026-02-24", "value": 50.79}, {"time": "2026-02-25", "value": 51.720000000000006}, {"time": "2026-02-26", "value": 52.58}, {"time": "2026-03-02", "value": 53.120000000000005}, {"time": "2026-03-03", "value": 53.120000000000005}, {"time": "2026-03-04", "value": 52.98}, {"time": "2026-03-05", "value": 52.86}, {"time": "2026-03-06", "value": 52.64}, {"time": "2026-03-09", "value": 51.620000000000005}, {"time": "2026-03-10", "value": 50.739999999999995}, {"time": "2026-03-11", "value": 50.160000000000004}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 50.5}, {"time": "2025-12-18", "value": 50.31}, {"time": "2025-12-19", "value": 50.29}, {"time": "2025-12-22", "value": 50.33}, {"time": "2025-12-23", "value": 50.7}, {"time": "2025-12-24", "value": 51.089999999999996}, {"time": "2025-12-26", "value": 51.39}, {"time": "2025-12-29", "value": 51.8}, {"time": "2025-12-30", "value": 52.04}, {"time": "2025-12-31", "value": 52.279999999999994}, {"time": "2026-01-02", "value": 52.55}, {"time": "2026-01-05", "value": 52.720000000000006}, {"time": "2026-01-06", "value": 52.8}, {"time": "2026-01-07", "value": 52.79}, {"time": "2026-01-08", "value": 52.589999999999996}, {"time": "2026-01-09", "value": 52.529999999999994}, {"time": "2026-01-12", "value": 52.660000000000004}, {"time": "2026-01-13", "value": 52.760000000000005}, {"time": "2026-01-14", "value": 52.89}, {"time": "2026-01-15", "value": 53.17999999999999}, {"time": "2026-01-16", "value": 53.4}, {"time": "2026-01-19", "value": 53.7}, {"time": "2026-01-20", "value": 54.089999999999996}, {"time": "2026-01-21", "value": 54.55}, {"time": "2026-01-22", "value": 54.839999999999996}, {"time": "2026-01-23", "value": 54.94}, {"time": "2026-01-26", "value": 54.989999999999995}, {"time": "2026-01-27", "value": 54.779999999999994}, {"time": "2026-01-28", "value": 54.58}, {"time": "2026-01-29", "value": 54.33}, {"time": "2026-01-30", "value": 53.94}, {"time": "2026-02-02", "value": 53.379999999999995}, {"time": "2026-02-03", "value": 52.739999999999995}, {"time": "2026-02-04", "value": 52.160000000000004}, {"time": "2026-02-05", "value": 51.48}, {"time": "2026-02-06", "value": 50.87}, {"time": "2026-02-09", "value": 50.185}, {"time": "2026-02-10", "value": 49.705}, {"time": "2026-02-11", "value": 49.455}, {"time": "2026-02-23", "value": 49.485}, {"time": "2026-02-24", "value": 49.855000000000004}, {"time": "2026-02-25", "value": 50.315}, {"time": "2026-02-26", "value": 50.695}, {"time": "2026-03-02", "value": 50.995}, {"time": "2026-03-03", "value": 51.404999999999994}, {"time": "2026-03-04", "value": 51.885000000000005}, {"time": "2026-03-05", "value": 52.29}, {"time": "2026-03-06", "value": 52.61}, {"time": "2026-03-09", "value": 52.370000000000005}, {"time": "2026-03-10", "value": 51.92999999999999}, {"time": "2026-03-11", "value": 51.57000000000001}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 51.525}, {"time": "2026-01-05", "value": 51.515}, {"time": "2026-01-06", "value": 51.545}, {"time": "2026-01-07", "value": 51.56}, {"time": "2026-01-08", "value": 51.645}, {"time": "2026-01-09", "value": 51.81}, {"time": "2026-01-12", "value": 52.025}, {"time": "2026-01-13", "value": 52.279999999999994}, {"time": "2026-01-14", "value": 52.464999999999996}, {"time": "2026-01-15", "value": 52.73}, {"time": "2026-01-16", "value": 52.975}, {"time": "2026-01-19", "value": 53.21}, {"time": "2026-01-20", "value": 53.44500000000001}, {"time": "2026-01-21", "value": 53.67}, {"time": "2026-01-22", "value": 53.714999999999996}, {"time": "2026-01-23", "value": 53.735}, {"time": "2026-01-26", "value": 53.825}, {"time": "2026-01-27", "value": 53.77}, {"time": "2026-01-28", "value": 53.735}, {"time": "2026-01-29", "value": 53.754999999999995}, {"time": "2026-01-30", "value": 53.67}, {"time": "2026-02-02", "value": 53.54}, {"time": "2026-02-03", "value": 53.415}, {"time": "2026-02-04", "value": 53.355}, {"time": "2026-02-05", "value": 53.160000000000004}, {"time": "2026-02-06", "value": 52.904999999999994}, {"time": "2026-02-09", "value": 52.5875}, {"time": "2026-02-10", "value": 52.24249999999999}, {"time": "2026-02-11", "value": 52.0175}, {"time": "2026-02-23", "value": 51.907500000000006}, {"time": "2026-02-24", "value": 51.8975}, {"time": "2026-02-25", "value": 51.847500000000004}, {"time": "2026-02-26", "value": 51.717499999999994}, {"time": "2026-03-02", "value": 51.5775}, {"time": "2026-03-03", "value": 51.442499999999995}, {"time": "2026-03-04", "value": 51.3775}, {"time": "2026-03-05", "value": 51.2375}, {"time": "2026-03-06", "value": 51.1575}, {"time": "2026-03-09", "value": 50.9125}, {"time": "2026-03-10", "value": 50.707499999999996}, {"time": "2026-03-11", "value": 50.7125}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -1330.0}, {"time": "2025-12-08", "value": -1330.0}, {"time": "2025-12-09", "value": -3066.0}, {"time": "2025-12-10", "value": -4097.0}, {"time": "2025-12-11", "value": -3020.0}, {"time": "2025-12-12", "value": -3020.0}, {"time": "2025-12-15", "value": -630.0}, {"time": "2025-12-16", "value": -2480.0}, {"time": "2025-12-17", "value": -3401.0}, {"time": "2025-12-18", "value": -2741.0}, {"time": "2025-12-19", "value": -345.0}, {"time": "2025-12-22", "value": 961.0}, {"time": "2025-12-23", "value": 17185.0}, {"time": "2025-12-24", "value": 11305.0}, {"time": "2025-12-26", "value": 9056.0}, {"time": "2025-12-29", "value": 14118.0}, {"time": "2025-12-30", "value": 6644.0}, {"time": "2025-12-31", "value": 4817.0}, {"time": "2026-01-02", "value": 3312.0}, {"time": "2026-01-05", "value": 1612.0}, {"time": "2026-01-06", "value": 2918.0}, {"time": "2026-01-07", "value": 1369.0}, {"time": "2026-01-08", "value": 10501.0}, {"time": "2026-01-09", "value": 19066.0}, {"time": "2026-01-12", "value": 29874.0}, {"time": "2026-01-13", "value": 40008.0}, {"time": "2026-01-14", "value": 35450.0}, {"time": "2026-01-15", "value": 37815.0}, {"time": "2026-01-16", "value": 35153.0}, {"time": "2026-01-19", "value": 35153.0}, {"time": "2026-01-20", "value": 44449.0}, {"time": "2026-01-21", "value": 53627.0}, {"time": "2026-01-22", "value": 47668.0}, {"time": "2026-01-23", "value": 44642.0}, {"time": "2026-01-26", "value": 47652.0}, {"time": "2026-01-27", "value": 44394.0}, {"time": "2026-01-28", "value": 42589.0}, {"time": "2026-01-29", "value": 39409.0}, {"time": "2026-01-30", "value": 36769.0}, {"time": "2026-02-02", "value": 35125.0}, {"time": "2026-02-03", "value": 36090.0}, {"time": "2026-02-04", "value": 36850.0}, {"time": "2026-02-05", "value": 35858.0}, {"time": "2026-02-06", "value": 35009.0}, {"time": "2026-02-09", "value": 35838.0}, {"time": "2026-02-10", "value": 36553.0}, {"time": "2026-02-11", "value": 38002.0}, {"time": "2026-02-23", "value": 40907.0}, {"time": "2026-02-24", "value": 43974.0}, {"time": "2026-02-25", "value": 42647.0}, {"time": "2026-02-26", "value": 41632.0}, {"time": "2026-03-02", "value": 49056.0}, {"time": "2026-03-03", "value": 46848.0}, {"time": "2026-03-04", "value": 54272.0}, {"time": "2026-03-05", "value": 51808.0}, {"time": "2026-03-06", "value": 50608.0}, {"time": "2026-03-09", "value": 48502.0}, {"time": "2026-03-10", "value": 49418.0}, {"time": "2026-03-11", "value": 50572.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>亞航（2630）主要從事航空器與相關裝備的維修、租賃與買賣服務，以及航空配件裝備的製造與裝配、精密工業設備的修理。公司是國軍主流機型（如F-16、IDF、幻象2000、黑鷹直升機）的維修與後勤服務商。近年來，亞航積極轉型投入無人機產業，特別是中大型無人機的研發與製造。</p>
+
+<p>2025年4月，亞航獲得國家中山科學研究院（中科院）授權「中型無人機複材機體製造」技術，成為首家取得該技術授權的民間企業。其主導的「銳鳶二代」無人機已順利進入試產階段，並有望於2026年進入量產。光纖陀螺儀（FOG）也已完成試產並進入客戶測試。</p>
+
+<strong>營收結構</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>2025年度營收佔比</th><th>2024年度地區營收佔比</th></tr></thead><tbody>
+<tr><td>軍機維修保養</td><td>88%</td><td>N/A</td></tr>
+<tr><td>民機維修保養</td><td>12%</td><td>N/A</td></tr>
+<tr><td>台灣地區營收</td><td>N/A</td><td>85.56% (新台幣44.49億元)</td></tr>
+<tr><td>亞洲地區營收</td><td>N/A</td><td>11.45% (新台幣5.96億元)</td></tr>
+<tr><td>其他地區營收</td><td>N/A</td><td>2.98% (新台幣1.55億元)</td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+<ul><li><strong>國防軍工核心地位：</strong> 作為國軍F-16、IDF等主力戰機的長期後勤維修服務商，具備深厚技術實力與政府業務穩定性。2025年度國防相關業務佔總營收近九成（89.67%）。</li>
+<li><strong>無人機國造領先者：</strong> 全國首家獲得中科院「中型無人機複材機體製造」技術授權的民間企業，主導「銳鳶二代」無人機試產，有望在2026年國防預算大幅提升（尤其無人機領域達251.6億元）時搶下量產與交機優先機會。</li>
+<li><strong>全球MRO市場拓展：</strong> 2025年底取得澳洲民航局認證，並於2026年成功爭取到首家澳洲航空公司客戶，積極開拓海外民機MRO市場，受惠全球航空客運復甦及MRO需求增長。</li>
+<li><strong>長期在手訂單：</strong> 手握約新台幣230億元的軍用維修在手訂單，訂單能見度延伸至2031年，提供穩健的營收基礎。</li>
+</ul>
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>2.60</td><td>-35.54%</td><td>-35.62%</td></tr>
+<tr><td>2025年12月</td><td>4.03</td><td>-19.86%</td><td>-6.94%</td></tr>
+<tr><td>2025年11月</td><td>5.03</td><td>13.12%</td><td>-0.82%</td></tr>
+<tr><td>2025年10月</td><td>4.45</td><td>-24.01%</td><td>34.14%</td></tr>
+<tr><td>2025年9月</td><td>5.85</td><td>48.13%</td><td>11.70%</td></tr>
+<tr><td>2025年8月</td><td>3.95</td><td>-17.41%</td><td>-15.25%</td></tr>
+</tbody></table></div>
+
+<h3>季度數據</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>季營收 (億元)</th><th>毛利率</th><th>營業利益率</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2025年Q4</td><td>N/A (全年54.54億)</td><td>8.38%</td><td>2.16%</td><td>0.11</td></tr>
+<tr><td>2025年Q3</td><td>14.59</td><td>11.28%</td><td>6.83%</td><td>0.34</td></tr>
+</tbody></table></div>
+
+<em>註：2025年Q4季營收為全年減前三季總和，但資料僅提供全年營收。</em>
+
+<h3>全年度營收與 EPS</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>營收 (億元)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2024年 (實際)</td><td>52.00</td><td>0.67</td></tr>
+<tr><td>2025年 (實際)</td><td>54.54</td><td>1.00</td></tr>
+<tr><td>2026年 (預估)</td><td>56.41</td><td>0.89</td></tr>
+</tbody></table></div>
+
+<em>註：2026年預估數據來源為群益證券。</em>
+
+<h2>法說會重點 (2025年11月18日)</h2>
+<p>亞航於2025年11月18日受邀參加台新證券舉辦的法人說明會。</p>
+<ul><li><strong>軍用維修訂單能見度：</strong> 亞航目前在軍用維修方面握有約 <strong>230億元</strong> 的在手訂單，訂單能見度已延伸至 <strong>2031年</strong>。</li>
+<li><strong>2025年度營運增長：</strong> 合併營收增加主因是國內、外客戶增加，軍機業務多於民機業務。業務重心在東北亞（日本與韓國）的飛機維修案，因工時費用較高，有助於營收與獲利增加。2025年度維修架次約 <strong>60架</strong>。</li>
+<li><strong>澳洲市場拓展：</strong> 已取得澳洲民航局認證，並於2026年爭取到第一架澳洲某航空公司來台維修保養，正積極爭取開發澳洲其他2至3家航空公司客戶。</li>
+<li><strong>無人機業務進度：</strong> 亞航是唯一取得中科院授權的中型無人機複材機體製造商，主導的「銳鳶二代」無人機已進入試產階段。預期在2026年後，隨著政府提高國防預算（特別是無人機領域預算增加至 <strong>251.6億元</strong>），亞航有望搶下量產與交機的優先機會，帶動營收與獲利回升。</li>
+<li><strong>管理層對2026年展望：</strong> 亞航副總趙晉賢表示，2026年營運沒有不好的情況，仍看好今年的營運成果。短期內，受惠於全球MRO市場復甦、客運量增加、夏威夷客戶Trans Air大檢合約及外國航空公司在台南佈局航點帶來的線上維修服務機會，預期亞航將維持良好的營運勢頭。長期而言，透過國際認證、拓展海外市場、掌握B737 MAX等新世代機型維修能力，並投入無人機等新興業務，已為未來增長奠定基礎。</li>
+</ul>
+<h2>券商觀點</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (元)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>群益證券</td><td>43</td><td>買進</td><td>2025年5月21日</td></tr>
+<tr><td>群益證券</td><td>45</td><td>買進</td><td>2025年2月17日</td></tr>
+<tr><td>CMoney 研究員</td><td>42-45</td><td>買進</td><td>2025年3月17日</td></tr>
+</tbody></table></div>
+
+<strong>2025-2026年 EPS 預估：</strong>
+<ul><li><strong>2025年 (實際):</strong> 1.00 元</li>
+<li><strong>2026年 (預估):</strong></li>
+</ul>    *   群益證券：0.89 元 (2025年2月17日)
+<p>*   CMoney 研究員：0.57 元 (此為2025年5月21日預估值，與實際2025年EPS 1元有落差)</p>
+
+<strong>近期評等變動：</strong>
+<ul><li>2025年3月17日，CMoney 研究員將亞航評級調升至 Buy。</li>
+<li>2025年2月17日，群益證券將亞航評等調升至 Buy。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季度</th><th>毛利率</th><th>營業利益率</th><th>稅前淨利率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2024年全年</td><td>8.89%</td><td>3.80%</td><td>3.46%</td><td>2.70%</td></tr>
+<tr><td>2025年Q1 (累季)</td><td>6.17%</td><td>0.95%</td><td>N/A</td><td>0.33%</td></tr>
+<tr><td>2025年Q2 (累季)</td><td>6.94%</td><td>1.96%</td><td>N/A</td><td>1.17%</td></tr>
+<tr><td>2025年Q3</td><td>11.28%</td><td>6.83%</td><td>6.10%</td><td>4.88%</td></tr>
+<tr><td>2025年Q4</td><td>8.38%</td><td>2.16%</td><td>2.22%</td><td>1.79%</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化分析：</strong>
+<p>亞航2025年全年稅後純益逾2.09億元，EPS為1元，較2024年EPS 0.67元顯著增長。然而，從季度表現來看，2025年Q4的毛利率、營業利益率和稅後淨利率均較Q3有所下滑。這可能受到季節性因素、匯率波動或特定專案結案情況影響。2025年5月分析師曾預估2025年稅後純益將較去年減少15.1%，但實際結果優於預期。管理層指出，2025年營收成長主因是國內外客戶增加，軍機案件多於民機，且東北亞飛機維修工時費用較高，有助於提升營收與獲利來源。</p>
+
+<h3>存貨與營運</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數</th><th>應收帳款週轉天數</th></tr></thead><tbody>
+<tr><td>2024年Q4</td><td>95.57</td><td>124.24</td></tr>
+<tr><td>2025年Q1</td><td>103.01</td><td>128.78</td></tr>
+<tr><td>2025年Q2</td><td>90.3</td><td>137.2</td></tr>
+<tr><td>2025年Q3</td><td>76.14</td><td>125.10</td></tr>
+</tbody></table></div>
+
+<strong>存貨分析：</strong>
+<p>從2025年Q1的103.01天下降至Q3的76.14天，顯示存貨去化速度加快，目前未見明顯異常堆積現象。</p>
+<strong>應收帳款分析：</strong>
+<p>應收帳款週轉天數在2025年Q2達到高峰137.2天後，於Q3降至125.10天，顯示收款效率略有改善。</p>
+
+<h3>資本支出</h3>
+<ul><li><strong>近3年資本支出金額與趨勢：</strong> 未找到2024-2026年的具體資本支出金額與趨勢數據。</li>
+<li><strong>未來資本支出計畫與預計新增產能：</strong> 儘管無具體數字，但亞航作為中科院授權的中型無人機複材機體製造商，其「銳鳶二代」無人機進入試產階段，並預計在2026年進入量產，暗示無人機相關產能正在擴建或規劃中。政府無人機領域的預算大幅提升亦將驅動相關投資。</li>
+<li><strong>折舊攤銷趨勢：</strong> 2025年Q3累計折舊費用為1.05億元，攤銷費用為0.065億元。2024年全年累計折舊費用為1.26億元，攤銷費用為0.25億元。</li>
+</ul>
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓：</strong> 未找到2024年以後的最新紀錄。</li>
+<li><strong>庫藏股買回：</strong> 未找到2024年以後的買回紀錄。最近一次為2019年買回2,088張。</li>
+<li><strong>可轉換公司債 (CB)：</strong> 亞航曾發行國內第1次無擔保轉換公司債 (26302 亞航二)，已於2024年7月10日到期，目前無現行流通的可轉換公司債。</li>
+<li><strong>增減資計畫：</strong> 未找到2024年以後的現金增資或減資計畫。</li>
+</ul>
+<strong>股利政策 (現金股利):</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度 (發放年度)</th><th>現金股利 (元/股)</th><th>除息基準日</th><th>現金股利發放日</th></tr></thead><tbody>
+<tr><td>2025 (2026)</td><td>0.621</td><td>2026/03/28</td><td>2026/04/17</td></tr>
+<tr><td>2024 (2025)</td><td>0.62</td><td>2025/03/17</td><td>2025/04/15</td></tr>
+<tr><td>2023 (2024)</td><td>0.53</td><td>2024/03/25</td><td>2024/04/26</td></tr>
+</tbody></table></div>
+
+<h2>產業分析</h2>
+
+<h3>市場規模和 CAGR 成長率</h3>
+<p>亞航業務涵蓋航空器維修（MRO）與無人機製造。</p>
+<ul><li><strong>全球航空器MRO市場：</strong></li>
+</ul>    *   2025年市場規模預計達 <strong>862.1億美元</strong>。
+<p>*   2025-2033年複合成長率（CAGR）為 <strong>4.50%</strong>，預計成長至 <strong>1,226億美元</strong>。</p>
+<p>*   航空器預測整備：2025年 <strong>45.1億美元</strong>，2026-2034年CAGR <strong>17.1%</strong>。</p>
+<p>*   航空器線維護：2025年 <strong>228.6億美元</strong>，2026-2034年CAGR <strong>5.8%</strong>。</p>
+<ul><li><strong>全球無人機（UAV）市場：</strong></li>
+</ul>    *   預計從2026年的 <strong>690億美元</strong> 成長至2036年的 <strong>1,478億美元</strong>，CAGR <strong>7.9%</strong>。
+<p>*   <strong>軍用無人機市場：</strong> 2025年 <strong>182億美元</strong>，2026-2034年CAGR <strong>6.8%</strong> 至 <strong>309億美元</strong>。另有報告預估2026-2035年CAGR <strong>13.8%</strong>，2035年達 <strong>665億美元</strong>。</p>
+<p>*   <strong>商用無人機市場：</strong> 2025年 <strong>382億美元</strong>，2026-2034年CAGR <strong>19.50%</strong> 至 <strong>1,899億美元</strong>。</p>
+
+<strong>供需狀況：</strong>
+<ul><li><strong>航空器維修（MRO）：</strong> 航空業復甦、飛機利用率歷史新高、舊機延壽及全球飛機保有量增加，推動MRO需求旺盛。</li>
+<li><strong>無人機：</strong> 地緣政治衝突顯著推升軍用無人機需求；台灣「去中化」趨勢使其獲得北約和民主陣營國家大量訂單，市場供不應求。</li>
+</ul>
+<strong>產業的平均毛利率水準：</strong> 國際航空運輸協會（IATA）指出航空業淨利率預計維持在3.9%，暗示上游供應鏈和維修服務利潤空間相對較高。台灣無人機概念股中，亞航毛利率約 <strong>11%</strong>。
+
+<h3>競爭格局</h3>
+
+<strong>全球無人機市場主要參與者 (部分)</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>國家/地區</th></tr></thead><tbody>
+<tr><td>General Atomics Aeronautical Systems</td><td>美國</td></tr>
+<tr><td>Teledyne FLIR LLC</td><td>美國</td></tr>
+<tr><td>Northrop Grumman Corporation</td><td>美國</td></tr>
+<tr><td>SZ DJI Technology Co. Ltd.</td><td>中國</td></tr>
+<tr><td>Parrot Drones SAS</td><td>法國/瑞士</td></tr>
+</tbody></table></div>
+
+<strong>全球航空器改裝市場主要公司 (MRO相關)</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>國家/地區</th><th>備註</th></tr></thead><tbody>
+<tr><td>B/E Aerospace</td><td>美國</td><td>與United Technology Corporation、Zodiac Aerospace合計佔全球市場45%以上</td></tr>
+<tr><td>United Technology Corporation</td><td>美國</td><td></td></tr>
+<tr><td>Zodiac Aerospace</td><td>法國</td><td></td></tr>
+<tr><td>SIA Engineering</td><td>新加坡</td><td></td></tr>
+<tr><td>JAMCO America</td><td>墨西哥</td><td></td></tr>
+<tr><td>Hong Kong Aircraft Engineering</td><td>香港</td><td></td></tr>
+</tbody></table></div>
+
+<strong>亞航 vs 主要競爭對手 (台灣) 比較</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>技術</th><th>產能</th><th>客戶</th><th>毛利率 (最新)</th></tr></thead><tbody>
+<tr><td><strong>2630 亞航</strong></td><td>國軍主流機型維修、中科院中型無人機複材機體製造授權</td><td>「銳鳶二代」無人機試產，2026年量產</td><td>國防部 (佔營收近9成)、海外民航業者</td><td>11%</td></tr>
+<tr><td><strong>5371 中光電</strong></td><td>微型及監偵型無人機軍用商規標案最大贏家</td><td>第一波3,600台標案中多數訂單 (3,037台)</td><td>國防部</td><td>18%</td></tr>
+<tr><td><strong>8033 雷虎</strong></td><td>積極搶攻軍用無人機商機，微型與戰術型無人機</td><td>N/A</td><td>國防部</td><td>35%</td></tr>
+<tr><td><strong>2634 漢翔</strong></td><td>台灣主要航太公司，飛機製造與維修</td><td>N/A</td><td>國防部、國際航太客戶</td><td>5%</td></tr>
+</tbody></table></div>
+
+<em>註：毛利率數據截至2026年3月6日。</em>
+
+<h3>產業趨勢</h3>
+<li><strong>人工智慧 (AI) 與機器學習整合：</strong></li>
+<p>*   <strong>影響：</strong> AI提升無人機自主飛行、目標識別與任務規劃能力，MRO領域則實現預測性維護，減少停機時間。</p>
+<p>*   <strong>對亞航影響：</strong> 若能將AI整合至「銳鳶二代」等無人機，將提升產品競爭力。MRO業務引入AI可提高效率與服務品質。</p>
+<li><strong>無人機群集與人機協同作戰 (MUM-T)：</strong></li>
+<p>*   <strong>影響：</strong> 多架無人機協同執行任務及與有人機協同作戰，提升軍事偵察、戰鬥協調和電子作戰效能。</p>
+<p>*   <strong>對亞航影響：</strong> 作為國防供應商，若參與相關技術研發，有助於取得高價值國防訂單。</p>
+<li><strong>先進材料與複合材料應用：</strong></li>
+<p>*   <strong>影響：</strong> 複合材料和3D列印技術提高部件強度、減輕重量、縮短生產時間。</p>
+<p>*   <strong>對亞航影響：</strong> 獲得中科院「中型無人機複材機體製造」技術授權，使其在無人機輕量化和高性能製造具核心優勢。</p>
+
+<h3>對亞航的具體機會和威脅</h3>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>國防預算增加與「去中化」：</strong> 台灣國防預算大幅增長，全球對「非紅供應鏈」無人機需求，為軍用無人機市場帶來巨大成長機會。
+<p>*   <strong>中科院技術授權與無人機量產：</strong> 獲得中科院授權，推動「銳鳶二代」量產，使其在台灣無人機國家隊中佔據關鍵地位。</p>
+<p>*   <strong>商業模式轉變：</strong> 從零組件代工轉向系統整合與整機輸出，意味著更高的毛利率和附加價值。</p>
+<p>*   <strong>內需市場作為外銷基礎：</strong> 政府公部門需求提供穩定訂單，有助於符合國際標準後拓展海外市場。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>激烈競爭：</strong> 台灣及全球有其他廠商積極投入無人機製造，競爭仍存在。
+<p>*   <strong>技術快速迭代：</strong> 無人機技術發展迅速，若無法持續創新可能面臨技術落後風險。</p>
+<p>*   <strong>供應鏈瓶頸：</strong> 航空航太產業供應鏈問題可能影響生產進度與成本。</p>
+<p>*   <strong>法規限制：</strong> 無人機產業受嚴格法規限制，特別是超視距飛行，將影響市場拓展。</p>
+
+<strong>相關投資題材：</strong>
+<ul><li><strong>國防軍工：</strong> 台灣國防預算增加、地緣政治緊張。</li>
+<li><strong>AI (人工智慧)：</strong> AI技術在無人機自主控制、任務規劃中的應用。</li>
+<li><strong>先進製造與複合材料：</strong> 無人機複材機體製造技術。</li>
+<li><strong>地緣政治資產重定價：</strong> 全球「去中化」趨勢下，台灣無人機產業被視為重要替代者。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<h3>利多事件</h3>
+<ul><li><strong>2026年03月04日：</strong> 公布2025年度合併營收達新台幣54.54億元，稅後純益逾2.09億元，每股盈餘（EPS）1元，較2024年大幅成長。董事會決議配發現金股利每股0.9元，顯示公司獲利能力提升。</li>
+<li><strong>2026年03月04日：</strong> 公司副總趙晉賢看好2026年營運成果，認為營運沒有不好的情況。</li>
+<li><strong>2025年11月18日：</strong> 法說會揭露2025年前三季財務表現顯著優於去年同期，毛利率與營業淨利率均提升，且政府業務穩定成長，MRO市場趨勢有利，並取得國際認證、拓展海外市場（澳洲、泰國、韓國、馬來西亞），發展無人機業務尋求長期增長動能。</li>
+<li><strong>2025年10月14日：</strong> 受惠於總統賴清德國慶演說中宣布的國防預算增長計劃（預計2030年前達GDP逾3%），法人預期亞航在國防部無人機新標案中將持續受惠。</li>
+<li><strong>2025年05月30日：</strong> 亞航於2025年4月30日獲得中科院「中型無人機複材機體製造」技術授權，成為全國首家取得該項技術授權的民間企業，為無人機業務取得關鍵競爭優勢。</li>
+<li><strong>2025年05月22日：</strong> 分析指出亞航手握約230億元的軍用維修在手訂單，能見度延伸至2031年。</li>
+</ul>
+<h3>利空/中性事件</h3>
+<ul><li><strong>2026年02月07日：</strong> 公布2026年1月營收為2.60億元，月減35.54%，年減35.62%。</li>
+<li><strong>2026年01月10日：</strong> 公布2025年12月營收為4.03億元，月減19.86%，年減6.94%。</li>
+<li><strong>2026年03月02日：</strong> 伊朗局勢緊張與油價飆升拖累亞洲航空股下挫 (間接影響)。</li>
+<li><strong>2025年05月22日：</strong> 分析師預估2025年稅後純益將較去年減少約15.1%（此預估與實際2025年EPS 1元有落差，應為早期預估）。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<ul><li><strong>2025年4月：</strong> 獲得國家中山科學研究院（中科院）授權「中型無人機複材機體製造」技術，成為全國首家取得該項技術授權的民間企業。</li>
+<li><strong>2025年底：</strong> 成功取得澳洲民航局認證，為拓展海外民機維修業務奠定基礎。</li>
+<li><strong>2026年Q1 (已發生)：</strong> 成功爭取到第一家澳洲航空公司來台進行飛機維修保養，並正積極開發其他2至3家澳洲航空公司成為新客戶。</li>
+<li><strong>2026年後：</strong></li>
+</ul>    *   「銳鳶二代」無人機進入量產與交機階段，有望搶下政府無人機採購的優先機會。
+<p>*   台灣國防預算大幅提升，尤其針對無人機領域的預算預計在2026年後增加至 <strong>251.6億元</strong>，為亞航帶來強勁成長動能。</p>
+<p>*   持續深耕東北亞（日本、韓國）飛機維修市場，並拓展泰國、馬來西亞等東南亞市場。</p>
+<p>*   擴充無人機維修能量，並已取得中科院無人載具系統維護商維案。</p>
+<ul><li><strong>持續性動能：</strong></li>
+</ul>    *   全球航空客運量持續成長，推動民機MRO維修需求增加，尤其A320及B737機型的MRO需求旺盛。
+<p>*   國防軍工需求受地緣政治因素及政府政策推動而爆發性成長。</p>
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+<ul><li><strong>無人機業務爆發：</strong> 隨著「銳鳶二代」無人機預計於2026年進入量產，加上政府大幅增加國防預算中無人機領域的配置至 <strong>251.6億元</strong>，亞航作為唯一中科院授權商，將是主要受益者，有望為營收帶來顯著增長。</li>
+<li><strong>MRO業務穩健擴張：</strong> 全球航空業持續復甦，民機MRO需求旺盛，加上成功開拓澳洲等海外市場，可望挹注營收。東北亞高利潤維修案件比重增加也將優化獲利結構。</li>
+<li><strong>長期軍用訂單支撐：</strong> 230億元在手訂單至2031年，為公司提供穩定的營收基礎和現金流。</li>
+</ul>
+<strong>風險：</strong>
+<ul><li><strong>無人機業務放量不及預期：</strong> 新業務從試產到大規模量產及交機仍可能面臨挑戰，若訂單確認或生產進度不及預期，可能影響2026年營收成長。</li>
+<li><strong>競爭加劇：</strong> 台灣無人機產業快速發展，國內外競爭者眾，可能影響亞航的市佔率和利潤空間。</li>
+<li><strong>匯率波動：</strong> 民航維修業務涉及國際客戶，新台幣匯率變動可能對營收及獲利造成不確定性。</li>
+<li><strong>客戶集中度：</strong> 國防業務佔比高，雖然訂單穩定，但也意味著對單一客戶的依賴性較高。</li>
+</ul>
+<h2>投資結論</h2>
+<li><strong>國防軍工核心動能：</strong> 受惠於台灣國防預算增加與「無人機國造」政策，亞航憑藉中科院「銳鳶二代」無人機技術授權，將是主要受惠者，長期成長潛力龐大。軍用維修230億元在手訂單提供穩定基礎。</li>
+<li><strong>MRO業務穩健擴張：</strong> 民機MRO受惠全球航空復甦，並成功開拓澳洲等海外市場，為營收提供另一支撐。東北亞高利潤維修業務也將貢獻獲利。</li>
+<li><strong>短期獲利波動，長期展望樂觀：</strong> 2025年EPS為1元，但法人預估2026年EPS可能略有修正至0.89元，主要受新業務投入期與匯率影響。然而，無人機業務的量產（預計2026年）有望在未來數年帶來顯著成長。</li>
+<li><strong>投資目標區間建議：</strong> 綜合券商觀點（目標價43-45元）及2026年EPS預估（約0.89元），亞航目前股價已部分反映其無人機題材溢價。考量其從傳統MRO轉型為具備國防科技核心能力的企業，建議投資者可將<strong>38-45元</strong>作為潛在的目標價區間，並密切關注無人機訂單與量產進度。</li>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 12:58</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2630_亞航_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2630_亞航_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2630_亞航_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

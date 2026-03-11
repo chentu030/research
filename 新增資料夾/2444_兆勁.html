@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2444 兆勁 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2444 兆勁 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>兆勁 (2444) 正積極從傳統網通業務轉型，佈局高毛利記憶體、VCSEL晶片及非網通創新應用（智能家居、醫療醫美、移動能源）。儘管短期營運面臨虧損擴大及毛利率壓力，長期成長動能繫於新事業的加速落地，特別是2026年起出貨的新興移動能源與醫療醫美產品，輔以網通設備替代商機的題材性支撐。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2444 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2444" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2444" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2444');
+    var obvContainer = document.getElementById('obv-chart-2444');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 11.15, "high": 11.4, "low": 11.0, "close": 11.15}, {"time": "2025-12-05", "open": 11.35, "high": 11.4, "low": 11.2, "close": 11.2}, {"time": "2025-12-08", "open": 11.2, "high": 11.3, "low": 10.95, "close": 11.1}, {"time": "2025-12-09", "open": 11.0, "high": 11.25, "low": 11.0, "close": 11.15}, {"time": "2025-12-10", "open": 11.0, "high": 11.35, "low": 10.8, "close": 11.0}, {"time": "2025-12-11", "open": 10.85, "high": 11.25, "low": 10.85, "close": 10.95}, {"time": "2025-12-12", "open": 10.75, "high": 11.0, "low": 10.75, "close": 10.8}, {"time": "2025-12-15", "open": 10.8, "high": 11.0, "low": 10.75, "close": 10.9}, {"time": "2025-12-16", "open": 10.85, "high": 11.95, "low": 10.85, "close": 11.95}, {"time": "2025-12-17", "open": 12.9, "high": 13.0, "low": 12.0, "close": 12.05}, {"time": "2025-12-18", "open": 11.95, "high": 11.95, "low": 11.4, "close": 11.7}, {"time": "2025-12-19", "open": 11.95, "high": 11.95, "low": 11.4, "close": 11.55}, {"time": "2025-12-22", "open": 11.55, "high": 11.9, "low": 11.55, "close": 11.85}, {"time": "2025-12-23", "open": 11.95, "high": 11.95, "low": 11.5, "close": 11.8}, {"time": "2025-12-24", "open": 11.7, "high": 11.7, "low": 11.45, "close": 11.45}, {"time": "2025-12-26", "open": 11.5, "high": 11.8, "low": 11.4, "close": 11.65}, {"time": "2025-12-29", "open": 11.65, "high": 11.65, "low": 11.4, "close": 11.55}, {"time": "2025-12-30", "open": 11.45, "high": 11.6, "low": 11.35, "close": 11.6}, {"time": "2025-12-31", "open": 11.5, "high": 11.6, "low": 11.35, "close": 11.35}, {"time": "2026-01-02", "open": 11.35, "high": 11.5, "low": 11.2, "close": 11.4}, {"time": "2026-01-05", "open": 11.4, "high": 11.4, "low": 11.0, "close": 11.0}, {"time": "2026-01-06", "open": 11.0, "high": 11.4, "low": 10.95, "close": 11.25}, {"time": "2026-01-07", "open": 11.35, "high": 11.35, "low": 10.9, "close": 11.2}, {"time": "2026-01-08", "open": 11.15, "high": 11.35, "low": 11.15, "close": 11.25}, {"time": "2026-01-09", "open": 11.25, "high": 11.3, "low": 11.05, "close": 11.1}, {"time": "2026-01-12", "open": 11.65, "high": 12.2, "low": 11.45, "close": 12.2}, {"time": "2026-01-13", "open": 12.6, "high": 12.7, "low": 11.75, "close": 11.75}, {"time": "2026-01-14", "open": 11.95, "high": 12.35, "low": 11.95, "close": 12.3}, {"time": "2026-01-15", "open": 12.45, "high": 12.6, "low": 12.05, "close": 12.2}, {"time": "2026-01-16", "open": 12.25, "high": 12.7, "low": 12.25, "close": 12.65}, {"time": "2026-01-19", "open": 12.75, "high": 13.35, "low": 12.75, "close": 12.9}, {"time": "2026-01-20", "open": 12.75, "high": 13.0, "low": 12.4, "close": 12.45}, {"time": "2026-01-21", "open": 12.45, "high": 13.65, "low": 12.25, "close": 13.65}, {"time": "2026-01-22", "open": 13.8, "high": 15.0, "low": 13.6, "close": 15.0}, {"time": "2026-01-23", "open": 15.35, "high": 15.65, "low": 13.5, "close": 14.0}, {"time": "2026-01-26", "open": 14.2, "high": 14.45, "low": 13.55, "close": 13.7}, {"time": "2026-01-27", "open": 14.0, "high": 14.0, "low": 13.2, "close": 13.35}, {"time": "2026-01-28", "open": 13.35, "high": 13.35, "low": 13.0, "close": 13.0}, {"time": "2026-01-29", "open": 13.1, "high": 13.5, "low": 12.85, "close": 13.4}, {"time": "2026-01-30", "open": 13.4, "high": 13.4, "low": 12.6, "close": 12.7}, {"time": "2026-02-02", "open": 12.4, "high": 12.9, "low": 12.4, "close": 12.7}, {"time": "2026-02-03", "open": 12.8, "high": 12.95, "low": 12.45, "close": 12.7}, {"time": "2026-02-04", "open": 12.5, "high": 13.0, "low": 12.5, "close": 12.95}, {"time": "2026-02-05", "open": 13.0, "high": 13.4, "low": 12.9, "close": 13.0}, {"time": "2026-02-06", "open": 13.2, "high": 13.2, "low": 12.25, "close": 12.5}, {"time": "2026-02-09", "open": 12.6, "high": 12.95, "low": 12.4, "close": 12.5}, {"time": "2026-02-10", "open": 12.6, "high": 13.0, "low": 12.4, "close": 12.45}, {"time": "2026-02-11", "open": 12.8, "high": 12.8, "low": 12.2, "close": 12.45}, {"time": "2026-02-23", "open": 12.55, "high": 12.65, "low": 12.4, "close": 12.6}, {"time": "2026-02-24", "open": 12.6, "high": 13.0, "low": 12.5, "close": 12.9}, {"time": "2026-02-25", "open": 13.0, "high": 13.0, "low": 12.4, "close": 12.45}, {"time": "2026-02-26", "open": 12.4, "high": 13.65, "low": 12.4, "close": 13.65}, {"time": "2026-03-02", "open": 13.4, "high": 15.0, "low": 13.15, "close": 15.0}, {"time": "2026-03-03", "open": 15.6, "high": 15.75, "low": 14.4, "close": 14.55}, {"time": "2026-03-04", "open": 14.05, "high": 14.1, "low": 13.2, "close": 13.4}, {"time": "2026-03-05", "open": 13.65, "high": 14.25, "low": 13.6, "close": 13.8}, {"time": "2026-03-06", "open": 13.7, "high": 14.05, "low": 13.25, "close": 13.75}, {"time": "2026-03-09", "open": 13.2, "high": 13.25, "low": 12.75, "close": 13.1}, {"time": "2026-03-10", "open": 13.2, "high": 13.4, "low": 12.75, "close": 12.95}, {"time": "2026-03-11", "open": 13.0, "high": 13.15, "low": 12.65, "close": 12.95}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 262.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 103.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 161.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 58.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 191.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 127.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 184.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 82.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 807.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 1777.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 389.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 298.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 254.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 271.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 303.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 159.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 234.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 174.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 232.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 281.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 405.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 309.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 357.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 271.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 224.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 1506.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 1895.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 1111.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 645.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 1088.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 1622.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 918.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 3609.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 5806.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 3944.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 2038.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 1364.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 1057.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 1061.0, "color": "#ef5350"}, {"time": "2026-01-30", "value": 818.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 540.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 530.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 514.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 760.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 643.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 677.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 414.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 543.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 418.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 603.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 568.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 1437.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 4910.0, "color": "#ef5350"}, {"time": "2026-03-03", "value": 4204.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 1702.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 910.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 529.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 1121.0, "color": "#26a69a"}, {"time": "2026-03-10", "value": 560.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 662.0, "color": "#26a69a"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 11.120000000000001}, {"time": "2025-12-11", "value": 11.08}, {"time": "2025-12-12", "value": 11.0}, {"time": "2025-12-15", "value": 10.959999999999999}, {"time": "2025-12-16", "value": 11.120000000000001}, {"time": "2025-12-17", "value": 11.33}, {"time": "2025-12-18", "value": 11.48}, {"time": "2025-12-19", "value": 11.629999999999999}, {"time": "2025-12-22", "value": 11.82}, {"time": "2025-12-23", "value": 11.790000000000001}, {"time": "2025-12-24", "value": 11.67}, {"time": "2025-12-26", "value": 11.66}, {"time": "2025-12-29", "value": 11.66}, {"time": "2025-12-30", "value": 11.61}, {"time": "2025-12-31", "value": 11.52}, {"time": "2026-01-02", "value": 11.51}, {"time": "2026-01-05", "value": 11.379999999999999}, {"time": "2026-01-06", "value": 11.32}, {"time": "2026-01-07", "value": 11.24}, {"time": "2026-01-08", "value": 11.22}, {"time": "2026-01-09", "value": 11.16}, {"time": "2026-01-12", "value": 11.4}, {"time": "2026-01-13", "value": 11.5}, {"time": "2026-01-14", "value": 11.72}, {"time": "2026-01-15", "value": 11.91}, {"time": "2026-01-16", "value": 12.22}, {"time": "2026-01-19", "value": 12.36}, {"time": "2026-01-20", "value": 12.5}, {"time": "2026-01-21", "value": 12.77}, {"time": "2026-01-22", "value": 13.330000000000002}, {"time": "2026-01-23", "value": 13.6}, {"time": "2026-01-26", "value": 13.76}, {"time": "2026-01-27", "value": 13.940000000000001}, {"time": "2026-01-28", "value": 13.809999999999999}, {"time": "2026-01-29", "value": 13.49}, {"time": "2026-01-30", "value": 13.23}, {"time": "2026-02-02", "value": 13.030000000000001}, {"time": "2026-02-03", "value": 12.9}, {"time": "2026-02-04", "value": 12.89}, {"time": "2026-02-05", "value": 12.809999999999999}, {"time": "2026-02-06", "value": 12.77}, {"time": "2026-02-09", "value": 12.73}, {"time": "2026-02-10", "value": 12.68}, {"time": "2026-02-11", "value": 12.58}, {"time": "2026-02-23", "value": 12.5}, {"time": "2026-02-24", "value": 12.58}, {"time": "2026-02-25", "value": 12.569999999999999}, {"time": "2026-02-26", "value": 12.809999999999999}, {"time": "2026-03-02", "value": 13.319999999999999}, {"time": "2026-03-03", "value": 13.709999999999999}, {"time": "2026-03-04", "value": 13.809999999999999}, {"time": "2026-03-05", "value": 14.080000000000002}, {"time": "2026-03-06", "value": 14.1}, {"time": "2026-03-09", "value": 13.719999999999999}, {"time": "2026-03-10", "value": 13.4}, {"time": "2026-03-11", "value": 13.309999999999999}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 11.225}, {"time": "2025-12-18", "value": 11.28}, {"time": "2025-12-19", "value": 11.315000000000001}, {"time": "2025-12-22", "value": 11.39}, {"time": "2025-12-23", "value": 11.455}, {"time": "2025-12-24", "value": 11.5}, {"time": "2025-12-26", "value": 11.57}, {"time": "2025-12-29", "value": 11.645}, {"time": "2025-12-30", "value": 11.715}, {"time": "2025-12-31", "value": 11.655}, {"time": "2026-01-02", "value": 11.59}, {"time": "2026-01-05", "value": 11.52}, {"time": "2026-01-06", "value": 11.49}, {"time": "2026-01-07", "value": 11.425}, {"time": "2026-01-08", "value": 11.370000000000001}, {"time": "2026-01-09", "value": 11.334999999999999}, {"time": "2026-01-12", "value": 11.39}, {"time": "2026-01-13", "value": 11.41}, {"time": "2026-01-14", "value": 11.48}, {"time": "2026-01-15", "value": 11.565000000000001}, {"time": "2026-01-16", "value": 11.690000000000001}, {"time": "2026-01-19", "value": 11.879999999999999}, {"time": "2026-01-20", "value": 12.0}, {"time": "2026-01-21", "value": 12.245000000000001}, {"time": "2026-01-22", "value": 12.620000000000001}, {"time": "2026-01-23", "value": 12.91}, {"time": "2026-01-26", "value": 13.059999999999999}, {"time": "2026-01-27", "value": 13.219999999999999}, {"time": "2026-01-28", "value": 13.290000000000001}, {"time": "2026-01-29", "value": 13.41}, {"time": "2026-01-30", "value": 13.415000000000001}, {"time": "2026-02-02", "value": 13.395}, {"time": "2026-02-03", "value": 13.419999999999998}, {"time": "2026-02-04", "value": 13.35}, {"time": "2026-02-05", "value": 13.15}, {"time": "2026-02-06", "value": 13.0}, {"time": "2026-02-09", "value": 12.88}, {"time": "2026-02-10", "value": 12.79}, {"time": "2026-02-11", "value": 12.735}, {"time": "2026-02-23", "value": 12.655}, {"time": "2026-02-24", "value": 12.675}, {"time": "2026-02-25", "value": 12.65}, {"time": "2026-02-26", "value": 12.745000000000001}, {"time": "2026-03-02", "value": 12.95}, {"time": "2026-03-03", "value": 13.105}, {"time": "2026-03-04", "value": 13.194999999999999}, {"time": "2026-03-05", "value": 13.325}, {"time": "2026-03-06", "value": 13.455000000000002}, {"time": "2026-03-09", "value": 13.52}, {"time": "2026-03-10", "value": 13.555000000000001}, {"time": "2026-03-11", "value": 13.559999999999999}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 11.4075}, {"time": "2026-01-05", "value": 11.4}, {"time": "2026-01-06", "value": 11.4025}, {"time": "2026-01-07", "value": 11.4075}, {"time": "2026-01-08", "value": 11.4125}, {"time": "2026-01-09", "value": 11.4175}, {"time": "2026-01-12", "value": 11.48}, {"time": "2026-01-13", "value": 11.5275}, {"time": "2026-01-14", "value": 11.5975}, {"time": "2026-01-15", "value": 11.61}, {"time": "2026-01-16", "value": 11.64}, {"time": "2026-01-19", "value": 11.7}, {"time": "2026-01-20", "value": 11.745000000000001}, {"time": "2026-01-21", "value": 11.834999999999999}, {"time": "2026-01-22", "value": 11.995000000000001}, {"time": "2026-01-23", "value": 12.122499999999999}, {"time": "2026-01-26", "value": 12.225}, {"time": "2026-01-27", "value": 12.315000000000001}, {"time": "2026-01-28", "value": 12.385}, {"time": "2026-01-29", "value": 12.4875}, {"time": "2026-01-30", "value": 12.5525}, {"time": "2026-02-02", "value": 12.6375}, {"time": "2026-02-03", "value": 12.709999999999999}, {"time": "2026-02-04", "value": 12.7975}, {"time": "2026-02-05", "value": 12.885}, {"time": "2026-02-06", "value": 12.955000000000002}, {"time": "2026-02-09", "value": 12.969999999999999}, {"time": "2026-02-10", "value": 13.005}, {"time": "2026-02-11", "value": 13.0125}, {"time": "2026-02-23", "value": 13.032499999999999}, {"time": "2026-02-24", "value": 13.044999999999998}, {"time": "2026-02-25", "value": 13.022499999999999}, {"time": "2026-02-26", "value": 13.0825}, {"time": "2026-03-02", "value": 13.15}, {"time": "2026-03-03", "value": 13.127500000000001}, {"time": "2026-03-04", "value": 13.0975}, {"time": "2026-03-05", "value": 13.102500000000001}, {"time": "2026-03-06", "value": 13.122499999999999}, {"time": "2026-03-09", "value": 13.127500000000001}, {"time": "2026-03-10", "value": 13.105}, {"time": "2026-03-11", "value": 13.117500000000001}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 103.0}, {"time": "2025-12-08", "value": -58.0}, {"time": "2025-12-09", "value": 0.0}, {"time": "2025-12-10", "value": -191.0}, {"time": "2025-12-11", "value": -318.0}, {"time": "2025-12-12", "value": -502.0}, {"time": "2025-12-15", "value": -420.0}, {"time": "2025-12-16", "value": 387.0}, {"time": "2025-12-17", "value": 2164.0}, {"time": "2025-12-18", "value": 1775.0}, {"time": "2025-12-19", "value": 1477.0}, {"time": "2025-12-22", "value": 1731.0}, {"time": "2025-12-23", "value": 1460.0}, {"time": "2025-12-24", "value": 1157.0}, {"time": "2025-12-26", "value": 1316.0}, {"time": "2025-12-29", "value": 1082.0}, {"time": "2025-12-30", "value": 1256.0}, {"time": "2025-12-31", "value": 1024.0}, {"time": "2026-01-02", "value": 1305.0}, {"time": "2026-01-05", "value": 900.0}, {"time": "2026-01-06", "value": 1209.0}, {"time": "2026-01-07", "value": 852.0}, {"time": "2026-01-08", "value": 1123.0}, {"time": "2026-01-09", "value": 899.0}, {"time": "2026-01-12", "value": 2405.0}, {"time": "2026-01-13", "value": 510.0}, {"time": "2026-01-14", "value": 1621.0}, {"time": "2026-01-15", "value": 976.0}, {"time": "2026-01-16", "value": 2064.0}, {"time": "2026-01-19", "value": 3686.0}, {"time": "2026-01-20", "value": 2768.0}, {"time": "2026-01-21", "value": 6377.0}, {"time": "2026-01-22", "value": 12183.0}, {"time": "2026-01-23", "value": 8239.0}, {"time": "2026-01-26", "value": 6201.0}, {"time": "2026-01-27", "value": 4837.0}, {"time": "2026-01-28", "value": 3780.0}, {"time": "2026-01-29", "value": 4841.0}, {"time": "2026-01-30", "value": 4023.0}, {"time": "2026-02-02", "value": 4023.0}, {"time": "2026-02-03", "value": 4023.0}, {"time": "2026-02-04", "value": 4537.0}, {"time": "2026-02-05", "value": 5297.0}, {"time": "2026-02-06", "value": 4654.0}, {"time": "2026-02-09", "value": 4654.0}, {"time": "2026-02-10", "value": 4240.0}, {"time": "2026-02-11", "value": 4240.0}, {"time": "2026-02-23", "value": 4658.0}, {"time": "2026-02-24", "value": 5261.0}, {"time": "2026-02-25", "value": 4693.0}, {"time": "2026-02-26", "value": 6130.0}, {"time": "2026-03-02", "value": 11040.0}, {"time": "2026-03-03", "value": 6836.0}, {"time": "2026-03-04", "value": 5134.0}, {"time": "2026-03-05", "value": 6044.0}, {"time": "2026-03-06", "value": 5515.0}, {"time": "2026-03-09", "value": 4394.0}, {"time": "2026-03-10", "value": 3834.0}, {"time": "2026-03-11", "value": 3834.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>兆勁科技股份有限公司（2444），成立於1995年，原名友旺科技。公司主要從事各式數位、數據網路通訊資訊、視聽電子產品、記憶體產品及筆記型電腦週邊設備之研究、開發、生產、製造及銷售。近年來積極拓展多角化業務，包含半導體減薄再生晶圓設備及光速光通訊雷射晶片。</p>
+
+<h3>核心產品與服務</h3>
+<ul><li><strong>無線網路設備：</strong> 網路卡、Wi-Fi 模組、電力線通訊、無線藍芽通訊服務相關產品。</li>
+<li><strong>記憶體事業：</strong> 記憶體模組、晶圓 Die (Wafer Die)、NAND Flash 晶片測試與銷售。</li>
+<li><strong>先進精密製造事業：</strong> 包含晶圓研磨。</li>
+<li><strong>先進雷射晶片事業：</strong> VCSEL 晶片 (光通訊雷射晶片) 研發。</li>
+</ul>
+<h3>營收結構 (2025年預估)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>營收佔比 (約)</th></tr></thead><tbody>
+<tr><td>通訊服務</td><td>61.6%</td></tr>
+<tr><td>無線網路</td><td>17.8%</td></tr>
+<tr><td>電力線通訊</td><td>13.9%</td></tr>
+<tr><td>其他業務</td><td>未明確列出</td></tr>
+</tbody></table></div>
+
+<h3>製造基地</h3>
+<p>兆勁科技註冊地及主要營運據點位於新竹科學園區苗栗縣竹南鎮科研路50-8號2樓及苗栗縣竹南鎮友義路77號。公開資料<strong>未找到2024-2026年各製造基地的營收貢獻比例</strong>。</p>
+
+<h2>核心競爭優勢</h2>
+<ul><li><strong>記憶體產業深耕：</strong> 與韓國海力士保持合作，並與金士頓建立業務，已跨入資料中心、雲端應用的伺服器記憶體產品領域，並積極關注HBM供應鏈。</li>
+<li><strong>VCSEL晶片研發潛力：</strong> 子公司兆通光電在化合物半導體與VCSEL晶片領域的專利成果，具備長期在高科技光通訊市場的佈局潛力。</li>
+<li><strong>非網通多元轉型：</strong> 積極發展消費性智能產品、醫療與醫美應用及新興移動能源三大成長引擎，以優化營收結構並降低對傳統網通的依賴。</li>
+<li><strong>網通利基市場聚焦：</strong> 網通業務轉向高毛利的工業與醫療利基市場，並與主要客戶達成新合作協議，期望提升獲利能力。</li>
+</ul>
+<h2>財務分析</h2>
+<h3>月營收趨勢 (單位：億元)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>0.78</td><td>-42.27%</td><td>-20.41%</td></tr>
+<tr><td>2025年12月</td><td>1.34</td><td>151.24%</td><td>31.22%</td></tr>
+<tr><td>2025年11月</td><td>0.53</td><td>-28.47%</td><td>-60.35%</td></tr>
+<tr><td>2025年10月</td><td>0.75</td><td>-26.86%</td><td>-52.69%</td></tr>
+<tr><td>2025年09月</td><td>1.02</td><td>20.79%</td><td>-10.19%</td></tr>
+<tr><td>2025年08月</td><td>0.85</td><td>-1.74%</td><td>-43.65%</td></tr>
+</tbody></table></div>
+
+<h3>季度數據 (2025年)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>季營收 (累計至9月)</th><th>毛利率</th><th>營業利益率</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>8.73億元</td><td>-0.65%</td><td>-26.73%</td><td>-0.46</td></tr>
+</tbody></table></div>
+
+<h3>年度營收與 EPS (單位：億元/元)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>全年營收 (億元)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2024年 (實際)</td><td>13.93</td><td>-0.24</td></tr>
+<tr><td>2025年 (實際)</td><td>11.36</td><td>-1.91 (全年)</td></tr>
+<tr><td>2025年 (預估)</td><td>11.46</td><td>-1.54 (Q3累計)</td></tr>
+</tbody></table></div>
+
+<h2>法說會重點 (2025年10月20日)</h2>
+<ul><li><strong>營運概況：</strong> 2025年上半年營運面臨顯著挑戰，營收持續下滑，毛利率大幅壓縮，虧損擴大。2025年Q2營收為3.07億元，季增4.48%、年減5.62%；毛利率1.3%，較去年同期8%下滑。</li>
+<li><strong>網通業務策略轉型：</strong> 公司目標調整網通業務營收結構，鎖定工業與醫療等高門檻利基市場，以毛利導向優化產品組合。</li>
+<li><strong>IoT無線藍牙溫度感測器：</strong> 佔整體營收約38.99%。最大客戶營收貢獻年減約37.96%，毛利率明顯下降。公司已與該客戶達成新合作協議，將從原本兩家代工廠縮減為僅由兆勁單一供應，預期2026年相關營收將優於2025年。</li>
+<li><strong>其他網通產品：</strong> PLC智能插頭佔營收比重30.55%、工業級Wi-Fi/LTE Router佔15.81%、醫療影音傳輸模組佔12.42%，這三項產品線營收均維持穩定，但因匯率變動導致毛利率下滑。</li>
+<li><strong>非網通三大成長引擎 (2026年展望)：</strong></li>
+</ul>    *   <strong>消費性智能產品：</strong> 開發智能精油噴霧器，結合Wi-Fi遠端控制。
+<p>*   <strong>醫療與醫美應用：</strong> 開發結合RF、光療、電療與超聲霧化技術的手持醫療器材，預計2026年年中推出。</p>
+<p>*   <strong>新興移動能源：</strong> 已取得中國大型電動自行車品牌充電模組訂單，預計2026年1月開始出貨，有望成為成長最快的領域。</p>
+<ul><li><strong>產能利用率/資本支出：</strong> 法說會未提供2025-2026年最新產能利用率及資本支出金額資料。</li>
+</ul>
+<h2>券商觀點</h2>
+<strong>目前未找到2025-2026年兆勁(2444)的最新券商目標價及評等資料。</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (元)</th><th>評等</th><th>日期</th><th>備註</th></tr></thead><tbody>
+<tr><td><strong>無</strong></td><td><strong>無</strong></td><td><strong>無</strong></td><td><strong>無</strong></td><td><strong>未找到2025-2026年最新券商目標價資料</strong></td></tr>
+</tbody></table></div>
+
+<p>CMoney法人機構平均預估兆勁(2444) <strong>2025年度稅後純益100億元、預估EPS將落在10.81~13.45元之間。</strong> (此預估與公司實際財報顯著不符，應為資料異常或法人對未來業務發展極度樂觀的長期預期，需審慎看待)。<strong>未找到2026年EPS預估數字。</strong></p>
+
+<h2>財報深度分析</h2>
+<h3>利潤率趨勢 (2025年H1與2024年同期比較)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>產品線</th><th>2025年H1營收 (仟元)</th><th>2024年H1營收 (仟元)</th><th>營收年增率</th><th>2025年H1毛利率</th><th>2024年H1毛利率</th><th>毛利年增率</th></tr></thead><tbody>
+<tr><td>醫療影音傳輸模組</td><td>95,375</td><td>81,443</td><td>17.11%</td><td>21.99%</td><td>28.51%</td><td>-22.88%</td></tr>
+<tr><td>PLC智能插頭</td><td>234,664</td><td>192,917</td><td>21.64%</td><td>6.93%</td><td>11.77%</td><td>-41.09%</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化原因分析：</strong> 綜合資料顯示，利潤率下降主要歸因於市場競爭加劇、產品售價壓力、原物料成本上升以及匯兌損失等負面因素。公司正透過產品組合調整，鎖定高毛利利基市場，以期改善整體獲利表現。
+
+<h3>存貨與營運週轉趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季別</th><th>應收帳款收現(天)</th><th>存貨週轉(天)</th><th>營運週轉(天)</th></tr></thead><tbody>
+<tr><td>2025Q3</td><td>38.95</td><td>105.33</td><td>144.28</td></tr>
+<tr><td>2025Q2</td><td>42.51</td><td>109.29</td><td>151.8</td></tr>
+<tr><td>22025Q1</td><td>42.94</td><td>133.31</td><td>176.25</td></tr>
+<tr><td>2024Q4</td><td>38.39</td><td>108.57</td><td>146.96</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>存貨分析：</strong> 2025年Q1存貨週轉天數較高，隨後兩季有所下降，顯示存貨去化速度有改善。然而，公司毛利率為負，顯示去化存貨可能面臨跌價損失壓力。</li>
+<li><strong>應收帳款週轉：</strong> 2025年前9個月累積應收帳款收現天數為45.58日，整體在合理範圍內，但需持續關注應收帳款品質。</li>
+<li><strong>負債比率：</strong> 2025年第三季負債比為54.23%，較前一季上升。</li>
+<li><strong>自由現金流量：</strong> 2025年第三季自由現金流為73,980仟元。由於僅有單季數據，無法判斷長期趨勢，但公司目前處於虧損狀態，現金流健康狀況仍需密切關注。</li>
+<li><strong>業外收支：</strong> 2025年上半年虧損擴大受匯兌損失等負面因素影響，顯示匯率波動對公司獲利具潛在風險。</li>
+</ul>
+<h3>資本支出與產能</h3>
+<strong>未找到2024-2026年兆勁具體的資本支出金額、趨勢及未來擴廠計畫。</strong>
+<p>2025年第三季折舊為18,911仟元，攤銷為2,301仟元，此為單季數據，無法判斷長期趨勢。</p>
+
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓：</strong> 兆勁在2017年以後<strong>未有新的董監事或大股東申報轉讓紀錄</strong>。</li>
+<li><strong>庫藏股買回：</strong> <strong>未找到2024-2026年兆勁庫藏股買回的相關紀錄</strong>。</li>
+<li><strong>可轉換公司債 (CB)：</strong> <strong>未找到2024-2026年兆勁發行可轉換公司債的相關資訊</strong>。</li>
+<li><strong>現金增資或減資：</strong> <strong>未找到2024-2026年兆勁現金增資或減資計畫的相關資訊</strong>。</li>
+<li><strong>股利政策：</strong> 兆勁董事會於2026年3月3日決議，<strong>2025年度不分派任何股利 (0元)</strong>。2024年股利亦為0元。</li>
+</ul>
+<h2>產業分析</h2>
+<h3>產業市場規模與成長率</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>產業領域</th><th>2025年市場規模 (預估)</th><th>2026年市場規模 (預估)</th><th>2026-20XX年 CAGR</th><th>備註</th></tr></thead><tbody>
+<tr><td><strong>無線基礎設施</strong></td><td>2,803.9億美元</td><td>3,123.2億美元</td><td>9.07% (至2034年)</td><td></td></tr>
+<tr><td><strong>Wi-Fi市場</strong></td><td>184.8億美元</td><td>210.6億美元</td><td>13.94% (至2031年)</td><td>Wi-Fi 7 CAGR高達47%</td></tr>
+<tr><td><strong>半導體記憶體</strong></td><td>1,189億美元</td><td>1,277億美元</td><td>7.4% (至2035年)</td><td>2025年整體記憶體市場接近2,231億美元，年增34.8%</td></tr>
+<tr><td><strong>DRAM市場</strong></td><td>1,061.6億美元 (2025年)</td><td></td><td>6.5% (至2033年)</td><td>2026年DRAM價格預計上漲超過70%</td></tr>
+<tr><td><strong>VCSEL晶片</strong></td><td>30.7億美元</td><td>36.6億美元</td><td>19.45% (至2034年)</td><td></td></tr>
+</tbody></table></div>
+
+<h3>供需狀況</h3>
+<ul><li><strong>無線網路設備：</strong> 市場需求受到5G、IoT擴展、Wi-Fi 7商用化及AI數據中心對高速網路設備需求推動，<strong>整體而言正經歷升級週期，需求成長。</strong></li>
+<li><strong>記憶體 (DRAM &amp; NAND Flash)：</strong> 由於AI需求（特別是HBM）大量消耗產能，導致DRAM、NAND Flash等產品供給不足。<strong>市場處於「超級循環」中的供不應求狀態，預計延續至2026年。</strong></li>
+<li><strong>VCSEL晶片：</strong> AI基礎設施、ADAS、下一代通訊、工業智能化及3D感測應用推動需求。<strong>整體市場需求強勁，處於成長階段。</strong></li>
+</ul>
+<h3>產業平均毛利率水準</h3>
+<ul><li><strong>無線網路設備/VCSEL晶片：</strong> <strong>未找到2024-2026年的最新產業平均毛利率數據。</strong></li>
+<li><strong>記憶體模組：</strong> 未找到最新產業平均毛利率。參考同業威剛2025年第四季毛利率跳增至48.41%，全年平均27.81%。預期模組廠毛利率在2026年下半年低成本庫存消化完畢後將回歸常態。</li>
+</ul>
+<h3>競爭格局</h3>
+<strong>全球主要廠商 (非市佔率排序)</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>產業領域</th><th>主要廠商</th></tr></thead><tbody>
+<tr><td><strong>無線基礎設施</strong></td><td>華為、三星、愛立信、諾基亞、思科</td></tr>
+<tr><td><strong>Wi-Fi 設備</strong></td><td>思科、HPE-Aruba、TP-Link、F5、Ubiquiti</td></tr>
+<tr><td><strong>半導體記憶體</strong></td><td>三星電子、SK海力士、美光科技、鎧俠、西部數據</td></tr>
+<tr><td><strong>VCSEL晶片</strong></td><td>Lumentum Holdings、ams OSRAM、Coherent Corp.、濱松光子、博通</td></tr>
+</tbody></table></div>
+
+<strong>兆勁 vs. 主要競爭對手：</strong> 由於兆勁業務多元且各領域都有大型國際或本土競爭者，直接進行全面具體比較不易。兆勁可能在特定利基市場、與台灣供應鏈整合或成本效益方面尋求競爭優勢。
+
+<strong>台灣同業比較 (營收規模、毛利率、EPS 對比)</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>產業領域</th><th>2025年營收 (億元)</th><th>2025年毛利率</th><th>2025年EPS (元)</th></tr></thead><tbody>
+<tr><td>兆勁 (2444)</td><td>多元</td><td>11.36</td><td>-0.65% (Q3)</td><td>-1.91 (全年)</td></tr>
+<tr><td>威剛 (3260)</td><td>記憶體模組</td><td>530.87</td><td>27.81%</td><td>23.18</td></tr>
+<tr><td>_註：與威剛相比，兆勁在記憶體模組領域的營收規模和獲利能力仍有顯著差距。網通/VCSEL領域尚無可直接比較之台灣同業公開數據。_</td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢</h3>
+<li><strong>AI驅動的高效能運算與記憶體需求爆發：</strong> AI模型訓練推升HBM及DDR5等高頻寬、大容量記憶體需求，導致市場供不應求與價格上漲。AI數據中心亦推動VCSEL光互連模組需求。</li>
+<li><strong>5G/6G與Wi-Fi 7技術普及，帶動網通設備升級：</strong> Wi-Fi 7進入商品化，提供超高速、低延遲連網，適應XR、4K/8K串流等應用。企業WLAN更新、數據中心頻寬升級（800G/1.6T交換器）為網通設備帶來成長。</li>
+<li><strong>矽光子技術的大規模商轉與「光進銅退」：</strong> 傳統銅線傳輸逼近物理極限，矽光子（CPO）技術將於2026年大規模商轉，成為資料中心高速光通訊主流，為光學元件及VCSEL晶片帶來龐大商機。</li>
+
+<h3>對兆勁的機會與威脅</h3>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>記憶體超級循環：</strong> AI/HBM需求帶動記憶體價格上漲及供不應求，兆勁記憶體事業可望受惠。
+<p>*   <strong>網通設備升級潮：</strong> Wi-Fi 7、5G/6G及網通設備替代商機為其無線網路業務帶來成長契機。</p>
+<p>*   <strong>VCSEL晶片應用擴展：</strong> AI數據中心、3D感測、車載LiDAR等領域的強勁需求，有望推動其VCSEL晶片研發成果商業化。</p>
+<p>*   <strong>非網通新業務成長：</strong> 消費性智能產品、醫療與醫美應用及新興移動能源 (電動自行車充電模組) 提供新的營收動能。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>記憶體供需反轉點：</strong> 市場可能在2026年底至2027年初回歸供需平衡，面臨價格下行壓力。
+<p>*   <strong>巨頭競爭與技術門檻：</strong> 無線網路、記憶體及VCSEL市場均有大型巨頭競爭，兆勁在技術、資金、規模上處於劣勢。</p>
+<p>*   <strong>基本面挑戰：</strong> 營收下滑、毛利率偏低、虧損擴大，顯示轉型陣痛期較長。</p>
+<p>*   <strong>供應鏈不確定性與地緣政治：</strong> 半導體供應鏈風險及貿易政策變化。</p>
+
+<h3>相關投資題材連結</h3>
+<ul><li><strong>AI (人工智慧) / HBM (高頻寬記憶體)：</strong> 兆勁的記憶體事業直接受惠於AI對記憶體的需求爆發；VCSEL晶片研發與AI數據中心的高速光通信需求相關。</li>
+<li><strong>電動車 (EV)：</strong> VCSEL晶片在車載LiDAR系統中的應用，是電動車自動駕駛關鍵技術。其新興移動能源業務已切入電動自行車充電模組市場。</li>
+<li><strong>5G/6G與物聯網 (IoT)：</strong> 5G普及、雲端運算及IoT擴展推升對高速無線網路設備的需求，兆勁的無線網路設備與通訊服務受益。</li>
+<li><strong>矽光子 (CPO)：</strong> 兆勁的VCSEL晶片研發與矽光子在光通訊領域的發展趨勢高度相關。</li>
+</ul>
+<h2>近期催化劑</h2>
+<ul><li><strong>利多：</strong></li>
+</ul>    *   <strong>2026年2月/3月：</strong> 兆勁股價因網通裝置替代商機題材而數次上漲，市場預期美國淘汰陸製網通設備政策將利好台廠。
+<p>*   <strong>2026年1月22日：</strong> 美國擬禁陸製網通設備政策利多及2025年12月營收回升，激勵股價攻上漲停15元。</p>
+<p>*   <strong>2025年12月：</strong> 合併營收達1.34億元，月增151.24%，年增31.22%，創近13個月新高。</p>
+<p>*   <strong>2025年10月23日法說會：</strong> 公布非網通三大成長引擎，新興移動能源業務已獲中國大型電動自行車品牌充電模組訂單，預計2026年1月開始出貨。網通業務與最大客戶達成新協議，2026年相關營收預期優於2025年。</p>
+<ul><li><strong>利空：</strong></li>
+</ul>    *   <strong>2026年3月3日：</strong> 董事會決議2025年度不分派股利，並通過2025年全年EPS為-1.91元，顯示公司仍處於虧損狀態。
+<p>*   <strong>2026年2月10日：</strong> 2026年1月合併營收為0.78億元，月減42.27%，年減20.41%，顯示營收波動劇烈，單月成長動能未能持續。</p>
+<p>*   <strong>2025年第三季：</strong> 每股盈餘 (EPS) 為-0.46元，累計前三季EPS為-1.54元，毛利率為-0.65%，反映營運挑戰顯著。</p>
+<p>*   <strong>2025年上半年：</strong> 營收持續下滑，毛利率大幅壓縮，虧損擴大，稅後淨損9,202萬元，每股淨損0.91元。</p>
+
+<h2>⭐ 成長動能時間軸</h2>
+<ul><li><strong>2025年10月20日：</strong> 法人說明會揭示三大非網通成長引擎：消費性智能產品、醫療與醫美應用、新興移動能源。</li>
+<li><strong>2026年1月：</strong> 新興移動能源業務（中國大型電動自行車品牌充電模組）開始出貨。</li>
+<li><strong>2026年年中：</strong> 醫療與醫美手持醫療器材產品預計推出。</li>
+<li><strong>2026年全年：</strong> IoT無線藍牙溫度感測器業務與最大客戶新合作協議生效，預期營收將優於2025年。</li>
+<li><strong>中長期：</strong> VCSEL晶片研發持續推進，有望受惠於AI數據中心、3D感測及車載LiDAR需求。記憶體事業深化與金士頓合作，切入伺服器記憶體市場。</li>
+</ul>
+<h2>2026 展望</h2>
+<p>兆勁在2026年的展望主要聚焦於非網通業務的轉型與新產品線的發展，以期優化營收結構並尋找新的成長動能。</p>
+
+<h3>成長動能</h3>
+<ul><li><strong>非網通三大引擎發力：</strong> 新興移動能源（電動自行車充電模組）已於2026年1月開始出貨，預期為2026年成長最快領域。醫療與醫美手持器材預計年中推出，智能精油噴霧器亦將上市。</li>
+<li><strong>網通業務優化：</strong> 透過產品組合調整，鎖定工業與醫療等高毛利利基市場，並與大客戶深化合作，提升獲利表現。</li>
+<li><strong>記憶體與VCSEL潛力：</strong> 受益於記憶體「超級循環」及VCSEL晶片在AI、3D感測與車載應用領域的長期成長趨勢。</li>
+<li><strong>政策利多：</strong> 美國剔除陸製網通設備政策為台廠帶來替代商機，為兆勁網通業務提供潛在短線題材。</li>
+</ul>
+<h3>風險因子</h3>
+<ul><li><strong>基本面疲弱：</strong> 公司目前仍處於虧損狀態，2025年全年EPS為-1.91元，且營收波動劇烈，新業務能否快速貢獻獲利仍待觀察。</li>
+<li><strong>毛利率挑戰：</strong> 傳統網通業務競爭激烈，毛利率持續受壓；新業務初期投入成本可能影響整體獲利。</li>
+<li><strong>轉型執行風險：</strong> 新興業務的市場接受度、量產能力及成本控制對公司營運至關重要，轉型成效具不確定性。</li>
+<li><strong>資金壓力：</strong> 持續虧損及無股利發放可能對公司現金流及再融資能力造成壓力。</li>
+<li><strong>記憶體市場反轉：</strong> 儘管目前供不應求，記憶體市場可能在2026年底至2027年初回歸供需平衡，屆時可能面臨價格壓力。</li>
+</ul>
+<h2>投資結論</h2>
+<p>兆勁(2444) 正處於關鍵轉型期，短期營運面臨嚴峻挑戰，但長期佈局具備一定潛力。</p>
+
+<li><strong>轉型陣痛期，基本面待改善：</strong> 2025年公司持續虧損，毛利率為負，顯示核心網通業務競爭激烈。新興業務雖有潛力，但要彌補現有虧損並實現規模獲利仍需時間與驗證。</li>
+<li><strong>非網通新事業是未來主要看點：</strong> 新興移動能源（電動自行車充電模組）已於2026年1月出貨，加上醫療醫美與智能產品的推出，將是公司營收結構優化及成長的核心動能。投資者應密切關注這些新業務的訂單成長與實際獲利貢獻。</li>
+<li><strong>地緣政治與產業趨勢提供題材性支撐：</strong> 美國對陸製網通設備的禁令為台廠帶來替代商機想像空間，加上AI、HBM、VCSEL及EV等產業大趨勢，使兆勁在技術題材上仍具吸引力。</li>
+<li><strong>記憶體業務具波動性與潛力：</strong> 受益於記憶體超級循環，其記憶體模組業務有望短期內改善，但需留意市場供需反轉點的風險。</li>
+<li><strong>高風險高報酬，適合具耐心投資者：</strong> 兆勁股價目前波動劇烈，基本面尚未穩固。若新事業發展成功且規模效益顯現，公司有望迎來轉機。但目前股利為零且處於虧損，屬於高風險、高潛在報酬的投資標的，適合對公司轉型故事有信心並願意承受較高風險的投資者。</li>
+
+<strong>綜合考量當前基本面挑戰與未來成長動能的潛在不確定性，建議投資者對於兆勁(2444)採取區間操作或觀望態度。若公司能持續證明新事業的營收與獲利貢獻，並有效改善整體財務結構，其股價有望反映轉型成功。保守建議在基本面確立前，將其視為題材股操作。</strong>
+
+<strong>目標價區間建議：考量公司目前仍處虧損且新事業貢獻尚未明確，但具備轉型題材與潛在新動能，基於現階段的資訊，建議目標價區間為 12.0 元至 18.0 元。此區間反映了對其轉型進度與市場題材的預期，同時也納入營運風險。</strong>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:35</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2444_兆勁_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2444_兆勁_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2444_兆勁_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

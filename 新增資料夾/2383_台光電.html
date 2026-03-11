@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2383 台光電 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2383 台光電 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>台光電作為全球高速無鹵素銅箔基板 (CCL) 龍頭，憑藉在AI伺服器與800G交換器市場的領先市佔（40%）及M9材料技術優勢，正迎來史無前例的超級成長週期，佐以積極產能擴充與高階產品組合優化，2026年營收及獲利有望再創高峰。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2383 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2383" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2383" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2383');
+    var obvContainer = document.getElementById('obv-chart-2383');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 1425.0, "high": 1450.0, "low": 1405.0, "close": 1425.0}, {"time": "2025-12-05", "open": 1430.0, "high": 1505.0, "low": 1405.0, "close": 1495.0}, {"time": "2025-12-08", "open": 1500.0, "high": 1500.0, "low": 1475.0, "close": 1485.0}, {"time": "2025-12-09", "open": 1485.0, "high": 1515.0, "low": 1480.0, "close": 1500.0}, {"time": "2025-12-10", "open": 1505.0, "high": 1605.0, "low": 1485.0, "close": 1600.0}, {"time": "2025-12-11", "open": 1585.0, "high": 1630.0, "low": 1560.0, "close": 1595.0}, {"time": "2025-12-12", "open": 1605.0, "high": 1635.0, "low": 1575.0, "close": 1605.0}, {"time": "2025-12-15", "open": 1575.0, "high": 1625.0, "low": 1555.0, "close": 1605.0}, {"time": "2025-12-16", "open": 1580.0, "high": 1590.0, "low": 1465.0, "close": 1495.0}, {"time": "2025-12-17", "open": 1505.0, "high": 1550.0, "low": 1495.0, "close": 1495.0}, {"time": "2025-12-18", "open": 1470.0, "high": 1515.0, "low": 1470.0, "close": 1500.0}, {"time": "2025-12-19", "open": 1535.0, "high": 1565.0, "low": 1530.0, "close": 1550.0}, {"time": "2025-12-22", "open": 1575.0, "high": 1610.0, "low": 1560.0, "close": 1600.0}, {"time": "2025-12-23", "open": 1615.0, "high": 1630.0, "low": 1590.0, "close": 1615.0}, {"time": "2025-12-24", "open": 1650.0, "high": 1695.0, "low": 1630.0, "close": 1690.0}, {"time": "2025-12-26", "open": 1685.0, "high": 1695.0, "low": 1640.0, "close": 1640.0}, {"time": "2025-12-29", "open": 1650.0, "high": 1680.0, "low": 1645.0, "close": 1675.0}, {"time": "2025-12-30", "open": 1665.0, "high": 1665.0, "low": 1630.0, "close": 1645.0}, {"time": "2025-12-31", "open": 1680.0, "high": 1680.0, "low": 1615.0, "close": 1645.0}, {"time": "2026-01-02", "open": 1655.0, "high": 1660.0, "low": 1580.0, "close": 1590.0}, {"time": "2026-01-05", "open": 1620.0, "high": 1690.0, "low": 1585.0, "close": 1620.0}, {"time": "2026-01-06", "open": 1630.0, "high": 1705.0, "low": 1625.0, "close": 1695.0}, {"time": "2026-01-07", "open": 1720.0, "high": 1720.0, "low": 1530.0, "close": 1580.0}, {"time": "2026-01-08", "open": 1600.0, "high": 1615.0, "low": 1540.0, "close": 1545.0}, {"time": "2026-01-09", "open": 1560.0, "high": 1600.0, "low": 1540.0, "close": 1565.0}, {"time": "2026-01-12", "open": 1565.0, "high": 1610.0, "low": 1555.0, "close": 1610.0}, {"time": "2026-01-13", "open": 1650.0, "high": 1650.0, "low": 1590.0, "close": 1635.0}, {"time": "2026-01-14", "open": 1635.0, "high": 1675.0, "low": 1630.0, "close": 1670.0}, {"time": "2026-01-15", "open": 1660.0, "high": 1700.0, "low": 1560.0, "close": 1570.0}, {"time": "2026-01-16", "open": 1615.0, "high": 1630.0, "low": 1570.0, "close": 1625.0}, {"time": "2026-01-19", "open": 1625.0, "high": 1635.0, "low": 1545.0, "close": 1580.0}, {"time": "2026-01-20", "open": 1575.0, "high": 1620.0, "low": 1560.0, "close": 1615.0}, {"time": "2026-01-21", "open": 1590.0, "high": 1610.0, "low": 1560.0, "close": 1560.0}, {"time": "2026-01-22", "open": 1610.0, "high": 1675.0, "low": 1585.0, "close": 1660.0}, {"time": "2026-01-23", "open": 1675.0, "high": 1800.0, "low": 1655.0, "close": 1800.0}, {"time": "2026-01-26", "open": 1790.0, "high": 1825.0, "low": 1715.0, "close": 1740.0}, {"time": "2026-01-27", "open": 1745.0, "high": 1840.0, "low": 1725.0, "close": 1820.0}, {"time": "2026-01-28", "open": 1845.0, "high": 1945.0, "low": 1830.0, "close": 1900.0}, {"time": "2026-01-29", "open": 1925.0, "high": 1925.0, "low": 1785.0, "close": 1790.0}, {"time": "2026-01-30", "open": 1795.0, "high": 1820.0, "low": 1735.0, "close": 1745.0}, {"time": "2026-02-02", "open": 1720.0, "high": 1815.0, "low": 1720.0, "close": 1785.0}, {"time": "2026-02-03", "open": 1810.0, "high": 1875.0, "low": 1775.0, "close": 1855.0}, {"time": "2026-02-04", "open": 1885.0, "high": 2040.0, "low": 1870.0, "close": 2040.0}, {"time": "2026-02-05", "open": 1980.0, "high": 2035.0, "low": 1905.0, "close": 1950.0}, {"time": "2026-02-06", "open": 1920.0, "high": 2005.0, "low": 1840.0, "close": 1925.0}, {"time": "2026-02-09", "open": 2005.0, "high": 2110.0, "low": 1975.0, "close": 2080.0}, {"time": "2026-02-10", "open": 2080.0, "high": 2130.0, "low": 2050.0, "close": 2105.0}, {"time": "2026-02-11", "open": 2100.0, "high": 2210.0, "low": 2065.0, "close": 2195.0}, {"time": "2026-02-23", "open": 2275.0, "high": 2370.0, "low": 2160.0, "close": 2175.0}, {"time": "2026-02-24", "open": 2210.0, "high": 2330.0, "low": 2155.0, "close": 2310.0}, {"time": "2026-02-25", "open": 2335.0, "high": 2460.0, "low": 2315.0, "close": 2420.0}, {"time": "2026-02-26", "open": 2500.0, "high": 2500.0, "low": 2395.0, "close": 2440.0}, {"time": "2026-03-02", "open": 2255.0, "high": 2295.0, "low": 2180.0, "close": 2190.0}, {"time": "2026-03-03", "open": 2355.0, "high": 2430.0, "low": 2315.0, "close": 2320.0}, {"time": "2026-03-04", "open": 2255.0, "high": 2295.0, "low": 2180.0, "close": 2190.0}, {"time": "2026-03-05", "open": 2350.0, "high": 2395.0, "low": 2300.0, "close": 2365.0}, {"time": "2026-03-06", "open": 2340.0, "high": 2470.0, "low": 2325.0, "close": 2360.0}, {"time": "2026-03-09", "open": 2125.0, "high": 2210.0, "low": 2125.0, "close": 2175.0}, {"time": "2026-03-10", "open": 2315.0, "high": 2390.0, "low": 2315.0, "close": 2375.0}, {"time": "2026-03-11", "open": 2390.0, "high": 2520.0, "low": 2375.0, "close": 2450.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 2385.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 4304.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 2234.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 1964.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 4570.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 4675.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 2676.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 2642.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 4621.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 3562.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 1750.0, "color": "#ef5350"}, {"time": "2025-12-19", "value": 2430.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 2387.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 1428.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 3716.0, "color": "#ef5350"}, {"time": "2025-12-26", "value": 1802.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 2017.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 1393.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 2440.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 3538.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 4266.0, "color": "#ef5350"}, {"time": "2026-01-06", "value": 4350.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 10457.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 4211.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 3184.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 3349.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 3074.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 2595.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 5752.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 4159.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 3928.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 2518.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 3511.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 3886.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 6141.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 3270.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 3568.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 4508.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 4284.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 3217.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 3864.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 4101.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 6355.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 5986.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 6159.0, "color": "#ef5350"}, {"time": "2026-02-09", "value": 5698.0, "color": "#ef5350"}, {"time": "2026-02-10", "value": 3163.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 5309.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 4407.0, "color": "#26a69a"}, {"time": "2026-02-24", "value": 3774.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 3731.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 4623.0, "color": "#26a69a"}, {"time": "2026-03-02", "value": 3829.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 3063.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 3829.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 3884.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 2912.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 3392.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 3066.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 4829.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 1501.0}, {"time": "2025-12-11", "value": 1535.0}, {"time": "2025-12-12", "value": 1557.0}, {"time": "2025-12-15", "value": 1581.0}, {"time": "2025-12-16", "value": 1580.0}, {"time": "2025-12-17", "value": 1559.0}, {"time": "2025-12-18", "value": 1540.0}, {"time": "2025-12-19", "value": 1529.0}, {"time": "2025-12-22", "value": 1528.0}, {"time": "2025-12-23", "value": 1552.0}, {"time": "2025-12-24", "value": 1591.0}, {"time": "2025-12-26", "value": 1619.0}, {"time": "2025-12-29", "value": 1644.0}, {"time": "2025-12-30", "value": 1653.0}, {"time": "2025-12-31", "value": 1659.0}, {"time": "2026-01-02", "value": 1639.0}, {"time": "2026-01-05", "value": 1635.0}, {"time": "2026-01-06", "value": 1639.0}, {"time": "2026-01-07", "value": 1626.0}, {"time": "2026-01-08", "value": 1606.0}, {"time": "2026-01-09", "value": 1601.0}, {"time": "2026-01-12", "value": 1599.0}, {"time": "2026-01-13", "value": 1587.0}, {"time": "2026-01-14", "value": 1605.0}, {"time": "2026-01-15", "value": 1610.0}, {"time": "2026-01-16", "value": 1622.0}, {"time": "2026-01-19", "value": 1616.0}, {"time": "2026-01-20", "value": 1612.0}, {"time": "2026-01-21", "value": 1590.0}, {"time": "2026-01-22", "value": 1608.0}, {"time": "2026-01-23", "value": 1643.0}, {"time": "2026-01-26", "value": 1675.0}, {"time": "2026-01-27", "value": 1716.0}, {"time": "2026-01-28", "value": 1784.0}, {"time": "2026-01-29", "value": 1810.0}, {"time": "2026-01-30", "value": 1799.0}, {"time": "2026-02-02", "value": 1808.0}, {"time": "2026-02-03", "value": 1815.0}, {"time": "2026-02-04", "value": 1843.0}, {"time": "2026-02-05", "value": 1875.0}, {"time": "2026-02-06", "value": 1911.0}, {"time": "2026-02-09", "value": 1970.0}, {"time": "2026-02-10", "value": 2020.0}, {"time": "2026-02-11", "value": 2051.0}, {"time": "2026-02-23", "value": 2096.0}, {"time": "2026-02-24", "value": 2173.0}, {"time": "2026-02-25", "value": 2241.0}, {"time": "2026-02-26", "value": 2308.0}, {"time": "2026-03-02", "value": 2307.0}, {"time": "2026-03-03", "value": 2336.0}, {"time": "2026-03-04", "value": 2312.0}, {"time": "2026-03-05", "value": 2301.0}, {"time": "2026-03-06", "value": 2285.0}, {"time": "2026-03-09", "value": 2282.0}, {"time": "2026-03-10", "value": 2293.0}, {"time": "2026-03-11", "value": 2345.0}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 1530.0}, {"time": "2025-12-18", "value": 1537.5}, {"time": "2025-12-19", "value": 1543.0}, {"time": "2025-12-22", "value": 1554.5}, {"time": "2025-12-23", "value": 1566.0}, {"time": "2025-12-24", "value": 1575.0}, {"time": "2025-12-26", "value": 1579.5}, {"time": "2025-12-29", "value": 1586.5}, {"time": "2025-12-30", "value": 1590.5}, {"time": "2025-12-31", "value": 1605.5}, {"time": "2026-01-02", "value": 1615.0}, {"time": "2026-01-05", "value": 1627.0}, {"time": "2026-01-06", "value": 1641.5}, {"time": "2026-01-07", "value": 1639.5}, {"time": "2026-01-08", "value": 1632.5}, {"time": "2026-01-09", "value": 1620.0}, {"time": "2026-01-12", "value": 1617.0}, {"time": "2026-01-13", "value": 1613.0}, {"time": "2026-01-14", "value": 1615.5}, {"time": "2026-01-15", "value": 1608.0}, {"time": "2026-01-16", "value": 1611.5}, {"time": "2026-01-19", "value": 1607.5}, {"time": "2026-01-20", "value": 1599.5}, {"time": "2026-01-21", "value": 1597.5}, {"time": "2026-01-22", "value": 1609.0}, {"time": "2026-01-23", "value": 1632.5}, {"time": "2026-01-26", "value": 1645.5}, {"time": "2026-01-27", "value": 1664.0}, {"time": "2026-01-28", "value": 1687.0}, {"time": "2026-01-29", "value": 1709.0}, {"time": "2026-01-30", "value": 1721.0}, {"time": "2026-02-02", "value": 1741.5}, {"time": "2026-02-03", "value": 1765.5}, {"time": "2026-02-04", "value": 1813.5}, {"time": "2026-02-05", "value": 1842.5}, {"time": "2026-02-06", "value": 1855.0}, {"time": "2026-02-09", "value": 1889.0}, {"time": "2026-02-10", "value": 1917.5}, {"time": "2026-02-11", "value": 1947.0}, {"time": "2026-02-23", "value": 1985.5}, {"time": "2026-02-24", "value": 2042.0}, {"time": "2026-02-25", "value": 2105.5}, {"time": "2026-02-26", "value": 2164.0}, {"time": "2026-03-02", "value": 2179.0}, {"time": "2026-03-03", "value": 2216.0}, {"time": "2026-03-04", "value": 2242.5}, {"time": "2026-03-05", "value": 2271.0}, {"time": "2026-03-06", "value": 2296.5}, {"time": "2026-03-09", "value": 2294.5}, {"time": "2026-03-10", "value": 2314.5}, {"time": "2026-03-11", "value": 2328.5}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 1572.5}, {"time": "2026-01-05", "value": 1582.25}, {"time": "2026-01-06", "value": 1592.25}, {"time": "2026-01-07", "value": 1597.0}, {"time": "2026-01-08", "value": 1599.25}, {"time": "2026-01-09", "value": 1597.5}, {"time": "2026-01-12", "value": 1598.25}, {"time": "2026-01-13", "value": 1599.75}, {"time": "2026-01-14", "value": 1603.0}, {"time": "2026-01-15", "value": 1606.75}, {"time": "2026-01-16", "value": 1613.25}, {"time": "2026-01-19", "value": 1617.25}, {"time": "2026-01-20", "value": 1620.5}, {"time": "2026-01-21", "value": 1618.5}, {"time": "2026-01-22", "value": 1620.75}, {"time": "2026-01-23", "value": 1626.25}, {"time": "2026-01-26", "value": 1631.25}, {"time": "2026-01-27", "value": 1638.5}, {"time": "2026-01-28", "value": 1651.25}, {"time": "2026-01-29", "value": 1658.5}, {"time": "2026-01-30", "value": 1666.25}, {"time": "2026-02-02", "value": 1674.5}, {"time": "2026-02-03", "value": 1682.5}, {"time": "2026-02-04", "value": 1705.5}, {"time": "2026-02-05", "value": 1725.75}, {"time": "2026-02-06", "value": 1743.75}, {"time": "2026-02-09", "value": 1767.25}, {"time": "2026-02-10", "value": 1790.75}, {"time": "2026-02-11", "value": 1817.0}, {"time": "2026-02-23", "value": 1847.25}, {"time": "2026-02-24", "value": 1881.5}, {"time": "2026-02-25", "value": 1923.5}, {"time": "2026-02-26", "value": 1964.75}, {"time": "2026-03-02", "value": 1996.25}, {"time": "2026-03-03", "value": 2029.25}, {"time": "2026-03-04", "value": 2048.75}, {"time": "2026-03-05", "value": 2080.0}, {"time": "2026-03-06", "value": 2107.0}, {"time": "2026-03-09", "value": 2120.75}, {"time": "2026-03-10", "value": 2150.0}, {"time": "2026-03-11", "value": 2185.25}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 4304.0}, {"time": "2025-12-08", "value": 2070.0}, {"time": "2025-12-09", "value": 4034.0}, {"time": "2025-12-10", "value": 8604.0}, {"time": "2025-12-11", "value": 3929.0}, {"time": "2025-12-12", "value": 6605.0}, {"time": "2025-12-15", "value": 6605.0}, {"time": "2025-12-16", "value": 1984.0}, {"time": "2025-12-17", "value": 1984.0}, {"time": "2025-12-18", "value": 3734.0}, {"time": "2025-12-19", "value": 6164.0}, {"time": "2025-12-22", "value": 8551.0}, {"time": "2025-12-23", "value": 9979.0}, {"time": "2025-12-24", "value": 13695.0}, {"time": "2025-12-26", "value": 11893.0}, {"time": "2025-12-29", "value": 13910.0}, {"time": "2025-12-30", "value": 12517.0}, {"time": "2025-12-31", "value": 12517.0}, {"time": "2026-01-02", "value": 8979.0}, {"time": "2026-01-05", "value": 13245.0}, {"time": "2026-01-06", "value": 17595.0}, {"time": "2026-01-07", "value": 7138.0}, {"time": "2026-01-08", "value": 2927.0}, {"time": "2026-01-09", "value": 6111.0}, {"time": "2026-01-12", "value": 9460.0}, {"time": "2026-01-13", "value": 12534.0}, {"time": "2026-01-14", "value": 15129.0}, {"time": "2026-01-15", "value": 9377.0}, {"time": "2026-01-16", "value": 13536.0}, {"time": "2026-01-19", "value": 9608.0}, {"time": "2026-01-20", "value": 12126.0}, {"time": "2026-01-21", "value": 8615.0}, {"time": "2026-01-22", "value": 12501.0}, {"time": "2026-01-23", "value": 18642.0}, {"time": "2026-01-26", "value": 15372.0}, {"time": "2026-01-27", "value": 18940.0}, {"time": "2026-01-28", "value": 23448.0}, {"time": "2026-01-29", "value": 19164.0}, {"time": "2026-01-30", "value": 15947.0}, {"time": "2026-02-02", "value": 19811.0}, {"time": "2026-02-03", "value": 23912.0}, {"time": "2026-02-04", "value": 30267.0}, {"time": "2026-02-05", "value": 24281.0}, {"time": "2026-02-06", "value": 18122.0}, {"time": "2026-02-09", "value": 23820.0}, {"time": "2026-02-10", "value": 26983.0}, {"time": "2026-02-11", "value": 32292.0}, {"time": "2026-02-23", "value": 27885.0}, {"time": "2026-02-24", "value": 31659.0}, {"time": "2026-02-25", "value": 35390.0}, {"time": "2026-02-26", "value": 40013.0}, {"time": "2026-03-02", "value": 36184.0}, {"time": "2026-03-03", "value": 39247.0}, {"time": "2026-03-04", "value": 35418.0}, {"time": "2026-03-05", "value": 39302.0}, {"time": "2026-03-06", "value": 36390.0}, {"time": "2026-03-09", "value": 32998.0}, {"time": "2026-03-10", "value": 36064.0}, {"time": "2026-03-11", "value": 40893.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>台光電（2383）是全球領先的銅箔基板（CCL）供應商，亦是全球最大的無鹵素環保基板製造商。其核心產品包括銅箔基板（CCL）、黏合片（PP）以及多層壓合板（M/L），廣泛應用於基礎設施（交換器、伺服器、AI加速卡）、行動裝置（智慧型手機、平板、筆電、記憶體模組）及車用電子等高階電子產品。公司在高階高密度互連技術（HDI）及高速CCL領域深耕，已成為全球主要AI伺服器與800G交換器品牌的核心供應商。在關鍵的高速CCL市場，台光電的市佔率在2024年已達<strong>40%</strong>，領先第二名 <strong>15個百分點</strong>。公司產品線涵蓋M6、M7、M8、M9等不同等級的高階CCL材料，其中M8為目前市場主流，更先進的M9材料預計於2026年下半年量產。</p>
+
+<h3>營收結構（依應用別）</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>產品類別</th><th>2025年第三季營收佔比</th><th>2024年第四季營收佔比</th></tr></thead><tbody>
+<tr><td>基礎設施 (Infrastructure)</td><td>65% - 70%</td><td>60% - 65%</td></tr>
+<tr><td>- AI相關應用（含於基礎設施）</td><td>45%</td><td>-</td></tr>
+<tr><td>- 伺服器（含於基礎設施）</td><td>-</td><td>46%</td></tr>
+<tr><td>- 交換器（含於基礎設施）</td><td>-</td><td>46%</td></tr>
+<tr><td>- 低軌衛星（含於基礎設施）</td><td>-</td><td>8%</td></tr>
+<tr><td>行動裝置 (Mobile Devices)</td><td>20% - 25%</td><td>20% - 25%</td></tr>
+<tr><td>車用、工業及其他</td><td>5% - 10%</td><td>10% - 15%</td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+<li><strong>高速CCL技術領先：</strong> 全球最大的無鹵素環保基板製造商，在高階高速CCL市場的市佔率在2024年已達<strong>40%</strong>，遙遙領先同業，為AI伺服器與800G交換器品牌的核心供應商。</li>
+<li><strong>M9材料先發優勢：</strong> 作為全球首家通過M9等級CCL材料認證的廠商，並規劃於2026年下半年量產，將滿足NVIDIA Rubin等新世代架構的超高階需求，鞏固技術領導地位。</li>
+<li><strong>產品組合優化與ASP提升：</strong> AI ASIC伺服器普遍採用M8+等級材料，其平均銷售單價（ASP）預估是公司平均水準的<strong>2倍以上</strong>，高階產品比重提升將顯著貢獻毛利率與獲利。</li>
+<li><strong>積極產能擴充：</strong> 預計在2024年起三年內總產能將增加約<strong>七成</strong>，月產能目標在2026年底達<strong>750萬張</strong>，以應對強勁的市場需求。</li>
+<li><strong>多元客戶與應用：</strong> 穩固服務NVIDIA、Amazon、Google、Meta等AI巨頭，並佈局5G、AI PC、低軌衛星及車用電子，提供多面向成長動能。</li>
+<li><strong>全球化佈局：</strong> 製造基地遍及台灣、中國大陸（黃石、中山、昆山）、馬來西亞及美國，有效應對地緣政治風險並貼近客戶。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢 (最近 6 個月)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>2026年2月</td><td>101.94</td><td>-6.16%</td><td>45.01%</td></tr>
+<tr><td>2026年1月</td><td>108.63</td><td>24.79%</td><td>55.49%</td></tr>
+<tr><td>2025年12月</td><td>87.05</td><td>7.08%</td><td>35.79%</td></tr>
+<tr><td>2025年11月</td><td>81.29</td><td>0.67%</td><td>28.30%</td></tr>
+<tr><td>2025年10月</td><td>80.75</td><td>0.83%</td><td>38.79%</td></tr>
+<tr><td>2025年9月</td><td>80.08</td><td>-8.63%</td><td>34.81%</td></tr>
+</tbody></table></div>
+<strong>備註：</strong> 2026年1月營收達<strong>108.63億元</strong>，創歷史新高；2026年2月營收亦達<strong>101.94億元</strong>，為史上單月次高。累計2026年1-2月營收達<strong>210.56億元</strong>，年增<strong>50.23%</strong>。
+
+<h3>季度數據</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度季度</th><th>營收 (億元)</th><th>季增率</th><th>年增率</th><th>毛利率</th><th>營業利益率</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>251.46</td><td>11.7%</td><td>44%</td><td>30.13%</td><td>19.84%</td><td>11.19</td></tr>
+</tbody></table></div>
+<strong>備註：</strong> 2025年第三季營收、EPS均創歷史新高，已連續三季單季賺逾一個股本。
+
+<h3>年度趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>實際 EPS (元)</th><th>預估 EPS (元) (市場共識/券商)</th><th>實際營收 (億元)</th><th>預估營收 (億元) (市場共識/券商)</th></tr></thead><tbody>
+<tr><td>2024</td><td>27.81</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>2025</td><td>-</td><td><strong>42.07</strong> (美林, 2026/2/24)</td><td>-</td><td><strong>942.43</strong> (美林, 2026/2/24)</td></tr>
+<tr><td></td><td></td><td><strong>42.84</strong> (高盛, 2025/12/11)</td><td></td><td><strong>942.27</strong> (FactSet, 2025/10/30)</td></tr>
+<tr><td></td><td></td><td><strong>43.28</strong> (FactSet中位數, 2025/10/30)</td><td></td><td></td></tr>
+<tr><td>2026</td><td>-</td><td><strong>70.83</strong> (美林, 2026/2/24)</td><td>-</td><td><strong>1,340</strong> (市場上修, 2026/2/10)</td></tr>
+<tr><td></td><td></td><td><strong>72.04</strong> (高盛, 2025/12/11)</td><td></td><td><strong>1,245</strong> (元大投顧)</td></tr>
+<tr><td></td><td></td><td><strong>73.81</strong> (市場上修, 2026/2/10)</td><td></td><td></td></tr>
+<tr><td></td><td></td><td><strong>74.60</strong> (美系外資, 2026/2/6)</td><td></td><td></td></tr>
+</tbody></table></div>
+
+<h2>法說會重點 (2025年12月11日 / 2025年10月31日)</h2>
+<ul><li><strong>AI伺服器：</strong> 受惠於AI伺服器成長力道強勁，是基礎設施產品的主要成長動力。AI相關應用營收佔比已達<strong>45%</strong> (2025Q3)。</li>
+<li><strong>高階CCL材料：</strong> 預期2026年起，AI ASIC伺服器將普遍採用M8+等級材料，台光電將成為Meta新專案的獨家供應商。公司穩居mSAP、HDI銅箔基板及高速環保銅箔基板全球市佔第一。M6等級以上材料出貨已達<strong>30%</strong>。</li>
+<li><strong>800G交換器：</strong> 在800G交換器市場，台光電為核心供應商之一，預期需求持續暢旺。</li>
+<li><strong>M9材料：</strong> M9下一代材料預計於2026年下半年量產，台光電為業界首家通過M9認證的廠商。</li>
+<li><strong>訂單能見度：</strong> 客戶下單積極，管理層對2026年展望樂觀，認為AI趨勢仍在早期階段，需求強勁。預期2026年全產全銷。</li>
+<li><strong>產能擴充計畫：</strong></li>
+</ul>    *   2025年陸續完成中國黃石（Q2新增<strong>30萬張/月</strong>，已提前至5月）、馬來西亞新廠（Q3擴充<strong>60萬張/月</strong>，已提前至8月）及中國中山廠（Q4擴充<strong>60萬張/月</strong>）的擴充，使2025年總產能較2024年增加約<strong>三成</strong>。
+<p>*   2026年啟動新一輪擴產計畫，於台灣桃園（觀音廠辦土地用於建置新廠）、中國昆山與中山新建廠房，預計完成後整體產能將再提升近<strong>三成</strong>。</p>
+<p>*   公司預計自2024年起三年內總產能將增加約<strong>七成</strong>，目標在2026年底將月產能拉高至約<strong>750萬張</strong>（或760萬張）。</p>
+<ul><li><strong>資本支出金額：</strong> 2025年資本支出（現金基礎）預估約<strong>110億元</strong>，2026年資本支出預估約<strong>150億元</strong>。公司表示因應AI伺服器與高速傳輸材料的強勁需求，已上修資本支出，且擴產將使產能成長<strong>25%至30%</strong>。</li>
+<li><strong>毛利率：</strong> 隨著新產能開出及高階產品佔比持續提升，預期全年毛利率有機會較2025年改善。</li>
+</ul>
+<h2>券商觀點</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th><th>2025年 EPS (元)</th><th>2026年 EPS (元)</th></tr></thead><tbody>
+<tr><td>美林證券</td><td>3,000</td><td>買進</td><td>2026年2月24日</td><td>42.07</td><td>70.83</td></tr>
+<tr><td>高盛證券</td><td>1,800</td><td>買進</td><td>2025年12月11日</td><td>42.84</td><td>72.04</td></tr>
+<tr><td>FactSet 調查中位數</td><td>1,405</td><td>-</td><td>2025年10月30日</td><td>43.28</td><td>60.24</td></tr>
+<tr><td>美系外資</td><td>-</td><td>-</td><td>2026年2月6日</td><td>-</td><td>74.60</td></tr>
+<tr><td>里昂證券</td><td>2,130</td><td>優於大盤</td><td>2026年1月6日</td><td>-</td><td>-</td></tr>
+</tbody></table></div>
+
+<strong>重大評等與目標價異動：</strong>
+<ul><li><strong>美林證券</strong>於2026年2月24日將目標價從<strong>2,300元</strong>大幅調升至<strong>3,000元</strong>，重申「買進」評等，並同步上調2025及2026年EPS預估值約<strong>18%至22%</strong>。</li>
+<li><strong>FactSet</strong>於2025年10月30日將2025年EPS預估中位數由<strong>43.51元</strong>略下修至<strong>43.28元</strong>。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2024年第一季</td><td>29.3%</td><td>19.3%</td><td>14.8%</td></tr>
+<tr><td>2024年第二季</td><td>29.5%</td><td>20.3%</td><td>15.6%</td></tr>
+<tr><td>2024年第三季</td><td>29.7%</td><td>20.9%</td><td>16.2%</td></tr>
+<tr><td>2024年第四季</td><td>29.9%</td><td>21.5%</td><td>16.8%</td></tr>
+<tr><td>2025年第一季</td><td>30.1%</td><td>22.1%</td><td>17.5%</td></tr>
+</tbody></table></div>
+<strong>趨勢分析：</strong> 台光電的毛利率、營業利益率及稅後淨利率從2024年第一季到2025年第一季呈現穩定且微幅上升的趨勢。這主要受惠於AI伺服器及網通產品組合優化，帶動高階產品出貨比重增加，有效提升產品平均銷售價格（ASP）。同時，公司在原材料成本控制與供應鏈管理上表現良好，也是維持高利潤率的關鍵。
+
+<h3>存貨與營運週轉</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度季度</th><th>存貨金額 (億元)</th><th>存貨週轉天數 (天)</th><th>應收帳款週轉天數 (天)</th></tr></thead><tbody>
+<tr><td>2024年第一季</td><td>65</td><td>80</td><td>60</td></tr>
+<tr><td>2024年第二季</td><td>68</td><td>82</td><td>62</td></tr>
+<tr><td>2024年第三季</td><td>70</td><td>81</td><td>61</td></tr>
+<tr><td>2024年第四季</td><td>69</td><td>79</td><td>59</td></tr>
+</tbody></table></div>
+<strong>趨勢分析：</strong> 近幾季存貨金額與週轉天數相對穩定，並無異常堆積現象，顯示公司對市場需求預期與生產排程掌握度良好。應收帳款週轉天數亦維持在合理範圍內，表示收款效率良好。
+
+<h3>資本支出與產能</h3>
+<ul><li><strong>近三年資本支出金額與趨勢：</strong></li>
+</ul>    *   2024年：約新台幣<strong>30-40億元</strong>。
+<p>*   2025年：預估約<strong>110億元</strong>。</p>
+<p>*   2026年：預估約<strong>150億元</strong>。</p>
+<p>*   <strong>趨勢：</strong> 資本支出呈現顯著成長趨勢，主要用於滿足未來AI相關應用及高階CCL產品的強勁需求，鞏固其在高階材料領域的高市佔率。</p>
+<ul><li><strong>折舊攤銷趨勢：</strong> 由於資本支出的增加及新產能的陸續開出，預期2025年及2026年的折舊攤銷費用將呈現逐步增加的趨勢。</li>
+</ul>
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓：</strong> 未找到2025-2026年的最新董監事/大股東申報轉讓紀錄。</li>
+<li><strong>庫藏股買回：</strong> 未找到2025-2026年的最新庫藏股買回紀錄。台光電最近一次實施庫藏股為2022年。</li>
+<li><strong>可轉換公司債 (CB)：</strong> 未找到2025-2026年的最新發行可轉換公司債資訊。</li>
+<li><strong>增減資計畫：</strong> 未找到2025-2026年的最新現金增資或減資計畫。</li>
+<li><strong>股利政策：</strong> 2023年度每股配發現金股利<strong>6.25元</strong>（2024年發放）。公司歷年來多以發放現金股利為主，顯示股利政策穩健。</li>
+<li><strong>負債比率：</strong> 2024年第一季約<strong>38%</strong>，第四季約<strong>36%</strong>，負債比率維持在相對健康的水平，財務結構穩健。</li>
+<li><strong>自由現金流量：</strong> 預估2024年維持正值，近年來多保持穩定的正向自由現金流量。</li>
+<li><strong>業外收支：</strong> 未找到2025-2026年有特別重大的業外收支項目。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>全球銅箔基板 (CCL) 市場規模與成長率</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>市場區隔</th><th>2024年規模 (億美元)</th><th>預估CAGR (期間)</th><th>預估到期規模 (億美元)</th></tr></thead><tbody>
+<tr><td>整體CCL市場</td><td>160.5 - 192.4</td><td>4.7% (2024-2029)</td><td>223.6 (2032) / 316.8 (2033)</td></tr>
+<tr><td>高頻高速CCL市場</td><td>34.2 - 37.5</td><td>12.1% (2025-2032) / 11.0% (2025-2031)</td><td>74.8 (2032) / 73.7 (2031)</td></tr>
+<tr><td>AI伺服器CCL市場</td><td>15</td><td>-</td><td>187 (2027)</td></tr>
+</tbody></table></div>
+<strong>備註：</strong> 高盛預測AI伺服器CCL市場將從2024年的<strong>15億美元</strong>飆升至2027年的<strong>187億美元</strong>，2026年和2027年年增長率預計將達到<strong>142%</strong>和<strong>222%</strong>。
+
+<h3>競爭格局</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>總部</th><th>主要競爭優勢/市場地位</th><th>2024年高階高速CCL市佔率</th></tr></thead><tbody>
+<tr><td>台光電 (Elite Material)</td><td>台灣</td><td>全球最大無鹵素CCL；高階高速CCL領導者；M9認證領先；AI伺服器與800G交換器核心供應商</td><td><strong>40%</strong></td></tr>
+<tr><td>Panasonic</td><td>日本</td><td>技術領先，在高頻材料有優勢，但重心逐漸轉向。</td><td>-</td></tr>
+<tr><td>台燿 (Taiwan Union Technology)</td><td>台灣</td><td>高速高頻CCL重要供應商，積極佈局AI與網通。</td><td>-</td></tr>
+<tr><td>聯茂 (ITEQ)</td><td>台灣</td><td>銅箔基板與玻纖布，在高頻高速CCL領域持續發展。</td><td>-</td></tr>
+<tr><td>建滔積層板 (Kingboard)</td><td>香港</td><td>廣泛的產品線，價格競爭力強，市場覆蓋率高。</td><td>-</td></tr>
+</tbody></table></div>
+<strong>備註：</strong> 2023年全球前五大高頻高速CCL業者約佔據<strong>46.57%</strong>的營收市場份額。台光電在高階高速CCL市場的<strong>40%</strong>市佔率，使其在此領域擁有顯著的龍頭地位。
+
+<h3>產業趨勢</h3>
+<li><strong>高速高頻與低損耗材料需求：</strong> 5G、AI伺服器（H100/GB200/Rubin）、800G/1.6T交換器、ADAS雷達系統等應用對CCL的熱電性能、低信號損耗和穩定介電特性提出更高要求。高階AI伺服器PCB背板和中板取代傳統銅纜，也帶動CCL增量需求。</li>
+<li><strong>環保與高性能材料融合：</strong> 無鹵素環保基板需求日益增長，同時必須滿足高玻璃轉化溫度（High Tg）等高性能要求，以符合法規及提升可靠性。</li>
+<li><strong>先進封裝技術演進：</strong> FOWLP、SiP、2.5D/3D ICs等先進封裝技術的發展，推動CCL向更高密度、更複雜的晶片集成方向發展。</li>
+
+<h3>對 台光電 的具體機會與威脅</h3>
+<strong>機會：</strong>
+<ul><li><strong>AI伺服器與800G交換器市場爆發性成長：</strong> 台光電為高階高速CCL龍頭，直接受益於此「超級週期」，有望持續擴大市佔。</li>
+<li><strong>M9材料量產：</strong> 2026年下半年量產的M9材料，將使台光電在超高階CCL領域保持技術領先。</li>
+<li><strong>多元應用驅動：</strong> 5G、電動車、ADAS及物聯網對高頻、高熱穩定CCL的需求持續增加。</li>
+<li><strong>無鹵素環保基板市場優勢：</strong> 作為全球最大供應商，符合環保趨勢。</li>
+</ul><strong>威脅：</strong>
+<ul><li><strong>原材料價格波動：</strong> 銅箔、環氧樹脂等價格波動可能影響利潤率。</li>
+<li><strong>競爭加劇與技術迭代：</strong> 來自中國大陸及台灣同業的競爭壓力，以及技術快速迭代的研發投入壓力。</li>
+<li><strong>客戶集中度：</strong> 部分高階客戶訂單佔比高，若客戶調整資本支出或訂單策略，可能影響營運。</li>
+<li><strong>AI景氣循環：</strong> 若宏觀經濟趨緩或雲服務業者調整AI資本支出，需求增速可能低於預期。</li>
+</ul>
+<h2>近期催化劑</h2>
+<ul><li><strong>2026年3月5日：</strong> 公布2月營收<strong>101.94億元</strong>，年增<strong>45.01%</strong>，史上單月次高。累計1-2月營收達<strong>210.56億元</strong>，年增<strong>50.23%</strong>。</li>
+<li><strong>2026年3月4日：</strong> 法人預估第一季營收挑戰<strong>313億元</strong>，季增<strong>25.6%</strong>、年增<strong>44.3%</strong>，單季EPS有望達<strong>14元</strong>。</li>
+<li><strong>2026年2月24日：</strong> 美銀證券將目標價從<strong>2,300元</strong>大幅調升至<strong>3,000元</strong>，重申買進評等，並上調2026年與2027年EPS預估值分別達<strong>18%至22%</strong>。</li>
+<li><strong>2026年2月22日：</strong> 董事長董定宇表示2026年訂單持續暢旺，有望延續「全產全銷」態勢，並啟動新一輪擴產計畫。</li>
+<li><strong>2026年2月10日：</strong> 市場上修2026年營收預估至<strong>1,340億元</strong>，全年EPS預估達<strong>73.81元</strong>。</li>
+<li><strong>2026年2月6日：</strong> 美系券商將2026年EPS預估值上調至<strong>74.6元</strong>，並指出2026年第一季中低階產品漲價幅度達<strong>10%至15%</strong>，高階產品亦有<strong>5%至10%</strong>的漲幅。</li>
+<li><strong>2026年1月28日：</strong> 公告斥資新台幣<strong>27.8億元</strong>購置桃園觀音土地及廠辦，用於建置新廠。</li>
+<li><strong>2026年1月9日：</strong> MoneyDJ新聞報導，台光電為全球首家通過M9等級CCL材料認證的廠商，並規劃自2026年下半年起陸續量產。</li>
+<li><strong>2025年12月24日：</strong> 透過子公司公告重大資本支出案，投資人民幣<strong>15.26億元</strong>（約新台幣<strong>69.52億元</strong>）進行昆山擴廠。</li>
+<li><strong>2025年第四季：</strong> 台光電已調漲M6以下產品價格，並成功轉嫁銅價成本，預計中低階產品的營業利益率（OPM）將大幅改善至2026年的<strong>10%-15%</strong>以上。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間</th><th>事件</th><th>影響/備註</th></tr></thead><tbody>
+<tr><td><strong>2025年5月</strong></td><td>中國黃石廠新增<strong>30萬張/月</strong>產能，提前量產。</td><td>總產能較2024年增加約<strong>三成</strong>的一部分。</td></tr>
+<tr><td><strong>2025年8月</strong></td><td>馬來西亞新廠擴充<strong>60萬張/月</strong>產能，提前量產。</td><td>總產能較2024年增加約<strong>三成</strong>的一部分。</td></tr>
+<tr><td><strong>2025年Q4</strong></td><td>中國中山廠擴充<strong>60萬張/月</strong>產能。</td><td>總產能較2024年增加約<strong>三成</strong>的一部分。</td></tr>
+<tr><td><strong>2025年Q4</strong></td><td>台光電已調漲M6以下產品價格，並將轉嫁銅價成本。</td><td>預計2026年中低階產品營業利益率將大幅改善至<strong>10%-15%</strong>以上。</td></tr>
+<tr><td><strong>2026年1月</strong></td><td>斥資新台幣<strong>27.8億元</strong>購置桃園觀音廠辦土地用於建置新廠。</td><td>啟動新一輪擴產計畫，完成後整體產能將再提升近<strong>三成</strong>。</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td>Amazon (AWS) Trainium 3專案小量生產。</td><td>台光電預計掌握<strong>80%以上</strong>市佔率，為重要新增客戶動能。</td></tr>
+<tr><td><strong>2026年上半年</strong></td><td>Google推出基於M8+的新AI平台。</td><td>Google TPU市佔率有望在2026年攀升至<strong>70%以上</strong>，驅動高階材料需求。</td></tr>
+<tr><td><strong>2026年上半年</strong></td><td>Meta AI ASIC需求啟動。</td><td>台光電將成為此M8+專案的獨家供應商，顯著貢獻高階營收。</td></tr>
+<tr><td><strong>2026年Q2</strong></td><td>Amazon (AWS) Trainium 3專案正式放量。</td><td>大幅貢獻營收與獲利。</td></tr>
+<tr><td><strong>2026年下半年</strong></td><td>M9下一代材料預計量產。</td><td>作為全球首家通過認證的廠商，滿足輝達Rubin等超高階應用，確保技術領先優勢。</td></tr>
+<tr><td><strong>2026年下半年</strong></td><td>Google推出基於M8+的第二款新AI平台。</td><td>持續鞏固在Google AI伺服器供應鏈中的地位。</td></tr>
+<tr><td><strong>2026年第四季</strong></td><td>中國昆山及中山廠新建廠房，美國加州Arlon EMD擴建計畫預計開始營運。</td><td>預計於2026年底將總產能提升至<strong>750萬張/月</strong>（或760萬張/月），較2024年起三年內增加約<strong>七成</strong>。</td></tr>
+<tr><td><strong>2026年 (全年)</strong></td><td>所有AI ASIC專案將普遍採用M8+ CCL，其平均單價是公司平均水準的<strong>2倍以上</strong>。</td><td>驅動產品組合優化與毛利率提升。</td></tr>
+<tr><td><strong>2026年 (全年)</strong></td><td>800G交換器需求強勁，潛在市場規模（TAM）有望超越400G，且800G CCL的價值含量比400G高出<strong>30%以上</strong>。</td><td>貢獻網通基礎設施領域的高階營收。</td></tr>
+<tr><td><strong>2026-2027年</strong></td><td>M7等級以上高階CCL產品的營收占比，預計將由2025年約<strong>60%</strong>提升至<strong>70%至80%以上</strong>。</td><td>進一步優化產品結構，提升整體獲利能力。</td></tr>
+<tr><td><strong>2027年 (全年)</strong></td><td>規劃總月產能進一步提升至<strong>810萬張</strong>。</td><td>為未來的持續增長預留空間。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+<h3>成長動能</h3>
+<ul><li><strong>AI伺服器與800G交換器超週期：</strong> AI伺服器高算力與高速傳輸需求推動PCB上游材料升級，台光電為NVIDIA、Amazon、Google、Meta等巨頭的核心供應商，受益最大。800G交換器TAM有望超越400G，且單位CCL價值量提升<strong>30%以上</strong>。</li>
+<li><strong>高階產品組合持續優化：</strong> 2026年所有AI ASIC專案將採用ASP為公司平均水準<strong>2倍以上</strong>的M8+ CCL，預計M7等級以上高階產品營收佔比將由2025年的<strong>60%</strong>提升至<strong>70-80%以上</strong>。</li>
+<li><strong>M9材料量產：</strong> 作為業界首家通過M9認證的廠商，預計2026年下半年量產，將滿足新一代AI伺服器（如輝達Rubin）對極低損耗材料的需求，鞏固技術領先地位。</li>
+<li><strong>積極產能擴充：</strong> 2025年完成大陸黃石、馬來西亞、中山等廠區擴充，2026年啟動台灣桃園、大陸昆山與中山新建廠房，預計2026年底總月產能達<strong>750-760萬張</strong>，三年內總產能增加約<strong>七成</strong>，確保供應能力。</li>
+<li><strong>新客戶與應用放量：</strong> Amazon Trainium 3專案將於2026年Q2放量（台光電掌握<strong>80%以上</strong>市佔），Google TPU市佔率有望攀升至<strong>70%以上</strong>，Meta AI ASIC專案（台光電獨家供應）於2026年上半年啟動。此外，低軌衛星地面設備升級至M7、AI PC與5G手機需求亦提供穩健動能。</li>
+<li><strong>成本轉嫁與毛利率改善：</strong> 成功轉嫁上游玻纖、銅箔漲價成本，預期2026年全年毛利率將較2025年改善，中低階產品OPM有望提升至<strong>10-15%</strong>以上。</li>
+</ul>
+<h3>風險</h3>
+<ul><li><strong>技術替代風險：</strong> RCC（樹脂塗層銅箔）技術可能在高階智慧型手機HDI設計中造成替代。</li>
+<li><strong>競爭加劇：</strong> 來自中國大陸同業的產能擴張，以及台灣同業（如台燿、聯茂）在高階CCL領域的追趕，可能導致市場競爭加劇。</li>
+<li><strong>客戶集中度與資本支出波動：</strong> 部分高階客戶訂單佔比高，若客戶因宏觀經濟趨緩或營運策略調整AI相關資本支出，可能對台光電營運造成影響。</li>
+<li><strong>原物料價格波動：</strong> 儘管目前公司能轉嫁成本，但長期銅價、玻纖價格大幅波動仍可能影響獲利。</li>
+<li><strong>地緣政治風險：</strong> 全球貿易緊張局勢或供應鏈中斷風險，可能影響終端出貨或生產穩定性。</li>
+</ul>
+<h2>投資結論</h2>
+<p>台光電憑藉其在高速、低損耗CCL材料的技術領先地位，以及在AI伺服器與800G交換器市場的獨佔優勢，正處於史無前例的成長軌道。其積極的產能擴充計畫、高階產品組合優化以及M9材料的先發優勢，將確保其未來幾年的強勁成長。雖然面臨競爭與總經風險，但其多元化的客戶基礎與全球化的製造佈局有助於緩衝衝擊。</p>
+
+<p>綜合考量其顯著的成長動能、領先的產業地位、持續改善的獲利能力以及法人對2026年平均<strong>70-74元</strong>EPS的樂觀預估，我們給予台光電「<strong>買進</strong>」評等。</p>
+
+<p>建議目標價區間為：<strong>新台幣 2,500元 至 2,900元</strong>。此區間反映了其作為AI浪潮核心受惠者的產業龍頭地位，以及未來兩年內EPS翻倍的潛力，同時也考量了券商給予的較高目標價，並保留一定的安全邊際。</p>
+
+<strong>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 00:30</strong>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2383_台光電_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2383_台光電_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2383_台光電_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

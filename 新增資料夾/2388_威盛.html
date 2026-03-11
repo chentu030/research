@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2388 威盛 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2388 威盛 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>威盛電子（2388）已成功從傳統PC晶片組市場轉型，成為專注於人工智慧物聯網（AIoT）與邊緣運算解決方案的IC設計公司，以ASIC、CPU、RISC-V及車載方案為核心成長動能，受惠於AI與邊緣運算市場高速成長，儘管短期受美國出口管制影響導致營收波動與毛利率壓力，但長期而言，其在先進製程、AI應用佈局及市場分散策略下，具備顯著的成長潛力。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2388 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2388" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2388" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2388');
+    var obvContainer = document.getElementById('obv-chart-2388');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 51.8, "high": 52.6, "low": 51.5, "close": 52.0}, {"time": "2025-12-05", "open": 52.1, "high": 52.5, "low": 51.1, "close": 51.8}, {"time": "2025-12-08", "open": 52.5, "high": 56.9, "low": 52.5, "close": 56.9}, {"time": "2025-12-09", "open": 59.6, "high": 62.5, "low": 58.0, "close": 62.5}, {"time": "2025-12-10", "open": 63.2, "high": 65.6, "low": 60.8, "close": 64.9}, {"time": "2025-12-11", "open": 63.6, "high": 69.9, "low": 63.1, "close": 66.6}, {"time": "2025-12-12", "open": 66.6, "high": 67.1, "low": 62.1, "close": 64.1}, {"time": "2025-12-15", "open": 62.2, "high": 63.3, "low": 61.0, "close": 61.4}, {"time": "2025-12-16", "open": 60.8, "high": 61.0, "low": 58.0, "close": 58.6}, {"time": "2025-12-17", "open": 58.9, "high": 59.5, "low": 57.0, "close": 57.0}, {"time": "2025-12-18", "open": 56.8, "high": 56.9, "low": 55.6, "close": 55.8}, {"time": "2025-12-19", "open": 56.4, "high": 56.9, "low": 55.7, "close": 56.3}, {"time": "2025-12-22", "open": 57.0, "high": 58.1, "low": 56.6, "close": 57.7}, {"time": "2025-12-23", "open": 58.0, "high": 58.2, "low": 55.2, "close": 55.2}, {"time": "2025-12-24", "open": 56.5, "high": 56.5, "low": 54.3, "close": 54.6}, {"time": "2025-12-26", "open": 55.0, "high": 55.0, "low": 53.2, "close": 53.3}, {"time": "2025-12-29", "open": 54.1, "high": 54.7, "low": 53.0, "close": 53.1}, {"time": "2025-12-30", "open": 53.0, "high": 53.1, "low": 52.1, "close": 53.0}, {"time": "2025-12-31", "open": 53.4, "high": 53.6, "low": 52.0, "close": 52.1}, {"time": "2026-01-02", "open": 52.8, "high": 52.8, "low": 51.3, "close": 51.5}, {"time": "2026-01-05", "open": 51.8, "high": 52.2, "low": 50.6, "close": 50.8}, {"time": "2026-01-06", "open": 50.9, "high": 51.5, "low": 50.9, "close": 51.0}, {"time": "2026-01-07", "open": 51.2, "high": 52.0, "low": 50.7, "close": 51.5}, {"time": "2026-01-08", "open": 51.6, "high": 52.1, "low": 50.5, "close": 50.6}, {"time": "2026-01-09", "open": 51.0, "high": 51.2, "low": 49.6, "close": 50.0}, {"time": "2026-01-12", "open": 50.3, "high": 52.0, "low": 49.75, "close": 51.8}, {"time": "2026-01-13", "open": 52.9, "high": 53.3, "low": 51.4, "close": 51.6}, {"time": "2026-01-14", "open": 52.3, "high": 52.5, "low": 51.7, "close": 52.2}, {"time": "2026-01-15", "open": 52.3, "high": 52.7, "low": 51.8, "close": 52.1}, {"time": "2026-01-16", "open": 52.1, "high": 53.1, "low": 52.0, "close": 52.1}, {"time": "2026-01-19", "open": 52.3, "high": 54.7, "low": 52.2, "close": 53.7}, {"time": "2026-01-20", "open": 54.0, "high": 54.7, "low": 53.0, "close": 53.7}, {"time": "2026-01-21", "open": 53.0, "high": 53.8, "low": 51.9, "close": 52.1}, {"time": "2026-01-22", "open": 53.0, "high": 56.6, "low": 53.0, "close": 54.7}, {"time": "2026-01-23", "open": 54.7, "high": 55.8, "low": 54.1, "close": 54.6}, {"time": "2026-01-26", "open": 54.6, "high": 57.7, "low": 54.2, "close": 56.8}, {"time": "2026-01-27", "open": 57.0, "high": 57.1, "low": 55.0, "close": 55.2}, {"time": "2026-01-28", "open": 55.5, "high": 57.4, "low": 55.4, "close": 56.7}, {"time": "2026-01-29", "open": 57.2, "high": 57.2, "low": 54.2, "close": 54.4}, {"time": "2026-01-30", "open": 53.9, "high": 53.9, "low": 51.3, "close": 51.9}, {"time": "2026-02-02", "open": 51.0, "high": 51.6, "low": 50.2, "close": 50.6}, {"time": "2026-02-03", "open": 51.5, "high": 52.2, "low": 51.1, "close": 52.0}, {"time": "2026-02-04", "open": 51.8, "high": 53.2, "low": 51.0, "close": 52.9}, {"time": "2026-02-05", "open": 52.3, "high": 53.4, "low": 51.0, "close": 51.1}, {"time": "2026-02-06", "open": 50.7, "high": 51.0, "low": 49.1, "close": 50.5}, {"time": "2026-02-09", "open": 51.3, "high": 52.7, "low": 50.8, "close": 50.9}, {"time": "2026-02-10", "open": 51.7, "high": 51.8, "low": 50.2, "close": 51.0}, {"time": "2026-02-11", "open": 50.6, "high": 50.6, "low": 49.15, "close": 49.2}, {"time": "2026-02-23", "open": 49.8, "high": 51.0, "low": 49.75, "close": 50.6}, {"time": "2026-02-24", "open": 50.6, "high": 52.0, "low": 50.4, "close": 50.9}, {"time": "2026-02-25", "open": 51.3, "high": 51.3, "low": 49.4, "close": 49.55}, {"time": "2026-02-26", "open": 49.7, "high": 51.2, "low": 49.55, "close": 50.5}, {"time": "2026-03-02", "open": 47.15, "high": 47.15, "low": 44.5, "close": 44.5}, {"time": "2026-03-03", "open": 49.8, "high": 50.6, "low": 48.05, "close": 48.1}, {"time": "2026-03-04", "open": 47.15, "high": 47.15, "low": 44.5, "close": 44.5}, {"time": "2026-03-05", "open": 46.1, "high": 46.6, "low": 45.15, "close": 45.9}, {"time": "2026-03-06", "open": 45.3, "high": 46.4, "low": 45.25, "close": 46.0}, {"time": "2026-03-09", "open": 44.0, "high": 44.3, "low": 42.8, "close": 43.5}, {"time": "2026-03-10", "open": 44.4, "high": 44.75, "low": 43.7, "close": 44.6}, {"time": "2026-03-11", "open": 45.2, "high": 49.05, "low": 45.2, "close": 49.05}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 1733.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 1147.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 9263.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 19616.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 43559.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 27541.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 18459.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 7469.0, "color": "#26a69a"}, {"time": "2025-12-16", "value": 8047.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 6226.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 3698.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 2759.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 3756.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 6031.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 3969.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 3635.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 3239.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 2507.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 2966.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 3071.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 3487.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 2265.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 2919.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 3196.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 2863.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 3332.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 7744.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 2730.0, "color": "#26a69a"}, {"time": "2026-01-15", "value": 1926.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 2367.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 7760.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 4811.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 4204.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 10417.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 5276.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 7132.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 4643.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 5243.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 4109.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 4241.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 2450.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 1882.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 1517.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 1906.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 3016.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 1560.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 1608.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 4817.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 3412.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 2115.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 3390.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 3324.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 4578.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 4453.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 4578.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 1867.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 1615.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 3009.0, "color": "#26a69a"}, {"time": "2026-03-10", "value": 1417.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 4411.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 57.620000000000005}, {"time": "2025-12-11", "value": 60.54}, {"time": "2025-12-12", "value": 63.0}, {"time": "2025-12-15", "value": 63.9}, {"time": "2025-12-16", "value": 63.120000000000005}, {"time": "2025-12-17", "value": 61.54}, {"time": "2025-12-18", "value": 59.379999999999995}, {"time": "2025-12-19", "value": 57.82000000000001}, {"time": "2025-12-22", "value": 57.08}, {"time": "2025-12-23", "value": 56.4}, {"time": "2025-12-24", "value": 55.92}, {"time": "2025-12-26", "value": 55.42}, {"time": "2025-12-29", "value": 54.779999999999994}, {"time": "2025-12-30", "value": 53.839999999999996}, {"time": "2025-12-31", "value": 53.220000000000006}, {"time": "2026-01-02", "value": 52.6}, {"time": "2026-01-05", "value": 52.1}, {"time": "2026-01-06", "value": 51.67999999999999}, {"time": "2026-01-07", "value": 51.379999999999995}, {"time": "2026-01-08", "value": 51.08}, {"time": "2026-01-09", "value": 50.78}, {"time": "2026-01-12", "value": 50.980000000000004}, {"time": "2026-01-13", "value": 51.1}, {"time": "2026-01-14", "value": 51.239999999999995}, {"time": "2026-01-15", "value": 51.54}, {"time": "2026-01-16", "value": 51.96}, {"time": "2026-01-19", "value": 52.339999999999996}, {"time": "2026-01-20", "value": 52.760000000000005}, {"time": "2026-01-21", "value": 52.739999999999995}, {"time": "2026-01-22", "value": 53.260000000000005}, {"time": "2026-01-23", "value": 53.760000000000005}, {"time": "2026-01-26", "value": 54.379999999999995}, {"time": "2026-01-27", "value": 54.67999999999999}, {"time": "2026-01-28", "value": 55.6}, {"time": "2026-01-29", "value": 55.54}, {"time": "2026-01-30", "value": 55.0}, {"time": "2026-02-02", "value": 53.760000000000005}, {"time": "2026-02-03", "value": 53.120000000000005}, {"time": "2026-02-04", "value": 52.36}, {"time": "2026-02-05", "value": 51.7}, {"time": "2026-02-06", "value": 51.42}, {"time": "2026-02-09", "value": 51.48}, {"time": "2026-02-10", "value": 51.279999999999994}, {"time": "2026-02-11", "value": 50.54}, {"time": "2026-02-23", "value": 50.44}, {"time": "2026-02-24", "value": 50.519999999999996}, {"time": "2026-02-25", "value": 50.25}, {"time": "2026-02-26", "value": 50.15}, {"time": "2026-03-02", "value": 49.21}, {"time": "2026-03-03", "value": 48.71}, {"time": "2026-03-04", "value": 47.43}, {"time": "2026-03-05", "value": 46.7}, {"time": "2026-03-06", "value": 45.8}, {"time": "2026-03-09", "value": 45.6}, {"time": "2026-03-10", "value": 44.9}, {"time": "2026-03-11", "value": 45.81}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 59.58}, {"time": "2025-12-18", "value": 59.96}, {"time": "2025-12-19", "value": 60.410000000000004}, {"time": "2025-12-22", "value": 60.489999999999995}, {"time": "2025-12-23", "value": 59.760000000000005}, {"time": "2025-12-24", "value": 58.73}, {"time": "2025-12-26", "value": 57.4}, {"time": "2025-12-29", "value": 56.3}, {"time": "2025-12-30", "value": 55.46}, {"time": "2025-12-31", "value": 54.81}, {"time": "2026-01-02", "value": 54.260000000000005}, {"time": "2026-01-05", "value": 53.760000000000005}, {"time": "2026-01-06", "value": 53.23}, {"time": "2026-01-07", "value": 52.61}, {"time": "2026-01-08", "value": 52.15}, {"time": "2026-01-09", "value": 51.69}, {"time": "2026-01-12", "value": 51.54}, {"time": "2026-01-13", "value": 51.39}, {"time": "2026-01-14", "value": 51.31}, {"time": "2026-01-15", "value": 51.31}, {"time": "2026-01-16", "value": 51.370000000000005}, {"time": "2026-01-19", "value": 51.660000000000004}, {"time": "2026-01-20", "value": 51.92999999999999}, {"time": "2026-01-21", "value": 51.989999999999995}, {"time": "2026-01-22", "value": 52.4}, {"time": "2026-01-23", "value": 52.86}, {"time": "2026-01-26", "value": 53.36}, {"time": "2026-01-27", "value": 53.720000000000006}, {"time": "2026-01-28", "value": 54.17}, {"time": "2026-01-29", "value": 54.4}, {"time": "2026-01-30", "value": 54.379999999999995}, {"time": "2026-02-02", "value": 54.07000000000001}, {"time": "2026-02-03", "value": 53.9}, {"time": "2026-02-04", "value": 53.98}, {"time": "2026-02-05", "value": 53.620000000000005}, {"time": "2026-02-06", "value": 53.21}, {"time": "2026-02-09", "value": 52.620000000000005}, {"time": "2026-02-10", "value": 52.2}, {"time": "2026-02-11", "value": 51.45}, {"time": "2026-02-23", "value": 51.07}, {"time": "2026-02-24", "value": 50.97}, {"time": "2026-02-25", "value": 50.864999999999995}, {"time": "2026-02-26", "value": 50.714999999999996}, {"time": "2026-03-02", "value": 49.875}, {"time": "2026-03-03", "value": 49.575}, {"time": "2026-03-04", "value": 48.975}, {"time": "2026-03-05", "value": 48.475}, {"time": "2026-03-06", "value": 47.975}, {"time": "2026-03-09", "value": 47.405}, {"time": "2026-03-10", "value": 46.805}, {"time": "2026-03-11", "value": 46.62}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 56.92}, {"time": "2026-01-05", "value": 56.86}, {"time": "2026-01-06", "value": 56.82000000000001}, {"time": "2026-01-07", "value": 56.55}, {"time": "2026-01-08", "value": 55.955}, {"time": "2026-01-09", "value": 55.21}, {"time": "2026-01-12", "value": 54.470000000000006}, {"time": "2026-01-13", "value": 53.845000000000006}, {"time": "2026-01-14", "value": 53.385000000000005}, {"time": "2026-01-15", "value": 53.06}, {"time": "2026-01-16", "value": 52.815}, {"time": "2026-01-19", "value": 52.71}, {"time": "2026-01-20", "value": 52.58}, {"time": "2026-01-21", "value": 52.3}, {"time": "2026-01-22", "value": 52.275}, {"time": "2026-01-23", "value": 52.275}, {"time": "2026-01-26", "value": 52.45}, {"time": "2026-01-27", "value": 52.55499999999999}, {"time": "2026-01-28", "value": 52.739999999999995}, {"time": "2026-01-29", "value": 52.855}, {"time": "2026-01-30", "value": 52.875}, {"time": "2026-02-02", "value": 52.864999999999995}, {"time": "2026-02-03", "value": 52.915}, {"time": "2026-02-04", "value": 52.985}, {"time": "2026-02-05", "value": 53.010000000000005}, {"time": "2026-02-06", "value": 53.035000000000004}, {"time": "2026-02-09", "value": 52.989999999999995}, {"time": "2026-02-10", "value": 52.96}, {"time": "2026-02-11", "value": 52.81}, {"time": "2026-02-23", "value": 52.735}, {"time": "2026-02-24", "value": 52.675}, {"time": "2026-02-25", "value": 52.467499999999994}, {"time": "2026-02-26", "value": 52.307500000000005}, {"time": "2026-03-02", "value": 51.927499999999995}, {"time": "2026-03-03", "value": 51.597500000000004}, {"time": "2026-03-04", "value": 51.0925}, {"time": "2026-03-05", "value": 50.5475}, {"time": "2026-03-06", "value": 50.0875}, {"time": "2026-03-09", "value": 49.427499999999995}, {"time": "2026-03-10", "value": 48.9375}, {"time": "2026-03-11", "value": 48.795}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -1147.0}, {"time": "2025-12-08", "value": 8116.0}, {"time": "2025-12-09", "value": 27732.0}, {"time": "2025-12-10", "value": 71291.0}, {"time": "2025-12-11", "value": 98832.0}, {"time": "2025-12-12", "value": 80373.0}, {"time": "2025-12-15", "value": 72904.0}, {"time": "2025-12-16", "value": 64857.0}, {"time": "2025-12-17", "value": 58631.0}, {"time": "2025-12-18", "value": 54933.0}, {"time": "2025-12-19", "value": 57692.0}, {"time": "2025-12-22", "value": 61448.0}, {"time": "2025-12-23", "value": 55417.0}, {"time": "2025-12-24", "value": 51448.0}, {"time": "2025-12-26", "value": 47813.0}, {"time": "2025-12-29", "value": 44574.0}, {"time": "2025-12-30", "value": 42067.0}, {"time": "2025-12-31", "value": 39101.0}, {"time": "2026-01-02", "value": 36030.0}, {"time": "2026-01-05", "value": 32543.0}, {"time": "2026-01-06", "value": 34808.0}, {"time": "2026-01-07", "value": 37727.0}, {"time": "2026-01-08", "value": 34531.0}, {"time": "2026-01-09", "value": 31668.0}, {"time": "2026-01-12", "value": 35000.0}, {"time": "2026-01-13", "value": 27256.0}, {"time": "2026-01-14", "value": 29986.0}, {"time": "2026-01-15", "value": 28060.0}, {"time": "2026-01-16", "value": 28060.0}, {"time": "2026-01-19", "value": 35820.0}, {"time": "2026-01-20", "value": 35820.0}, {"time": "2026-01-21", "value": 31616.0}, {"time": "2026-01-22", "value": 42033.0}, {"time": "2026-01-23", "value": 36757.0}, {"time": "2026-01-26", "value": 43889.0}, {"time": "2026-01-27", "value": 39246.0}, {"time": "2026-01-28", "value": 44489.0}, {"time": "2026-01-29", "value": 40380.0}, {"time": "2026-01-30", "value": 36139.0}, {"time": "2026-02-02", "value": 33689.0}, {"time": "2026-02-03", "value": 35571.0}, {"time": "2026-02-04", "value": 37088.0}, {"time": "2026-02-05", "value": 35182.0}, {"time": "2026-02-06", "value": 32166.0}, {"time": "2026-02-09", "value": 33726.0}, {"time": "2026-02-10", "value": 35334.0}, {"time": "2026-02-11", "value": 30517.0}, {"time": "2026-02-23", "value": 33929.0}, {"time": "2026-02-24", "value": 36044.0}, {"time": "2026-02-25", "value": 32654.0}, {"time": "2026-02-26", "value": 35978.0}, {"time": "2026-03-02", "value": 31400.0}, {"time": "2026-03-03", "value": 35853.0}, {"time": "2026-03-04", "value": 31275.0}, {"time": "2026-03-05", "value": 33142.0}, {"time": "2026-03-06", "value": 34757.0}, {"time": "2026-03-09", "value": 31748.0}, {"time": "2026-03-10", "value": 33165.0}, {"time": "2026-03-11", "value": 37576.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>威盛電子（2388）是一家無晶圓廠IC設計公司，深耕AIoT與邊緣運算解決方案。其核心業務已從傳統PC市場轉向以下高成長領域：</p>
+
+<ul><li><strong>ASIC（特殊應用IC）設計服務：</strong> 特別專注於先進製程ASIC專案，為主要營收貢獻者。子公司威宏科技（VIA Labs）已加入Arm生態系，具備完整的前後端AI SoC與ASIC設計能力。</li>
+<li><strong>CPU產品：</strong> 主力為低功耗桌上型處理器，預計2026年導入新製程並強化安全架構。轉投資的上海兆芯集成電路專注x86架構CPU，佈局桌面與伺服器。公司亦積極擁抱RISC-V架構，應用於AI伺服器與邊緣運算。</li>
+<li><strong>AI邊緣運算解決方案：</strong> 提供工業級AI運算平台、推論加速器與AIoT方案，應用於智慧監控、自動化製造、智慧醫療系統、智慧城市等。方案已從傳統感測進化至多模態AI平台。</li>
+<li><strong>嵌入式平台與工業電腦（IPC）解決方案：</strong> 提供高穩定性、長壽命方案，支援工業控制、醫療設備、數位看板。</li>
+<li><strong>車載系統：</strong> 以Mobile360系列為核心，鎖定北美大型車隊，提供行車紀錄、盲區偵測。預計2026年推出新一代車載AI平台，提升AI影像辨識與多模態融合能力。</li>
+<li><strong>高速傳輸介面IC：</strong> 子公司威鋒電子（6756 TT）聚焦USB4與AI PC周邊應用，並拓展車用與公共運輸市場。</li>
+</ul>
+<strong>營收結構 (2025年前三季相較2024年前三季)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>2024年前三季營收佔比</th><th>2025年前三季營收佔比</th><th>變化</th></tr></thead><tbody>
+<tr><td>VIA NEXT（傳統業務）</td><td>50%</td><td>21%</td><td>-29%</td></tr>
+<tr><td>CPU業務</td><td>13%</td><td>46%</td><td>+33%</td></tr>
+<tr><td>VIA Intelligent Solutions（智能產品）</td><td>12%</td><td>21%</td><td>+9%</td></tr>
+<tr><td>其他</td><td>25%</td><td>12%</td><td>-13%</td></tr>
+</tbody></table></div>
+
+<strong>製造基地：</strong> 威盛為IC設計公司，無自有製造基地，晶片製造外包給晶圓代工廠（如台積電5奈米製程）。
+
+<strong>所屬細分產業：</strong> IC設計、車用電子、AI與邊緣運算、工業物聯網（IIoT）/智慧工廠、高速傳輸介面IC、智慧醫療、RISC-V架構。
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>完整AIoT與邊緣運算解決方案：</strong> 威盛提供從晶片（ASIC/SoC）到軟體、平台的完整端到端解決方案，特別是多模態AI平台，能整合多種感測器資訊，具備決策能力，搶佔智慧工廠、智慧醫療、智慧城市等B2B垂直市場先機。</li>
+<li><strong>先進製程ASIC設計能力：</strong> 子公司威宏科技已加入Arm生態系，具備先進製程AI SoC與ASIC設計能力，其5奈米產品已符合台積電規範並恢復量產，顯示公司在高階客製化晶片設計上的實力。</li>
+<li><strong>多CPU架構佈局與中國市場連結：</strong> 除了低功耗x86 CPU，威盛積極擁抱RISC-V架構，降低對單一架構依賴。轉投資上海兆芯集成電路（持股7.8%）在x86 CPU領域佈局中國本土市場，並預計IPO，有望受惠於中國晶片自主化趨勢，提供獨特的戰略價值。</li>
+<li><strong>深耕車載AI市場：</strong> Mobile360系列車載AI平台在北美大型車隊市場擁有實績，並榮獲美國NIOSH獎項，預計2026年推出新一代平台，持續搶攻物流、車隊與工業車輛管理市場，展現差異化競爭力。</li>
+<li><strong>市場分散與風險管理：</strong> 針對地緣政治及客戶集中風險，公司積極分散市場，提升北美與亞太地區的營收佔比，強化營運韌性。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>4.10</td><td>-58.87%</td><td>-46.50%</td></tr>
+<tr><td>2025年12月</td><td>9.97</td><td>+26.38%</td><td>-36.35%</td></tr>
+<tr><td>2025年11月</td><td>7.89</td><td>-37.56%</td><td>-65.73%</td></tr>
+<tr><td>2025年10月</td><td>12.63</td><td>+25.37%</td><td>-22.73%</td></tr>
+<tr><td>2025年09月</td><td>10.08</td><td>+93.55%</td><td>-61.97%</td></tr>
+<tr><td>2025年08月</td><td>5.21</td><td>-34.32%</td><td>-71.64%</td></tr>
+</tbody></table></div>
+
+<h3>季度數據</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>季營收 (新台幣億元)</th><th>毛利率</th><th>營業利益率</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>23.21</td><td>19%</td><td>-15.34%</td><td>0.04</td></tr>
+</tbody></table></div>
+
+<h3>年度趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>全年度營收 (新台幣億元)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2024年 (實際)</td><td>159.1</td><td>2.07</td></tr>
+<tr><td>2025年 (實際 YTD Q3)</td><td>95.47</td><td>-1.1</td></tr>
+<tr><td>2025年 (法人預估)</td><td>-</td><td>1.1 - 1.65</td></tr>
+</tbody></table></div>
+
+<em>註：2025年法人預估EPS與截至第三季累計實際EPS (虧損1.1元) 存在較大差異，顯示第四季營運需大幅回升以達到法人預期。</em>
+
+<h2>法說會重點 (2025年11月12日)</h2>
+
+<ul><li><strong>營收展望：</strong> 預期2025年第四季營收將持續成長，2025年前三季營收逐季成長。</li>
+<li><strong>ASIC專案：</strong> 坦言2025年受美國出口管制影響，部分先進製程ASIC專案出貨遞延，但長期需求仍看好。</li>
+<li><strong>市場分散：</strong> 公司積極分散市場，努力提升北美與亞太地區的營收佔比，以降低地緣政治與客戶集中風險。</li>
+<li><strong>CPU業務：</strong> 出貨狀況穩定成長，預計2026年將導入新製程並強化安全架構，提升競爭力。</li>
+<li><strong>AI與智慧應用：</strong> 集團持續深化AI與智慧應用佈局，提供工廠、醫療、供應鏈安全等領域的完整解決方案，特別投入智慧車載、智慧工業等邊緣AI應用。</li>
+<li><strong>2025年Q3財務數據：</strong> 單季毛利率為19%，歸屬母公司業主淨利2,100萬元，每股純益0.04元。累計前三季淨損6.1億元，每股淨損1.1元。</li>
+<li><strong>2026年展望：</strong> 預估2026年營運均可望維持正向成長動能。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<strong>券商目標價與評等</strong>
+
+<p>目前未找到2025-2026年至少3家券商的具體目標價資料。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>未提供</td><td>未提供</td><td>未提供</td><td>未提供</td></tr>
+</tbody></table></div>
+
+<strong>2025-2026年EPS預估</strong>
+
+<ul><li>CMoney研究員平均預估威盛2025年全年EPS介於<strong>1.1元至1.65元</strong>之間。</li>
+<li>目前未找到2026年的具體EPS預估數字。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th><th>EPS (元)</th><th>稅後淨利年增率 YoY (%)</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>18.56</td><td>-15.34</td><td>0.99</td><td>0.04</td><td>-</td></tr>
+<tr><td>2025年第二季</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-776.39</td></tr>
+<tr><td>2025年第一季</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-83.21</td></tr>
+<tr><td>2024年第四季</td><td>-</td><td>-</td><td>-</td><td>1.2</td><td>+107.17</td></tr>
+<tr><td>2024年全年</td><td>-</td><td>-</td><td>-</td><td>2.07</td><td>+159.00</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化原因分析：</strong>
+<p>威盛2024年營收與獲利表現亮眼，主要得益於ASIC設計服務子公司威宏的助益。然而，2025年受到美國出口管制影響，部分先進製程ASIC專案出貨遞延，導致毛利率在2025年第三季降至18.56% (較法說會提及的19%略低)，較前一季減少約5個百分點，並使得營業利益率轉為負值，前三季累計淨損。公司正透過分散市場至北美及亞太地區，以及強化CPU新製程與AI應用佈局，以期改善獲利結構。</p>
+
+<h3>存貨分析</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨金額 (百萬新台幣)</th><th>存貨週轉天數 (天)</th><th>應收帳款週轉天數 (天)</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>2,968</td><td>146.04</td><td>13.61</td></tr>
+<tr><td>2025年第二季</td><td>3,166</td><td>172.92</td><td>16.63</td></tr>
+<tr><td>2025年第一季</td><td>3,077</td><td>168.10</td><td>19.10</td></tr>
+<tr><td>2024年第四季</td><td>2,394</td><td>51.51</td><td>7.45</td></tr>
+</tbody></table></div>
+
+<strong>存貨與營運分析：</strong>
+<p>2025年存貨金額雖略有波動，但存貨週轉天數從2024年第四季的51.51天大幅增加至2025年第三季的146.04天，顯示存貨積壓或週轉速度顯著放緩。這可能與部分ASIC專案出貨遞延有關，需持續關注未來庫存去化情況。應收帳款週轉天數亦較2024年第四季有所增加。</p>
+
+<h3>資本支出與產能</h3>
+
+<ul><li><strong>資本支出金額與趨勢：</strong> 目前未找到2024-2026年具體的資本支出金額與趨勢細項。</li>
+<li><strong>未來資本支出計畫與預計新增產能：</strong> 未找到2025-2026年具體的未來資本支出計畫與預計新增產能資訊。然而，公司已成功恢復5奈米產品量產，並有兩款12奈米產品（網通與SSD領域）預計於2025年第二季進入設計定案（Tape-out）階段，這些技術進展將提升其產品競爭力。</li>
+</ul>
+<h3>股權異動</h3>
+
+<ul><li><strong>董監事/大股東申報轉讓：</strong> 未找到2025-2026年的最新紀錄。</li>
+<li><strong>庫藏股買回紀錄：</strong> 未找到2024年以後的最新紀錄。</li>
+<li><strong>可轉換公司債 (CB)：</strong> 未找到2025-2026年的發行資訊。</li>
+<li><strong>增減資計畫：</strong> 威盛於2024年8月29日董事會決議辦理現金增資發行普通股參與發行海外存託憑證，暫定發行股數為45,000仟股至55,000仟股，目的為外幣購料需求。</li>
+<li><strong>股利政策：</strong></li>
+</ul>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>現金股利 (元)</th><th>股票股利 (元)</th><th>除息日</th><th>現金殖利率 (%)</th></tr></thead><tbody>
+<tr><td>2025</td><td>0.2</td><td>0</td><td>2025/06/20</td><td>0.32</td></tr>
+<tr><td>2024</td><td>0.1</td><td>0</td><td>2024/06/20</td><td>-</td></tr>
+</tbody></table></div>
+
+<h3>其他財報重點</h3>
+
+<ul><li><strong>負債比率：</strong> 2025年第三季負債比為<strong>34.97%</strong>，較前一季下降。</li>
+<li><strong>業外收支：</strong> 威盛的業外收支在2025年呈現大幅波動且佔稅前淨利比重高，其中2025年第三季達<strong>1,194.00%</strong>，顯示業外貢獻對其短期獲利產生顯著影響。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>市場規模與成長率</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>市場類別</th><th>2025年市場規模 (億美元)</th><th>2026年市場規模 (億美元)</th><th>CAGR (2026-2035)</th><th>備註</th></tr></thead><tbody>
+<tr><td>全球邊緣運算</td><td>304.3</td><td>396</td><td>33.5%</td><td>到2035年達5,471.6億美元</td></tr>
+<tr><td>全球邊緣人工智慧 (Edge AI) 晶片</td><td>75 (2024年)</td><td>-</td><td>17.4% (2025-2032)</td><td>到2032年達271億美元</td></tr>
+<tr><td>全球AIoT (人工智慧物聯網)</td><td>624.9</td><td>827.4</td><td>32.40% (2026-2034)</td><td>到2034年達7,813.2億美元</td></tr>
+<tr><td>全球ASIC (特殊應用IC)</td><td>227.8</td><td>242.1</td><td>7% (2026-2034)</td><td>到2034年達416.8億美元</td></tr>
+<tr><td>ASIC設計服務</td><td>74.34</td><td>-</td><td>5.24% (2025-2035)</td><td>到2035年達123.9億美元</td></tr>
+<tr><td>全球RISC-V</td><td>-</td><td>-</td><td>30.7% (2024-2034)</td><td>2024年市值17.6億美元，到2034年達257.3億美元</td></tr>
+<tr><td>全球半導體</td><td>-</td><td>8,900</td><td>11% (2026)</td><td>IDC預估，加速朝1兆美元邁進</td></tr>
+</tbody></table></div>
+
+<h3>供需狀況</h3>
+
+<ul><li><strong>整體半導體市場：</strong> 2026年將延續AI驅動的成長軌跡，IC設計、晶圓製造到先進封裝的整體價值鏈處於高產能利用率狀態。</li>
+<li><strong>AI晶片：</strong> AI伺服器核心晶片受惠於雲端訓練與邊緣推論需求爆發，預計成長32%，穩居成長最快的細分領域。</li>
+<li><strong>CoWoS先進封裝：</strong> 儘管台積電全力擴產，預計2026全年產能擴增至110萬片，但面對NVIDIA、AMD、Broadcom等巨頭龐大需求，市場仍存在供需缺口。</li>
+<li><strong>先進製程：</strong> 3奈米以下製程產能自2023年起年成長率連續四年超過4成，應用結構逐步轉向雲端資料中心與AI運算。</li>
+<li><strong>關鍵零組件：</strong> AI資料中心伺服器所需的超薄晶圓與高頻寬記憶晶片（HBM）供應短缺。</li>
+</ul>
+<h3>產業平均毛利率水準</h3>
+
+<ul><li>目前未找到2025-2026年全球IC設計產業的平均毛利率水準。威盛電子2025年第三季毛利率為<strong>18.56%</strong>。</li>
+</ul>
+<h3>競爭格局</h3>
+
+<strong>全球主要競爭對手 (Edge AI/ASIC設計服務)</strong>
+
+<p>鑑於AIoT與邊緣運算晶片設計領域競爭者眾多且細分，很難找到統一的全球前五大IC設計公司市佔率。主要參與者多為大型半導體公司或EDA工具供應商。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>專注領域</th><th>技術優勢</th><th>產能</th><th>客戶/市場</th><th>價格</th></tr></thead><tbody>
+<tr><td><strong>威盛 (2388)</strong></td><td>AIoT、邊緣運算、ASIC設計服務、CPU、車載</td><td>ASIC設計服務 (先進製程，Arm生態系，具備完整前後端設計能力)。AI邊緣運算 (多模態AI平台、工業級AI運算、推論加速器)。CPU (低功耗X86、RISC-V佈局、2026新製程)。車載 (Mobile360系列，北美大型車隊、工業車輛管理)。</td><td>無 (Fabless)</td><td>B2B應用 (車載、工業、建築、邊緣平台)、中國X86市場 (兆芯)、積極拓展北美、亞太</td><td>未提供</td></tr>
+<tr><td>Qualcomm</td><td>Edge AI、行動SoC</td><td>Edge AI 100加速器晶片系列 (超低功耗NPU，提升物聯網/穿戴式裝置即時推論效率5倍)。</td><td>無 (Fabless)</td><td>行動裝置、物聯網、汽車、邊緣AI解決方案</td><td>未提供</td></tr>
+<tr><td>NVIDIA</td><td>GPU、Edge AI</td><td>Jetson Orin Nano Edge AI模組 (低於15W功耗下實現40 TOPS效能，應用於機器人、智慧城市)。CUDA棧移植到RISC-V (預計2026年實現生產級支持)。</td><td>無 (Fabless)</td><td>數據中心、AI、機器人、自動駕駛</td><td>未提供</td></tr>
+<tr><td>Intel</td><td>CPU、AI加速器、Edge AI</td><td>Gaudi 3 Edge AI處理器 (針對分散式訓練優化，降低自駕系統延遲3倍)。神經形態尖峰網路。</td><td>有 (IDM)</td><td>數據中心、PC、AI、邊緣運算、物聯網</td><td>未提供</td></tr>
+<tr><td>Sony</td><td>Edge AI晶片平台</td><td>AITRIOS Edge AI晶片平台更新 (整合感測器融合技術，用於工業自動化)。</td><td>無 (Fabless)</td><td>工業自動化、影像感測器應用</td><td>未提供</td></tr>
+<tr><td>Renesas</td><td>MCU、MPU、Edge AI</td><td>RZ/V2H MPU (配備Dynamixel AI加速器，為視覺邊緣設備提供80 TOPS效能)。</td><td>有 (IDM)</td><td>汽車、工業、基礎設施、物聯網</td><td>未提供</td></tr>
+<tr><td>Synopsys</td><td>ASIC設計服務、EDA工具</td><td>EDA工具領導者，提供ASIC設計工具與服務。</td><td>無 (EDA)</td><td>全球半導體設計公司</td><td>未提供</td></tr>
+<tr><td>Cadence</td><td>ASIC設計服務、EDA工具</td><td>EDA工具領導者，提供ASIC設計工具與服務。</td><td>無 (EDA)</td><td>全球半導體設計公司</td><td>未提供</td></tr>
+<tr><td>聯發科 (2454)</td><td>行動SoC、AIoT</td><td>台灣IC設計龍頭，在手機、智慧電視、AIoT等領域具領先地位，近年積極發展邊緣AI。</td><td>無 (Fabless)</td><td>消費性電子、物聯網、汽車電子</td><td>未提供</td></tr>
+</tbody></table></div>
+
+<h3>台灣同業比較</h3>
+
+<p>由於威盛營收結構與產品組合（ASIC設計服務、CPU、Edge AI）與聯發科、凌陽、傑霖等有所差異，且其2025年受到特殊因素影響，財務表現不具直接可比性，故未提供2025-2026年最新詳細對比數據。</p>
+
+<h3>產業趨勢</h3>
+
+<li><strong>AI與邊緣運算整合深化：</strong></li>
+<p>*   <strong>具體影響：</strong> AI訓練與推論基礎建設更完備，中小型AI模型日趨成熟，使得許多需放上雲端的推論任務開始有效下放邊緣端執行。製造、醫療、零售等行業出現高效率、低延遲的AI使用場景。2026年，AI需求將帶動邊緣AI硬體滲透率成長至接近2成，威盛的AIoT與邊緣運算解決方案直接受益。</p>
+<li><strong>RISC-V架構崛起與普及：</strong></li>
+<p>*   <strong>具體影響：</strong> RISC-V作為開放、免費的指令集架構，預計2026年1月正式佔據全球處理器市場25%份額，打破x86和Arm雙寡頭壟斷。其模組化架構允許客製化晶片，在汽車、AI、工業和物聯網等領域應用加速。威盛積極擁抱RISC-V，有助於其在高端AI伺服器與邊緣運算市場的佈局。</p>
+<li><strong>先進製程與客製化ASIC需求激增：</strong></li>
+<p>*   <strong>具體影響：</strong> 生成式AI與大型模型訓練需求持續擴張，AI伺服器出貨成長明顯，同步放大對GPU、ASIC與HBM等高效能晶片需求。高密度運算元件導入使AI伺服器單機晶圓消耗顯著高於傳統伺服器，推動先進製程晶圓需求。市場不再單押GPU，客製化ASIC方案以最佳化成本的需求增加，威盛的ASIC設計服務將直接受惠。</p>
+
+<h3>對威盛的具體機會與威脅</h3>
+
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>高成長市場：</strong> AIoT與邊緣運算市場的持續高速成長，為威盛的核心業務提供廣闊發展空間。
+<p>*   <strong>ASIC設計服務：</strong> AI與HPC帶動客製化ASIC需求，威盛的先進製程設計服務具備競爭優勢。</p>
+<p>*   <strong>RISC-V生態系：</strong> 積極佈局RISC-V架構，有助於其在AI伺服器與邊緣運算領域提升競爭力，並減少對其他專有架構的依賴。</p>
+<p>*   <strong>中國晶片自主化：</strong> 透過兆芯切入X86指令集市場，受惠於中國本土化需求。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>市場競爭激烈：</strong> Edge AI晶片領域有Qualcomm、NVIDIA、Intel等巨頭，ASIC設計服務市場亦有多家國際大廠，競爭壓力大。
+<p>*   <strong>地緣政治與出口管制：</strong> 美國出口管制導致部分ASIC專案出貨延遲，短期內對營運造成負面影響，儘管公司正積極分散市場。</p>
+<p>*   <strong>毛利率壓力：</strong> 2025年第三季毛利率降至18.56%，顯示可能面臨價格競爭或成本壓力，盈利能力受考驗。</p>
+<p>*   <strong>研發投入高昂：</strong> AI晶片複雜度與先進製程研發成本高昂，對威盛的研發投入構成壓力。</p>
+
+<h3>相關投資題材連結</h3>
+
+<ul><li><strong>AI (人工智慧)：</strong> 威盛核心業務轉向AIoT與邊緣運算，直接受益於AI晶片需求增長，應用於智慧監控、智慧製造、智慧醫療與智慧城市。</li>
+<li><strong>電動車/自駕車：</strong> 威盛的邊緣AI解決方案應用於車載市場（Mobile360），邊緣AI晶片需求受自駕車即時數據處理需求驅動。RISC-V在汽車ADAS、資訊娛樂、動力總成控制器等領域應用加速。</li>
+<li><strong>HBM (高頻寬記憶體)：</strong> 作為AI晶片設計公司，HBM的供需與成本間接影響其AI解決方案的整體性能與價格。</li>
+<li><strong>物聯網 (IoT)：</strong> 威盛的AIoT解決方案直接連結物聯網題材，AIoT市場規模高速增長。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<h3>重大合作、接單、新產品發佈</h3>
+
+<ul><li><strong>225年12月10日：</strong> 威盛持有中國CPU廠兆芯集成7.8%股權，該公司IPO進度加速，預估最快5～6個月內完成科創板上市，激勵威盛股價。</li>
+<li><strong>2025年12月11日：</strong> 舉辦「智能監控，相信安全| 威盛電子2025 AI安全新品發布暨合作夥伴大會」，推出M168Pro叉車AI安全監控套件與威盛AI危化監測系統等新品。</li>
+<li><strong>2025年3月：</strong> 威盛5奈米產品已符合台積電規範並恢復量產。兩款12奈米網通與SSD產品預計於2025年第二季進入Tape-out階段。</li>
+<li><strong>2024年：</strong> Mobile360堆高機安全系統獲頒2024 Top Software &amp; Tech獎項，並榮獲美國NIOSH 2024年度採礦安全與技術創新獎項。與馬偕紀念醫院推出智慧病房解決方案。發布兩款搭載NVIDIA Jetson的全新邊緣AI系統。</li>
+</ul>
+<h3>股東會/法說會重要決議</h3>
+
+<ul><li><strong>2025年11月12日法說會：</strong> (詳見「法說會重點」) 預期2025年第四季營收成長，CPU業務2026年導入新製程，AI應用佈局深化，ASIC受出口管制影響但長期看好，積極分散市場。</li>
+</ul>
+<h3>內部人買賣超、庫藏股、股利政策</h3>
+
+<ul><li><strong>股利政策 (2025年)：</strong> 2025年06月20日除權息，發放現金股利<strong>0.2元</strong>。</li>
+<li><strong>庫藏股：</strong> 未找到2024年以後的最新資料。</li>
+</ul>
+<h3>外資/投信近期買賣超張數 (2026年2月下旬至3月上旬)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>日期</th><th>外資買賣超 (張)</th><th>投信買賣超 (張)</th><th>自營商買賣超 (張)</th><th>三大法人合計買賣超 (張)</th></tr></thead><tbody>
+<tr><td>2026年03月05日</td><td>+574</td><td>0</td><td>-20</td><td>+554</td></tr>
+<tr><td>2026年03月04日</td><td>-477</td><td>+10</td><td>-179</td><td>-646</td></tr>
+<tr><td>2026年03月03日</td><td>-1,894</td><td>0</td><td>-121</td><td>-2,015</td></tr>
+<tr><td>2026年02月26日</td><td>+1,375</td><td>+15</td><td>+224</td><td>+1,614</td></tr>
+<tr><td>2026年02月25日</td><td>-1,565</td><td>0</td><td>-71</td><td>-1,636</td></tr>
+<tr><td>2026年02月24日</td><td>+241</td><td>0</td><td>+66</td><td>+307</td></tr>
+<tr><td>2026年02月23日</td><td>+1,106</td><td>0</td><td>+204</td><td>+1,310</td></tr>
+</tbody></table></div>
+
+<h2>⭐ 成長動能時間軸</h2>
+
+<ul><li><strong>2024年8月29日：</strong> 董事會決議辦理現金增資發行海外存託憑證 (45,000仟股至55,000仟股)，目的為外幣購料，顯示對未來業務擴張的資金需求。</li>
+<li><strong>2025年第二季：</strong> 兩款12奈米產品（網通與SSD領域）預計進入設計定案（Tape-out）階段，為未來營收成長奠定基礎。</li>
+<li><strong>2025年第三季：</strong> 威盛5奈米產品已符合台積電白色供應鏈規範，正式恢復量產，有助於高階ASIC業務推進。</li>
+<li><strong>2025年第四季：</strong> 管理層預期營收將持續成長，為年度營運挑戰注入動能。</li>
+<li><strong>2025年12月：</strong> 推出M168Pro叉車AI安全監控套件與威盛AI危化監測系統等新品，強化邊緣AI解決方案。</li>
+<li><strong>2026年：</strong></li>
+</ul>    *   <strong>CPU業務：</strong> 預計導入新製程並強化安全架構，顯著提升CPU產品線競爭力。
+<p>*   <strong>車載AI平台：</strong> 預計推出新一代車載AI平台，提升AI影像辨識與多模態融合能力，搶攻物流、車隊與工業車輛管理市場。</p>
+<p>*   <strong>市場分散策略：</strong> 持續提升北美與亞太地區的營收佔比，降低地緣政治風險，拓展新成長空間。</p>
+<p>*   <strong>兆芯IPO：</strong> 持股7.8%的中國CPU廠兆芯集成預計於5-6個月內完成科創板上市，有望提升威盛投資價值及在中國市場的戰略地位。</p>
+<p>*   <strong>邊緣AI應用：</strong> 業務聚焦邊緣AI領域，著重車載、工業、建築與邊緣平台等B2B垂直市場，受惠於邊緣AI在缺工環境下提升效率與安全的需求。</p>
+<p>*   <strong>ASIC設計服務：</strong> 長期看好ASIC需求，透過ASIC設計服務擴展AI伺服器、邊緣運算及網通市場。</p>
+
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+
+<ul><li><strong>AIoT與邊緣運算爆發：</strong> 全球邊緣運算和AIoT市場 CAGR 超過30%，威盛作為關鍵晶片與解決方案提供商，直接受惠。其多模態AI平台和工業級AI應用，將在智慧工廠、智慧醫療等B2B市場持續擴張。</li>
+<li><strong>ASIC設計服務持續成長：</strong> AI與HPC需求推動客製化ASIC成為主流，威盛具備先進製程（5奈米已量產，12奈米即將Tape-out）的ASIC設計能力，有望承接更多高價值專案。</li>
+<li><strong>CPU業務競爭力提升：</strong> 2026年CPU導入新製程並強化安全架構，可望顯著提升產品競爭力。同時，RISC-V架構的普及，將為威盛在AI伺服器與邊緣運算提供差異化優勢。</li>
+<li><strong>車載AI平台升級：</strong> 新一代車載AI平台推出，結合多模態融合能力，鞏固並擴大在北美大型車隊及物流車輛管理市場的領先地位。</li>
+<li><strong>兆芯IPO與中國市場機遇：</strong> 轉投資兆芯的IPO進度，不僅有望提升威盛的資產價值，更將強化其在中國晶片自主化浪潮中的戰略地位。</li>
+<li><strong>市場分散策略成效：</strong> 積極提升北美與亞太市場佔比，降低單一市場風險，為整體營運帶來穩定成長。</li>
+</ul>
+<h3>風險因子</h3>
+
+<ul><li><strong>地緣政治與出口管制風險：</strong> 美中科技戰及出口管制政策的不確定性，可能持續影響部分先進製程ASIC專案的出貨時程，對營收和獲利造成波動。</li>
+<li><strong>毛利率壓力：</strong> 2025年第三季毛利率降至18.56%，若市場競爭加劇或產品組合未能有效優化，可能持續面臨毛利率壓力，影響獲利能力。</li>
+<li><strong>存貨去化速度：</strong> 存貨週轉天數大幅增加，若全球經濟放緩或客戶需求不如預期，可能導致存貨跌價損失風險。</li>
+<li><strong>研發成本高昂：</strong> AI晶片及先進製程的研發投入巨大，若新產品開發不如預期或市場接受度不佳，可能影響投資報酬率。</li>
+<li><strong>全球經濟不確定性：</strong> 董事長陳文琦指出2026年全球充滿不確定性，地緣政治與科技進步帶來的衝擊可能影響整體半導體需求。</li>
+</ul>
+<h2>投資結論</h2>
+
+<p>威盛電子在經歷轉型陣痛後，已將戰略重心成功轉移至AIoT與邊緣運算等高成長領域，儘管短期受美國出口管制等因素影響導致財務波動，但其長期成長動能清晰可見。</p>
+
+<li><strong>長期成長潛力明確：</strong> 威盛核心業務聚焦於AIoT、邊緣運算、ASIC設計服務、RISC-V及車載AI等未來趨勢產業，這些市場預計未來10年都將呈現雙位數高複合年增長率，為公司提供廣闊的發展空間。</li>
+<li><strong>關鍵技術佈局與產品迭代：</strong> 威盛在5奈米先進製程ASIC的量產經驗、12奈米產品的推進、2026年CPU新製程導入以及新一代車載AI平台的推出，顯示其持續的技術創新能力，有助於產品競爭力提升。</li>
+<li><strong>戰略性市場拓展：</strong> 積極分散市場至北美及亞太地區，加上透過兆芯鞏固中國X86市場的戰略佈局，有望降低單一市場風險並捕捉區域增長機會。</li>
+<li><strong>短期財務挑戰需關注：</strong> 2025年前三季累計虧損且毛利率承壓，存貨週轉天數顯著增加，表明公司在消化庫存及改善盈利結構上仍面臨挑戰。投資者應密切關注2025年第四季及2026年首季的財報表現。</li>
+<li><strong>目標價區間建議：</strong> 考量威盛在AIoT與邊緣運算領域的長期成長潛力，以及2026年CPU新製程和車載AI平台的催化劑，若公司能有效克服短期出口管制挑戰，並將毛利率提升至更健康的水平（例如重回25%以上），我們預期其盈利能力將逐步恢復。若以2024年EPS 2.07元為基礎，並考量其成長股特性給予30-40倍本益比，建議合理股價區間為 <strong>新台幣60元至90元</strong>。然而，需謹慎評估短期營收波動與獲利恢復的速度。</li>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:05</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2388_威盛_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2388_威盛_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2388_威盛_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

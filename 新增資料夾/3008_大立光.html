@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3008 大立光 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>3008 大立光 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>全球高階手機鏡頭龍頭大立光，短期雖受淡季與記憶體漲價影響營運逆風，但憑藉其在可變光圈、潛望式等高階鏡頭的技術領先地位，以及在CPO、車載、機器人視覺等新興應用領域的積極佈局，有望在2026年下半年迎來營運反彈與成長新曲線。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">3008 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-3008" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-3008" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-3008');
+    var obvContainer = document.getElementById('obv-chart-3008');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 2170.0, "high": 2180.0, "low": 2145.0, "close": 2160.0}, {"time": "2025-12-05", "open": 2165.0, "high": 2180.0, "low": 2130.0, "close": 2140.0}, {"time": "2025-12-08", "open": 2140.0, "high": 2140.0, "low": 2090.0, "close": 2100.0}, {"time": "2025-12-09", "open": 2100.0, "high": 2105.0, "low": 2065.0, "close": 2070.0}, {"time": "2025-12-10", "open": 2065.0, "high": 2085.0, "low": 2050.0, "close": 2085.0}, {"time": "2025-12-11", "open": 2085.0, "high": 2085.0, "low": 2050.0, "close": 2080.0}, {"time": "2025-12-12", "open": 2095.0, "high": 2095.0, "low": 2060.0, "close": 2060.0}, {"time": "2025-12-15", "open": 2040.0, "high": 2080.0, "low": 2035.0, "close": 2050.0}, {"time": "2025-12-16", "open": 2045.0, "high": 2050.0, "low": 2020.0, "close": 2025.0}, {"time": "2025-12-17", "open": 2025.0, "high": 2065.0, "low": 2025.0, "close": 2040.0}, {"time": "2025-12-18", "open": 2055.0, "high": 2055.0, "low": 2020.0, "close": 2030.0}, {"time": "2025-12-19", "open": 2035.0, "high": 2060.0, "low": 2035.0, "close": 2060.0}, {"time": "2025-12-22", "open": 2265.0, "high": 2265.0, "low": 2190.0, "close": 2240.0}, {"time": "2025-12-23", "open": 2220.0, "high": 2250.0, "low": 2200.0, "close": 2245.0}, {"time": "2025-12-24", "open": 2275.0, "high": 2345.0, "low": 2250.0, "close": 2250.0}, {"time": "2025-12-26", "open": 2265.0, "high": 2400.0, "low": 2260.0, "close": 2385.0}, {"time": "2025-12-29", "open": 2445.0, "high": 2620.0, "low": 2420.0, "close": 2500.0}, {"time": "2025-12-30", "open": 2480.0, "high": 2515.0, "low": 2470.0, "close": 2470.0}, {"time": "2025-12-31", "open": 2490.0, "high": 2520.0, "low": 2440.0, "close": 2495.0}, {"time": "2026-01-02", "open": 2540.0, "high": 2590.0, "low": 2495.0, "close": 2585.0}, {"time": "2026-01-05", "open": 2645.0, "high": 2660.0, "low": 2510.0, "close": 2535.0}, {"time": "2026-01-06", "open": 2515.0, "high": 2600.0, "low": 2495.0, "close": 2575.0}, {"time": "2026-01-07", "open": 2590.0, "high": 2630.0, "low": 2545.0, "close": 2550.0}, {"time": "2026-01-08", "open": 2540.0, "high": 2570.0, "low": 2475.0, "close": 2475.0}, {"time": "2026-01-09", "open": 2370.0, "high": 2560.0, "low": 2360.0, "close": 2530.0}, {"time": "2026-01-12", "open": 2530.0, "high": 2530.0, "low": 2450.0, "close": 2490.0}, {"time": "2026-01-13", "open": 2510.0, "high": 2515.0, "low": 2430.0, "close": 2430.0}, {"time": "2026-01-14", "open": 2435.0, "high": 2450.0, "low": 2420.0, "close": 2425.0}, {"time": "2026-01-15", "open": 2430.0, "high": 2455.0, "low": 2400.0, "close": 2405.0}, {"time": "2026-01-16", "open": 2405.0, "high": 2460.0, "low": 2405.0, "close": 2430.0}, {"time": "2026-01-19", "open": 2405.0, "high": 2485.0, "low": 2400.0, "close": 2450.0}, {"time": "2026-01-20", "open": 2450.0, "high": 2480.0, "low": 2420.0, "close": 2430.0}, {"time": "2026-01-21", "open": 2440.0, "high": 2495.0, "low": 2435.0, "close": 2440.0}, {"time": "2026-01-22", "open": 2460.0, "high": 2465.0, "low": 2430.0, "close": 2435.0}, {"time": "2026-01-23", "open": 2455.0, "high": 2465.0, "low": 2435.0, "close": 2460.0}, {"time": "2026-01-26", "open": 2460.0, "high": 2475.0, "low": 2440.0, "close": 2450.0}, {"time": "2026-01-27", "open": 2465.0, "high": 2480.0, "low": 2425.0, "close": 2435.0}, {"time": "2026-01-28", "open": 2455.0, "high": 2470.0, "low": 2430.0, "close": 2440.0}, {"time": "2026-01-29", "open": 2435.0, "high": 2460.0, "low": 2400.0, "close": 2425.0}, {"time": "2026-01-30", "open": 2415.0, "high": 2415.0, "low": 2370.0, "close": 2410.0}, {"time": "2026-02-02", "open": 2395.0, "high": 2415.0, "low": 2345.0, "close": 2355.0}, {"time": "2026-02-03", "open": 2355.0, "high": 2375.0, "low": 2320.0, "close": 2350.0}, {"time": "2026-02-04", "open": 2375.0, "high": 2375.0, "low": 2340.0, "close": 2365.0}, {"time": "2026-02-05", "open": 2390.0, "high": 2390.0, "low": 2300.0, "close": 2300.0}, {"time": "2026-02-06", "open": 2320.0, "high": 2340.0, "low": 2255.0, "close": 2330.0}, {"time": "2026-02-09", "open": 2365.0, "high": 2365.0, "low": 2280.0, "close": 2290.0}, {"time": "2026-02-10", "open": 2290.0, "high": 2325.0, "low": 2290.0, "close": 2325.0}, {"time": "2026-02-11", "open": 2330.0, "high": 2335.0, "low": 2290.0, "close": 2290.0}, {"time": "2026-02-23", "open": 2325.0, "high": 2400.0, "low": 2290.0, "close": 2370.0}, {"time": "2026-02-24", "open": 2375.0, "high": 2430.0, "low": 2360.0, "close": 2430.0}, {"time": "2026-02-25", "open": 2440.0, "high": 2475.0, "low": 2395.0, "close": 2415.0}, {"time": "2026-02-26", "open": 2430.0, "high": 2535.0, "low": 2410.0, "close": 2520.0}, {"time": "2026-03-02", "open": 2405.0, "high": 2405.0, "low": 2295.0, "close": 2305.0}, {"time": "2026-03-03", "open": 2455.0, "high": 2495.0, "low": 2425.0, "close": 2450.0}, {"time": "2026-03-04", "open": 2405.0, "high": 2405.0, "low": 2295.0, "close": 2305.0}, {"time": "2026-03-05", "open": 2365.0, "high": 2395.0, "low": 2320.0, "close": 2360.0}, {"time": "2026-03-06", "open": 2325.0, "high": 2380.0, "low": 2325.0, "close": 2380.0}, {"time": "2026-03-09", "open": 2280.0, "high": 2330.0, "low": 2235.0, "close": 2285.0}, {"time": "2026-03-10", "open": 2330.0, "high": 2380.0, "low": 2280.0, "close": 2300.0}, {"time": "2026-03-11", "open": 2350.0, "high": 2400.0, "low": 2345.0, "close": 2390.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 253.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 518.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 753.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 620.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 505.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 485.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 350.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 328.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 489.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 388.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 288.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 308.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 1442.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 584.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 1427.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 2122.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 3577.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 1703.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 1325.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 1425.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 2365.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 1633.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 1509.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 1181.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 2451.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 1163.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 1369.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 660.0, "color": "#26a69a"}, {"time": "2026-01-15", "value": 648.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 909.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 899.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 686.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 1116.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 932.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 464.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 680.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 758.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 639.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 882.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 1016.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 831.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 606.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 348.0, "color": "#26a69a"}, {"time": "2026-02-05", "value": 448.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 626.0, "color": "#ef5350"}, {"time": "2026-02-09", "value": 518.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 358.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 485.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 1228.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 980.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 1463.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 1651.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 1550.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 958.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 1550.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 865.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 628.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 1314.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 919.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 933.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 2111.0}, {"time": "2025-12-11", "value": 2095.0}, {"time": "2025-12-12", "value": 2079.0}, {"time": "2025-12-15", "value": 2069.0}, {"time": "2025-12-16", "value": 2060.0}, {"time": "2025-12-17", "value": 2051.0}, {"time": "2025-12-18", "value": 2041.0}, {"time": "2025-12-19", "value": 2041.0}, {"time": "2025-12-22", "value": 2079.0}, {"time": "2025-12-23", "value": 2123.0}, {"time": "2025-12-24", "value": 2165.0}, {"time": "2025-12-26", "value": 2236.0}, {"time": "2025-12-29", "value": 2324.0}, {"time": "2025-12-30", "value": 2370.0}, {"time": "2025-12-31", "value": 2420.0}, {"time": "2026-01-02", "value": 2487.0}, {"time": "2026-01-05", "value": 2517.0}, {"time": "2026-01-06", "value": 2532.0}, {"time": "2026-01-07", "value": 2548.0}, {"time": "2026-01-08", "value": 2544.0}, {"time": "2026-01-09", "value": 2533.0}, {"time": "2026-01-12", "value": 2524.0}, {"time": "2026-01-13", "value": 2495.0}, {"time": "2026-01-14", "value": 2470.0}, {"time": "2026-01-15", "value": 2456.0}, {"time": "2026-01-16", "value": 2436.0}, {"time": "2026-01-19", "value": 2428.0}, {"time": "2026-01-20", "value": 2428.0}, {"time": "2026-01-21", "value": 2431.0}, {"time": "2026-01-22", "value": 2437.0}, {"time": "2026-01-23", "value": 2443.0}, {"time": "2026-01-26", "value": 2443.0}, {"time": "2026-01-27", "value": 2444.0}, {"time": "2026-01-28", "value": 2444.0}, {"time": "2026-01-29", "value": 2442.0}, {"time": "2026-01-30", "value": 2432.0}, {"time": "2026-02-02", "value": 2413.0}, {"time": "2026-02-03", "value": 2396.0}, {"time": "2026-02-04", "value": 2381.0}, {"time": "2026-02-05", "value": 2356.0}, {"time": "2026-02-06", "value": 2340.0}, {"time": "2026-02-09", "value": 2327.0}, {"time": "2026-02-10", "value": 2322.0}, {"time": "2026-02-11", "value": 2307.0}, {"time": "2026-02-23", "value": 2321.0}, {"time": "2026-02-24", "value": 2341.0}, {"time": "2026-02-25", "value": 2366.0}, {"time": "2026-02-26", "value": 2405.0}, {"time": "2026-03-02", "value": 2408.0}, {"time": "2026-03-03", "value": 2424.0}, {"time": "2026-03-04", "value": 2399.0}, {"time": "2026-03-05", "value": 2388.0}, {"time": "2026-03-06", "value": 2360.0}, {"time": "2026-03-09", "value": 2356.0}, {"time": "2026-03-10", "value": 2326.0}, {"time": "2026-03-11", "value": 2343.0}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 2081.0}, {"time": "2025-12-18", "value": 2068.0}, {"time": "2025-12-19", "value": 2060.0}, {"time": "2025-12-22", "value": 2074.0}, {"time": "2025-12-23", "value": 2091.5}, {"time": "2025-12-24", "value": 2108.0}, {"time": "2025-12-26", "value": 2138.5}, {"time": "2025-12-29", "value": 2182.5}, {"time": "2025-12-30", "value": 2224.5}, {"time": "2025-12-31", "value": 2271.5}, {"time": "2026-01-02", "value": 2326.0}, {"time": "2026-01-05", "value": 2376.5}, {"time": "2026-01-06", "value": 2428.0}, {"time": "2026-01-07", "value": 2459.0}, {"time": "2026-01-08", "value": 2482.0}, {"time": "2026-01-09", "value": 2510.0}, {"time": "2026-01-12", "value": 2520.5}, {"time": "2026-01-13", "value": 2513.5}, {"time": "2026-01-14", "value": 2509.0}, {"time": "2026-01-15", "value": 2500.0}, {"time": "2026-01-16", "value": 2484.5}, {"time": "2026-01-19", "value": 2476.0}, {"time": "2026-01-20", "value": 2461.5}, {"time": "2026-01-21", "value": 2450.5}, {"time": "2026-01-22", "value": 2446.5}, {"time": "2026-01-23", "value": 2439.5}, {"time": "2026-01-26", "value": 2435.5}, {"time": "2026-01-27", "value": 2436.0}, {"time": "2026-01-28", "value": 2437.5}, {"time": "2026-01-29", "value": 2439.5}, {"time": "2026-01-30", "value": 2437.5}, {"time": "2026-02-02", "value": 2428.0}, {"time": "2026-02-03", "value": 2420.0}, {"time": "2026-02-04", "value": 2412.5}, {"time": "2026-02-05", "value": 2399.0}, {"time": "2026-02-06", "value": 2386.0}, {"time": "2026-02-09", "value": 2370.0}, {"time": "2026-02-10", "value": 2359.0}, {"time": "2026-02-11", "value": 2344.0}, {"time": "2026-02-23", "value": 2338.5}, {"time": "2026-02-24", "value": 2340.5}, {"time": "2026-02-25", "value": 2346.5}, {"time": "2026-02-26", "value": 2363.5}, {"time": "2026-03-02", "value": 2357.5}, {"time": "2026-03-03", "value": 2372.5}, {"time": "2026-03-04", "value": 2370.0}, {"time": "2026-03-05", "value": 2377.0}, {"time": "2026-03-06", "value": 2382.5}, {"time": "2026-03-09", "value": 2382.0}, {"time": "2026-03-10", "value": 2375.0}, {"time": "2026-03-11", "value": 2371.0}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 2203.5}, {"time": "2026-01-05", "value": 2222.25}, {"time": "2026-01-06", "value": 2244.0}, {"time": "2026-01-07", "value": 2266.5}, {"time": "2026-01-08", "value": 2286.75}, {"time": "2026-01-09", "value": 2309.0}, {"time": "2026-01-12", "value": 2329.5}, {"time": "2026-01-13", "value": 2348.0}, {"time": "2026-01-14", "value": 2366.75}, {"time": "2026-01-15", "value": 2385.75}, {"time": "2026-01-16", "value": 2405.25}, {"time": "2026-01-19", "value": 2426.25}, {"time": "2026-01-20", "value": 2444.75}, {"time": "2026-01-21", "value": 2454.75}, {"time": "2026-01-22", "value": 2464.25}, {"time": "2026-01-23", "value": 2474.75}, {"time": "2026-01-26", "value": 2478.0}, {"time": "2026-01-27", "value": 2474.75}, {"time": "2026-01-28", "value": 2473.25}, {"time": "2026-01-29", "value": 2469.75}, {"time": "2026-01-30", "value": 2461.0}, {"time": "2026-02-02", "value": 2452.0}, {"time": "2026-02-03", "value": 2440.75}, {"time": "2026-02-04", "value": 2431.5}, {"time": "2026-02-05", "value": 2422.75}, {"time": "2026-02-06", "value": 2412.75}, {"time": "2026-02-09", "value": 2402.75}, {"time": "2026-02-10", "value": 2397.5}, {"time": "2026-02-11", "value": 2390.75}, {"time": "2026-02-23", "value": 2389.0}, {"time": "2026-02-24", "value": 2389.0}, {"time": "2026-02-25", "value": 2387.25}, {"time": "2026-02-26", "value": 2391.75}, {"time": "2026-03-02", "value": 2385.0}, {"time": "2026-03-03", "value": 2385.75}, {"time": "2026-03-04", "value": 2378.0}, {"time": "2026-03-05", "value": 2373.5}, {"time": "2026-03-06", "value": 2370.75}, {"time": "2026-03-09", "value": 2363.0}, {"time": "2026-03-10", "value": 2356.75}, {"time": "2026-03-11", "value": 2355.75}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -518.0}, {"time": "2025-12-08", "value": -1271.0}, {"time": "2025-12-09", "value": -1891.0}, {"time": "2025-12-10", "value": -1386.0}, {"time": "2025-12-11", "value": -1871.0}, {"time": "2025-12-12", "value": -2221.0}, {"time": "2025-12-15", "value": -2549.0}, {"time": "2025-12-16", "value": -3038.0}, {"time": "2025-12-17", "value": -2650.0}, {"time": "2025-12-18", "value": -2938.0}, {"time": "2025-12-19", "value": -2630.0}, {"time": "2025-12-22", "value": -1188.0}, {"time": "2025-12-23", "value": -604.0}, {"time": "2025-12-24", "value": 823.0}, {"time": "2025-12-26", "value": 2945.0}, {"time": "2025-12-29", "value": 6522.0}, {"time": "2025-12-30", "value": 4819.0}, {"time": "2025-12-31", "value": 6144.0}, {"time": "2026-01-02", "value": 7569.0}, {"time": "2026-01-05", "value": 5204.0}, {"time": "2026-01-06", "value": 6837.0}, {"time": "2026-01-07", "value": 5328.0}, {"time": "2026-01-08", "value": 4147.0}, {"time": "2026-01-09", "value": 6598.0}, {"time": "2026-01-12", "value": 5435.0}, {"time": "2026-01-13", "value": 4066.0}, {"time": "2026-01-14", "value": 3406.0}, {"time": "2026-01-15", "value": 2758.0}, {"time": "2026-01-16", "value": 3667.0}, {"time": "2026-01-19", "value": 4566.0}, {"time": "2026-01-20", "value": 3880.0}, {"time": "2026-01-21", "value": 4996.0}, {"time": "2026-01-22", "value": 4064.0}, {"time": "2026-01-23", "value": 4528.0}, {"time": "2026-01-26", "value": 3848.0}, {"time": "2026-01-27", "value": 3090.0}, {"time": "2026-01-28", "value": 3729.0}, {"time": "2026-01-29", "value": 2847.0}, {"time": "2026-01-30", "value": 1831.0}, {"time": "2026-02-02", "value": 1000.0}, {"time": "2026-02-03", "value": 394.0}, {"time": "2026-02-04", "value": 742.0}, {"time": "2026-02-05", "value": 294.0}, {"time": "2026-02-06", "value": 920.0}, {"time": "2026-02-09", "value": 402.0}, {"time": "2026-02-10", "value": 760.0}, {"time": "2026-02-11", "value": 275.0}, {"time": "2026-02-23", "value": 1503.0}, {"time": "2026-02-24", "value": 2483.0}, {"time": "2026-02-25", "value": 1020.0}, {"time": "2026-02-26", "value": 2671.0}, {"time": "2026-03-02", "value": 1121.0}, {"time": "2026-03-03", "value": 2079.0}, {"time": "2026-03-04", "value": 529.0}, {"time": "2026-03-05", "value": 1394.0}, {"time": "2026-03-06", "value": 2022.0}, {"time": "2026-03-09", "value": 708.0}, {"time": "2026-03-10", "value": 1627.0}, {"time": "2026-03-11", "value": 2560.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>大立光電股份有限公司（3008）是全球領先的光學鏡頭模組製造商，專精於研發、設計、生產及銷售各式光學鏡頭，特別在高階智慧型手機鏡頭市場具備統治性地位。</p>
+
+<strong>主要產品線與應用：</strong>
+<ul><li><strong>智慧型手機鏡頭：</strong> 涵蓋高畫素（1000萬畫素以上、2000萬畫素以上）、多片塑膠鏡片（7P、8P、9P）、潛望式鏡頭及近期導入的可變光圈鏡頭。</li>
+<li><strong>新興應用領域：</strong> 積極拓展車載鏡頭、AI眼鏡、摺疊機鏡頭、機器人視覺模組、以及共封裝光學（CPO, Co-Packaged Optics）等高潛力市場。</li>
+</ul>
+<strong>營收結構（按出貨量，2026年2月 / 2025年Q4 &amp; 全年）：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品項目</th><th>2026年2月佔比</th><th>2025年Q4 / 全年佔比</th></tr></thead><tbody>
+<tr><td>1000萬畫素以上鏡頭</td><td>約50%至60%</td><td>約50%至60%</td></tr>
+<tr><td>2000萬畫素以上鏡頭</td><td>約10%至20%</td><td>約10%至20%</td></tr>
+<tr><td>800萬畫素鏡頭</td><td>約0%至10%</td><td>約10%以下</td></tr>
+<tr><td>低於500萬畫素產品</td><td>約20%至30%</td><td>約20%至30% (其他)</td></tr>
+</tbody></table></div>
+
+<strong>製造基地：</strong> 主要位於台灣台中工業區，擁有10座自有廠房與2座租賃廠房。持續擴建新廠，其中一座最新自建廠房預計2025年9月底完工，規劃於2026年投產。另規劃在2025年設立另一座產能更大的新廠。
+
+<h2>核心競爭優勢</h2>
+<li><strong>技術領先地位：</strong> 在高階多片塑膠鏡片（7P、8P、9P）、潛望式鏡頭、以及即將量產的可變光圈鏡頭等高技術門檻產品領域，具備業界領先的設計與製造能力。</li>
+<li><strong>獨特的良率與製程優勢：</strong> 大立光在高階鏡頭的生產良率遠超競爭對手，使其能獲得主要客戶的高階訂單並維持較高的毛利率。複雜製程一貫化集中，有助提升競爭力。</li>
+<li><strong>主要客戶關係：</strong> 深度綁定全球一線智慧型手機品牌，尤其是在新一代iPhone高階鏡頭的供應鏈中扮演關鍵角色。</li>
+<li><strong>積極佈局新興技術：</strong> 提前投入CPO、車載、機器人視覺等新領域的研發與佈局，為未來營運增添多元成長動能。</li>
+
+<h2>財務分析</h2>
+<h3>月營收趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年2月</td><td>46.13</td><td>-16.11%</td><td>-2.61%</td></tr>
+<tr><td>2026年1月</td><td>54.99</td><td>-2.10% (估)</td><td>+11.14%</td></tr>
+<tr><td>2025年12月</td><td>56.17</td><td>+6.00%</td><td>0.00%</td></tr>
+<tr><td>2025年11月</td><td>53.03</td><td>-15.30%</td><td>-11.84%</td></tr>
+<tr><td>2025年10月</td><td>未提供</td><td>未提供</td><td>未提供</td></tr>
+<tr><td>2025年9月</td><td>未提供</td><td>未提供</td><td>未提供</td></tr>
+</tbody></table></div>
+<em>註：2026年1月月增率係根據2025年12月營收推估。2025年10月與9月月營收資料未於提供素材中。</em>
+<strong>累計2026年前2月合併營收為101.12億元，較去年同期成長4.39%。</strong>
+
+<h3>季度數據 (2025年第四季)</h3>
+<ul><li><strong>季營收：</strong> 新台幣 172.19 億元 (季減 3%，年減 5%)</li>
+<li><strong>毛利率：</strong> 47.8% (較上季微幅增加，但未達五成以上水準)</li>
+<li><strong>稅後淨利：</strong> 新台幣 67.27 億元</li>
+<li><strong>EPS：</strong> 新台幣 50.40 元</li>
+</ul>
+<h3>年度趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>營收 (新台幣億元)</th><th>年增率</th><th>稅後淨利 (新台幣億元)</th><th>年增率</th><th>EPS (新台幣元)</th></tr></thead><tbody>
+<tr><td>2024</td><td>594.57</td><td>+22%</td><td>259.15</td><td>+44.75%</td><td>194.17</td></tr>
+<tr><td>2025</td><td>611.48</td><td>+3%</td><td>212.82</td><td>-18%</td><td>159.46</td></tr>
+<tr><td>2025 (預估中位數)</td><td>-</td><td>-</td><td>-</td><td>-</td><td>156.99 (區間 151.43-161.30)</td></tr>
+<tr><td>2026 (預估中位數)</td><td>-</td><td>-</td><td>-</td><td>-</td><td>178.60 (區間 155.36-199.94)</td></tr>
+</tbody></table></div>
+
+<h2>法說會重點 (2026年01月08日)</h2>
+<ul><li><strong>2026年第一季展望：</strong> 管理層預期拉貨動能將逐月下滑，主要受傳統淡季及記憶體漲價壓抑手機升級趨勢影響，產能利用率相對不緊湊。</li>
+<li><strong>產品組合 (2025年Q4 &amp; 全年按出貨量)：</strong> 2000萬畫素以上佔10-20%；1000萬畫素佔50-60%；800萬畫素佔10%以下；500萬畫素以下佔20-30%。</li>
+<li><strong>可變光圈鏡頭：</strong> 證實將於2026年第三季開始出貨，生產難度高於潛望式鏡頭，檢測工站多，初期良率與毛利率仍待觀察。</li>
+<li><strong>摺疊式手機鏡頭：</strong> 預計2026年年底會有相關產品出貨。</li>
+<li><strong>機器人相關光學模組：</strong> 已有少量出貨，因客戶調整設計而遞延至2026年。</li>
+<li><strong>CPO (Co-Packaged Optics)：</strong> 公司已投入內部資源進行相關產品研發，視為手機鏡頭以外的重要新業務佈局。</li>
+<li><strong>產能利用率：</strong> 董事長林恩平表示，產能是滿的，但非因客戶訂單量上升，而是製程更複雜。</li>
+<li><strong>資本支出 (2025年Q4)：</strong> 約21.8億元。</li>
+<li><strong>折舊 (2025年Q4)：</strong> 約20.8億元。</li>
+<li><strong>記憶體漲價影響：</strong> 記憶體價格上漲導致部分中小型客戶對成本更敏感，可能延後鏡頭升級計畫；大客戶升級趨勢不受影響。</li>
+</ul>
+<h2>券商觀點</h2>
+<p>以下為部分券商對大立光的目標價與評等：</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>日期</th><th>目標價 (新台幣元)</th><th>評等</th></tr></thead><tbody>
+<tr><td>美系外資</td><td>2026年01月05日</td><td>3549</td><td>買進</td></tr>
+<tr><td>富邦證券</td><td>2026年01月08日</td><td>2630</td><td>-</td></tr>
+<tr><td>兆豐證券</td><td>2026年01月09日</td><td>3350</td><td>買進 (由中立調升)</td></tr>
+<tr><td>高盛證券</td><td>2025年10月13日</td><td>3644 (過時)</td><td>買進</td></tr>
+<tr><td>中信投顧</td><td>2025年10月13日</td><td>-</td><td>增加持股 (過時)</td></tr>
+</tbody></table></div>
+
+<strong>券商對2025-2026年EPS預估：</strong>
+<ul><li><strong>FactSet (綜合分析師預估，2026年01月08日)：</strong></li>
+</ul>    *   2025年 EPS 預估中位數：156.99 元 (區間：151.43 元至 161.30 元)
+<p>*   2026年 EPS 預估中位數：178.60 元 (區間：155.36 元至 199.94 元)</p>
+<ul><li><strong>CMoney (彙整多數券商，2026年01月09日)：</strong></li>
+</ul>    *   2025年 EPS 預估區間：157.62 元至 160.94 元
+<p>*   2026年 EPS 預估區間：175.2 元至 195.03 元</p>
+
+<h2>財報深度分析</h2>
+<h3>利潤率趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>營收 (億元)</th><th>毛利率 (%)</th><th>稅後淨利 (億元)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2024Q4</td><td>182.09</td><td>59.1</td><td>86.75</td><td>65.01</td></tr>
+<tr><td>2025Q1</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>2025Q2</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>2025Q3</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>2025Q4</td><td>172.19</td><td>47.8</td><td>67.27</td><td>50.40</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化的原因分析：</strong>
+<ul><li><strong>2024年第四季利潤率優於預期：</strong> 主要受惠於客戶給予的「出貨獎金」、產品組合優化以及匯兌利益與利息收入等業外收益。</li>
+<li><strong>2025年獲利衰退：</strong> 儘管營收成長3%，但全年稅後淨利年減18%，主因毛利率波動。2025年第四季毛利率僅47.8%，未能回到過往五成以上水準。</li>
+<li><strong>2025年第四季毛利率受壓：</strong> 部分產品報廢成本較高，新產品開模與初期生產效率不佳，加上高階潛望式鏡頭良率提升速度不如預期，以及記憶體價格上漲導致部分客戶延後鏡頭升級，均壓抑獲利表現。</li>
+<li><strong>產品組合影響：</strong> 2025年第四季1000萬畫素產品仍是主流（佔50-60%），2000萬畫素以上高階產品佔比僅10-20%，顯示高階產品放量速度受市場需求牽動。</li>
+<li><strong>機種碎片化：</strong> 客戶開案數量多但單一機種量偏低，導致產線頻繁切換及稼動率低，影響毛利率。</li>
+</ul>
+<h3>存貨分析</h3>
+<ul><li><strong>存貨週轉天數趨勢：</strong></li>
+</ul>    *   2024年第四季：69.04天
+<p>*   2025年第一季：82.33天</p>
+<p>*   2025年第二季：118.99天</p>
+<p>*   2025年第三季：75.5天</p>
+<p>*   2025年第四季：72.41天</p>
+<p>*   <strong>趨勢：</strong> 2025年第二季存貨週轉天數顯著上升，後續兩季雖有下降但仍高於2024年第四季水準。公司會為支持客戶而維持安全庫存，產生例行性報廢損失，顯示有策略性備料。</p>
+<ul><li><strong>應收帳款週轉天數趨勢：</strong></li>
+</ul>    *   2024年第四季：60.13天
+<p>*   2025年第一季：62.42天</p>
+<p>*   2025年第二季：63.84天</p>
+<p>*   2025年第三季：45.73天</p>
+<p>*   2025年第四季：56.78天</p>
+<p>*   <strong>趨勢：</strong> 2025年應收帳款週轉天數波動較大，第三季收現速度較快。</p>
+
+<h3>資本支出與折舊</h3>
+<ul><li><strong>資本支出金額：</strong></li>
+</ul>    *   2024年：107億元 (年增25%，創歷史新高)
+<p>*   2025年：預估突破130億元 (年增逾25%)</p>
+<p>*   <strong>趨勢：</strong> 資本支出連續兩年突破百億元，顯示公司積極投入擴產與技術升級。</p>
+<ul><li><strong>未來資本支出計畫：</strong></li>
+</ul>    *   最新第四廠已規劃一個樓層，擴產重心在更複雜的製程，主要因應iPhone新機需求及CPO業務佈局。
+<ul><li><strong>折舊攤銷趨勢 (千元)：</strong></li>
+</ul>    *   2025Q1：折舊 1,716,698，攤銷 55,209
+<p>*   2025Q2：折舊 1,788,543，攤銷 58,187</p>
+<p>*   2025Q3：折舊 1,914,877，攤銷 56,035</p>
+<p>*   2025Q4：折舊 2,090,537，攤銷 51,944</p>
+<p>*   <strong>趨勢：</strong> 折舊費用在2025年呈現逐季增長，反映廠房設備投資持續投入。</p>
+
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓：</strong> 未找到2024-2026年最新資料。</li>
+<li><strong>庫藏股買回紀錄：</strong></li>
+</ul>    *   <strong>計畫：</strong> 於2026年1月8日宣布啟動史上最大規模庫藏股計畫，預計買回2,670張股票。
+<p>*   <strong>區間價格：</strong> 1,600元至3,200元。</p>
+<p>*   <strong>最高投入金額：</strong> 1,796.6億元。</p>
+<p>*   <strong>目的：</strong> 提振市場信心，因本益比處於光學族群低檔，亦可能為轉型訊號。</p>
+<p>*   <strong>執行進度：</strong> 截至2026年2月1日，已斥資64.74億元買回2,670張股票，執行率100%，平均每股買回價格為2,424.82元。</p>
+<ul><li><strong>可轉換公司債 (CB) / 增減資：</strong> 未找到2024-2026年最新資料。</li>
+<li><strong>股利政策：</strong></li>
+</ul>    *   <strong>2024年：</strong> 全年現金股利約97.5元。
+<p>*   <strong>2025年：</strong></p>
+<p>*   上半年：現金股利28元 (已於2025年8月14日除權息)。</p>
+<p>*   下半年：擬配發現金股利52元。</p>
+<p>*   全年總計：現金股利80元，配息率約50.2%。</p>
+<p>*   除息基準日：2026年3月26日。</p>
+<p>*   現金股利發放日：2026年4月16日。</p>
+
+<h2>產業分析</h2>
+<h3>市場規模與趨勢</h3>
+<ul><li><strong>全球光學鏡頭市場：</strong></li>
+</ul>    *   預計2025年達210.8億美元，2026年增長至228.7億美元，2026-2034年CAGR為6.70%。
+<p>*   另有報告預計2025年為97.8億美元，2026年達105億美元，2026-2035年CAGR為7.3%。</p>
+<p>*   亞太地區在2025年將主導全球市場，佔有率達40.10%。</p>
+<p>*   消費電子產品需求佔總需求近42%。</p>
+<ul><li><strong>行動電話光學鏡頭市場：</strong> 預計從2025年54.7億美元增長到2026年59.1億美元，2025-2026年CAGR為8.0%。</li>
+<li><strong>供需狀況與挑戰：</strong></li>
+</ul>    *   <strong>智慧手機出貨量承壓：</strong> 受記憶體缺料及漲價影響，2026年全球智慧型手機出貨量恐從原先的正成長轉為年減2%，甚至擴大至10.1%或15%。
+<p>*   <strong>鏡頭數量下降趨勢：</strong> Omdia報告指出，2025年第二季度全球智慧型手機平均配備3.19個攝影鏡頭 (去年同期3.37個)，後置鏡頭數量減少，多鏡頭競爭時代結束，轉向高解析度 (5000萬像素主流)。</p>
+<p>*   <strong>競爭加劇與價格戰：</strong> 市場競爭激烈，規格升級難以完全抵銷價格壓力，且智慧型手機市場飽和導致營收增長放緩。</p>
+<ul><li><strong>產業平均毛利率：</strong> 大立光毛利率達48%，明顯高於同業玉晶光34%、亞光22%、先進光15%、今國光23%。顯示其在高階市場的定價權和技術優勢。</li>
+</ul>
+<h3>競爭格局</h3>
+<p>目前全球前5大手機鏡頭公司完整市佔率數據未全部提供。大立光在高精度相機鏡頭(行動與影像領域)佔有12%市場份額。主要競爭對手包括舜宇光學。</p>
+
+<strong>大立光 vs 台灣同業比較 (2025年)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>股票代碼</th><th>營收規模 (新台幣億元)</th><th>毛利率 (最新)</th><th>EPS (新台幣元)</th></tr></thead><tbody>
+<tr><td>大立光</td><td>3008</td><td>611.48</td><td>48%</td><td>159.46</td></tr>
+<tr><td>玉晶光</td><td>3406</td><td>-</td><td>34%</td><td>-</td></tr>
+<tr><td>亞光</td><td>3019</td><td>264.4</td><td>22%</td><td>6.6</td></tr>
+<tr><td>先進光</td><td>3362</td><td>32.26 (1-3季)</td><td>15% (2025 Q3)</td><td>-1.17 (1-3季)</td></tr>
+<tr><td>今國光</td><td>6209</td><td>36.52</td><td>23%</td><td>0.49 (1-9月)</td></tr>
+</tbody></table></div>
+
+<strong>競爭策略比較：</strong>
+<ul><li><strong>大立光：</strong> 專注高階技術門檻產品 (多片塑膠鏡片、潛望式、可變光圈)，以良率與技術領先保持高階市場市佔率和毛利率。客戶主要為全球領先品牌。</li>
+<li><strong>舜宇光學：</strong> 持續推進產品結構升級，朝高端化發展，以提升毛利率和平均售價。手機鏡頭出貨量增長。</li>
+</ul>
+<h3>產業趨勢與機會/威脅</h3>
+<strong>關鍵技術趨勢：</strong>
+<li><strong>高解析度與多功能化鏡頭：</strong> 手機鏡頭向更高像素、更大光圈、更多片數（8P/9P）、潛望式、可變光圈發展。有利於技術領先者。</li>
+<li><strong>AI與光學技術整合：</strong> AI增強型行動攝影、AI眼鏡等應用，需要高性能光學鏡頭，並提升影像處理能力。</li>
+<li><strong>新興應用領域擴展：</strong> 車載鏡頭 (ADAS)、AR/VR、機器人視覺模組、CPO等，為光學產業帶來多元成長機會。</li>
+
+<strong>對大立光的機會：</strong>
+<ul><li><strong>高階手機鏡頭領先地位：</strong> 高畫素、多片數、潛望式、可變光圈趨勢強化其在高階市場的市佔率。</li>
+<li><strong>新興應用佈局：</strong> 車載、AI眼鏡、摺疊機、機器人視覺及CPO等，有望開創未來成長曲線。</li>
+<li><strong>AI手機帶動換機潮：</strong> AI手機對高性能鏡頭的需求，可能帶動新一輪換機潮。</li>
+</ul>
+<strong>對大立光的威脅：</strong>
+<ul><li><strong>智慧型手機市場需求放緩：</strong> 全球手機出貨量面臨下行風險，影響整體鏡頭需求。</li>
+<li><strong>鏡頭數量下降趨勢：</strong> 手機平均搭載鏡頭數減少，即使單個規格提升，仍可能對總體出貨量造成壓力。</li>
+<li><strong>產業競爭加劇：</strong> 價格戰壓力可能侵蝕毛利率，尤其在中低階市場。</li>
+<li><strong>記憶體漲價：</strong> 手機成本上升，部分品牌廠可能降規或延後升級。</li>
+</ul>
+<h2>近期催化劑</h2>
+<strong>利多事件：</strong>
+<ul><li><strong>2026年3月5日：</strong> 外資與投信買超，股價表現強勢。</li>
+<li><strong>2026年2月24日：</strong> 董事會通過2025年下半年配發52元現金股利，全年合計80元，顯示獲利回饋股東。</li>
+<li><strong>2026年2月2日：</strong> 庫藏股計畫完成，累計斥資64.74億元買回2,670張股票，平均買回價2,424.82元，展現公司對股價的信心。</li>
+<li><strong>2026年1月16日：</strong> 啟動千億級庫藏股計畫，上限高達1,796億元，市場解讀為公司對未來營運具信心或為轉型訊號。</li>
+<li><strong>2026年1月5日：</strong> 2025年全年營收達611.48億元，年增3%，創公司歷史紀錄。</li>
+<li><strong>2025年12月25日：</strong> 實施第二次庫藏股，買回區間價格1,600元至3,200元。</li>
+</ul>
+<strong>利空事件：</strong>
+<ul><li><strong>2026年3月6日：</strong> 公布2月營收46.13億元，月減16.11%，年減2.61%，表現不如預期。</li>
+<li><strong>2026年1月8日：</strong> 法說會上董事長林恩平對2026年第一季展望保守，預計拉貨動能將逐月下滑。</li>
+<li><strong>2026年1月5日：</strong> 2025年全年稅後淨利212.82億元，年減18%，EPS為159.46元，顯示營收增加但獲利承壓，主要受毛利率波動影響。</li>
+<li><strong>營運逆風：</strong> 傳統淡季、記憶體漲價導致手機廠成本壓力、部分客戶延後鏡頭升級計畫。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能/事件</th><th>具體細節</th></tr></thead><tbody>
+<tr><td><strong>2025年9月底</strong></td><td><strong>新廠完工</strong></td><td>最新自建廠房預計完工。</td></tr>
+<tr><td><strong>2026年</strong></td><td><strong>新廠投產</strong></td><td>2025年完工新廠規劃於2026年投產，用於支應需求，重心在更複雜製程，包含CPO產線(傳聞，公司否認相關報導)。</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td><strong>手機市場短期回溫</strong></td><td>3月拉貨動能預期優於2月，工作天數恢復正常。</td></tr>
+<tr><td><strong>2026年Q3</strong></td><td><strong>可變光圈鏡頭開始出貨</strong></td><td>預計用於蘋果下半年旗艦iPhone 18系列，生產難度高，良率與毛利率影響待觀察。有望顯著提升平均銷售單價(ASP)。</td></tr>
+<tr><td><strong>2026年下半年</strong></td><td><strong>iPhone 18 發表</strong></td><td>市場預期蘋果新機將首度搭載可變光圈鏡頭，大立光為主要供應商，將帶動高階鏡頭出貨。</td></tr>
+<tr><td><strong>2026年</strong></td><td><strong>機器人視覺模組出貨</strong></td><td>因客戶要求調整設計而遞延至2026年出貨，為公司新應用領域的重要佈局。</td></tr>
+<tr><td><strong>2026年年底</strong></td><td><strong>摺疊式手機鏡頭出貨</strong></td><td>公司預計相關產品將於年底出貨，切入快速成長的摺疊機市場。</td></tr>
+<tr><td><strong>長期佈局</strong></td><td><strong>CPO (Co-Packaged Optics)</strong></td><td>已投入內部資源研發，傳與台積電合作，提供CPO準直徑元件並送樣AMD。被視為跨入AI賽道，具長期想像空間。</td></tr>
+<tr><td><strong>長期佈局</strong></td><td><strong>車載鏡頭、AI眼鏡</strong></td><td>持續佈局，受惠於電動車智能化與AI應用發展趨勢。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+<strong>成長動能：</strong>
+<ul><li><strong>高階鏡頭升級趨勢：</strong> 智慧型手機對高解析度、多功能鏡頭需求不減，尤其可變光圈鏡頭於2026年第三季出貨，有望顯著拉高ASP，為營收與毛利率帶來正向貢獻。</li>
+<li><strong>新興應用開花結果：</strong> 機器人視覺模組、摺疊手機鏡頭預計於2026年出貨，車載鏡頭持續擴展，有助分散營收來源。</li>
+<li><strong>CPO業務潛力：</strong> 作為跨足AI數據中心領域的關鍵佈局，CPO業務一旦成功商業化，將為大立光帶來巨大的長期成長空間與估值提升。</li>
+<li><strong>新廠產能挹注：</strong> 2025年完工的新廠將於2026年投產，為高階產品提供更充裕的生產彈性與效率。</li>
+<li><strong>法人預期：</strong> 資深專欄作家預估大立光2026年EPS有望達到188.42元，較2025年預期的156.68元增長20.26%。</li>
+</ul>
+<strong>風險：</strong>
+<ul><li><strong>智慧型手機市場不確定性：</strong> 記憶體價格上漲及總體經濟不明朗，可能導致手機出貨量持續承壓，進而影響整體鏡頭需求。</li>
+<li><strong>新產品良率與毛利率挑戰：</strong> 可變光圈等新產品初期生產良率、報廢成本及檢測工站增加，可能對短期毛利率造成壓力。</li>
+<li><strong>客戶集中度風險：</strong> 營收高度依賴單一或少數大客戶，其訂單動態對大立光影響顯著。</li>
+<li><strong>新業務發展進程：</strong> CPO等新業務從研發到商業化仍有較長路徑，實際營收貢獻時程與規模尚待驗證。</li>
+<li><strong>產業競爭與價格壓力：</strong> 儘管大立光在高階市場具優勢，但整體手機鏡頭市場仍面臨競爭與價格壓力。</li>
+</ul>
+<h2>投資結論</h2>
+<p>儘管大立光短期面臨智慧型手機市場需求放緩、記憶體漲價壓抑升級動能、以及新產品初期毛利率壓力等逆風，但作為光學鏡頭產業的技術領導者，其長期成長動能依然強勁。</p>
+
+<li><strong>高階鏡頭升級帶動ASP：</strong> 2026年下半年可變光圈鏡頭的量產出貨，尤其來自iPhone 18的訂單，將顯著提升大立光的產品ASP與毛利率，帶動營運谷底翻揚。</li>
+<li><strong>新興應用拓寬成長曲線：</strong> 在車載、AI眼鏡、摺疊機和機器人視覺等新領域的佈局，以及CPO業務的潛力，顯示公司積極尋求多元化成長引擎，降低對單一市場的依賴。</li>
+<li><strong>穩健的財務體質與股東回饋：</strong> 14%的低負債比率和積極的庫藏股計畫，展現公司強健的財務實力及對股東權益的重視，有助於穩定市場信心。</li>
+<li><strong>技術領先確保競爭優勢：</strong> 大立光在複雜光學設計與高良率製造上的核心競爭力，使其能在高階市場持續保持領先地位，並在產業逆風中展現韌性。</li>
+
+<p>綜合考量短期挑戰與長期成長機會，以及券商的EPS預估和目標價區間，建議投資人可在市場修正時逢低佈局，等待2026年下半年高階鏡頭放量與新業務進展帶來的營運爆發。</p>
+
+<strong>目標價區間建議：</strong> 基於券商預估的2026年EPS中位數178.60元，並考量其在高階市場的獨佔性與新業務的成長潛力，給予適度溢價。參考市場給予20-22倍本益比，建議未來12-18個月的目標價區間為 <strong>新台幣 3572元 至 3929元</strong>。
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-09 22:01</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="3008_大立光_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="3008_大立光_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="3008_大立光_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

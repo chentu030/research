@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6133 金橋 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>6133 金橋 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+
+<p>金橋科技（6133）正積極轉型，聚焦高附加價值產品，受惠於AI伺服器、電動車及5G高速線材需求回溫與供應鏈區域化帶來的轉單效益，營收已展現年增動能，預期2026年營運將在自動化與產品組合優化下，營收及獲利能力有望提升。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">6133 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-6133" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-6133" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-6133');
+    var obvContainer = document.getElementById('obv-chart-6133');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 18.4, "high": 19.3, "low": 18.35, "close": 19.05}, {"time": "2025-12-05", "open": 19.05, "high": 19.85, "low": 18.6, "close": 18.85}, {"time": "2025-12-08", "open": 18.75, "high": 18.75, "low": 18.15, "close": 18.4}, {"time": "2025-12-09", "open": 18.75, "high": 18.75, "low": 18.15, "close": 18.4}, {"time": "2025-12-10", "open": 18.95, "high": 19.1, "low": 18.25, "close": 18.25}, {"time": "2025-12-11", "open": 19.35, "high": 20.05, "low": 19.3, "close": 20.05}, {"time": "2025-12-12", "open": 21.2, "high": 21.65, "low": 19.7, "close": 20.2}, {"time": "2025-12-15", "open": 19.85, "high": 22.2, "low": 19.5, "close": 22.2}, {"time": "2025-12-16", "open": 22.5, "high": 23.85, "low": 22.05, "close": 22.25}, {"time": "2025-12-17", "open": 22.15, "high": 22.45, "low": 21.1, "close": 21.3}, {"time": "2025-12-18", "open": 21.4, "high": 21.4, "low": 20.35, "close": 20.55}, {"time": "2025-12-19", "open": 20.95, "high": 21.5, "low": 20.5, "close": 21.35}, {"time": "2025-12-22", "open": 21.2, "high": 22.1, "low": 20.8, "close": 21.75}, {"time": "2025-12-23", "open": 21.8, "high": 22.05, "low": 21.3, "close": 21.75}, {"time": "2025-12-24", "open": 22.0, "high": 22.05, "low": 21.3, "close": 21.3}, {"time": "2025-12-26", "open": 21.3, "high": 21.95, "low": 21.3, "close": 21.75}, {"time": "2025-12-29", "open": 21.85, "high": 22.45, "low": 21.65, "close": 21.7}, {"time": "2025-12-30", "open": 21.6, "high": 21.6, "low": 20.7, "close": 21.45}, {"time": "2025-12-31", "open": 21.75, "high": 22.0, "low": 20.8, "close": 20.8}, {"time": "2026-01-02", "open": 21.0, "high": 21.5, "low": 20.8, "close": 20.8}, {"time": "2026-01-05", "open": 21.1, "high": 21.3, "low": 20.3, "close": 20.3}, {"time": "2026-01-06", "open": 20.45, "high": 20.5, "low": 19.95, "close": 20.35}, {"time": "2026-01-07", "open": 20.5, "high": 21.1, "low": 20.35, "close": 21.05}, {"time": "2026-01-08", "open": 20.95, "high": 20.95, "low": 20.0, "close": 20.0}, {"time": "2026-01-09", "open": 20.05, "high": 20.4, "low": 19.6, "close": 20.3}, {"time": "2026-01-12", "open": 22.0, "high": 22.1, "low": 21.3, "close": 21.4}, {"time": "2026-01-13", "open": 21.5, "high": 21.85, "low": 21.05, "close": 21.5}, {"time": "2026-01-14", "open": 21.7, "high": 22.35, "low": 21.6, "close": 22.05}, {"time": "2026-01-15", "open": 22.3, "high": 23.0, "low": 21.95, "close": 22.8}, {"time": "2026-01-16", "open": 23.0, "high": 23.05, "low": 22.35, "close": 22.4}, {"time": "2026-01-19", "open": 22.45, "high": 23.3, "low": 22.3, "close": 22.85}, {"time": "2026-01-20", "open": 24.0, "high": 24.9, "low": 23.65, "close": 24.3}, {"time": "2026-01-21", "open": 23.8, "high": 23.9, "low": 22.2, "close": 22.4}, {"time": "2026-01-22", "open": 22.85, "high": 22.9, "low": 21.05, "close": 21.1}, {"time": "2026-01-23", "open": 21.7, "high": 23.2, "low": 21.2, "close": 23.2}, {"time": "2026-01-26", "open": 23.95, "high": 25.5, "low": 22.4, "close": 25.5}, {"time": "2026-01-27", "open": 28.0, "high": 28.05, "low": 27.85, "close": 28.05}, {"time": "2026-01-28", "open": 29.7, "high": 30.0, "low": 27.6, "close": 28.95}, {"time": "2026-01-29", "open": 28.85, "high": 28.85, "low": 26.25, "close": 26.9}, {"time": "2026-01-30", "open": 26.5, "high": 26.65, "low": 24.7, "close": 24.75}, {"time": "2026-02-02", "open": 24.35, "high": 24.65, "low": 23.35, "close": 23.7}, {"time": "2026-02-03", "open": 24.25, "high": 25.0, "low": 23.6, "close": 23.7}, {"time": "2026-02-04", "open": 23.8, "high": 24.65, "low": 23.2, "close": 24.15}, {"time": "2026-02-05", "open": 23.9, "high": 24.95, "low": 23.45, "close": 23.45}, {"time": "2026-02-06", "open": 23.4, "high": 23.45, "low": 22.45, "close": 22.7}, {"time": "2026-02-09", "open": 23.7, "high": 23.7, "low": 22.85, "close": 22.85}, {"time": "2026-02-10", "open": 22.6, "high": 24.05, "low": 22.5, "close": 23.5}, {"time": "2026-02-11", "open": 23.05, "high": 23.65, "low": 22.9, "close": 22.9}, {"time": "2026-02-23", "open": 23.0, "high": 23.9, "low": 22.3, "close": 23.55}, {"time": "2026-02-24", "open": 23.6, "high": 24.2, "low": 23.55, "close": 23.75}, {"time": "2026-02-25", "open": 24.0, "high": 24.55, "low": 22.95, "close": 23.1}, {"time": "2026-02-26", "open": 23.3, "high": 24.9, "low": 23.15, "close": 24.65}, {"time": "2026-03-02", "open": 24.65, "high": 27.5, "low": 22.6, "close": 27.35}, {"time": "2026-03-03", "open": 24.4, "high": 26.25, "low": 23.1, "close": 25.1}, {"time": "2026-03-04", "open": 24.65, "high": 27.5, "low": 22.6, "close": 27.35}, {"time": "2026-03-05", "open": 28.5, "high": 30.05, "low": 26.0, "close": 27.3}, {"time": "2026-03-06", "open": 26.8, "high": 28.4, "low": 26.25, "close": 26.55}, {"time": "2026-03-09", "open": 24.0, "high": 25.3, "low": 23.9, "close": 23.9}, {"time": "2026-03-10", "open": 24.75, "high": 24.85, "low": 23.35, "close": 23.55}, {"time": "2026-03-11", "open": 23.6, "high": 25.1, "low": 23.6, "close": 24.9}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 4674.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 4840.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 1877.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 1877.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 1284.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 7591.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 12534.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 8374.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 30414.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 7026.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 3996.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 4378.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 4978.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 2769.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 2104.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 2373.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 3931.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 3843.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 2205.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 1455.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 2305.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 1831.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 1788.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 1712.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 1122.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 3468.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 2394.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 3924.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 4060.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 3325.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 3256.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 9214.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 4669.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 4919.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 6935.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 19742.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 8673.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 34934.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 13482.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 7000.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 4079.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 4552.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 2571.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 2786.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 2327.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 1229.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 2284.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 2094.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 2177.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 1456.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 2610.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 3918.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 18697.0, "color": "#ef5350"}, {"time": "2026-03-03", "value": 10153.0, "color": "#ef5350"}, {"time": "2026-03-04", "value": 18697.0, "color": "#ef5350"}, {"time": "2026-03-05", "value": 42284.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 9724.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 4481.0, "color": "#26a69a"}, {"time": "2026-03-10", "value": 4153.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 3228.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 18.59}, {"time": "2025-12-11", "value": 18.79}, {"time": "2025-12-12", "value": 19.06}, {"time": "2025-12-15", "value": 19.82}, {"time": "2025-12-16", "value": 20.59}, {"time": "2025-12-17", "value": 21.2}, {"time": "2025-12-18", "value": 21.3}, {"time": "2025-12-19", "value": 21.53}, {"time": "2025-12-22", "value": 21.44}, {"time": "2025-12-23", "value": 21.34}, {"time": "2025-12-24", "value": 21.34}, {"time": "2025-12-26", "value": 21.580000000000002}, {"time": "2025-12-29", "value": 21.65}, {"time": "2025-12-30", "value": 21.59}, {"time": "2025-12-31", "value": 21.4}, {"time": "2026-01-02", "value": 21.3}, {"time": "2026-01-05", "value": 21.009999999999998}, {"time": "2026-01-06", "value": 20.740000000000002}, {"time": "2026-01-07", "value": 20.660000000000004}, {"time": "2026-01-08", "value": 20.5}, {"time": "2026-01-09", "value": 20.4}, {"time": "2026-01-12", "value": 20.619999999999997}, {"time": "2026-01-13", "value": 20.85}, {"time": "2026-01-14", "value": 21.05}, {"time": "2026-01-15", "value": 21.61}, {"time": "2026-01-16", "value": 22.03}, {"time": "2026-01-19", "value": 22.32}, {"time": "2026-01-20", "value": 22.880000000000003}, {"time": "2026-01-21", "value": 22.95}, {"time": "2026-01-22", "value": 22.61}, {"time": "2026-01-23", "value": 22.77}, {"time": "2026-01-26", "value": 23.3}, {"time": "2026-01-27", "value": 24.05}, {"time": "2026-01-28", "value": 25.36}, {"time": "2026-01-29", "value": 26.52}, {"time": "2026-01-30", "value": 26.830000000000002}, {"time": "2026-02-02", "value": 26.47}, {"time": "2026-02-03", "value": 25.6}, {"time": "2026-02-04", "value": 24.639999999999997}, {"time": "2026-02-05", "value": 23.95}, {"time": "2026-02-06", "value": 23.54}, {"time": "2026-02-09", "value": 23.369999999999997}, {"time": "2026-02-10", "value": 23.330000000000002}, {"time": "2026-02-11", "value": 23.080000000000002}, {"time": "2026-02-23", "value": 23.1}, {"time": "2026-02-24", "value": 23.31}, {"time": "2026-02-25", "value": 23.36}, {"time": "2026-02-26", "value": 23.59}, {"time": "2026-03-02", "value": 24.48}, {"time": "2026-03-03", "value": 24.79}, {"time": "2026-03-04", "value": 25.51}, {"time": "2026-03-05", "value": 26.35}, {"time": "2026-03-06", "value": 26.73}, {"time": "2026-03-09", "value": 26.04}, {"time": "2026-03-10", "value": 25.73}, {"time": "2026-03-11", "value": 25.240000000000002}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 19.895}, {"time": "2025-12-18", "value": 20.044999999999998}, {"time": "2025-12-19", "value": 20.294999999999998}, {"time": "2025-12-22", "value": 20.630000000000003}, {"time": "2025-12-23", "value": 20.965}, {"time": "2025-12-24", "value": 21.27}, {"time": "2025-12-26", "value": 21.44}, {"time": "2025-12-29", "value": 21.59}, {"time": "2025-12-30", "value": 21.515}, {"time": "2025-12-31", "value": 21.369999999999997}, {"time": "2026-01-02", "value": 21.32}, {"time": "2026-01-05", "value": 21.294999999999998}, {"time": "2026-01-06", "value": 21.195}, {"time": "2026-01-07", "value": 21.125}, {"time": "2026-01-08", "value": 20.95}, {"time": "2026-01-09", "value": 20.85}, {"time": "2026-01-12", "value": 20.815}, {"time": "2026-01-13", "value": 20.794999999999998}, {"time": "2026-01-14", "value": 20.855}, {"time": "2026-01-15", "value": 21.055}, {"time": "2026-01-16", "value": 21.215}, {"time": "2026-01-19", "value": 21.47}, {"time": "2026-01-20", "value": 21.865000000000002}, {"time": "2026-01-21", "value": 22.0}, {"time": "2026-01-22", "value": 22.11}, {"time": "2026-01-23", "value": 22.4}, {"time": "2026-01-26", "value": 22.81}, {"time": "2026-01-27", "value": 23.465}, {"time": "2026-01-28", "value": 24.155}, {"time": "2026-01-29", "value": 24.565}, {"time": "2026-01-30", "value": 24.8}, {"time": "2026-02-02", "value": 24.884999999999998}, {"time": "2026-02-03", "value": 24.825}, {"time": "2026-02-04", "value": 25.0}, {"time": "2026-02-05", "value": 25.235}, {"time": "2026-02-06", "value": 25.185}, {"time": "2026-02-09", "value": 24.919999999999998}, {"time": "2026-02-10", "value": 24.465}, {"time": "2026-02-11", "value": 23.86}, {"time": "2026-02-23", "value": 23.525}, {"time": "2026-02-24", "value": 23.425}, {"time": "2026-02-25", "value": 23.365000000000002}, {"time": "2026-02-26", "value": 23.46}, {"time": "2026-03-02", "value": 23.78}, {"time": "2026-03-03", "value": 23.945}, {"time": "2026-03-04", "value": 24.41}, {"time": "2026-03-05", "value": 24.855}, {"time": "2026-03-06", "value": 25.16}, {"time": "2026-03-09", "value": 25.259999999999998}, {"time": "2026-03-10", "value": 25.259999999999998}, {"time": "2026-03-11", "value": 25.375}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 20.607499999999998}, {"time": "2026-01-05", "value": 20.669999999999998}, {"time": "2026-01-06", "value": 20.744999999999997}, {"time": "2026-01-07", "value": 20.8775}, {"time": "2026-01-08", "value": 20.9575}, {"time": "2026-01-09", "value": 21.06}, {"time": "2026-01-12", "value": 21.1275}, {"time": "2026-01-13", "value": 21.192500000000003}, {"time": "2026-01-14", "value": 21.185}, {"time": "2026-01-15", "value": 21.2125}, {"time": "2026-01-16", "value": 21.267500000000002}, {"time": "2026-01-19", "value": 21.3825}, {"time": "2026-01-20", "value": 21.53}, {"time": "2026-01-21", "value": 21.5625}, {"time": "2026-01-22", "value": 21.53}, {"time": "2026-01-23", "value": 21.625}, {"time": "2026-01-26", "value": 21.8125}, {"time": "2026-01-27", "value": 22.130000000000003}, {"time": "2026-01-28", "value": 22.505000000000003}, {"time": "2026-01-29", "value": 22.81}, {"time": "2026-01-30", "value": 23.0075}, {"time": "2026-02-02", "value": 23.177500000000002}, {"time": "2026-02-03", "value": 23.345}, {"time": "2026-02-04", "value": 23.5}, {"time": "2026-02-05", "value": 23.6725}, {"time": "2026-02-06", "value": 23.7925}, {"time": "2026-02-09", "value": 23.865000000000002}, {"time": "2026-02-10", "value": 23.965}, {"time": "2026-02-11", "value": 24.0075}, {"time": "2026-02-23", "value": 24.044999999999998}, {"time": "2026-02-24", "value": 24.1125}, {"time": "2026-02-25", "value": 24.125}, {"time": "2026-02-26", "value": 24.142500000000002}, {"time": "2026-03-02", "value": 24.39}, {"time": "2026-03-03", "value": 24.59}, {"time": "2026-03-04", "value": 24.7975}, {"time": "2026-03-05", "value": 24.8875}, {"time": "2026-03-06", "value": 24.8125}, {"time": "2026-03-09", "value": 24.56}, {"time": "2026-03-10", "value": 24.392500000000002}, {"time": "2026-03-11", "value": 24.4}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -4840.0}, {"time": "2025-12-08", "value": -6717.0}, {"time": "2025-12-09", "value": -6717.0}, {"time": "2025-12-10", "value": -8001.0}, {"time": "2025-12-11", "value": -410.0}, {"time": "2025-12-12", "value": 12124.0}, {"time": "2025-12-15", "value": 20498.0}, {"time": "2025-12-16", "value": 50912.0}, {"time": "2025-12-17", "value": 43886.0}, {"time": "2025-12-18", "value": 39890.0}, {"time": "2025-12-19", "value": 44268.0}, {"time": "2025-12-22", "value": 49246.0}, {"time": "2025-12-23", "value": 49246.0}, {"time": "2025-12-24", "value": 47142.0}, {"time": "2025-12-26", "value": 49515.0}, {"time": "2025-12-29", "value": 45584.0}, {"time": "2025-12-30", "value": 41741.0}, {"time": "2025-12-31", "value": 39536.0}, {"time": "2026-01-02", "value": 39536.0}, {"time": "2026-01-05", "value": 37231.0}, {"time": "2026-01-06", "value": 39062.0}, {"time": "2026-01-07", "value": 40850.0}, {"time": "2026-01-08", "value": 39138.0}, {"time": "2026-01-09", "value": 40260.0}, {"time": "2026-01-12", "value": 43728.0}, {"time": "2026-01-13", "value": 46122.0}, {"time": "2026-01-14", "value": 50046.0}, {"time": "2026-01-15", "value": 54106.0}, {"time": "2026-01-16", "value": 50781.0}, {"time": "2026-01-19", "value": 54037.0}, {"time": "2026-01-20", "value": 63251.0}, {"time": "2026-01-21", "value": 58582.0}, {"time": "2026-01-22", "value": 53663.0}, {"time": "2026-01-23", "value": 60598.0}, {"time": "2026-01-26", "value": 80340.0}, {"time": "2026-01-27", "value": 89013.0}, {"time": "2026-01-28", "value": 123947.0}, {"time": "2026-01-29", "value": 110465.0}, {"time": "2026-01-30", "value": 103465.0}, {"time": "2026-02-02", "value": 99386.0}, {"time": "2026-02-03", "value": 99386.0}, {"time": "2026-02-04", "value": 101957.0}, {"time": "2026-02-05", "value": 99171.0}, {"time": "2026-02-06", "value": 96844.0}, {"time": "2026-02-09", "value": 98073.0}, {"time": "2026-02-10", "value": 100357.0}, {"time": "2026-02-11", "value": 98263.0}, {"time": "2026-02-23", "value": 100440.0}, {"time": "2026-02-24", "value": 101896.0}, {"time": "2026-02-25", "value": 99286.0}, {"time": "2026-02-26", "value": 103204.0}, {"time": "2026-03-02", "value": 121901.0}, {"time": "2026-03-03", "value": 111748.0}, {"time": "2026-03-04", "value": 130445.0}, {"time": "2026-03-05", "value": 88161.0}, {"time": "2026-03-06", "value": 78437.0}, {"time": "2026-03-09", "value": 73956.0}, {"time": "2026-03-10", "value": 69803.0}, {"time": "2026-03-11", "value": 73031.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>金橋科技成立於1976年，並於2003年8月上市，是一家專業的線纜設計、組裝和製造商。公司提供垂直整合服務，涵蓋從塑膠原料生產、模具製造、原線材設計到複雜線纜組裝的全過程。</p>
+
+<h3>業務與產品線</h3>
+
+<p>核心產品分為<strong>原線材（RAW CABLE）</strong>和<strong>連接線組（CABLE ASSEMBLY）</strong>兩大類，廣泛應用於五大產業：</p>
+
+<ul><li><strong>消費型電腦週邊設備線材</strong>：USB 2.0/3.1/Type C、LVDS、RF同軸線、Micro同軸線、D-SUB線等。</li>
+<li><strong>車用線材</strong>：電力連接線組、內裝及配備連接線組、車內照明連接線組、電瓶連接線組。</li>
+<li><strong>通訊線材</strong>：麥克風、揚聲器、耳麥、GPS、無線對講機用線等。</li>
+<li><strong>工業用線材</strong>：工廠自動化、驅動技術、儀器設備、耐高溫設備、傳感器技術或影音設備用線。</li>
+<li><strong>伺服器應用線材</strong>：高頻高速電纜組件解決方案（如SATA Cable、SAS Cable）。</li>
+<li><strong>醫療用線</strong>：超音波線/B超線、PORTABLE DEVICE CABLE、ELECTROSURGICAL CONNECTING CABLE、LUMEN CABLE、MEDICAL EQUIPMENT CABLE、HOSPITAL BED CONTROL CABLE等。</li>
+</ul>
+<h3>營收結構</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品線分類</th><th>營收佔比（估計/備註）</th></tr></thead><tbody>
+<tr><td>原線材 (RAW CABLE)</td><td>未公開具體比例，但為核心業務之一。</td></tr>
+<tr><td>連接線組 (CABLE ASSEMBLY)</td><td>未公開具體比例，但為核心業務之一。</td></tr>
+<tr><td><strong>策略重點</strong></td><td>公司在2025年12月法說會提及，未來將聚焦於「高附加價值產品」與「長期合作客戶」，並優化產品組合，致力於降低低階標準線材比重，轉向高階客製化應用。</td></tr>
+</tbody></table></div>
+
+<h3>製造基地與營運據點</h3>
+
+<p>金橋總部位於台灣台北。主要製造基地設於中國大陸的<strong>東莞</strong>及<strong>昆山</strong>，以及<strong>馬來西亞</strong>。此外，公司在美國、韓國及歐洲設有服務據點。<strong>未找到 2025-2026 年各製造基地具體的營收貢獻比例資料。</strong></p>
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>高度垂直整合能力</strong>：公司提供從塑膠原料、模具、原線材設計到複雜線纜組裝的全程服務，有助於成本控制、品質穩定及快速反應客戶需求。</li>
+<li><strong>廣泛的應用市場與客製化能力</strong>：產品線橫跨消費電子、車用、通訊、工業、伺服器和醫療等五大產業，具備少量多樣、高度客製化的快速打樣能力，滿足客戶特定規格需求。</li>
+<li><strong>產品組合優化與高附加價值策略</strong>：管理層明確規劃降低低階標準線材比重，轉向高階客製化與高附加價值產品，有助於提升長期毛利率和競爭力。</li>
+<li><strong>積極佈局高成長領域</strong>：產品已切入AI伺服器高頻高速線材、電動車ADAS及電池包偵測系統、工業機器人等未來高成長產業，並與Tier 1供應商合作開發。</li>
+<li><strong>供應鏈區域化轉單效益</strong>：在中國大陸和馬來西亞均設有製造基地，預期全球供應鏈重組將為公司在東南亞的產能帶來新的轉單效益。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<p>金橋科技近期營收表現穩健，2025年11月及12月營收實現強勁年增長，並創下自2008年10月以來的新高。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 MoM</th><th>年增率 YoY</th><th>備註</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>1.31</td><td>-13.86%</td><td>17.20%</td><td>十年同期新高</td></tr>
+<tr><td>2025年12月</td><td>1.52</td><td>8.76%</td><td>40.57%</td><td>2008年10月以來新高</td></tr>
+<tr><td>2025年11月</td><td>1.40</td><td>20.63%</td><td>49.98%</td><td></td></tr>
+<tr><td>2025年10月</td><td>1.16</td><td>-0.27%</td><td>15.11%</td><td></td></tr>
+<tr><td>2025年09月</td><td>1.16</td><td>-2.40%</td><td>21.29%</td><td></td></tr>
+<tr><td>2025年08月</td><td>1.19</td><td>-5.48%</td><td>5.31%</td><td></td></tr>
+</tbody></table></div>
+
+<h3>季度數據</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>營收 (新台幣億元)</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>EPS (新台幣元)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2025年Q3</td><td>3.61</td><td>26.47</td><td>12.05</td><td>0.24</td><td>營收年增11.8%，營業淨利年增69.2%，EPS年增211.1%</td></tr>
+<tr><td>2025年Q2</td><td>3.44</td><td>21.30</td><td>7.07</td><td>0.07</td><td></td></tr>
+<tr><td>2025年Q1</td><td>3.02</td><td>21.00</td><td>5.93</td><td>0.14</td><td></td></tr>
+<tr><td>2024年Q4</td><td>3.03</td><td>16.80</td><td>0.02</td><td>0.23</td><td></td></tr>
+<tr><td>2024年Q3</td><td>3.23</td><td>21.00</td><td>8.04</td><td>0.07</td><td></td></tr>
+</tbody></table></div>
+
+<h3>年度趨勢</h3>
+
+<ul><li><strong>2024年實際</strong>：</li>
+</ul>    *   全年營收：新台幣 <strong>11.99 億元</strong>
+<p>*   全年EPS：新台幣 <strong>0.65 元</strong></p>
+<ul><li><strong>2025年預估</strong>：</li>
+</ul>    *   累計至2025年前三季營收：新台幣 <strong>10.07 億元</strong> (年增12.3%)
+<p>*   累計至2025年前三季EPS：新台幣 <strong>0.35 元</strong> (年減22.6%)</p>
+
+<strong>分析</strong>：儘管2025年前三季營收有所增長，但累計EPS呈現年減，主要由於營業外收支大幅惡化。然而，2025年第三季的單季表現強勁，營收、營業淨利及EPS均顯著年增，顯示公司營運在Q3已有所改善。近期月營收數據持續向好，預示2025年全年及2026年有望持續增長。
+
+<h2>法說會重點</h2>
+
+<strong>日期</strong>：2025年12月19日
+
+<strong>管理層發言與 Guidance</strong>：
+
+<ul><li><strong>營運回顧</strong>：揭示2025年第三季營運成果，營業收入年增<strong>11.8%</strong>，營業淨利大幅成長<strong>69.2%</strong>，單季EPS達<strong>0.24元</strong>（去年同期0.07元）。累計2025年前三季營收年增<strong>12.3%</strong>，但本期淨利年減<strong>22.6%</strong>，累計EPS為<strong>0.35元</strong>（去年同期0.4元），主要受營業外收支惡化影響。</li>
+<li><strong>產品線策略</strong>：</li>
+</ul>    *   <strong>醫療領域</strong>：持續推動內視鏡及鼻超音波線相關業務擴張。
+<p>*   <strong>工業領域</strong>：部分產品線已切入未來機器人相關行業。</p>
+<p>*   <strong>車用領域</strong>：重點推動ADAS（先進駕駛輔助系統）及電池包偵測系統相關應用，並已與Tier 1供應商積極合作開發。</p>
+<p>*   <strong>整體策略</strong>：計劃降低低階標準線材比重，轉向高階的客製化應用，並強化少量多樣、高度客製化的快速打樣能力。</p>
+<ul><li><strong>產能與效率</strong>：將「擴增自動化產線」以提升效率、品質及產品毛利，加速AI轉型。具體的產能利用率和資本支出金額數據未公開。</li>
+<li><strong>2026年展望</strong>：公司對2026年市場抱持<strong>審慎樂觀</strong>看法，預期需求將逐步回溫。主要成長動能來自於<strong>供應鏈轉單效益</strong>，尤其將受惠於公司在東南亞的產能佈局。將持續聚焦於高附加價值產品及長期合作客戶。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<p>目前公開搜尋結果<strong>未找到2025-2026年具體的券商目標價和EPS預估數字</strong>。市場對金橋的關注主要來自其在高頻高速線材、AI伺服器與5G題材的潛在成長性。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期</th><th>2025年EPS預估</th><th>2026年EPS預估</th></tr></thead><tbody>
+<tr><td><strong>無</strong></td><td><strong>無</strong></td><td><strong>無</strong></td><td><strong>無</strong></td><td><strong>無</strong></td><td><strong>無</strong></td></tr>
+</tbody></table></div>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2025年Q3</td><td>26.47</td><td>12.05</td><td>7.71</td><td>利潤率顯著回升，顯示產品組合優化初步成效。</td></tr>
+<tr><td>2025年Q2</td><td>21.30</td><td>7.07</td><td>-0.13</td><td>稅後淨利率轉負，可能受業外損失影響。</td></tr>
+<tr><td>2025年Q1</td><td>21.00</td><td>5.93</td><td>4.63</td><td></td></tr>
+<tr><td>2024年Q4</td><td>16.80</td><td>0.02</td><td>7.79</td><td>毛利率較低，營業利益率趨近於零，受成本壓力影響。</td></tr>
+<tr><td>2024年Q3</td><td>21.00</td><td>8.04</td><td>2.76</td><td></td></tr>
+<tr><td>2024年Q2</td><td>26.40</td><td>11.70</td><td>2.32</td><td>毛利率較高，顯示該季產品組合或成本控制較佳。</td></tr>
+<tr><td>2024年Q1</td><td>18.00</td><td>-5.45</td><td>0.22</td><td>營業利益率為負，顯示營運成本或銷售壓力較大。</td></tr>
+</tbody></table></div>
+
+<strong>分析</strong>：金橋的毛利率在2024年呈現波動，2024年Q4觸底後，2025年Q1和Q2有所回升，並在2025年Q3達到相對高點26.47%。營業利益率和稅後淨利率也呈現類似趨勢，顯示公司在2025年Q3的營運效率和獲利能力有顯著改善。這與公司聚焦高附加價值產品的策略方向一致。
+
+<h3>存貨分析</h3>
+
+<ul><li><strong>存貨金額與週轉天數趨勢</strong>：</li>
+</ul>    *   2025年Q3：存貨金額 <strong>2.94億元</strong>，存貨週轉天數 <strong>101.9天</strong>。
+<p>*   2025年Q2：存貨週轉天數 <strong>105.94天</strong>。</p>
+<p>*   2025年Q1：存貨週轉天數 <strong>118.27天</strong>。</p>
+<p>*   2024年Q4：存貨週轉天數 <strong>103.58天</strong>。</p>
+    <strong>分析</strong>：存貨週轉天數在2025年Q1達到高峰後逐漸下降，到2025年Q3有所改善，顯示存貨管理效率提升。2025年Q3存貨小幅年增<strong>0.7%</strong>，總額為<strong>2.94億元</strong>，佔資產比重<strong>13.0%</strong>，無異常堆積現象。
+
+<ul><li><strong>應收帳款週轉天數趨勢</strong>：</li>
+</ul>    *   2025年Q3：應收帳款收現天數 <strong>83.5天</strong>，應收帳款週轉率 <strong>1.08次</strong>。
+<p>*   2025年Q2：應收帳款收現天數 <strong>82.94天</strong>，應收帳款週轉率 <strong>1.08次</strong>。</p>
+<p>*   2025年Q1：應收帳款收現天數 <strong>95.20天</strong>，應收帳款週轉率 <strong>0.94次</strong>。</p>
+<p>*   2024年Q4：應收帳款收現天數 <strong>94.90天</strong>，應收帳款週轉率 <strong>0.95次</strong>。</p>
+    <strong>分析</strong>：應收帳款收現天數在2025年Q1達到高峰後下降，到2025年Q3收現能力有所提升。然而，法說會資料提到，應收帳款週轉率從2024年Q3的<strong>4.38次</strong>下降至2025年Q3的<strong>4.02次</strong>，且平均收現日數從<strong>83.33天</strong>增加至<strong>90.80天</strong>，這與財報狗的季度數據略有出入，可能顯示在應收帳款管理效率方面仍有改進空間。
+
+<h3>資本支出與折舊攤銷</h3>
+
+<ul><li><strong>資本支出金額與趨勢</strong>：</li>
+</ul>    *   2025年Q3累計資本支出：<strong>1,514仟元</strong>。
+<p>*   2025年Q2累計資本支出：<strong>713仟元</strong>。</p>
+<p>*   2025年Q1累計資本支出：<strong>108仟元</strong>。</p>
+<p>*   2024年Q4累計資本支出：<strong>3,400仟元</strong>。</p>
+    <strong>分析</strong>：2025年資本支出呈現逐季增加態勢，但前三季累計金額仍低於2024年全年。公司法說會提及「擴增自動化產線」，顯示未來有資本支出計畫，但具體金額和新增產能數據未公開。
+
+<ul><li><strong>折舊攤銷趨勢</strong>：</li>
+</ul>    *   2025年Q3：折舊<strong>6,628仟元</strong>，攤銷<strong>647仟元</strong>。
+<p>*   2025年Q2：折舊<strong>6,846仟元</strong>，攤銷<strong>301仟元</strong>。</p>
+<p>*   2025年Q1：折舊<strong>7,173仟元</strong>，攤銷<strong>301仟元</strong>。</p>
+<p>*   2024年Q4：折舊<strong>7,137仟元</strong>，攤銷<strong>286仟元</strong>。</p>
+    <strong>分析</strong>：折舊費用在2024年Q4至2025年Q1維持較高水準，隨後略有下降。2025年Q3攤銷費用有顯著增加，可能與無形資產變動有關。
+
+<h3>其他財報重點</h3>
+
+<ul><li><strong>負債比率</strong>：從2024年Q3的<strong>40.2%</strong>下降至2025年Q3的<strong>35.6%</strong>，顯示財務結構顯著改善，風險降低。</li>
+<li><strong>自由現金流量</strong>：2025年Q3為<strong>-33,055仟元</strong>，波動較大，顯示現金流入出仍有不穩定性。</li>
+<li><strong>業外收支</strong>：2025年前三季累計營業外收支由2024年同期的正<strong>5百萬元</strong>轉為負<strong>23百萬元</strong>，年減高達<strong>560.0%</strong>，是導致累計淨利下滑的主要原因之一，需持續關注。</li>
+</ul>
+<h2>股權異動</h2>
+
+<ul><li><strong>董監事/大股東申報轉讓紀錄</strong>：近一年<strong>無</strong>申報持股轉讓紀錄。</li>
+<li><strong>庫藏股買回紀錄</strong>：<strong>未找到</strong>2024-2026年庫藏股買回紀錄。</li>
+<li><strong>發行可轉換公司債（CB）</strong>：<strong>未找到</strong>2024-2026年發行可轉換公司債的最新資料。</li>
+<li><strong>現金增資或減資計畫</strong>：<strong>未找到</strong>2024-2026年現金增資或減資計畫的最新資料。</li>
+<li><strong>股利政策</strong>：</li>
+</ul>    *   <strong>2024年（發放年度2025年）</strong>：現金股利 <strong>0.30元</strong>。除息日為2025年9月9日，發放日為2025年10月8日。公司連續1年發放現金股利。
+
+<h2>產業分析</h2>
+
+<h3>市場規模</h3>
+
+<p>金橋科技主要業務涵蓋電線電纜（原線材）和連接器/電纜組件（連接線組）市場。</p>
+
+<ul><li><strong>全球電線電纜市場</strong>：</li>
+</ul>    *   22025年市場規模預計在 <strong>2,330億美元至2,908.1億美元</strong>之間。
+<p>*   2026年市場規模預計為 <strong>2,464.8億美元至2,594.6億美元</strong>。</p>
+<p>*   2025-2030年複合年增長率（CAGR）約為 <strong>5.2%至6.95%</strong>。</p>
+<p>*   亞太地區在2025年佔全球市場的<strong>42.10%至54%</strong>。</p>
+<ul><li><strong>全球連接器市場</strong>：</li>
+</ul>    *   2025年市場規模預計約為 <strong>870.3億美元至952億美元</strong>。
+<p>*   2026年市場規模預計約為 <strong>913.1億美元至95.72億美元</strong>。</p>
+<p>*   2025-2030年複合年增長率（CAGR）約為 <strong>5.3%至7.20%</strong>。</p>
+<ul><li><strong>全球電纜組件（Cable Assembly）市場</strong>：</li>
+</ul>    *   22024年全球市場規模為 <strong>1,789億美元</strong>。
+<p>*   2025-2030年市場規模將增長 <strong>995.699億美元</strong>，CAGR為 <strong>7.4%</strong>。</p>
+<p>*   預計到2032年將達到 <strong>2,652.2億美元</strong>，CAGR為 <strong>5.8%</strong>。</p>
+    <em>   </em>(註：另有報告預計2026年全球電纜組件市場規模為228.7億美元，至2035年增至307.2億美元，CAGR為3.3%，此數據與其他報告存在顯著差異，可能代表更特定的細分市場。)*
+
+<strong>供需狀況</strong>：整體市場穩健增長，但在特定高端產品領域存在供不應求狀況。電線電纜受AI資料中心、5G、電動化及分散式電網等需求驅動。連接器市場在2025年底至2026年初因原材料成本上漲（銅價歷史新高）和AI伺服器、新能源汽車等高端應用領域供不應求，導致價格上漲<strong>5%-12%</strong>。
+
+<strong>產業平均毛利率水準</strong>：電線電纜產業毛利率易受銅價影響。台灣同業華新（1605）電線電纜事業2025年第四季度毛利率為<strong>4.9%</strong>，全年毛利率為<strong>6.4%</strong>。連接器產業的平均毛利率數據未找到2024-2026年具體行業平均數據。
+
+<h3>競爭格局</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>主要領域</th><th>預估市佔率（2025年數據，若有）</th><th>備註</th></tr></thead><tbody>
+<tr><td><strong>Prysmian Group</strong></td><td>電線電纜</td><td>-</td><td>全球最大的電線電纜製造商之一。</td></tr>
+<tr><td><strong>TE Connectivity</strong></td><td>連接器</td><td>約 15% (2025年)</td><td>全球連接器行業龍頭，在高端應用領域技術領先。</td></tr>
+<tr><td><strong>Molex</strong></td><td>連接器/電纜組件</td><td>-</td><td>主要連接器和電纜組件供應商。</td></tr>
+<tr><td><strong>Amphenol Corporation</strong></td><td>連接器</td><td>-</td><td>主要連接器製造商。</td></tr>
+<tr><td><strong>金橋 (6133)</strong></td><td>電線電纜、連接線組</td><td>-</td><td>產品線廣泛，具垂直整合及客製化優勢，市場佔有率相對較小，主要專注於利基與高階應用。</td></tr>
+</tbody></table></div>
+
+<strong>金橋 vs 主要競爭對手的具體比較</strong>：
+
+<ul><li><strong>技術</strong>：金橋以垂直整合和客製化為優勢，但在高速、高頻寬、微型化等前沿技術領域，與國際龍頭如TE Connectivity等仍有差距，需持續加強研發投入以跟進AI、5G等最新技術趨勢。</li>
+<li><strong>產能與客戶</strong>：金橋在中國及馬來西亞設有製造基地，客戶群分佈廣泛。國際龍頭則在全球佈局、大型資料中心、主要汽車OEM廠等高價值客戶群中擁有更強滲透率。</li>
+<li><strong>價格</strong>：金橋作為供應商，受原材料價格波動影響。在高需求領域，有望隨市場趨勢調整產品價格，但與國際龍頭在高端市場的議價能力可能有所不同。</li>
+</ul>
+<strong>台灣同業比較</strong>：
+
+<div class="table-wrapper"><table>
+<thead><tr><th>股號/名稱</th><th>最近一季毛利年增率 (%)</th><th>2024年Q3毛利率 (%)</th><th>2024年EPS (新台幣元)</th><th>備註</th></tr></thead><tbody>
+<tr><td><strong>3665 貿聯-KY</strong></td><td>0.46</td><td>26.47</td><td>14.54</td><td>積極佈局AI伺服器、電動車等高成長應用領域。</td></tr>
+<tr><td><strong>6133 金橋</strong></td><td>0.41</td><td>21.00</td><td>0.65</td><td>轉型高附加價值產品，受惠AI、EV等題材。</td></tr>
+<tr><td><strong>6290 良維</strong></td><td>0.77</td><td>15.39</td><td>5.41</td><td></td></tr>
+<tr><td><strong>6115 鎰勝</strong></td><td>0.25</td><td>14.75</td><td>3.19</td><td></td></tr>
+<tr><td><strong>3023 信邦</strong></td><td>-0.15</td><td>24.87</td><td>10.15</td><td></td></tr>
+<tr><td><strong>1605 華新</strong></td><td>(電線電纜事業4.9%)</td><td>6.4 (全年)</td><td>0.75</td><td>綜合性電線電纜大廠，毛利率受銅價影響大。</td></tr>
+</tbody></table></div>
+
+<em>註：上述毛利年增率數據反映最近一季度的毛利變化。完整的2025年及2026年年度財報尚未全面發布，因此營收規模和EPS的直接比較有局限性。</em>
+
+<h3>產業趨勢</h3>
+
+<li><strong>高速、高頻寬與高密度互連技術 (AI與5G驅動)</strong>：</li>
+<p>*   <strong>影響</strong>：AI算力集中化及資料中心內部互連密度提升，800G傳輸逐步主流化，1.6T進入設計驗證。對線材與連接器要求更高，包括傳輸距離、損耗控制、訊號完整性、高功率熱管理。共同封裝光學(CPO)技術需求增加。</p>
+<p>*   <strong>金橋機會</strong>：消費型電腦週邊及伺服器線材業務有機會切入AI伺服器與資料中心對高速、高頻寬線材的需求。</p>
+<li><strong>電動化與能源轉型對高壓、高電流線材及連接器的需求</strong>：</li>
+<p>*   <strong>影響</strong>：全球電網現代化、再生能源（海上風電）、電動車（EV）普及，對高壓、高電流、耐用且低損耗線纜和連接器需求大增。電動車800V高壓平台使用，推高車用連接器成本。</p>
+<p>*   <strong>金橋機會</strong>：車用線材領域（電力連接線組、ADAS、電池包偵測系統）佈局，直接受惠全球電動車快速增長和電氣化趨勢。</p>
+<li><strong>工業自動化與物聯網 (IoT) 帶動高柔性、微型化線材需求</strong>：</li>
+<p>*   <strong>影響</strong>：工業自動化、機器人應用擴大，線材需具備高柔性、耐疲勞特性。穿戴式裝置與小型化設備推動微型、高密度連接器需求。</p>
+<p>*   <strong>金橋機會</strong>：工業用線材已切入未來機器人相關行業，有望從工業4.0發展中獲益。</p>
+
+<strong>對金橋而言的具體機會與威脅</strong>：
+<ul><li><strong>機會</strong>：電動車、AI與資料中心、工業自動化、5G通訊基礎設施的巨大需求；垂直整合及客製化生產的優勢；供應鏈區域化帶來的轉單效益。</li>
+<li><strong>威脅</strong>：原材料價格波動對成本和利潤的壓力；技術快速迭代的研發投入壓力；市場競爭加劇，龍頭企業議價能力強化；環保法規對材料選用的限制。</li>
+</ul>
+<strong>相關投資題材具體連結</strong>：
+<ul><li><strong>AI (人工智慧)</strong>：AI資料中心對高速互連線材與連接器的爆炸性需求，金橋的伺服器線材直接受益。</li>
+<li><strong>HBM (高頻寬記憶體)</strong>：HBM與AI處理器之間的高速傳輸間接推動對支援超高頻寬的板對板連接器和高速線纜需求。</li>
+<li><strong>電動車 (EV)</strong>：電動車電氣化趨勢，金橋的車用線材（電力、ADAS、電池包偵測）直接受益。</li>
+<li><strong>5G 通訊</strong>：5G網路部署推動通訊線材、光纖電纜和高速數據電纜需求。</li>
+<li><strong>機器人產業</strong>：金橋工業用線材切入機器人相關應用。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<h3>利多事件清單</h3>
+
+<ul><li><strong>2025年12月19日 法說會</strong>：公司揭示營運成果改善，並宣示聚焦「高附加價值產品」及「長期合作客戶」，加速AI轉型與自動化產線擴增，為未來成長奠定基礎。</li>
+<li><strong>營收連月強勁增長</strong>：2025年12月營收年增<strong>40.57%</strong>，創2008年10月以來新高；2026年1月營收年增<strong>17.2%</strong>，創十年單月同期新高，顯示營運回溫態勢明確。</li>
+<li><strong>產業題材加持</strong>：受惠於AI伺服器與5G高速線材成長題材，以及車用ADAS、工業機器人等潛力應用佈局，市場對其成長性有所期待。</li>
+<li><strong>技術面轉強</strong>：股價於2026年3月3日重新站上季線，技術指標轉強，並有外資與主力連日買超（2026年累計至03/02，外資買超<strong>2,341張</strong>），反映市場對其成長性預期。</li>
+<li><strong>供應鏈區域化轉單效益</strong>：預期全球供應鏈重組將為公司在東南亞的產能佈局帶來轉單效益。</li>
+</ul>
+<h3>利空事件清單</h3>
+
+<ul><li><strong>2025年前三季累計獲利年減</strong>：儘管2025年Q3單季獲利強勁，但累計前三季淨利年減<strong>22.6%</strong>，累計EPS為<strong>0.35元</strong>，主要受營業外收支大幅惡化影響。</li>
+<li><strong>應收帳款管理效率下降</strong>：法說會指出，平均收現日數從2024年Q3的<strong>83.33天</strong>增加至2025年Q3的<strong>90.80天</strong>，現金流管理和收款效率面臨挑戰。</li>
+<li><strong>估值偏高風險</strong>：截至2026年3月4日，金橋股價對應本益比已偏高，市場對成長延續性有一定預期。一旦成長不如預期或大盤轉弱，股價可能面臨修正壓力。</li>
+<li><strong>總體經濟不確定性</strong>：全球經濟仍存在不確定性，地緣政治與通膨仍帶來經營風險。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<p>金橋科技的成長動能主要來自其積極轉型策略，結合產業趨勢與自身優勢，以下為具體時間軸與相關事件：</p>
+
+<ul><li><strong>2025年</strong></li>
+</ul>    *   <strong>醫療領域</strong>：持續推動內視鏡及鼻超音波線相關業務的擴張。
+<p>*   <strong>工業領域</strong>：部分產品線已切入未來機器人相關行業。</p>
+<p>*   <strong>車用領域</strong>：積極推動ADAS（先進駕駛輔助系統）及電池包偵測系統相關應用，並已與Tier 1供應商積極合作開發。</p>
+<p>*   <strong>產品策略</strong>：開始降低低階標準線材比重，轉向高階客製化應用。</p>
+<p>*   <strong>自動化產線</strong>：啟動「擴增自動化產線」以提升效率和品質，具體上線時程未定。</p>
+<p>*   <strong>營收動能</strong>：下半年月營收（特別是11、12月）年增率顯著提升，預示需求回溫。</p>
+
+<ul><li><strong>2026年</strong></li>
+</ul>    *   <strong>市場需求回溫</strong>：公司預期全球電子製造市場需求將逐步回溫。
+<p>*   <strong>高附加價值產品貢獻</strong>：高階客製化、高頻高速線材、車用及工業用線材的營收與毛利貢獻預期提升。</p>
+<p>*   <strong>AI轉型與自動化效益</strong>：AI導入營運、自動化產線擴增帶來的效率提升、品質改善及毛利優化效益有望顯現。</p>
+<p>*   <strong>供應鏈轉單效益</strong>：全球供應鏈區域化重組，金橋在東南亞（馬來西亞）的產能佈局將顯現轉單優勢，帶來新訂單。</p>
+<p>*   <strong>新客戶/新市場</strong>：與車用Tier 1供應商合作開發的產品線有望持續鎖定訂單；工業機器人、AI伺服器相關應用的客戶群與市場滲透率持續擴大。</p>
+<p>*   <strong>產能</strong>：預期自動化產線的擴增將逐步投入營運，提升整體生產效率與產能彈性，但具體產能增幅未公開。</p>
+
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+
+<li><strong>高階產品組合優化</strong>：公司聚焦於AI伺服器高頻高速線材、電動車（ADAS/電池包偵測系統）及工業機器人等高成長、高附加價值應用，預計將顯著提升整體毛利率和獲利能力。</li>
+<li><strong>供應鏈區域化轉單紅利</strong>：金橋在馬來西亞設有製造基地，在全球供應鏈重組趨勢下，有望持續受惠於歐美客戶的轉單需求，增加訂單能見度。</li>
+<li><strong>效率與品質提升</strong>：透過AI轉型及擴增自動化產線，公司將有效降低生產成本、提升品質穩定性，進一步鞏固市場競爭力。</li>
+<li><strong>需求回溫</strong>：全球電子製造市場需求預期逐步回溫，尤其是高速傳輸、伺服器和通訊等終端應用領域將為公司帶來穩定的訂單增長。</li>
+
+<h3>風險</h3>
+
+<li><strong>原材料成本波動</strong>：銅、金等主要原材料價格若持續飆升，將對電線電纜和連接器製造商的成本結構和利潤空間構成壓力。</li>
+<li><strong>技術迭代與研發投入</strong>：AI、5G、CPO等新技術快速發展，公司需持續投入大量研發以跟上技術前沿，否則可能面臨競爭劣勢。</li>
+<li><strong>業外收支不確定性</strong>：2025年前三季業外收支大幅惡化，若此情況未能有效改善，將持續侵蝕本業獲利，影響整體EPS表現。</li>
+<li><strong>市場競爭加劇</strong>：連接器和線纜市場競爭激烈，尤其國際龍頭企業在高端市場的議價能力與技術實力仍強，金橋需持續證明其在特定利基市場的競爭優勢。</li>
+<li><strong>全球經濟與地緣政治風險</strong>：全球經濟放緩、地緣政治緊張或貿易摩擦加劇，可能影響終端需求及供應鏈穩定性。</li>
+
+<h2>投資結論</h2>
+
+<p>金橋科技（6133）正處於關鍵的轉型期，公司積極擁抱高附加價值產品策略，並佈局AI、電動車、工業自動化等高成長領域，輔以供應鏈區域化優勢，有望在2026年迎來營運的顯著增長。儘管過去獲利受業外因素影響，但2025年Q3營運顯著改善，且近期月營收持續展現年增動能，顯示轉型效益正逐步顯現。</p>
+
+<li><strong>產品組合優化帶來獲利提升潛力</strong>：公司聚焦高頻高速線材、車用ADAS及工業機器人等高階客製化產品，可望有效提升毛利率，擺脫低階標準線材的價格競爭。</li>
+<li><strong>AI與電動車題材具中長期成長性</strong>：金橋在AI伺服器線材及電動車應用領域的佈局，使其直接受惠於兩大長期成長趨勢，潛在訂單能見度高。</li>
+<li><strong>供應鏈區域化提供轉單機會</strong>：在馬來西亞的製造基地將是公司在全球供應鏈重組中的重要資產，有利於爭取歐美客戶轉單，降低地緣政治風險。</li>
+<li><strong>財務結構改善，但業外收支需關注</strong>：負債比率下降顯示財務穩健度提升，但2025年前三季的業外損失對淨利影響大，未來需觀察業外收支是否改善。</li>
+<li><strong>估值相對偏高，需密切追蹤營運數據</strong>：市場已對金橋的成長性有所期待，推升股價本益比。投資人應密切追蹤公司在產品組合優化、自動化效益及新客戶訂單的實際進展，以評估成長動能是否持續支撐其估值。</li>
+
+<strong>目標價區間建議</strong>：
+<p>綜合考慮金橋科技的轉型潛力、在AI/EV等高成長領域的佈局，以及市場對其成長性的預期，我們預估其2026年EPS有望達到新台幣 <strong>0.80 - 1.05元</strong>。若給予其在電子零組件產業中，對應高成長題材的合理本益比區間 <strong>35x - 40x</strong>，則建議的目標價區間為新台幣 <strong>28.0 - 42.0元</strong>。</p>
+
+<em>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:38</em>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="6133_金橋_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="6133_金橋_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="6133_金橋_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

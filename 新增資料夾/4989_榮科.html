@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4989 榮科 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>4989 榮科 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>榮科正從傳統銅箔轉型為AI伺服器與高頻高速應用所需的高階電解銅箔，受惠於AI需求爆發與下游庫存回補，近期營收顯著回升，然公司仍處虧損階段，大股東釋股行為與銅價波動為潛在風險，未來成長動能關鍵在於高階產品比重提升與獲利能力轉正。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">4989 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-4989" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-4989" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-4989');
+    var obvContainer = document.getElementById('obv-chart-4989');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 40.0, "high": 41.85, "low": 39.85, "close": 40.6}, {"time": "2025-12-05", "open": 40.6, "high": 41.2, "low": 39.55, "close": 40.75}, {"time": "2025-12-08", "open": 40.6, "high": 42.3, "low": 40.15, "close": 41.7}, {"time": "2025-12-09", "open": 41.65, "high": 45.85, "low": 40.7, "close": 45.85}, {"time": "2025-12-10", "open": 46.45, "high": 46.5, "low": 43.4, "close": 43.65}, {"time": "2025-12-11", "open": 44.05, "high": 45.7, "low": 43.65, "close": 43.9}, {"time": "2025-12-12", "open": 43.7, "high": 44.85, "low": 43.0, "close": 43.75}, {"time": "2025-12-15", "open": 42.75, "high": 43.0, "low": 41.75, "close": 42.3}, {"time": "2025-12-16", "open": 41.95, "high": 42.7, "low": 39.85, "close": 40.65}, {"time": "2025-12-17", "open": 40.65, "high": 41.0, "low": 39.6, "close": 39.65}, {"time": "2025-12-18", "open": 39.45, "high": 40.5, "low": 39.45, "close": 39.8}, {"time": "2025-12-19", "open": 40.15, "high": 41.65, "low": 39.7, "close": 39.7}, {"time": "2025-12-22", "open": 39.95, "high": 41.0, "low": 39.95, "close": 40.4}, {"time": "2025-12-23", "open": 40.55, "high": 43.85, "low": 40.55, "close": 42.45}, {"time": "2025-12-24", "open": 42.95, "high": 46.4, "low": 42.65, "close": 45.9}, {"time": "2025-12-26", "open": 47.45, "high": 50.2, "low": 46.15, "close": 47.8}, {"time": "2025-12-29", "open": 48.25, "high": 52.5, "low": 47.35, "close": 52.5}, {"time": "2025-12-30", "open": 52.9, "high": 53.9, "low": 50.4, "close": 51.3}, {"time": "2025-12-31", "open": 52.4, "high": 54.8, "low": 52.0, "close": 52.5}, {"time": "2026-01-02", "open": 53.8, "high": 57.4, "low": 53.0, "close": 54.3}, {"time": "2026-01-05", "open": 54.0, "high": 55.3, "low": 50.1, "close": 50.5}, {"time": "2026-01-06", "open": 50.5, "high": 51.0, "low": 49.0, "close": 49.9}, {"time": "2026-01-07", "open": 49.5, "high": 50.5, "low": 48.85, "close": 49.85}, {"time": "2026-01-08", "open": 49.55, "high": 51.8, "low": 49.0, "close": 49.8}, {"time": "2026-01-09", "open": 49.5, "high": 50.8, "low": 47.75, "close": 50.3}, {"time": "2026-01-12", "open": 51.0, "high": 53.5, "low": 50.6, "close": 51.0}, {"time": "2026-01-13", "open": 51.0, "high": 55.5, "low": 48.85, "close": 55.0}, {"time": "2026-01-14", "open": 57.7, "high": 60.5, "low": 55.0, "close": 60.5}, {"time": "2026-01-15", "open": 61.5, "high": 66.5, "low": 61.5, "close": 66.5}, {"time": "2026-01-16", "open": 68.0, "high": 68.2, "low": 63.9, "close": 65.4}, {"time": "2026-01-19", "open": 65.0, "high": 66.4, "low": 62.0, "close": 63.2}, {"time": "2026-01-20", "open": 62.4, "high": 69.0, "low": 62.3, "close": 65.0}, {"time": "2026-01-21", "open": 64.5, "high": 65.3, "low": 61.0, "close": 61.5}, {"time": "2026-01-22", "open": 63.9, "high": 64.0, "low": 60.7, "close": 61.0}, {"time": "2026-01-23", "open": 62.0, "high": 62.6, "low": 57.8, "close": 58.4}, {"time": "2026-01-26", "open": 57.5, "high": 58.8, "low": 56.0, "close": 57.3}, {"time": "2026-01-27", "open": 57.3, "high": 63.0, "low": 56.6, "close": 63.0}, {"time": "2026-01-28", "open": 63.2, "high": 64.5, "low": 61.8, "close": 63.0}, {"time": "2026-01-29", "open": 63.0, "high": 63.6, "low": 58.4, "close": 58.8}, {"time": "2026-01-30", "open": 58.5, "high": 59.4, "low": 53.0, "close": 53.3}, {"time": "2026-02-02", "open": 52.7, "high": 52.9, "low": 49.0, "close": 49.55}, {"time": "2026-02-03", "open": 52.0, "high": 53.5, "low": 50.0, "close": 50.8}, {"time": "2026-02-04", "open": 51.0, "high": 52.4, "low": 49.8, "close": 51.8}, {"time": "2026-02-05", "open": 51.0, "high": 53.8, "low": 49.5, "close": 49.9}, {"time": "2026-02-06", "open": 49.1, "high": 49.5, "low": 45.65, "close": 46.0}, {"time": "2026-02-09", "open": 48.0, "high": 48.0, "low": 45.5, "close": 45.65}, {"time": "2026-02-10", "open": 46.5, "high": 48.45, "low": 45.45, "close": 45.65}, {"time": "2026-02-11", "open": 48.7, "high": 50.2, "low": 48.6, "close": 50.2}, {"time": "2026-02-23", "open": 55.0, "high": 55.2, "low": 54.7, "close": 55.2}, {"time": "2026-02-24", "open": 58.0, "high": 60.7, "low": 57.8, "close": 60.7}, {"time": "2026-02-25", "open": 62.0, "high": 64.0, "low": 58.3, "close": 62.3}, {"time": "2026-02-26", "open": 63.9, "high": 66.0, "low": 60.2, "close": 64.2}, {"time": "2026-03-02", "open": 66.0, "high": 74.5, "low": 65.8, "close": 67.6}, {"time": "2026-03-03", "open": 71.9, "high": 72.5, "low": 66.0, "close": 67.8}, {"time": "2026-03-04", "open": 66.0, "high": 74.5, "low": 65.8, "close": 67.6}, {"time": "2026-03-05", "open": 73.3, "high": 73.3, "low": 65.5, "close": 66.8}, {"time": "2026-03-06", "open": 66.5, "high": 72.8, "low": 65.6, "close": 68.2}, {"time": "2026-03-09", "open": 61.4, "high": 62.8, "low": 61.4, "close": 61.4}, {"time": "2026-03-10", "open": 63.6, "high": 67.5, "low": 62.2, "close": 64.3}, {"time": "2026-03-11", "open": 65.2, "high": 70.7, "low": 64.9, "close": 70.7}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 10363.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 5477.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 10999.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 23519.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 37455.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 19762.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 8663.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 4120.0, "color": "#26a69a"}, {"time": "2025-12-16", "value": 6063.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 4269.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 2778.0, "color": "#ef5350"}, {"time": "2025-12-19", "value": 3722.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 2979.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 14803.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 30142.0, "color": "#ef5350"}, {"time": "2025-12-26", "value": 59874.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 31598.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 59617.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 45337.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 40316.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 18096.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 12304.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 9383.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 14855.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 8786.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 12420.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 24568.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 47623.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 46403.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 54688.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 27395.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 30249.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 14215.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 12540.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 11242.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 9608.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 18413.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 34467.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 13421.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 17066.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 9134.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 11755.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 8025.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 9393.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 8152.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 5841.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 9066.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 8191.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 4015.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 19311.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 33738.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 30984.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 75358.0, "color": "#ef5350"}, {"time": "2026-03-03", "value": 51455.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 75358.0, "color": "#ef5350"}, {"time": "2026-03-05", "value": 54438.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 51215.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 7643.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 29463.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 36657.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 42.510000000000005}, {"time": "2025-12-11", "value": 43.17}, {"time": "2025-12-12", "value": 43.769999999999996}, {"time": "2025-12-15", "value": 43.89}, {"time": "2025-12-16", "value": 42.85}, {"time": "2025-12-17", "value": 42.05}, {"time": "2025-12-18", "value": 41.23}, {"time": "2025-12-19", "value": 40.42}, {"time": "2025-12-22", "value": 40.04}, {"time": "2025-12-23", "value": 40.4}, {"time": "2025-12-24", "value": 41.65}, {"time": "2025-12-26", "value": 43.25}, {"time": "2025-12-29", "value": 45.81}, {"time": "2025-12-30", "value": 47.989999999999995}, {"time": "2025-12-31", "value": 50.0}, {"time": "2026-01-02", "value": 51.67999999999999}, {"time": "2026-01-05", "value": 52.220000000000006}, {"time": "2026-01-06", "value": 51.7}, {"time": "2026-01-07", "value": 51.410000000000004}, {"time": "2026-01-08", "value": 50.87}, {"time": "2026-01-09", "value": 50.07}, {"time": "2026-01-12", "value": 50.17}, {"time": "2026-01-13", "value": 51.19}, {"time": "2026-01-14", "value": 53.32000000000001}, {"time": "2026-01-15", "value": 56.660000000000004}, {"time": "2026-01-16", "value": 59.67999999999999}, {"time": "2026-01-19", "value": 62.120000000000005}, {"time": "2026-01-20", "value": 64.12}, {"time": "2026-01-21", "value": 64.32000000000001}, {"time": "2026-01-22", "value": 63.220000000000006}, {"time": "2026-01-23", "value": 61.82000000000001}, {"time": "2026-01-26", "value": 60.64}, {"time": "2026-01-27", "value": 60.239999999999995}, {"time": "2026-01-28", "value": 60.54}, {"time": "2026-01-29", "value": 60.1}, {"time": "2026-01-30", "value": 59.08}, {"time": "2026-02-02", "value": 57.529999999999994}, {"time": "2026-02-03", "value": 55.089999999999996}, {"time": "2026-02-04", "value": 52.85}, {"time": "2026-02-05", "value": 51.07}, {"time": "2026-02-06", "value": 49.61}, {"time": "2026-02-09", "value": 48.83}, {"time": "2026-02-10", "value": 47.8}, {"time": "2026-02-11", "value": 47.480000000000004}, {"time": "2026-02-23", "value": 48.54}, {"time": "2026-02-24", "value": 51.48}, {"time": "2026-02-25", "value": 54.81}, {"time": "2026-02-26", "value": 58.52}, {"time": "2026-03-02", "value": 62.0}, {"time": "2026-03-03", "value": 64.52000000000001}, {"time": "2026-03-04", "value": 65.9}, {"time": "2026-03-05", "value": 66.8}, {"time": "2026-03-06", "value": 67.6}, {"time": "2026-03-09", "value": 66.36}, {"time": "2026-03-10", "value": 65.66}, {"time": "2026-03-11", "value": 66.28}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 42.28}, {"time": "2025-12-18", "value": 42.2}, {"time": "2025-12-19", "value": 42.095}, {"time": "2025-12-22", "value": 41.964999999999996}, {"time": "2025-12-23", "value": 41.625}, {"time": "2025-12-24", "value": 41.85}, {"time": "2025-12-26", "value": 42.239999999999995}, {"time": "2025-12-29", "value": 43.114999999999995}, {"time": "2025-12-30", "value": 44.015}, {"time": "2025-12-31", "value": 45.2}, {"time": "2026-01-02", "value": 46.665}, {"time": "2026-01-05", "value": 47.735}, {"time": "2026-01-06", "value": 48.755}, {"time": "2026-01-07", "value": 49.7}, {"time": "2026-01-08", "value": 50.434999999999995}, {"time": "2026-01-09", "value": 50.875}, {"time": "2026-01-12", "value": 51.195}, {"time": "2026-01-13", "value": 51.44500000000001}, {"time": "2026-01-14", "value": 52.364999999999995}, {"time": "2026-01-15", "value": 53.765}, {"time": "2026-01-16", "value": 54.875}, {"time": "2026-01-19", "value": 56.145}, {"time": "2026-01-20", "value": 57.654999999999994}, {"time": "2026-01-21", "value": 58.82000000000001}, {"time": "2026-01-22", "value": 59.94}, {"time": "2026-01-23", "value": 60.75}, {"time": "2026-01-26", "value": 61.379999999999995}, {"time": "2026-01-27", "value": 62.17999999999999}, {"time": "2026-01-28", "value": 62.42999999999999}, {"time": "2026-01-29", "value": 61.660000000000004}, {"time": "2026-01-30", "value": 60.45}, {"time": "2026-02-02", "value": 59.085}, {"time": "2026-02-03", "value": 57.665}, {"time": "2026-02-04", "value": 56.69499999999999}, {"time": "2026-02-05", "value": 55.585}, {"time": "2026-02-06", "value": 54.34499999999999}, {"time": "2026-02-09", "value": 53.17999999999999}, {"time": "2026-02-10", "value": 51.44499999999999}, {"time": "2026-02-11", "value": 50.165}, {"time": "2026-02-23", "value": 49.805}, {"time": "2026-02-24", "value": 50.545}, {"time": "2026-02-25", "value": 51.82000000000001}, {"time": "2026-02-26", "value": 53.160000000000004}, {"time": "2026-03-02", "value": 54.739999999999995}, {"time": "2026-03-03", "value": 56.529999999999994}, {"time": "2026-03-04", "value": 58.69}, {"time": "2026-03-05", "value": 60.80499999999999}, {"time": "2026-03-06", "value": 63.06}, {"time": "2026-03-09", "value": 64.17999999999999}, {"time": "2026-03-10", "value": 65.09}, {"time": "2026-03-11", "value": 66.09}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 44.472500000000004}, {"time": "2026-01-05", "value": 44.9675}, {"time": "2026-01-06", "value": 45.425}, {"time": "2026-01-07", "value": 45.832499999999996}, {"time": "2026-01-08", "value": 46.03}, {"time": "2026-01-09", "value": 46.3625}, {"time": "2026-01-12", "value": 46.7175}, {"time": "2026-01-13", "value": 47.28}, {"time": "2026-01-14", "value": 48.19}, {"time": "2026-01-15", "value": 49.4825}, {"time": "2026-01-16", "value": 50.769999999999996}, {"time": "2026-01-19", "value": 51.94}, {"time": "2026-01-20", "value": 53.205}, {"time": "2026-01-21", "value": 54.260000000000005}, {"time": "2026-01-22", "value": 55.1875}, {"time": "2026-01-23", "value": 55.8125}, {"time": "2026-01-26", "value": 56.2875}, {"time": "2026-01-27", "value": 56.8125}, {"time": "2026-01-28", "value": 57.3975}, {"time": "2026-01-29", "value": 57.7125}, {"time": "2026-01-30", "value": 57.6625}, {"time": "2026-02-02", "value": 57.614999999999995}, {"time": "2026-02-03", "value": 57.660000000000004}, {"time": "2026-02-04", "value": 57.75750000000001}, {"time": "2026-02-05", "value": 57.7625}, {"time": "2026-02-06", "value": 57.5475}, {"time": "2026-02-09", "value": 57.279999999999994}, {"time": "2026-02-10", "value": 56.8125}, {"time": "2026-02-11", "value": 56.2975}, {"time": "2026-02-23", "value": 55.7325}, {"time": "2026-02-24", "value": 55.4975}, {"time": "2026-02-25", "value": 55.4525}, {"time": "2026-02-26", "value": 55.4125}, {"time": "2026-03-02", "value": 55.717499999999994}, {"time": "2026-03-03", "value": 56.057500000000005}, {"time": "2026-03-04", "value": 56.5175}, {"time": "2026-03-05", "value": 56.99249999999999}, {"time": "2026-03-06", "value": 57.2525}, {"time": "2026-03-09", "value": 57.1725}, {"time": "2026-03-10", "value": 57.447500000000005}, {"time": "2026-03-11", "value": 58.317499999999995}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 5477.0}, {"time": "2025-12-08", "value": 16476.0}, {"time": "2025-12-09", "value": 39995.0}, {"time": "2025-12-10", "value": 2540.0}, {"time": "2025-12-11", "value": 22302.0}, {"time": "2025-12-12", "value": 13639.0}, {"time": "2025-12-15", "value": 9519.0}, {"time": "2025-12-16", "value": 3456.0}, {"time": "2025-12-17", "value": -813.0}, {"time": "2025-12-18", "value": 1965.0}, {"time": "2025-12-19", "value": -1757.0}, {"time": "2025-12-22", "value": 1222.0}, {"time": "2025-12-23", "value": 16025.0}, {"time": "2025-12-24", "value": 46167.0}, {"time": "2025-12-26", "value": 106041.0}, {"time": "2025-12-29", "value": 137639.0}, {"time": "2025-12-30", "value": 78022.0}, {"time": "2025-12-31", "value": 123359.0}, {"time": "2026-01-02", "value": 163675.0}, {"time": "2026-01-05", "value": 145579.0}, {"time": "2026-01-06", "value": 133275.0}, {"time": "2026-01-07", "value": 123892.0}, {"time": "2026-01-08", "value": 109037.0}, {"time": "2026-01-09", "value": 117823.0}, {"time": "2026-01-12", "value": 130243.0}, {"time": "2026-01-13", "value": 154811.0}, {"time": "2026-01-14", "value": 202434.0}, {"time": "2026-01-15", "value": 248837.0}, {"time": "2026-01-16", "value": 194149.0}, {"time": "2026-01-19", "value": 166754.0}, {"time": "2026-01-20", "value": 197003.0}, {"time": "2026-01-21", "value": 182788.0}, {"time": "2026-01-22", "value": 170248.0}, {"time": "2026-01-23", "value": 159006.0}, {"time": "2026-01-26", "value": 149398.0}, {"time": "2026-01-27", "value": 167811.0}, {"time": "2026-01-28", "value": 167811.0}, {"time": "2026-01-29", "value": 154390.0}, {"time": "2026-01-30", "value": 137324.0}, {"time": "2026-02-02", "value": 128190.0}, {"time": "2026-02-03", "value": 139945.0}, {"time": "2026-02-04", "value": 147970.0}, {"time": "2026-02-05", "value": 138577.0}, {"time": "2026-02-06", "value": 130425.0}, {"time": "2026-02-09", "value": 124584.0}, {"time": "2026-02-10", "value": 124584.0}, {"time": "2026-02-11", "value": 132775.0}, {"time": "2026-02-23", "value": 136790.0}, {"time": "2026-02-24", "value": 156101.0}, {"time": "2026-02-25", "value": 189839.0}, {"time": "2026-02-26", "value": 220823.0}, {"time": "2026-03-02", "value": 296181.0}, {"time": "2026-03-03", "value": 347636.0}, {"time": "2026-03-04", "value": 272278.0}, {"time": "2026-03-05", "value": 217840.0}, {"time": "2026-03-06", "value": 269055.0}, {"time": "2026-03-09", "value": 261412.0}, {"time": "2026-03-10", "value": 290875.0}, {"time": "2026-03-11", "value": 327532.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>榮科（股票代號：4989）為李長榮化學工業集團旗下子公司，核心業務專注於電解銅箔的製造與銷售，是印刷電路板（PCB）及銅箔基板（CCL）上游的關鍵材料。公司具備高階「反轉銅箔(RTF)」量產能力，並已於2024年完成特用高階細線路銅箔（2RT）認證，2025年取得HVLP（超低粗糙度銅箔）相關認證，主要應用於AI PC與伺服器領域。</p>
+
+<strong>營收結構 (2024年)</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>營收佔比</th><th>備註</th></tr></thead><tbody>
+<tr><td>電解銅箔</td><td>100%</td><td>台灣地區營業收入佔比</td></tr>
+<tr><td><strong>總計</strong></td><td><strong>100%</strong></td><td>總計 29.94 億新台幣</td></tr>
+</tbody></table></div>
+
+<strong>製造基地</strong>
+<p>榮科於1998年8月18日在高雄市小港臨海工業區設有年產能1萬公噸的印刷電路板用電解銅箔廠。目前並未找到其他製造基地及各基地營收貢獻比例的公開資訊。</p>
+
+<h2>核心競爭優勢</h2>
+<li><strong>高階銅箔技術領先：</strong> 榮科是台灣少數具備高階「反轉銅箔(RTF)」量產能力的廠商，且已於2024年完成特用高階細線路銅箔（2RT）認證，並於2025年取得HVLP（超低粗糙度銅箔）相關認證。這些高階產品表面粗糙度低，是5G、AI伺服器、AI PC等高頻高速訊號傳輸應用不可或缺的材料，技術門檻高於一般銅箔。</li>
+<li><strong>市場轉型契機：</strong> 積極從通用銅箔轉向高階應用，如AI伺服器與AI PC，正好搭上全球AI發展趨勢，在高階銅箔供不應求的背景下，有利於提升產品單價與毛利率。</li>
+<li><strong>供應鏈策略地位：</strong> 作為高階CCL上游關鍵材料供應商，在高階銅箔供應吃緊時，榮科有望受惠於訂單外溢效應，爭取更多客戶。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<strong>榮科 (4989) 近 6 個月營收表現 (截至 2026/01)</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元新台幣)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2 026/01</td><td>3.69</td><td>26.81%</td><td>170.32%</td></tr>
+<tr><td>2025/12</td><td>2.91</td><td>26.69%</td><td>83.54%</td></tr>
+<tr><td>2025/11</td><td>2.29</td><td>-17.41%</td><td>-2.95%</td></tr>
+<tr><td>2025/10</td><td>2.78</td><td>12.68%</td><td>54.19%</td></tr>
+<tr><td>2025/09</td><td>2.47</td><td>21.78%</td><td>6.39%</td></tr>
+<tr><td>2025/08</td><td>2.02</td><td>22.52%</td><td>-18.17%</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>分析：</strong> 榮科月營收在2025年12月及2026年1月出現爆發性成長，特別是2026年1月營收達3.69億元，年增率高達170.32%，創近35個月新高，顯示下游庫存回補與AI相關需求開始顯現。</li>
+</ul>
+<h3>季度數據</h3>
+<ul><li><strong>2025年第三季：</strong> 每股盈餘 (EPS) <strong>-0.85元</strong>。 (未找到2025-2026年最新季營收、毛利率、營業利益率的具體數字，請參閱「財報深度分析」之利潤率趨勢表)。</li>
+</ul>
+<h3>年度趨勢</h3>
+<ul><li><strong>2024年實際數據：</strong></li>
+</ul>    *   全年每股盈餘 (EPS)：<strong>-2.22元</strong>。
+<p>*   全年累計營收：<strong>29.93億元</strong>。</p>
+<ul><li><strong>2025年實際數據：</strong></li>
+</ul>    *   全年營收：<strong>26.62億元</strong>，累計年增率 <strong>-11.09%</strong>。
+<p>*   截至2025年第三季累計每股盈餘 (EPS)：<strong>-3.34元</strong>。</p>
+<ul><li><strong>分析：</strong> 公司在2024及2025年前三季均處於虧損狀態，全年營收在2025年呈現年減，反映產業景氣低迷與高階轉型初期陣痛。然而，2026年1月單月已轉虧為盈，稅前純益939萬元，親公司股東淨利939萬元，單月每股盈餘0.07元，顯示營運出現轉機。</li>
+</ul>
+<h2>法說會重點</h2>
+<strong>最近一次與財報相關的公開資訊：</strong> 2025年11月1日公告，預計於2025年11月10日召開董事會公布114年度第三季財務報告。
+
+<strong>管理層發言與 Guidance：</strong>
+<ul><li><strong>產業展望：</strong> 管理層提到未來一兩年銅箔整體產業供過於求仍難免，但公司積極開拓高階產品以優化結構。</li>
+<li><strong>高階產品進展：</strong> 預期HVLP2-4高階應用較吃緊，HVLP3與HVLP4正在測試送樣，終端應用為AI PC &amp; server (Next Generation)，HVLP5則在開發中，應用於利基型產品 (Niche)。</li>
+<li><strong>認證時程：</strong> 2024年已完成特用高階細線路銅箔（2RT）認證，2025年取得HVLP（超低粗糙度銅箔）相關認證。</li>
+<li><strong>市場機會：</strong> 隨著產業景氣逐步回升，標準銅箔市場最壞狀況已過去。高階銅箔市場已確立缺貨趨勢，榮科正積極推進HVLP系列新品開發，預計2025年底進展將較明朗。台系同業不接一般箔訂單，榮科可望受惠轉單效應。</li>
+<li><strong>股價表現：</strong> 儘管榮科轉型陣痛仍處虧損，但市場已在押注AI新藍海帶來的機會。</li>
+</ul>
+<strong>⚠️ 補充說明：</strong> 未找到2025-2026年關於具體出貨量/訂單能見度、產能利用率、資本支出金額以及下季/下半年明確指導的最新資料。
+
+<h2>券商觀點</h2>
+<strong>榮科 (4989) 近期券商目標價與評等 (2025-2026年)</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td><strong>無</strong></td><td>N/A</td><td>N/A</td><td>無近期報告</td></tr>
+</tbody></table></div>
+
+<strong>⚠️ 補充說明：</strong> 目前搜尋結果未找到2025-2026年榮科（4989）的券商報告、具體目標價、2025-2026年EPS預估數字，以及重大調升/調降評等的最新資料。
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<strong>榮科 (4989) 近 8 季利潤率趨勢</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>-15.08%</td><td>-19.84%</td><td>-19.00%</td></tr>
+<tr><td>2025年第二季</td><td>-23.85%</td><td>-28.36%</td><td>-33.94%</td></tr>
+<tr><td>2025年第一季</td><td>-15.04%</td><td>-21.25%</td><td>-18.05%</td></tr>
+<tr><td>2024年第四季</td><td>-21.53%</td><td>-27.10%</td><td>-26.24%</td></tr>
+<tr><td>2024年第三季</td><td>-15.33%</td><td>-20.49%</td><td>-17.75%</td></tr>
+<tr><td>2024年第二季</td><td>0.73%</td><td>-3.29%</td><td>-0.79%</td></tr>
+<tr><td>2024年第一季</td><td>-3.41%</td><td>-9.67%</td><td>-2.63%</td></tr>
+<tr><td>2023年第四季</td><td>-2.96%</td><td>-7.10%</td><td>-9.33%</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>分析：</strong> 榮科自2024年第二季後，毛利率持續為負值，並在2024年第四季及2025年第二季達到相對低點。這反映了過去一年多產業景氣低迷、產品 ASP（平均售價）壓力大以及原材料成本波動的影響。儘管營收近期回升，但獲利能力尚未全面恢復，顯示公司仍在轉型陣痛期。</li>
+</ul>
+<h3>存貨與營運</h3>
+<strong>榮科 (4989) 近 4 季存貨與應收帳款週轉天數</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數 (天)</th><th>應收帳款收現天數 (天)</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>76.44</td><td>73.12</td></tr>
+<tr><td>2025年第二季</td><td>62.92</td><td>66.03</td></tr>
+<tr><td>2025年第一季</td><td>101.70</td><td>106.58</td></tr>
+<tr><td>2024年第四季</td><td>89.25</td><td>112.89</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>分析：</strong> 存貨週轉天數在2025年第一季達到高峰101.70天後，在第二季顯著下降至62.92天，第三季略升至76.44天。應收帳款收現天數也呈現類似趨勢，從2024年第四季的112.89天下降至2025年第二季的66.03天，第三季略升至73.12天。總體而言，週轉天數有改善跡象，但尚未有資料顯示存貨有異常堆積或大幅備料。</li>
+</ul>
+<h3>資本支出</h3>
+<strong>⚠️ 補充說明：</strong> 未找到2025-2026年榮科具體的資本支出金額、未來計畫與預計新增產能、折舊攤銷趨勢的最新資料。
+
+<h2>股權異動</h2>
+<h3>董監事/大股東申報轉讓紀錄</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>申報日期</th><th>轉讓主體</th><th>轉讓張數 (張)</th><th>轉讓後持股 (張)</th><th>轉讓後持股比率 (約)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2026/01/16</td><td>李長榮化學工業(股)</td><td>21,114</td><td>23,635.81</td><td>約 17.2%</td><td>充實營運資金</td></tr>
+<tr><td>2025/11/21</td><td>李長榮化學工業(股)</td><td>5,420</td><td>44,750</td><td>約 32.7%</td><td>充實營運資金</td></tr>
+<tr><td>2025/10/17</td><td>李長榮化學工業(股)</td><td>11,600</td><td>50,139</td><td>約 36.6%</td><td>充實營運資金</td></tr>
+<tr><td>2025/10/14</td><td>李長榮化學工業(股)</td><td>1,846</td><td>N/A</td><td>N/A</td><td>鉅額逐筆交易</td></tr>
+<tr><td>2025/09/26</td><td>李長榮化學工業(股)</td><td>3,700</td><td>N/A</td><td>N/A</td><td>充實營運資金</td></tr>
+<tr><td>2025/09/08</td><td>李長榮化學工業(股)</td><td>10,000</td><td>N/A</td><td>N/A</td><td>鉅額逐筆交易</td></tr>
+<tr><td>2025/09/01</td><td>李長榮化學工業(股)</td><td>4,900</td><td>N/A</td><td>N/A</td><td>鉅額逐筆交易</td></tr>
+<tr><td>2025/08/26-27</td><td>李長榮化學工業(股)</td><td>4,600</td><td>N/A</td><td>N/A</td><td>鉅額逐筆交易</td></tr>
+<tr><td>2025/08/22</td><td>李長榮化學工業(股)</td><td>5,000</td><td>N/A</td><td>N/A</td><td>充實營運資金</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>分析：</strong> 榮科最大股東李長榮化學工業股份有限公司於2025下半年至2026年初持續大量申報轉讓持股，總轉讓張數龐大。這些轉讓被指出是為「充實營運資金」，但如此大規模的股權變動可能對市場信心造成壓力，並壓抑股價上檔空間。</li>
+</ul>
+<h3>庫藏股、可轉債、增減資</h3>
+<ul><li><strong>庫藏股買回紀錄：</strong> 未找到2024-2026年的最新庫藏股買回紀錄。</li>
+<li><strong>可轉換公司債 (CB)：</strong> 未找到2024-2026年的最新資料顯示有發行可轉換公司債。</li>
+<li><strong>現金增資：</strong> 榮科董事會於2025年12月15日決議辦理現金增資發行新股，上限不超過35,000,000股，用於償還銀行借款及充實營運資金。證期局於2026年2月26日重新起算此案的生效日。</li>
+<li><strong>現金減資：</strong> 曾於2021年3月24日決議辦理現金減資153,085,000元 (15,308,500股)，減資比率10%。此為舊資料。</li>
+</ul>
+<h3>其他財報重點</h3>
+<ul><li><strong>負債比率趨勢：</strong></li>
+</ul>    *   2025年第三季：28.56% (較前一季上升)
+<p>*   2025年第二季：24.14%</p>
+<p>*   2025年第一季：24.14%</p>
+<p>*   2024年第四季：19.89%</p>
+<p>*   2024年第三季：23.77%</p>
+<p>*   2024年第二季：19.86%</p>
+<p>*   2024年第一季：20.28%</p>
+<ul><li><strong>自由現金流量：</strong> 未找到具體數字，但2025年第一至第三季的營業現金對流動負債比與營業現金對負債比皆為負值，顯示營業活動未能產生足夠現金，資金壓力較大。</li>
+<li><strong>業外收支重大項目：</strong> 業外收支波動較大，2025年第二季為-60,874千元，對當季淨利影響顯著。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>產業數據</h3>
+<ul><li><strong>全球銅箔市場規模：</strong></li>
+</ul>    *   2025年：預計約 83 億美元至 320 億美元 (不同報告口徑)
+<p>*   2034年：預計達 141 億美元 (CAGR 7.90%, 2026-2034)</p>
+<p>*   電動車鋰電銅箔市場 (電解銅箔)：2025年估計 761.9 億美元，預計到2035年達 3612 億美元 (CAGR 18.8%, 2025-2035)</p>
+<p>*   高品質銅箔市場：2026年達 11.6 億美元，2031年成長至 15.8 億美元 (CAGR 6.38%, 2026-2031)</p>
+<ul><li><strong>供需狀況：</strong></li>
+</ul>    *   <strong>高階HVLP銅箔 (特別是HVLP4) 供不應求。</strong> 2026年第一季HVLP4全球需求約592噸/月，供給約600噸/月，大致平衡。但進入第二季，需求預計倍增至1266噸，供給仍僅600噸，<strong>缺口達666噸</strong>。2026年下半年，即便三井金屬與金居產能開出，供給提升至950噸，第三季、第四季需求仍達1446噸、1441噸，<strong>缺口仍近500噸</strong>。福邦投顧預計2026年HVLP4銅箔供需缺口將達<strong>25%</strong>，2027年達<strong>42%</strong>。
+<p>*   <strong>整體精煉銅市場：</strong> 國際銅業研究組織（ICSG）預計，2025年全球精煉銅市場供應過剩約17.8萬噸，但2026年將出現短缺15萬噸。摩根士丹利預計2025年銅供應將出現26萬噸缺口，2026年擴大至60萬噸。</p>
+<ul><li><strong>產業平均毛利率水準：</strong></li>
+</ul>    *   電解銅箔產業平均毛利率數據較少。但受CCL漲價潮及高階產品技術難度高影響，高階銅箔（如HVLP4）具強勁議價能力，加工費水準預期高於每公斤20美元，反映毛利率遠高於一般產品。M9級CCL毛利率通常在20%-40%之間。
+
+<h3>競爭格局</h3>
+
+<strong>全球主要銅箔供應商</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>主要市場/產品領域</th><th>備註</th></tr></thead><tbody>
+<tr><td>三井金屬 (Mitsui Kinzoku)</td><td>HVLP高階銅箔</td><td>全球HVLP銅箔關鍵供應商，市佔率最高，月產能約620噸(HVLP 1代)</td></tr>
+<tr><td>古河電工 (Furukawa Electric)</td><td>高階銅箔</td><td>HVLP4銅箔主要供應商之一</td></tr>
+<tr><td>JX Nippon Mining and Metal</td><td>銅箔 (包含壓延銅箔和電解銅箔)</td><td></td></tr>
+<tr><td>福田 (Fukuda)</td><td>銅箔</td><td></td></tr>
+<tr><td>KINWA</td><td>銅箔</td><td></td></tr>
+<tr><td>Circuit Foil</td><td>銅箔</td><td></td></tr>
+<tr><td>LS</td><td>銅箔</td><td></td></tr>
+</tbody></table></div>
+
+<ul><li><strong>榮科 vs. 主要競爭對手</strong></li>
+</ul><div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>榮科 (4989)</th><th>主要競爭對手 (如三井金屬、金居)</th></tr></thead><tbody>
+<tr><td><strong>技術</strong></td><td>具備RTF量產能力；2024年2RT認證；2025年HVLP認證 (AI PC/Server)</td><td>HVLP銅箔技術領先，三井金屬涵蓋1-5代產品；金居積極轉型HVLP4</td></tr>
+<tr><td><strong>產能</strong></td><td>1998年建有年產能1萬公噸廠 (高雄小港)</td><td>三井金屬月產能約620噸(HVLP 1代)，預計2026年9月擴至840噸(高階)</td></tr>
+<tr><td><strong>客戶</strong></td><td>預計包含主要PCB/CCL製造商 (未具體揭露)</td><td>三井金屬長期為台光電、台燿、聯茂等指定供應商；金居已通過三大CCL廠驗證</td></tr>
+<tr><td><strong>價格</strong></td><td>受益於高階銅箔供不應求，有望提升報價與加工費</td><td>高階產品加工費水準高 (如HVLP4 &gt;$20/kg)</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>台灣同業比較 (以金居 8358 為例)</strong></li>
+</ul><div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>榮科 (4989) (2024/2025Q3)</th><th>金居 (8358) (2025 Q4)</th></tr></thead><tbody>
+<tr><td><strong>營收規模</strong></td><td>2024年 29.94億元；2025年 26.62億元</td><td>N/A (單季未提供完整營收)</td></tr>
+<tr><td><strong>毛利率</strong></td><td>2025Q3 -15.08%</td><td>N/A</td></tr>
+<tr><td><strong>EPS</strong></td><td>2025Q3 -0.85元</td><td>2025/11單月 0.52元；10-11月合計 0.95元</td></tr>
+<tr><td><strong>轉型</strong></td><td>積極轉型HVLP/2RT高階應用</td><td>積極轉型HVLP3/HVLP4高階產品線</td></tr>
+</tbody></table></div>
+    | <strong>分析：</strong> 金居近期在高階HVLP銅箔帶動下獲利顯著提升，稅前淨利率在2025年11月達22.9%。榮科的營收雖然近期回溫，但獲利能力仍有待改善，顯示其高階產品效益尚未完全體現。兩家公司在高階銅箔市場的競爭與合作值得關注。
+
+<h3>產業趨勢</h3>
+<li><strong>高頻高速與低損耗材料需求提升：</strong> 5G、AI伺服器、HPC推動PCB層數與材料等級提升（M8/M9級CCL），對HVLP/UHVLP銅箔等低損耗、低粗糙度材料需求暴增。這要求銅箔具備更低表面粗糙度以減少訊號傳輸損耗，同時更薄以實現微細線路。</li>
+<li><strong>極薄化與高純度趨勢：</strong> 下游產品（如電動車電池、高端PCB）對銅箔的輕薄化與功能化要求日益嚴苛。12μm及以下超薄電子級銅箔、4.5μm及以下極薄鋰電銅箔的滲透率持續加速。</li>
+<li><strong>供應鏈區域化與本土化：</strong> 全球銅箔生產端呈現「中國主導、日韓攻堅、東南亞崛起」格局。日韓企業在高階產能具技術優勢，同時供應鏈韌性需求促使企業於東南亞布局，分散風險。</li>
+
+<h3>對榮科的具體機會和威脅</h3>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>高階產品技術優勢：</strong> 榮科的RTF、2RT、HVLP銅箔技術直接對應AI PC、AI伺服器等高頻高速應用，抓住市場高成長機會。
+<p>*   <strong>市場漲價趨勢：</strong> 高階銅箔供不應求將推升產品報價與加工費，有利於榮科提升毛利結構。</p>
+<p>*   <strong>AI伺服器帶動需求：</strong> AI伺服器與HPC對高階PCB和CCL的需求倍增，榮科作為上游材料供應商直接受惠。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>原材料成本波動：</strong> 銅價劇烈波動直接影響榮科的生產成本與毛利率。
+<p>*   <strong>國際與同業競爭加劇：</strong> 日韓大廠在高階銅箔技術領先，台灣同業如金居也積極擴充HVLP產能，榮科需持續投入研發保持競爭力。</p>
+<p>*   <strong>產能擴張與良率挑戰：</strong> 高階銅箔製程難度高、良率偏低，新產能擴充及良率提升是挑戰。</p>
+<p>*   <strong>傳統產品市場壓力：</strong> 若榮科仍有較大比重的傳統銅箔業務，在常規產品供過於求的市場中將面臨較大競爭壓力。</p>
+
+<h3>相關投資題材的具體連結</h3>
+<ul><li><strong>AI (人工智慧) / 高速運算 (HPC)：</strong> 榮科的高階RTF、2RT、HVLP銅箔專為AI PC與伺服器等高頻高速訊號傳輸應用設計，是AI算力基建擴張下的關鍵材料供應商。</li>
+<li><strong>電動車 (EV) / 鋰電池：</strong> 銅箔是電動車鋰電池的關鍵集電材料。儘管榮科目前主要聚焦PCB/CCL，但若產品能符合電池應用所需的極薄化、高純度要求，將是潛在成長機會。</li>
+<li><strong>HBM (高頻寬記憶體)：</strong> HBM作為AI晶片關鍵配套，其先進封裝技術將推動PCB與載板材料升級，間接帶動對高階銅箔的需求，榮科的產品可望間接受惠於此生態系統。</li>
+</ul>
+<h2>近期催化劑</h2>
+<strong>利多事件：</strong>
+<ul><li><strong>2026年1月營收爆發：</strong> 3.69億元，月增26.81%，年增170.32%，創35個月新高，顯示下游庫存回補與AI相關需求顯現。</li>
+<li><strong>2025年12月營收強勁：</strong> 2.91億元，年增83.54%。</li>
+<li><strong>高階銅箔轉型進程：</strong> 2024年完成2RT認證，2025年取得HVLP相關認證，應用於AI PC與Server，顯示公司成功轉向高毛利產品。</li>
+<li><strong>AI伺服器外溢效應：</strong> 高階銅箔一線大廠產能滿載，榮科作為合格供應商受惠於訂單轉移。</li>
+<li><strong>銅價上漲：</strong> 國際銅價上漲有利於銅箔產品售價提升與低價庫存的漲價利益。</li>
+<li><strong>外資買超：</strong> 2026年2月至3月，外資多次大舉買超，顯示資金對其轉機題材的追捧。</li>
+<li><strong>搭AI載板比價題材：</strong> 市場將榮科與AI載板/CCL族群進行比價，推升股價。</li>
+<li><strong>2026年1月單月轉虧為盈：</strong> 稅前純益939萬元，親公司股東淨利939萬元，單月EPS 0.07元，為營運轉佳的明確訊號。</li>
+</ul>
+<strong>利空事件：</strong>
+<ul><li><strong>大股東李長榮化學工業持續釋股：</strong> 2025年下半年至2026年初多次申報轉讓大量持股 (如2026年1月16日轉讓21,114張，累計已轉讓超過6萬張)，可能對市場信心造成壓力，並壓抑股價上檔空間。</li>
+<li><strong>長期虧損與負毛利率：</strong> 2024年及2025年前三季持續虧損，毛利率多為負值，基本面尚未全面穩健。</li>
+<li><strong>列為注意股：</strong> 2026年3月3日因股價漲幅過大被證交所列入注意股，需留意波動風險。</li>
+<li><strong>現金增資計畫：</strong> 雖然目的為償還借款及充實營運資金，但可能稀釋股權。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+<ul><li><strong>2024年：</strong></li>
+</ul>    *   完成特用高階細線路銅箔（2RT）認證。
+<p>*   持續推進HVLP系列新品（HVLP1至HVLP4）開發。</p>
+<ul><li><strong>2025年：</strong></li>
+</ul>    *   取得HVLP（超低粗糙度銅箔）相關認證，應用於AI PC與伺服器領域。
+<p>*   應用於先進封裝的Low CTE（低熱膨脹係數）產品已獲認證並少量出貨。</p>
+<p>*   預計HVLP系列新品開發進展將較明朗 (至年底)。</p>
+<p>*   <strong>2025年第四季：</strong> 高階Low DK（低介電常數）產品佔比達<strong>45%</strong>，下游需求有爆發性成長跡象 (庫存回補、AI伺服器、高階載板、車電板材需求)。</p>
+<p>*   <strong>2025年12月：</strong> 營收年增率高達<strong>83.54%</strong>。</p>
+<ul><li><strong>2026年：</strong></li>
+</ul>    *   高階Low DK產品佔比目標突破<strong>60%</strong>，顯著改善毛利結構。
+<p>*   AI伺服器與高階載板需求持續放量，HVLP (極低輪廓銅箔) 與RTF (反轉銅箔) 需求大增，榮科受惠訂單外溢效應與規格升級。</p>
+<p>*   <strong>2026年1月：</strong> 營收年增率高達<strong>170.32%</strong>，單月轉虧為盈。</p>
+
+<h2>2026 展望</h2>
+<h3>成長動能</h3>
+<ul><li><strong>高階產品結構優化：</strong> 榮科積極轉型高階銅箔（HVLP, 2RT, RTF, Low CTE），目標2026年Low DK產品佔比突破60%，將顯著提升產品ASP與毛利率，擺脫傳統銅箔的價格波動影響。</li>
+<li><strong>AI產業爆發性需求：</strong> AI伺服器、AI PC與HPC對高頻高速、低損耗的高階銅箔需求持續強勁，且HVLP4銅箔市場面臨供不應求，榮科作為高階供應商將直接受惠。</li>
+<li><strong>產業景氣回升與庫存回補：</strong> 2025年12月至2026年1月營收的強勁反彈，顯示下游PCB/CCL廠的庫存回補需求啟動，帶動榮科出貨量增長。</li>
+<li><strong>銅價上漲利多：</strong> 若國際銅價維持上漲趨勢，不僅有助於榮科產品的售價提升，也能帶來低價庫存的漲價利益。</li>
+</ul>
+<h3>風險</h3>
+<ul><li><strong>大股東持續釋股：</strong> 母公司李長榮化學工業持續且大規模的股權轉讓，可能對市場信心造成壓力，並成為股價上檔的隱形天花板。</li>
+<li><strong>獲利能力不確定性：</strong> 儘管月營收大幅回升且1月單月轉盈，但公司過去幾季持續虧損，負毛利率狀況需持續改善，才能穩固市場信心，目前仍屬「轉機題材」。</li>
+<li><strong>原材料與匯率波動：</strong> 銅箔產業受銅價影響甚巨，銅價若短期暴跌或台幣大幅升值，將侵蝕獲利。</li>
+<li><strong>市場競爭加劇：</strong> 雖然高階銅箔供不應求，但日本大廠技術領先，台灣同業也積極擴產，榮科需持續投入研發並確保良率，以維持競爭優勢。</li>
+<li><strong>總體經濟風險：</strong> 全球經濟景氣若未如預期復甦，可能影響終端市場需求，進而對榮科營運造成壓力。</li>
+</ul>
+<h2>投資結論</h2>
+<p>榮科（4989）正處於一個關鍵的轉型時刻。憑藉其在高階電解銅箔（如RTF、2RT、HVLP）的技術布局，公司有望在全球AI伺服器、AI PC與高速運算需求爆發中扮演重要角色。近期營收的「暴力」回升，以及1月單月轉盈，是市場對其轉機題材樂觀期待的主要依據。</p>
+
+<strong>基於上述分析，提出以下投資結論：</strong>
+
+<li><strong>AI主題核心受惠者：</strong> 榮科的高階銅箔技術，特別是HVLP系列，是AI伺服器和AI PC等高頻高速應用的關鍵材料。在高階銅箔供不應求的產業背景下，榮科具備明確的產業成長驅動因素。</li>
+<li><strong>營運轉機浮現：</strong> 2025年底至2026年初營收顯著回升，且2026年1月單月轉虧為盈，顯示公司營運已出現改善跡象，市場對其擺脫虧損、改善毛利結構抱持高度期待。產品組合轉向高階將是實現持續獲利的關鍵。</li>
+<li><strong>大股東釋股與評價考量：</strong> 大股東李長榮化學工業持續申報轉讓持股，可能對股價構成潛在賣壓，投資人應留意。目前公司在獲利尚未穩定轉正的情況下，股價上漲主要反映對未來成長的預期，宜綜合考量其基本面改善進度與市場情緒。</li>
+<li><strong>高階產品比重提升為獲利關鍵：</strong> 榮科能否持續提升高階產品佔比（目標2026年突破60%），並有效控制成本、改善良率，將是其獲利能力能否穩定成長的關鍵。</li>
+
+<strong>目標價區間建議：</strong> 考慮榮科在高階銅箔市場的潛力、近期營收的強勁復甦以及轉虧為盈的積極訊號，但同時考量歷史虧損及大股東釋股壓力，預計在公司高階產品放量、毛利率穩定提升的前提下，未來12-18個月股價有望挑戰 <strong>NTD 75 - 90</strong> 元區間。此區間是基於市場對AI概念股的熱情、轉機題材以及參考近期股價波段高點所作的評估，但實際達成仍需公司獲利能力持續改善來支撐。
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 12:55</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="4989_榮科_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="4989_榮科_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="4989_榮科_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

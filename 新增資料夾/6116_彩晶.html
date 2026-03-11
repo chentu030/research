@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6116 彩晶 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>6116 彩晶 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+
+<p>彩晶（6116）正積極轉型，聚焦高附加價值車載與工控中小尺寸面板市場，2025年前三季營收中此類應用已佔五成，預期2026年將穩定站上五成以上，成為營運主軸。儘管面臨產業競爭與記憶體價格上漲等宏觀經濟逆風，公司透過產品組合調整、資本支出及現金增資計畫強化體質，2025年虧損顯著收斂，並在2026年首月營收展現成長動能，顯現轉型效益，然穩定獲利仍是當前關鍵挑戰。</p>
+
+<hr>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">6116 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-6116" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-6116" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-6116');
+    var obvContainer = document.getElementById('obv-chart-6116');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 7.37, "high": 7.43, "low": 7.36, "close": 7.4}, {"time": "2025-12-05", "open": 7.4, "high": 7.4, "low": 7.29, "close": 7.37}, {"time": "2025-12-08", "open": 7.36, "high": 7.42, "low": 7.3, "close": 7.3}, {"time": "2025-12-09", "open": 7.36, "high": 7.42, "low": 7.3, "close": 7.3}, {"time": "2025-12-10", "open": 7.26, "high": 7.36, "low": 7.22, "close": 7.24}, {"time": "2025-12-11", "open": 7.31, "high": 7.31, "low": 7.17, "close": 7.22}, {"time": "2025-12-12", "open": 7.28, "high": 7.34, "low": 7.24, "close": 7.27}, {"time": "2025-12-15", "open": 7.21, "high": 7.6, "low": 7.19, "close": 7.54}, {"time": "2025-12-16", "open": 7.48, "high": 7.54, "low": 7.36, "close": 7.38}, {"time": "2025-12-17", "open": 7.4, "high": 7.68, "low": 7.4, "close": 7.59}, {"time": "2025-12-18", "open": 7.59, "high": 7.61, "low": 7.37, "close": 7.39}, {"time": "2025-12-19", "open": 7.43, "high": 7.46, "low": 7.33, "close": 7.45}, {"time": "2025-12-22", "open": 7.48, "high": 7.58, "low": 7.33, "close": 7.42}, {"time": "2025-12-23", "open": 7.45, "high": 7.52, "low": 7.35, "close": 7.43}, {"time": "2025-12-24", "open": 7.52, "high": 7.62, "low": 7.35, "close": 7.36}, {"time": "2025-12-26", "open": 7.43, "high": 7.43, "low": 7.24, "close": 7.31}, {"time": "2025-12-29", "open": 7.31, "high": 7.83, "low": 7.31, "close": 7.6}, {"time": "2025-12-30", "open": 7.55, "high": 7.79, "low": 7.41, "close": 7.76}, {"time": "2025-12-31", "open": 7.79, "high": 8.26, "low": 7.79, "close": 7.8}, {"time": "2026-01-02", "open": 7.82, "high": 8.05, "low": 7.65, "close": 7.99}, {"time": "2026-01-05", "open": 8.07, "high": 8.78, "low": 8.06, "close": 8.78}, {"time": "2026-01-06", "open": 9.52, "high": 9.65, "low": 9.44, "close": 9.65}, {"time": "2026-01-07", "open": 10.6, "high": 10.6, "low": 10.6, "close": 10.6}, {"time": "2026-01-08", "open": 11.25, "high": 11.65, "low": 11.15, "close": 11.65}, {"time": "2026-01-09", "open": 11.65, "high": 11.65, "low": 10.5, "close": 10.5}, {"time": "2026-01-12", "open": 10.1, "high": 10.7, "low": 9.86, "close": 10.65}, {"time": "2026-01-13", "open": 10.55, "high": 10.7, "low": 9.99, "close": 9.99}, {"time": "2026-01-14", "open": 10.0, "high": 10.0, "low": 9.61, "close": 9.73}, {"time": "2026-01-15", "open": 9.8, "high": 9.95, "low": 9.73, "close": 9.89}, {"time": "2026-01-16", "open": 10.0, "high": 10.0, "low": 9.8, "close": 9.83}, {"time": "2026-01-19", "open": 9.87, "high": 10.8, "low": 9.87, "close": 10.8}, {"time": "2026-01-20", "open": 10.5, "high": 10.6, "low": 10.25, "close": 10.25}, {"time": "2026-01-21", "open": 10.0, "high": 10.2, "low": 9.84, "close": 9.89}, {"time": "2026-01-22", "open": 10.25, "high": 10.25, "low": 9.75, "close": 9.75}, {"time": "2026-01-23", "open": 9.7, "high": 9.72, "low": 9.0, "close": 9.03}, {"time": "2026-01-26", "open": 9.18, "high": 9.7, "low": 9.06, "close": 9.16}, {"time": "2026-01-27", "open": 9.18, "high": 9.19, "low": 8.74, "close": 8.89}, {"time": "2026-01-28", "open": 8.99, "high": 9.09, "low": 8.7, "close": 8.76}, {"time": "2026-01-29", "open": 8.76, "high": 8.8, "low": 8.48, "close": 8.5}, {"time": "2026-01-30", "open": 8.51, "high": 8.64, "low": 8.21, "close": 8.34}, {"time": "2026-02-02", "open": 8.23, "high": 8.47, "low": 8.1, "close": 8.15}, {"time": "2026-02-03", "open": 8.27, "high": 8.5, "low": 8.13, "close": 8.27}, {"time": "2026-02-04", "open": 8.33, "high": 9.09, "low": 8.3, "close": 8.85}, {"time": "2026-02-05", "open": 8.78, "high": 8.84, "low": 8.31, "close": 8.32}, {"time": "2026-02-06", "open": 8.25, "high": 8.45, "low": 8.07, "close": 8.38}, {"time": "2026-02-09", "open": 8.54, "high": 8.57, "low": 8.2, "close": 8.29}, {"time": "2026-02-10", "open": 8.25, "high": 8.32, "low": 8.15, "close": 8.18}, {"time": "2026-02-11", "open": 8.28, "high": 8.5, "low": 8.28, "close": 8.49}, {"time": "2026-02-23", "open": 8.6, "high": 8.92, "low": 8.53, "close": 8.73}, {"time": "2026-02-24", "open": 8.76, "high": 8.99, "low": 8.7, "close": 8.97}, {"time": "2026-02-25", "open": 9.18, "high": 9.58, "low": 8.83, "close": 8.95}, {"time": "2026-02-26", "open": 9.02, "high": 9.36, "low": 8.92, "close": 9.27}, {"time": "2026-03-02", "open": 8.5, "high": 8.68, "low": 8.11, "close": 8.18}, {"time": "2026-03-03", "open": 9.33, "high": 9.39, "low": 8.71, "close": 8.84}, {"time": "2026-03-04", "open": 8.5, "high": 8.68, "low": 8.11, "close": 8.18}, {"time": "2026-03-05", "open": 8.44, "high": 8.58, "low": 8.28, "close": 8.44}, {"time": "2026-03-06", "open": 8.44, "high": 8.94, "low": 8.41, "close": 8.88}, {"time": "2026-03-09", "open": 8.35, "high": 8.77, "low": 8.23, "close": 8.5}, {"time": "2026-03-10", "open": 8.71, "high": 8.84, "low": 8.5, "close": 8.59}, {"time": "2026-03-11", "open": 8.68, "high": 9.17, "low": 8.68, "close": 9.17}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 3998.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 2817.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 2631.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 2631.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 2975.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 3079.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 2986.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 9399.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 4407.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 12087.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 6524.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 4468.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 5245.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 4357.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 8869.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 6314.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 28233.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 23486.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 38963.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 21863.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 45295.0, "color": "#ef5350"}, {"time": "2026-01-06", "value": 41240.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 35251.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 282348.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 150380.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 44988.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 33211.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 31212.0, "color": "#26a69a"}, {"time": "2026-01-15", "value": 16622.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 16488.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 38407.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 21644.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 20866.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 15541.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 21909.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 32897.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 39846.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 28941.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 30191.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 30912.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 20339.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 19629.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 117995.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 44464.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 24609.0, "color": "#ef5350"}, {"time": "2026-02-09", "value": 18639.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 11864.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 26118.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 35191.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 30189.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 61981.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 42586.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 33284.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 40627.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 33284.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 19891.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 30085.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 24684.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 17119.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 46246.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 7.322}, {"time": "2025-12-11", "value": 7.286}, {"time": "2025-12-12", "value": 7.266}, {"time": "2025-12-15", "value": 7.314}, {"time": "2025-12-16", "value": 7.33}, {"time": "2025-12-17", "value": 7.4}, {"time": "2025-12-18", "value": 7.434}, {"time": "2025-12-19", "value": 7.470000000000001}, {"time": "2025-12-22", "value": 7.446}, {"time": "2025-12-23", "value": 7.456}, {"time": "2025-12-24", "value": 7.409999999999999}, {"time": "2025-12-26", "value": 7.394}, {"time": "2025-12-29", "value": 7.4239999999999995}, {"time": "2025-12-30", "value": 7.492}, {"time": "2025-12-31", "value": 7.566}, {"time": "2026-01-02", "value": 7.692}, {"time": "2026-01-05", "value": 7.986}, {"time": "2026-01-06", "value": 8.395999999999999}, {"time": "2026-01-07", "value": 8.964}, {"time": "2026-01-08", "value": 9.734}, {"time": "2026-01-09", "value": 10.236}, {"time": "2026-01-12", "value": 10.61}, {"time": "2026-01-13", "value": 10.678}, {"time": "2026-01-14", "value": 10.504000000000001}, {"time": "2026-01-15", "value": 10.152000000000001}, {"time": "2026-01-16", "value": 10.018}, {"time": "2026-01-19", "value": 10.048}, {"time": "2026-01-20", "value": 10.1}, {"time": "2026-01-21", "value": 10.132000000000001}, {"time": "2026-01-22", "value": 10.104000000000001}, {"time": "2026-01-23", "value": 9.943999999999999}, {"time": "2026-01-26", "value": 9.616}, {"time": "2026-01-27", "value": 9.344}, {"time": "2026-01-28", "value": 9.118}, {"time": "2026-01-29", "value": 8.868}, {"time": "2026-01-30", "value": 8.73}, {"time": "2026-02-02", "value": 8.528}, {"time": "2026-02-03", "value": 8.404}, {"time": "2026-02-04", "value": 8.422}, {"time": "2026-02-05", "value": 8.386}, {"time": "2026-02-06", "value": 8.394}, {"time": "2026-02-09", "value": 8.422}, {"time": "2026-02-10", "value": 8.404}, {"time": "2026-02-11", "value": 8.331999999999999}, {"time": "2026-02-23", "value": 8.414}, {"time": "2026-02-24", "value": 8.532}, {"time": "2026-02-25", "value": 8.664}, {"time": "2026-02-26", "value": 8.882}, {"time": "2026-03-02", "value": 8.82}, {"time": "2026-03-03", "value": 8.842}, {"time": "2026-03-04", "value": 8.684000000000001}, {"time": "2026-03-05", "value": 8.581999999999999}, {"time": "2026-03-06", "value": 8.504}, {"time": "2026-03-09", "value": 8.568000000000001}, {"time": "2026-03-10", "value": 8.518}, {"time": "2026-03-11", "value": 8.716}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 7.361}, {"time": "2025-12-18", "value": 7.359999999999999}, {"time": "2025-12-19", "value": 7.367999999999999}, {"time": "2025-12-22", "value": 7.38}, {"time": "2025-12-23", "value": 7.392999999999999}, {"time": "2025-12-24", "value": 7.404999999999999}, {"time": "2025-12-26", "value": 7.414}, {"time": "2025-12-29", "value": 7.447}, {"time": "2025-12-30", "value": 7.468999999999999}, {"time": "2025-12-31", "value": 7.511}, {"time": "2026-01-02", "value": 7.551}, {"time": "2026-01-05", "value": 7.69}, {"time": "2026-01-06", "value": 7.909999999999999}, {"time": "2026-01-07", "value": 8.228}, {"time": "2026-01-08", "value": 8.65}, {"time": "2026-01-09", "value": 8.964}, {"time": "2026-01-12", "value": 9.298}, {"time": "2026-01-13", "value": 9.537}, {"time": "2026-01-14", "value": 9.734}, {"time": "2026-01-15", "value": 9.943000000000001}, {"time": "2026-01-16", "value": 10.126999999999999}, {"time": "2026-01-19", "value": 10.329}, {"time": "2026-01-20", "value": 10.389}, {"time": "2026-01-21", "value": 10.318000000000001}, {"time": "2026-01-22", "value": 10.128}, {"time": "2026-01-23", "value": 9.981}, {"time": "2026-01-26", "value": 9.832}, {"time": "2026-01-27", "value": 9.722}, {"time": "2026-01-28", "value": 9.625}, {"time": "2026-01-29", "value": 9.486}, {"time": "2026-01-30", "value": 9.337}, {"time": "2026-02-02", "value": 9.072}, {"time": "2026-02-03", "value": 8.873999999999999}, {"time": "2026-02-04", "value": 8.77}, {"time": "2026-02-05", "value": 8.626999999999999}, {"time": "2026-02-06", "value": 8.562000000000001}, {"time": "2026-02-09", "value": 8.475}, {"time": "2026-02-10", "value": 8.404}, {"time": "2026-02-11", "value": 8.376999999999999}, {"time": "2026-02-23", "value": 8.4}, {"time": "2026-02-24", "value": 8.463}, {"time": "2026-02-25", "value": 8.543000000000001}, {"time": "2026-02-26", "value": 8.643}, {"time": "2026-03-02", "value": 8.576}, {"time": "2026-03-03", "value": 8.628}, {"time": "2026-03-04", "value": 8.608}, {"time": "2026-03-05", "value": 8.623000000000001}, {"time": "2026-03-06", "value": 8.693000000000001}, {"time": "2026-03-09", "value": 8.693999999999999}, {"time": "2026-03-10", "value": 8.68}, {"time": "2026-03-11", "value": 8.7}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 7.456}, {"time": "2026-01-05", "value": 7.525}, {"time": "2026-01-06", "value": 7.639}, {"time": "2026-01-07", "value": 7.803999999999999}, {"time": "2026-01-08", "value": 8.0215}, {"time": "2026-01-09", "value": 8.1845}, {"time": "2026-01-12", "value": 8.356}, {"time": "2026-01-13", "value": 8.492}, {"time": "2026-01-14", "value": 8.6015}, {"time": "2026-01-15", "value": 8.727}, {"time": "2026-01-16", "value": 8.839}, {"time": "2026-01-19", "value": 9.0095}, {"time": "2026-01-20", "value": 9.1495}, {"time": "2026-01-21", "value": 9.273}, {"time": "2026-01-22", "value": 9.389}, {"time": "2026-01-23", "value": 9.4725}, {"time": "2026-01-26", "value": 9.565000000000001}, {"time": "2026-01-27", "value": 9.6295}, {"time": "2026-01-28", "value": 9.6795}, {"time": "2026-01-29", "value": 9.7145}, {"time": "2026-01-30", "value": 9.732000000000001}, {"time": "2026-02-02", "value": 9.7005}, {"time": "2026-02-03", "value": 9.631499999999999}, {"time": "2026-02-04", "value": 9.544}, {"time": "2026-02-05", "value": 9.377500000000001}, {"time": "2026-02-06", "value": 9.2715}, {"time": "2026-02-09", "value": 9.1535}, {"time": "2026-02-10", "value": 9.062999999999999}, {"time": "2026-02-11", "value": 9.001000000000001}, {"time": "2026-02-23", "value": 8.943000000000001}, {"time": "2026-02-24", "value": 8.9}, {"time": "2026-02-25", "value": 8.807500000000001}, {"time": "2026-02-26", "value": 8.7585}, {"time": "2026-03-02", "value": 8.673}, {"time": "2026-03-03", "value": 8.627500000000001}, {"time": "2026-03-04", "value": 8.584999999999999}, {"time": "2026-03-05", "value": 8.549}, {"time": "2026-03-06", "value": 8.5485}, {"time": "2026-03-09", "value": 8.5355}, {"time": "2026-03-10", "value": 8.540000000000001}, {"time": "2026-03-11", "value": 8.5815}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -2817.0}, {"time": "2025-12-08", "value": -5448.0}, {"time": "2025-12-09", "value": -5448.0}, {"time": "2025-12-10", "value": -8423.0}, {"time": "2025-12-11", "value": -11502.0}, {"time": "2025-12-12", "value": -8516.0}, {"time": "2025-12-15", "value": 883.0}, {"time": "2025-12-16", "value": -3524.0}, {"time": "2025-12-17", "value": 8563.0}, {"time": "2025-12-18", "value": 2039.0}, {"time": "2025-12-19", "value": 6507.0}, {"time": "2025-12-22", "value": 1262.0}, {"time": "2025-12-23", "value": 5619.0}, {"time": "2025-12-24", "value": -3250.0}, {"time": "2025-12-26", "value": -9564.0}, {"time": "2025-12-29", "value": 18669.0}, {"time": "2025-12-30", "value": 42155.0}, {"time": "2025-12-31", "value": 81118.0}, {"time": "2026-01-02", "value": 102981.0}, {"time": "2026-01-05", "value": 148276.0}, {"time": "2026-01-06", "value": 189516.0}, {"time": "2026-01-07", "value": 224767.0}, {"time": "2026-01-08", "value": 507115.0}, {"time": "2026-01-09", "value": 356735.0}, {"time": "2026-01-12", "value": 401723.0}, {"time": "2026-01-13", "value": 368512.0}, {"time": "2026-01-14", "value": 337300.0}, {"time": "2026-01-15", "value": 353922.0}, {"time": "2026-01-16", "value": 337434.0}, {"time": "2026-01-19", "value": 375841.0}, {"time": "2026-01-20", "value": 354197.0}, {"time": "2026-01-21", "value": 333331.0}, {"time": "2026-01-22", "value": 317790.0}, {"time": "2026-01-23", "value": 295881.0}, {"time": "2026-01-26", "value": 328778.0}, {"time": "2026-01-27", "value": 288932.0}, {"time": "2026-01-28", "value": 259991.0}, {"time": "2026-01-29", "value": 229800.0}, {"time": "2026-01-30", "value": 198888.0}, {"time": "2026-02-02", "value": 178549.0}, {"time": "2026-02-03", "value": 198178.0}, {"time": "2026-02-04", "value": 316173.0}, {"time": "2026-02-05", "value": 271709.0}, {"time": "2026-02-06", "value": 296318.0}, {"time": "2026-02-09", "value": 277679.0}, {"time": "2026-02-10", "value": 265815.0}, {"time": "2026-02-11", "value": 291933.0}, {"time": "2026-02-23", "value": 327124.0}, {"time": "2026-02-24", "value": 357313.0}, {"time": "2026-02-25", "value": 295332.0}, {"time": "2026-02-26", "value": 337918.0}, {"time": "2026-03-02", "value": 304634.0}, {"time": "2026-03-03", "value": 345261.0}, {"time": "2026-03-04", "value": 311977.0}, {"time": "2026-03-05", "value": 331868.0}, {"time": "2026-03-06", "value": 361953.0}, {"time": "2026-03-09", "value": 337269.0}, {"time": "2026-03-10", "value": 354388.0}, {"time": "2026-03-11", "value": 400634.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>瀚宇彩晶（6116）為華新麗華集團旗下的光電公司，主要業務為TFT-LCD面板、平面顯示器、監視器及其零組件的製造與銷售。公司策略性地主攻中小尺寸面板市場，並積極轉型聚焦於車載及工業控制（工控）等高附加價值應用領域。其核心產品包括中小尺寸面板及觸控面板。</p>
+
+<h3>產品線與營收結構</h3>
+
+<p>彩晶近年積極調整產品結構，降低消費性電子產品比重，拉升工控與車載等高附加價值應用。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品線分類（營收佔比）</th><th>2025年前三季數據</th><th>備註</th></tr></thead><tbody>
+<tr><td>工控與車載面板</td><td>約 50%</td><td>預期2026年穩定站上五成</td></tr>
+<tr><td>智慧型手機與功能型手機</td><td>約 35%</td><td></td></tr>
+<tr><td>平板電腦</td><td>約 8% 至 10%</td><td></td></tr>
+<tr><td>防窺片產品（筆電、車載）</td><td>約 3%</td><td>(2024年5月資料)</td></tr>
+</tbody></table></div>
+
+<strong>2025年第二季產品組合出貨量（佔總銷售金額比例）</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品尺寸</th><th>佔總銷售金額比例</th></tr></thead><tbody>
+<tr><td>6吋(含)以下手機面板產品</td><td>24%</td></tr>
+<tr><td>6.06吋至10.4吋中尺寸平板相關產品</td><td>60%</td></tr>
+<tr><td>11吋以上大尺寸面板產品</td><td>16%</td></tr>
+</tbody></table></div>
+
+<h3>製造基地</h3>
+
+<p>目前公開資訊未明確列出彩晶所有製造基地的詳細名稱及其個別營收貢獻比例。有資料提及彩晶在台灣設有生產基地，例如在平板業務方面提到「彩晶5.3代線」。</p>
+
+<h3>所屬細分產業及相關題材</h3>
+
+<ul><li><strong>所屬產業：</strong> 電子中游 - 光電產業，細分為LCD-TFT面板製造領域。</li>
+<li><strong>細分產業：</strong> 主要聚焦於中小尺寸面板及觸控面板。</li>
+<li><strong>相關題材：</strong></li>
+</ul>    *   <strong>車用面板：</strong> 積極佈局車用市場，已打入印度市場，預計在2025年下半年至2026年上半年迎來下一波成長期。產品包括儀表板、側視鏡等車用顯示器。
+<p>*   <strong>工控面板：</strong> 維持穩定營收佔比，應用廣泛，涵蓋航海、航空、智能家居等。</p>
+<p>*   <strong>高附加價值應用轉型：</strong> 降低消費性產品比重，轉往車載、工控等特殊應用領域。</p>
+<p>*   <strong>面板景氣回溫：</strong> 2025年被視為產業「恢復期」，2026年預計趨於平穩，產值成長率約2%。自2026年1月起，面板價格開始反彈，電視面板上漲。</p>
+<p>*   <strong>記憶體價格上漲影響：</strong> 對筆電及手機品牌客戶拉貨節奏造成不確定性（2025年12月資料）。</p>
+
+<hr>
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>利基市場深度耕耘：</strong> 彩晶策略性聚焦於車載及工控等高附加價值中小尺寸面板市場。這些領域對產品穩定性、可靠性及客製化要求高，生命週期長，有助於規避消費性電子產品的價格紅海競爭，並與客戶建立長期穩固關係。</li>
+<li><strong>產品結構成功轉型：</strong> 公司積極調整產品線，將工控與車載面板營收佔比從低點拉升至2025年前三季的約五成，並預期2026年可穩定站上五成以上，顯示轉型策略已初見成效。</li>
+<li><strong>技術與品質優勢：</strong> 在中小尺寸TFT-LCD面板製造上具備一定技術實力，特別是在車載面板領域，已在2025年上半年晉升全球第七名，顯示其產品品質與市場接受度。</li>
+<li><strong>自有品牌與通路拓展：</strong> 積極透過Hannspree自有品牌銷售產品，並計劃於2026年第一季在歐洲推出23.8吋EcoVision顯示器等新產品，有助於提升品牌價值和市場觸角。</li>
+
+<hr>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>10.55</td><td>12.29%</td><td>11.91%</td></tr>
+<tr><td>2025年12月</td><td>9.39</td><td>-0.68%</td><td>-4.09%</td></tr>
+<tr><td>2025年11月</td><td>9.46</td><td>6.60%</td><td>10.72%</td></tr>
+<tr><td>2025年10月</td><td>8.87</td><td>-11.10%</td><td>-13.89%</td></tr>
+<tr><td>2025年09月</td><td>9.98</td><td>15.40%</td><td>1.43%</td></tr>
+<tr><td>2025年08月</td><td>8.65</td><td>-3.93%</td><td>38.37%</td></tr>
+</tbody></table></div>
+
+<h3>季度數據</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>2025年第三季</th></tr></thead><tbody>
+<tr><td>季營收</td><td>27.63 億元</td></tr>
+<tr><td>季營收季增率</td><td>-8%</td></tr>
+<tr><td>季營收年增率</td><td>16%</td></tr>
+<tr><td>毛利率</td><td>-16.68%</td></tr>
+<tr><td>營業利益率</td><td>-32.63%</td></tr>
+<tr><td>EPS</td><td>0.11 元</td></tr>
+<tr><td>備註</td><td>EPS主要受惠於業外收入，成功由虧轉盈。</td></tr>
+</tbody></table></div>
+
+<h3>年度趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>22024年實際</th><th>2025年實際 (截至12月)</th></tr></thead><tbody>
+<tr><td>全年營收</td><td>99.64 億元</td><td>114.37 億元</td></tr>
+<tr><td>EPS</td><td>-1.86 元</td><td>-0.46 元 (累積至2025年前11月稅後淨損)</td></tr>
+<tr><td>股利政策</td><td>0.0 元</td><td>尚未公告</td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>法說會重點</h2>
+
+<strong>最近一次法說會日期：</strong> 22025年12月16日
+
+<strong>管理層具體 Guidance 與發言：</strong>
+
+<ul><li><strong>產品結構：</strong> 2025年前三季工控和車載營收占比已拉升到 <strong>50%</strong>，智能手機、功能手機占比 <strong>35%</strong>，平板占 <strong>8～10%</strong>。預期2026年工控、車載占比將穩定站穩 <strong>50%以上</strong>，成為營運主軸。</li>
+<li><strong>出貨量與ASP：</strong> 2025年第三季出貨量（以19吋約當量計）季減約 <strong>7.14%</strong> 至 <strong>327.7萬片</strong>，平均銷售單價（ASP）僅微幅季增 <strong>1元</strong> 至 <strong>28元</strong>，顯示終端需求仍疲軟。</li>
+<li><strong>車載市場地位：</strong> 在車載面板市場的全球出貨排名，彩晶已從2024年的前十名，於2025年上半年晉升至 <strong>第七名</strong>。</li>
+<li><strong>產業展望：</strong> 展望2026年，管理層預期整體面板市場平穩，預估產值成長率約 <strong>2%</strong>。</li>
+<li><strong>新產品計畫：</strong> 公司策略將持續聚焦高附加價值的車載與工控市場，並推出如23.8吋EcoVision顯示器等新產品，預計2026年第一季於歐洲透過自有品牌銷售。</li>
+<li><strong>潛在風險：</strong> 記憶體價格上漲影響拉貨動能，成為未來面板出貨的最大變數。</li>
+</ul>
+<hr>
+
+<h2>券商觀點</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>無</td><td>無最新公開資訊</td><td>無</td><td>無</td></tr>
+<tr><td>無</td><td>無最新公開資訊</td><td>無</td><td>無</td></tr>
+<tr><td>無</td><td>無最新公開資訊</td><td>無</td><td>無</td></tr>
+</tbody></table></div>
+
+<strong>2025-2026年 EPS 預估：</strong> 無最新公開資訊。
+
+<strong>重大調升/調降評等：</strong> 未找到 2025-2026 年有重大調升/調降評等的具體資訊。
+
+<hr>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2025年Q3</td><td>-16.68%</td><td>-32.63%</td><td>11.88%</td></tr>
+<tr><td>2025年Q2</td><td>-15.03%</td><td>-25.12%</td><td>-30.14%</td></tr>
+<tr><td>2025年Q1</td><td>-10.81%</td><td>-23.44%</td><td>-25.18%</td></tr>
+<tr><td>2024年Q4</td><td>-30.66%</td><td>-50.31%</td><td>-53.56%</td></tr>
+<tr><td>2024年Q3</td><td>-35.78%</td><td>-61.56%</td><td>-61.56%</td></tr>
+<tr><td>2024年Q2</td><td>-56.63%</td><td>-46.33%</td><td>-46.33%</td></tr>
+<tr><td>2024年Q1</td><td>-24.98%</td><td>-51.77%</td><td>-51.77%</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化原因分析：</strong>
+
+<ul><li><strong>產品組合調整效益：</strong> 彩晶積極轉型高附加價值車載與工控產品，該類產品佔比提升至約五成，有助於降低毛利率壓力。毛利率從2024年Q2的低點-56.63%逐步改善至2025年Q3的-16.68%，顯示產品結構調整的效益。</li>
+<li><strong>產業景氣回溫：</strong> 2025年面板產業進入「恢復期」，市場供需結構改善，帶動面板價格回升，對毛利率改善有正面助益。</li>
+<li><strong>業外收入貢獻：</strong> 2025年Q3稅後淨利率大幅轉正至11.88%，主要受惠於該季高達46.3%的業外收支佔營收比，顯示業外收入為當季獲利轉正的關鍵。</li>
+<li><strong>成本壓力：</strong> 儘管產品組合優化，但2025年前11月仍受產業景氣與成本結構影響，整體呈現虧損，記憶體價格上漲也對成本端造成壓力。</li>
+</ul>
+<h3>存貨分析</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數</th><th>應收帳款收現天數</th></tr></thead><tbody>
+<tr><td>2025年Q3</td><td>26.13 天</td><td>51.7 天</td></tr>
+<tr><td>2025年Q2</td><td>26.77 天</td><td>48.94 天</td></tr>
+<tr><td>2025年Q1</td><td>34.80 天</td><td>54.95 天</td></tr>
+<tr><td>2024年Q4</td><td>33.98 天</td><td>59.64 天</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>趨勢：</strong> 存貨週轉天數從2024年Q4的33.98天下降至2025年Q3的26.13天，顯示存貨去化速度加快，營運效率有所提升。應收帳款收現天數也從2024年Q4的59.64天下降至2025年Q3的51.7天，顯示收款效率有所改善。</li>
+<li><strong>存貨狀況：</strong> 從週轉天數趨勢來看，未見異常堆積或備料現象。</li>
+</ul>
+<h3>資本支出</h3>
+
+<ul><li><strong>近3年資本支出金額與趨勢：</strong></li>
+</ul>    *   <strong>2026年：</strong> 彩晶董事會於2026年3月4日核准新增資本支出預算 <strong>新台幣12.34億元</strong>，預計自2026年3月起陸續投資，用於115年度例行性及專案資本支出。
+<p>*   <strong>2025年：</strong> 未找到完整的年度資本支出金額。</p>
+<p>*   <strong>2024年：</strong> 彩晶董事會於2025年2月27日核准2024年資本支出預算追減約 <strong>新台幣4.21億元</strong>，調整後為新台幣8.09億元。</p>
+<ul><li><strong>未來資本支出計畫與預計新增產能：</strong> 最新的資本支出主要用於例行性及專案投資，而非大規模擴產。彩晶曾於2021年7月規劃新增一條產能約3萬片的生產線，但該計畫目前已暫停。公司傾向透過產能豐富產品線而非追求規模經濟。</li>
+<li><strong>折舊攤銷趨勢：</strong></li>
+</ul>    *   <strong>2025年Q3：</strong> 折舊 <strong>720,080 千元</strong>，攤銷 <strong>9,550 千元</strong>。
+<p>*   <strong>2024年Q4：</strong> 折舊 <strong>765,087 千元</strong>，攤銷 <strong>30,771 千元</strong>。</p>
+<p>*   折舊金額呈現緩步下降趨勢，攤銷金額則有較明顯的波動。</p>
+
+<h3>其他財報重點</h3>
+
+<ul><li><strong>負債比率：</strong> 從2024年Q4的 <strong>25.67%</strong> 逐漸下降至2025年Q3的 <strong>22.43%</strong>，顯示財務結構持續改善。</li>
+<li><strong>自由現金流量：</strong> 近四季自由現金流量雖仍為負值，但從2024年Q4的 <strong>-275,083 千元</strong> 改善至2025年Q1的 <strong>-372,465 千元</strong>，2025年Q3為 <strong>-556,159 千元</strong>，顯示虧損幅度有所收斂。</li>
+</ul>
+<hr>
+
+<h2>股權異動</h2>
+
+<ul><li><strong>董監事/大股東申報轉讓紀錄：</strong> 未找到 2024-2026 年的最新董監事/大股東申報轉讓資料。目前主要股東持股：董事長焦佑麒持股 <strong>2.60%</strong>，華新麗華股份有限公司持股 <strong>10.48%</strong>，金鑫投資股份有限公司持股 <strong>10.85%</strong>。</li>
+<li><strong>庫藏股買回紀錄：</strong> 彩晶董事會於2025年8月6日決議註銷庫藏股，並於2025年10月3日減資 <strong>8.1674億元</strong>，減資比率 <strong>2.78%</strong>。這代表曾有庫藏股買回，但2024年以後未有新的庫藏股買回計畫。</li>
+<li><strong>可轉換公司債 (CB) 發行：</strong> 未找到 2024-2026 年彩晶發行可轉換公司債（CB）及轉換價格的最新資料。</li>
+<li><strong>近期現金增資或減資計畫：</strong></li>
+</ul>    *   <strong>減資：</strong> 2025年8月6日通過註銷庫藏股並減資 <strong>2.78%</strong>，減資基準日為2025年10月3日，減資後股本為 <strong>285.86548510億元</strong>。
+<p>*   <strong>增資：</strong> 董事會於2026年3月4日決議通過以私募或公開發行方式擇一或搭配辦理現金增資發行普通股，額度不超過 <strong>3億股</strong>，用於充實營運資金、償還銀行借款、為策略聯盟發展相關事務使用。</p>
+<ul><li><strong>股利政策：</strong> 2024年股利為 <strong>0.0元</strong>。2025年股利尚未公告。公司曾於2022年配發現金股利 <strong>0.9955元/股</strong>。</li>
+</ul>
+<hr>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與成長率</h3>
+
+<ul><li><strong>車載顯示面板：</strong></li>
+</ul>    *   2024年全球市場規模估計 <strong>207.5億美元</strong>，預計2029年達 <strong>288.4億美元</strong>，2024-2029年複合年成長率（CAGR）為 <strong>6.80%</strong>。
+<p>*   另有預測指出，2024年車載顯示器全球市場規模為 <strong>160億美元</strong>，預計到2034年將以 <strong>12.2%</strong> 的年均複合成長率增長至 <strong>489億美元</strong>。</p>
+<p>*   矢野經濟研究所推估，2024年車載顯示器世界出貨量為 <strong>1.9864億枚</strong>，2025年預計為 <strong>2.0602億枚</strong>，年增 <strong>3.7%</strong>。</p>
+<ul><li><strong>工業用顯示器：</strong> 2024年全球市場規模估計 <strong>59.012億美元</strong>，預計2030年達 <strong>86.564億美元</strong>，2025-2030年CAGR為 <strong>6.7%</strong>。</li>
+<li><strong>AMOLED顯示面板：</strong> Omdia預計2026年營收將達 <strong>560億美元</strong>，較2025年成長 <strong>5%</strong>。</li>
+<li><strong>OLED顯示器面板 (電競)：</strong> 2025年出貨量預計上修至 <strong>340萬片</strong>，年增 <strong>69%</strong>。</li>
+</ul>
+<h3>供需狀況</h3>
+
+<p>整體顯示面板市場供需複雜且動態變化：</p>
+
+<ul><li><strong>大尺寸面板：</strong> 2024年第四季出貨量預期衰退，但因美國關稅及入門規格需求，IDC預期2025年第一季有望「淡季不淡」。</li>
+<li><strong>中小尺寸面板：</strong> 2025年第二季出貨量預計季減 <strong>10%</strong>，年減 <strong>6%</strong>，主要因智慧手錶、智慧型手機製造商進行業務與庫存調整。</li>
+<li><strong>面板製造商產能利用率：</strong> 預計2025年第二季將下降 <strong>3個百分點</strong>，主要因電視品牌削減液晶電視面板訂單。中國前三大廠（京東方、華星光電、惠科）預計5月將工廠月使用率減低 <strong>6-9%</strong>。</li>
+<li><strong>車載顯示器庫存：</strong> 矢野經濟研究所指出，2025年上半年因中國和歐洲電動車銷售放緩，導致全球過剩。</li>
+<li><strong>面板價格：</strong> 2025年開年以來持續上升，2月份電視面板價格小尺寸上漲 <strong>0.5～1美元</strong>，大尺寸續漲 <strong>1～3美元</strong>，顯示產業已走過低谷。</li>
+</ul>
+<h3>產業平均毛利率水準</h3>
+
+<p>目前未找到2024-2026年面板產業的明確平均毛利率數據，但隨著2025年面板價格回溫，產業毛利率有望改善。</p>
+
+<h3>競爭格局</h3>
+
+<p>根據Omdia資料，2025年中國大陸面板製造商可望佔有大尺寸LCD總出貨量的 <strong>66.7%</strong>，其次是台灣（<strong>21.9%</strong>）和韓國（<strong>8.0%</strong>）。</p>
+
+<strong>全球前 5 大大尺寸LCD出貨量公司市佔率 (2025年預估)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>排名</th><th>公司名稱</th><th>2025年大尺寸LCD出貨量市佔率</th></tr></thead><tbody>
+<tr><td>1</td><td>BOE (京東方)</td><td>36.3%</td></tr>
+<tr><td>2</td><td>China Star (華星光電)</td><td>16.5%</td></tr>
+<tr><td>3</td><td>Innolux (群創)</td><td>11.6%</td></tr>
+<tr><td>-</td><td>LGD (樂金顯示)</td><td>-</td></tr>
+<tr><td>-</td><td>AUO (友達)</td><td>-</td></tr>
+</tbody></table></div>
+
+<em>註：此處數據主要針對大尺寸LCD出貨量市佔率，中小尺寸面板的市佔率分佈可能有所不同。</em>
+
+<h3>彩晶 vs 主要競爭對手比較</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>6116 彩晶</th><th>主要競爭對手 (京東方, 天馬, 友達, 群創, LGD)</th></tr></thead><tbody>
+<tr><td><strong>技術</strong></td><td>TFT-LCD面板、觸控面板，聚焦中小尺寸，轉型車載、工控高附加價值應用。</td><td><strong>京東方:</strong> 大尺寸LCD領先，積極佈局OLED (LTPO/LTPS) 及VR、高附加值IT、車載顯示。<strong>天馬:</strong> 中小尺寸強，車載、手機等。<strong>友達:</strong> 高階顯示、垂直應用 (車載、工控、醫療)，Micro LED。<strong>群創:</strong> FOPLP技術，切入半導體封裝。<strong>LGD:</strong> OLED領先 (TV, 電競)，發展OLED顯示器。</td></tr>
+<tr><td><strong>產能</strong></td><td>5.3代線，約13-14萬片/月。無近期大規模擴產計畫。</td><td><strong>京東方/華星光電:</strong> 龐大高世代線產能 (8.5/8.6代線)，規模經濟優勢。<strong>LGD:</strong> 積極調整產能結構，提高OLED稼動率。</td></tr>
+<tr><td><strong>客戶</strong></td><td>聚焦車載（打入印度市場）、工控領域，客戶應為相關產業供應鏈。</td><td>範圍廣泛，涵蓋消費性電子、IT、車載、醫療等多領域品牌客戶。</td></tr>
+<tr><td><strong>價格</strong></td><td>透過轉型高附加價值應用，尋求避開大宗產品價格競爭。</td><td>具備規模優勢，在各類產品線上競爭激烈，影響產品定價策略。</td></tr>
+<tr><td><strong>策略</strong></td><td>差異化競爭，專注利基市場，提升附加價值。</td><td>規模化、多樣化技術佈局，全面競爭，並積極投入新技術領域。</td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢</h3>
+
+<li><strong>高階顯示技術發展 (OLED, Mini LED, Micro LED)：</strong></li>
+<p>*   <strong>影響：</strong> 消費者對顯示品質要求提升，OLED在手機、高階電視、電競及行動PC滲透率增加，2025年OLED顯示器面板出貨上修 <strong>69%</strong>。Mini LED在車載、高階筆電等應用嶄露頭角。這些技術提供更高對比、色彩鮮豔度，為面板廠帶來更高附加價值，但也促使廠商投入大量研發。</p>
+<li><strong>智慧座艙與車載顯示革新：</strong></li>
+<p>*   <strong>影響：</strong> 電動車與自駕技術發展驅動車載顯示器轉向多螢幕、大尺寸、高解析度、觸控互動的智慧座艙。車載顯示面板整合導航、娛樂、ADAS等功能，需要高可靠性、客製化面板。歐洲市場也將乘客顯示器視為標配。此趨勢創造對高階車載顯示面板的龐大需求。</p>
+<li><strong>工業4.0與自動化下的工控顯示應用：</strong></li>
+<p>*   <strong>影響：</strong> 工業自動化、智慧製造推進，對穩定可靠、耐用、具人機介面（HMI）功能的工控顯示器需求增長。工業用顯示器需具備寬溫、防塵防水、抗震等特性，且常整合觸控。例如，協作機器人系統對顯示器需求增長。這為專注工控顯示的廠商帶來穩定且高毛利的市場機會。</p>
+
+<h3>對彩晶的具體機會與威脅</h3>
+
+<strong>機會：</strong>
+
+<ul><li><strong>深耕車載與工控利基市場：</strong> 這些市場生命週期長、客製化高、對品質要求嚴格，有助於維持穩定的毛利率與客戶關係。隨著智慧座艙與工業自動化發展，彩晶有望擴大市場份額。</li>
+<li><strong>產品結構轉型效益顯現：</strong> 2025年前三季工控與車載營收佔比已達五成，預期2026年站穩五成以上，有效降低消費性產品市場波動影響。</li>
+<li><strong>產業景氣回溫：</strong> 2025-2026年面板產業景氣回溫，價格上漲，有利於營收與獲利表現。</li>
+</ul>
+<strong>威脅：</strong>
+
+<ul><li><strong>來自大廠的競爭：</strong> 京東方、天馬微電子等中國大型面板廠也積極佈局車載、工控市場，其龐大產能和研發投入可能構成競爭壓力。</li>
+<li><strong>新技術的挑戰：</strong> OLED、Mini LED等新技術快速發展與成本下降，可能衝擊TFT-LCD在部分高階應用市場的地位。彩晶需持續投入研發。</li>
+<li><strong>全球經濟不確定性：</strong> 記憶體價格上漲、地緣政治風險及電動車銷售放緩等，可能影響車載與工控市場成長動能。</li>
+<li><strong>營運尚未穩定轉盈：</strong> 基本營運仍處虧損狀態，獲利基礎仍不穩固。</li>
+</ul>
+<h3>相關投資題材連結</h3>
+
+<ul><li><strong>電動車 (EV) 及智慧座艙：</strong> 彩晶在車載面板的佈局與電動車趨勢高度相關，電動車對多螢幕、高解析度智慧座艙的需求，為彩晶產品帶來直接市場。</li>
+<li><strong>AI PC：</strong> 預計推升高解析度、高刷新率面板需求，若彩晶能提供特定中小尺寸顯示方案，亦可受惠。</li>
+<li><strong>工業自動化與智慧工廠：</strong> 彩晶在工控顯示的深耕與工業4.0趨勢緊密相連，製造業對效率提升的需求，將帶動工控顯示器成長。</li>
+<li><strong>AI 與顯示面板應用：</strong> AI技術推進將拉升電子產品換機需求，並使面板出貨量成長；未來AI在顯示器上的智慧人機介面等應用，也可能帶來新商機。</li>
+</ul>
+<hr>
+
+<h2>近期催化劑</h2>
+
+<ul><li><strong>2025年8月6日：註銷庫藏股與組織架構調整（利多）</strong></li>
+</ul>    *   董事會通過簡易合併三家子公司以簡化組織、降低成本。決議註銷庫藏股，預計減資 <strong>8.1674億元</strong>，減資比率 <strong>2.78%</strong>，有助於提升每股淨值。
+<ul><li><strong>2025年11月：營收成長（利多）</strong></li>
+</ul>    *   單月合併營收 <strong>9.46億元</strong>，年增 <strong>10.72%</strong>，為近兩個月新高，顯示車用與工控需求具支撐力。
+<ul><li><strong>2025年12月16日：法說會展望（中性偏多）</strong></li>
+</ul>    *   管理層表示2025年前三季工控與車載營收占比已達 <strong>50%</strong>，預期2026年穩定站上五成以上，並對2026年面板市場產值成長 <strong>2%</strong> 抱持平穩預期。
+<ul><li><strong>2025年12月：單月虧損（利空）</strong></li>
+</ul>    *   自結稅後淨損 <strong>3.72億元</strong>，換算每股虧損 <strong>0.13元</strong>，為連續虧損格局。
+<ul><li><strong>2025年前11月營運表現：虧損收斂（利多）</strong></li>
+</ul>    *   合併營收達 <strong>104.98億元</strong>，年增 <strong>16.83%</strong>。稅後淨損約 <strong>13.07億元</strong>，每股稅後淨損約 <strong>0.46元</strong>，但與去年同期相比，虧損幅度有明顯收斂。
+<ul><li><strong>2026年1月：營收成長（利多）</strong></li>
+</ul>    *   營收 <strong>10.55億元</strong>，月增 <strong>12.29%</strong>，年增 <strong>11.91%</strong>，表現亮眼。
+<ul><li><strong>2026年1月上旬：股價波動與法人買賣超（中性偏多）</strong></li>
+</ul>    *   股價自2025年12月至2026年初急漲逾六成，最高至 <strong>11.65元</strong>。外資大買 <strong>9,286張</strong> (1月8日)。
+<ul><li><strong>2026年2月上旬：外資大幅賣超（利空）</strong></li>
+</ul>    *   上週外資大幅賣超 <strong>5.48萬張</strong>，顯示族群信心低迷。
+<ul><li><strong>2026年3月4日：董事會核准資本支出與增資計畫（利多/中性）</strong></li>
+</ul>    *   核准新增資本支出預算 <strong>新台幣12.34億元</strong>，用於例行性及專案投資。
+<p>*   決議通過以私募或公開發行方式辦理現金增資發行普通股，額度不超過 <strong>3億股</strong>，用於充實營運資金、償還銀行借款及策略聯盟發展。</p>
+<ul><li><strong>2026年3月上旬：外資/自營商買賣超（中性）</strong></li>
+</ul>    *   外資於2026年3月5日買超 <strong>1,182張</strong>，自營商買超 <strong>114張</strong>；但3月3日至4日外資合計賣超逾 <strong>1.4萬張</strong>。
+
+<hr>
+
+<h2>⭐ 成長動能時間軸</h2>
+
+<li><strong>2025年前三季：產品組合轉型顯效</strong></li>
+<p>*   工控與車載面板營收佔比已提升至 <strong>約五成</strong>，超越傳統智慧型手機與平板電腦應用，顯示公司轉型策略已具成效。</p>
+<li><strong>2025年下半年至2026年上半年：車載出貨迎來下一波成長期</strong></li>
+<p>*   彩晶積極佈局印度車載市場，並在摩托車市場取得印度品牌廠商認證。隨著汽車數位化趨勢，儀表板與側視鏡等車用顯示器需求將增加，預期帶來新一波出貨增長。</p>
+<li><strong>2026年第一季：自有品牌新產品上市</strong></li>
+<p>*   公司將透過Hannspree自有品牌在歐洲銷售23.8吋EcoVision顯示器等新產品，有助於拓展市場與提升品牌價值。</p>
+<li><strong>2026年：工控與車載比重穩定站上五成以上</strong></li>
+<p>*   管理層預期此高附加價值應用將成為營運主軸，隨著全球工業自動化與智慧座艙趨勢，提供穩定且具成長潛力的營收基礎。</p>
+<li><strong>2026年3月起：新增資本支出投入</strong></li>
+<p>*   董事會核准新增 <strong>新台幣12.34億元</strong> 的資本支出預算，將陸續投資於年度例行性及專案資本支出，有助於維持技術競爭力與營運效率。</p>
+<li><strong>2026年：現金增資強化財務體質</strong></li>
+<p>*   董事會決議辦理不超過 <strong>3億股</strong> 的現金增資，旨在充實營運資金、償還銀行借款並支持策略聯盟，為長期發展提供資金支持。</p>
+<li><strong>中長期：產業需求面支撐</strong></li>
+<p>*   面板產業預計在2025年12月觸底後，2026年1月起價格開始反彈。車用與工控需求作為彩晶營運支撐力，預計將持續推動營運成長。</p>
+
+<hr>
+
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+
+<ul><li><strong>產品結構持續優化：</strong> 2026年工控與車載面板營收占比預計將穩定站上 <strong>五成以上</strong>，專注高附加價值利基市場，有效降低消費性電子市場波動的衝擊。</li>
+<li><strong>面板產業回溫：</strong> 2026年面板產業整體產值預估成長約 <strong>2%</strong>，且面板價格自2026年1月起反彈，有利於公司毛利率與營收表現。</li>
+<li><strong>新資本支出與增資：</strong> 2026年核准的 <strong>12.34億元</strong> 資本支出將用於例行性及專案投資，以及不超過 <strong>3億股</strong> 的現金增資計畫，有助於強化公司營運資金與未來發展動能。</li>
+<li><strong>車載市場地位提升：</strong> 2025年上半年車載面板全球出貨排名已升至 <strong>第七名</strong>，顯示其在關鍵市場的競爭力，預期2026年車載出貨將迎來新一波成長。</li>
+</ul>
+<h3>風險</h3>
+
+<ul><li><strong>獲利基礎仍不穩固：</strong> 儘管2025年虧損收斂且2025年Q3因業外收入轉盈，但基本營運仍處於虧損狀態，法人預估2026年營收雖持平或微幅成長，但年度虧損恐怕略微擴大。</li>
+<li><strong>記憶體價格上漲衝擊：</strong> 記憶體價格大幅上漲，可能影響筆電與手機品牌客戶拉貨節奏，進而對面板出貨造成不確定性。</li>
+<li><strong>市場競爭加劇：</strong> 大陸面板廠仍是強勁競爭者，其高世代線產能可能對中小尺寸市場造成價格壓力。</li>
+<li><strong>新技術替代威脅：</strong> OLED、Mini LED等高階顯示技術的快速發展與成本下降，可能長期侵蝕TFT-LCD市場。</li>
+<li><strong>全球經濟不確定性：</strong> 全球經濟成長放緩、地緣政治風險及電動車銷售增長趨緩，可能影響車載與工控市場的成長動能。</li>
+<li><strong>股價波動風險：</strong> 短期股價已因市場期待轉型效益而有大幅波動，在獲利基礎未穩固前，仍需注意回調風險。</li>
+</ul>
+<hr>
+
+<h2>投資結論</h2>
+
+<p>綜合以上深度分析，彩晶的投資價值點和潛在風險如下：</p>
+
+<li><strong>轉型效益逐步顯現，利基市場初具規模：</strong> 彩晶成功將營運重心轉向高附加價值的車載與工控面板，2025年前三季工控與車載營收佔比已達 <strong>50%</strong>，並預計2026年穩定站上五成以上。此策略使其在全球車載面板市場晉升至 <strong>第七名</strong>，有效規避消費性電子市場的紅海競爭。</li>
+<li><strong>營運改善，但獲利基礎仍待穩固：</strong> 2025年營收年增 <strong>16.83%</strong>，虧損幅度顯著收斂，2025年Q3因業外收入實現淨利 <strong>0.11元/股</strong>。2026年1月營收月增 <strong>12.29%</strong>、年增 <strong>11.91%</strong>，顯示營運持續回溫。然而，考量2025年前11月仍有 <strong>0.46元/股</strong> 的虧損，以及法人預估2026年營收持平微增但年度虧損可能擴大的情況，穩定獲利仍是公司最大挑戰。</li>
+<li><strong>積極的資本佈局與財務強化：</strong> 2026年核准 <strong>12.34億元</strong> 資本支出與不超過 <strong>3億股</strong> 的現金增資計畫，顯示公司致力於維持競爭力並強化財務體質。減資 <strong>2.78%</strong> 也有助於提升每股淨值。</li>
+<li><strong>產業趨勢有利，但外部風險仍存：</strong> 面板產業景氣回溫，價格反彈，加上車載、工控顯示器市場的結構性成長，為彩晶提供有利的外部環境。然而，記憶體價格上漲、大陸面板廠的競爭壓力以及全球經濟的不確定性，仍是潛在的外部風險。</li>
+
+<strong>投資建議：</strong> 考量公司轉型效益逐步顯現且已在利基市場取得初步成果，但獲利基礎仍不穩固，投資人應以長期佈局思維看待。在面板產業景氣回溫、公司高附加價值應用佔比提升的趨勢下，若能有效控制成本並實現穩定獲利，中長期具備成長潛力。
+
+<strong>股價區間建議：</strong> 考量公司轉型效益逐步顯現但獲利基礎仍不穩固，投資人應以長期佈局思維看待。若公司能成功轉虧為盈並在車載、工控市場持續擴大份額，中長期可望挑戰 <strong>新台幣10-14元</strong>。惟短期在獲利基礎未穩固前，股價波動風險仍高，建議保守觀望或分批佈局於 <strong>新台幣8-11元</strong> 區間。
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:36</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="6116_彩晶_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="6116_彩晶_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="6116_彩晶_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

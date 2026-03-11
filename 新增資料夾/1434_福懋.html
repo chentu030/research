@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1434 福懋 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>1434 福懋 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+
+<p>福懋興業（1434）作為台塑集團旗下的多元化企業，在紡織產業面臨挑戰之際，正積極透過高毛利機能布與戶外布料的產品轉型、新市場開拓及亞洲第三生產據點的佈局，以應對中國大陸低價競爭並搶佔高端市場。受惠於2026年世界盃足球賽的球衣布料需求拉貨及戶外運動風潮，公司預期營運基本面將自2026年好轉，儘管短期仍需面對總體經濟不確定性與潛在關稅影響，長期成長動能仍值得關注。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">1434 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-1434" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-1434" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-1434');
+    var obvContainer = document.getElementById('obv-chart-1434');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 17.1, "high": 17.15, "low": 16.45, "close": 16.5}, {"time": "2025-12-05", "open": 16.45, "high": 16.45, "low": 16.2, "close": 16.35}, {"time": "2025-12-08", "open": 16.35, "high": 16.35, "low": 16.15, "close": 16.35}, {"time": "2025-12-09", "open": 16.25, "high": 16.25, "low": 16.05, "close": 16.25}, {"time": "2025-12-10", "open": 16.15, "high": 16.3, "low": 16.05, "close": 16.1}, {"time": "2025-12-11", "open": 16.1, "high": 16.1, "low": 15.9, "close": 16.0}, {"time": "2025-12-12", "open": 16.15, "high": 16.2, "low": 15.9, "close": 15.95}, {"time": "2025-12-15", "open": 15.9, "high": 16.2, "low": 15.85, "close": 16.05}, {"time": "2025-12-16", "open": 15.85, "high": 15.9, "low": 15.7, "close": 15.85}, {"time": "2025-12-17", "open": 15.85, "high": 15.95, "low": 15.55, "close": 15.6}, {"time": "2025-12-18", "open": 15.65, "high": 15.8, "low": 15.55, "close": 15.6}, {"time": "2025-12-19", "open": 15.6, "high": 16.05, "low": 15.6, "close": 15.9}, {"time": "2025-12-22", "open": 15.9, "high": 16.5, "low": 15.9, "close": 16.5}, {"time": "2025-12-23", "open": 16.6, "high": 16.6, "low": 16.15, "close": 16.2}, {"time": "2025-12-24", "open": 16.2, "high": 16.3, "low": 15.9, "close": 15.9}, {"time": "2025-12-26", "open": 15.95, "high": 15.95, "low": 15.65, "close": 15.7}, {"time": "2025-12-29", "open": 15.75, "high": 15.95, "low": 15.7, "close": 15.75}, {"time": "2025-12-30", "open": 15.75, "high": 16.0, "low": 15.75, "close": 15.85}, {"time": "2025-12-31", "open": 15.95, "high": 16.25, "low": 15.9, "close": 15.9}, {"time": "2026-01-02", "open": 16.0, "high": 16.1, "low": 15.7, "close": 15.8}, {"time": "2026-01-05", "open": 15.8, "high": 15.85, "low": 15.55, "close": 15.6}, {"time": "2026-01-06", "open": 15.6, "high": 15.75, "low": 15.45, "close": 15.55}, {"time": "2026-01-07", "open": 15.6, "high": 16.7, "low": 15.6, "close": 16.4}, {"time": "2026-01-08", "open": 16.4, "high": 16.7, "low": 15.85, "close": 16.1}, {"time": "2026-01-09", "open": 16.15, "high": 16.35, "low": 15.85, "close": 15.9}, {"time": "2026-01-12", "open": 16.0, "high": 16.3, "low": 16.0, "close": 16.25}, {"time": "2026-01-13", "open": 16.3, "high": 16.3, "low": 15.9, "close": 16.05}, {"time": "2026-01-14", "open": 16.15, "high": 16.35, "low": 16.1, "close": 16.2}, {"time": "2026-01-15", "open": 16.2, "high": 16.4, "low": 16.2, "close": 16.35}, {"time": "2026-01-16", "open": 16.4, "high": 16.5, "low": 16.25, "close": 16.3}, {"time": "2026-01-19", "open": 16.35, "high": 16.95, "low": 16.35, "close": 16.75}, {"time": "2026-01-20", "open": 16.8, "high": 16.8, "low": 16.35, "close": 16.4}, {"time": "2026-01-21", "open": 16.3, "high": 16.3, "low": 16.05, "close": 16.25}, {"time": "2026-01-22", "open": 16.25, "high": 16.4, "low": 16.1, "close": 16.25}, {"time": "2026-01-23", "open": 16.3, "high": 16.6, "low": 16.15, "close": 16.5}, {"time": "2026-01-26", "open": 16.65, "high": 17.75, "low": 16.65, "close": 17.6}, {"time": "2026-01-27", "open": 17.65, "high": 17.75, "low": 17.15, "close": 17.4}, {"time": "2026-01-28", "open": 17.45, "high": 17.55, "low": 17.15, "close": 17.35}, {"time": "2026-01-29", "open": 17.45, "high": 17.5, "low": 16.9, "close": 17.05}, {"time": "2026-01-30", "open": 17.1, "high": 17.15, "low": 16.65, "close": 16.65}, {"time": "2026-02-02", "open": 16.75, "high": 17.05, "low": 16.6, "close": 16.8}, {"time": "2026-02-03", "open": 16.8, "high": 17.15, "low": 16.8, "close": 16.95}, {"time": "2026-02-04", "open": 16.95, "high": 17.45, "low": 16.85, "close": 17.45}, {"time": "2026-02-05", "open": 17.45, "high": 17.6, "low": 17.3, "close": 17.5}, {"time": "2026-02-06", "open": 17.5, "high": 17.5, "low": 16.95, "close": 17.1}, {"time": "2026-02-09", "open": 17.3, "high": 17.9, "low": 17.25, "close": 17.75}, {"time": "2026-02-10", "open": 17.65, "high": 17.8, "low": 17.3, "close": 17.5}, {"time": "2026-02-11", "open": 17.6, "high": 17.7, "low": 17.45, "close": 17.6}, {"time": "2026-02-23", "open": 17.85, "high": 17.95, "low": 17.6, "close": 17.7}, {"time": "2026-02-24", "open": 17.7, "high": 17.9, "low": 17.55, "close": 17.9}, {"time": "2026-02-25", "open": 17.95, "high": 18.5, "low": 17.85, "close": 18.45}, {"time": "2026-02-26", "open": 18.35, "high": 18.35, "low": 18.0, "close": 18.3}, {"time": "2026-03-02", "open": 17.65, "high": 17.65, "low": 17.1, "close": 17.15}, {"time": "2026-03-03", "open": 17.9, "high": 18.25, "low": 17.65, "close": 17.85}, {"time": "2026-03-04", "open": 17.65, "high": 17.65, "low": 17.1, "close": 17.15}, {"time": "2026-03-05", "open": 17.15, "high": 17.45, "low": 17.05, "close": 17.3}, {"time": "2026-03-06", "open": 17.15, "high": 17.65, "low": 17.15, "close": 17.6}, {"time": "2026-03-09", "open": 17.4, "high": 17.7, "low": 16.85, "close": 16.95}, {"time": "2026-03-10", "open": 17.15, "high": 17.15, "low": 16.6, "close": 16.7}, {"time": "2026-03-11", "open": 16.75, "high": 16.85, "low": 16.65, "close": 16.75}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 2513.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 1462.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 769.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 1115.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 950.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 866.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 800.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 1105.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 1407.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 1779.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 909.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 2291.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 2630.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 1256.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 1068.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 1315.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 1300.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 1191.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 1919.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 1620.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 2146.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 3511.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 7535.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 5555.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 4500.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 3232.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 2423.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 3816.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 2884.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 2660.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 6368.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 4440.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 3492.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 2506.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 3831.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 12885.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 6899.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 4367.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 5688.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 3804.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 4552.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 3261.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 5134.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 3922.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 3345.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 5588.0, "color": "#ef5350"}, {"time": "2026-02-10", "value": 2846.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 2911.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 3429.0, "color": "#26a69a"}, {"time": "2026-02-24", "value": 2372.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 5155.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 3730.0, "color": "#26a69a"}, {"time": "2026-03-02", "value": 4356.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 3085.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 4356.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 2745.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 1732.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 4840.0, "color": "#26a69a"}, {"time": "2026-03-10", "value": 2966.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 1544.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 16.310000000000002}, {"time": "2025-12-11", "value": 16.21}, {"time": "2025-12-12", "value": 16.130000000000003}, {"time": "2025-12-15", "value": 16.07}, {"time": "2025-12-16", "value": 15.99}, {"time": "2025-12-17", "value": 15.89}, {"time": "2025-12-18", "value": 15.809999999999999}, {"time": "2025-12-19", "value": 15.8}, {"time": "2025-12-22", "value": 15.89}, {"time": "2025-12-23", "value": 15.959999999999999}, {"time": "2025-12-24", "value": 16.02}, {"time": "2025-12-26", "value": 16.04}, {"time": "2025-12-29", "value": 16.009999999999998}, {"time": "2025-12-30", "value": 15.88}, {"time": "2025-12-31", "value": 15.819999999999999}, {"time": "2026-01-02", "value": 15.8}, {"time": "2026-01-05", "value": 15.780000000000001}, {"time": "2026-01-06", "value": 15.74}, {"time": "2026-01-07", "value": 15.85}, {"time": "2026-01-08", "value": 15.89}, {"time": "2026-01-09", "value": 15.91}, {"time": "2026-01-12", "value": 16.04}, {"time": "2026-01-13", "value": 16.14}, {"time": "2026-01-14", "value": 16.1}, {"time": "2026-01-15", "value": 16.15}, {"time": "2026-01-16", "value": 16.23}, {"time": "2026-01-19", "value": 16.330000000000002}, {"time": "2026-01-20", "value": 16.4}, {"time": "2026-01-21", "value": 16.41}, {"time": "2026-01-22", "value": 16.39}, {"time": "2026-01-23", "value": 16.43}, {"time": "2026-01-26", "value": 16.6}, {"time": "2026-01-27", "value": 16.8}, {"time": "2026-01-28", "value": 17.02}, {"time": "2026-01-29", "value": 17.18}, {"time": "2026-01-30", "value": 17.21}, {"time": "2026-02-02", "value": 17.05}, {"time": "2026-02-03", "value": 16.96}, {"time": "2026-02-04", "value": 16.98}, {"time": "2026-02-05", "value": 17.07}, {"time": "2026-02-06", "value": 17.16}, {"time": "2026-02-09", "value": 17.35}, {"time": "2026-02-10", "value": 17.46}, {"time": "2026-02-11", "value": 17.490000000000002}, {"time": "2026-02-23", "value": 17.53}, {"time": "2026-02-24", "value": 17.69}, {"time": "2026-02-25", "value": 17.830000000000002}, {"time": "2026-02-26", "value": 17.990000000000002}, {"time": "2026-03-02", "value": 17.9}, {"time": "2026-03-03", "value": 17.93}, {"time": "2026-03-04", "value": 17.78}, {"time": "2026-03-05", "value": 17.55}, {"time": "2026-03-06", "value": 17.41}, {"time": "2026-03-09", "value": 17.369999999999997}, {"time": "2026-03-10", "value": 17.14}, {"time": "2026-03-11", "value": 17.06}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 16.1}, {"time": "2025-12-18", "value": 16.009999999999998}, {"time": "2025-12-19", "value": 15.965}, {"time": "2025-12-22", "value": 15.98}, {"time": "2025-12-23", "value": 15.975}, {"time": "2025-12-24", "value": 15.955000000000002}, {"time": "2025-12-26", "value": 15.925}, {"time": "2025-12-29", "value": 15.905000000000001}, {"time": "2025-12-30", "value": 15.885}, {"time": "2025-12-31", "value": 15.89}, {"time": "2026-01-02", "value": 15.91}, {"time": "2026-01-05", "value": 15.91}, {"time": "2026-01-06", "value": 15.875}, {"time": "2026-01-07", "value": 15.865}, {"time": "2026-01-08", "value": 15.855}, {"time": "2026-01-09", "value": 15.855}, {"time": "2026-01-12", "value": 15.91}, {"time": "2026-01-13", "value": 15.940000000000001}, {"time": "2026-01-14", "value": 15.975}, {"time": "2026-01-15", "value": 16.02}, {"time": "2026-01-16", "value": 16.07}, {"time": "2026-01-19", "value": 16.185}, {"time": "2026-01-20", "value": 16.27}, {"time": "2026-01-21", "value": 16.255000000000003}, {"time": "2026-01-22", "value": 16.27}, {"time": "2026-01-23", "value": 16.330000000000002}, {"time": "2026-01-26", "value": 16.465}, {"time": "2026-01-27", "value": 16.6}, {"time": "2026-01-28", "value": 16.715}, {"time": "2026-01-29", "value": 16.785}, {"time": "2026-01-30", "value": 16.82}, {"time": "2026-02-02", "value": 16.825}, {"time": "2026-02-03", "value": 16.880000000000003}, {"time": "2026-02-04", "value": 17.0}, {"time": "2026-02-05", "value": 17.125}, {"time": "2026-02-06", "value": 17.185}, {"time": "2026-02-09", "value": 17.2}, {"time": "2026-02-10", "value": 17.21}, {"time": "2026-02-11", "value": 17.235}, {"time": "2026-02-23", "value": 17.3}, {"time": "2026-02-24", "value": 17.425}, {"time": "2026-02-25", "value": 17.59}, {"time": "2026-02-26", "value": 17.725}, {"time": "2026-03-02", "value": 17.695}, {"time": "2026-03-03", "value": 17.73}, {"time": "2026-03-04", "value": 17.735}, {"time": "2026-03-05", "value": 17.69}, {"time": "2026-03-06", "value": 17.7}, {"time": "2026-03-09", "value": 17.634999999999998}, {"time": "2026-03-10", "value": 17.535}, {"time": "2026-03-11", "value": 17.419999999999998}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 16.005000000000003}, {"time": "2026-01-05", "value": 15.959999999999999}, {"time": "2026-01-06", "value": 15.919999999999998}, {"time": "2026-01-07", "value": 15.9225}, {"time": "2026-01-08", "value": 15.915000000000001}, {"time": "2026-01-09", "value": 15.905000000000001}, {"time": "2026-01-12", "value": 15.9175}, {"time": "2026-01-13", "value": 15.9225}, {"time": "2026-01-14", "value": 15.930000000000001}, {"time": "2026-01-15", "value": 15.955000000000002}, {"time": "2026-01-16", "value": 15.99}, {"time": "2026-01-19", "value": 16.0475}, {"time": "2026-01-20", "value": 16.072499999999998}, {"time": "2026-01-21", "value": 16.06}, {"time": "2026-01-22", "value": 16.0625}, {"time": "2026-01-23", "value": 16.0925}, {"time": "2026-01-26", "value": 16.1875}, {"time": "2026-01-27", "value": 16.27}, {"time": "2026-01-28", "value": 16.345}, {"time": "2026-01-29", "value": 16.4025}, {"time": "2026-01-30", "value": 16.445}, {"time": "2026-02-02", "value": 16.505000000000003}, {"time": "2026-02-03", "value": 16.575}, {"time": "2026-02-04", "value": 16.6275}, {"time": "2026-02-05", "value": 16.697499999999998}, {"time": "2026-02-06", "value": 16.7575}, {"time": "2026-02-09", "value": 16.8325}, {"time": "2026-02-10", "value": 16.905}, {"time": "2026-02-11", "value": 16.975}, {"time": "2026-02-23", "value": 17.0425}, {"time": "2026-02-24", "value": 17.1225}, {"time": "2026-02-25", "value": 17.2075}, {"time": "2026-02-26", "value": 17.302500000000002}, {"time": "2026-03-02", "value": 17.3475}, {"time": "2026-03-03", "value": 17.427500000000002}, {"time": "2026-03-04", "value": 17.46}, {"time": "2026-03-05", "value": 17.445}, {"time": "2026-03-06", "value": 17.455000000000002}, {"time": "2026-03-09", "value": 17.435}, {"time": "2026-03-10", "value": 17.4175}, {"time": "2026-03-11", "value": 17.4225}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -1462.0}, {"time": "2025-12-08", "value": -1462.0}, {"time": "2025-12-09", "value": -2577.0}, {"time": "2025-12-10", "value": -3527.0}, {"time": "2025-12-11", "value": -4393.0}, {"time": "2025-12-12", "value": -5193.0}, {"time": "2025-12-15", "value": -4088.0}, {"time": "2025-12-16", "value": -5495.0}, {"time": "2025-12-17", "value": -7274.0}, {"time": "2025-12-18", "value": -7274.0}, {"time": "2025-12-19", "value": -4983.0}, {"time": "2025-12-22", "value": -2353.0}, {"time": "2025-12-23", "value": -3609.0}, {"time": "2025-12-24", "value": -4677.0}, {"time": "2025-12-26", "value": -5992.0}, {"time": "2025-12-29", "value": -4692.0}, {"time": "2025-12-30", "value": -3501.0}, {"time": "2025-12-31", "value": -1582.0}, {"time": "2026-01-02", "value": -3202.0}, {"time": "2026-01-05", "value": -5348.0}, {"time": "2026-01-06", "value": -8859.0}, {"time": "2026-01-07", "value": -1324.0}, {"time": "2026-01-08", "value": -6879.0}, {"time": "2026-01-09", "value": -11379.0}, {"time": "2026-01-12", "value": -8147.0}, {"time": "2026-01-13", "value": -10570.0}, {"time": "2026-01-14", "value": -6754.0}, {"time": "2026-01-15", "value": -3870.0}, {"time": "2026-01-16", "value": -6530.0}, {"time": "2026-01-19", "value": -162.0}, {"time": "2026-01-20", "value": -4602.0}, {"time": "2026-01-21", "value": -8094.0}, {"time": "2026-01-22", "value": -8094.0}, {"time": "2026-01-23", "value": -4263.0}, {"time": "2026-01-26", "value": 8622.0}, {"time": "2026-01-27", "value": 1723.0}, {"time": "2026-01-28", "value": -2644.0}, {"time": "2026-01-29", "value": -8332.0}, {"time": "2026-01-30", "value": -12136.0}, {"time": "2026-02-02", "value": -7584.0}, {"time": "2026-02-03", "value": -4323.0}, {"time": "2026-02-04", "value": 811.0}, {"time": "2026-02-05", "value": 4733.0}, {"time": "2026-02-06", "value": 1388.0}, {"time": "2026-02-09", "value": 6976.0}, {"time": "2026-02-10", "value": 4130.0}, {"time": "2026-02-11", "value": 7041.0}, {"time": "2026-02-23", "value": 10470.0}, {"time": "2026-02-24", "value": 12842.0}, {"time": "2026-02-25", "value": 17997.0}, {"time": "2026-02-26", "value": 14267.0}, {"time": "2026-03-02", "value": 9911.0}, {"time": "2026-03-03", "value": 12996.0}, {"time": "2026-03-04", "value": 8640.0}, {"time": "2026-03-05", "value": 11385.0}, {"time": "2026-03-06", "value": 13117.0}, {"time": "2026-03-09", "value": 8277.0}, {"time": "2026-03-10", "value": 5311.0}, {"time": "2026-03-11", "value": 6855.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>福懋興業主要從事平織布製造，同時也是機能布料的重要供應商，並跨足輪胎簾布製造及加油站經營。公司致力於創新產品和差異化材料開發，以搶攻高端市場。</p>
+
+<strong>核心產品與服務：</strong>
+<p>尼龍多富達布、聚酯布、傘骨槽骨、輪胎簾布、棉紗、人造棉紗、合成纖維紗、混紡紗、織布染整、成衣、被單、床單等相關製品，以及高分子聚合物製品、防彈衣背心、夾克、工業用工作服等。</p>
+
+<strong>製造基地：</strong>
+<p>台灣、越南、中國。台灣和越南廠區目前接近滿載運作，中國廠區仍有餘裕。越南廠區為公司主要供應鏈之一，約佔五成，主要供應美國市場。</p>
+
+<strong>2025年前三季合併營收結構</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務項目</th><th>營收佔比</th></tr></thead><tbody>
+<tr><td>平織布</td><td>53%</td></tr>
+<tr><td>簾布</td><td>11%</td></tr>
+<tr><td>油品</td><td>36%</td></tr>
+</tbody></table></div>
+
+<strong>2026年產品結構預估（總經理李敏章於2025年10月指出）</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品類別</th><th>佔比預估</th></tr></thead><tbody>
+<tr><td>戶外布料</td><td>45%</td></tr>
+<tr><td>運動布料</td><td>40%</td></tr>
+<tr><td>休閒與生活風格</td><td>15%</td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>多元業務佈局與抗風險能力：</strong> 涵蓋紡織纖維、輪胎簾布及油品事業，透過多角化經營分散單一產業波動風險。</li>
+<li><strong>高端機能布料研發實力：</strong> 積極發展高機能性、永續、環保等創新與差異化材料，搶佔高端市場並維繫品牌信任。</li>
+<li><strong>全球化生產供應鏈：</strong> 擁有台灣、越南、中國製造基地，其中越南廠區為美國市場主力供應商，並積極評估亞洲第三生產據點，提升產能利用率並分散地緣政治風險。</li>
+<li><strong>台塑集團資源整合：</strong> 作為台塑集團旗下公司，可望在原料供應、技術合作及資金調度上獲得集團支持。</li>
+<li><strong>長期品牌合作關係：</strong> 主要客戶以大型品牌為主，佔比達95%，顯示其產品品質與供應穩定性獲得國際品牌認可。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<strong>福懋 (1434) 近6個月合併營收</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>2 026/01</td><td>24.26</td><td>+6.64%</td><td>+5.09%</td></tr>
+<tr><td>2 025/12</td><td>22.75</td><td>+17.91%</td><td>-6.08%</td></tr>
+<tr><td>2 025/11</td><td>19.29</td><td>+1.20%</td><td>-10.18%</td></tr>
+<tr><td>2 025/10</td><td>19.07</td><td>-11.59%</td><td>-15.64%</td></tr>
+<tr><td>2 025/09</td><td>21.57</td><td>-1.21%</td><td>-8.86%</td></tr>
+<tr><td>2 025/08</td><td>21.83</td><td>-0.13%</td><td>-10.54%</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>營收動能：</strong> 2026年1月營收達新台幣24.26億元，創近9個月新高，顯示營運有逐步回溫跡象，年增率及月增率皆轉正。</li>
+</ul>
+<h3>季度數據</h3>
+
+<strong>福懋 (1434) 最新季度財務表現 (2025年第三季)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>指標</th><th>2025年第三季 (Q3)</th></tr></thead><tbody>
+<tr><td>季營收</td><td>新台幣65.06億元</td></tr>
+<tr><td>毛利率</td><td>11.27%</td></tr>
+<tr><td>營業利益率</td><td>1.43%</td></tr>
+<tr><td>每股盈餘 (EPS)</td><td>新台幣0.2元</td></tr>
+</tbody></table></div>
+
+<h3>年度趨勢</h3>
+
+<strong>福懋 (1434) 年度營收與EPS</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>全年營收 (新台幣億元)</th><th>全年EPS (新台幣元)</th></tr></thead><tbody>
+<tr><td>2024 (實際)</td><td>-</td><td>0.89</td></tr>
+<tr><td>2025 (實際)</td><td>275.43 (年減4.08%)</td><td>0.29 (累計至Q3)</td></tr>
+<tr><td>2026 (預估)</td><td>未提供</td><td>未提供</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>年度表現：</strong> 2025年累計營收年減4.08%，且前三季累計EPS僅0.29元，顯示整體營運仍處於壓力之下，但已開始展現回溫跡象。</li>
+</ul>
+<h2>法說會重點</h2>
+
+<strong>最近一次法說會日期：</strong> 2025年11月26日下午2點，華南永昌證券舉辦。
+
+<strong>管理層發言與Guidance：</strong>
+
+<ul><li><strong>產業困境與應對：</strong> 紡織業面臨中國大陸低價競爭與全球需求保守壓力，福懋透過創新產品與差異化材料搶占高端市場，維繫品牌信任。</li>
+<li><strong>2026年世足賽商機：</strong> 預期將帶動球衣布料需求，供應鏈自2025年下半年起陸續拉貨，若晉級隊伍有望迎來追加訂單，對業績有正面挹注。</li>
+<li><strong>機能性平織布：</strong> 預計2026年出貨量可增加近1成。</li>
+<li><strong>產能利用率：</strong> 目前台灣、越南廠區接近滿載（秋冬九成以上，春夏約七成），中國大陸廠區仍有餘裕。</li>
+<li><strong>資本支出與新產能規劃：</strong> 傾向不在現有生產基地擴廠，正積極尋找第三生產據點，以亞洲地區為主，鎖定具成衣聚落與市場規模的地區，暫不考慮歐美設廠。<strong>未找到2025-2026年具體資本支出金額。</strong></li>
+<li><strong>2026年展望：</strong> 公司預期在產品結構調整後，三大事業群在2026年看穩健往上，基本面預期將自2026年好轉。</li>
+<li><strong>短期風險：</strong> 短期內仍需應對總體經濟不確定性、美國關稅政策影響和匯率波動壓力，可能導致獲利能力繼續承壓。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<strong>福懋 (1434) 券商目標價與評等</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期</th><th>備註</th></tr></thead><tbody>
+<tr><td><strong>總結</strong></td><td><strong>未提供</strong></td><td><strong>未提供</strong></td><td><strong>2026/03/06</strong></td><td><strong>目前未找到2025-2026年至少3家券商對福懋（1434）的具體目標價資料。</strong></td></tr>
+</tbody></table></div>
+
+<strong>EPS預估與評等調整：</strong>
+
+<ul><li>目前未找到2025-2026年各券商對福懋（1434）的EPS預估數字。</li>
+<li>目前未找到2025-2026年福懋（1434）最近有無重大調升/調降評等的資料。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<strong>福懋 (1434) 近8季利潤率趨勢</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率*</th></tr></thead><tbody>
+<tr><td>2025 Q3</td><td>11.27%</td><td>1.43%</td><td>5.10%</td></tr>
+<tr><td>2025 Q2</td><td>11.41%</td><td>3.85%</td><td>-0.48%</td></tr>
+<tr><td>2025 Q1</td><td>11.26%</td><td>3.55%</td><td>2.43%</td></tr>
+<tr><td>2024 Q4</td><td>10.70%</td><td>2.29%</td><td>1.55%</td></tr>
+<tr><td>2024 Q3</td><td>10.70%</td><td>1.96%</td><td>13.57%</td></tr>
+<tr><td>2024 Q2</td><td>11.37%</td><td>3.06%</td><td>2.62%</td></tr>
+<tr><td>2024 Q1</td><td>11.97%</td><td>3.10%</td><td>2.89%</td></tr>
+</tbody></table></div>
+
+<p>*稅後淨利率根據季稅後淨利/季營收計算得出。</p>
+
+<ul><li><strong>利潤率變化原因：</strong> 2025年前三季合併營收年減2.03%，但營業毛利年增3.62%，營業淨利年增27.98%，營業淨利率從2%提升至3%，顯示公司在核心營運管理及成本控制方面有所成效。然而，非營業收入及支出（如匯兌損益）的大幅減少以及匯率變動的負面影響，對最終的稅前淨利和本期淨利造成顯著拖累。2024年Q3的稅後淨利率顯著提高，主要受台塑化約7.3億元的股息收入遞延入帳所致。</li>
+</ul>
+<h3>存貨與營運</h3>
+
+<strong>福懋 (1434) 近8季存貨與應收帳款週轉天數</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數</th><th>應收帳款收現天數</th></tr></thead><tbody>
+<tr><td>2025 Q3</td><td>102.08</td><td>36.99</td></tr>
+<tr><td>2025 Q2</td><td>96.38</td><td>37.19</td></tr>
+<tr><td>2025 Q1</td><td>96.8</td><td>34.09</td></tr>
+<tr><td>2024 Q4</td><td>108.07</td><td>35.62</td></tr>
+<tr><td>2024 Q3</td><td>101.56</td><td>36.60</td></tr>
+<tr><td>2024 Q2</td><td>97.92</td><td>35.40</td></tr>
+<tr><td>2024 Q1</td><td>108.66</td><td>32.95</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>存貨分析：</strong> 近幾季存貨週轉天數在96-108天之間波動，顯示公司在供應鏈管理上較為穩定。雖然存銷比有逐漸減少的走勢，但尚未明確指出是否有異常堆積或備料現象。</li>
+<li><strong>應收帳款：</strong> 應收帳款收現天數維持在33-37天左右，收款效率穩定。</li>
+</ul>
+<h3>資本支出</h3>
+
+<strong>福懋 (1434) 近8季資本支出 (千元)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>資本支出 (千元)</th></tr></thead><tbody>
+<tr><td>2025 Q3</td><td>253,946</td></tr>
+<tr><td>2025 Q2</td><td>54,419</td></tr>
+<tr><td>2025 Q1</td><td>99,581</td></tr>
+<tr><td>2024 Q4</td><td>497,317</td></tr>
+<tr><td>2024 Q3</td><td>85,860</td></tr>
+<tr><td>2024 Q2</td><td>114,509</td></tr>
+<tr><td>2024 Q1</td><td>176,611</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>未來資本支出計畫：</strong> 公司傾向不在現有生產基地擴廠，正積極尋找第三生產據點，以亞洲為主，鎖定具成衣聚落與市場規模的地區。<strong>目前未找到福懋（1434）母公司具體的新增產能數據或未來明確的資本支出金額計畫。</strong></li>
+<li><strong>折舊攤銷趨勢：</strong> 2025 Q3 折舊為新台幣329,354千元。</li>
+</ul>
+<h2>股權異動</h2>
+
+<ul><li><strong>董監事/大股東申報轉讓：</strong> 最近一年無董監事或大股東申報持股轉讓紀錄。</li>
+<li><strong>庫藏股：</strong> 未找到2024-2026年庫藏股買回紀錄。</li>
+<li><strong>可轉債/增減資：</strong> 未找到2024-2026年發行可轉換公司債（CB）或現金增資/減資計畫。</li>
+<li><strong>股利政策：</strong> 福懋自1985年連續41年發放股利。</li>
+</ul>    *   2025年（發放2024年股利）：現金股利0.80元。除息日2025/07/24，發放日2025/08/27。現金殖利率為4.72%（以除權息前股價16.95元計算）。
+<p>*   2024年（發放2023年股利）：現金股利0.50元。除息日2024/07/31，發放日2024/08/30。</p>
+<ul><li><strong>負債比率：</strong> 2025年Q3負債比為27.70%。</li>
+<li><strong>自由現金流量：</strong> 2025年Q3自由現金流為新台幣1,034,146千元，呈現波動但維持正向。</li>
+<li><strong>業外收支：</strong> 業外收支對淨利影響顯著，2025年Q3業外收支佔稅前淨利比為77.03%。主要受匯兌損益及轉投資股利收入（如2024年Q3台塑化股利收入約7.3億元）影響。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>產業數據</h3>
+
+<ul><li><strong>全球紡織品市場規模與CAGR：</strong></li>
+</ul>    *   整體紡織品市場預計從2025年的1.104兆美元成長至2034年的1.5081兆美元，2026-2034年CAGR為3.53%。
+<p>*   紡織布料市場在2025年超過6,595億美元，預計2026年達7,004.5億美元，2026-2035年CAGR超過6.9%，至2035年將超過1.29兆美元。</p>
+<p>*   衣料用纖維市場預計2025年約2,340億美元，2025-2034年CAGR約4.6%，至2034年成長至約3,741億美元。</p>
+<ul><li><strong>全球輪胎簾布市場規模與CAGR：</strong></li>
+</ul>    *   預計從2025年的63.3億美元成長到2026年的66.7億美元，CAGR為5.3%。預計到2030年達80.6億美元，CAGR為4.9%。
+<ul><li><strong>供需狀況：</strong></li>
+</ul>    *   整體紡織業在2025年面臨全球需求分化、原料價格波動及中國產能過剩壓力，品牌商下單保守，多採取急單、短單。
+<p>*   棉花方面，2025/26年度全球棉花供需預計收緊，期末庫存消費比降至63%以下，顯示供給趨於緊繃。</p>
+<ul><li><strong>產業平均毛利率水準：</strong></li>
+</ul>    *   台灣紡織龍頭儒鴻平均毛利率達27.6%，聚陽達25.9%，遠高於電子業。福懋的毛利率（2025Q3為11.27%）相對較低，顯示其產品組合仍有優化空間。
+
+<h3>競爭格局</h3>
+
+<strong>福懋 (1434) vs. 主要競爭對手比較</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>福懋 (1434)</th><th>中國布廠</th><th>台灣同業 (如儒鴻、聚陽)</th></tr></thead><tbody>
+<tr><td><strong>技術與產品</strong></td><td>創新產品、差異化材料，搶攻高端市場；戶外及運動布為主。</td><td>快速擴張，低價競爭；品質穩定性待提升。</td><td>技術密集、機能布料、彈性針織；布料成衣垂直整合；科技與時尚跨界。</td></tr>
+<tr><td><strong>產能與生產據點</strong></td><td>台灣、越南廠接近滿載，中國有餘裕；正評估亞洲第三生產據點。</td><td>生產基地外移至越南、印尼等地。</td><td>-</td></tr>
+<tr><td><strong>客戶</strong></td><td>主要為大型品牌 (95%)，新興品牌 (5%)。</td><td>-</td><td>全球前5大成衣品牌，逾8成產品與台灣相關。</td></tr>
+<tr><td><strong>價格策略</strong></td><td>以創新與品質維繫品牌信任，避免低價競爭。</td><td>靠價格優勢切入市場。</td><td>高附加價值產品帶來較高毛利。</td></tr>
+</tbody></table></div>
+
+<strong>台灣紡織同業比較 (2025年部分數據)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>營收規模 (2025年前三季/全年)</th><th>營業毛利率 (2025年)</th><th>EPS (2025年)</th><th>備註</th></tr></thead><tbody>
+<tr><td>福懋(1434)</td><td>合併營收214.39億元 (前三季)</td><td>11.27% (Q3)</td><td>0.29元 (累計至Q3)</td><td>Q2稅後虧損0.34億元。</td></tr>
+<tr><td>儒鴻(1476)</td><td>未提供</td><td>平均27.6%</td><td>未提供</td><td>2026年新產品占比目標逐步拉升至20%。</td></tr>
+<tr><td>聚陽(1477)</td><td>未提供</td><td>平均25.9%</td><td>未提供</td><td>-</td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢</h3>
+
+<li><strong>永續發展與綠色轉型：</strong></li>
+<p>*   <strong>趨勢：</strong> 消費者對環保產品需求提升，永續纖維、再生與生物基材料、循環紡織經濟成重點。綠色製造與循環經濟是行業底線。</p>
+<p>*   <strong>影響：</strong> 業者需投入研發生物基纖維、回收聚酯與綠色材料，推動T2T閉環回收技術，改變生產流程和供應鏈，提升產品附加價值。</p>
+<li><strong>智慧化與數位化生產：</strong></li>
+<p>*   <strong>趨勢：</strong> AI、大數據、物聯網賦能全鏈條，普及智能化生產，提升柔性製造與快速反應能力。數位紡織印花技術與供應鏈可追溯性日益重要。</p>
+<p>*   <strong>影響：</strong> 導入AI輔助設計、行銷，優化流程，推動產業從勞動密集型向技術密集型轉型。</p>
+<li><strong>機能性與高性能布料的升級：</strong></li>
+<p>*   <strong>趨勢：</strong> 功能性纖維需求成長，機能布料從「功能堆疊」轉向「體感導向」與「全天候適配性」，重視「長時間穿著」的舒適與穩定性。</p>
+<p>*   <strong>影響：</strong> 開發需更注重舒適性、濕熱釋放、體溫穩定性及應對多種生活場景，提升產品競爭力。</p>
+
+<h3>福懋的機會與威脅</h3>
+
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>高端市場與差異化產品：</strong> 符合機能性布料升級趨勢，可抓住「體感導向」需求。
+<p>*   <strong>全球性賽事帶動需求：</strong> 2026年世界盃足球賽有望帶動球衣布料拉貨與追加訂單。</p>
+<p>*   <strong>戶外運動風潮：</strong> 戶外布料需求動能強勁，預計2026年佔比達45%，成主要成長引擎。</p>
+<p>*   <strong>新生產據點佈局：</strong> 亞洲第三生產據點可分散風險、降低成本、接近成衣聚落。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>中國低價競爭：</strong> 中國廠以低價搶單並將生產基地外移，加劇市場價格戰。
+<p>*   <strong>全球經濟不確定性：</strong> 景氣疲弱、美國關稅政策、匯率波動與地緣風險。</p>
+<p>*   <strong>原料價格波動：</strong> 油價下滑拖累紡纖上中游產品報價。</p>
+
+<h3>相關投資題材</h3>
+
+<ul><li><strong>AI紡織：</strong> AI可輔助設計、行銷及電商，優化生產流程。福懋需投入AI技術提升效率。</li>
+<li><strong>電動車(EV)應用：</strong> 輪胎簾布作為核心業務，電動車對輪胎耐久性、輕量化需求增加，推動先進簾布加工技術投資。若能開發輕量化、環保紡織複合材料，有機會切入電動車內裝或安全材料供應鏈。</li>
+<li><strong>HBM (高頻寬記憶體)：</strong> 福懋紡織本業與HBM無直接連結。但子公司福懋科(8131)從事IC封測，計畫2026年切入高容量伺服器DDR5模組市場，間接與HBM相關的伺服器產業有聯繫。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<ul><li><strong>營收表現：</strong></li>
+</ul>    *   2026年1月合併營收24.26億元，月增6.64%，年增5.09%，創近9個月新高。
+<p>*   2025年12月合併營收22.75億元，月增17.91%，年減6.08%。</p>
+<p>*   2025年全年累計營收達275.43億元，年減4.08%。</p>
+<ul><li><strong>股利政策：</strong> 2025年3月7日公告2024年股利政策，預計發放現金股利0.8元。</li>
+<li><strong>股東會/法說會：</strong> 2025年11月26日舉行線上法說會，重點強調區域分散、產能整合、智能創新、深化品牌合作等策略。董事會決議2026年6月25日召開股東會。</li>
+<li><strong>外資/投信買賣超：</strong> 截至2026年3月5日，外資買超28張，投信買賣超0張，自營商賣超54張。三大法人持股比重截至2026年2月底為10.84%。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能</th><th>具體內容</th></tr></thead><tbody>
+<tr><td><strong>2025年下半年起</strong></td><td><strong>2026年世界盃足球賽備貨需求</strong></td><td>球衣布料供應鏈陸續拉貨，若晉級隊伍確定有望追加訂單。</td></tr>
+<tr><td><strong>2025年第四季開始評估，2026年進行中</strong></td><td><strong>第三生產據點擴廠計畫</strong></td><td>積極評估亞洲地區（如越南、印尼）設立新廠，以分散風險、貼近市場。</td></tr>
+<tr><td><strong>2026年</strong></td><td><strong>產品結構調整：戶外布料佔比提升</strong></td><td>預計戶外布料佔比升至45%，運動布佔40%，成為主要動能。</td></tr>
+<tr><td><strong>2026年</strong></td><td><strong>新產品創新與應用</strong></td><td>推出長效防曬環保彈性布料、渲閃色無氟環保撥水織物等，爭取運動、休閒、戶外品牌客戶。</td></tr>
+<tr><td><strong>2026年</strong></td><td><strong>機能性平織布出貨量增加</strong></td><td>預計出貨量可增加近1成。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+
+<ul><li><strong>世界盃足球賽效應：</strong> 2026年擴大舉辦的世界盃將顯著帶動球衣布料需求，自2025年下半年啟動的拉貨潮將持續為公司業績提供動能。</li>
+<li><strong>戶外運動風潮：</strong> 戶外布料市場的成長將使福懋產品結構中該類別佔比提升至45%，成為新的成長引擎。</li>
+<li><strong>創新差異化策略：</strong> 透過研發高機能性、環保、生物基材料等新產品，持續鞏固高端市場，避免與中國低價競爭。</li>
+<li><strong>新產能佈局：</strong> 規劃亞洲第三生產據點，將有助於提升長期產能利用率、優化供應鏈韌性，並更有效應對市場需求變化。</li>
+<li><strong>基本面好轉預期：</strong> 管理層與法人普遍預期福懋基本面將自2026年起好轉。</li>
+</ul>
+<strong>風險：</strong>
+
+<ul><li><strong>總體經濟不確定性：</strong> 全球景氣復甦力道不足、通膨及升息壓力持續，可能影響終端消費需求。</li>
+<li><strong>美國關稅政策：</strong> 潛在的美國關稅政策可能削弱消費力，進而影響品牌2026年下單動能，特別是對越南廠區的影響。</li>
+<li><strong>中國低價競爭：</strong> 中國廠商持續以低價搶單，且逐漸提升品質，對福懋的毛利率構成長期壓力。</li>
+<li><strong>匯率波動與原料成本：</strong> 油價與棉花等原料價格波動，以及匯率變動，將持續影響公司獲利能力。</li>
+</ul>
+<h2>投資結論</h2>
+
+<li><strong>營運轉折點浮現：</strong> 儘管2025年福懋獲利表現仍受壓抑，但營收已見回溫跡象，且經營層預期2026年基本面將好轉。2026年世界盃足球賽及戶外運動風潮，為公司帶來明確的近期催化劑，尤其戶外布料佔比提升有望優化產品組合。</li>
+<li><strong>高端轉型與全球佈局：</strong> 公司積極發展高機能性與差異化材料，並尋求亞洲第三生產據點，顯示其具備轉型升級的決心與應對全球供應鏈變化的策略彈性，有助於長期競爭力提升。</li>
+<li><strong>利潤結構仍具挑戰：</strong> 儘管營業毛利及營業利益有所改善，但業外收支（尤其是匯兌損益）對淨利影響甚鉅，凸顯公司在非核心營運風險管理上的挑戰。</li>
+<li><strong>競爭與總經風險不容忽視：</strong> 中國低價競爭、全球經濟疲軟、美國關稅政策與原料價格波動仍是福懋2026年營運的主要風險因子，需密切關注。</li>
+<li><strong>投資建議：</strong> 考量公司在營運轉型與新市場機會的積極佈局，以及2026年足球賽事的拉貨動能，預期福懋營運有望逐步擺脫谷底。然而，鑒於目前券商尚未提供具體目標價區間，且總體經濟不確定性仍高，建議投資人持續關注其每月營收變化、新產能佈局進度及利潤率改善情況。若公司能有效控制業外風險並成功提升產品附加價值，中長期投資價值有望逐步顯現。</li>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 14:35</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="1434_福懋_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="1434_福懋_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="1434_福懋_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

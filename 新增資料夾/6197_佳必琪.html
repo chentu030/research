@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6197 佳必琪 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>6197 佳必琪 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>佳必琪作為台股高速傳輸與光通訊模組領導廠商，正積極轉型深耕AI伺服器基礎建設，受惠於NVIDIA及CSP客戶訂單，預計2026年將在矽光子、1.6T高速傳輸與大電流產品線全面爆發，然應收帳款增幅需留意。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">6197 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-6197" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-6197" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-6197');
+    var obvContainer = document.getElementById('obv-chart-6197');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 140.0, "high": 141.0, "low": 138.0, "close": 138.5}, {"time": "2025-12-05", "open": 138.0, "high": 139.5, "low": 137.0, "close": 138.5}, {"time": "2025-12-08", "open": 131.0, "high": 133.0, "low": 128.5, "close": 130.0}, {"time": "2025-12-09", "open": 130.5, "high": 131.0, "low": 128.5, "close": 129.5}, {"time": "2025-12-10", "open": 130.5, "high": 131.5, "low": 130.0, "close": 131.0}, {"time": "2025-12-11", "open": 131.5, "high": 132.0, "low": 130.0, "close": 130.0}, {"time": "2025-12-12", "open": 131.5, "high": 132.0, "low": 130.0, "close": 130.0}, {"time": "2025-12-15", "open": 127.0, "high": 131.5, "low": 127.0, "close": 130.5}, {"time": "2025-12-16", "open": 129.0, "high": 131.5, "low": 129.0, "close": 131.5}, {"time": "2025-12-17", "open": 132.0, "high": 134.0, "low": 130.5, "close": 131.0}, {"time": "2025-12-18", "open": 130.0, "high": 132.0, "low": 130.0, "close": 131.5}, {"time": "2025-12-19", "open": 132.0, "high": 136.0, "low": 132.0, "close": 135.0}, {"time": "2025-12-22", "open": 136.5, "high": 141.0, "low": 136.0, "close": 140.0}, {"time": "2025-12-23", "open": 141.5, "high": 141.5, "low": 137.5, "close": 139.0}, {"time": "2025-12-24", "open": 140.0, "high": 140.0, "low": 135.5, "close": 136.5}, {"time": "2025-12-26", "open": 137.5, "high": 138.5, "low": 136.0, "close": 138.5}, {"time": "2025-12-29", "open": 138.5, "high": 139.5, "low": 135.5, "close": 138.5}, {"time": "2025-12-30", "open": 138.0, "high": 138.5, "low": 136.5, "close": 138.0}, {"time": "2025-12-31", "open": 138.5, "high": 140.0, "low": 137.5, "close": 139.0}, {"time": "2026-01-02", "open": 152.5, "high": 152.5, "low": 152.5, "close": 152.5}, {"time": "2026-01-05", "open": 162.0, "high": 162.5, "low": 155.5, "close": 158.5}, {"time": "2026-01-06", "open": 157.5, "high": 158.0, "low": 149.0, "close": 150.0}, {"time": "2026-01-07", "open": 152.5, "high": 153.5, "low": 146.5, "close": 150.0}, {"time": "2026-01-08", "open": 150.0, "high": 151.5, "low": 146.5, "close": 148.0}, {"time": "2026-01-09", "open": 150.0, "high": 150.0, "low": 146.5, "close": 148.5}, {"time": "2026-01-12", "open": 152.0, "high": 153.5, "low": 148.0, "close": 149.0}, {"time": "2026-01-13", "open": 151.0, "high": 151.5, "low": 146.0, "close": 146.5}, {"time": "2026-01-14", "open": 147.5, "high": 150.0, "low": 146.5, "close": 149.0}, {"time": "2026-01-15", "open": 149.0, "high": 149.5, "low": 147.5, "close": 148.0}, {"time": "2026-01-16", "open": 150.0, "high": 150.0, "low": 147.0, "close": 148.0}, {"time": "2026-01-19", "open": 148.0, "high": 149.0, "low": 146.0, "close": 147.0}, {"time": "2026-01-20", "open": 147.5, "high": 149.0, "low": 147.0, "close": 148.0}, {"time": "2026-01-21", "open": 148.0, "high": 149.5, "low": 144.0, "close": 145.0}, {"time": "2026-01-22", "open": 147.0, "high": 149.0, "low": 147.0, "close": 148.0}, {"time": "2026-01-23", "open": 152.0, "high": 153.5, "low": 147.0, "close": 147.5}, {"time": "2026-01-26", "open": 149.0, "high": 150.0, "low": 147.0, "close": 147.5}, {"time": "2026-01-27", "open": 148.5, "high": 149.0, "low": 145.0, "close": 145.0}, {"time": "2026-01-28", "open": 146.5, "high": 146.5, "low": 144.0, "close": 144.5}, {"time": "2026-01-29", "open": 145.5, "high": 148.0, "low": 144.0, "close": 145.0}, {"time": "2026-01-30", "open": 144.0, "high": 145.5, "low": 140.0, "close": 141.5}, {"time": "2026-02-02", "open": 140.0, "high": 147.5, "low": 139.5, "close": 145.5}, {"time": "2026-02-03", "open": 146.5, "high": 150.0, "low": 146.5, "close": 148.5}, {"time": "2026-02-04", "open": 147.5, "high": 149.0, "low": 146.5, "close": 148.0}, {"time": "2026-02-05", "open": 157.5, "high": 159.0, "low": 152.0, "close": 152.0}, {"time": "2026-02-06", "open": 152.5, "high": 152.5, "low": 147.5, "close": 148.5}, {"time": "2026-02-09", "open": 150.0, "high": 150.0, "low": 144.5, "close": 145.5}, {"time": "2026-02-10", "open": 148.5, "high": 148.5, "low": 144.0, "close": 145.5}, {"time": "2026-02-11", "open": 145.5, "high": 145.5, "low": 143.0, "close": 143.5}, {"time": "2026-02-23", "open": 144.0, "high": 146.5, "low": 142.5, "close": 145.5}, {"time": "2026-02-24", "open": 146.0, "high": 148.0, "low": 144.5, "close": 148.0}, {"time": "2026-02-25", "open": 149.0, "high": 151.5, "low": 147.5, "close": 150.5}, {"time": "2026-02-26", "open": 152.5, "high": 159.5, "low": 151.0, "close": 154.5}, {"time": "2026-03-02", "open": 147.5, "high": 148.5, "low": 141.0, "close": 142.5}, {"time": "2026-03-03", "open": 156.0, "high": 158.0, "low": 149.5, "close": 150.0}, {"time": "2026-03-04", "open": 147.5, "high": 148.5, "low": 141.0, "close": 142.5}, {"time": "2026-03-05", "open": 146.0, "high": 152.0, "low": 145.5, "close": 151.5}, {"time": "2026-03-06", "open": 151.0, "high": 151.5, "low": 147.5, "close": 148.5}, {"time": "2026-03-09", "open": 141.5, "high": 148.0, "low": 138.5, "close": 145.5}, {"time": "2026-03-10", "open": 153.0, "high": 160.0, "low": 149.0, "close": 157.0}, {"time": "2026-03-11", "open": 159.5, "high": 166.0, "low": 159.0, "close": 164.5}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 395.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 540.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 2418.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 949.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 482.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 673.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 510.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 486.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 403.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 652.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 400.0, "color": "#ef5350"}, {"time": "2025-12-19", "value": 722.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 912.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 586.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 1213.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 1005.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 1440.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 1163.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 1304.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 2036.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 8567.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 3860.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 3883.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 2553.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 1094.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 1683.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 1472.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 975.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 614.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 753.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 910.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 651.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 1298.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 829.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 1526.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 707.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 937.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 868.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 984.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 1227.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 1462.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 1642.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 916.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 4850.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 1470.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 1954.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 743.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 743.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 864.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 976.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 1172.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 3180.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 1609.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 1705.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 1609.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 1714.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 1444.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 2041.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 4660.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 5711.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 133.5}, {"time": "2025-12-11", "value": 131.8}, {"time": "2025-12-12", "value": 130.1}, {"time": "2025-12-15", "value": 130.2}, {"time": "2025-12-16", "value": 130.6}, {"time": "2025-12-17", "value": 130.6}, {"time": "2025-12-18", "value": 130.9}, {"time": "2025-12-19", "value": 131.9}, {"time": "2025-12-22", "value": 133.8}, {"time": "2025-12-23", "value": 135.3}, {"time": "2025-12-24", "value": 136.4}, {"time": "2025-12-26", "value": 137.8}, {"time": "2025-12-29", "value": 138.5}, {"time": "2025-12-30", "value": 138.1}, {"time": "2025-12-31", "value": 138.1}, {"time": "2026-01-02", "value": 141.3}, {"time": "2026-01-05", "value": 145.3}, {"time": "2026-01-06", "value": 147.6}, {"time": "2026-01-07", "value": 150.0}, {"time": "2026-01-08", "value": 151.8}, {"time": "2026-01-09", "value": 151.0}, {"time": "2026-01-12", "value": 149.1}, {"time": "2026-01-13", "value": 148.4}, {"time": "2026-01-14", "value": 148.2}, {"time": "2026-01-15", "value": 148.2}, {"time": "2026-01-16", "value": 148.1}, {"time": "2026-01-19", "value": 147.7}, {"time": "2026-01-20", "value": 148.0}, {"time": "2026-01-21", "value": 147.2}, {"time": "2026-01-22", "value": 147.2}, {"time": "2026-01-23", "value": 147.1}, {"time": "2026-01-26", "value": 147.2}, {"time": "2026-01-27", "value": 146.6}, {"time": "2026-01-28", "value": 146.5}, {"time": "2026-01-29", "value": 145.9}, {"time": "2026-01-30", "value": 144.7}, {"time": "2026-02-02", "value": 144.3}, {"time": "2026-02-03", "value": 145.0}, {"time": "2026-02-04", "value": 145.7}, {"time": "2026-02-05", "value": 147.1}, {"time": "2026-02-06", "value": 148.5}, {"time": "2026-02-09", "value": 148.5}, {"time": "2026-02-10", "value": 147.9}, {"time": "2026-02-11", "value": 147.0}, {"time": "2026-02-23", "value": 145.7}, {"time": "2026-02-24", "value": 145.6}, {"time": "2026-02-25", "value": 146.6}, {"time": "2026-02-26", "value": 148.4}, {"time": "2026-03-02", "value": 148.2}, {"time": "2026-03-03", "value": 149.1}, {"time": "2026-03-04", "value": 148.0}, {"time": "2026-03-05", "value": 148.2}, {"time": "2026-03-06", "value": 147.0}, {"time": "2026-03-09", "value": 147.6}, {"time": "2026-03-10", "value": 149.0}, {"time": "2026-03-11", "value": 153.4}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 132.05}, {"time": "2025-12-18", "value": 131.35}, {"time": "2025-12-19", "value": 131.0}, {"time": "2025-12-22", "value": 132.0}, {"time": "2025-12-23", "value": 132.95}, {"time": "2025-12-24", "value": 133.5}, {"time": "2025-12-26", "value": 134.35}, {"time": "2025-12-29", "value": 135.2}, {"time": "2025-12-30", "value": 135.95}, {"time": "2025-12-31", "value": 136.7}, {"time": "2026-01-02", "value": 138.85}, {"time": "2026-01-05", "value": 141.55}, {"time": "2026-01-06", "value": 143.05}, {"time": "2026-01-07", "value": 144.05}, {"time": "2026-01-08", "value": 144.95}, {"time": "2026-01-09", "value": 146.15}, {"time": "2026-01-12", "value": 147.2}, {"time": "2026-01-13", "value": 148.0}, {"time": "2026-01-14", "value": 149.1}, {"time": "2026-01-15", "value": 150.0}, {"time": "2026-01-16", "value": 149.55}, {"time": "2026-01-19", "value": 148.4}, {"time": "2026-01-20", "value": 148.2}, {"time": "2026-01-21", "value": 147.7}, {"time": "2026-01-22", "value": 147.7}, {"time": "2026-01-23", "value": 147.6}, {"time": "2026-01-26", "value": 147.45}, {"time": "2026-01-27", "value": 147.3}, {"time": "2026-01-28", "value": 146.85}, {"time": "2026-01-29", "value": 146.55}, {"time": "2026-01-30", "value": 145.9}, {"time": "2026-02-02", "value": 145.75}, {"time": "2026-02-03", "value": 145.8}, {"time": "2026-02-04", "value": 146.1}, {"time": "2026-02-05", "value": 146.5}, {"time": "2026-02-06", "value": 146.6}, {"time": "2026-02-09", "value": 146.4}, {"time": "2026-02-10", "value": 146.45}, {"time": "2026-02-11", "value": 146.35}, {"time": "2026-02-23", "value": 146.4}, {"time": "2026-02-24", "value": 147.05}, {"time": "2026-02-25", "value": 147.55}, {"time": "2026-02-26", "value": 148.15}, {"time": "2026-03-02", "value": 147.6}, {"time": "2026-03-03", "value": 147.4}, {"time": "2026-03-04", "value": 146.8}, {"time": "2026-03-05", "value": 147.4}, {"time": "2026-03-06", "value": 147.7}, {"time": "2026-03-09", "value": 147.9}, {"time": "2026-03-10", "value": 149.05}, {"time": "2026-03-11", "value": 150.7}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 135.45}, {"time": "2026-01-05", "value": 136.45}, {"time": "2026-01-06", "value": 137.025}, {"time": "2026-01-07", "value": 138.025}, {"time": "2026-01-08", "value": 138.95}, {"time": "2026-01-09", "value": 139.825}, {"time": "2026-01-12", "value": 140.775}, {"time": "2026-01-13", "value": 141.6}, {"time": "2026-01-14", "value": 142.525}, {"time": "2026-01-15", "value": 143.35}, {"time": "2026-01-16", "value": 144.2}, {"time": "2026-01-19", "value": 144.975}, {"time": "2026-01-20", "value": 145.625}, {"time": "2026-01-21", "value": 145.875}, {"time": "2026-01-22", "value": 146.325}, {"time": "2026-01-23", "value": 146.875}, {"time": "2026-01-26", "value": 147.325}, {"time": "2026-01-27", "value": 147.65}, {"time": "2026-01-28", "value": 147.975}, {"time": "2026-01-29", "value": 148.275}, {"time": "2026-01-30", "value": 147.725}, {"time": "2026-02-02", "value": 147.075}, {"time": "2026-02-03", "value": 147.0}, {"time": "2026-02-04", "value": 146.9}, {"time": "2026-02-05", "value": 147.1}, {"time": "2026-02-06", "value": 147.1}, {"time": "2026-02-09", "value": 146.925}, {"time": "2026-02-10", "value": 146.875}, {"time": "2026-02-11", "value": 146.6}, {"time": "2026-02-23", "value": 146.475}, {"time": "2026-02-24", "value": 146.475}, {"time": "2026-02-25", "value": 146.65}, {"time": "2026-02-26", "value": 146.975}, {"time": "2026-03-02", "value": 146.85}, {"time": "2026-03-03", "value": 146.95}, {"time": "2026-03-04", "value": 146.7}, {"time": "2026-03-05", "value": 146.9}, {"time": "2026-03-06", "value": 147.075}, {"time": "2026-03-09", "value": 147.125}, {"time": "2026-03-10", "value": 147.725}, {"time": "2026-03-11", "value": 148.875}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 0}, {"time": "2025-12-08", "value": -2418.0}, {"time": "2025-12-09", "value": -3367.0}, {"time": "2025-12-10", "value": -2885.0}, {"time": "2025-12-11", "value": -3558.0}, {"time": "2025-12-12", "value": -3558.0}, {"time": "2025-12-15", "value": -3072.0}, {"time": "2025-12-16", "value": -2669.0}, {"time": "2025-12-17", "value": -3321.0}, {"time": "2025-12-18", "value": -2921.0}, {"time": "2025-12-19", "value": -2199.0}, {"time": "2025-12-22", "value": -1287.0}, {"time": "2025-12-23", "value": -1873.0}, {"time": "2025-12-24", "value": -3086.0}, {"time": "2025-12-26", "value": -2081.0}, {"time": "2025-12-29", "value": -2081.0}, {"time": "2025-12-30", "value": -3244.0}, {"time": "2025-12-31", "value": -1940.0}, {"time": "2026-01-02", "value": 96.0}, {"time": "2026-01-05", "value": 8663.0}, {"time": "2026-01-06", "value": 4803.0}, {"time": "2026-01-07", "value": 4803.0}, {"time": "2026-01-08", "value": 2250.0}, {"time": "2026-01-09", "value": 3344.0}, {"time": "2026-01-12", "value": 5027.0}, {"time": "2026-01-13", "value": 3555.0}, {"time": "2026-01-14", "value": 4530.0}, {"time": "2026-01-15", "value": 3916.0}, {"time": "2026-01-16", "value": 3916.0}, {"time": "2026-01-19", "value": 3006.0}, {"time": "2026-01-20", "value": 3657.0}, {"time": "2026-01-21", "value": 2359.0}, {"time": "2026-01-22", "value": 3188.0}, {"time": "2026-01-23", "value": 1662.0}, {"time": "2026-01-26", "value": 1662.0}, {"time": "2026-01-27", "value": 725.0}, {"time": "2026-01-28", "value": -143.0}, {"time": "2026-01-29", "value": 841.0}, {"time": "2026-01-30", "value": -386.0}, {"time": "2026-02-02", "value": 1076.0}, {"time": "2026-02-03", "value": 2718.0}, {"time": "2026-02-04", "value": 1802.0}, {"time": "2026-02-05", "value": 6652.0}, {"time": "2026-02-06", "value": 5182.0}, {"time": "2026-02-09", "value": 3228.0}, {"time": "2026-02-10", "value": 3228.0}, {"time": "2026-02-11", "value": 2485.0}, {"time": "2026-02-23", "value": 3349.0}, {"time": "2026-02-24", "value": 4325.0}, {"time": "2026-02-25", "value": 5497.0}, {"time": "2026-02-26", "value": 8677.0}, {"time": "2026-03-02", "value": 7068.0}, {"time": "2026-03-03", "value": 8773.0}, {"time": "2026-03-04", "value": 7164.0}, {"time": "2026-03-05", "value": 8878.0}, {"time": "2026-03-06", "value": 7434.0}, {"time": "2026-03-09", "value": 5393.0}, {"time": "2026-03-10", "value": 10053.0}, {"time": "2026-03-11", "value": 15764.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>佳必琪（6197）為台灣連接器與線束模組的領導廠商，近年積極轉型並深耕AI相關基礎建設領域。其核心業務涵蓋高速資料傳輸、電源供應、水冷散熱以及光通訊模組，主要應用於AI伺服器、資料中心、車用電子與工業自動化等高成長領域。公司已掌握光子積體電路（PIC）與光纖耦合（TIC）等關鍵技術，並取得多項專利，為下一世代AI基礎建設提供關鍵互連解決方案。</p>
+
+<strong>核心產品與服務：</strong>
+<ul><li><strong>光通訊事業</strong>：</li>
+</ul>    *   電信與企業傳輸：10G CWDM/DWDM、25G DWDM、100G (40km/80km) 等。
+<p>*   數據中心與AI應用：主力產品為400G FR4/DR4、800G SR8，技術涵蓋Chip on Board (COB) 與DSP 加VCSEL 方案。</p>
+<p>*   矽光子模組：專注於800G/1.6T的FR4/DR8/FR8模組開發。</p>
+<p>*   光學被動元件：Trident Cable（三叉戟線纜）、MPO/MTP光纖跳接線，其中Trident Cable已成功打入美系客戶Compute Tray供應鏈。</p>
+<ul><li><strong>銅纜與電源事業</strong>：</li>
+</ul>    *   高速線材：MCIO Cable、GenZ、PCIe高速線材。
+<p>*   電源傳輸：OCP ORV3 架構的大電流AC Whip電源線、Busbar（匯流排）產品。</p>
+<p>*   記憶體連接器：Memory SoCam連接器。</p>
+<p>*   水冷散熱：UQD水冷接頭等解決方案。</p>
+
+<strong>營收結構 (2025年第三季預估/2024年資料)：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>佔總營收比例 (2024)</th><th>細項佔比 (2025Q3預估)</th></tr></thead><tbody>
+<tr><td>Datacenter/Networking/Telecom</td><td>約 <strong>54%</strong></td><td>AI/GPU伺服器：<strong>50%</strong> (2024)</td></tr>
+<tr><td></td><td></td><td>伺服器儲存：<strong>16%</strong></td></tr>
+<tr><td></td><td></td><td>AI與GPU：<strong>56%</strong></td></tr>
+<tr><td></td><td></td><td>交換器與資料中心纜線：<strong>28%</strong></td></tr>
+<tr><td>Smart Connection Industry</td><td>約 <strong>40%</strong></td><td>遊戲繪圖卡：<strong>45%</strong></td></tr>
+<tr><td></td><td></td><td>工廠自動化：<strong>20%</strong></td></tr>
+<tr><td></td><td></td><td>電動車：<strong>30%</strong></td></tr>
+<tr><td></td><td></td><td>其他：<strong>5%</strong></td></tr>
+</tbody></table></div>
+
+<strong>製造基地與策略：</strong>
+<ul><li><strong>台灣總部：</strong> 研發與管理中心。</li>
+<li><strong>越南廠 (一廠、二廠)：</strong> 2024年完成北廠擴建並進入量產，目前產能已滿載，是公司產能擴充的首選基地，預計2025年越南產能將提升30%。</li>
+<li><strong>美國廠 (灣區)：</strong> 設有快速打樣線與新產品導入（NPI）中心，主要負責對接美系Hyperscaler的前期開發。美國子公司新廠預計2025年10月開幕，規模為原址兩倍，並新增試產導入量產與高速測試能力。</li>
+<li><strong>泰國廠：</strong> 規劃作為光纖被動元件生產基地，預計於2026年第二季開始運作，以應對美中貿易關稅變動。</li>
+<li>銷售與技術服務據點分佈於美國、歐洲、日本與東南亞。</li>
+</ul>
+<h2>核心競爭優勢</h2>
+<li><strong>AI產業轉型領先者：</strong> 佳必琪成功從傳統連接器製造商轉型為AI伺服器與資料中心高速互連解決方案供應商，掌握矽光子、1.6T高速傳輸、大電流電源及水冷散熱等關鍵技術，提前卡位AI發展浪潮。</li>
+<li><strong>技術領先與創新能力：</strong> 公司在光子積體電路（PIC）與光纖耦合（TIC）等矽光子核心技術上取得多項專利，並積極投入共同封裝光學（CPO）產品研發。1.6T迴路模組、1.6T主動式銅纜（ACC）及PCIe Gen6/Gen7等次世代技術布局具前瞻性。</li>
+<li><strong>高階客戶深度合作：</strong> 成功打入輝達（NVIDIA）GB200/GB300與MGX供應鏈，並獲得AVL供應商資格。同時，與美系AI晶片公司、交換機大廠及雲端服務供應商（CSP）建立緊密合作關係，確保高階產品出貨動能。</li>
+<li><strong>彈性且全球化的產能布局：</strong> 透過美國NPI中心、越南大規模量產基地、以及規劃中的泰國光纖被動元件廠，形成「母子工廠」戰略，不僅能快速響應客戶需求，亦能有效分散地緣政治風險與降低成本。</li>
+<li><strong>產品組合高值化：</strong> 策略性聚焦高毛利、高技術門檻的AI相關產品，如光通訊模組、大電流電源線及高速記憶體連接器，有效優化產品組合，推升整體獲利能力。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>7.70</td><td>28.19%</td><td>30.86%</td></tr>
+<tr><td>2025年12月</td><td>6.01</td><td>4.14%</td><td>14.27%</td></tr>
+<tr><td>2025年11月</td><td>5.77</td><td>-13.44%</td><td>0.35%</td></tr>
+<tr><td>2025年10月</td><td>6.67</td><td>-7.33%</td><td>20.16%</td></tr>
+<tr><td>2025年09月</td><td>7.19</td><td>7.03%</td><td>21.57%</td></tr>
+<tr><td>2025年08月</td><td>6.72</td><td>-7.18%</td><td>3.63%</td></tr>
+</tbody></table></div>
+
+<h3>季度數據</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>會計年度/季度</th><th>季營收 (億元)</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2024年Q1</td><td>(未提供)</td><td>33.02%</td><td>17.40%</td><td>17.33%</td><td>(未提供)</td></tr>
+<tr><td>2024年Q2</td><td>(未提供)</td><td>35.44%</td><td>19.57%</td><td>19.46%</td><td>(未提供)</td></tr>
+<tr><td>2024年Q3</td><td>(未提供)</td><td>33.01%</td><td>19.42%</td><td>14.92%</td><td>(未提供)</td></tr>
+<tr><td>2024年Q4</td><td>(未提供)</td><td>30.98%</td><td>14.42%</td><td>15.87%</td><td>(未提供)</td></tr>
+<tr><td>2025年Q1</td><td>(未提供)</td><td>33.25%</td><td>17.87%</td><td>13.21%</td><td>(未提供)</td></tr>
+<tr><td>2025年Q2</td><td>(未提供)</td><td>34.44%</td><td>21.73%</td><td>13.71%</td><td>(未提供)</td></tr>
+<tr><td>2025年Q3</td><td>(未提供確切數字，&lt;br&gt;但前三季累計營收57.43億元)</td><td>32.84%</td><td>19.22%</td><td>14.55%</td><td>2.38 (季增13.7%, 年增9%)</td></tr>
+</tbody></table></div>
+
+<h3>年度趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>會計年度</th><th>全年營收 (億元)</th><th>年增率</th><th>全年EPS (元)</th><th>年增率</th><th>備註</th></tr></thead><tbody>
+<tr><td>2024年</td><td>67.7</td><td>&gt;30%</td><td>8.69</td><td>約67%</td><td>實際</td></tr>
+<tr><td>2025年</td><td>75.87</td><td>12.1%</td><td>9.9~12.38</td><td>(預估)</td><td>實際營收創歷年新高；EPS為法人預估區間</td></tr>
+</tbody></table></div>
+
+<h2>法說會重點</h2>
+<strong>最近一次法說會日期：</strong> 2025年12月31日 (另有2025年9月30日法說會資訊整合)
+
+<strong>管理層對各產品線的具體出貨量/訂單能見度說明：</strong>
+<ul><li><strong>高速傳輸產品：</strong></li>
+</ul>    *   <strong>1.6T迴路模組</strong>：已於2025年第四季通過美系交換機大廠認證。
+<p>*   <strong>1.6T主動式銅纜 (ACC)</strong>：預計於2026年第一季送樣進行認證。</p>
+<p>*   <strong>800G與400G傳輸規格光/銅產品</strong>：已與多家特殊積體電路晶片 (ASIC)、交換機客戶進行概念驗證 (POC)。其中，400G系列已打入美系客戶供應鏈。800G光/銅解決方案預計2026年第一季再有一家美系客戶加入驗證。</p>
+<p>*   <strong>PCIe Gen 6產品</strong>：已在2025年第二季列入專案，預計最快2026年上半年放量。</p>
+<p>*   <strong>PCIe Gen 7產品</strong>：預計2026年第一季提供樣品，並將從MCIO規格先著手開發。</p>
+<ul><li><strong>矽光子 (CPO)：</strong></li>
+</ul>    *   公司已掌握光子積體電路 (PIC) 與光纖耦合 (TIC) 等核心技術，取得多項專利，研發延伸至CPO架構。
+<p>*   預計2025年提供1.6T DR8黃金樣品供客戶驗證。</p>
+<p>*   2026年啟動矽光子晶片自製與多通道雷射整合。</p>
+<p>*   以2027年CPO相關產品量產為目標。</p>
+<p>*   矽光子三個案子已在進行中，2026年業績可望快速成長。</p>
+<ul><li><strong>大電流產品 (Busflow)：</strong></li>
+</ul>    *   已取得OCP與北美UL認證。
+<p>*   2025年第四季已收到雲端服務供應商 (CSP) 量產等級訂單，預計2026年第一季陸續出貨。</p>
+<p>*   Busbar (匯流排) 產品已參與下一世代大電源傳輸開發。</p>
+<ul><li><strong>高速記憶體連接器 (SOCAMM Connector)：</strong></li>
+</ul>    *   性能與可靠度驗證已完成，自動化組裝與潔淨室設備於2025年下半年準備就緒，待客戶生產計畫啟動。
+<ul><li><strong>NVIDIA供應鏈：</strong> 已納入輝達GB200/GB300與MGX供應鏈，其中GB200/GB300已獲AVL供應商資格，Rubin則在測試階段。Trident Cable已成功打入美系客戶Compute Tray供應鏈。</li>
+</ul>
+<strong>產能利用率、資本支出與產能佈局：</strong>
+<ul><li><strong>產能利用率：</strong> 北越廠產能已滿載。</li>
+<li><strong>資本支出：</strong> 2025年資本支出將大於2024年，用於擴產與技術升級。</li>
+<li><strong>產能佈局：</strong></li>
+</ul>    *   美國灣區設有快速打樣線與NPI (新產品導入) 中心。美國子公司新廠預計2025年10月開幕，規模為原址兩倍，並新增NPI與高速測試能力。
+<p>*   越南 (北越) 為產能擴充首選，廠房面積充足，可應對未來擴展。越南產能預計提升30%。</p>
+<p>*   泰國廠規劃為光纖被動元件生產基地，預計2026年第二季開始運作，以因應美中貿易關稅戰。</p>
+
+<strong>管理層給出的下季/下半年 guidance：</strong>
+<ul><li>管理層對2026年展望樂觀，認為在矽光子、大電流與下一世代高速記憶體連接器等三大新產品帶動下，2026年業績可望爆發。</li>
+<li>預估2025年下半年業績將好轉，全年將優於2024年，再戰新高。</li>
+<li>AI、電動車與工廠自動化可望在下半年強勁成長，交換器、資料中心纜線則將小幅增長。</li>
+</ul>
+<h2>券商觀點</h2>
+<strong>券商目標價：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (元)</th><th>評等</th><th>日期</th><th>備註</th></tr></thead><tbody>
+<tr><td>康和證券</td><td>185</td><td>(未提供)</td><td>2025年07月09日</td><td>⚠️ 過時 (&gt;6個月)</td></tr>
+<tr><td>(未明確指出券商名稱)</td><td>200～210</td><td>看多</td><td>2024年11月01日</td><td>⚠️ 過時 (&gt;6個月)</td></tr>
+</tbody></table></div>
+
+<strong>各券商對 2025-2026 年 EPS 的預估數字：</strong>
+<ul><li><strong>康和證券</strong>：預估2025年度EPS約 <strong>11.61元</strong> (日期：2025年07月09日，⚠️ 過時)。</li>
+<li><strong>未明確指出券商名稱 (2024年11月報導)</strong>：預估2025年度EPS落在 <strong>12.84元</strong> (⚠️ 過時)。</li>
+<li><strong>法人機構平均預估 (2026年02月報導)</strong>：預估2026年度EPS將落在 <strong>9.9元~12.38元</strong> 之間。</li>
+</ul>
+<strong>重大調升/調降評等：</strong>
+<ul><li>未找到2025-2026年最新的重大調升/調降評等資訊。2024年11月有報導指出有2家券商評等皆為「看多」。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢 (季)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>會計年度/季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2024年Q1</td><td>33.02%</td><td>17.40%</td><td>17.33%</td></tr>
+<tr><td>2024年Q2</td><td>35.44%</td><td>19.57%</td><td>19.46%</td></tr>
+<tr><td>2024年Q3</td><td>33.01%</td><td>19.42%</td><td>14.92%</td></tr>
+<tr><td>2024年Q4</td><td>30.98%</td><td>14.42%</td><td>15.87%</td></tr>
+<tr><td>2025年Q1</td><td>33.25%</td><td>17.87%</td><td>13.21%</td></tr>
+<tr><td>2025年Q2</td><td>34.44%</td><td>21.73%</td><td>13.71%</td></tr>
+<tr><td>2025年Q3</td><td>32.84%</td><td>19.22%</td><td>14.55%</td></tr>
+</tbody></table></div>
+
+<strong>分析：</strong> 佳必琪的毛利率在2024年Q4略有下滑至30.98%，主要受匯率影響及多地生產成本增加。然而，進入2025年，隨著高附加價值的AI相關產品比重增加，毛利率回穩並維持在32%-34%區間。營業利益率在2025年上半年顯著提升至20%以上，反映產品組合優化、製造效率提升及規模效益。2024年稅後淨利達10.6億元，年增66.93%，創歷史新高，淨利率達到歷史次高。
+
+<h3>存貨與營運分析</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>會計年度/季度</th><th>存貨金額 (新台幣千元)</th><th>存貨週轉天數</th><th>應收帳款週轉天數</th></tr></thead><tbody>
+<tr><td>2024年Q4</td><td>637,962</td><td>49.55</td><td>90.3</td></tr>
+<tr><td>2025年Q1</td><td>648,768</td><td>51.84</td><td>89.89</td></tr>
+<tr><td>2025年Q2</td><td>644,433</td><td>45.77</td><td>84.65</td></tr>
+<tr><td>2025年Q3</td><td>692,489</td><td>42.32</td><td>90.95</td></tr>
+</tbody></table></div>
+
+<strong>分析：</strong>
+<ul><li><strong>存貨：</strong> 佳必琪的存貨週轉天數從2025年Q1的51.84天下降至Q3的42.32天，顯示存貨去化速度加快，反映市場需求增加及公司存貨管理效率提升，目前未見異常堆積現象。</li>
+<li><strong>應收帳款：</strong> 應收帳款週轉天數在2025年Q3略微上升至90.95天。雖然2025年營收創歷史新高，但有報導指出應收帳款增幅過大，營業現金流落後稅前淨利，這構成潛在的現金流風險，需持續關注。</li>
+</ul>
+<h3>資本支出與產能</h3>
+<ul><li><strong>近3年資本支出金額與趨勢：</strong> 佳必琪董事長張舒眉表示，2025年資本支出將大於2024年，主要用於擴產與技術升級。具體金額未提供。</li>
+<li><strong>未來資本支出計畫與預計新增產能：</strong></li>
+</ul>    *   2024年已完成越南北廠擴建並進入量產，該廠產能已滿載。
+<p>*   美國廠預計在2025年10月遷至兩倍規模的新址，以提升交期與彈性。</p>
+<p>*   為因應客戶需求，公司正在評估擴大越南投資、在泰國設立新廠（可能專注於光通訊產品），或在美國東岸增設據點，預計在2025年第四季公布計畫。</p>
+<p>*   泰國廠規劃為光纖被動元件生產據點，預計2026年第二季開始運作，以因應美中貿易關稅變動。</p>
+
+<h3>其他財報重點</h3>
+<ul><li><strong>負債比率：</strong> 2025年第三季負債比為 <strong>42.34%</strong>，較前一季有所下降。</li>
+<li><strong>業外收支：</strong> 2024年第四季業外損益合計為 <strong>0.98億元</strong>，佔營收 <strong>5.9%</strong>。2025年上半年營運受到關稅及宏觀環境壓力，且匯率波動造成一定的匯兌損失。</li>
+</ul>
+<h2>股權異動</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>詳情</th><th>備註</th></tr></thead><tbody>
+<tr><td>申報轉讓</td><td>未找到2024-2026年最新董監事/大股東申報轉讓紀錄。</td><td>最近紀錄為2000年代。</td></tr>
+<tr><td>庫藏股</td><td>未找到2024-2026年最新庫藏股買回紀錄。</td><td></td></tr>
+<tr><td>可轉換公司債</td><td>未找到2024-2026年最新可轉換公司債發行資訊。</td><td></td></tr>
+<tr><td>增減資計畫</td><td>未找到2024-2026年最新現金增資或減資計畫。</td><td></td></tr>
+<tr><td>股利政策</td><td><strong>2024年：</strong> 每股現金股利 <strong>4.2元</strong> (已於2024/07/26發放)。</td><td></td></tr>
+<tr><td></td><td><strong>2025年：</strong> 董事會決議配息 <strong>7元</strong> (創歷年新高)，預計於2025/07/10除息，2025/07/25發放。</td><td>顯示公司獲利能力與對股東回饋的積極態度。</td></tr>
+</tbody></table></div>
+
+<h2>產業分析</h2>
+
+<h3>產業市場規模與 CAGR 成長率</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>市場類別</th><th>2025年市場規模 (預估)</th><th>2026年市場規模 (預估)</th><th>2026-2034/35 CAGR (預估)</th></tr></thead><tbody>
+<tr><td>全球AI伺服器</td><td>1,484.3億-1,946.2億美元</td><td>1,691.8億-2,622.2億美元</td><td>15.25%-34.73%</td></tr>
+<tr><td>全球資料中心</td><td>2,697.9億美元</td><td>3,006.4億美元</td><td>11.10%</td></tr>
+<tr><td>互聯網資料中心(IDC)</td><td>779.8億美元</td><td>890.1億美元</td><td>14.1%</td></tr>
+<tr><td>超大規模資料中心</td><td>816.7億美元</td><td>-</td><td>29.32%</td></tr>
+<tr><td>全球連接器</td><td>908.7億美元</td><td>957.2億美元</td><td>5.3%</td></tr>
+<tr><td>高速連接器</td><td>25.7億美元</td><td>27.4億美元</td><td>6.4%</td></tr>
+<tr><td>光纖元件</td><td>301.4億美元</td><td>330.9億美元</td><td>9.8%</td></tr>
+<tr><td>全球光模組</td><td>-</td><td>-</td><td>22% (2025-2029)</td></tr>
+<tr><td>1.6T光模組</td><td>5億美元</td><td>-</td><td>&gt;35% (至2030年突破150億美元)</td></tr>
+<tr><td>800G光模組</td><td>-</td><td>成為主流 (佔比43%)</td><td>-</td></tr>
+</tbody></table></div>
+
+<h3>供需狀況</h3>
+<ul><li><strong>光模組供不應求：</strong> LightCounting指出，2025-2026年光模組市場增長受限於InP激光芯片產能，當前需求是供給的兩倍。美國光通訊廠AAOI也透露，至少兩至三家客戶有意包下全部800G與1.6T光模組產能，顯示高階光模組供不應求態勢明確。Lumentum法說會指出，光傳輸元件市場供需缺口約30%。</li>
+<li><strong>算力需求持續增長：</strong> 22025年全球AI投資持續加碼，智算中心市場投資逆勢增長，預計2026年算力需求將持續增長。</li>
+<li><strong>高速銅纜仍為主力：</strong> 盛洋科技表示，2026年公司高速銅纜業務預計仍為營收主力。</li>
+<li><strong>AI伺服器需求旺盛：</strong> 全球AI伺服器出貨量年增28%以上，雲端業者與新創公司加速採購。</li>
+</ul>
+<h3>產業平均毛利率水準</h3>
+<ul><li>未找到 2025-2026 年相關產業的平均毛利率最新資料。</li>
+</ul>
+<h3>競爭格局</h3>
+
+<h4>全球主要競爭者 (按細分領域)</h4>
+<div class="table-wrapper"><table>
+<thead><tr><th>領域</th><th>主要參與者</th></tr></thead><tbody>
+<tr><td>高速連接器/線束</td><td>TE Connectivity (TE), Amphenol, Molex, Samtec, Hirose, Airborn, AICO, 立訊精密, 正凌精密工業, 陝西華達等。</td></tr>
+<tr><td>光通訊模組</td><td>中際旭創 (InnoLight), 新易盛 (Eoptolink), 華工正源 (HG Genuine), 光迅科技 (Accelink), 聯特科技 (Linktel), 天孚通信, 太辰光等。</td></tr>
+<tr><td><strong>備註</strong></td><td><strong>目前沒有明確指出特定細分市場的全球前五大公司及其精確市佔率數據 (2024年後)。</strong></td></tr>
+</tbody></table></div>
+
+<h4>佳必琪 vs. 主要競爭對手比較</h4>
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>佳必琪 (6197)</th><th>主要競爭對手 (產業概況)</th></tr></thead><tbody>
+<tr><td><strong>技術領先</strong></td><td>- <strong>矽光子 (CPO)</strong>：掌握PIC與TIC核心技術，800G/1.6T模組開發，2026年啟動晶片自製，目標2027年CPO量產。</td><td>- 國際大廠如Broadcom、NVIDIA、Intel、Cisco等均積極投入CPO研發，部分廠商已具備更早的量產能力或更完整的生態系。</td></tr>
+<tr><td></td><td>- <strong>高速傳輸</strong>：1.6T Loopback模組已獲美系交換機大廠認證，1.6T ACC預計2026Q1送樣。PCIe Gen6/7積極佈局。</td><td>- 其他連接器大廠如Amphenol、Molex等在高速銅纜與連接器領域具深厚積累。</td></tr>
+<tr><td></td><td>- <strong>大電流電源</strong>：OCP ORV3 AC Whip、Busbar已獲UL/OCP認證並接獲CSP量產訂單。</td><td>- 電源解決方案市場競爭激烈，有許多專業電源供應商與線束廠商。</td></tr>
+<tr><td><strong>產能佈局</strong></td><td>- <strong>「母子工廠」策略</strong>：美國NPI、越南大規模量產（2025年增30%）、泰國光纖被動元件（2026Q2）。具備在地化與風險分散優勢。</td><td>- 國際大廠產能規模更大，但可能缺乏佳必琪在美、越、泰的彈性全球在地化布局。</td></tr>
+<tr><td><strong>客戶關係</strong></td><td>- <strong>高階美系客戶</strong>：NVIDIA (GB200/GB300, MGX AVL供應商)、美系AI晶片公司、交換機大廠、雲端服務供應商(CSP)、甲骨文等。</td><td>- 大型競爭對手通常服務廣泛客戶群，但可能在特定AI/HPC前緣專案的配合緊密度上略遜於積極轉型的小型夥伴。</td></tr>
+<tr><td><strong>產品策略</strong></td><td>- <strong>高附加價值導向</strong>：專注從低毛利標準品轉向高毛利AI/HPC應用，優化產品組合以提升獲利。</td><td>- 部分競爭者仍有較大比重於傳統消費電子或低階市場，毛利率相對較低。</td></tr>
+</tbody></table></div>
+
+<h4>台灣同業比較</h4>
+<ul><li>未找到 2024-2026 年佳必琪與台灣同業（如嘉澤、凡甲、貿聯-KY等高速傳輸相關廠商，或聯亞、光聖等光通訊相關廠商）的最新營收規模、毛利率、EPS 直接對比數據。</li>
+</ul>
+<h3>產業趨勢</h3>
+
+<li><strong>矽光子（Silicon Photonics）與共同封裝光學（CPO）技術的興起：</strong></li>
+<p>*   <strong>具體影響：</strong> 隨著AI算力需求激增，資料中心互連頻寬、功耗與訊號傳輸面臨極限。矽光子和CPO技術被視為解決這些瓶頸的關鍵，可在1.6T傳輸頻寬下大幅降低單模組功耗，並可望使光通訊產品平均單價（ASP）倍數提升。2026年預計將成為矽光子商轉的關鍵轉折點。</p>
+<p>*   <strong>對佳必琪的影響：</strong> 佳必琪已積極投入矽光子模組開發（800G/1.6T FR4/DR8/FR8），掌握PIC偶合等核心技術。公司在2026年有三個CPO相關案子進行中，並規劃2027年CPO量產，有望快速成長。</p>
+
+<li><strong>高速傳輸規格從800G邁向1.6T，及「光進銅退」趨勢加速：</strong></li>
+<p>*   <strong>具體影響：</strong> NVIDIA GB200等全機架解決方案將互連要求推升至1.6T。800G光模組在2025-2026年放量，2026年需求量上看4,000萬組，1.6T光模組預計2026年需求突破2,000萬組。AI資料中心對頻寬與能效要求提升，傳統銅纜傳輸逐步被高速光通訊取代已成趨勢。</p>
+<p>*   <strong>對佳必琪的影響：</strong> 佳必琪主力產品涵蓋400G、800G，並專注於800G/1.6T矽光子模組。1.6T Loopback模組已獲美系客戶認證，1.6T ACC也將於2026年Q1啟動認證，成功卡位下一代交換機市場。</p>
+
+<li><strong>高功率電源與水冷散熱技術需求提升：</strong></li>
+<p>*   <strong>具體影響：</strong> AI伺服器的高密度運算對電源供應和散熱提出更高要求。機櫃級AI平台帶動散熱與電源方案升級，先進液冷與高壓直流供電成關鍵。OCP ORV3規格大電流電源線成市場趨勢。</p>
+<p>*   <strong>對佳必琪的影響：</strong> 佳必琪已推出OCP ORV3規格大電流AC Whip電源線，於2025年Q4獲UL認證並接獲量產訂單，預計2026年Q1出貨。公司也參與下一世代大電源傳輸Busbar開發，顯示其在高功率解決方案的競爭力。</p>
+
+<h3>對佳必琪而言的具體機會和威脅</h3>
+
+<strong>機會：</strong>
+<ul><li><strong>AI伺服器與資料中心高速成長：</strong> 全球AI伺服器和資料中心市場在2025-2026年呈現爆發性成長，佳必琪作為關鍵連接與傳輸元件供應商，直接受惠於此波紅利。</li>
+<li><strong>技術領先與產品多元化：</strong> 在矽光子、1.6T高速傳輸、大電流電源解決方案等前瞻技術領域的佈局和成果，使其在市場上具有差異化競爭優勢。</li>
+<li><strong>進入高階供應鏈：</strong> 成功打入輝達GB200/GB300等美系AI晶片和交換機大廠供應鏈，確保了未來的出貨動能。</li>
+<li><strong>全球化產能佈局：</strong> 透過美國、越南、泰國的彈性生產布局，能快速響應客戶需求、降低成本並規避地緣政治風險。</li>
+</ul>
+<strong>威脅：</strong>
+<ul><li><strong>關鍵零組件供應鏈限制：</strong> LightCounting報告指出InP激光芯片產能限制導致光模組供不應求，可能影響佳必琪高階光通訊產品的出貨能力。</li>
+<li><strong>競爭加劇與技術迭代快速：</strong> AI相關領域技術進步快速，CPO等新技術導入也面臨不同陣營競爭，持續的研發投入與技術升級壓力巨大。</li>
+<li><strong>地緣政治風險：</strong> 美中貿易戰可能導致成本增加和購買力下降，進而影響AI伺服器需求。</li>
+<li><strong>財務警訊：</strong> 應收帳款增幅過大，營業現金流落後稅前淨利，需留意現金流風險。</li>
+</ul>
+<h3>相關投資題材</h3>
+<ul><li><strong>AI (人工智慧)：</strong> 佳必琪的營運展望與AI產業發展高度連結。其高速資料傳輸、電源供應、水冷散熱和光通訊模組皆為AI伺服器和資料中心不可或缺的基礎設施。公司積極佈局800G/1.6T光通訊模組與矽光子技術，並與NVIDIA GB200/GB300等AI晶片平台深度合作，直接受益於AI軍備競賽。</li>
+<li><strong>HBM (高頻寬記憶體)：</strong> HBM需求擴大間接帶動對AI伺服器整體零組件的需求。佳必琪的Memory SoCam連接器已完成驗證，待客戶生產計畫啟動，將間接參與HBM帶動的生態鏈商機。</li>
+<li><strong>電動車 (EV)：</strong> 佳必琪在智能連接業務中包含電動車解決方案 (佔智能連接產品約30%)，雖然目前AI為主要焦點，但汽車電氣化和高速傳輸需求亦為公司產品線的多元化應用市場。</li>
+</ul>
+<h2>近期催化劑 (利多/利空事件清單)</h2>
+
+<ul><li><strong>2026年03月05日：</strong> 法人近一日買超609張 (外資買超435張，自營商買超176張)。近一週法人買超1384.6張 (外資買超1207.81張)。</li>
+<li><strong>2026年02月04日：</strong> 1月營收7.70億元，月增28.19%、年增30.86%，創歷史新高。</li>
+<li><strong>2026年01月28日：</strong> (警訊) YouTube影片分析指2025年營收創新高，但應收帳款增幅過大，營業現金流落後稅前淨利，構成財務警訊。</li>
+<li><strong>2026年01月23日：</strong> 1.6T Loopback模組於2025年Q4獲美系交換機大廠認證。1.6T ACC預計2026年Q1送樣認證。大電流產品於2025年Q4接獲CSP量產訂單，預計2026年Q1陸續出貨。泰國廠規劃為光纖被動元件生產據點，預計2026年Q2運作。</li>
+<li><strong>2026年01月07日：</strong> 2025年全年營收75.87億元，年增12.1%，創歷年新高。</li>
+<li><strong>2026年01月05日：</strong> 市場對CPO、矽光子及SOCAMM新品逐步放量具高度信心，AI題材助攻，短線多頭格局明確。</li>
+<li><strong>2026年01月02日：</strong> 法說會預告2026年營運大爆發，帶動股價跳空漲停。</li>
+<li><strong>2025年12月31日：</strong> 法說會決議配息7元，創歷年新高。強調三大新產品（矽光子、大電流、高速記憶體連接器）將帶動2026年業績爆發。光通訊事業聚焦1.6T產品與CPO研發，已打入美系AI晶片公司與交換機大廠。電源產品OCP ORV3 AC Whip於2025年Q4獲UL認證並接獲量產訂單。Trident Cable成功導入美系客戶Compute Tray供應鏈。</li>
+<li><strong>2025年10月01日：</strong> 2024年Q3 AI／GPU伺服器占營收比重有望突破30%，成為主要營收來源，預計帶動毛利率、淨利率提升。已納入輝達GB200／GB300與MGX供應鏈，大電力與水冷連接器已完成測試有樣品單量產。PCIe 6已進入客戶專案。以新品牌「Busflow」切入大電流產品市場。</li>
+<li><strong>2025年06月27日：</strong> 2025年資本支出將大於2024年，越南產能目標提升30%。GB200相關產品已量產。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能類別</th><th>具體事件</th></tr></thead><tbody>
+<tr><td><strong>2024年</strong></td><td>擴廠</td><td>北越廠擴建完成並進入量產。</td></tr>
+<tr><td></td><td>客戶</td><td>AI/GPU伺服器貢獻佔數據中心業務營收一半 (約27%)；AI/GPU伺服器占整體營收比重有望突破30% (Q3)。</td></tr>
+<tr><td></td><td>產能</td><td>北越廠產能已近滿載。</td></tr>
+<tr><td><strong>2025年Q1</strong></td><td>客戶</td><td>電信傳輸網產品取得較多歐洲與亞洲客戶配額。</td></tr>
+<tr><td><strong>2025年Q2</strong></td><td>產品/技術進展</td><td>PCIe Gen6產品列入專案。GB200相關產品已量產。</td></tr>
+<tr><td><strong>2025年下半年</strong></td><td>產品/技術進展</td><td>SOCAMM Connector性能與可靠度驗證完成，組裝設備準備就緒，待客戶生產計畫。</td></tr>
+<tr><td></td><td>擴廠</td><td>美國子公司新廠預計10月開幕，規模為原址兩倍，新增NPI與高速測試能力。</td></tr>
+<tr><td><strong>2025年Q4</strong></td><td>產品/技術進展</td><td>1.6T迴路模組通過美系交換機大廠認證。提供1.6T DR8矽光子黃金樣品供客戶驗證。大電流OCP ORV3 AC Whip獲UL認證並接獲CSP量產訂單。</td></tr>
+<tr><td></td><td>客戶</td><td>大電流產品接獲雲端服務供應商（CSP）量產等級訂單。Trident Cable打入美系客戶Compute Tray供應鏈。</td></tr>
+<tr><td></td><td>產能</td><td>評估擴大越南投資、泰國設新廠或在美增設據點。</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td>產品/技術進展</td><td>1.6T主動式銅纜（ACC）預計送樣進行認證。800G光/銅解決方案預計再有一家美系客戶加入驗證。大電流AC Whip電源線陸續出貨。PCIe Gen7預計提供樣品。</td></tr>
+<tr><td><strong>2026年Q2</strong></td><td>擴廠</td><td>泰國廠規劃為光纖被動元件生產基地，預計開始運作。</td></tr>
+<tr><td><strong>2026年</strong></td><td>產品/技術進展</td><td>啟動矽光子晶片自製與多通道雷射整合。矽光子三個案子進行中，業績可望快速成長。PCIe Gen6產品預計上半年放量。</td></tr>
+<tr><td></td><td>需求</td><td>全球AI伺服器出貨量年增28%以上，雲端業者與新創公司加速採購。800G將正式取代400G成為主流（佔比43%）。</td></tr>
+<tr><td><strong>2027年</strong></td><td>產品/技術進展</td><td>CPO相關產品量產為目標。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<strong>主要成長動能：</strong>
+<ul><li><strong>AI伺服器與高速傳輸需求爆發：</strong> AI/GPU伺服器將持續成為營收主力，高速光通訊模組（400G/800G/1.6T）及PCIe Gen6/7等高速銅纜解決方案將伴隨AI算力需求大幅增長。</li>
+<li><strong>矽光子與CPO產品放量：</strong> 隨著1.6T DR8黃金樣品驗證、矽光子晶片自製啟動以及多個CPO案子推進，預計2026年將迎來矽光子相關營收的快速成長。</li>
+<li><strong>大電流電源產品出貨：</strong> OCP ORV3規格的大電流AC Whip電源線已獲CSP量產訂單，並將於2026年Q1陸續出貨，Busbar產品開發亦將持續貢獻。</li>
+<li><strong>全球化產能效益顯現：</strong> 越南廠擴產、美國新廠啟用以及泰國廠的運作，將提供充足且彈性的產能，以應對全球客戶的訂單需求並規避地緣政治風險。</li>
+<li><strong>記憶體連接器新機遇：</strong> SOCAMM Connector性能驗證完成，待客戶生產計畫啟動，預期將貢獻新營收。</li>
+</ul>
+<strong>潛在風險：</strong>
+<ul><li><strong>應收帳款增幅過大與現金流風險：</strong> 2025年營收創新高，但應收帳款增幅過大且營業現金流落後稅前淨利，需密切關注現金流狀況。</li>
+<li><strong>上游關鍵零組件供應鏈限制：</strong> 光模組市場受InP激光芯片產能限制影響，可能影響佳必琪高階光通訊產品的出貨能力。</li>
+<li><strong>產業技術快速迭代與競爭加劇：</strong> AI領域技術發展迅速，CPO等新技術面臨不同陣營競爭，公司需持續投入高強度研發以維持領先地位。</li>
+<li><strong>地緣政治與貿易戰不確定性：</strong> 全球地緣政治風險可能導致成本增加或影響市場需求，儘管公司已積極佈局泰國廠分散風險。</li>
+<li><strong>匯率變動風險：</strong> 匯率波動可能對獲利造成影響，儘管管理層認為可轉嫁，但仍是潛在變數。</li>
+</ul>
+<h2>投資結論</h2>
+<p>佳必琪憑藉其在AI高速傳輸、光通訊及高功率解決方案的領先布局與深厚技術實力，有望在2026年迎來爆發性成長。</p>
+
+<li><strong>AI轉型成果顯著，坐擁核心成長賽道：</strong> 佳必琪已成功從傳統連接器製造商轉型，成為NVIDIA GB200/GB300、美系CSP及交換機大廠AI伺服器供應鏈中的關鍵角色。公司在1.6T高速光通訊、矽光子(CPO)與大電流電源等次世代技術的布局與認證進度，使其在AI資料中心龐大需求下具有強勁的成長動能。</li>
+<li><strong>產品組合高值化與產能策略具優勢：</strong> 公司積極將產品重心轉向高毛利的AI相關應用，有效提升獲利能力。同時，透過美國NPI、越南量產及泰國光纖被動元件廠的全球化彈性產能佈局，不僅能迅速滿足客戶需求，亦能有效應對地緣政治風險。</li>
+<li><strong>2026年營運三大引擎驅動，成長可期：</strong> 管理層預期矽光子、大電流及下一世代高速記憶體連接器三大新產品將在2026年全面放量。隨著1.6T光/銅產品通過認證並出貨，以及CPO案子加速推進，預計將帶動公司營收及獲利顯著增長。法人預估2026年EPS落在9.9~12.38元。</li>
+<li><strong>潛在風險需持續關注：</strong> 儘管成長前景看好，但應收帳款增幅過大導致的現金流風險、上游關鍵零組件供不應求、以及產業技術快速迭代帶來的競爭壓力，仍是投資人需密切關注的潛在下行風險。</li>
+
+<strong>基於上述分析，考量2026年EPS預估區間(9.9~12.38元)及其作為AI產業關鍵供應商的成長潛力，建議目標價區間為 200~260元。</strong> (此建議考量成長型公司16-21倍的P/E區間，並參考過往券商目標價但重新評估後得出)。
+
+<hr>
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:38</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="6197_佳必琪_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="6197_佳必琪_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="6197_佳必琪_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

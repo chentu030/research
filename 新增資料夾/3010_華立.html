@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3010 華立 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>3010 華立 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>華立企業（3010）正成功轉型為高毛利製造與AI先進製程材料領導者，受惠於AI與高效能運算（HPC）強勁需求，2026年1月營收創歷史新高達75.98億元。公司策略性佈局電子級特殊氣體（併購錦德氣體、氖氣純化廠量產）及AI伺服器自動化產線，為未來成長奠定堅實基礎。法人預期其2026年EPS有望達9.09-9.56元，展現顯著成長潛力。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">3010 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-3010" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-3010" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-3010');
+    var obvContainer = document.getElementById('obv-chart-3010');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 109.0, "high": 112.5, "low": 108.0, "close": 109.0}, {"time": "2025-12-05", "open": 109.0, "high": 109.5, "low": 107.0, "close": 109.5}, {"time": "2025-12-08", "open": 111.5, "high": 113.0, "low": 110.5, "close": 112.5}, {"time": "2025-12-09", "open": 111.5, "high": 113.0, "low": 110.5, "close": 112.5}, {"time": "2025-12-10", "open": 118.0, "high": 119.5, "low": 115.0, "close": 116.5}, {"time": "2025-12-11", "open": 118.0, "high": 118.0, "low": 115.5, "close": 117.0}, {"time": "2025-12-12", "open": 117.5, "high": 119.0, "low": 116.5, "close": 119.0}, {"time": "2025-12-15", "open": 117.5, "high": 120.0, "low": 116.5, "close": 120.0}, {"time": "2025-12-16", "open": 119.5, "high": 120.5, "low": 117.5, "close": 120.5}, {"time": "2025-12-17", "open": 122.0, "high": 122.0, "low": 116.5, "close": 117.5}, {"time": "2025-12-18", "open": 116.5, "high": 117.5, "low": 112.0, "close": 117.0}, {"time": "2025-12-19", "open": 119.0, "high": 119.0, "low": 113.5, "close": 116.0}, {"time": "2025-12-22", "open": 116.0, "high": 116.0, "low": 113.0, "close": 114.0}, {"time": "2025-12-23", "open": 114.0, "high": 114.5, "low": 112.0, "close": 113.0}, {"time": "2025-12-24", "open": 113.5, "high": 114.5, "low": 112.5, "close": 113.0}, {"time": "2025-12-26", "open": 113.5, "high": 113.5, "low": 110.0, "close": 111.0}, {"time": "2025-12-29", "open": 111.5, "high": 111.5, "low": 108.0, "close": 109.0}, {"time": "2025-12-30", "open": 109.0, "high": 109.0, "low": 106.0, "close": 106.0}, {"time": "2025-12-31", "open": 110.5, "high": 112.5, "low": 107.0, "close": 107.5}, {"time": "2026-01-02", "open": 109.0, "high": 109.0, "low": 106.0, "close": 106.5}, {"time": "2026-01-05", "open": 107.0, "high": 108.0, "low": 104.5, "close": 107.5}, {"time": "2026-01-06", "open": 108.0, "high": 111.0, "low": 108.0, "close": 109.5}, {"time": "2026-01-07", "open": 110.0, "high": 112.0, "low": 109.5, "close": 111.0}, {"time": "2026-01-08", "open": 111.0, "high": 111.0, "low": 108.0, "close": 108.5}, {"time": "2026-01-09", "open": 108.5, "high": 109.5, "low": 106.0, "close": 109.0}, {"time": "2026-01-12", "open": 109.5, "high": 110.0, "low": 108.5, "close": 109.5}, {"time": "2026-01-13", "open": 110.5, "high": 112.5, "low": 109.5, "close": 111.0}, {"time": "2026-01-14", "open": 112.5, "high": 119.5, "low": 111.5, "close": 117.5}, {"time": "2026-01-15", "open": 117.5, "high": 119.0, "low": 115.0, "close": 118.0}, {"time": "2026-01-16", "open": 118.5, "high": 118.5, "low": 114.5, "close": 116.0}, {"time": "2026-01-19", "open": 114.0, "high": 115.5, "low": 112.5, "close": 113.0}, {"time": "2026-01-20", "open": 114.0, "high": 117.5, "low": 114.0, "close": 115.5}, {"time": "2026-01-21", "open": 115.5, "high": 117.5, "low": 115.0, "close": 116.0}, {"time": "2026-01-22", "open": 117.5, "high": 120.0, "low": 116.5, "close": 117.0}, {"time": "2026-01-23", "open": 118.5, "high": 118.5, "low": 117.0, "close": 117.5}, {"time": "2026-01-26", "open": 117.5, "high": 122.0, "low": 117.5, "close": 121.0}, {"time": "2026-01-27", "open": 122.0, "high": 122.5, "low": 120.0, "close": 122.0}, {"time": "2026-01-28", "open": 123.5, "high": 130.0, "low": 122.5, "close": 124.5}, {"time": "2026-01-29", "open": 126.0, "high": 128.0, "low": 123.0, "close": 124.0}, {"time": "2026-01-30", "open": 124.0, "high": 125.0, "low": 121.0, "close": 124.5}, {"time": "2026-02-02", "open": 122.5, "high": 124.5, "low": 119.0, "close": 120.0}, {"time": "2026-02-03", "open": 124.0, "high": 126.5, "low": 120.0, "close": 121.5}, {"time": "2026-02-04", "open": 121.5, "high": 124.0, "low": 120.5, "close": 123.5}, {"time": "2026-02-05", "open": 122.5, "high": 122.5, "low": 115.5, "close": 116.5}, {"time": "2026-02-06", "open": 115.0, "high": 116.5, "low": 112.0, "close": 115.0}, {"time": "2026-02-09", "open": 120.5, "high": 122.5, "low": 118.5, "close": 120.5}, {"time": "2026-02-10", "open": 123.0, "high": 125.0, "low": 121.0, "close": 123.5}, {"time": "2026-02-11", "open": 125.5, "high": 125.5, "low": 120.5, "close": 122.0}, {"time": "2026-02-23", "open": 124.0, "high": 124.0, "low": 120.0, "close": 122.0}, {"time": "2026-02-24", "open": 123.0, "high": 125.5, "low": 122.5, "close": 125.0}, {"time": "2026-02-25", "open": 126.5, "high": 128.5, "low": 125.0, "close": 128.0}, {"time": "2026-02-26", "open": 129.5, "high": 134.0, "low": 127.5, "close": 129.5}, {"time": "2026-03-02", "open": 117.5, "high": 119.5, "low": 114.0, "close": 114.5}, {"time": "2026-03-03", "open": 124.0, "high": 124.5, "low": 120.0, "close": 120.5}, {"time": "2026-03-04", "open": 117.5, "high": 119.5, "low": 114.0, "close": 114.5}, {"time": "2026-03-05", "open": 119.0, "high": 124.5, "low": 118.0, "close": 123.5}, {"time": "2026-03-06", "open": 122.0, "high": 123.5, "low": 120.5, "close": 123.0}, {"time": "2026-03-09", "open": 116.5, "high": 121.0, "low": 114.5, "close": 120.5}, {"time": "2026-03-10", "open": 124.0, "high": 124.0, "low": 120.5, "close": 123.0}, {"time": "2026-03-11", "open": 123.0, "high": 126.5, "low": 123.0, "close": 125.5}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 1204.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 906.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 1463.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 1463.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 3188.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 2380.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 1876.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 1645.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 2070.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 2222.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 2139.0, "color": "#ef5350"}, {"time": "2025-12-19", "value": 1669.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 1899.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 1421.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 1039.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 1401.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 1084.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 1223.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 1630.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 1235.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 1303.0, "color": "#ef5350"}, {"time": "2026-01-06", "value": 1371.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 1560.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 869.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 928.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 959.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 1542.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 4152.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 2011.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 2542.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 1240.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 2571.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 1547.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 1783.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 1099.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 3240.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 1983.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 3388.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 2418.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 1661.0, "color": "#ef5350"}, {"time": "2026-02-02", "value": 1763.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 1678.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 1492.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 1701.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 1096.0, "color": "#ef5350"}, {"time": "2026-02-09", "value": 1136.0, "color": "#ef5350"}, {"time": "2026-02-10", "value": 2121.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 1806.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 3489.0, "color": "#26a69a"}, {"time": "2026-02-24", "value": 1760.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 2274.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 3039.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 1585.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 1431.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 1585.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 1980.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 520.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 1405.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 799.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 1117.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 112.0}, {"time": "2025-12-11", "value": 113.6}, {"time": "2025-12-12", "value": 115.5}, {"time": "2025-12-15", "value": 117.0}, {"time": "2025-12-16", "value": 118.6}, {"time": "2025-12-17", "value": 118.8}, {"time": "2025-12-18", "value": 118.8}, {"time": "2025-12-19", "value": 118.2}, {"time": "2025-12-22", "value": 117.0}, {"time": "2025-12-23", "value": 115.5}, {"time": "2025-12-24", "value": 114.6}, {"time": "2025-12-26", "value": 113.4}, {"time": "2025-12-29", "value": 112.0}, {"time": "2025-12-30", "value": 110.4}, {"time": "2025-12-31", "value": 109.3}, {"time": "2026-01-02", "value": 108.0}, {"time": "2026-01-05", "value": 107.3}, {"time": "2026-01-06", "value": 107.4}, {"time": "2026-01-07", "value": 108.4}, {"time": "2026-01-08", "value": 108.6}, {"time": "2026-01-09", "value": 109.1}, {"time": "2026-01-12", "value": 109.5}, {"time": "2026-01-13", "value": 109.8}, {"time": "2026-01-14", "value": 111.1}, {"time": "2026-01-15", "value": 113.0}, {"time": "2026-01-16", "value": 114.4}, {"time": "2026-01-19", "value": 115.1}, {"time": "2026-01-20", "value": 116.0}, {"time": "2026-01-21", "value": 115.7}, {"time": "2026-01-22", "value": 115.5}, {"time": "2026-01-23", "value": 115.8}, {"time": "2026-01-26", "value": 117.4}, {"time": "2026-01-27", "value": 118.7}, {"time": "2026-01-28", "value": 120.4}, {"time": "2026-01-29", "value": 121.8}, {"time": "2026-01-30", "value": 123.2}, {"time": "2026-02-02", "value": 123.0}, {"time": "2026-02-03", "value": 122.9}, {"time": "2026-02-04", "value": 122.7}, {"time": "2026-02-05", "value": 121.2}, {"time": "2026-02-06", "value": 119.3}, {"time": "2026-02-09", "value": 119.4}, {"time": "2026-02-10", "value": 119.8}, {"time": "2026-02-11", "value": 119.5}, {"time": "2026-02-23", "value": 120.6}, {"time": "2026-02-24", "value": 122.6}, {"time": "2026-02-25", "value": 124.1}, {"time": "2026-02-26", "value": 125.3}, {"time": "2026-03-02", "value": 123.8}, {"time": "2026-03-03", "value": 123.5}, {"time": "2026-03-04", "value": 121.4}, {"time": "2026-03-05", "value": 120.5}, {"time": "2026-03-06", "value": 119.2}, {"time": "2026-03-09", "value": 120.4}, {"time": "2026-03-10", "value": 120.9}, {"time": "2026-03-11", "value": 123.1}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 115.4}, {"time": "2025-12-18", "value": 116.2}, {"time": "2025-12-19", "value": 116.85}, {"time": "2025-12-22", "value": 117.0}, {"time": "2025-12-23", "value": 117.05}, {"time": "2025-12-24", "value": 116.7}, {"time": "2025-12-26", "value": 116.1}, {"time": "2025-12-29", "value": 115.1}, {"time": "2025-12-30", "value": 113.7}, {"time": "2025-12-31", "value": 112.4}, {"time": "2026-01-02", "value": 111.3}, {"time": "2026-01-05", "value": 110.35}, {"time": "2026-01-06", "value": 109.7}, {"time": "2026-01-07", "value": 109.4}, {"time": "2026-01-08", "value": 108.95}, {"time": "2026-01-09", "value": 108.55}, {"time": "2026-01-12", "value": 108.4}, {"time": "2026-01-13", "value": 108.6}, {"time": "2026-01-14", "value": 109.75}, {"time": "2026-01-15", "value": 110.8}, {"time": "2026-01-16", "value": 111.75}, {"time": "2026-01-19", "value": 112.3}, {"time": "2026-01-20", "value": 112.9}, {"time": "2026-01-21", "value": 113.4}, {"time": "2026-01-22", "value": 114.25}, {"time": "2026-01-23", "value": 115.1}, {"time": "2026-01-26", "value": 116.25}, {"time": "2026-01-27", "value": 117.35}, {"time": "2026-01-28", "value": 118.05}, {"time": "2026-01-29", "value": 118.65}, {"time": "2026-01-30", "value": 119.5}, {"time": "2026-02-02", "value": 120.2}, {"time": "2026-02-03", "value": 120.8}, {"time": "2026-02-04", "value": 121.55}, {"time": "2026-02-05", "value": 121.5}, {"time": "2026-02-06", "value": 121.25}, {"time": "2026-02-09", "value": 121.2}, {"time": "2026-02-10", "value": 121.35}, {"time": "2026-02-11", "value": 121.1}, {"time": "2026-02-23", "value": 120.9}, {"time": "2026-02-24", "value": 120.95}, {"time": "2026-02-25", "value": 121.75}, {"time": "2026-02-26", "value": 122.55}, {"time": "2026-03-02", "value": 121.65}, {"time": "2026-03-03", "value": 122.05}, {"time": "2026-03-04", "value": 122.0}, {"time": "2026-03-05", "value": 122.3}, {"time": "2026-03-06", "value": 122.25}, {"time": "2026-03-09", "value": 122.1}, {"time": "2026-03-10", "value": 122.2}, {"time": "2026-03-11", "value": 122.25}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 113.35}, {"time": "2026-01-05", "value": 113.275}, {"time": "2026-01-06", "value": 113.275}, {"time": "2026-01-07", "value": 113.2}, {"time": "2026-01-08", "value": 113.0}, {"time": "2026-01-09", "value": 112.625}, {"time": "2026-01-12", "value": 112.25}, {"time": "2026-01-13", "value": 111.85}, {"time": "2026-01-14", "value": 111.725}, {"time": "2026-01-15", "value": 111.6}, {"time": "2026-01-16", "value": 111.525}, {"time": "2026-01-19", "value": 111.325}, {"time": "2026-01-20", "value": 111.3}, {"time": "2026-01-21", "value": 111.4}, {"time": "2026-01-22", "value": 111.6}, {"time": "2026-01-23", "value": 111.825}, {"time": "2026-01-26", "value": 112.325}, {"time": "2026-01-27", "value": 112.975}, {"time": "2026-01-28", "value": 113.9}, {"time": "2026-01-29", "value": 114.725}, {"time": "2026-01-30", "value": 115.625}, {"time": "2026-02-02", "value": 116.25}, {"time": "2026-02-03", "value": 116.85}, {"time": "2026-02-04", "value": 117.475}, {"time": "2026-02-05", "value": 117.875}, {"time": "2026-02-06", "value": 118.175}, {"time": "2026-02-09", "value": 118.725}, {"time": "2026-02-10", "value": 119.35}, {"time": "2026-02-11", "value": 119.575}, {"time": "2026-02-23", "value": 119.775}, {"time": "2026-02-24", "value": 120.225}, {"time": "2026-02-25", "value": 120.975}, {"time": "2026-02-26", "value": 121.675}, {"time": "2026-03-02", "value": 121.6}, {"time": "2026-03-03", "value": 121.775}, {"time": "2026-03-04", "value": 121.625}, {"time": "2026-03-05", "value": 121.75}, {"time": "2026-03-06", "value": 121.8}, {"time": "2026-03-09", "value": 121.6}, {"time": "2026-03-10", "value": 121.55}, {"time": "2026-03-11", "value": 121.6}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 906.0}, {"time": "2025-12-08", "value": 2369.0}, {"time": "2025-12-09", "value": 2369.0}, {"time": "2025-12-10", "value": 5557.0}, {"time": "2025-12-11", "value": 7937.0}, {"time": "2025-12-12", "value": 9813.0}, {"time": "2025-12-15", "value": 11458.0}, {"time": "2025-12-16", "value": 13528.0}, {"time": "2025-12-17", "value": 11306.0}, {"time": "2025-12-18", "value": 9167.0}, {"time": "2025-12-19", "value": 7498.0}, {"time": "2025-12-22", "value": 5599.0}, {"time": "2025-12-23", "value": 4178.0}, {"time": "2025-12-24", "value": 4178.0}, {"time": "2025-12-26", "value": 2777.0}, {"time": "2025-12-29", "value": 1693.0}, {"time": "2025-12-30", "value": 470.0}, {"time": "2025-12-31", "value": 2100.0}, {"time": "2026-01-02", "value": 865.0}, {"time": "2026-01-05", "value": 2168.0}, {"time": "2026-01-06", "value": 3539.0}, {"time": "2026-01-07", "value": 5099.0}, {"time": "2026-01-08", "value": 4230.0}, {"time": "2026-01-09", "value": 5158.0}, {"time": "2026-01-12", "value": 6117.0}, {"time": "2026-01-13", "value": 7659.0}, {"time": "2026-01-14", "value": 11811.0}, {"time": "2026-01-15", "value": 13822.0}, {"time": "2026-01-16", "value": 11280.0}, {"time": "2026-01-19", "value": 10040.0}, {"time": "2026-01-20", "value": 12611.0}, {"time": "2026-01-21", "value": 14158.0}, {"time": "2026-01-22", "value": 15941.0}, {"time": "2026-01-23", "value": 17040.0}, {"time": "2026-01-26", "value": 20280.0}, {"time": "2026-01-27", "value": 22263.0}, {"time": "2026-01-28", "value": 25651.0}, {"time": "2026-01-29", "value": 23233.0}, {"time": "2026-01-30", "value": 24894.0}, {"time": "2026-02-02", "value": 23131.0}, {"time": "2026-02-03", "value": 24809.0}, {"time": "2026-02-04", "value": 26301.0}, {"time": "2026-02-05", "value": 24600.0}, {"time": "2026-02-06", "value": 23504.0}, {"time": "2026-02-09", "value": 24640.0}, {"time": "2026-02-10", "value": 26761.0}, {"time": "2026-02-11", "value": 24955.0}, {"time": "2026-02-23", "value": 24955.0}, {"time": "2026-02-24", "value": 26715.0}, {"time": "2026-02-25", "value": 28989.0}, {"time": "2026-02-26", "value": 32028.0}, {"time": "2026-03-02", "value": 30443.0}, {"time": "2026-03-03", "value": 31874.0}, {"time": "2026-03-04", "value": 30289.0}, {"time": "2026-03-05", "value": 32269.0}, {"time": "2026-03-06", "value": 31749.0}, {"time": "2026-03-09", "value": 30344.0}, {"time": "2026-03-10", "value": 31143.0}, {"time": "2026-03-11", "value": 32260.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>華立企業（3010）是一家台灣高科技材料與設備供應商及電子材料通路商，近年來營運重心已全面轉向「高毛利製造」與「AI先進製程材料」。</p>
+
+<strong>核心產品與服務：</strong>
+<ul><li><strong>半導體材料</strong>：提供半導體前段製程所需材料，如光阻液、研磨液、濕式化學品、特殊氣體、先進封裝材料等。</li>
+<li><strong>PCB材料</strong>：代理高解析度乾膜，並提供用於AI伺服器主板、低軌衛星、光收發模組等高成長領域的PCB材料，以及低損耗新世代銅箔基板（CCL）材料。</li>
+<li><strong>高階工程塑膠</strong>：應用於3C產品、車用連接器及光學模組等。</li>
+<li><strong>特殊氣體製造</strong>：積極布局氣體產品線，首座氖氣純化廠已進入試量產，並規劃切入混合氣體市場。</li>
+<li><strong>智能工廠自動化</strong>：憑藉在智能工廠自動化的經驗，已跨入電子五哥的AI伺服器組裝自動化產線，提供客製化解決方案。</li>
+</ul>
+<strong>營收結構 (依業務別，截至2025年末至2026年初數據)：</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>營收佔比（最新）</th><th>備註</th></tr></thead><tbody>
+<tr><td>先進製程產品</td><td>&gt;70%</td><td>其中高速運算相關產品貢獻超過一半</td></tr>
+<tr><td>半導體事業</td><td>約25%</td><td>法人預期2026年將朝30%靠近</td></tr>
+<tr><td>ICT（資通訊）</td><td>38.4% (2025年1-10月)</td><td>相較2021年佔比下降</td></tr>
+<tr><td>光電</td><td>23.9% (2025年1-10月)</td><td>相較2021年佔比下降</td></tr>
+<tr><td><strong>舊有營收結構 (2024年，供參考)</strong></td><td></td><td></td></tr>
+<tr><td>平面顯示器產業</td><td>28.7%</td><td></td></tr>
+<tr><td>電子資通訊產業</td><td>28.1%</td><td></td></tr>
+<tr><td>半導體產業</td><td>26.4%</td><td>顯示半導體事業佔比自2024年以來持續增長且業務轉型</td></tr>
+</tbody></table></div>
+
+<strong>製造與物流佈局：</strong>
+<ul><li><strong>氖氣純化廠</strong>：位於屏南產業園區，已進入試量產，預計2026年第一季正式量產，月產能達8,000立方公尺。</li>
+<li><strong>物流中心</strong>：投資25至27億元於台南佳里興建1.2萬坪物流中心，規劃冷藏與常溫倉庫，預計於2025年底至2026年初啟用，以因應半導體客戶需求。</li>
+<li><strong>國際佈局</strong>：供應範圍涵蓋台灣、中國、新加坡、美國與日本。</li>
+<li><strong>營收貢獻比例 (地區，2024年)：</strong> 中國佔39.91%，台灣佔21.34%，其他佔19.53%，亞洲佔9.14%，美洲佔5.7%，歐洲佔4.38%。</li>
+</ul>
+<h2>核心競爭優勢</h2>
+<li><strong>AI與HPC先進製程材料領導地位</strong>：華立積極轉型，先進製程產品營收占比已突破七成，其中高速運算相關產品貢獻超過一半。在半導體前段製程材料、先進封裝材料及高階PCB材料領域，扮演關鍵供應商角色，緊密配合晶圓代工與封測大廠。</li>
+<li><strong>電子級特殊氣體製造能力</strong>：透過併購錦德氣體（持股51%）切入高門檻的「混配氣」市場，並於屏南產業園區建置全台首座氖氣純化廠，預計2026年Q1量產，月產能達8,000立方公尺。此舉有助於掌握關鍵材料自主供應，提升毛利率。</li>
+<li><strong>智能工廠自動化解決方案</strong>：成功切入電子五哥的AI伺服器組裝自動化產線，為全球AI運算領導品牌提供客製化解決方案，推動營收實現倍數成長，搭上智慧製造趨勢。</li>
+<li><strong>多元且深化的全球供應鏈</strong>：華立在半導體材料領域的供應版圖持續擴大，涵蓋台灣、中國、新加坡、美國與日本，透過與世界級供應商及客戶的緊密合作，確保在缺貨期間能扮演關鍵材料供應者。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>75.98</td><td>15.09%</td><td>8.42%</td><td>創歷史單月營收新高</td></tr>
+<tr><td>2025年12月</td><td>66.01</td><td>-6.61%</td><td>3.21%</td><td></td></tr>
+<tr><td>2025年11月</td><td>70.69</td><td>11.18%</td><td>-1.88%</td><td></td></tr>
+<tr><td>2025年10月</td><td>63.58</td><td>-0.33%</td><td>-3.84%</td><td></td></tr>
+<tr><td>2025年9月</td><td>63.79</td><td>-1.24%</td><td>-6.42%</td><td></td></tr>
+<tr><td>2025年8月</td><td>64.60</td><td>-0.58%</td><td>-11.61%</td><td></td></tr>
+</tbody></table></div>
+
+<h3>季度數據 (2025年第三季)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>指標</th><th>數值</th><th>備註</th></tr></thead><tbody>
+<tr><td>季營收</td><td>新台幣 193.4 億元</td><td>累計2025年Q1-Q3營收為581.6億元</td></tr>
+<tr><td>毛利率</td><td>8.26%</td><td>創歷年同期次高紀錄</td></tr>
+<tr><td>營業利益率</td><td>4.09%</td><td>優於去年同期</td></tr>
+<tr><td>EPS</td><td>2.69 元</td><td>季增63.03%，年減2.18%。累計Q1-Q3 EPS 6.28元。</td></tr>
+</tbody></table></div>
+
+<h3>年度趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>全年營收 (新台幣億元)</th><th>年增率</th><th>EPS (元)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2024年 (實際)</td><td>800.31</td><td>19.84%</td><td>8.89</td><td>創歷史新高</td></tr>
+<tr><td>2025年 (預估)</td><td>約 781.89</td><td>-2.3%</td><td>7.42 ~ 8.41</td><td>法人機構平均預估</td></tr>
+<tr><td>2026年 (預估)</td><td>(預期成長一成)</td><td>&gt;10%</td><td>9.09 ~ 9.56</td><td>法人機構平均預估</td></tr>
+</tbody></table></div>
+
+<h2>法說會重點 (最近一次：2025年11月25日)</h2>
+<ul><li><strong>管理層發言核心</strong>：華立積極轉型至半導體、AI、5G、電動車及綠能等高成長產業，深化供應鏈整合、擴大產品組合。2025年下半年及2026年展望受AI與HPC強勁需求推升，法人給予正向評價。公司管理層表示2025年會跑得更快，營收將持續維持往年雙位數成長（此為2024年9月資訊，後續2025年營收實際年減）。</li>
+<li><strong>半導體材料</strong>：受惠於AI、5G、HPC、電動車/自駕車等新興科技，半導體前段製程耗材銷量大增。先進製程營收占比突破七成，高速運算（HPC）貢獻客戶逾半營收。光阻液、研磨液與先進封裝材料等產品出貨暢旺，營收呈現高雙位數成長。隨客戶良率提升，終端下單意願增強，為華立半導體材料事業注入顯著成長動能。</li>
+<li><strong>IC載板/PCB</strong>：高解析度乾膜成功取得多家IC載板重點客戶訂單。PCB市場聚焦LEO低軌衛星、光收發模組及AI伺服器HDI主板等高成長應用，相關材料營收呈高雙位數成長。CCL方面，積極布局低損耗新世代樹脂材料，應用於AI伺服器專用GPU基板及ASIC加速板。</li>
+<li><strong>自動化設備</strong>：成功切入電子五哥AI伺服器的自動化組裝產線，為全球AI運算領導品牌量身打造客製化解決方案，推動營收實現倍數成長。</li>
+<li><strong>產能利用率與資本支出</strong>：</li>
+</ul>    *   <strong>特殊氣體 (氖氣純化廠)</strong>：首座氖氣純化廠已進入試量產，預計2026年Q1正式量產，鋼瓶月產能達8,000立方公尺。未來規劃切入混合氣體市場。
+<p>*   <strong>物流中心</strong>：投資25至27億元於台南佳里興建1.2萬坪物流中心，預計2025年底至2026年初啟用，以因應半導體客戶需求。</p>
+<p>*   <strong>資本支出總額</strong>：法說會未明確提供2025-2026年具體總資本支出金額。</p>
+
+<h2>券商觀點</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期</th><th>2025年EPS預估 (元)</th><th>2026年EPS預估 (元)</th></tr></thead><tbody>
+<tr><td>元富證券投顧</td><td>125</td><td>看多</td><td>2025/11/27</td><td>8.41</td><td>N/A</td></tr>
+<tr><td>CMoney團隊/法人機構平均</td><td>N/A</td><td>N/A</td><td>2026/01/09</td><td>4.40 (或 7.42-8.41)</td><td>6.60</td></tr>
+<tr><td>法人機構平均 (最新)</td><td>N/A</td><td>N/A</td><td>2026/02/07</td><td>N/A</td><td>9.09-9.56</td></tr>
+</tbody></table></div>
+
+<strong>評等調整</strong>：目前搜尋結果未明確顯示有近期重大調升/調降評等。元富證券投顧於2025年11月27日給予「看多」評等。
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢 (近4-8季)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th><th>EPS (元)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2025年Q3</td><td>8.26%</td><td>4.09%</td><td>4.07%</td><td>2.69</td><td>季營收、毛利創歷年同期次高，毛利率與營益率皆優於去年同期。</td></tr>
+<tr><td>2025年Q2</td><td>N/A</td><td>N/A</td><td>N/A</td><td>1.65</td><td>營收創歷年同期次高，毛利刷新同期歷史新高。</td></tr>
+<tr><td>2025年Q1</td><td>N/A</td><td>N/A</td><td>N/A</td><td>1.94</td><td>稅後淨利年增17.0%。</td></tr>
+<tr><td>2024年Q4</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>全年EPS 8.89元。</td></tr>
+<tr><td>2024年Q3</td><td>N/A</td><td>N/A</td><td>N/A</td><td>2.75</td><td></td></tr>
+<tr><td>2024年Q2</td><td>N/A</td><td>N/A</td><td>N/A</td><td>2.29</td><td></td></tr>
+<tr><td>2024年Q1</td><td>N/A</td><td>N/A</td><td>N/A</td><td>1.80</td><td></td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化原因分析：</strong>
+<ul><li><strong>產品組合優化</strong>：受惠於AI與HPC需求，先進製程材料出貨量增加，營收呈現高雙位數成長，先進製程產品營收占比已突破七成，有助於拉高整體毛利率。</li>
+<li><strong>新製程與國際佈局</strong>：進入量產階段的新製程為華立材料供應帶來契機。供應版圖擴大至美國、日本等市場，在特殊氣體與備用零件領域取得顯著成果，提升營運效率。</li>
+<li><strong>智慧製造與自動化</strong>：切入電子五哥AI伺服器自動化組裝產線，推動營收倍數成長，該高附加價值業務對利潤貢獻良多。</li>
+<li><strong>泰國市場與電動車</strong>：泰國子公司營收成長亮眼，受惠於電動車政策，導入創新材料深耕當地整車與零組件市場，特別聚焦非日系車廠，開啟新成長動能。</li>
+<li><strong>低軌衛星與AI伺服器</strong>：高解析度DI乾膜打入台廠供應鏈，應用於低軌衛星、光模塊與AI伺服器領域，低損耗新材料CCL因應AI主機板需求，這些高階應用均有助於維持較高毛利率。</li>
+</ul>
+<h3>存貨分析</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數 (天)</th><th>應收帳款週轉天數 (天)</th></tr></thead><tbody>
+<tr><td>2025年Q3</td><td>26.8</td><td>79.58</td></tr>
+<tr><td>2025年Q2</td><td>25.91</td><td>75.47</td></tr>
+<tr><td>2025年Q1</td><td>29.69</td><td>85.82</td></tr>
+<tr><td>2024年Q4</td><td>25.72</td><td>83.16</td></tr>
+<tr><td>2024年Q3</td><td>22.22</td><td>80.22</td></tr>
+<tr><td>2024年Q2</td><td>21.98</td><td>74.81</td></tr>
+<tr><td>2024年Q1</td><td>26.82</td><td>82.36</td></tr>
+</tbody></table></div>
+
+<strong>存貨與營運分析：</strong>
+<ul><li><strong>存貨管理</strong>：華立近期的存貨週轉天數維持在約20-30天範圍，相較於2023年Q1的42.03天有明顯下降趨勢，顯示存貨管理能力提升，消化速度加快。公司積極備料以協助客戶新廠裝機量產並爭取新製程基準品，此為策略性備料，並未見異常堆積。</li>
+<li><strong>應收帳款管理</strong>：應收帳款收現天數在2024年至2025年期間大致維持在75-86天，相較於2023年Q4的87.3天，部分季度有所下降，表明收款能力有所改善。</li>
+</ul>
+<h3>資本支出</h3>
+<ul><li><strong>2024年</strong>：年度合併營收達800.31億元，反映公司在產業擴張與投資。</li>
+<li><strong>物流中心</strong>：投資25至27億元於台南佳里興建1.2萬坪物流中心，預計2025年底至2026年初啟用，用以因應半導體客戶南部擴產需求，並承接第三方製造業委外倉儲商機。</li>
+<li><strong>氖氣純化廠</strong>：位於屏南產業園區的全台唯一氖氣提純工廠，預計2025年Q2啟動試量產，Q3完成主要客戶認證，年底前開始放量貢獻營收。2026年Q1將正式量產，月產能達8,000立方公尺，計畫切入混合氣體市場。</li>
+<li><strong>折舊攤銷</strong>：目前未找到2024-2026年具體折舊攤銷金額的公開資料。</li>
+</ul>
+<h2>股權異動</h2>
+
+<h3>董監事/大股東申報轉讓紀錄 (2024年以後)</h3>
+<p>目前未找到2024-2026年華立董監事/大股東申報轉讓的最新紀錄。最近一次公開紀錄為：</p>
+<ul><li>2023年12月20日：經理人張瑞育申報轉讓22張股票予張真瑋（贈與）。</li>
+<li>2023年10月17日：法人董事代表人配偶張瑞欽之配偶申報轉讓273張股票予張尊怡（贈與）。</li>
+<li>2023年10月17日：法人董事代表人本人張瑞欽申報轉讓273張股票予張尊賢（贈與）。</li>
+</ul>
+<h3>庫藏股與可轉債</h3>
+<ul><li><strong>庫藏股</strong>：未找到2024-2026年華立實施庫藏股的紀錄。</li>
+<li><strong>可轉換公司債 (CB)</strong>：未找到2024-2026年華立發行可轉換公司債的相關資訊。</li>
+</ul>
+<h3>增減資</h3>
+<ul><li>未找到2024-2026年華立現金增資或減資的具體計畫。</li>
+</ul>
+<h3>股利政策</h3>
+<p>華立近年主要以發放現金股利為主，配合發展計畫、考量投資環境、資金需求及股東利益，每年就可供分配盈餘提撥不低於10%分配股東紅利，其中現金股利不低於股利總額之50%。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>現金股利 (元/股)</th><th>股票股利 (元/股)</th><th>股利合計 (元/股)</th><th>除息交易日</th><th>現金發放日</th><th>現金殖利率 (以除息前股價計)</th></tr></thead><tbody>
+<tr><td>2024 (預計2025分配)</td><td>5.3</td><td>0</td><td>5.3</td><td>2025/06/23</td><td>2025/07/18</td><td>5.38% (以98.6元計)</td></tr>
+<tr><td>2023 (2024分配)</td><td>4.95</td><td>0</td><td>4.95</td><td>2024/07/24</td><td>2024/08/15</td><td>3.38% (以146.5元計)</td></tr>
+<tr><td>2022 (2023分配)</td><td>6.1</td><td>0</td><td>6.1</td><td>2023/06/29</td><td>2023/07/21</td><td>6.97% (以87.5元計)</td></tr>
+</tbody></table></div>
+
+<h2>產業分析</h2>
+
+<h3>產業市場規模與CAGR</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>產業類別</th><th>2025年市場規模</th><th>2026年市場規模</th><th>CAGR (預估)</th><th>備註</th></tr></thead><tbody>
+<tr><td>先進封裝市場</td><td>516.5億美元</td><td>574.6億美元</td><td>9.42% (2026-2031)</td><td>資料中心與HPC領域CAGR 14.2%</td></tr>
+<tr><td>半導體製造材料市場</td><td>676.9-720.3億美元</td><td>706-748.5億美元</td><td>4.20% (2026-2034)</td><td>晶圓製程材料佔2026年市場主導地位55.98%</td></tr>
+<tr><td>半導體先進封裝材料市場</td><td>N/A (2024年124.3億美元)</td><td>N/A</td><td>11.0% (2024-2034)</td><td>預計2034年達268.2億美元</td></tr>
+<tr><td>AI伺服器PCB市場</td><td>50億美元</td><td>60億美元 (或96億美元)</td><td>15.06% (2024-2032)</td><td>若涵蓋交換機及光模組，2026年市場規模有望達千億人民幣</td></tr>
+<tr><td>銅箔基板 (CCL) 市場</td><td>168.9-187.6億美元</td><td>198.7億美元</td><td>5.9% (2026-2034)</td><td>高速數位CCL預計2025-2033 CAGR 5%</td></tr>
+<tr><td>半導體特種氣體市場</td><td>116.4億美元</td><td>125.2億美元</td><td>7.5% (2026-2034)</td><td>全球市場規模預計2026年將突破95億美元</td></tr>
+<tr><td>純化氖氣市場</td><td>數億美元</td><td>3.74億美元</td><td>&gt;7.6% (2026-2035)</td><td>氖氣市場預計2024年為263.9億美元，到2026年達281.1億美元</td></tr>
+</tbody></table></div>
+
+<h3>供需狀況與產業平均毛利率</h3>
+<ul><li><strong>AI伺服器PCB材料</strong>：2026年高階PCB產能將吃緊，上游關鍵材料如HVLP4銅箔（供需缺口預計擴大至25%、42%）、鑽針、玻纖布均供不應求。</li>
+<li><strong>半導體特殊氣體</strong>：EUV光刻雷射氣體混合物、ALD前驅體材料等，2025-2026年需求增速預計超過15%。全球氖氣生產集中，易受地緣政治影響，導致供不應求。</li>
+<li><strong>CoWoS產能</strong>：高盛預估NVIDIA Blackwell與Rubin架構將使CoWoS產能長期維持緊俏。</li>
+<li><strong>產業平均毛利率</strong>：</li>
+</ul>    *   半導體晶圓製造 (台積電)：長期目標53%以上，近期拉升至56%。
+<p>*   晶圓代工 (世界先進)：預期2026年Q1毛利率28%至30%。</p>
+<p>*   伺服器PCB (金像電)：毛利率創歷史新高35.6%。</p>
+
+<h3>競爭格局 (主要參與者)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>產業類別</th><th>主要參與者</th><th>華立之競爭優勢/定位</th></tr></thead><tbody>
+<tr><td>先進封裝</td><td>Intel, Samsung, ASE, Amkor, TSMC</td><td>代理先進封裝材料，深化與晶圓代工和OSAT客戶合作。</td></tr>
+<tr><td>半導體先進封裝材料</td><td>Unimicron (欣興), Ibiden, Shinko, Henkel</td><td>代理關鍵材料，透過AI/HPC需求取得客戶訂單。</td></tr>
+<tr><td>銅箔基板 (CCL)</td><td>TUC (台燿), SYTECH, Showa Denko, 南亞塑膠, Rogers, Kingboard, Nanya New Material, EMC等 (合計佔約72%市場份額)</td><td>積極布局低損耗新世代樹脂材料，應對AI伺服器需求。</td></tr>
+<tr><td>半導體特種氣體</td><td>Air Liquide, Linde, Messer, Matheson, Iceblick, Airgas, Axcel Gases (中國本土企業亦有突破)</td><td>併購錦德氣體切入混配製造，自建氖氣純化廠。</td></tr>
+<tr><td>純化氖氣</td><td>Air Liquide, Linde, Messer, Matheson, Iceblick, Airgas, Axcel Gases</td><td>台灣唯一氖氣提純廠，掌握自主供應能力。</td></tr>
+<tr><td>台灣特殊氣體同業</td><td>台特化 (4772)</td><td>台特化專注高純度矽乙烷等，華立專注氖氣及混配氣體。</td></tr>
+<tr><td>台灣PCB同業</td><td>金像電 (2368), 台燿 (6274), 台光電 (2383) 等</td><td>供應高階PCB材料，切入AI伺服器、低軌衛星等應用。</td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢</h3>
+<li><strong>異質整合與先進封裝</strong>：摩爾定律減緩促使業界轉向異質整合與先進封裝 (2.5D, 3D ICs)，以提升AI/HPC應用效能與熱管理。玻璃基板等新材料被視為突破大尺寸封裝瓶頸的關鍵。</li>
+<p>*   <strong>華立機會</strong>：在先進封裝材料的代理與製造佈局將直接受益。</p>
+<p>*   <strong>華立威脅</strong>：需持續跟進快速變化的封裝技術與材料需求。</p>
+<li><strong>AI算力需求驅動PCB材料升級</strong>：AI算力基礎設施推動PCB從連接載體轉變為決定運算效率的核心零組件。AI伺服器PCB層數提升 (34–50層)、M8/M9等級CCL、高層數HLC板材、低損耗材料 (Q-glass石英布、HVLP4銅箔) 需求暴增。</li>
+<p>*   <strong>華立機會</strong>：在低損耗CCL、高解析度乾膜等高階PCB材料的市場份額將持續擴大。</p>
+<p>*   <strong>華立威脅</strong>：上游關鍵材料供應緊張可能影響成本與交期。</p>
+<li><strong>半導體製程複雜度提升與高純度材料需求</strong>：先進製程 (3奈米及以下) 和第三代半導體產業化，對高純度氣體 (電子級氟碳類氣體、矽烷、氖、氪、氙) 的純度和穩定性提出更高要求。</li>
+<p>*   <strong>華立機會</strong>：氖氣純化廠與錦德氣體的併購，使其切入高門檻電子級特殊氣體供應鏈。</p>
+<p>*   <strong>華立威脅</strong>：全球市場由少數國際巨頭主導，技術門檻高，競爭激烈。</p>
+
+<h3>相關投資題材</h3>
+<ul><li><strong>AI (人工智慧)</strong>：華立在AI伺服器PCB材料、AI加速半導體製造材料、AI伺服器組裝自動化產線解決方案等方面均有深度佈局，是AI產業浪潮下的關鍵供應商。</li>
+<li><strong>HBM (高頻寬記憶體)</strong>：HBM生產高度依賴先進封裝技術，華立在先進封裝材料的代理與製造佈局將直接受益於HBM市場的成長。</li>
+<li><strong>電動車 (EV)</strong>：電動車與ADAS需要高效能半導體封裝。華立在車用電子半導體材料和高階工程塑膠的業務，將從電動車產業的發展中獲益，特別是泰國市場的非日系車廠。</li>
+</ul>
+<h2>近期催化劑 (2025年12月至2026年3月)</h2>
+
+<h3>重大合作、接單、新產品發佈</h3>
+<ul><li><strong>2025年12月30日</strong>：斥資新台幣5.61億元取得錦德氣體51%股權，攜手關係企業華宏新技合計持有約80%股權，正式跨足半導體高技術門檻的電子級特殊氣體混配製造領域。錦德氣體已打入全球晶圓代工龍頭廠供應鏈。</li>
+<li><strong>2025年12月10日</strong>：IC載板高解析度乾膜產品已接獲多家關鍵客戶訂單。PCB應用領域聚焦AI伺服器、光收發與LEO低軌衛星領域，帶動相關材料雙位數成長。銅箔基板(CCL)專注於低損耗新材料以因應AI主機板需求。</li>
+<li><strong>智能工廠自動化</strong>：已成功切入電子五哥的AI伺服器組裝自動化產線，為全球AI運算領導企業量身打造客製化解決方案，營收已實現倍數成長。</li>
+</ul>
+<h3>股東會/法說會重要決議</h3>
+<ul><li><strong>2025年11月25日</strong>：華立受邀參加元富證券「2025冬季投資論壇」，強調積極轉型至半導體、AI、5G、電動車及綠能等高成長產業。</li>
+</ul>
+<h3>股權異動與股利政策</h3>
+<ul><li><strong>股利政策</strong>：華立董事會於2025年4月14日決議，將2024年度現金股利由原訂每股5元調高至每股5.3元，並於2025年6月23日除權息，2025年7月18日發放。</li>
+<li><strong>內部人買賣超、庫藏股</strong>：未找到2025-2026年華立實施庫藏股或內部人買賣超的最新資料。</li>
+</ul>
+<h3>外資/投信近期買賣超張數 (2025年12月5日至2026年3月5日)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>機構</th><th>2026/03/05 買賣超 (張)</th><th>近三個月累計買賣超</th><th>備註</th></tr></thead><tbody>
+<tr><td>外資</td><td>買超697</td><td>買超約8.01億元 (佔成交額6.25%)</td><td>積極加碼</td></tr>
+<tr><td>投信</td><td>賣超406</td><td>買超約3.35億元 (佔成交額2.62%)</td><td>持續佈局，但近期有調節</td></tr>
+<tr><td>自營商 (自行)</td><td>買超11</td><td>買超約2,855張 (佔發行量1.1%)</td><td>少量買超</td></tr>
+<tr><td>自營商 (避險)</td><td>賣超10</td><td>N/A</td><td>少量調節</td></tr>
+</tbody></table></div>
+
+<h2>⭐ 成長動能時間軸</h2>
+<ul><li><strong>2025年5月</strong>：智慧整合與應用部門於2024年設立，已卡位機器人商機，其自動化設備及代理AI伺服器業績可望在2025年與2026年創造<strong>10億元產值</strong>挹注。</li>
+<li><strong>2025年下半年</strong>：泰國子公司繳出亮眼營收成長成績，受惠泰國政府電動車政策，深耕當地整車與零組件製造商。</li>
+<li><strong>2025年11月25日</strong>：法說會分析指出，隨著下一代先進製程進入量產，華立在基準產品取得優勢市佔，可望為<strong>2026年</strong>業績挹注強勁動能。</li>
+<li><strong>2025年12月30日</strong>：完成<strong>錦德氣體51%股權</strong>併購，正式跨足電子級特殊氣體混配製造，補齊高技術門檻能力。</li>
+<li><strong>2025年底至2026年初</strong>：台南佳里<strong>1.2萬坪物流中心</strong>啟用，投資25至27億元，強化半導體材料供應鏈效率。</li>
+<li><strong>2026年第一季</strong>：屏南產業園區<strong>氖氣純化廠正式量產</strong>，月產能達<strong>8,000立方公尺</strong>，並計畫切入混合氣體市場。</li>
+<li><strong>2026年全年</strong>：受惠AI伺服器與先進封裝需求強勁，半導體材料出貨動能顯著提升，先進製程產品營收占比突破七成。法人機構平均預估稅後純益有望較2025年成長一成，達到<strong>24.16億元</strong>，預估EPS介於<strong>9.09-9.56元</strong>之間。</li>
+</ul>
+<h2>2026 展望</h2>
+<strong>成長動能：</strong>
+<ul><li><strong>AI與HPC需求爆發</strong>：AI伺服器及先進製程產線滿載，將持續推升光阻液、研磨液、濕式化學品、特殊氣體及先進封裝材料等產品出貨量，貢獻高雙位數成長。</li>
+<li><strong>特殊氣體自製能力提升</strong>：氖氣純化廠量產及併購錦德氣體，使其在高門檻電子級特殊氣體市場佔據更有利位置，提升高毛利製造營收貢獻。</li>
+<li><strong>智能自動化市場擴張</strong>：AI伺服器組裝自動化產線需求強勁，華立客製化解決方案營收將持續倍數成長。</li>
+<li><strong>國際化佈局效益顯現</strong>：在美國、日本、新加坡及東南亞等地的客戶擴廠和機器人商機，將為華立帶來新的增長點。</li>
+</ul>
+<strong>風險：</strong>
+<ul><li><strong>全球經濟放緩</strong>：儘管AI需求強勁，但總體經濟環境的不確定性仍可能影響部分非AI相關產業需求。</li>
+<li><strong>原材料供應鏈不確定性</strong>：特殊氣體等關鍵材料生產集中度高，地緣政治風險可能導致供應中斷或成本波動。</li>
+<li><strong>競爭加劇</strong>：高毛利市場吸引更多競爭者，華立需持續投入研發和客戶關係維護以保持領先。</li>
+<li><strong>財務指標壓力</strong>：2024年營業現金流為負值，以及應收帳款天數仍需關注，若無法有效改善可能對短期營運現金流造成壓力。</li>
+<li><strong>技術快速迭代</strong>：半導體材料技術更新迅速，需確保產品線能持續跟上最新技術標準。</li>
+</ul>
+<h2>投資結論</h2>
+<li><strong>AI與先進製程轉型成功，驅動核心成長</strong>：華立成功將營運重心轉向高毛利製造與AI先進製程材料，先進製程產品營收占比已突破七成，受益於AI伺服器、HPC和先進封裝的強勁需求，預計半導體材料將是2026年成長性最佳的產品線，並持續推升營收。</li>
+<li><strong>策略性佈局特殊氣體，提升獲利結構</strong>：透過併購錦德氣體及自建氖氣純化廠，華立成功切入高技術門檻的電子級特殊氣體混配與製造領域，這不僅能確保關鍵材料的自主供應，亦將顯著提升整體毛利率。</li>
+<li><strong>營運效率與國際佈局效益顯現</strong>：存貨週轉天數下降至20-30天區間，顯示營運效率提升。台南物流中心及國際佈局（美國、日本、東南亞）的深化，將進一步提升供應鏈韌性與市場廣度。</li>
+<li><strong>穩健股利政策與法人樂觀展望</strong>：華立近年維持穩定的現金股利政策，加上法人機構平均預估2026年EPS有望達到9.09-9.56元，顯示市場對其未來獲利能力持樂觀態度。</li>
+<li><strong>目標價區間建議</strong>：考量華立在AI趨勢下的強勁成長動能、高毛利產品組合的優化及特殊氣體製造的潛力，若給予其2026年預估EPS 9.09-9.56元，並參考產業平均及成長性給予12-15倍的本益比區間，建議目標價區間為<strong>新台幣 109 元至 143 元</strong>。</li>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:00</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="3010_華立_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="3010_華立_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="3010_華立_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

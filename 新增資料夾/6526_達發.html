@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6526 達發 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>6526 達發 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>達發科技（6526）受惠於全球AI資料中心高速傳輸需求、低軌衛星地面設備升級與高階AIoT應用拓展，2025年營收與EPS雙創歷史新高。公司積極布局100G光通訊、25G PON與高階藍牙晶片，預期2026年營運將「淡季不淡」並穩健成長，其中光通訊與乙太網路兩大核心產品線有望迎來爆發式成長，獲利結構持續優化。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">6526 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-6526" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-6526" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-6526');
+    var obvContainer = document.getElementById('obv-chart-6526');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 461.5, "high": 466.0, "low": 457.5, "close": 461.5}, {"time": "2025-12-05", "open": 458.5, "high": 463.0, "low": 454.0, "close": 458.5}, {"time": "2025-12-08", "open": 455.0, "high": 460.5, "low": 455.0, "close": 456.5}, {"time": "2025-12-09", "open": 456.5, "high": 457.5, "low": 451.0, "close": 457.5}, {"time": "2025-12-10", "open": 457.0, "high": 463.5, "low": 452.5, "close": 458.0}, {"time": "2025-12-11", "open": 458.0, "high": 460.0, "low": 448.5, "close": 448.5}, {"time": "2025-12-12", "open": 455.0, "high": 455.0, "low": 447.0, "close": 448.5}, {"time": "2025-12-15", "open": 440.5, "high": 450.0, "low": 437.0, "close": 442.5}, {"time": "2025-12-16", "open": 437.0, "high": 450.0, "low": 430.0, "close": 438.0}, {"time": "2025-12-17", "open": 440.0, "high": 443.0, "low": 434.0, "close": 434.0}, {"time": "2025-12-18", "open": 429.0, "high": 433.0, "low": 426.0, "close": 426.0}, {"time": "2025-12-19", "open": 434.5, "high": 445.0, "low": 431.5, "close": 443.5}, {"time": "2025-12-22", "open": 446.0, "high": 450.0, "low": 438.0, "close": 438.0}, {"time": "2025-12-23", "open": 440.5, "high": 444.5, "low": 437.5, "close": 437.5}, {"time": "2025-12-24", "open": 440.5, "high": 442.5, "low": 432.0, "close": 432.0}, {"time": "2025-12-26", "open": 430.0, "high": 432.0, "low": 427.0, "close": 428.0}, {"time": "2025-12-29", "open": 426.5, "high": 435.0, "low": 426.5, "close": 432.5}, {"time": "2025-12-30", "open": 432.0, "high": 433.5, "low": 428.5, "close": 431.5}, {"time": "2025-12-31", "open": 434.5, "high": 448.0, "low": 433.0, "close": 442.5}, {"time": "2026-01-02", "open": 448.5, "high": 451.0, "low": 443.0, "close": 444.0}, {"time": "2026-01-05", "open": 447.0, "high": 451.0, "low": 439.0, "close": 442.5}, {"time": "2026-01-06", "open": 449.0, "high": 453.5, "low": 446.0, "close": 449.0}, {"time": "2026-01-07", "open": 451.0, "high": 456.0, "low": 447.0, "close": 448.0}, {"time": "2026-01-08", "open": 448.0, "high": 448.0, "low": 438.0, "close": 441.0}, {"time": "2026-01-09", "open": 443.0, "high": 443.0, "low": 434.0, "close": 436.5}, {"time": "2026-01-12", "open": 440.0, "high": 441.5, "low": 434.5, "close": 435.5}, {"time": "2026-01-13", "open": 436.5, "high": 442.0, "low": 432.5, "close": 433.0}, {"time": "2026-01-14", "open": 436.0, "high": 442.5, "low": 435.0, "close": 441.5}, {"time": "2026-01-15", "open": 438.0, "high": 440.5, "low": 428.0, "close": 440.0}, {"time": "2026-01-16", "open": 438.5, "high": 444.0, "low": 432.5, "close": 432.5}, {"time": "2026-01-19", "open": 428.5, "high": 436.5, "low": 428.0, "close": 430.5}, {"time": "2026-01-20", "open": 428.0, "high": 433.5, "low": 428.0, "close": 429.5}, {"time": "2026-01-21", "open": 430.0, "high": 430.0, "low": 422.5, "close": 422.5}, {"time": "2026-01-22", "open": 425.0, "high": 436.5, "low": 424.5, "close": 428.0}, {"time": "2026-01-23", "open": 432.0, "high": 470.5, "low": 432.0, "close": 470.5}, {"time": "2026-01-26", "open": 469.5, "high": 500.0, "low": 462.0, "close": 482.0}, {"time": "2026-01-27", "open": 481.0, "high": 481.0, "low": 464.0, "close": 464.0}, {"time": "2026-01-28", "open": 465.5, "high": 465.5, "low": 454.5, "close": 462.5}, {"time": "2026-01-29", "open": 465.5, "high": 471.5, "low": 451.0, "close": 451.5}, {"time": "2026-01-30", "open": 451.5, "high": 453.0, "low": 428.5, "close": 434.5}, {"time": "2026-02-02", "open": 429.5, "high": 433.0, "low": 422.5, "close": 424.0}, {"time": "2026-02-03", "open": 426.5, "high": 451.5, "low": 426.5, "close": 451.5}, {"time": "2026-02-04", "open": 452.0, "high": 475.5, "low": 440.5, "close": 462.0}, {"time": "2026-02-05", "open": 455.0, "high": 475.5, "low": 452.0, "close": 452.0}, {"time": "2026-02-06", "open": 448.0, "high": 448.5, "low": 431.0, "close": 437.0}, {"time": "2026-02-09", "open": 452.0, "high": 466.5, "low": 444.5, "close": 446.5}, {"time": "2026-02-10", "open": 448.0, "high": 453.5, "low": 443.0, "close": 447.0}, {"time": "2026-02-11", "open": 447.5, "high": 458.5, "low": 443.0, "close": 455.5}, {"time": "2026-02-23", "open": 464.5, "high": 467.5, "low": 456.0, "close": 463.0}, {"time": "2026-02-24", "open": 465.0, "high": 467.0, "low": 459.5, "close": 465.0}, {"time": "2026-02-25", "open": 467.0, "high": 478.5, "low": 465.0, "close": 470.0}, {"time": "2026-02-26", "open": 475.5, "high": 517.0, "low": 468.5, "close": 517.0}, {"time": "2026-03-02", "open": 520.0, "high": 549.0, "low": 492.0, "close": 535.0}, {"time": "2026-03-03", "open": 579.0, "high": 582.0, "low": 524.0, "close": 525.0}, {"time": "2026-03-04", "open": 520.0, "high": 549.0, "low": 492.0, "close": 535.0}, {"time": "2026-03-05", "open": 562.0, "high": 564.0, "low": 518.0, "close": 532.0}, {"time": "2026-03-06", "open": 519.0, "high": 528.0, "low": 505.0, "close": 505.0}, {"time": "2026-03-09", "open": 468.0, "high": 478.0, "low": 460.0, "close": 477.5}, {"time": "2026-03-10", "open": 495.5, "high": 502.0, "low": 481.5, "close": 487.0}, {"time": "2026-03-11", "open": 493.0, "high": 522.0, "low": 492.0, "close": 508.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 181.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 167.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 114.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 143.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 155.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 182.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 154.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 138.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 364.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 218.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 254.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 407.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 209.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 129.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 167.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 226.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 103.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 80.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 318.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 225.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 312.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 263.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 311.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 174.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 225.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 208.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 243.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 200.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 341.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 232.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 178.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 125.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 352.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 202.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 1805.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 1954.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 847.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 509.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 520.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 568.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 326.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 545.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 577.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 524.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 435.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 474.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 198.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 337.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 432.0, "color": "#26a69a"}, {"time": "2026-02-24", "value": 278.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 497.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 1630.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 2490.0, "color": "#ef5350"}, {"time": "2026-03-03", "value": 2667.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 2490.0, "color": "#ef5350"}, {"time": "2026-03-05", "value": 2132.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 1004.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 1064.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 610.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 593.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 458.4}, {"time": "2025-12-11", "value": 455.8}, {"time": "2025-12-12", "value": 453.8}, {"time": "2025-12-15", "value": 451.0}, {"time": "2025-12-16", "value": 447.1}, {"time": "2025-12-17", "value": 442.3}, {"time": "2025-12-18", "value": 437.8}, {"time": "2025-12-19", "value": 436.8}, {"time": "2025-12-22", "value": 435.9}, {"time": "2025-12-23", "value": 435.8}, {"time": "2025-12-24", "value": 435.4}, {"time": "2025-12-26", "value": 435.8}, {"time": "2025-12-29", "value": 433.6}, {"time": "2025-12-30", "value": 432.3}, {"time": "2025-12-31", "value": 433.3}, {"time": "2026-01-02", "value": 435.7}, {"time": "2026-01-05", "value": 438.6}, {"time": "2026-01-06", "value": 441.9}, {"time": "2026-01-07", "value": 445.2}, {"time": "2026-01-08", "value": 444.9}, {"time": "2026-01-09", "value": 443.4}, {"time": "2026-01-12", "value": 442.0}, {"time": "2026-01-13", "value": 438.8}, {"time": "2026-01-14", "value": 437.5}, {"time": "2026-01-15", "value": 437.3}, {"time": "2026-01-16", "value": 436.5}, {"time": "2026-01-19", "value": 435.5}, {"time": "2026-01-20", "value": 434.8}, {"time": "2026-01-21", "value": 431.0}, {"time": "2026-01-22", "value": 428.6}, {"time": "2026-01-23", "value": 436.2}, {"time": "2026-01-26", "value": 446.5}, {"time": "2026-01-27", "value": 453.4}, {"time": "2026-01-28", "value": 461.4}, {"time": "2026-01-29", "value": 466.1}, {"time": "2026-01-30", "value": 458.9}, {"time": "2026-02-02", "value": 447.3}, {"time": "2026-02-03", "value": 444.8}, {"time": "2026-02-04", "value": 444.7}, {"time": "2026-02-05", "value": 444.8}, {"time": "2026-02-06", "value": 445.3}, {"time": "2026-02-09", "value": 449.8}, {"time": "2026-02-10", "value": 448.9}, {"time": "2026-02-11", "value": 447.6}, {"time": "2026-02-23", "value": 449.8}, {"time": "2026-02-24", "value": 455.4}, {"time": "2026-02-25", "value": 460.1}, {"time": "2026-02-26", "value": 474.1}, {"time": "2026-03-02", "value": 490.0}, {"time": "2026-03-03", "value": 502.4}, {"time": "2026-03-04", "value": 516.4}, {"time": "2026-03-05", "value": 528.8}, {"time": "2026-03-06", "value": 526.4}, {"time": "2026-03-09", "value": 514.9}, {"time": "2026-03-10", "value": 507.3}, {"time": "2026-03-11", "value": 501.9}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 450.35}, {"time": "2025-12-18", "value": 446.8}, {"time": "2025-12-19", "value": 445.3}, {"time": "2025-12-22", "value": 443.45}, {"time": "2025-12-23", "value": 441.45}, {"time": "2025-12-24", "value": 438.85}, {"time": "2025-12-26", "value": 436.8}, {"time": "2025-12-29", "value": 435.2}, {"time": "2025-12-30", "value": 434.1}, {"time": "2025-12-31", "value": 434.55}, {"time": "2026-01-02", "value": 435.55}, {"time": "2026-01-05", "value": 437.2}, {"time": "2026-01-06", "value": 437.75}, {"time": "2026-01-07", "value": 438.75}, {"time": "2026-01-08", "value": 439.1}, {"time": "2026-01-09", "value": 439.55}, {"time": "2026-01-12", "value": 440.3}, {"time": "2026-01-13", "value": 440.35}, {"time": "2026-01-14", "value": 441.35}, {"time": "2026-01-15", "value": 441.1}, {"time": "2026-01-16", "value": 439.95}, {"time": "2026-01-19", "value": 438.75}, {"time": "2026-01-20", "value": 436.8}, {"time": "2026-01-21", "value": 434.25}, {"time": "2026-01-22", "value": 432.95}, {"time": "2026-01-23", "value": 436.35}, {"time": "2026-01-26", "value": 441.0}, {"time": "2026-01-27", "value": 444.1}, {"time": "2026-01-28", "value": 446.2}, {"time": "2026-01-29", "value": 447.35}, {"time": "2026-01-30", "value": 447.55}, {"time": "2026-02-02", "value": 446.9}, {"time": "2026-02-03", "value": 449.1}, {"time": "2026-02-04", "value": 453.05}, {"time": "2026-02-05", "value": 455.45}, {"time": "2026-02-06", "value": 452.1}, {"time": "2026-02-09", "value": 448.55}, {"time": "2026-02-10", "value": 446.85}, {"time": "2026-02-11", "value": 446.15}, {"time": "2026-02-23", "value": 447.3}, {"time": "2026-02-24", "value": 450.35}, {"time": "2026-02-25", "value": 454.95}, {"time": "2026-02-26", "value": 461.5}, {"time": "2026-03-02", "value": 468.8}, {"time": "2026-03-03", "value": 476.1}, {"time": "2026-03-04", "value": 485.9}, {"time": "2026-03-05", "value": 494.45}, {"time": "2026-03-06", "value": 500.25}, {"time": "2026-03-09", "value": 502.45}, {"time": "2026-03-10", "value": 504.85}, {"time": "2026-03-11", "value": 509.15}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 442.95}, {"time": "2026-01-05", "value": 442.0}, {"time": "2026-01-06", "value": 441.525}, {"time": "2026-01-07", "value": 441.1}, {"time": "2026-01-08", "value": 440.275}, {"time": "2026-01-09", "value": 439.2}, {"time": "2026-01-12", "value": 438.55}, {"time": "2026-01-13", "value": 437.775}, {"time": "2026-01-14", "value": 437.725}, {"time": "2026-01-15", "value": 437.825}, {"time": "2026-01-16", "value": 437.75}, {"time": "2026-01-19", "value": 437.975}, {"time": "2026-01-20", "value": 437.275}, {"time": "2026-01-21", "value": 436.5}, {"time": "2026-01-22", "value": 436.025}, {"time": "2026-01-23", "value": 437.95}, {"time": "2026-01-26", "value": 440.65}, {"time": "2026-01-27", "value": 442.225}, {"time": "2026-01-28", "value": 443.775}, {"time": "2026-01-29", "value": 444.225}, {"time": "2026-01-30", "value": 443.75}, {"time": "2026-02-02", "value": 442.825}, {"time": "2026-02-03", "value": 442.95}, {"time": "2026-02-04", "value": 443.65}, {"time": "2026-02-05", "value": 444.2}, {"time": "2026-02-06", "value": 444.225}, {"time": "2026-02-09", "value": 444.775}, {"time": "2026-02-10", "value": 445.475}, {"time": "2026-02-11", "value": 446.175}, {"time": "2026-02-23", "value": 447.325}, {"time": "2026-02-24", "value": 448.95}, {"time": "2026-02-25", "value": 450.925}, {"time": "2026-02-26", "value": 455.3}, {"time": "2026-03-02", "value": 460.925}, {"time": "2026-03-03", "value": 465.775}, {"time": "2026-03-04", "value": 469.0}, {"time": "2026-03-05", "value": 471.5}, {"time": "2026-03-06", "value": 473.55}, {"time": "2026-03-09", "value": 474.3}, {"time": "2026-03-10", "value": 476.075}, {"time": "2026-03-11", "value": 479.75}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -167.0}, {"time": "2025-12-08", "value": -281.0}, {"time": "2025-12-09", "value": -138.0}, {"time": "2025-12-10", "value": 17.0}, {"time": "2025-12-11", "value": -165.0}, {"time": "2025-12-12", "value": -165.0}, {"time": "2025-12-15", "value": -303.0}, {"time": "2025-12-16", "value": -667.0}, {"time": "2025-12-17", "value": -885.0}, {"time": "2025-12-18", "value": -1139.0}, {"time": "2025-12-19", "value": -732.0}, {"time": "2025-12-22", "value": -941.0}, {"time": "2025-12-23", "value": -1070.0}, {"time": "2025-12-24", "value": -1237.0}, {"time": "2025-12-26", "value": -1463.0}, {"time": "2025-12-29", "value": -1360.0}, {"time": "2025-12-30", "value": -1440.0}, {"time": "2025-12-31", "value": -1122.0}, {"time": "2026-01-02", "value": -897.0}, {"time": "2026-01-05", "value": -1209.0}, {"time": "2026-01-06", "value": -946.0}, {"time": "2026-01-07", "value": -1257.0}, {"time": "2026-01-08", "value": -1431.0}, {"time": "2026-01-09", "value": -1656.0}, {"time": "2026-01-12", "value": -1864.0}, {"time": "2026-01-13", "value": -2107.0}, {"time": "2026-01-14", "value": -1907.0}, {"time": "2026-01-15", "value": -2248.0}, {"time": "2026-01-16", "value": -2480.0}, {"time": "2026-01-19", "value": -2658.0}, {"time": "2026-01-20", "value": -2783.0}, {"time": "2026-01-21", "value": -3135.0}, {"time": "2026-01-22", "value": -2933.0}, {"time": "2026-01-23", "value": -1128.0}, {"time": "2026-01-26", "value": 826.0}, {"time": "2026-01-27", "value": -21.0}, {"time": "2026-01-28", "value": -530.0}, {"time": "2026-01-29", "value": -1050.0}, {"time": "2026-01-30", "value": -1618.0}, {"time": "2026-02-02", "value": -1944.0}, {"time": "2026-02-03", "value": -1399.0}, {"time": "2026-02-04", "value": -822.0}, {"time": "2026-02-05", "value": -1346.0}, {"time": "2026-02-06", "value": -1781.0}, {"time": "2026-02-09", "value": -1307.0}, {"time": "2026-02-10", "value": -1109.0}, {"time": "2026-02-11", "value": -772.0}, {"time": "2026-02-23", "value": -340.0}, {"time": "2026-02-24", "value": -62.0}, {"time": "2026-02-25", "value": 435.0}, {"time": "2026-02-26", "value": 2065.0}, {"time": "2026-03-02", "value": 4555.0}, {"time": "2026-03-03", "value": 1888.0}, {"time": "2026-03-04", "value": 4378.0}, {"time": "2026-03-05", "value": 2246.0}, {"time": "2026-03-06", "value": 1242.0}, {"time": "2026-03-09", "value": 178.0}, {"time": "2026-03-10", "value": 788.0}, {"time": "2026-03-11", "value": 1381.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>達發科技（6526）為聯發科（MediaTek）旗下重要的IC設計子公司，專注於「網通基礎建設」與「高階AI物聯網」兩大領域的晶片設計、研發、銷售及技術服務。</p>
+
+<h3>業務與產品線</h3>
+<li><strong>網通基礎建設事業群</strong>：</li>
+<p>*   <strong>光纖固網寬頻晶片</strong>：主打10G-PON產品，並積極開發下一世代25G-PON晶片，預計於<strong>2026年上半年送樣</strong>。</p>
+<p>*   <strong>乙太網路晶片</strong>：涵蓋PHY晶片、2.5G交換機（預計<strong>2026年上半年送樣</strong>）、高階10G PHY產品（已於<strong>2025年下半年出貨</strong>）。主要應用於低軌衛星地面接收設備、工業物聯網等。</p>
+<p>*   <strong>光通訊晶片</strong>：提供PAM4 DSP及TIA解決方案，用於雲端AI資料中心。單通道50G SerDes技術已量產，單通道100G SerDes產品已於<strong>2025年第四季設計定案</strong>，預計<strong>2026年年中量產</strong>，並已在開發單通道200G技術。</p>
+<li><strong>高階AI物聯網事業群</strong>：</li>
+<p>*   <strong>藍牙晶片</strong>：涵蓋藍牙音訊及藍牙傳輸，專注於商務耳機、電競鍵鼠搖桿及助輔聽器等高階市場，並已攜手全球前五大助輔聽品牌推出OTC產品，未來將拓展至醫療等級助聽器。</p>
+<p>*   <strong>衛星定位晶片</strong>：應用於智慧手錶等穿戴式裝置及工業物聯網，已切入一線低軌通訊衛星運營商。</p>
+
+<h3>營收結構</h3>
+<p>根據2026年2月26日法說會資料，達發科技兩大事業群營收佔比趨勢如下：</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>事業群</th><th>2024年營收佔比</th><th>2025年營收佔比</th><th>2026年預期</th></tr></thead><tbody>
+<tr><td>網通基礎建設</td><td>35%</td><td>45%</td><td>進一步提升</td></tr>
+<tr><td>高階AI物聯網</td><td>55%</td><td>50%</td><td>-</td></tr>
+<tr><td>光通訊與乙太網路合計</td><td>-</td><td>-</td><td>近20%</td></tr>
+</tbody></table></div>
+
+<strong>備註</strong>：達發為IC設計公司，採委外代工模式，無自有製造基地。主要營運據點位於新竹。
+
+<h2>核心競爭優勢</h2>
+<li><strong>技術領先與高階市場深耕</strong>：在光通訊領域積極推進100G/200G SerDes技術，切入AI資料中心核心需求。固網寬頻朝25G-PON發展，乙太網路瞄準低軌衛星與高階應用。藍牙晶片則專注高單價的商務、電競及助輔聽器市場。</li>
+<li><strong>聯發科集團資源整合</strong>：作為聯發科子公司，具備集團在技術研發、供應鏈管理及市場拓展上的協同優勢，例如與聯發科Wi-Fi平台合作提供完整網通解決方案。</li>
+<li><strong>高研發費用投入維持技術護城河</strong>：2025年全年研發費用達<strong>64.06億元</strong>，年增<strong>8.4%</strong>，持續投入關鍵技術如6奈米藍牙晶片、高速光通訊等，確保產品競爭力與領先地位。</li>
+<li><strong>精準掌握產業趨勢</strong>：產品布局緊扣AI資料中心、低軌衛星、寬頻升級及邊緣AI物聯網等高成長趨勢，尤其光通訊業務預期未來數年將實現營收「逐年倍數成長」。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<p>達發科技近六個月月營收表現如下：</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>18.37</td><td>+22.96%</td><td>+5.28%</td></tr>
+<tr><td>2025年12月</td><td>14.94</td><td>-3.5%</td><td>-4.4%</td></tr>
+<tr><td>2025年11月</td><td>15.48</td><td>+2.6%</td><td>-5.8%</td></tr>
+<tr><td>2025年10月</td><td>15.09</td><td>-17.4%</td><td>-7.3%</td></tr>
+<tr><td>2025年09月</td><td>18.27</td><td>-1.5%</td><td>-1.5%</td></tr>
+<tr><td>2025年08月</td><td>18.55</td><td>-4.8%</td><td>-1.8%</td></tr>
+</tbody></table></div>
+
+<h3>季度數據</h3>
+<p>達發科技2025年第四季財務表現：</p>
+
+<ul><li><strong>合併營收</strong>：新台幣 <strong>45.51億元</strong> (季減 <strong>19.2%</strong>，年減 <strong>5.8%</strong>)</li>
+<li><strong>毛利率</strong>：<strong>53.6%</strong> (季增 <strong>1.4個百分點</strong>，年減 <strong>0.1個百分點</strong>)</li>
+<li><strong>營業利益率</strong>：<strong>10.5%</strong> (季減 <strong>5.1個百分點</strong>，年減 <strong>1.5個百分點</strong>)</li>
+<li><strong>稅後淨利</strong>：新台幣 <strong>5.33億元</strong> (季減 <strong>35.4%</strong>，年減 <strong>8.6%</strong>)</li>
+<li><strong>每股盈餘 (EPS)</strong>：新台幣 <strong>3.32元</strong> (季減 <strong>1.68元</strong>，年減 <strong>0.44元</strong>)</li>
+</ul>
+<h3>年度趨勢</h3>
+<p>達發科技近兩年全年財務表現：</p>
+
+<ul><li><strong>2025年實際</strong>：</li>
+</ul>    *   全年合併營收：新台幣 <strong>209.26億元</strong> (年增 <strong>9.4%</strong>，創歷史新高)
+<p>*   全年毛利率：<strong>51.9%</strong></p>
+<p>*   全年稅後淨利：新台幣 <strong>28.25億元</strong> (年增 <strong>8.2%</strong>)</p>
+<p>*   全年每股盈餘 (EPS)：新台幣 <strong>17.32元</strong> (年增 <strong>1.22元</strong>，較2024年16.10元成長)</p>
+<ul><li><strong>2024年實際</strong>：</li>
+</ul>    *   全年合併營收：新台幣 <strong>191.22億元</strong>
+<p>*   全年每股盈餘 (EPS)：新台幣 <strong>16.10元</strong></p>
+
+<h2>法說會重點 (2026年02月26日)</h2>
+
+<ul><li><strong>2025年財務亮點</strong>：全年營收達<strong>209.3億元</strong>，年增<strong>9.4%</strong>，創歷史新高；EPS達<strong>17.32元</strong>。第四季毛利率逆勢提升至<strong>53.6%</strong>，顯示高階產品組合優化。</li>
+<li><strong>2026年營運展望</strong>：</li>
+</ul>    *   預期2026年第一季營收將呈現季增與年增的「<strong>淡季不淡</strong>」表現。
+<p>*   全年營收可望<strong>穩健成長</strong>。</p>
+<p>*   全年毛利率預期將維持在<strong>50%以上</strong>。</p>
+<ul><li><strong>光通訊業務</strong>：</li>
+</ul>    *   受惠於雲端AI資料中心對高速傳輸的強勁需求，2025年已成功拓展至多家全球前十大光模組客戶，並供貨至多家雲端服務供應商（CSP）。
+<p>*   2026年業務將加速成長，預期未來數年營收將維持「<strong>逐年倍數成長</strong>」，成為中長期核心產品線。</p>
+<p>*   光通訊營收佔比預計從2025年的低個位數（<strong>1-3%</strong>）提升至2026年的中個位數（<strong>4-6%</strong>）。</p>
+<p>*   高速單通道100G技術相關產品已於<strong>2025年第四季</strong>正式設計定案，並獲多家全球前五大光模組客戶Design-in，預計<strong>2026年年中量產</strong>。同步開發單通道200G技術。</p>
+<ul><li><strong>乙太網路業務</strong>：</li>
+</ul>    *   在低軌衛星地面接收設備領域取得關鍵進展，主要客戶於2025年已躍升為達發乙太網業務前三大客戶。
+<p>*   隨著衛星部署加速，地面設備需求升溫，加上傳輸規格由1G升級至2.5G，帶動乙太網PHY晶片出貨價量齊揚。</p>
+<p>*   2.5G交換機預計<strong>2026年上半年送樣</strong>，高階10G PHY已於<strong>2025年下半年出貨</strong>。</p>
+<ul><li><strong>網通基礎建設事業群 (NBI)</strong>：2025年營收佔比已由2024年的<strong>35%</strong>提升至<strong>45%</strong>，預期2026年將進一步拉升。光通訊和乙太網路兩條產品線合計營收有機會佔全公司整體接近<strong>20%</strong>。</li>
+<li><strong>固網寬頻業務</strong>：全球10G PON滲透率約<strong>20%</strong>，升級空間龐大。達發積極拓展北美市場，目標是2026年歐洲與北美合計營收佔寬頻事業比重接近<strong>50%</strong>。下一世代25G PON預計<strong>2026年上半年送樣</strong>。</li>
+<li><strong>高階AI物聯網事業群</strong>：</li>
+</ul>    *   <strong>藍牙音訊</strong>：專注高單價、高技術門檻市場，如商務耳機與助輔聽領域。自2025年第四季起，攜手全球前五大助輔聽品牌推出具備OTC功能新產品，未來將拓展至醫療等級助聽器。
+<p>*   <strong>衛星定位</strong>：已成功切入一線低軌衛星運營商，將是2026年核心成長動能之一。</p>
+<ul><li><strong>研發費用</strong>：2025年全年研發費用達<strong>64.06億元</strong>，年增<strong>8.4%</strong>；2025年第四季研發費用為<strong>16.24億元</strong>。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<p>以下為近期券商對達發科技的目標價與評等：</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th><th>備註</th></tr></thead><tbody>
+<tr><td>宏遠證券</td><td>645</td><td>看多</td><td>2026/03/04</td><td>最新分析報告</td></tr>
+<tr><td>多家法人預估</td><td>555-606</td><td>看多</td><td>2026/02/27</td><td>-</td></tr>
+<tr><td>國泰證券</td><td>555</td><td>-</td><td>2025/11/05</td><td><strong>已過時，僅供參考</strong></td></tr>
+<tr><td>FactSet調查中位數</td><td>602.5</td><td>-</td><td>2025/11/06</td><td><strong>已過時，僅供參考</strong></td></tr>
+</tbody></table></div>
+
+<strong>法人預估EPS</strong>：
+
+<ul><li><strong>宏遠證券</strong>：預估2025年EPS約 <strong>17.32元</strong> (2026/03/04)</li>
+<li><strong>國泰證券</strong>：預估2025年EPS約 <strong>17.49元</strong> (2025/11/05，已過時)</li>
+<li><strong>FactSet 最新調查 (中位數)</strong>：</li>
+</ul>    *   2025年EPS預估：<strong>17.64元</strong> (2025/11/26，已過時)
+<p>*   2026年EPS預估：<strong>20.82元</strong> (2025/11/26，已過時)</p>
+
+<strong>近期評等異動</strong>：
+<p>2026年03月，多家券商發布績效評等報告，評等以「<strong>看多</strong>」為主，顯示市場對達發營運展望持樂觀態度。</p>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<p>達發科技近四季的利潤率趨勢如下：</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2025年Q4</td><td>53.6</td><td>10.5</td><td>11.71</td></tr>
+<tr><td>2025年Q3</td><td>52.16</td><td>15.58</td><td>14.64</td></tr>
+<tr><td>2025年Q2</td><td>未提供</td><td>未提供</td><td>未提供</td></tr>
+<tr><td>2025年Q1</td><td>未提供</td><td>未提供</td><td>未提供</td></tr>
+<tr><td>2024年Q4</td><td>53.7 (推估)</td><td>12.0 (推估)</td><td>12.5 (推估)</td></tr>
+<tr><td>2024年Q3</td><td>52.2</td><td>未提供</td><td>未提供</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化原因分析</strong>：
+<ul><li>2025年第四季毛利率逆勢回升至<strong>53.6%</strong>，較第三季提升1.4個百分點，與2024年同期相比僅微幅下降0.1個百分點，顯示公司在產品組合優化（如高毛利的光通訊、高階乙太網產品比重提升）和成本管控方面取得成效。</li>
+<li>營業利益率與稅後淨利率受到第四季營收季減及研發費用持續投入的影響而出現季節性下降。全年研發費用達<strong>64.06億元</strong>，年增<strong>8.4%</strong>，這項長期投資雖短期壓縮獲利，但對鞏固技術優勢至關重要。</li>
+</ul>
+<h3>存貨與營運</h3>
+<p>達發科技近四季存貨金額與週轉天數趨勢：</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨金額 (新台幣千元)</th><th>存貨週轉天數 (天)</th><th>應收帳款週轉天數 (天)</th></tr></thead><tbody>
+<tr><td>2025年Q3</td><td>2,222,000</td><td>69.67</td><td>46.28</td></tr>
+<tr><td>2025年Q2</td><td>1,948,269</td><td>64.83</td><td>45.08</td></tr>
+<tr><td>2025年Q1</td><td>1,991,208</td><td>76.61</td><td>40.27</td></tr>
+<tr><td>2024年Q4</td><td>2,303,811</td><td>93.64</td><td>52.27</td></tr>
+<tr><td>2024年Q3</td><td>2,349,347</td><td>66.85</td><td>53.62</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>存貨分析</strong>：2024年第四季存貨週轉天數較高，可能反映市場需求放緩或為重要客戶備貨。然而，2025年前三季存貨週轉天數持續下降，顯示庫存去化進度良好，營運效率有所提升。</li>
+<li><strong>應收帳款分析</strong>：應收帳款週轉天數在2025年前三季呈現下降趨勢，從2024年Q3的<strong>53.62天</strong>降至2025年Q3的<strong>46.28天</strong>，表明收款效率改善。</li>
+</ul>
+<h3>資本支出與產能</h3>
+<ul><li><strong>資本支出</strong>：目前公開資訊未明確提供達發近三年具體資本支出金額。然而，持續投入巨額研發費用（2025年全年<strong>64.06億元</strong>）及多項新產品計畫（25G PON、100G SerDes等），顯示公司持續在技術與產品開發上進行投資。</li>
+<li><strong>折舊攤銷</strong>：近幾季折舊攤銷金額維持穩定，約在<strong>141,291千元</strong>至<strong>158,950千元</strong>之間，未見大幅增減，符合IC設計公司輕資產的營運模式。</li>
+<li><strong>未來產能</strong>：作為Fabless模式，達發的產能主要依賴晶圓代工廠。新產品的量產時程（如100G SerDes預計<strong>2026年年中</strong>量產）將是其出貨能力的重要指標。</li>
+</ul>
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東持股</strong>：截至2026年1月，董事長聯發科技股份有限公司持股<strong>111,236張</strong>，持股比率達<strong>66.41%</strong>，顯示母公司對達發的穩定掌控。近期除經理人梁仁昱於2024年4月申報轉讓<strong>110張</strong>股票（贈與）及董事聯發科技股份有限公司於2023年10月申報轉讓<strong>50張</strong>股票（辦理過額配售）外，未見大規模董監事/大股東申報轉讓紀錄。</li>
+<li><strong>庫藏股/可轉債/增減資</strong>：目前未找到2024年以後的庫藏股買回紀錄、可轉換公司債（CB）發行，或現金增資/減資計畫。</li>
+<li><strong>股利政策</strong>：</li>
+</ul>    *   <strong>2025年度</strong>：董事會決議每股擬配發<strong>13.5元現金股利</strong>（包含盈餘配發7.5元與資本公積配發6元），以2026年2月24日收盤價計算，現金殖利率約<strong>2.90%</strong>。
+<p>*   <strong>2024年度</strong>：每股配發<strong>12.5元現金股利</strong>。</p>
+<p>*   達發已連續三年穩定發放現金股利，顯示公司獲利能力穩健。</p>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與成長趨勢</h3>
+<p>達發科技所處半導體與IC設計產業，受AI及網通升級需求驅動，展現強勁成長動能。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>市場名稱</th><th>2025年市場規模</th><th>2026年預估市場規模</th><th>複合年增長率 (CAGR)</th><th>預測期</th></tr></thead><tbody>
+<tr><td>全球半導體</td><td>7,917億美元</td><td>8,900億美元</td><td>11% (2025-2026)</td><td>2025-2026</td></tr>
+<tr><td>台灣IC設計</td><td>1.4兆新台幣</td><td>1.5兆新台幣</td><td>12.6% (2025)</td><td>2025-2026</td></tr>
+<tr><td>乙太網路PHY晶片</td><td>124億美元</td><td>133.6億美元</td><td>&gt;8.6%</td><td>2026-2035</td></tr>
+<tr><td>光通訊晶片</td><td>50.4億美元 (2026)</td><td>150.2億美元 (2035)</td><td>12.9%</td><td>2026-2035</td></tr>
+<tr><td>光互連</td><td>153.8億美元</td><td>171.2億美元</td><td>12.20%</td><td>2026-2034</td></tr>
+<tr><td>AI叢集光學</td><td>165億美元</td><td>260億美元</td><td>60% (2025-2026)</td><td>2025-2026</td></tr>
+<tr><td>AI晶片</td><td>402.1億美元</td><td>564.8億美元</td><td>40.4% (2025-2026)</td><td>2025-2030 (41.1% CAGR)</td></tr>
+</tbody></table></div>
+
+<strong>供需狀況</strong>：
+<ul><li>網通市場庫存去化已近尾聲，電信業者對網通基礎設施的補貨動能預計延續至2026年上半年。</li>
+<li>整體IC設計產業受益於AI與伺服器需求，2026年將維持雙位數成長，整體價值鏈產能利用率高。</li>
+</ul>
+<strong>產業平均毛利率水準</strong>：
+<ul><li>達發2025年全年毛利率為<strong>51.9%</strong>，2025年第四季毛利率為<strong>53.6%</strong>。公司在光通訊業務方面的毛利率優於公司平均水準。考慮其產品多為高階利基型，毛利率高於一般IC設計產業平均。</li>
+</ul>
+<h3>競爭格局</h3>
+<p>達發科技在全球IC設計產業中，主要聚焦於特定的網通基礎建設與高階AI物聯網利基市場。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>排名</th><th>公司名稱</th><th>2024年營收（億美元）</th><th>年增率（%）</th><th>營收佔比（前十大總營收）</th><th>達發相關性與主要產品</th></tr></thead><tbody>
+<tr><td>1</td><td>NVIDIA</td><td>1,243</td><td>125</td><td>50%</td><td>AI晶片，資料中心，與達發光通訊間接相關</td></tr>
+<tr><td>2</td><td>Qualcomm</td><td>348.57</td><td>13</td><td>(僅計算QCT業務)</td><td>手機AP、車用，部分物聯網領域與達發競爭</td></tr>
+<tr><td>3</td><td>Broadcom</td><td>306.44</td><td>8</td><td>(半導體部門)</td><td>AI晶片、網通基礎，與達發光通訊有競爭</td></tr>
+<tr><td>4</td><td>AMD</td><td>257.85</td><td>14</td><td>-</td><td>伺服器CPU、AI加速器，與達發間接相關</td></tr>
+<tr><td>5</td><td>MediaTek</td><td>165.19</td><td>19</td><td>-</td><td>母公司，智慧型手機、電源管理IC</td></tr>
+<tr><td>7</td><td>Realtek</td><td>35.3</td><td>16</td><td>-</td><td>台灣網通IC設計主要競爭對手 (Wi-Fi 7)</td></tr>
+<tr><td>-</td><td>Novatek</td><td>(未給出具體數據)</td><td>-9.7</td><td>-</td><td>顯示驅動IC (營收衰退)</td></tr>
+</tbody></table></div>
+
+<strong>達發 vs 主要競爭對手的具體比較</strong>：
+<ul><li><strong>光通訊晶片</strong>：達發以PAM4 DSP、TIA及100G SerDes技術，切入雲端AI資料中心的高速光模組市場，與Broadcom、Marvell等國際大廠在高階領域競爭。達發的優勢在於快速跟進與客製化能力，並已獲得全球前十大光模組客戶的Design-in。</li>
+<li><strong>乙太網路晶片</strong>：在低軌衛星地面接收設備領域，達發是主要供應商之一。在固網與工業乙太網領域，與瑞昱（Realtek）等台灣同業競爭，達發憑藉10G PHY、2.5G交換機等高階產品線提升市佔。</li>
+<li><strong>固網寬頻晶片</strong>：達發的10G-PON及規劃中的25G-PON晶片，與Broadcom、Nokia等公司在全球電信市場競爭，尤其在歐洲與北美市場積極拓展。</li>
+<li><strong>高階AI物聯網 (藍牙、衛星定位)</strong>：達發藍牙晶片在高階商務、電競耳機及助輔聽器領域與高通、瑞昱等競爭。在助輔聽器市場，與全球前五大品牌合作，具備高技術門檻與高毛利特性。衛星定位晶片則成功切入一線低軌衛星運營商，與U-blox等專業廠商競爭。</li>
+</ul>
+<h3>產業趨勢</h3>
+<li><strong>AI驅動的高速資料傳輸需求</strong>：</li>
+<p>*   <strong>影響</strong>：AI資料中心對高速、低延遲的資料傳輸需求爆炸性增長，推動400G/800G乃至1.6T光模組及光互連技術的發展。單通道100G SerDes技術成為主流，驅動高階光通訊晶片（PAM4 DSP、TIA）市場快速成長。AI叢集光學市場預估2025-2026年年增<strong>60%</strong>。</p>
+<p>*   <strong>對達發機會</strong>：達發光通訊業務直接受惠，100G SerDes產品的量產與客戶拓展將是重要成長引擎，預期該業務未來數年「逐年倍數成長」。</p>
+<li><strong>全球寬頻升級與光纖到戶（FTTH）普及</strong>：</li>
+<p>*   <strong>影響</strong>：全球10G-PON滲透率目前僅約<strong>20%</strong>，升級空間巨大。各國電信業者加速部署光纖網路，從1G升級至2.5G，並朝向25G PON發展。這帶動光纖固網寬頻晶片與高階乙太網路PHY晶片需求。</p>
+<p>*   <strong>對達發機會</strong>：達發在10G PON市場動能延續，25G PON晶片預計<strong>2026年上半年送樣</strong>，並積極拓展歐美市場，預期2026年歐美營收佔寬頻事業比重接近<strong>50%</strong>。</p>
+<li><strong>邊緣AI與物聯網（IoT）應用擴展</strong>：</li>
+<p>*   <strong>影響</strong>：AI PC與AI手機帶動AI晶片市場高速成長，預計CAGR達<strong>40.4%</strong>。AIoT晶片在智慧穿戴、工業物聯網、智慧家庭及醫療領域應用激增，特別是結合AI技術的語音處理、位置追蹤需求。低軌衛星通訊則拓展了新的物聯網連接場景。</p>
+<p>*   <strong>對達發機會</strong>：達發高階藍牙晶片切入商務、電競與助輔聽市場，結合AI語音處理技術，拓展醫療等級助聽器應用。衛星定位晶片成功切入一線低軌衛星運營商，受益於低軌衛星產業的快速發展。</p>
+
+<strong>對達發而言的具體機會與威脅</strong>：
+<ul><li><strong>機會</strong>：</li>
+</ul>    *   <strong>AI資料中心光通訊</strong>：核心成長動能，產品進入量產，客戶滲透率提升。
+<p>*   <strong>低軌衛星</strong>：乙太網與衛星定位晶片雙雙切入一線客戶，受益於市場爆發。</p>
+<p>*   <strong>網通基礎建設升級</strong>：10G/25G PON、2.5G/10G乙太網帶來營收規模和產品單價提升。</p>
+<p>*   <strong>高階AIoT利基市場</strong>：助輔聽器、商務耳機等高毛利應用拓展。</p>
+<ul><li><strong>威脅</strong>：</li>
+</ul>    *   <strong>競爭加劇</strong>：IC設計產業技術更新快，國際大廠及新進業者競爭激烈，尤其在消費性領域。
+<p>*   <strong>研發成本高昂</strong>：維持技術領先需持續投入巨額研發，可能短期內影響獲利。</p>
+<p>*   <strong>總體經濟與地緣政治</strong>：全球經濟波動、貿易政策變化及供應鏈不確定性可能影響市場需求及營運。</p>
+
+<strong>相關投資題材連結</strong>：
+<ul><li><strong>AI (人工智慧)</strong>：達發光通訊晶片直接受益於AI資料中心對高速傳輸的需求。其AI光纖網路閘道器平台整合邊緣AI運算。高階藍牙晶片結合AI語音處理技術，應用於助輔聽器。</li>
+<li><strong>HBM (高頻寬記憶體)</strong>：HBM需求激增帶動AI伺服器投資，進而間接利好達發的高速網通與光通訊晶片，因AI伺服器集群需要強大的網路互連。</li>
+<li><strong>低軌衛星</strong>：達發的乙太網路PHY晶片是低軌衛星地面接收設備的主要供應商，衛星定位晶片也切入一線運營商，直接受惠於低軌衛星產業的成長。</li>
+<li><strong>網通升級</strong>：達發的固網寬頻（10G/25G PON）和乙太網路晶片（2.5G/10G PHY）受益於全球寬頻網絡升級趨勢。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<p>以下為達發科技近期（2025年12月 – 2026年3月）的利多/利空事件清單：</p>
+
+<ul><li><strong>2026年3月5日</strong>：外資賣超達發479張，投信買超42張，自營商買超8張，單日合計三大法人賣超429張。</li>
+<li><strong>2026年3月4日</strong>：外資賣超達發231張，投信買超74張，自營商賣超24張，單日合計三大法人賣超181張。</li>
+<li><strong>2026年3月3日 (利多)</strong>：</li>
+</ul>    *   於MWC 2026展會宣布與德國Fraunhofer IIS合作，發表專為新世代無線耳機打造的多聲道空間音訊解決方案，整合至旗艦級藍牙系統單晶片AB1595，鎖定高階行動裝置與延展實境（XR）應用市場。
+<p>*   藍牙音訊晶片後市展望佳，新開發藍牙傳輸晶片將主攻文字與影像傳輸應用。助輔聽產品已切入全球前五大品牌並開始供應OTC產品，後續規劃朝醫療等級產品開發。</p>
+<ul><li><strong>2026年3月2日 (利多)</strong>：</li>
+</ul>    *   達發預估2026年第一季營收將呈現季增與年增的「淡季不淡」表現，且全年營收預期穩健成長。
+<p>*   外資買超達發623張，投信買超5張，自營商買超65張，單日合計三大法人買超693張。</p>
+<ul><li><strong>2026年3月1日</strong>：達發受邀參加富邦證券於台北舉辦的2026年第一季富邦企業日（2026年3月6日）。</li>
+<li><strong>2026年2月27日 (利多)</strong>：</li>
+</ul>    *   法說會繳出亮眼成績單，2025年全年營收達<strong>209.3億元</strong>創歷史新高，EPS達<strong>17.32元</strong>。
+<p>*   法人預估2026年營運具備穩健成長動能，目標價設定在<strong>555元至606元</strong>之間。</p>
+<p>*   2026年1月營收為<strong>18.37億元</strong>，月增<strong>22.96%</strong>，年增<strong>5.28%</strong>，顯示營收重回成長軌道。</p>
+<ul><li><strong>2026年2月26日 (重大利多)</strong>：</li>
+</ul>    *   召開法說會，執行副總經理暨發言人謝孟翰指出，光通訊與乙太網兩大產品線成長最強勁，光通訊業務未來數年營收可望「<strong>倍數成長</strong>」，成為中長期核心產品線。
+<p>*   網通基礎建設事業群營收佔比由2024年的<strong>35%</strong>提升至2025年的<strong>45%</strong>，預期2026年將進一步拉升。</p>
+<p>*   光通訊新一代單通道100G SerDes產品已於<strong>2025年第四季</strong>設計定案，預計<strong>2026年年中量產</strong>，並獲數家全球前五大光模組廠客戶Design-in。同時推進100G SerDes技術的TIA晶片開發。</p>
+<p>*   低軌衛星地面接收設備客戶躍升達發乙太網前三大客戶，衛星定位晶片切入一線低軌衛星運營商。</p>
+<p>*   固網寬頻規劃加速北美市場布局，目標2026年歐美營收佔寬頻事業比重接近<strong>50%</strong>。下一世代25G PON預計<strong>2026年上半年送樣</strong>。</p>
+<p>*   高階藍牙助輔聽產品已攜手全球前五大助輔聽品牌推出OTC功能新產品。</p>
+<p>*   達發受邀參加花旗證券於台北舉辦的Citi 2026 March Corporate Day（2026年3月9日）。</p>
+<ul><li><strong>2026年2月25日 (利多)</strong>：</li>
+</ul>    *   董事會通過2025年度每股擬配發現金股利<strong>13.5元</strong>。
+<p>*   公布2025年全年合併營收達<strong>209.26億元</strong>，年增<strong>9.4%</strong>；EPS為<strong>17.32元</strong>。</p>
+<p>*   2025年第四季毛利率逆勢提升至<strong>53.6%</strong>，顯示高階產品組合優化。</p>
+<ul><li><strong>2026年2月24日 (利多)</strong>：董事會決議114年度（2025年）股利分派，每股配發現金股利<strong>13.5元</strong>。</li>
+<li><strong>2026年1月</strong>：公布2026年1月營收為<strong>18.37億元</strong>，月增<strong>22.96%</strong>，年增<strong>5.28%</strong>。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>成長動能</th><th>具體事件</th><th>預計時間點</th></tr></thead><tbody>
+<tr><td><strong>光通訊晶片</strong></td><td>單通道100G PAM4 DSP產品設計定案</td><td>2025年Q4</td></tr>
+<tr><td></td><td>單通道100G PAM4 DSP及TIA晶片正式量產</td><td>2026年年中</td></tr>
+<tr><td></td><td>開發單通道200G SerDes技術</td><td>進行中</td></tr>
+<tr><td><strong>固網寬頻晶片</strong></td><td>下一世代25G-PON晶片送樣</td><td>2026年上半年</td></tr>
+<tr><td><strong>乙太網路晶片</strong></td><td>2.5G交換機送樣</td><td>2026年上半年</td></tr>
+<tr><td></td><td>高階10G PHY晶片出貨量增溫，貢獻放大</td><td>2026年</td></tr>
+<tr><td><strong>新客戶/市場</strong></td><td>光通訊拓展至全球前十大光模組廠及CSP客戶</td><td>2025年</td></tr>
+<tr><td></td><td>低軌衛星乙太網客戶躍升為達發乙太網前三大客戶</td><td>2025年</td></tr>
+<tr><td></td><td>衛星定位晶片切入一線低軌衛星運營商</td><td>2025年</td></tr>
+<tr><td></td><td>固網寬頻加速北美市場布局，目標歐美營收佔比近50%</td><td>2026年</td></tr>
+<tr><td><strong>高階藍牙應用</strong></td><td>與全球前五大助輔聽品牌合作推出OTC產品</td><td>2025年Q4</td></tr>
+<tr><td></td><td>拓展至醫療等級助聽器</td><td>規劃中</td></tr>
+<tr><td></td><td>與Fraunhofer IIS合作多聲道空間音訊解決方案</td><td>2026年3月 (MWC發布)</td></tr>
+<tr><td><strong>需求面</strong></td><td>AI資料中心對高速、遠距資料傳輸的強勁需求</td><td>持續成長</td></tr>
+<tr><td></td><td>低軌衛星部署加速，地面接收設備需求升溫</td><td>2026年</td></tr>
+<tr><td></td><td>寬頻升級至2.5G/10G/25G PON</td><td>持續推進</td></tr>
+<tr><td></td><td>XR應用與高階無線耳機對沉浸式音訊需求增長</td><td>持續增長</td></tr>
+</tbody></table></div>
+
+<strong>擴廠/產能/資本支出</strong>：目前公開資訊未找到達發科技2025-2026年具體的擴廠計畫、產能擴充數字或新增資本支出金額。作為Fabless模式公司，其產能主要依賴代工夥伴。
+
+<h2>2026 展望</h2>
+
+<strong>成長動能</strong>：
+<p>達發科技2026年展望樂觀，主要成長動能來自：</p>
+<li><strong>AI資料中心與高速光通訊</strong>：單通道100G SerDes技術晶片將於2026年年中量產，並已獲得全球前五大光模組廠Design-in，加上既有PAM4 DSP產品的客戶擴展，預期光通訊業務營收將實現「逐年倍數成長」，成為最關鍵的成長引擎。</li>
+<li><strong>低軌衛星市場爆發</strong>：乙太網路PHY晶片在低軌衛星地面接收設備領域出貨量價齊揚，衛星定位晶片切入一線運營商，將是2026年核心成長動能之一。</li>
+<li><strong>網通基礎建設升級</strong>：10G PON滲透率提升、25G PON晶片送樣、2.5G交換機與高階10G PHY產品的出貨量增，以及北美市場的積極拓展，將支撐網通基礎建設事業群的穩健增長。</li>
+<li><strong>高階AIoT利基應用</strong>：藍牙音訊晶片在助輔聽器（與全球前五大品牌合作、拓展醫療等級）、商務與電競耳機領域持續深耕，結合邊緣AI技術，有助於優化產品組合與毛利率。</li>
+<p>管理層預期2026年第一季營收將呈現「淡季不淡」的季增與年增表現，全年營收可望穩健成長，毛利率預計維持在<strong>50%以上</strong>。光通訊與乙太網路產品線合計營收佔比有機會逼近全公司的<strong>20%</strong>。</p>
+
+<strong>風險因子</strong>：
+<li><strong>市場競爭風險</strong>：IC設計產業競爭激烈，若新產品開發或市場拓展不如預期，可能影響市佔率及獲利。</li>
+<li><strong>全球經濟景氣與需求波動</strong>：總體經濟不確定性可能影響網通基礎建設投資及消費性電子產品需求。</li>
+<li><strong>地緣政治與供應鏈風險</strong>：全球半導體供應鏈受地緣政治影響，可能導致晶圓代工或封測成本波動、供貨不確定性。</li>
+<li><strong>研發費用壓力</strong>：為保持技術領先，持續高額研發費用投入可能在短期內壓縮獲利。</li>
+
+<h2>投資結論</h2>
+
+<p>綜合以上分析，達發科技在2026年具備明確的成長動能與優化的產品結構，建議投資人密切關注。</p>
+
+<li><strong>AI與光通訊引爆核心成長</strong>：達發在AI資料中心驅動下的高速光通訊晶片（100G SerDes、PAM4 DSP）已進入關鍵量產與客戶拓展階段，預計未來數年營收「逐年倍數成長」，是公司中長期最值得期待的爆發點。</li>
+<li><strong>低軌衛星與網通升級雙引擎</strong>：作為低軌衛星地面設備與高階網通晶片（2.5G/10G乙太網、25G PON）的重要供應商，達發將持續受惠於全球網路基礎設施升級與低軌衛星產業的加速發展。</li>
+<li><strong>高階利基市場確保獲利能力</strong>：在助輔聽器、商務耳機等高毛利AIoT應用上的佈局，以及產品組合朝高階化調整，有助於維持公司整體毛利率在<strong>50%以上</strong>的健康水準。</li>
+<li><strong>財務表現穩健，研發投入積極</strong>：2025年營收與EPS創新高，2026年展望「淡季不淡」與穩健成長，配合持續且高額的研發投入，顯示公司具備長期競爭力。</li>
+
+<p>基於公司強勁的成長潛力、明確的產品藍圖及產業趨勢，考量法人目標價區間與其自身成長性，建議目標價區間為 <strong>新台幣 620元至 680元</strong>。</p>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 12:57</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="6526_達發_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="6526_達發_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="6526_達發_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

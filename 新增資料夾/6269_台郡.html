@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6269 台郡 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>6269 台郡 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>台郡（6269）正積極從傳統消費性電子軟板製造商轉型為AI高速傳輸解決方案領航者，儘管2025年面臨轉型陣痛與獲利低谷，但憑藉MetaLink技術、AI伺服器高階軟板的成功佈局及客戶新產品產能建置，預期2026年營運將迎來強勁復甦，AI業務可望翻倍成長，有望重返2021-2022年獲利水準。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">6269 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-6269" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-6269" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-6269');
+    var obvContainer = document.getElementById('obv-chart-6269');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 58.1, "high": 58.2, "low": 57.3, "close": 57.8}, {"time": "2025-12-05", "open": 57.7, "high": 57.8, "low": 56.9, "close": 57.8}, {"time": "2025-12-08", "open": 57.8, "high": 58.5, "low": 57.4, "close": 58.1}, {"time": "2025-12-09", "open": 57.6, "high": 59.4, "low": 57.6, "close": 58.7}, {"time": "2025-12-10", "open": 58.7, "high": 59.3, "low": 58.3, "close": 59.0}, {"time": "2025-12-11", "open": 59.5, "high": 60.0, "low": 58.3, "close": 58.7}, {"time": "2025-12-12", "open": 58.9, "high": 59.1, "low": 57.4, "close": 57.9}, {"time": "2025-12-15", "open": 57.0, "high": 58.3, "low": 56.6, "close": 57.3}, {"time": "2025-12-16", "open": 56.8, "high": 56.9, "low": 55.3, "close": 56.0}, {"time": "2025-12-17", "open": 56.0, "high": 56.8, "low": 55.5, "close": 55.5}, {"time": "2025-12-18", "open": 55.5, "high": 56.1, "low": 54.9, "close": 55.1}, {"time": "2025-12-19", "open": 55.1, "high": 56.0, "low": 54.7, "close": 56.0}, {"time": "2025-12-22", "open": 57.0, "high": 58.2, "low": 55.9, "close": 57.9}, {"time": "2025-12-23", "open": 58.0, "high": 59.2, "low": 57.3, "close": 57.8}, {"time": "2025-12-24", "open": 58.0, "high": 63.4, "low": 58.0, "close": 60.6}, {"time": "2025-12-26", "open": 61.5, "high": 62.9, "low": 60.0, "close": 60.8}, {"time": "2025-12-29", "open": 60.7, "high": 61.5, "low": 60.3, "close": 60.6}, {"time": "2025-12-30", "open": 60.6, "high": 60.6, "low": 59.8, "close": 59.9}, {"time": "2025-12-31", "open": 59.9, "high": 60.5, "low": 58.0, "close": 59.0}, {"time": "2026-01-02", "open": 58.8, "high": 59.9, "low": 58.3, "close": 58.9}, {"time": "2026-01-05", "open": 59.0, "high": 59.4, "low": 57.7, "close": 58.0}, {"time": "2026-01-06", "open": 58.0, "high": 58.5, "low": 56.3, "close": 56.6}, {"time": "2026-01-07", "open": 56.8, "high": 58.6, "low": 56.3, "close": 58.4}, {"time": "2026-01-08", "open": 57.5, "high": 58.0, "low": 55.8, "close": 55.8}, {"time": "2026-01-09", "open": 55.8, "high": 57.2, "low": 55.1, "close": 56.6}, {"time": "2026-01-12", "open": 57.0, "high": 60.4, "low": 57.0, "close": 60.0}, {"time": "2026-01-13", "open": 60.6, "high": 60.6, "low": 58.0, "close": 58.0}, {"time": "2026-01-14", "open": 58.1, "high": 59.1, "low": 58.0, "close": 58.5}, {"time": "2026-01-15", "open": 59.0, "high": 59.0, "low": 57.3, "close": 58.6}, {"time": "2026-01-16", "open": 59.1, "high": 59.4, "low": 58.5, "close": 59.0}, {"time": "2026-01-19", "open": 59.0, "high": 60.8, "low": 58.3, "close": 58.6}, {"time": "2026-01-20", "open": 58.0, "high": 59.2, "low": 57.3, "close": 57.6}, {"time": "2026-01-21", "open": 57.6, "high": 58.4, "low": 56.9, "close": 58.0}, {"time": "2026-01-22", "open": 58.5, "high": 59.9, "low": 58.5, "close": 59.1}, {"time": "2026-01-23", "open": 59.7, "high": 62.0, "low": 58.8, "close": 60.5}, {"time": "2026-01-26", "open": 61.0, "high": 61.8, "low": 60.4, "close": 60.6}, {"time": "2026-01-27", "open": 60.7, "high": 61.7, "low": 60.2, "close": 60.9}, {"time": "2026-01-28", "open": 61.8, "high": 61.9, "low": 60.5, "close": 60.8}, {"time": "2026-01-29", "open": 60.9, "high": 60.9, "low": 58.6, "close": 59.1}, {"time": "2026-01-30", "open": 58.9, "high": 60.4, "low": 57.6, "close": 59.6}, {"time": "2026-02-02", "open": 59.6, "high": 60.4, "low": 57.7, "close": 57.7}, {"time": "2026-02-03", "open": 58.5, "high": 59.9, "low": 58.0, "close": 59.2}, {"time": "2026-02-04", "open": 58.6, "high": 63.4, "low": 58.6, "close": 62.0}, {"time": "2026-02-05", "open": 61.5, "high": 61.8, "low": 59.5, "close": 59.5}, {"time": "2026-02-06", "open": 58.8, "high": 59.3, "low": 57.3, "close": 58.4}, {"time": "2026-02-09", "open": 59.3, "high": 60.5, "low": 58.6, "close": 58.7}, {"time": "2026-02-10", "open": 60.5, "high": 62.5, "low": 60.4, "close": 61.4}, {"time": "2026-02-11", "open": 61.6, "high": 61.6, "low": 59.7, "close": 60.9}, {"time": "2026-02-23", "open": 61.2, "high": 63.3, "low": 60.1, "close": 63.1}, {"time": "2026-02-24", "open": 63.1, "high": 66.5, "low": 62.9, "close": 65.4}, {"time": "2026-02-25", "open": 66.0, "high": 66.5, "low": 64.0, "close": 65.6}, {"time": "2026-02-26", "open": 65.3, "high": 65.4, "low": 63.7, "close": 64.7}, {"time": "2026-03-02", "open": 60.1, "high": 60.4, "low": 55.8, "close": 56.0}, {"time": "2026-03-03", "open": 63.1, "high": 63.9, "low": 61.0, "close": 61.0}, {"time": "2026-03-04", "open": 60.1, "high": 60.4, "low": 55.8, "close": 56.0}, {"time": "2026-03-05", "open": 57.5, "high": 58.6, "low": 56.7, "close": 57.6}, {"time": "2026-03-06", "open": 56.9, "high": 59.4, "low": 56.8, "close": 59.2}, {"time": "2026-03-09", "open": 56.0, "high": 56.3, "low": 54.3, "close": 55.7}, {"time": "2026-03-10", "open": 56.7, "high": 57.1, "low": 54.2, "close": 54.7}, {"time": "2026-03-11", "open": 56.0, "high": 56.0, "low": 52.4, "close": 53.7}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 1000.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 775.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 1498.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 1544.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 1249.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 1534.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 1244.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 619.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 1177.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 808.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 652.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 707.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 1719.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 957.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 6166.0, "color": "#ef5350"}, {"time": "2025-12-26", "value": 3325.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 1623.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 969.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 1532.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 1228.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 1296.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 1691.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 1787.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 2044.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 807.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 2454.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 1319.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 1055.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 1046.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 1267.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 2462.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 1614.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 1735.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 1735.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 3535.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 2042.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 1636.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 1747.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 2219.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 1982.0, "color": "#ef5350"}, {"time": "2026-02-02", "value": 1501.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 1253.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 5162.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 2857.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 2566.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 1238.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 4173.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 1934.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 3390.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 4080.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 2557.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 2102.0, "color": "#26a69a"}, {"time": "2026-03-02", "value": 3600.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 2434.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 3600.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 1328.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 886.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 2391.0, "color": "#26a69a"}, {"time": "2026-03-10", "value": 2554.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 5454.0, "color": "#26a69a"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 58.279999999999994}, {"time": "2025-12-11", "value": 58.46}, {"time": "2025-12-12", "value": 58.48}, {"time": "2025-12-15", "value": 58.32000000000001}, {"time": "2025-12-16", "value": 57.779999999999994}, {"time": "2025-12-17", "value": 57.08}, {"time": "2025-12-18", "value": 56.36}, {"time": "2025-12-19", "value": 55.98}, {"time": "2025-12-22", "value": 56.1}, {"time": "2025-12-23", "value": 56.46}, {"time": "2025-12-24", "value": 57.48}, {"time": "2025-12-26", "value": 58.620000000000005}, {"time": "2025-12-29", "value": 59.54}, {"time": "2025-12-30", "value": 59.94}, {"time": "2025-12-31", "value": 60.17999999999999}, {"time": "2026-01-02", "value": 59.839999999999996}, {"time": "2026-01-05", "value": 59.279999999999994}, {"time": "2026-01-06", "value": 58.48}, {"time": "2026-01-07", "value": 58.17999999999999}, {"time": "2026-01-08", "value": 57.54}, {"time": "2026-01-09", "value": 57.08}, {"time": "2026-01-12", "value": 57.48}, {"time": "2026-01-13", "value": 57.760000000000005}, {"time": "2026-01-14", "value": 57.779999999999994}, {"time": "2026-01-15", "value": 58.339999999999996}, {"time": "2026-01-16", "value": 58.82000000000001}, {"time": "2026-01-19", "value": 58.54}, {"time": "2026-01-20", "value": 58.46}, {"time": "2026-01-21", "value": 58.36}, {"time": "2026-01-22", "value": 58.46}, {"time": "2026-01-23", "value": 58.760000000000005}, {"time": "2026-01-26", "value": 59.160000000000004}, {"time": "2026-01-27", "value": 59.82000000000001}, {"time": "2026-01-28", "value": 60.379999999999995}, {"time": "2026-01-29", "value": 60.379999999999995}, {"time": "2026-01-30", "value": 60.2}, {"time": "2026-02-02", "value": 59.620000000000005}, {"time": "2026-02-03", "value": 59.279999999999994}, {"time": "2026-02-04", "value": 59.52}, {"time": "2026-02-05", "value": 59.6}, {"time": "2026-02-06", "value": 59.36}, {"time": "2026-02-09", "value": 59.56}, {"time": "2026-02-10", "value": 60.0}, {"time": "2026-02-11", "value": 59.779999999999994}, {"time": "2026-02-23", "value": 60.5}, {"time": "2026-02-24", "value": 61.9}, {"time": "2026-02-25", "value": 63.279999999999994}, {"time": "2026-02-26", "value": 63.94}, {"time": "2026-03-02", "value": 62.96}, {"time": "2026-03-03", "value": 62.54}, {"time": "2026-03-04", "value": 60.660000000000004}, {"time": "2026-03-05", "value": 59.06}, {"time": "2026-03-06", "value": 57.96}, {"time": "2026-03-09", "value": 57.9}, {"time": "2026-03-10", "value": 56.64}, {"time": "2026-03-11", "value": 56.18000000000001}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 57.67999999999999}, {"time": "2025-12-18", "value": 57.410000000000004}, {"time": "2025-12-19", "value": 57.23}, {"time": "2025-12-22", "value": 57.21}, {"time": "2025-12-23", "value": 57.120000000000005}, {"time": "2025-12-24", "value": 57.279999999999994}, {"time": "2025-12-26", "value": 57.489999999999995}, {"time": "2025-12-29", "value": 57.760000000000005}, {"time": "2025-12-30", "value": 58.02}, {"time": "2025-12-31", "value": 58.32000000000001}, {"time": "2026-01-02", "value": 58.660000000000004}, {"time": "2026-01-05", "value": 58.95}, {"time": "2026-01-06", "value": 59.010000000000005}, {"time": "2026-01-07", "value": 59.06}, {"time": "2026-01-08", "value": 58.86}, {"time": "2026-01-09", "value": 58.46}, {"time": "2026-01-12", "value": 58.379999999999995}, {"time": "2026-01-13", "value": 58.120000000000005}, {"time": "2026-01-14", "value": 57.98}, {"time": "2026-01-15", "value": 57.94}, {"time": "2026-01-16", "value": 57.95}, {"time": "2026-01-19", "value": 58.010000000000005}, {"time": "2026-01-20", "value": 58.11}, {"time": "2026-01-21", "value": 58.07000000000001}, {"time": "2026-01-22", "value": 58.4}, {"time": "2026-01-23", "value": 58.79}, {"time": "2026-01-26", "value": 58.85}, {"time": "2026-01-27", "value": 59.14}, {"time": "2026-01-28", "value": 59.370000000000005}, {"time": "2026-01-29", "value": 59.42}, {"time": "2026-01-30", "value": 59.48}, {"time": "2026-02-02", "value": 59.39}, {"time": "2026-02-03", "value": 59.55}, {"time": "2026-02-04", "value": 59.95}, {"time": "2026-02-05", "value": 59.989999999999995}, {"time": "2026-02-06", "value": 59.779999999999994}, {"time": "2026-02-09", "value": 59.589999999999996}, {"time": "2026-02-10", "value": 59.64}, {"time": "2026-02-11", "value": 59.65}, {"time": "2026-02-23", "value": 60.05}, {"time": "2026-02-24", "value": 60.629999999999995}, {"time": "2026-02-25", "value": 61.42}, {"time": "2026-02-26", "value": 61.970000000000006}, {"time": "2026-03-02", "value": 61.370000000000005}, {"time": "2026-03-03", "value": 61.52}, {"time": "2026-03-04", "value": 61.279999999999994}, {"time": "2026-03-05", "value": 61.17}, {"time": "2026-03-06", "value": 60.95}, {"time": "2026-03-09", "value": 60.42999999999999}, {"time": "2026-03-10", "value": 59.589999999999996}, {"time": "2026-03-11", "value": 58.42}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 58.17}, {"time": "2026-01-05", "value": 58.17999999999999}, {"time": "2026-01-06", "value": 58.120000000000005}, {"time": "2026-01-07", "value": 58.135000000000005}, {"time": "2026-01-08", "value": 57.989999999999995}, {"time": "2026-01-09", "value": 57.870000000000005}, {"time": "2026-01-12", "value": 57.935}, {"time": "2026-01-13", "value": 57.94}, {"time": "2026-01-14", "value": 58.0}, {"time": "2026-01-15", "value": 58.129999999999995}, {"time": "2026-01-16", "value": 58.30499999999999}, {"time": "2026-01-19", "value": 58.48}, {"time": "2026-01-20", "value": 58.56}, {"time": "2026-01-21", "value": 58.565}, {"time": "2026-01-22", "value": 58.629999999999995}, {"time": "2026-01-23", "value": 58.625}, {"time": "2026-01-26", "value": 58.614999999999995}, {"time": "2026-01-27", "value": 58.629999999999995}, {"time": "2026-01-28", "value": 58.675}, {"time": "2026-01-29", "value": 58.67999999999999}, {"time": "2026-01-30", "value": 58.714999999999996}, {"time": "2026-02-02", "value": 58.7}, {"time": "2026-02-03", "value": 58.83}, {"time": "2026-02-04", "value": 59.010000000000005}, {"time": "2026-02-05", "value": 59.19500000000001}, {"time": "2026-02-06", "value": 59.285000000000004}, {"time": "2026-02-09", "value": 59.220000000000006}, {"time": "2026-02-10", "value": 59.39}, {"time": "2026-02-11", "value": 59.510000000000005}, {"time": "2026-02-23", "value": 59.735}, {"time": "2026-02-24", "value": 60.05499999999999}, {"time": "2026-02-25", "value": 60.404999999999994}, {"time": "2026-02-26", "value": 60.760000000000005}, {"time": "2026-03-02", "value": 60.660000000000004}, {"time": "2026-03-03", "value": 60.754999999999995}, {"time": "2026-03-04", "value": 60.529999999999994}, {"time": "2026-03-05", "value": 60.379999999999995}, {"time": "2026-03-06", "value": 60.295}, {"time": "2026-03-09", "value": 60.04}, {"time": "2026-03-10", "value": 59.82000000000001}, {"time": "2026-03-11", "value": 59.525}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 0}, {"time": "2025-12-08", "value": 1498.0}, {"time": "2025-12-09", "value": 3042.0}, {"time": "2025-12-10", "value": 4291.0}, {"time": "2025-12-11", "value": 2757.0}, {"time": "2025-12-12", "value": 1513.0}, {"time": "2025-12-15", "value": 894.0}, {"time": "2025-12-16", "value": -283.0}, {"time": "2025-12-17", "value": -1091.0}, {"time": "2025-12-18", "value": -1743.0}, {"time": "2025-12-19", "value": -1036.0}, {"time": "2025-12-22", "value": 683.0}, {"time": "2025-12-23", "value": -274.0}, {"time": "2025-12-24", "value": 5892.0}, {"time": "2025-12-26", "value": 9217.0}, {"time": "2025-12-29", "value": 7594.0}, {"time": "2025-12-30", "value": 6625.0}, {"time": "2025-12-31", "value": 5093.0}, {"time": "2026-01-02", "value": 3865.0}, {"time": "2026-01-05", "value": 2569.0}, {"time": "2026-01-06", "value": 878.0}, {"time": "2026-01-07", "value": 2665.0}, {"time": "2026-01-08", "value": 621.0}, {"time": "2026-01-09", "value": 1428.0}, {"time": "2026-01-12", "value": 3882.0}, {"time": "2026-01-13", "value": 2563.0}, {"time": "2026-01-14", "value": 3618.0}, {"time": "2026-01-15", "value": 4664.0}, {"time": "2026-01-16", "value": 5931.0}, {"time": "2026-01-19", "value": 3469.0}, {"time": "2026-01-20", "value": 1855.0}, {"time": "2026-01-21", "value": 3590.0}, {"time": "2026-01-22", "value": 5325.0}, {"time": "2026-01-23", "value": 8860.0}, {"time": "2026-01-26", "value": 10902.0}, {"time": "2026-01-27", "value": 12538.0}, {"time": "2026-01-28", "value": 10791.0}, {"time": "2026-01-29", "value": 8572.0}, {"time": "2026-01-30", "value": 10554.0}, {"time": "2026-02-02", "value": 9053.0}, {"time": "2026-02-03", "value": 10306.0}, {"time": "2026-02-04", "value": 15468.0}, {"time": "2026-02-05", "value": 12611.0}, {"time": "2026-02-06", "value": 10045.0}, {"time": "2026-02-09", "value": 11283.0}, {"time": "2026-02-10", "value": 15456.0}, {"time": "2026-02-11", "value": 13522.0}, {"time": "2026-02-23", "value": 16912.0}, {"time": "2026-02-24", "value": 20992.0}, {"time": "2026-02-25", "value": 23549.0}, {"time": "2026-02-26", "value": 21447.0}, {"time": "2026-03-02", "value": 17847.0}, {"time": "2026-03-03", "value": 20281.0}, {"time": "2026-03-04", "value": 16681.0}, {"time": "2026-03-05", "value": 18009.0}, {"time": "2026-03-06", "value": 18895.0}, {"time": "2026-03-09", "value": 16504.0}, {"time": "2026-03-10", "value": 13950.0}, {"time": "2026-03-11", "value": 8496.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>台郡是台灣第二大軟板（FPC）製造商，主要生產軟性單層板、雙層板、多層板及軟硬結合板，並提供軟板模組（FPCA）與電子訊號傳輸解決方案。公司願景定位為「電子訊號傳輸解決方案」的領航者，積極佈局AI高速傳輸領域，核心解決方案包括為AI伺服器開發的MPI (Micro Pitch Interconnect) 與LCP (Liquid Crystal Polymer) 軟板整合方案，以應對空間微縮與散熱挑戰。此外，公司將導入自主創新的MetaLink技術，聚焦於AI伺服器高速傳輸、AI邊緣運算裝置及智慧行動裝置等產品開發。產品應用涵蓋手機、筆電、平板、穿戴式裝置、消費性電子、AI伺服器、AR/VR、智慧眼鏡、光通訊及車用電子等。製造基地分佈於台灣高雄（和發廠負責電鍍、設計、鑽孔）和中國昆山（負責組裝、檢測）。</p>
+
+<h3>營收結構概覽 (2025年第一季)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>應用領域</th><th>佔營收比例</th></tr></thead><tbody>
+<tr><td>PC應用</td><td>65%</td></tr>
+<tr><td>通訊應用</td><td>21%</td></tr>
+<tr><td>消費電子</td><td>14%</td></tr>
+<tr><td><strong>合計</strong></td><td><strong>100%</strong></td></tr>
+</tbody></table></div>
+
+<em>備註：AI伺服器相關應用預期2025年營收佔比為高個位數百分比，並預計在2026年至少可望翻倍成長。</em>
+
+<h2>核心競爭優勢</h2>
+<li><strong>AI高速傳輸技術領先：</strong> 台郡積極投入AI伺服器高階軟板領域，成功開發MPI與LCP軟板整合方案，並將導入自主創新的MetaLink技術。這些技術旨在解決AI伺服器在高頻高速傳輸、空間壓縮和散熱方面的嚴苛挑戰，使其在AI訊號傳輸領域具備獨特優勢。</li>
+<li><strong>高階軟板製程能力：</strong> 公司已具備10～20層高階軟板製程能力，並推動以高速軟板取代20～100公分傳統短距纜線，應用於機櫃內GPU／CPU模組的高速傳輸，提升產品附加價值和技術門檻。</li>
+<li><strong>成功切入指標客戶供應鏈：</strong> 已切入輝達（NVIDIA）AI伺服器液冷系統的感測器供應鏈，並獲得AI客戶採用出貨，顯示其高階產品的市場認可度與技術實力。</li>
+<li><strong>產品組合轉型與分散風險：</strong> 透過佈局AI伺服器、AI邊緣運算、AR/VR、智慧眼鏡、光通訊及車用電子等新興高成長領域，逐步降低對傳統消費性電子市場的依賴，優化產品組合並分散營運風險。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>22.28</td><td>+18.55%</td><td>+13.52%</td></tr>
+<tr><td>2025年12月</td><td>18.79</td><td>+1.03%</td><td>-3.34%</td></tr>
+<tr><td>2025年11月</td><td>18.60</td><td>+0.75%</td><td>-1.89%</td></tr>
+<tr><td>2025年10月</td><td>18.46</td><td>-14.41%</td><td>+0.71%</td></tr>
+<tr><td>2025年9月</td><td>21.57</td><td>+9.46%</td><td>+9.20%</td></tr>
+<tr><td>2025年8月</td><td>19.71</td><td>+0.19%</td><td>-6.57%</td></tr>
+</tbody></table></div>
+
+<h3>季度數據</h3>
+<strong>2025年第三季財報</strong>：
+<ul><li>季營收：新台幣60.95億元</li>
+<li>營業毛利率：1.3%</li>
+<li>營業淨損率：-13.8%</li>
+<li>單季每股稅後虧損 (EPS)：新台幣-1.92元</li>
+</ul>
+<h3>年度趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>全年度營收 (新台幣億元)</th><th>每股稅後盈餘 (EPS)</th></tr></thead><tbody>
+<tr><td>2024年 (實際)</td><td>264.43782</td><td>-2.56 元</td></tr>
+<tr><td>2025年 (預估)</td><td>242.4484 (中位數)</td><td>-3.04 元 (中位數)</td></tr>
+</tbody></table></div>
+
+<em>備註：2025年EPS預估另有券商給出-5.87元。FactSet於2025年8月19日將2025年EPS預估從-2.66元下修至-3.04元。</em>
+
+<h2>法說會重點 (2025年11月6日及相關資訊)</h2>
+<ul><li><strong>最新法說會日期：</strong> 台郡受邀參加凱基證券舉辦的法人說明會，說明2025年第四季營運成果，日期為<strong>2026年3月10日下午4點</strong>。</li>
+<li><strong>2025年第三季營運回顧：</strong> 單季每股虧損新台幣1.92元，累計前三季每股淨損為新台幣5.09元。</li>
+<li><strong>管理層對各產品線說明：</strong></li>
+</ul>    *   <strong>2025年第四季：</strong> 產能出貨預估與第三季約略相當，其中AI伺服器可望有雙位數成長。
+<p>*   <strong>手機業務：</strong> 2025年下半年手機業務量較2024年同期顯著提升，若以規格片數來看約估計從2-4片，至2026年再翻倍拉升2-3片（此處指片數增加，非倍數）。手機軟板從4層板升級至6層板，帶動單價與技術門檻提升。</p>
+<p>*   <strong>AI伺服器：</strong> 台郡的解決方案已獲得AI客戶採用出貨，預期AI伺服器營收占比2025年為高個位數百分比，2026年至少可翻倍成長。</p>
+<p>*   <strong>技術能力：</strong> 已具備10～20層高階軟板製程能力，並正推動以高速軟板取代20～100公分傳統短距纜線，應用於機櫃內GPU／CPU模組的高速傳輸。</p>
+<p>*   <strong>MetaLink技術：</strong> 已導入極低損耗（Extreme Low Loss）材料，並搭配獨有技術的MetaLink製程以對應高速信號傳輸。相關模組已與連接器廠合作，將透過自有SMT產線出貨。MetaLink製程亦將是未來數年資本支出主軸，目標銜接2026年新平台導入節奏。</p>
+<ul><li><strong>資本支出金額：</strong> 董事會於2026年2月9日核准新增資本支出預算案，投資金額達新台幣<strong>18.6億元</strong>，主要為配合客戶新產品的產能建置需求。</li>
+<li><strong>管理層對下季/下半年 guidance：</strong></li>
+</ul>    *   預期2025年營運仍處轉型低谷，但2026年營運將蓄勢待發，轉型成為訊號傳輸解決方案提供商，導入自主創新的MetaLink技術，聚焦AI伺服器高速傳輸、AI邊緣運算裝置與智慧行動裝置等解決方案的產品開發。
+<p>*   公司表示2025年力求轉虧為盈，並預期2026年營運將完全恢復2021-2022年表現。</p>
+<p>*   非手機產品方面，2025年AI伺服器高速運算、AR/VR、智慧眼鏡等新產品均可望較2024年倍數成長，且2026年亦可望倍數年成長。</p>
+
+<h2>券商觀點</h2>
+
+<h3>券商目標價</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>元富證券投顧</td><td>80</td><td>買進</td><td>2025/11/11</td></tr>
+<tr><td>國票證券投顧</td><td>80</td><td>買進</td><td>2025/11/07</td></tr>
+<tr><td>FactSet調查</td><td>67</td><td>中立</td><td>2025/08/31</td></tr>
+</tbody></table></div>
+
+<em>備註：FactSet於2025年8月31日將台郡目標價中位數由63.5元上修至67元，調升幅度5.51%。</em>
+
+<h3>2025-2026年EPS預估</h3>
+<ul><li><strong>FactSet調查 (2025年8月19日)：</strong></li>
+</ul>    *   2025年EPS預估：中位數-3.04元 (最高0.02元，最低-7.36元)。
+<p>*   2026年EPS預估：中位數2.23元 (最高6.8元，最低-1.43元)。</p>
+<ul><li><strong>元富證券投顧 (2025年11月11日)：</strong></li>
+</ul>    *   2025年EPS預估：-5.87元。
+<ul><li><strong>綜合評級方面：</strong> FactSet於2025年8月31日顯示，6位分析師中，2位給予積極樂觀、5位保持中立、0位保守悲觀。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢 (2024Q1-2025Q3)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>營收 (新台幣億元)</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th><th>EPS (新台幣)</th></tr></thead><tbody>
+<tr><td>225Q3</td><td>60.95</td><td>1.3%</td><td>-13.8%</td><td>-10.0%</td><td>-1.92</td></tr>
+<tr><td>225Q1</td><td>N/A</td><td>0.5%</td><td>N/A</td><td>N/A</td><td>-1.76</td></tr>
+<tr><td>2024Q4</td><td>87.16</td><td>19.3%</td><td>6.9%</td><td>8.3%</td><td>2.15</td></tr>
+<tr><td>2024Q3</td><td>N/A</td><td>22.8%</td><td>10.3%</td><td>11.2%</td><td>2.76</td></tr>
+<tr><td>2024Q2</td><td>N/A</td><td>16.5%</td><td>3.0%</td><td>3.4%</td><td>0.81</td></tr>
+<tr><td>2024Q1</td><td>N/A</td><td>15.6%</td><td>2.1%</td><td>2.5%</td><td>0.61</td></tr>
+</tbody></table></div>
+
+<em>註：2025Q1-Q3僅提供季毛利率與EPS，詳細營收與淨利率等資訊未提供。</em>
+
+<strong>利潤率變化的原因分析：</strong>
+<p>2024年台郡的利潤率呈現逐季增長的趨勢，從第一季的低點逐漸回升，第四季達到年度高峰，顯示營運狀況有所改善，主要受惠於高階應用產品出貨比重提升，帶動產品組合優化。然而，進入2025年，由於公司處於轉型陣痛期，毛利率大幅下滑至1.3% (2025Q3)，導致連續虧損。公司積極導入AI應用相關新技術與高頻高速材料，並持續與客戶開發新產品，預期這些高附加價值的產品將在2026年帶來毛利率的顯著回升（預估2026年毛利率可望回升至18%）。</p>
+
+<h3>存貨分析</h3>
+<p>目前未找到2024-2026年台郡近4季存貨金額、存貨週轉天數及應收帳款週轉天數的具體最新資料，也無異常堆積或備料現象的資訊。</p>
+
+<h3>資本支出</h3>
+<ul><li><strong>2023年：</strong> 約新台幣30億元。</li>
+<li><strong>2024年：</strong> 預計新台幣45億元。</li>
+<li><strong>2025年：</strong> 和發新廠預計下半年投產，將擴大高階產品佈局，聚焦AI相關應用，導入高速高頻傳輸技術與材料，搶佔未來軟板市場商機。</li>
+<li><strong>2026年：</strong> 董事會核准新增資本支出預算案，投資金額達新台幣<strong>18.6億元</strong>，主要為配合客戶新產品的產能建置需求。</li>
+<li><strong>折舊攤銷趨勢：</strong> 未找到2024-2026年關於台郡折舊攤銷的具體最新資料。新增的資本支出在短期內可能增加折舊費用，對獲利產生影響。</li>
+</ul>
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓：</strong> 未找到2025-2026年台郡董監事/大股東申報轉讓的最新紀錄。</li>
+<li><strong>庫藏股買回紀錄：</strong> 未找到2024-2026年台郡庫藏股買回紀錄的最新資料。</li>
+<li><strong>可轉換公司債（CB）：</strong> 國內第一次有擔保轉換公司債 (62691) 已於2024年11月30日到期下櫃；國內第二次有擔保轉換公司債 (62692) 已於2024年4月29日到期下櫃。目前未找到2024年以後新發行可轉換公司債的資訊。</li>
+<li><strong>增減資計畫：</strong> 未找到2024-2026年台郡近期現金增資或減資計畫的最新資料。</li>
+<li><strong>股利政策：</strong></li>
+</ul>    *   <strong>2025年度：</strong> 由於2024年營運陷入虧損，台郡預計2025年將不配發任何股利。
+<p>*   <strong>2024年度：</strong> 董事會已於2025年3月6日決議通過每股配發現金股利新台幣4.5元 (尚待股東會通過)。</p>
+<p>*   <strong>2023年度：</strong> 配發現金股利新台幣4.5元 (除息日2024年7月26日)。</p>
+<p>*   <strong>2022年度：</strong> 配發現金股利新台幣5元 (除息日2023年7月20日)。</p>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與供需</h3>
+<ul><li><strong>全球FPC市場規模：</strong> 預計2025年約落在<strong>195億美元至283.6億美元</strong>之間，並預計在2026年進一步增長至<strong>216.1億美元至310.7億美元</strong>，年複合成長率（CAGR）約在<strong>5.8%至10.8%</strong>之間。</li>
+<li><strong>供需狀況：</strong> FPC產業呈現「強弱分明」。</li>
+</ul>    *   <strong>傳統軟板與手機市場：</strong> 仍處於相對弱勢，手機市場疲弱導致傳統FPC可能面臨供過於求。
+<p>*   <strong>高階AI相關PCB/FPC：</strong> 針對AI伺服器與高速運算需求，高階PCB產業鏈預計2026年將迎來「缺料大年」，高階產能持續吃緊，處於<strong>供不應求</strong>狀態，將導致產業供應鏈進行結構性洗牌。</p>
+<ul><li><strong>產業平均毛利率水準：</strong> FPC產業平均毛利率數據難以直接取得2025-2026年整體值。然從相關資料可觀察：銅箔行業因擴產過剩毛利率偏低；BT載板預計2025年下半年毛利率提升至10%-20%以上。台郡自身2025年第一季毛利率為0.5%，第三季為1.4%，而2024年全年毛利率為5.75%。展望2026年，預估台郡毛利率可望回升至18%。</li>
+</ul>
+<h3>競爭格局</h3>
+
+<h4>台郡 vs 主要競爭對手比較</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>比較項目</th><th>台郡（6269）</th><th>主要競爭對手（概括性）</th></tr></thead><tbody>
+<tr><td><strong>技術</strong></td><td>積極投入AI高速傳輸，發展MPI與LCP軟板整合方案，自主MetaLink技術。專注6層以上高層數、高頻高速產品。</td><td>傳統FPC廠商著重輕薄短小、HDI。高階PCB/FPC市場則強調高頻高速、多層化、異質整合、散熱。</td></tr>
+<tr><td><strong>產能</strong></td><td>2026年2月核准新增資本支出18.6億元，配合客戶新產品建置，擴大AI相關高階產能。</td><td>許多PCB廠商加速海外擴產，因應地緣政治及客戶需求。</td></tr>
+<tr><td><strong>客戶</strong></td><td>美系大客戶（暗示Apple），已獲AI客戶採用出貨，切入NVIDIA AI伺服器液冷系統感測器供應鏈。</td><td>客戶群廣泛，涵蓋消費性電子、通訊、汽車、工業等，許多大廠亦積極爭取AI相關訂單。</td></tr>
+<tr><td><strong>價格</strong></td><td>隨著AI應用營收占比提升，其相關產品的平均銷售價格（ASP）與用量可望提升。轉型期間，傳統產品毛利率承壓。</td><td>高階、高頻高速材料和產品因供不應求，價格有上漲趨勢，而中低階產品面臨價格競爭壓力。</td></tr>
+</tbody></table></div>
+
+<h4>台灣同業比較 (以PCB同業欣興參考)</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司</th><th>營收規模 (2025Q1-Q3累計)</th><th>毛利率 (2025Q3)</th><th>EPS (2025Q3)</th><th>2026年預估EPS</th></tr></thead><tbody>
+<tr><td>台郡</td><td>167.64億元</td><td>1.4%</td><td>-1.92元</td><td>2.23元 (FactSet中位數) / 5.55元 (參考)</td></tr>
+<tr><td>欣興</td><td>N/A</td><td>N/A</td><td>N/A</td><td>4.38元 (2025年全年)</td></tr>
+</tbody></table></div>
+
+<em>註：台郡2026年EPS 5.55元為根據其管理層預期「營運恢復2021-2022年表現」及部分法人評估之參考值，FactSet中位數為2.23元。欣興為PCB同業，數據僅供參考。</em>
+
+<h3>產業趨勢</h3>
+<li><strong>AI高速運算與資料傳輸：</strong></li>
+<p>*   <strong>具體影響：</strong> AI伺服器與HPC需求快速增長，對FPC傳輸速度、高頻特性、訊號完整性要求大幅提高。這驅動了對高層數、高密度、低損耗材料（如LCP、MPI）及先進設計（如MetaLink）的需求。單機價值量可放大數倍。</p>
+<li><strong>小型化、高密度、輕量化與軟硬結合：</strong></li>
+<p>*   <strong>具體影響：</strong> 消費性電子（手機、穿戴、AR/VR、智慧眼鏡）對空間利用要求高，推動FPC朝更薄、更小、更高密度走線，並結合軟硬板技術。折疊裝置亦對彎折可靠性提出更高要求。</p>
+<li><strong>車用電子與電動車：</strong></li>
+<p>*   <strong>具體影響：</strong> 電動車和ADAS普及增加車內電子元件使用，FPC因輕量化、耐熱性、高可靠性，在電池管理系統、資訊娛樂系統、安全電子設備應用擴大，預計在電控系統滲透率將突破60%。</p>
+
+<h3>對 台郡 而言的具體機會和威脅</h3>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>AI伺服器與高速傳輸：</strong> 透過MPI/LCP軟板整合方案及MetaLink技術，成功切入AI伺服器高速傳輸市場，已進入NVIDIA AI伺服器液冷系統感測器供應鏈，預期2026年AI伺服器相關業績將翻倍成長，為主要成長動能。
+<p>*   <strong>新興應用：</strong> 積極布局AI邊緣運算、智慧行動裝置、折疊手機、AR/VR、智慧眼鏡及光通訊等高成長領域，並有車用新開發案啟動，有助於分散風險。</p>
+<p>*   <strong>轉型效益顯現：</strong> 儘管2025年處於轉型低谷，公司預期2026年營運有望恢復2021-2022年表現，毛利率和EPS將顯著改善，甚至轉虧為盈。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>傳統消費性電子市場疲軟：</strong> 儘管積極轉型，傳統手機市場的疲弱仍是營運挑戰。
+<p>*   <strong>轉型陣痛期與獲利壓力：</strong> 公司在2025年仍連續虧損，毛利率偏低，顯示短期營運壓力。</p>
+<p>*   <strong>高階軟板製程良率：</strong> 高階軟板製程的良率爬坡速度，將是影響未來獲利的關鍵變數。</p>
+<p>*   <strong>總經風險：</strong> 全球經濟不確定性、地緣政治、美國關稅政策與匯率波動等，可能影響終端需求和客戶拉貨動能。</p>
+
+<h3>相關投資題材的具體連結</h3>
+<ul><li><strong>AI (人工智慧)：</strong> 台郡定位為「電子訊號傳輸解決方案」領航者，直接受惠於AI伺服器高速傳輸、AI邊緣運算。其MPI、LCP軟板整合方案和MetaLink技術正是為了解決AI伺服器在高頻高速傳輸、空間微縮和散熱方面的挑戰。</li>
+<li><strong>HBM (高頻寬記憶體)：</strong> HBM是AI伺服器核心關鍵，儘管台郡不直接生產，但HBM需求帶動的AI產業鏈成長，將間接受益於台郡在AI伺服器高速傳輸FPC領域的進展。</li>
+<li><strong>電動車 (EV)：</strong> 台郡積極布局車用電子領域，FPC因其輕量化、空間優化和可靠性，在電動車的電池管理系統、電控系統及ADAS等應用中扮演關鍵角色，為另一個重要成長市場。</li>
+</ul>
+<h2>近期催化劑</h2>
+<ul><li><strong>2026年03月10日：</strong> 召開法人說明會，說明2025年第四季營運成果，預期將釋出更多2026年營運展望與AI業務進展。</li>
+<li><strong>2026年02月10日：</strong> 董事會核准新增資本支出<strong>18.6億元</strong>，用於配合客戶新產品的產能建置需求，顯示公司對未來成長動能的信心。</li>
+<li><strong>2026年02月09日：</strong> 公布2026年1月合併營收達新台幣<strong>22.28億元</strong>，月增18.55%，年增13.52%，創近18個月以來新高，營收表現亮眼。</li>
+<li><strong>2025年12月11日：</strong> 公司資訊系統遭受駭客網路攻擊，初步評估對公司營運無重大影響，風險事件獲得控制。</li>
+<li><strong>2025年11月07日：</strong> 法說會揭示2025年為轉型低谷，但強調2026年營運可望蓄勢待發，轉型訊號傳輸解決方案提供商。</li>
+<li><strong>2025年05月21日：</strong> 市場傳聞台郡已切入輝達（NVIDIA）AI伺服器液冷系統的感測器供應鏈，並於台北國際電腦展間接證實，確立AI業務的關鍵進展。</li>
+<li><strong>外資/投信近期買賣超：</strong></li>
+</ul>    *   2026年03月05日：三大法人合計賣超99張 (外資賣超60張)。
+<p>*   2026年03月04日：三大法人合計賣超1,812張 (外資賣超1,611張)。</p>
+<p>*   2026年02月25日：三大法人合計買超159張 (外資買超196張)。</p>
+<p>*   2026年02月10日：三大法人合計買超2,030張 (外資買超1,983張)。</p>
+<p>*   2026年累計 (截至2026年02月11日)：外資累計買超2,383張。</p>
+
+<h2>⭐ 成長動能時間軸</h2>
+
+<ul><li><strong>2025年下半年：</strong></li>
+</ul>    *   <strong>AI伺服器高階軟板：</strong> 開始小量出貨AI伺服器用高階軟板，並成功切入輝達（NVIDIA）AI伺服器液冷系統的感測器供應鏈，相關產品已獲美系大客戶採用。
+<p>*   <strong>和發新廠投產：</strong> 高雄和發新廠預計下半年投產，導入高速高頻傳輸技術與材料，應用於高頻高速傳輸、AI應用與低軌衛星等領域，為高階產能做準備。</p>
+<p>*   <strong>手機業務量顯著提升：</strong> 配合主力客戶新品推出，手機業務量較2024年同期顯著提升，手機軟板由4層板升級至6層板，帶來單價與技術門檻提升。</p>
+<ul><li><strong>2026年：</strong></li>
+</ul>    *   <strong>AI伺服器應用營收翻倍成長：</strong> AI伺服器相關應用業績可望翻倍成長，營收占比預計將從2025年的高個位數百分比大幅提升。
+<p>*   <strong>MetaLink技術導入：</strong> 導入自主創新的MetaLink技術，聚焦於AI伺服器高速傳輸、AI邊緣運算裝置與智慧行動裝置等解決方案的產品開發。MetaLink製程亦將是未來數年資本支出主軸。</p>
+<p>*   <strong>手機產品線再升級：</strong> 手機規格片數估計將從2025年的2-4片，再翻倍增加至6-7片，進一步推升手機業務ASP及獲利。</p>
+<p>*   <strong>新產能建置與貢獻：</strong> 2026年2月核准新增的<strong>18.6億元</strong>資本支出將投入客戶新產品的產能建置，確保高階軟板產能充足，鞏固市佔率並優化產品組合。</p>
+<p>*   <strong>非手機產品倍數成長：</strong> AI伺服器高速運算、AR/VR、智慧眼鏡等新產品繼2025年倍數成長後，2026年亦可望倍數年成長。</p>
+<p>*   <strong>營運目標恢復至2021-2022年水準：</strong> 管理層預期2026年營運將完全恢復2021-2022年表現，毛利率及獲利結構持續優化，全年營收有機會年增雙位數。</p>
+<ul><li><strong>持續成長動能：</strong></li>
+</ul>    *   <strong>PC應用：</strong> 受惠於高階NB、伺服器相關需求成長，PC應用營收占比已由2015年的9%大幅提升至2024年的46%，成為帶動營運成長的新主力。
+<p>*   <strong>新客戶/新市場：</strong> 持續積極切入光通訊、車用電子、智慧穿戴等高成長領域，分散對單一客戶的依賴。</p>
+
+<h2>2026 展望</h2>
+<p>2026年將是台郡營運的重要轉捩點。儘管2025年因轉型處於低谷，面臨連續虧損，但公司對2026年展現高度信心，預期營運將迎來大翻身。</p>
+
+<strong>成長動能：</strong>
+<li><strong>AI伺服器高速傳輸業務放量：</strong> AI伺服器營收佔比預計從2025年的高個位數百分比，在2026年至少翻倍成長，成為核心成長引擎。成功切入NVIDIA供應鏈是其重要里程碑。</li>
+<li><strong>MetaLink技術貢獻：</strong> 導入MetaLink技術將有效解決高頻高速傳輸挑戰，提升產品附加價值和競爭力，預計將在2026年新平台導入後逐步貢獻營收。</li>
+<li><strong>高階手機軟板升級：</strong> 主力客戶手機軟板從4層板升級至6層板，以及2026年規格片數的倍數增加，將顯著提升手機業務的ASP與毛利。</li>
+<li><strong>新產能與產品佈局：</strong> 和發新廠2025年下半年投產，加上2026年2月核准的18.6億元資本支出，將確保AI相關高階軟板產能充足，為客戶新產品出貨做好準備。</li>
+<li><strong>非手機產品多元成長：</strong> AI邊緣運算、AR/VR、智慧眼鏡、光通訊及車用電子等新興應用市場預計將持續倍數成長，為營運提供多元支撐。</li>
+
+<strong>風險：</strong>
+<li><strong>AI需求不如預期：</strong> 若AI伺服器市場增速放緩或台郡在供應鏈中的份額不及預期，將影響其核心成長動能。</li>
+<li><strong>高階製程良率挑戰：</strong> 高階軟板製程技術門檻高，良率爬坡速度將直接影響生產成本與獲利能力。</li>
+<li><strong>客戶集中度風險：</strong> 儘管積極轉型，若對美系大客戶的依賴度仍高，其拉貨動能將對台郡營運產生較大影響。</li>
+<li><strong>折舊費用壓力：</strong> 大量資本支出雖然是長期利多，但短期內折舊費用的增加可能持續對獲利構成壓力。</li>
+<li><strong>全球總體經濟不確定性：</strong> 利率、通膨、地緣政治、匯率波動（如台幣升值）等因素可能影響終端需求和公司獲利表現。</li>
+
+<h2>投資結論</h2>
+<li><strong>AI轉型顯著，2026年營運有望迎來爆發式成長：</strong> 台郡已成功從傳統FPC廠轉型至AI高速傳輸解決方案提供商，2025年雖處低谷，但AI伺服器業務預期2026年可望翻倍成長，MetaLink技術將是關鍵推力。管理層預期2026年營運有望恢復至2021-2022年水準，顯示其對轉型成功的信心。</li>
+<li><strong>產品組合優化，毛利率及獲利能力將大幅改善：</strong> 高階手機軟板升級（4層至6層，片數翻倍）、AI伺服器高附加價值產品放量，將顯著提升產品平均售價（ASP）和毛利率，預期2026年毛利率有望回升至18%，帶動獲利能力由虧轉盈。</li>
+<li><strong>資本支出支撐未來成長：</strong> 2026年2月核准的18.6億元資本支出用於客戶新產品產能建置，結合和發新廠投產，確保高階產品的量產能力，為未來數年的成長奠定基礎。</li>
+<li><strong>NVIDIA供應鏈認證，市場地位確立：</strong> 成功切入輝達AI伺服器液冷系統感測器供應鏈，是對台郡技術實力的高度肯定，有助於鞏固其在AI產業鏈中的關鍵地位。</li>
+<li><strong>綜合考量成長動能與轉型風險，建議目標價區間為新台幣95-120元：</strong> 雖然2025年仍處虧損，但考量台郡在AI領域的強勁成長動能（AI業務翻倍、高階手機板升級、MetaLink導入），若2026年能成功執行管理層的營運恢復目標，EPS有望挑戰新台幣5-6元（FactSet最高預估6.8元），給予2026年預估EPS 18-20倍的本益比，目標價區間為新台幣90-120元。鑑於其轉型成功可能帶來溢價，給予略高於券商現行目標價的區間。</li>
+
+<strong>具體目標價區間建議：新台幣95 - 120元。</strong>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 00:27</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="6269_台郡_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="6269_台郡_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="6269_台郡_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

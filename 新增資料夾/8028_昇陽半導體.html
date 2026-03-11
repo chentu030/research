@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8028 昇陽半導體 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>8028 昇陽半導體 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+
+<p>昇陽半導體（8028）作為全球領先的再生晶圓與晶圓薄化服務供應商，憑藉其在&lt;5奈米先進製程的技術優勢，深度受惠於AI與HPC驅動的半導體產業結構性成長。公司正積極斥資約新台幣79.04億元大規模擴充產能，並拓展先進封裝與第三代半導體應用，預期2026年營收將首度挑戰50億元大關，獲利亦將持續創新高。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">8028 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-8028" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-8028" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-8028');
+    var obvContainer = document.getElementById('obv-chart-8028');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 160.0, "high": 163.0, "low": 159.0, "close": 160.5}, {"time": "2025-12-05", "open": 160.5, "high": 164.0, "low": 158.5, "close": 159.0}, {"time": "2025-12-08", "open": 161.5, "high": 164.5, "low": 161.5, "close": 162.5}, {"time": "2025-12-09", "open": 164.5, "high": 167.0, "low": 163.5, "close": 164.0}, {"time": "2025-12-10", "open": 166.0, "high": 173.0, "low": 166.0, "close": 168.0}, {"time": "2025-12-11", "open": 170.0, "high": 177.5, "low": 169.0, "close": 171.5}, {"time": "2025-12-12", "open": 174.5, "high": 176.5, "low": 171.5, "close": 173.5}, {"time": "2025-12-15", "open": 169.0, "high": 170.5, "low": 168.5, "close": 170.5}, {"time": "2025-12-16", "open": 169.0, "high": 172.0, "low": 166.5, "close": 168.5}, {"time": "2025-12-17", "open": 168.5, "high": 172.0, "low": 164.0, "close": 164.0}, {"time": "2025-12-18", "open": 164.5, "high": 167.0, "low": 163.0, "close": 165.5}, {"time": "2025-12-19", "open": 168.5, "high": 169.0, "low": 164.0, "close": 164.0}, {"time": "2025-12-22", "open": 166.0, "high": 167.5, "low": 165.5, "close": 167.0}, {"time": "2025-12-23", "open": 168.5, "high": 177.0, "low": 168.0, "close": 173.0}, {"time": "2025-12-24", "open": 177.0, "high": 178.0, "low": 173.0, "close": 175.5}, {"time": "2025-12-26", "open": 176.0, "high": 176.0, "low": 172.0, "close": 172.5}, {"time": "2025-12-29", "open": 172.5, "high": 172.5, "low": 169.5, "close": 170.0}, {"time": "2025-12-30", "open": 171.0, "high": 176.0, "low": 170.0, "close": 176.0}, {"time": "2025-12-31", "open": 177.5, "high": 185.0, "low": 176.0, "close": 178.0}, {"time": "2026-01-02", "open": 180.5, "high": 188.0, "low": 180.5, "close": 186.5}, {"time": "2026-01-05", "open": 190.0, "high": 205.0, "low": 185.0, "close": 205.0}, {"time": "2026-01-06", "open": 206.5, "high": 207.5, "low": 200.0, "close": 201.0}, {"time": "2026-01-07", "open": 203.5, "high": 205.0, "low": 196.5, "close": 196.5}, {"time": "2026-01-08", "open": 196.5, "high": 199.5, "low": 189.0, "close": 192.0}, {"time": "2026-01-09", "open": 193.5, "high": 195.0, "low": 187.5, "close": 189.5}, {"time": "2026-01-12", "open": 194.0, "high": 195.0, "low": 189.5, "close": 192.5}, {"time": "2026-01-13", "open": 195.0, "high": 199.5, "low": 184.5, "close": 186.5}, {"time": "2026-01-14", "open": 186.5, "high": 189.0, "low": 186.0, "close": 188.5}, {"time": "2026-01-15", "open": 188.5, "high": 190.0, "low": 183.5, "close": 190.0}, {"time": "2026-01-16", "open": 196.0, "high": 199.0, "low": 185.5, "close": 187.5}, {"time": "2026-01-19", "open": 187.5, "high": 187.5, "low": 182.0, "close": 182.0}, {"time": "2026-01-20", "open": 181.5, "high": 184.0, "low": 178.0, "close": 179.0}, {"time": "2026-01-21", "open": 177.0, "high": 181.0, "low": 172.0, "close": 173.5}, {"time": "2026-01-22", "open": 176.0, "high": 179.0, "low": 173.0, "close": 174.5}, {"time": "2026-01-23", "open": 175.5, "high": 176.0, "low": 172.5, "close": 175.0}, {"time": "2026-01-26", "open": 175.0, "high": 177.5, "low": 172.5, "close": 174.5}, {"time": "2026-01-27", "open": 175.0, "high": 178.5, "low": 174.5, "close": 177.5}, {"time": "2026-01-28", "open": 179.0, "high": 183.0, "low": 177.5, "close": 178.5}, {"time": "2026-01-29", "open": 181.0, "high": 182.0, "low": 173.0, "close": 174.5}, {"time": "2026-01-30", "open": 173.0, "high": 173.5, "low": 169.0, "close": 169.5}, {"time": "2026-02-02", "open": 165.5, "high": 168.0, "low": 163.0, "close": 164.5}, {"time": "2026-02-03", "open": 169.0, "high": 170.0, "low": 165.0, "close": 170.0}, {"time": "2026-02-04", "open": 168.0, "high": 170.0, "low": 166.0, "close": 168.0}, {"time": "2026-02-05", "open": 165.0, "high": 169.0, "low": 163.5, "close": 164.0}, {"time": "2026-02-06", "open": 164.5, "high": 165.0, "low": 158.0, "close": 163.0}, {"time": "2026-02-09", "open": 168.0, "high": 169.5, "low": 166.0, "close": 166.0}, {"time": "2026-02-10", "open": 169.0, "high": 169.0, "low": 165.5, "close": 168.0}, {"time": "2026-02-11", "open": 168.0, "high": 169.0, "low": 165.5, "close": 167.0}, {"time": "2026-02-23", "open": 168.0, "high": 176.0, "low": 168.0, "close": 176.0}, {"time": "2026-02-24", "open": 175.5, "high": 188.0, "low": 175.0, "close": 179.5}, {"time": "2026-02-25", "open": 183.5, "high": 184.0, "low": 178.5, "close": 183.0}, {"time": "2026-02-26", "open": 183.0, "high": 191.0, "low": 180.0, "close": 188.0}, {"time": "2026-03-02", "open": 179.0, "high": 179.5, "low": 167.0, "close": 169.0}, {"time": "2026-03-03", "open": 185.5, "high": 193.5, "low": 180.5, "close": 182.0}, {"time": "2026-03-04", "open": 179.0, "high": 179.5, "low": 167.0, "close": 169.0}, {"time": "2026-03-05", "open": 176.0, "high": 180.0, "low": 174.0, "close": 178.0}, {"time": "2026-03-06", "open": 176.0, "high": 179.5, "low": 173.0, "close": 176.0}, {"time": "2026-03-09", "open": 161.0, "high": 163.5, "low": 158.5, "close": 159.5}, {"time": "2026-03-10", "open": 165.0, "high": 169.5, "low": 164.0, "close": 168.0}, {"time": "2026-03-11", "open": 170.0, "high": 177.5, "low": 170.0, "close": 177.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 2912.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 2645.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 3717.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 5317.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 11241.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 16841.0, "color": "#ef5350"}, {"time": "2025-12-12", "value": 15005.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 3847.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 4486.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 5299.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 3501.0, "color": "#ef5350"}, {"time": "2025-12-19", "value": 2892.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 2130.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 12353.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 7549.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 5262.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 2997.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 5335.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 23265.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 21388.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 45771.0, "color": "#ef5350"}, {"time": "2026-01-06", "value": 29027.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 12821.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 11798.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 7110.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 6352.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 15093.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 3695.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 6048.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 22520.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 7213.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 6015.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 7238.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 6483.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 3563.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 3584.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 3744.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 7175.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 4885.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 3790.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 4581.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 2874.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 2589.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 2365.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 2409.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 2267.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 1416.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 2480.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 5080.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 11970.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 5424.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 15496.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 6888.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 11571.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 6888.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 5462.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 2617.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 6185.0, "color": "#26a69a"}, {"time": "2026-03-10", "value": 3847.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 3716.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 162.8}, {"time": "2025-12-11", "value": 165.0}, {"time": "2025-12-12", "value": 167.9}, {"time": "2025-12-15", "value": 169.5}, {"time": "2025-12-16", "value": 170.4}, {"time": "2025-12-17", "value": 169.6}, {"time": "2025-12-18", "value": 168.4}, {"time": "2025-12-19", "value": 166.5}, {"time": "2025-12-22", "value": 165.8}, {"time": "2025-12-23", "value": 166.7}, {"time": "2025-12-24", "value": 169.0}, {"time": "2025-12-26", "value": 170.4}, {"time": "2025-12-29", "value": 171.6}, {"time": "2025-12-30", "value": 173.4}, {"time": "2025-12-31", "value": 174.4}, {"time": "2026-01-02", "value": 176.6}, {"time": "2026-01-05", "value": 183.1}, {"time": "2026-01-06", "value": 189.3}, {"time": "2026-01-07", "value": 193.4}, {"time": "2026-01-08", "value": 196.2}, {"time": "2026-01-09", "value": 196.8}, {"time": "2026-01-12", "value": 194.3}, {"time": "2026-01-13", "value": 191.4}, {"time": "2026-01-14", "value": 189.8}, {"time": "2026-01-15", "value": 189.4}, {"time": "2026-01-16", "value": 189.0}, {"time": "2026-01-19", "value": 186.9}, {"time": "2026-01-20", "value": 185.4}, {"time": "2026-01-21", "value": 182.4}, {"time": "2026-01-22", "value": 179.3}, {"time": "2026-01-23", "value": 176.8}, {"time": "2026-01-26", "value": 175.3}, {"time": "2026-01-27", "value": 175.0}, {"time": "2026-01-28", "value": 176.0}, {"time": "2026-01-29", "value": 176.0}, {"time": "2026-01-30", "value": 174.9}, {"time": "2026-02-02", "value": 172.9}, {"time": "2026-02-03", "value": 171.4}, {"time": "2026-02-04", "value": 169.3}, {"time": "2026-02-05", "value": 167.2}, {"time": "2026-02-06", "value": 165.9}, {"time": "2026-02-09", "value": 166.2}, {"time": "2026-02-10", "value": 165.8}, {"time": "2026-02-11", "value": 165.6}, {"time": "2026-02-23", "value": 168.0}, {"time": "2026-02-24", "value": 171.3}, {"time": "2026-02-25", "value": 174.7}, {"time": "2026-02-26", "value": 178.7}, {"time": "2026-03-02", "value": 179.1}, {"time": "2026-03-03", "value": 180.3}, {"time": "2026-03-04", "value": 178.2}, {"time": "2026-03-05", "value": 177.2}, {"time": "2026-03-06", "value": 174.8}, {"time": "2026-03-09", "value": 172.9}, {"time": "2026-03-10", "value": 170.1}, {"time": "2026-03-11", "value": 171.7}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 166.2}, {"time": "2025-12-18", "value": 166.7}, {"time": "2025-12-19", "value": 167.2}, {"time": "2025-12-22", "value": 167.65}, {"time": "2025-12-23", "value": 168.55}, {"time": "2025-12-24", "value": 169.3}, {"time": "2025-12-26", "value": 169.4}, {"time": "2025-12-29", "value": 169.05}, {"time": "2025-12-30", "value": 169.6}, {"time": "2025-12-31", "value": 170.55}, {"time": "2026-01-02", "value": 172.8}, {"time": "2026-01-05", "value": 176.75}, {"time": "2026-01-06", "value": 180.45}, {"time": "2026-01-07", "value": 183.4}, {"time": "2026-01-08", "value": 185.3}, {"time": "2026-01-09", "value": 186.7}, {"time": "2026-01-12", "value": 188.7}, {"time": "2026-01-13", "value": 190.35}, {"time": "2026-01-14", "value": 191.6}, {"time": "2026-01-15", "value": 192.8}, {"time": "2026-01-16", "value": 192.9}, {"time": "2026-01-19", "value": 190.6}, {"time": "2026-01-20", "value": 188.4}, {"time": "2026-01-21", "value": 186.1}, {"time": "2026-01-22", "value": 184.35}, {"time": "2026-01-23", "value": 182.9}, {"time": "2026-01-26", "value": 181.1}, {"time": "2026-01-27", "value": 180.2}, {"time": "2026-01-28", "value": 179.2}, {"time": "2026-01-29", "value": 177.65}, {"time": "2026-01-30", "value": 175.85}, {"time": "2026-02-02", "value": 174.1}, {"time": "2026-02-03", "value": 173.2}, {"time": "2026-02-04", "value": 172.65}, {"time": "2026-02-05", "value": 171.6}, {"time": "2026-02-06", "value": 170.4}, {"time": "2026-02-09", "value": 169.55}, {"time": "2026-02-10", "value": 168.6}, {"time": "2026-02-11", "value": 167.45}, {"time": "2026-02-23", "value": 167.6}, {"time": "2026-02-24", "value": 168.6}, {"time": "2026-02-25", "value": 170.45}, {"time": "2026-02-26", "value": 172.25}, {"time": "2026-03-02", "value": 172.35}, {"time": "2026-03-03", "value": 174.15}, {"time": "2026-03-04", "value": 174.75}, {"time": "2026-03-05", "value": 175.95}, {"time": "2026-03-06", "value": 176.75}, {"time": "2026-03-09", "value": 176.0}, {"time": "2026-03-10", "value": 175.2}, {"time": "2026-03-11", "value": 174.95}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 169.5}, {"time": "2026-01-05", "value": 171.725}, {"time": "2026-01-06", "value": 173.825}, {"time": "2026-01-07", "value": 175.525}, {"time": "2026-01-08", "value": 176.925}, {"time": "2026-01-09", "value": 178.0}, {"time": "2026-01-12", "value": 179.05}, {"time": "2026-01-13", "value": 179.7}, {"time": "2026-01-14", "value": 180.6}, {"time": "2026-01-15", "value": 181.675}, {"time": "2026-01-16", "value": 182.85}, {"time": "2026-01-19", "value": 183.675}, {"time": "2026-01-20", "value": 184.425}, {"time": "2026-01-21", "value": 184.75}, {"time": "2026-01-22", "value": 184.825}, {"time": "2026-01-23", "value": 184.8}, {"time": "2026-01-26", "value": 184.9}, {"time": "2026-01-27", "value": 185.275}, {"time": "2026-01-28", "value": 185.4}, {"time": "2026-01-29", "value": 185.225}, {"time": "2026-01-30", "value": 184.375}, {"time": "2026-02-02", "value": 182.35}, {"time": "2026-02-03", "value": 180.8}, {"time": "2026-02-04", "value": 179.375}, {"time": "2026-02-05", "value": 177.975}, {"time": "2026-02-06", "value": 176.65}, {"time": "2026-02-09", "value": 175.325}, {"time": "2026-02-10", "value": 174.4}, {"time": "2026-02-11", "value": 173.325}, {"time": "2026-02-23", "value": 172.625}, {"time": "2026-02-24", "value": 172.225}, {"time": "2026-02-25", "value": 172.275}, {"time": "2026-02-26", "value": 172.725}, {"time": "2026-03-02", "value": 172.5}, {"time": "2026-03-03", "value": 172.875}, {"time": "2026-03-04", "value": 172.575}, {"time": "2026-03-05", "value": 172.75}, {"time": "2026-03-06", "value": 172.675}, {"time": "2026-03-09", "value": 171.725}, {"time": "2026-03-10", "value": 171.4}, {"time": "2026-03-11", "value": 171.775}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -2645.0}, {"time": "2025-12-08", "value": 1072.0}, {"time": "2025-12-09", "value": 6389.0}, {"time": "2025-12-10", "value": 17630.0}, {"time": "2025-12-11", "value": 34471.0}, {"time": "2025-12-12", "value": 49476.0}, {"time": "2025-12-15", "value": 45629.0}, {"time": "2025-12-16", "value": 41143.0}, {"time": "2025-12-17", "value": 35844.0}, {"time": "2025-12-18", "value": 39345.0}, {"time": "2025-12-19", "value": 36453.0}, {"time": "2025-12-22", "value": 38583.0}, {"time": "2025-12-23", "value": 50936.0}, {"time": "2025-12-24", "value": 58485.0}, {"time": "2025-12-26", "value": 53223.0}, {"time": "2025-12-29", "value": 50226.0}, {"time": "2025-12-30", "value": 55561.0}, {"time": "2025-12-31", "value": 78826.0}, {"time": "2026-01-02", "value": 100214.0}, {"time": "2026-01-05", "value": 145985.0}, {"time": "2026-01-06", "value": 116958.0}, {"time": "2026-01-07", "value": 104137.0}, {"time": "2026-01-08", "value": 92339.0}, {"time": "2026-01-09", "value": 85229.0}, {"time": "2026-01-12", "value": 91581.0}, {"time": "2026-01-13", "value": 76488.0}, {"time": "2026-01-14", "value": 80183.0}, {"time": "2026-01-15", "value": 86231.0}, {"time": "2026-01-16", "value": 63711.0}, {"time": "2026-01-19", "value": 56498.0}, {"time": "2026-01-20", "value": 50483.0}, {"time": "2026-01-21", "value": 43245.0}, {"time": "2026-01-22", "value": 49728.0}, {"time": "2026-01-23", "value": 53291.0}, {"time": "2026-01-26", "value": 49707.0}, {"time": "2026-01-27", "value": 53451.0}, {"time": "2026-01-28", "value": 60626.0}, {"time": "2026-01-29", "value": 55741.0}, {"time": "2026-01-30", "value": 51951.0}, {"time": "2026-02-02", "value": 47370.0}, {"time": "2026-02-03", "value": 50244.0}, {"time": "2026-02-04", "value": 47655.0}, {"time": "2026-02-05", "value": 45290.0}, {"time": "2026-02-06", "value": 42881.0}, {"time": "2026-02-09", "value": 45148.0}, {"time": "2026-02-10", "value": 46564.0}, {"time": "2026-02-11", "value": 44084.0}, {"time": "2026-02-23", "value": 49164.0}, {"time": "2026-02-24", "value": 61134.0}, {"time": "2026-02-25", "value": 66558.0}, {"time": "2026-02-26", "value": 82054.0}, {"time": "2026-03-02", "value": 75166.0}, {"time": "2026-03-03", "value": 86737.0}, {"time": "2026-03-04", "value": 79849.0}, {"time": "2026-03-05", "value": 85311.0}, {"time": "2026-03-06", "value": 82694.0}, {"time": "2026-03-09", "value": 76509.0}, {"time": "2026-03-10", "value": 80356.0}, {"time": "2026-03-11", "value": 84072.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>昇陽半導體主要從事半導體晶圓製程服務，核心產品與服務為「再生晶圓」和「晶圓薄化」代工服務。</p>
+
+<ul><li><strong>再生晶圓 (Wafer Reclaim)</strong>：應用於IC製造廠的機台測試及製程參數驗證，為良率控制關鍵。公司在 <strong>&lt;5奈米再生晶圓技術上領先業界</strong>，為先進製程所不可或缺。</li>
+<li><strong>晶圓薄化 (Wafer Thinning)</strong>：廣泛應用於消費性電子、車用、航太電源管理功率元件及醫療光電，並積極拓展至先進封裝應用。</li>
+</ul>
+<strong>營收結構概覽</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務項目</th><th>佔營收比例</th><th>備註</th></tr></thead><tbody>
+<tr><td>再生晶圓</td><td>約 85%</td><td>主力產品，&lt;5奈米技術領先，主要供應先進製程</td></tr>
+<tr><td>記憶體相關</td><td>約 5-6%</td><td>預計2026年仍將增加趨勢</td></tr>
+<tr><td>先進封裝</td><td>約 5%</td><td>積極拓展應用，如特殊測試及承載晶圓</td></tr>
+</tbody></table></div>
+
+<strong>製造基地與產能擴充規劃</strong>
+
+<p>昇陽半導體為因應市場強勁需求，正積極擴充產能，主要集中於：</p>
+<ul><li><strong>中港廠Fab 3A</strong>：規劃月產能將自2025年的<strong>30萬片</strong>提升至2026年的<strong>60萬片</strong>。</li>
+<li><strong>Fab 3B智慧新廠 (台中二廠)</strong>：斥資約新台幣<strong>18.5億元</strong>擴建，設計月產能將超越Fab 3A的<strong>60萬片</strong>規模，預計於2028年全面量產。</li>
+</ul>
+<h2>核心競爭優勢</h2>
+
+<li><strong>先進製程領先技術</strong>：在 <strong>&lt;5奈米再生晶圓技術</strong> 上領先業界，直接受惠於台積電等大廠的2奈米、3奈米先進製程推進，每10片3奈米晶圓約需23片再生晶圓，2奈米則需約27片，用量增加約17%。</li>
+<li><strong>全球領導地位</strong>：在全球再生晶圓廠及晶圓薄化服務廠中位居領先地位，客戶基礎穩固。</li>
+<li><strong>深度綁定晶圓代工龍頭</strong>：2023、2024年單一客戶營收占比約 <strong>70%</strong>，市場普遍推測為全球最大的晶圓代工廠，確保訂單能見度。</li>
+<li><strong>積極佈局高成長領域</strong>：</li>
+<p>*   <strong>AI與高效能運算 (HPC)</strong>：提供先進製程所需再生晶圓及先進封裝晶圓薄化服務。</p>
+<p>*   <strong>第三代半導體 (SiC/GaN)</strong>：已於台中二廠建置SiC晶圓科技與研發中心，看好未來3年薄化業務快速成長。</p>
+<li><strong>ESG/永續發展概念</strong>：再生晶圓的回收再利用特性，符合全球永續發展趨勢，具備ESG投資題材。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>22026年2月</td><td>4.08</td><td>-2.83%</td><td>18.65%</td></tr>
+<tr><td>22026年1月</td><td>4.20</td><td>4.85%</td><td>16.68%</td></tr>
+<tr><td>22025年12月</td><td>4.01</td><td>-2.40%</td><td>13.34%</td></tr>
+<tr><td>22025年11月</td><td>4.11</td><td>0.61%</td><td>16.71%</td></tr>
+<tr><td>22025年10月</td><td>4.08</td><td>6.14%</td><td>18.39%</td></tr>
+<tr><td>22025年9月</td><td>3.84</td><td>-4.48%</td><td>22.93%</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>2026年1月營收4.20億元</strong>，月增4.85%、年增16.68%，改寫歷史新高。</li>
+<li><strong>2026年2月營收4.08億元</strong>，年增18.65%，創十年單月同期新高。</li>
+</ul>
+<h3>季度數據 (2025年第四季)</h3>
+
+<ul><li><strong>季營收</strong>：新台幣 <strong>12.19億元</strong>，季增4.7%，年增16.1%。</li>
+<li><strong>毛利率</strong>：<strong>33.42%</strong>。</li>
+<li><strong>營業利益率</strong>：<strong>21.49%</strong>。</li>
+<li><strong>EPS</strong>：新台幣 <strong>1.29元</strong>。</li>
+</ul>
+<h3>全年度營收與 EPS 趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>營收 (新台幣億元)</th><th>EPS (新台幣元)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2024</td><td>35.51</td><td>2.85</td><td>實際</td></tr>
+<tr><td>2025</td><td>45.09</td><td>4.37</td><td>實際，連續五年歷史新高</td></tr>
+<tr><td>2026</td><td>50.0 (預估)</td><td>5.0 ~ 7.18 (預估)</td><td>法人預估，年增約17.74%，挑戰50億元大關</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>2025年實際營收達45.09億元，年增26.97%</strong>，稅後淨利為7.56億元，年增53.78%，每股盈餘（EPS）為4.37元，雙雙續創新高。</li>
+<li>法人預期2026年營收年增約<strong>17.74%</strong>，有望首度挑戰<strong>50億元</strong>大關，預估EPS區間介於<strong>5元至7.18元</strong>之間。</li>
+</ul>
+<h2>法說會重點 (2025年11月28日富邦證券投資論壇)</h2>
+
+<ul><li><strong>營運實績</strong>：2025年第三季晶圓出貨量達到 <strong>2,531千片</strong> (12吋約當晶圓)，較第二季持續成長。</li>
+<li><strong>產品線需求</strong>：</li>
+</ul>    *   記憶體製程用再生晶圓 (HBM/DRAM) 需求呈爆炸性成長，2020年至2025年第三季出貨指數複合年增長率 (CAGR) 達 <strong>86%</strong>。
+<p>*   先進封裝製程用再生晶圓2020年至2025年第三季出貨指數複合年增長率 (CAGR) 達 <strong>54%</strong>。</p>
+<p>*   記憶體相關營收目前約佔 <strong>5%至6%</strong>，2026年仍呈增加趨勢；先進封裝約佔 <strong>5%</strong>。</p>
+<ul><li><strong>客戶結構</strong>：2023年與2024年單一客戶營收占比約 <strong>70%</strong> (市場普遍推測為全球最大的晶圓代工廠)。</li>
+<li><strong>先進製程用量</strong>：每10片3奈米晶圓約需23片再生晶圓，2奈米製程則需約27片，用量增加約 <strong>17%</strong>。</li>
+<li><strong>產能與資本支出</strong>：</li>
+</ul>    *   產能已由2024年約<strong>65萬片/月</strong>提升至2025年<strong>80萬至85萬片/月</strong>。
+<p>*   2026年規劃將整體月產能再提升至 <strong>95萬片</strong> (部分資料指出2026年底目標提升至<strong>120萬片/月</strong>)。</p>
+<p>*   2025年新增 <strong>43.79億元</strong> 資本支出，使總資本支出達 <strong>79.04億元</strong>，增幅達1.24倍，加速再生晶圓產能擴充。</p>
+<p>*   台中二廠已於2025年啟動建設，預計<strong>2027年底</strong>投入少量生產。</p>
+<ul><li><strong>管理層Guidance</strong>：2026年營收有望首度挑戰 <strong>50億元</strong> 大關，顯示對未來營運樂觀。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱/來源</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>群益證券</td><td>225</td><td>看多</td><td>2026/01/16</td></tr>
+<tr><td>nStock名師專欄</td><td>265.7</td><td>-</td><td>2026/03/05</td></tr>
+<tr><td>理財周刊</td><td>185 (⚠️過時)</td><td>-</td><td>2025/09/02</td></tr>
+</tbody></table></div>
+
+<ul><li>群益證券預估昇陽半導體2025年EPS約 <strong>4.19元</strong>，2026年EPS約 <strong>5.31元</strong>。</li>
+<li>CMoney法人機構平均預估2026年EPS介於 <strong>5元至7.18元</strong> 之間。</li>
+<li>群益證券於2026年1月16日給予「看多」評等，顯示法人對其成長潛力持正面態度。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>22025年第四季</td><td>33.42%</td><td>21.49%</td><td>18.43%</td></tr>
+<tr><td>22025年第三季</td><td>33.43%</td><td>20.86%</td><td>17.32%</td></tr>
+<tr><td>22025年第二季</td><td>32.01%</td><td>19.66%</td><td>9.53%</td></tr>
+<tr><td>22025年第一季</td><td>37.33%</td><td>24.00%</td><td>21.33%</td></tr>
+<tr><td>22024年第四季</td><td>34.67%</td><td>20.06%</td><td>19.03%</td></tr>
+<tr><td>22024年第三季</td><td>31.70%</td><td>18.45%</td><td>13.40%</td></tr>
+<tr><td>22024年第二季</td><td>26.72%</td><td>13.57%</td><td>12.48%</td></tr>
+<tr><td>22024年第一季</td><td>19.12%</td><td>5.25%</td><td>8.57%</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>利潤率變化原因</strong>：昇陽半導體在2025年受惠於擴產效益顯現及規模經濟，本業獲利指標大幅改善。全年毛利率 <strong>34.03%</strong>、營益率 <strong>21.51%</strong>，分創近10年、近11年高點。公司導入AI智慧製造技術，有助於強化製程穩定性與生產效率，進一步提升毛利率。先進製程對再生晶圓的質與量需求提升，也推動營運表現和毛利率的改善。</li>
+</ul>
+<h3>存貨分析</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數</th><th>應收帳款收現天數</th></tr></thead><tbody>
+<tr><td>22025年第四季</td><td>18.84 天</td><td>34.51 天</td></tr>
+<tr><td>22025年第三季</td><td>20.24 天</td><td>36.39 天</td></tr>
+<tr><td>22025年第二季</td><td>21.83 天</td><td>43.28 天</td></tr>
+<tr><td>22025年第一季</td><td>22.89 天</td><td>41.01 天</td></tr>
+<tr><td>22024年第四季</td><td>23.65 天</td><td>40.21 天</td></tr>
+<tr><td>22024年第三季</td><td>26.17 天</td><td>44.00 天</td></tr>
+<tr><td>22024年第二季</td><td>28.87 天</td><td>44.39 天</td></tr>
+<tr><td>22024年第一季</td><td>31.19 天</td><td>45.00 天</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>存貨週轉天數</strong>：呈現逐季下降趨勢，從2024年第一季的<strong>31.19天</strong>下降至2025年第四季的<strong>18.84天</strong>，顯示公司存貨打消速度加快，市場需求強勁且存貨控管能力優異。</li>
+<li><strong>應收帳款收現天數</strong>：2025年第四季下降至<strong>34.51天</strong>，顯示收款能力或業績有所改善。目前未發現存貨異常堆積或備料現象。</li>
+</ul>
+<h3>資本支出</h3>
+
+<ul><li><strong>2025年總資本支出</strong>：從原先規劃的35.25億元大幅調升至 <strong>79.04億元</strong>，主要用於加速再生晶圓產能擴充。</li>
+<li><strong>2026年1月2日</strong>：董事會通過新增 <strong>5.18億元</strong> 資本支出，用於新竹與台中廠區擴產。</li>
+<li><strong>未來計畫</strong>：台中港新廠（Fab 3B）預計總投資額約 <strong>25億元</strong>，2028年正式投產。現有廠區最大可擴充至月產能 <strong>200萬片</strong> 水準。</li>
+</ul>
+<h2>股權異動</h2>
+
+<ul><li><strong>董監事/大股東申報轉讓</strong>：</li>
+</ul>    *   ⚠️過時資訊：2024年安恩投資(股)曾申報轉讓少量持股，2023年美商 Applied Materials, Inc. 曾申報轉讓5,000張。
+<p>*   <strong>未找到 2025-2026 年的最新董監事/大股東申報轉讓資料。</strong></p>
+<ul><li><strong>庫藏股買回</strong>：<strong>未找到 2024 年以後的庫藏股買回紀錄</strong>。</li>
+<li><strong>可轉換公司債 (CB)</strong>：董事會已於2024年11月8日決議發行國內第二次無擔保可轉換公司債，發行總面額上限為新台幣 <strong>20億元</strong>，發行期間五年，票面利率為 <strong>0%</strong>。募得價款主要用於購置機器設備及償還銀行借款。</li>
+<li><strong>增減資</strong>：目前未有 2025-2026 年的現金增資或減資計畫的明確資訊。</li>
+<li><strong>股利政策</strong>：</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>現金股利 (元/股)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2026</td><td>2.8</td><td>創新高，配發率約 64.07% (董事會已決議)</td></tr>
+<tr><td>2025</td><td>2.2</td><td>(已配發)</td></tr>
+<tr><td>2024</td><td>1.8</td><td>(已配發)</td></tr>
+</tbody></table></div>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與成長率</h3>
+
+<ul><li><strong>再生晶圓市場</strong>：全球市場在2025年約為<strong>6.1億至9.95億美元</strong>，預計2026年成長至<strong>6.3億至10.2億美元</strong>。預計2026年至2032年間以<strong>4.26%至7.48%</strong>的複合年增長率（CAGR）成長，到2032年達<strong>10.8億至29.91億美元</strong>。其中12吋再生晶圓市場2025年為<strong>6.6783億美元</strong>，預計2026年增長至<strong>7.0426億美元</strong>，並以<strong>5.84%</strong>的複合年增長率成長，到2032年達<strong>9.9393億美元</strong>。</li>
+<li><strong>晶圓薄化市場</strong>：薄晶圓市場2025年約為<strong>12.57億至150.3億美元</strong>，預計2026年成長至<strong>13.74億至163億美元</strong>，CAGR約<strong>9.3%</strong>。Si晶圓薄化設備市場2025年將成長至<strong>8.6億美元</strong>，並以<strong>5.9%</strong>的CAGR成長，到2032年達<strong>12.37億美元</strong>。</li>
+</ul>
+<h3>供需狀況</h3>
+
+<ul><li><strong>再生晶圓</strong>：2025-2026年呈現供需吃緊，主要受惠於台積電2奈米製程及先進封裝擴產。300毫米再生晶圓佔再生需求約<strong>48%</strong>。</li>
+<li><strong>8吋晶圓代工</strong>：2025年已終結長期持平，進入結構性負成長，預計2026年全球8吋產能年減幅度將擴大至<strong>2.4%</strong>。</li>
+<li><strong>邏輯先進製程</strong>：2026年供不應求情況將加劇。</li>
+<li><strong>成熟製程</strong>：經歷兩年調整後走出谷底，預計2026年產能利用率可維持在<strong>80%以上</strong>。</li>
+</ul>
+<h3>產業平均毛利率水準</h3>
+
+<ul><li>晶圓回收（再生晶圓）產業的毛利率約在 <strong>30-45%</strong> 之間。專業再生晶圓業者如中砂（KINIK）在2025年可實現 <strong>41%</strong> 的毛利率。</li>
+</ul>
+<h3>競爭格局 (台灣同業比較)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>核心業務</th><th>2025年再生晶圓月產能 (約)</th><th>2026年再生晶圓月產能目標 (約)</th><th>2025年毛利率 (再生晶圓)</th></tr></thead><tbody>
+<tr><td>昇陽半導體 (8028)</td><td>再生晶圓、晶圓薄化</td><td>63萬片 (年底前)</td><td>80-90萬片至百萬片</td><td>未明確</td></tr>
+<tr><td>中砂 (1560)</td><td>再生晶圓、鑽石碟</td><td>33萬片 (SBU業務)</td><td>40萬片 (SBU業務)</td><td>41%</td></tr>
+<tr><td>辛耘 (3583)</td><td>再生晶圓、自製設備</td><td>21萬片 (12吋)</td><td>25萬片 (12吋)</td><td>未明確</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>再生晶圓</strong>：昇陽半導體近年來積極擴產，規劃2026年月產能挑戰百萬片水準，領先台灣同業。中砂與辛耘也同步擴充12吋再生晶圓產能，以應對先進製程需求。</li>
+<li><strong>晶圓薄化</strong>：昇陽半導體在晶圓薄化服務廠中位居領先地位，並積極拓展至先進封裝應用。</li>
+</ul>
+<h3>產業趨勢與影響</h3>
+
+<li><strong>先進製程與先進封裝技術演進</strong>：</li>
+<p>*   <strong>影響</strong>：2奈米、3奈米等先進製程與CoWoS等先進封裝技術，大幅提升對高品質再生晶圓及晶圓薄化服務的需求。先進製程複雜度增加，測試晶圓用量隨之提升。</p>
+<p>*   <strong>昇陽機會</strong>：在&lt;5奈米再生晶圓技術領先，直接受惠於先進製程擴產；晶圓薄化拓展至先進封裝應用，與產業趨勢高度契合。</p>
+<p>*   <strong>昇陽威脅</strong>：先進封裝技術門檻高，需持續研發維持領先。</p>
+<li><strong>300mm晶圓主導地位與成本效益</strong>：</li>
+<p>*   <strong>影響</strong>：300mm晶圓在先進製程中佔主導地位，再生晶圓提供新晶圓<strong>三分之一至二分之一</strong>的成本優勢。</p>
+<p>*   <strong>昇陽機會</strong>：積極擴充12吋再生晶圓產能，符合市場趨勢，成本效益和永續性使其服務更具吸引力。</p>
+<p>*   <strong>昇陽威脅</strong>：再生晶圓品質控制嚴格，特別是在先進製程應用中。</p>
+<li><strong>地緣政治與供應鏈韌性</strong>：</li>
+<p>*   <strong>影響</strong>：全球地緣政治緊張，驅使半導體本地化生產，再生晶圓作為供應鏈風險管理工具的重要性提升。</p>
+<p>*   <strong>昇陽機會</strong>：作為台灣本土大廠，強化本地供應鏈韌性，受惠於客戶在地採購策略。</p>
+<p>*   <strong>昇陽威脅</strong>：中國成熟製程產能擴張可能導致價格競爭。</p>
+
+<strong>相關投資題材連結</strong>：
+<ul><li><strong>AI與HPC</strong>：AI加速器、自研AI ASIC晶片及HBM需求激增，帶動先進製程晶圓代工和先進封裝需求，昇陽半導體在再生晶圓與晶圓薄化上與其緊密相關。</li>
+<li><strong>HBM</strong>：強勁需求帶動複雜的晶圓堆疊和薄化技術，直接關聯昇陽半導體的晶圓薄化服務。</li>
+<li><strong>電動車(EV)與物聯網(IoT)</strong>：對電源管理元件和感測器需求增加，晶圓薄化服務廣泛應用於功率元件和MEMS製造。</li>
+<li><strong>永續發展與循環經濟 (ESG)</strong>：再生晶圓回收利用，降低成本與廢棄物，符合全球ESG趨勢。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<h3>近期新聞與事件 (2025年12月 - 2026年3月)</h3>
+
+<ul><li><strong>2026年3月5日：2月營收公告</strong></li>
+</ul>    2026年2月合併營收為 <strong>4.08億元</strong>，月減2.83%，年增18.65%。累計前2個月營收約 <strong>8.28億元</strong>，年增17.64%。
+<ul><li><strong>2026年2月24日：2025年股利政策及獲利公告</strong></li>
+</ul>    2025年全年營收達 <strong>45.09億元</strong>，年增26.97%，連續五年創歷史新高。稅後淨利 <strong>7.56億元</strong>，年增53.78%，EPS為 <strong>4.37元</strong>。董事會決議配發每股現金股利 <strong>2.8元</strong>，創歷年新高。
+<ul><li><strong>2026年2月12日：營收與獲利分析</strong></li>
+</ul>    2025年第四季營收 <strong>12.19億元</strong>，季增4.7%、年增16.1%。2026年1月營收 <strong>4.2億元</strong>，月增約4.85%、年增約16.68%，顯示接單與出貨維持高檔。
+<ul><li><strong>2026年2月5日：1月營收公告</strong></li>
+</ul>    2026年1月合併營收 <strong>4.20億元</strong>，月增4.8%，年增16.7%，再創新高。
+<ul><li><strong>2026年1月31日：43.7億元擴產計畫</strong></li>
+</ul>    宣布啟動總規模達 <strong>43.7億元</strong> 資本支出計畫，主要用於擴充再生晶圓產能。2025年月產能目標上修至 <strong>85萬片</strong>，市場預估2026年底月產能有望攀升至 <strong>120萬片</strong>。
+<ul><li><strong>外資/投信近期買賣超</strong>：</li>
+</ul>    近期法人籌碼動向呈現土洋對作後的同步調節，有時轉趨保守。例如，2026年3月4日外資賣超851張，投信賣超6張。投資人需密切觀察。
+
+<h2>⭐ 成長動能時間軸</h2>
+
+<ul><li><strong>2025年</strong></li>
+</ul>    *   <strong>上半年</strong>：月產能上修至 <strong>80-85萬片/月</strong>。
+<p>*   <strong>第三季</strong>：晶圓出貨量達到 <strong>2,531千片</strong> (12吋約當晶圓)；中港廠月產能已達 <strong>55萬片</strong>。</p>
+<p>*   <strong>下半年</strong>：新增 <strong>43.79億元</strong> 資本支出，使全年資本支出預算增至 <strong>79.04億元</strong>，主要用於加速再生晶圓擴產，分階段建置先進產線。台中二廠（Fab 3B）啟動建設。</p>
+<p>*   <strong>第四季</strong>：全年營收達 <strong>45.09億元</strong>，EPS <strong>4.37元</strong>，均創歷史新高。</p>
+<p>*   <strong>年底前</strong>：中港廠月產能增至 <strong>63萬片</strong>。</p>
+<ul><li><strong>2026年</strong></li>
+</ul>    *   <strong>年初</strong>：1月及2月營收持續創歷史新高。
+<p>*   <strong>年度目標</strong>：整體月產能目標提升至 <strong>95萬片</strong>，並有望進一步攀升至 <strong>120萬片</strong>；中港廠Fab 3A月產能將提升至 <strong>60萬片</strong>。</p>
+<p>*   <strong>資本支出</strong>：多數新增資本支出陸續執行，擴產計畫完成。</p>
+<p>*   <strong>業績預估</strong>：法人預估營收挑戰 <strong>50億元</strong> 大關，EPS介於 <strong>5~7.18元</strong>。</p>
+<p>*   <strong>新市場</strong>：12吋薄化業務重心從8吋擴展至12吋，瞄準伺服器電源管理元件（DrMOS），預期快速成長。碳化矽（SiC）材料加工持續投入研發，看好AI散熱應用。</p>
+<ul><li><strong>2027年</strong></li>
+</ul>    *   <strong>年底</strong>：台中二廠（Fab 3B）設備導入並投入少量試產。
+<ul><li><strong>2028年</strong></li>
+</ul>    *   <strong>全年</strong>：台中Fab 3B智慧新廠與台中二廠正式邁入全面量產階段，設計月產能將超越Fab 3A的60萬片規模，整體產能有望再翻倍，現有廠區最大可擴充至月產能 <strong>200萬片</strong> 水準。
+
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+
+<li><strong>AI與先進製程引爆需求</strong>：隨著台積電2奈米製程及CoWoS等先進封裝產能的快速開出，對高品質再生晶圓的需求量與規格要求持續提升，昇陽半導體在&lt;5奈米技術上的領先地位使其直接受惠。AI伺服器、HBM及高階記憶體需求將是主要增長引擎。</li>
+<li><strong>大規模產能擴充效益顯現</strong>：2025年大幅調升資本支出至<strong>79.04億元</strong>，規劃2026年月產能目標達<strong>95萬片</strong>，甚至有望挑戰<strong>120萬片</strong>，年增超過4成，為營收獲利增長提供堅實基礎。</li>
+<li><strong>新客戶與新市場拓展</strong>：擴產不僅滿足既有大客戶（推測為台積電）需求，亦有助於分散客戶結構風險並拓展新客源。12吋薄化業務瞄準伺服器電源管理元件，以及第三代半導體SiC材料加工在AI散熱領域的應用，預期帶來新的成長曲線。</li>
+<li><strong>成本控制與效率提升</strong>：持續導入AI智慧製造技術，有助於優化製程穩定性、生產效率及良率，進一步提升毛利率。</li>
+
+<h3>風險因子</h3>
+
+<li><strong>客戶集中度高</strong>：單一客戶營收占比曾高達約<strong>70%</strong>，儘管該客戶為產業龍頭，但仍存在過度集中的潛在風險。</li>
+<li><strong>折舊費用增加壓力</strong>：龐大資本支出後的折舊攤提，可能在短期內對毛利率構成壓力。</li>
+<li><strong>半導體產業景氣循環</strong>：儘管目前趨勢看好，但半導體產業仍存在景氣循環波動，終端市場需求是否能持續消化新增產能，仍是觀察重點。</li>
+<li><strong>資本支出下的現金流壓力</strong>：為滿足未來需求而維持高強度資本支出，導致短期自由現金流量為負，公司預期需在未來一至兩年才能轉正。</li>
+<li><strong>地緣政治與全球總經不確定性</strong>：作為全球供應鏈一環，仍可能受到國際貿易政策、地緣政治衝突等總體經濟環境變化的影響。</li>
+
+<h2>投資結論</h2>
+
+<p>昇陽半導體在半導體產業迎來AI與先進製程大趨勢的背景下，具備明確且強勁的成長動能。</p>
+
+<li><strong>結構性成長的核心受惠者</strong>：公司在&lt;5奈米再生晶圓技術的領先地位，使其成為台積電等晶圓代工大廠先進製程擴產的不可或缺夥伴。隨著AI、HPC、HBM等高階應用需求爆發，其核心業務將持續受益，訂單能見度高。</li>
+<li><strong>明確的產能擴張與營運成長</strong>：公司積極且大規模的資本支出計畫，將帶動月產能從2025年的<strong>80-85萬片</strong>大幅提升至2026年底的<strong>120萬片</strong>，並在中長期有台中新廠的進一步產能規劃。營收與獲利已連續創高，且預期2026年將再創新紀錄。</li>
+<li><strong>財務體質穩健，獲利能力提升</strong>：2025年營收與EPS雙雙創歷史新高，毛利率和營業利益率也達到近年高峰。存貨周轉天數持續下降，顯示其營運效率及市場需求強勁。雖然短期有資本支出帶來的現金流壓力，但隨著產能利用率提升和獲利成長，預計將逐步改善。</li>
+<li><strong>多元業務拓展奠定中長期基礎</strong>：除了再生晶圓主業，公司也積極拓展12吋晶圓薄化至伺服器電源管理，以及第三代半導體SiC材料加工應用於AI散熱，為公司中長期成長開闢新路徑。</li>
+
+<p>綜合考量其在產業中的關鍵地位、明確的成長動能、強勁的財務表現以及積極的擴產計畫，我們認為昇陽半導體具備長期投資價值。以法人預估2026年EPS區間<strong>5元至7.18元</strong>的平均值約<strong>5.96元</strong>，並考量其在先進製程領域的技術領先及高成長性，給予其35至45倍的本益比區間：</p>
+<em>   下限：5.96元 </em> 35倍 = <strong>208.6元</strong>
+<em>   上限：5.96元 </em> 45倍 = <strong>268.2元</strong>
+
+<strong>建議投資目標價區間為：210元 - 270元。</strong>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 12:59</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="8028_昇陽半導體_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="8028_昇陽半導體_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="8028_昇陽半導體_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

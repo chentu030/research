@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3044 健鼎 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>3044 健鼎 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+
+<p>健鼎 (3044) 為全球第七大PCB製造商，全球第三大HDI板供應商，受惠於AI伺服器、高頻寬記憶體 (HBM) 需求強勁與車用電子板高階化趨勢，2025年全年合併營收達733.99億元創歷史新高，前三季EPS 14.75元。公司積極布局越南新廠擴產，聚焦高階伺服器、記憶體及車用高階板件，輔以中國廠區製程升級，產品組合持續優化帶動獲利能力提升，法人預估2026年營收獲利有望再創新高。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">3044 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-3044" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-3044" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-3044');
+    var obvContainer = document.getElementById('obv-chart-3044');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 305.0, "high": 305.0, "low": 300.5, "close": 302.5}, {"time": "2025-12-05", "open": 301.0, "high": 302.0, "low": 297.5, "close": 300.5}, {"time": "2025-12-08", "open": 302.0, "high": 302.0, "low": 296.5, "close": 301.0}, {"time": "2025-12-09", "open": 302.0, "high": 302.0, "low": 296.5, "close": 301.0}, {"time": "2025-12-10", "open": 303.0, "high": 314.5, "low": 301.0, "close": 312.5}, {"time": "2025-12-11", "open": 314.5, "high": 314.5, "low": 305.5, "close": 305.5}, {"time": "2025-12-12", "open": 308.5, "high": 310.0, "low": 305.0, "close": 309.0}, {"time": "2025-12-15", "open": 305.5, "high": 310.0, "low": 301.0, "close": 301.0}, {"time": "2025-12-16", "open": 299.0, "high": 301.0, "low": 295.0, "close": 299.0}, {"time": "2025-12-17", "open": 303.0, "high": 309.0, "low": 301.5, "close": 304.5}, {"time": "2025-12-18", "open": 306.5, "high": 308.5, "low": 298.0, "close": 299.5}, {"time": "2025-12-19", "open": 303.0, "high": 307.0, "low": 301.5, "close": 303.0}, {"time": "2025-12-22", "open": 305.0, "high": 320.0, "low": 303.0, "close": 315.5}, {"time": "2025-12-23", "open": 316.5, "high": 319.5, "low": 311.5, "close": 312.5}, {"time": "2025-12-24", "open": 315.0, "high": 328.0, "low": 315.0, "close": 322.0}, {"time": "2025-12-26", "open": 326.0, "high": 328.0, "low": 322.5, "close": 323.0}, {"time": "2025-12-29", "open": 327.0, "high": 328.0, "low": 319.5, "close": 320.5}, {"time": "2025-12-30", "open": 319.0, "high": 321.0, "low": 316.0, "close": 320.5}, {"time": "2025-12-31", "open": 321.0, "high": 322.0, "low": 315.5, "close": 317.5}, {"time": "2026-01-02", "open": 320.0, "high": 321.0, "low": 311.5, "close": 312.5}, {"time": "2026-01-05", "open": 313.0, "high": 315.5, "low": 307.5, "close": 312.0}, {"time": "2026-01-06", "open": 314.0, "high": 318.0, "low": 311.0, "close": 318.0}, {"time": "2026-01-07", "open": 318.5, "high": 318.5, "low": 311.0, "close": 317.5}, {"time": "2026-01-08", "open": 320.0, "high": 324.5, "low": 316.0, "close": 317.0}, {"time": "2026-01-09", "open": 316.5, "high": 320.5, "low": 314.0, "close": 318.5}, {"time": "2026-01-12", "open": 322.0, "high": 326.5, "low": 313.5, "close": 313.5}, {"time": "2026-01-13", "open": 320.0, "high": 322.0, "low": 309.5, "close": 311.0}, {"time": "2026-01-14", "open": 314.0, "high": 321.5, "low": 312.5, "close": 319.0}, {"time": "2026-01-15", "open": 321.0, "high": 322.0, "low": 317.5, "close": 319.5}, {"time": "2026-01-16", "open": 322.0, "high": 322.0, "low": 314.0, "close": 317.0}, {"time": "2026-01-19", "open": 317.0, "high": 319.0, "low": 312.0, "close": 312.0}, {"time": "2026-01-20", "open": 309.0, "high": 318.0, "low": 308.5, "close": 314.5}, {"time": "2026-01-21", "open": 313.0, "high": 320.0, "low": 311.0, "close": 315.0}, {"time": "2026-01-22", "open": 320.0, "high": 346.5, "low": 318.0, "close": 346.5}, {"time": "2026-01-23", "open": 359.5, "high": 366.5, "low": 346.5, "close": 360.5}, {"time": "2026-01-26", "open": 368.0, "high": 376.0, "low": 354.0, "close": 369.5}, {"time": "2026-01-27", "open": 384.5, "high": 389.0, "low": 374.0, "close": 384.0}, {"time": "2026-01-28", "open": 386.0, "high": 397.0, "low": 379.0, "close": 393.5}, {"time": "2026-01-29", "open": 404.0, "high": 404.0, "low": 386.0, "close": 387.0}, {"time": "2026-01-30", "open": 384.0, "high": 385.0, "low": 372.0, "close": 374.5}, {"time": "2026-02-02", "open": 378.5, "high": 399.5, "low": 377.0, "close": 390.5}, {"time": "2026-02-03", "open": 402.0, "high": 423.0, "low": 401.5, "close": 407.0}, {"time": "2026-02-04", "open": 404.0, "high": 417.0, "low": 402.5, "close": 417.0}, {"time": "2026-02-05", "open": 410.0, "high": 415.0, "low": 391.0, "close": 395.0}, {"time": "2026-02-06", "open": 384.0, "high": 386.5, "low": 373.5, "close": 379.5}, {"time": "2026-02-09", "open": 395.0, "high": 395.0, "low": 378.0, "close": 382.5}, {"time": "2026-02-10", "open": 384.0, "high": 385.5, "low": 374.0, "close": 375.0}, {"time": "2026-02-11", "open": 393.0, "high": 396.5, "low": 385.5, "close": 388.0}, {"time": "2026-02-23", "open": 392.0, "high": 392.0, "low": 378.5, "close": 385.5}, {"time": "2026-02-24", "open": 385.5, "high": 392.0, "low": 385.5, "close": 392.0}, {"time": "2026-02-25", "open": 394.0, "high": 401.5, "low": 389.5, "close": 397.0}, {"time": "2026-02-26", "open": 401.0, "high": 404.5, "low": 387.0, "close": 389.5}, {"time": "2026-03-02", "open": 366.0, "high": 371.5, "low": 345.0, "close": 350.0}, {"time": "2026-03-03", "open": 387.5, "high": 393.0, "low": 372.0, "close": 377.5}, {"time": "2026-03-04", "open": 366.0, "high": 371.5, "low": 345.0, "close": 350.0}, {"time": "2026-03-05", "open": 380.0, "high": 380.0, "low": 361.0, "close": 367.5}, {"time": "2026-03-06", "open": 377.0, "high": 380.0, "low": 364.5, "close": 378.0}, {"time": "2026-03-09", "open": 349.5, "high": 360.0, "low": 348.5, "close": 357.5}, {"time": "2026-03-10", "open": 378.5, "high": 378.5, "low": 357.0, "close": 361.5}, {"time": "2026-03-11", "open": 360.5, "high": 369.0, "low": 355.0, "close": 357.5}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 1832.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 1701.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 1583.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 1583.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 3681.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 2921.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 1567.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 2360.0, "color": "#26a69a"}, {"time": "2025-12-16", "value": 3432.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 5272.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 3980.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 3056.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 4928.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 3985.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 5344.0, "color": "#ef5350"}, {"time": "2025-12-26", "value": 3784.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 3159.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 2360.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 2766.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 4633.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 3517.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 2398.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 3361.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 3576.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 2032.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 3834.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 4925.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 3007.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 3119.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 2914.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 2874.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 1848.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 3328.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 9299.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 12357.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 10298.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 7734.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 7083.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 5146.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 5206.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 9049.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 8716.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 3756.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 4382.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 3431.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 2561.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 4018.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 5490.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 3270.0, "color": "#26a69a"}, {"time": "2026-02-24", "value": 2304.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 3074.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 4148.0, "color": "#26a69a"}, {"time": "2026-03-02", "value": 3376.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 3185.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 3376.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 2667.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 2238.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 3154.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 2424.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 5358.0, "color": "#26a69a"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 303.5}, {"time": "2025-12-11", "value": 304.1}, {"time": "2025-12-12", "value": 305.8}, {"time": "2025-12-15", "value": 305.8}, {"time": "2025-12-16", "value": 305.4}, {"time": "2025-12-17", "value": 303.8}, {"time": "2025-12-18", "value": 302.6}, {"time": "2025-12-19", "value": 301.4}, {"time": "2025-12-22", "value": 304.3}, {"time": "2025-12-23", "value": 307.0}, {"time": "2025-12-24", "value": 310.5}, {"time": "2025-12-26", "value": 315.2}, {"time": "2025-12-29", "value": 318.7}, {"time": "2025-12-30", "value": 319.7}, {"time": "2025-12-31", "value": 320.7}, {"time": "2026-01-02", "value": 318.8}, {"time": "2026-01-05", "value": 316.6}, {"time": "2026-01-06", "value": 316.1}, {"time": "2026-01-07", "value": 315.5}, {"time": "2026-01-08", "value": 315.4}, {"time": "2026-01-09", "value": 316.6}, {"time": "2026-01-12", "value": 316.9}, {"time": "2026-01-13", "value": 315.5}, {"time": "2026-01-14", "value": 315.8}, {"time": "2026-01-15", "value": 316.3}, {"time": "2026-01-16", "value": 316.0}, {"time": "2026-01-19", "value": 315.7}, {"time": "2026-01-20", "value": 316.4}, {"time": "2026-01-21", "value": 315.6}, {"time": "2026-01-22", "value": 321.0}, {"time": "2026-01-23", "value": 329.7}, {"time": "2026-01-26", "value": 341.2}, {"time": "2026-01-27", "value": 355.1}, {"time": "2026-01-28", "value": 370.8}, {"time": "2026-01-29", "value": 378.9}, {"time": "2026-01-30", "value": 381.7}, {"time": "2026-02-02", "value": 385.9}, {"time": "2026-02-03", "value": 390.5}, {"time": "2026-02-04", "value": 395.2}, {"time": "2026-02-05", "value": 396.8}, {"time": "2026-02-06", "value": 397.8}, {"time": "2026-02-09", "value": 396.2}, {"time": "2026-02-10", "value": 389.8}, {"time": "2026-02-11", "value": 384.0}, {"time": "2026-02-23", "value": 382.1}, {"time": "2026-02-24", "value": 384.6}, {"time": "2026-02-25", "value": 387.5}, {"time": "2026-02-26", "value": 390.4}, {"time": "2026-03-02", "value": 382.8}, {"time": "2026-03-03", "value": 381.2}, {"time": "2026-03-04", "value": 372.8}, {"time": "2026-03-05", "value": 366.9}, {"time": "2026-03-06", "value": 364.6}, {"time": "2026-03-09", "value": 366.1}, {"time": "2026-03-10", "value": 362.9}, {"time": "2026-03-11", "value": 364.4}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 303.65}, {"time": "2025-12-18", "value": 303.35}, {"time": "2025-12-19", "value": 303.6}, {"time": "2025-12-22", "value": 305.05}, {"time": "2025-12-23", "value": 306.2}, {"time": "2025-12-24", "value": 307.15}, {"time": "2025-12-26", "value": 308.9}, {"time": "2025-12-29", "value": 310.05}, {"time": "2025-12-30", "value": 312.0}, {"time": "2025-12-31", "value": 313.85}, {"time": "2026-01-02", "value": 314.65}, {"time": "2026-01-05", "value": 315.9}, {"time": "2026-01-06", "value": 317.4}, {"time": "2026-01-07", "value": 317.6}, {"time": "2026-01-08", "value": 318.05}, {"time": "2026-01-09", "value": 317.7}, {"time": "2026-01-12", "value": 316.75}, {"time": "2026-01-13", "value": 315.8}, {"time": "2026-01-14", "value": 315.65}, {"time": "2026-01-15", "value": 315.85}, {"time": "2026-01-16", "value": 316.3}, {"time": "2026-01-19", "value": 316.3}, {"time": "2026-01-20", "value": 315.95}, {"time": "2026-01-21", "value": 315.7}, {"time": "2026-01-22", "value": 318.65}, {"time": "2026-01-23", "value": 322.85}, {"time": "2026-01-26", "value": 328.45}, {"time": "2026-01-27", "value": 335.75}, {"time": "2026-01-28", "value": 343.2}, {"time": "2026-01-29", "value": 349.95}, {"time": "2026-01-30", "value": 355.7}, {"time": "2026-02-02", "value": 363.55}, {"time": "2026-02-03", "value": 372.8}, {"time": "2026-02-04", "value": 383.0}, {"time": "2026-02-05", "value": 387.85}, {"time": "2026-02-06", "value": 389.75}, {"time": "2026-02-09", "value": 391.05}, {"time": "2026-02-10", "value": 390.15}, {"time": "2026-02-11", "value": 389.6}, {"time": "2026-02-23", "value": 389.45}, {"time": "2026-02-24", "value": 391.2}, {"time": "2026-02-25", "value": 391.85}, {"time": "2026-02-26", "value": 390.1}, {"time": "2026-03-02", "value": 383.4}, {"time": "2026-03-03", "value": 381.65}, {"time": "2026-03-04", "value": 378.7}, {"time": "2026-03-05", "value": 377.2}, {"time": "2026-03-06", "value": 377.5}, {"time": "2026-03-09", "value": 374.45}, {"time": "2026-03-10", "value": 372.05}, {"time": "2026-03-11", "value": 368.6}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 309.15}, {"time": "2026-01-05", "value": 309.625}, {"time": "2026-01-06", "value": 310.5}, {"time": "2026-01-07", "value": 311.325}, {"time": "2026-01-08", "value": 312.125}, {"time": "2026-01-09", "value": 312.425}, {"time": "2026-01-12", "value": 312.825}, {"time": "2026-01-13", "value": 312.925}, {"time": "2026-01-14", "value": 313.825}, {"time": "2026-01-15", "value": 314.85}, {"time": "2026-01-16", "value": 315.475}, {"time": "2026-01-19", "value": 316.1}, {"time": "2026-01-20", "value": 316.675}, {"time": "2026-01-21", "value": 316.65}, {"time": "2026-01-22", "value": 318.35}, {"time": "2026-01-23", "value": 320.275}, {"time": "2026-01-26", "value": 322.6}, {"time": "2026-01-27", "value": 325.775}, {"time": "2026-01-28", "value": 329.425}, {"time": "2026-01-29", "value": 332.9}, {"time": "2026-01-30", "value": 336.0}, {"time": "2026-02-02", "value": 339.925}, {"time": "2026-02-03", "value": 344.375}, {"time": "2026-02-04", "value": 349.35}, {"time": "2026-02-05", "value": 353.25}, {"time": "2026-02-06", "value": 356.3}, {"time": "2026-02-09", "value": 359.75}, {"time": "2026-02-10", "value": 362.95}, {"time": "2026-02-11", "value": 366.4}, {"time": "2026-02-23", "value": 369.7}, {"time": "2026-02-24", "value": 373.45}, {"time": "2026-02-25", "value": 377.7}, {"time": "2026-02-26", "value": 381.45}, {"time": "2026-03-02", "value": 383.2}, {"time": "2026-03-03", "value": 384.75}, {"time": "2026-03-04", "value": 384.225}, {"time": "2026-03-05", "value": 384.125}, {"time": "2026-03-06", "value": 383.825}, {"time": "2026-03-09", "value": 382.025}, {"time": "2026-03-10", "value": 380.75}, {"time": "2026-03-11", "value": 379.9}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -1701.0}, {"time": "2025-12-08", "value": -118.0}, {"time": "2025-12-09", "value": -118.0}, {"time": "2025-12-10", "value": 3563.0}, {"time": "2025-12-11", "value": 642.0}, {"time": "2025-12-12", "value": 2209.0}, {"time": "2025-12-15", "value": -151.0}, {"time": "2025-12-16", "value": -3583.0}, {"time": "2025-12-17", "value": 1689.0}, {"time": "2025-12-18", "value": -2291.0}, {"time": "2025-12-19", "value": 765.0}, {"time": "2025-12-22", "value": 5693.0}, {"time": "2025-12-23", "value": 1708.0}, {"time": "2025-12-24", "value": 7052.0}, {"time": "2025-12-26", "value": 10836.0}, {"time": "2025-12-29", "value": 7677.0}, {"time": "2025-12-30", "value": 7677.0}, {"time": "2025-12-31", "value": 4911.0}, {"time": "2026-01-02", "value": 278.0}, {"time": "2026-01-05", "value": -3239.0}, {"time": "2026-01-06", "value": -841.0}, {"time": "2026-01-07", "value": -4202.0}, {"time": "2026-01-08", "value": -7778.0}, {"time": "2026-01-09", "value": -5746.0}, {"time": "2026-01-12", "value": -9580.0}, {"time": "2026-01-13", "value": -14505.0}, {"time": "2026-01-14", "value": -11498.0}, {"time": "2026-01-15", "value": -8379.0}, {"time": "2026-01-16", "value": -11293.0}, {"time": "2026-01-19", "value": -14167.0}, {"time": "2026-01-20", "value": -12319.0}, {"time": "2026-01-21", "value": -8991.0}, {"time": "2026-01-22", "value": 308.0}, {"time": "2026-01-23", "value": 12665.0}, {"time": "2026-01-26", "value": 22963.0}, {"time": "2026-01-27", "value": 30697.0}, {"time": "2026-01-28", "value": 37780.0}, {"time": "2026-01-29", "value": 32634.0}, {"time": "2026-01-30", "value": 27428.0}, {"time": "2026-02-02", "value": 36477.0}, {"time": "2026-02-03", "value": 45193.0}, {"time": "2026-02-04", "value": 48949.0}, {"time": "2026-02-05", "value": 44567.0}, {"time": "2026-02-06", "value": 41136.0}, {"time": "2026-02-09", "value": 43697.0}, {"time": "2026-02-10", "value": 39679.0}, {"time": "2026-02-11", "value": 45169.0}, {"time": "2026-02-23", "value": 41899.0}, {"time": "2026-02-24", "value": 44203.0}, {"time": "2026-02-25", "value": 47277.0}, {"time": "2026-02-26", "value": 43129.0}, {"time": "2026-03-02", "value": 39753.0}, {"time": "2026-03-03", "value": 42938.0}, {"time": "2026-03-04", "value": 39562.0}, {"time": "2026-03-05", "value": 42229.0}, {"time": "2026-03-06", "value": 44467.0}, {"time": "2026-03-09", "value": 41313.0}, {"time": "2026-03-10", "value": 43737.0}, {"time": "2026-03-11", "value": 38379.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>健鼎科技(3044)是台灣知名的印刷電路板（PCB）製造商，在全球PCB供應商中位居第七，同時也是全球第三大HDI板供應商。公司生產的PCB主要應用於記憶體模組、硬碟、筆記型電腦、光電板、手機、伺服器以及汽車等領域，主要客戶包含蘋果、三星、任天堂、DELL及Bosch等知名大廠。</p>
+
+<strong>業務與產品線：</strong>
+<ul><li><strong>記憶體模組板</strong>：為國際DRAM大廠提供服務，受惠於DDR4/DDR5需求回溫及HBM需求推升。</li>
+<li><strong>伺服器/網通板</strong>：供應美系四大雲端服務供應商(CSP)業者，涵蓋AI伺服器副板及多平台（如Intel Eagle Stream、Birch Stream、Oak Stream）應用。</li>
+<li><strong>車用高階HDI板</strong>：主要客戶為歐系T1及美系電動車廠商，應用於ADAS、智慧座艙、車用鏡頭模組等高階車載系統。</li>
+</ul>
+<strong>營收結構預估 (2025-2026)：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品線</th><th>預估營收佔比 (2025-2026)</th><th>主要應用領域</th></tr></thead><tbody>
+<tr><td>伺服器/網通板</td><td>33% (2026)</td><td>AI伺服器副板、Intel平台 (Eagle/Birch/Oak Stream)、AI ASIC專案</td></tr>
+<tr><td>記憶體模組板</td><td>23.2% (2026)</td><td>DDR4/DDR5、HBM、SSD</td></tr>
+<tr><td>車用高階HDI板</td><td>19.56% (2025前三季)</td><td>ADAS、智慧座艙、電動車、車用鏡頭</td></tr>
+<tr><td>其他</td><td>24.24% (2025前三季餘額)</td><td>筆記型電腦、光電板、手機</td></tr>
+</tbody></table></div>
+
+<strong>製造基地：</strong>
+<p>健鼎的生產基地包括台灣平鎮、中國江蘇省無錫以及湖北省仙桃。此外，健鼎已完成越南同奈省的日系PCB廠購併案，並正投資越南周德新廠，預計於2026年第一季啟動試產。越南周德新廠每月規劃約30萬呎新產能，主要生產筆電及伺服器板。現有的越南邊合廠支援部分低階伺服器與筆電板件生產。中國廠區則持續投入設備汰舊換新與製程升級，其中仙桃廠將強化多層板與HDI產能。</p>
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>高階產品佈局領先：</strong> 作為全球第三大HDI板供應商，健鼎在高層數板 (HLC) 與HDI的技術和生產能力具優勢，其產品廣泛應用於高毛利的伺服器、記憶體模組及車用電子等領域。</li>
+<li><strong>多元且高品質的客戶基礎：</strong> 服務美系四大雲端服務供應商 (CSP)、國際DRAM大廠、歐系T1及美系電動車廠商，如蘋果、三星、任天堂、DELL及Bosch等，確保穩定的高階訂單來源與技術認可。</li>
+<li><strong>受惠於關鍵產業趨勢：</strong> 直接受益於AI伺服器、HBM高頻寬記憶體、DDR5升級與電動車ADAS等長期高成長趨勢，為未來營收與獲利成長提供堅實基礎。</li>
+<li><strong>積極的全球產能擴張策略：</strong> 透過越南新廠建置，分散地緣政治風險，並就近服務客戶，同時強化中國廠區的高階製程能力，提升整體生產效率與成本效益。</li>
+<li><strong>優異的營運管理與獲利能力：</strong> 透過產品組合優化、折舊費用降低及成本轉嫁能力，實現「三率三升」的良好財務表現，維持穩健的現金流與高股東權益報酬率 (ROE)。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份 (年)</th><th>金額 (億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>2026/01</td><td>77.49</td><td>21.97%</td><td>30.98%</td></tr>
+<tr><td>2025/12</td><td>63.53</td><td>-0.43%</td><td>12.30%</td></tr>
+<tr><td>2025/11</td><td>63.81</td><td>2.10%</td><td>10.34%</td></tr>
+<tr><td>2025/10</td><td>62.44</td><td>-10.00%</td><td>11.00%</td></tr>
+<tr><td>2025/09</td><td>69.37</td><td>-</td><td>-</td></tr>
+<tr><td>2025/08</td><td>68.04</td><td>-</td><td>-</td></tr>
+<tr><td>2025/07</td><td>66.44</td><td>-</td><td>-</td></tr>
+</tbody></table></div>
+
+<em>註：2026年1月營收創單月歷史新高，主要受惠於部分客戶提前拉貨及伺服器與記憶體模組用板需求暢旺。</em>
+
+<h3>季度數據</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季度</th><th>季營收 (億元)</th><th>季增率 (QoQ)</th><th>年增率 (YoY)</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2025 Q3</td><td>193.89</td><td>8.30%</td><td>9.70%</td><td>26.76</td><td>18.54</td><td>5.62</td></tr>
+<tr><td>2025 Q4</td><td>189.79</td><td>-2.12%</td><td>11.35%</td><td>未公布</td><td>未公布</td><td>未公布</td></tr>
+</tbody></table></div>
+
+<em>註：2025年第三季稅後純益29.54億元，單季每股純益(EPS) 5.62元，均創歷史新高。2025年第四季毛利率、營業利益率和EPS官方數據尚未完整公告，僅有營收數據。</em>
+
+<h3>年度趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>合併營收 (億元)</th><th>年增率 (YoY)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2024年</td><td>658.04</td><td>11.79%</td><td>15.95</td></tr>
+<tr><td>2025年</td><td>733.99</td><td>11.54%</td><td>14.75 (前三季累計) / 上看20 (法人預估)</td></tr>
+</tbody></table></div>
+
+<em>註：2025年全年合併營收創歷年新高。2025年1-3季稅後純益77.53億元，每股稅後盈餘14.75元，創歷史同期新高。法人推估健鼎2025年全年每股純益上看20元。</em>
+
+<h2>法說會重點</h2>
+
+<strong>最近一次法說會日期：</strong> 22025年12月11日 (此為相對報告生成日期較為久遠的資訊，僅供參考)
+
+<strong>管理層發言與 guidance：</strong>
+
+<ul><li><strong>訂單能見度與產品動能：</strong></li>
+</ul>    *   2026年第一季接單暢旺，處於高產能利用率生產狀況，預期淡季不淡，營收可望維持2025年第四季的旺季水準 (189.79億元)，甚至不排除挑戰歷年同期新高。
+<p>*   記憶體模組及伺服器應用板訂單持續湧入，是主要成長動能。</p>
+<p>*   AI伺服器與記憶體需求暢旺，相關訂單能見度已延伸至2026年下半年。</p>
+<p>*   產品組合持續優化，聚焦高密度連接板 (HDI) 的產品結構優化，以及AI伺服器相關訂單的挹注。</p>
+<ul><li><strong>資本支出與產能擴張：</strong></li>
+</ul>    *   2025年資本支出約 40 億元。
+<p>*   2026年資本支出規劃在 50 億元以上，超越2025年全年近50億元水準，投資重心聚焦越南新廠建置。</p>
+<p>*   越南周德新廠已動工，預計於2026年第一季試產，將開出每月約 30 萬呎新產能，主要規劃生產NB及伺服器板。</p>
+<ul><li><strong>財務表現：</strong> 2025年前三季財報公布後，營運表現強勁，達成「三率三升」，累計前三季EPS達14.75元（年增26%），毛利率升至26.0%，創歷史新高。</li>
+<li><strong>市場觀點：</strong> 公司指出中國仍掌握全球逾50% PCB產值，但健鼎目前擴產重心鎖定越南，並強調即便在資本支出增加下，現金流依舊穩健，ROE回升至20%以上。</li>
+<li><strong>2026年展望：</strong> 2026年營收與獲利有望維持成長趨勢，再創歷年新高。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<p>目前未找到2025-2026年具券商名稱的最新目標價與評等資訊。法人機構對健鼎的盈利預估如下：</p>
+
+<h3>法人目標價及評等</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱/機構</th><th>目標價 (元)</th><th>評等</th><th>日期</th><th>說明</th></tr></thead><tbody>
+<tr><td><strong>法人平均預估</strong></td><td>N/A</td><td>買進/區間操作</td><td>2026/03/06</td><td>N/A</td></tr>
+</tbody></table></div>
+
+<h3>法人EPS預估</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>預估EPS (元)</th><th>說明</th></tr></thead><tbody>
+<tr><td>2025年</td><td>19.8 - 20</td><td>法人推估2025年全年每股純益上看20元；依10、11月營收及公司指引，預估19.8元。</td></tr>
+<tr><td>2026年</td><td>22.51 - 26.26</td><td>法人機構平均預估，稅後純益有望較去年成長一成，來到124.03億元，預估EPS介於此區間。</td></tr>
+</tbody></table></div>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2024 Q1</td><td>21.97</td><td>13.99</td><td>12.04</td></tr>
+<tr><td>2024 Q2</td><td>23.05</td><td>13.83</td><td>12.59</td></tr>
+<tr><td>2024 Q3</td><td>23.49</td><td>15.35</td><td>13.16</td></tr>
+<tr><td>2024 Q4</td><td>24.27</td><td>15.81</td><td>13.07</td></tr>
+<tr><td>2025 Q1</td><td>24.97</td><td>16.65</td><td>13.75</td></tr>
+<tr><td>2025 Q2</td><td>26.21</td><td>18.01</td><td>13.65</td></tr>
+<tr><td>2025 Q3</td><td>26.76</td><td>18.54</td><td>15.23</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化分析：</strong>
+<p>健鼎的利潤率自2024年第一季以來呈現穩步增長，特別是2025年第三季營收季增8.3%的同時，營業毛利率、營業利益率、稅後淨利率均實現「三率三升」。這主要歸因於：</p>
+<ul><li><strong>產品組合優化：</strong> 健鼎持續提高高層數板 (HLC) 與高密度互連板 (HDI) 的比重，這些高階板件的毛利率相對較高，有效拉升整體獲利能力。</li>
+<li><strong>折舊費用降低：</strong> 2025年第三季獲利創新高部分原因歸因於折舊費用降低，顯示前期資本支出效益開始顯現。</li>
+<li><strong>成本轉嫁能力：</strong> 面對金價上揚導致金用量成本上升的壓力，健鼎已能陸續與客戶協商並調整價格，有效轉嫁部分成本。</li>
+<li><strong>終端需求增長：</strong> 伺服器、記憶體模組和手機板的需求增加，也推動了營收成長與規模經濟效益。</li>
+</ul>
+<h3>資本支出與產能</h3>
+
+<ul><li><strong>近3年資本支出金額與趨勢：</strong></li>
+</ul>    *   2025年：約 <strong>40億至50億元</strong>。
+<p>*   2026年：規劃提升至 <strong>50億～60億元</strong>，超越2025年的水準。</p>
+<ul><li><strong>未來資本支出計畫與預計新增產能：</strong></li>
+</ul>    *   <strong>投資重心：</strong> 聚焦於<strong>越南新廠建置</strong>。
+<p>*   <strong>越南周德新廠：</strong> 已動工，目前進入設備裝機階段，預計於<strong>2026年第一季啟動試產</strong>。</p>
+<p>*   <strong>新增產能：</strong> 初期將開出每月約 <strong>30萬呎</strong> 的新產能，主要規劃生產NB及伺服器板。</p>
+<p>*   <strong>營收貢獻：</strong> 初期月營收估計貢獻約 <strong>2億～3億元</strong>，後續將視產線穩定度與客戶認證逐步放量。</p>
+<p>*   <strong>產能配置：</strong> 2026年新產能將以伺服器、記憶體及車用相關板件為主要配置方向。</p>
+<p>*   <strong>中國廠區：</strong> 規劃汰舊換新與製程升級，仙桃廠將強化多層板與HDI產能，以配合高階產品需求；湖北及無錫廠已投入設備，產能將隨需求逐季開出。</p>
+
+<h3>存貨與營運</h3>
+
+<p>目前未找到2024年以後的存貨金額、存貨週轉天數與應收帳款週轉天數具體數字，以及存貨異常堆積或備料現象的相關資訊。</p>
+
+<h3>股權異動與資本結構</h3>
+
+<p>目前未找到2024年以後的董監事/大股東申報轉讓紀錄、庫藏股買回紀錄、發行可轉換公司債 (CB) 及轉換價格、現金增資或減資計畫，以及詳細股利政策歷史數據。</p>
+
+<h3>其他財報重點</h3>
+
+<p>2025年第三季稅前淨利率相較於營業利益率有所提升，顯示業外收支可能為正向貢獻，但未有具體重大項目說明。目前未找到2024年以後的負債比率、淨負債/EBITDA與自由現金流量趨勢具體數字。</p>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與成長率</h3>
+
+<p>全球PCB市場預計將持續成長：</p>
+<ul><li><strong>2025年：</strong> 市場規模預計達 <strong>741.2億美元至802億美元</strong>。</li>
+<li><strong>2026年：</strong> 進一步成長至 <strong>774.5億美元至836億美元</strong>。</li>
+<li><strong>2026年全球PCB產值：</strong> 預計將達到 <strong>1,030億美元</strong>，甚至上看 <strong>1,052億美元</strong>，年增 <strong>13.9%</strong>。</li>
+<li><strong>高多層印刷電路板市場：</strong> 2025年估值為 <strong>114.1億美元</strong>，預計2026年將成長至 <strong>118.6億美元</strong>，並以<strong>4.44%</strong>的複合年增長率成長，預計到2032年達到<strong>154.8億美元</strong>。</li>
+</ul>推動市場成長的因素包括消費性電子產品需求增加、汽車產業（電動車和ADAS功能）成長、5G及通訊基礎設施的廣泛採用，以及工業自動化和智慧製造中PCB使用量的增加。
+
+<h3>供需狀況</h3>
+
+<p>AI伺服器、高速運算（HPC）與雲端平台需求持續攀升，使得PCB從過去的連接載體轉變為決定運算效率的核心零組件。為支撐AI伺服器平台，PCB層數提升至<strong>34-50層</strong>已成標準。M8、M9等級的銅箔基板（CCL）將陸續導入，44層以上的高層數HLC板材、低損耗材料如Q-glass石英布、HVLP4銅箔需求暴增，上游HVLP銅箔月度需求已突破<strong>3000噸</strong>，玻纖布、鑽針同樣供不應求。儘管AI伺服器帶動高階載板需求回升，但載板市場在2024年仍處於供過於求的狀態，導致價格難以回升。高階玻纖布供應吃緊所引發的漲價效應，也有望推升載板產值。</p>
+
+<h3>產業的平均毛利率水準</h3>
+
+<p>目前未找到2024-2026年PCB產業的整體平均毛利率水準。然而，與AI相關的高階材料供應商毛利率成長至15%-24%，顯示高階應用領域具有較高的毛利率。</p>
+
+<h3>競爭格局</h3>
+
+<p>由於PCB產業範疇廣泛，不同細分產品的市場參與者及市佔率有所差異。健鼎是全球第七大PCB供應商，也是全球第三大HDI板供應商。台灣是全球最大的載板供應業者，市佔率達<strong>33.5%</strong>。</p>
+
+<strong>健鼎與主要競爭對手/同業比較：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司/實體</th><th>產業定位/產品特點</th><th>關鍵市場份額/地位</th></tr></thead><tbody>
+<tr><td><strong>健鼎 (3044)</strong></td><td>全球第七大PCB、全球第三大HDI板供應商</td><td>AI伺服器、HBM、車用高階HDI。客戶含蘋果、三星、任天堂、DELL、Bosch等。</td></tr>
+<tr><td>欣興</td><td>台灣載板龍頭，全球第一大載板供應商</td><td>載板市場佔17.6% (全球第一)</td></tr>
+<tr><td>SEMCO (韓國)</td><td>主要載板供應商</td><td>載板市場佔12.0% (全球第二)</td></tr>
+<tr><td>Ibiden (日本)</td><td>高階載板，特別是AI GPU載板市場領導者</td><td>載板市場佔10.5%，AI GPU載板佔70%</td></tr>
+<tr><td>南電</td><td>台灣載板廠</td><td>載板市場佔6.9%</td></tr>
+<tr><td>Shinko (日本)</td><td>主要載板供應商</td><td>載板市場佔6.9%</td></tr>
+<tr><td><strong>台灣PCB同業</strong></td><td>臻鼎、欣興、金像電、華通、景碩等</td><td>2025年產值預估達1.374兆元（約437億美元），年增12.4%</td></tr>
+</tbody></table></div>
+
+<em>註：缺乏2024-2026年健鼎及其台灣同業的最新營收規模、毛利率和EPS的直接對比數據。</em>
+
+<h3>產業趨勢</h3>
+
+<li><strong>AI伺服器與高速運算（HPC）推動高階化、高值化：</strong> AI算力基建帶動PCB材料規格躍進，對高階HDI與多層板需求急速放大。PCB層數提升至<strong>34-50層</strong>已成AI伺服器平台的標準，要求更高層數、高密度互連、低損耗材料以及更好的熱管理和信號完整性。</li>
+<li><strong>先進封裝技術的演進：</strong> AI與HPC需求推動先進封裝技術，玻璃基板被視為突破大尺寸封裝瓶頸的關鍵材料，具高剛性、低翹曲、低介電耗損與尺寸穩定等優勢。台灣廠商憑藉載板製造與封裝測試的垂直整合優勢，有利於在AI與HPC封裝供應鏈中取得關鍵戰略位置。</li>
+<li><strong>地緣政治與供應鏈重構：</strong> 全球地緣政治局勢促使PCB廠商加速海外布局，如中國大陸PCB廠商轉移產能至泰國。對台灣PCB產業而言，供應鏈重構涉及產能布局、客戶結構分散、法規遵循、資安韌性與永續治理等戰略課題。</li>
+
+<h3>對健鼎的具體機會和威脅</h3>
+
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>記憶體業務受惠HBM與DDR5需求：</strong> 健鼎為國際DRAM大廠提供記憶體模組板，將受益於HBM市場的成長及DDR4/DDR5需求回溫。
+<p>*   <strong>AI伺服器與網通板訂單增長：</strong> 作為美系四大雲端服務供應商（CSP）的供應商，健鼎將從AI伺服器副板及多平台應用中受益，如歐美客戶AI ASIC專案與Intel新平台導入。</p>
+<p>*   <strong>車用高階HDI板市場擴大：</strong> 隨著電動車和ADAS、智慧座艙、車用鏡頭模組等高階車載系統發展，健鼎將抓住車用高階HDI板的需求增長。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>消費性電子需求放緩：</strong> 儘管AI伺服器需求強勁，但記憶體供應短缺與價格上漲可能抑制智慧手機與個人電腦的買氣，進而影響PCB廠商來自消費性電子的訂單。
+<p>*   <strong>高階材料供需緊張與成本壓力：</strong> AI算力基建帶動高階材料需求暴增，上游HVLP4銅箔、玻纖布、鑽針、CCL等面臨供需緊張，可能增加健鼎的採購成本。</p>
+<p>*   <strong>競爭加劇與技術門檻提升：</strong> 高階PCB製造的製程精密程度門檻提高，迫使業者加速投資升級，健鼎需持續投入研發與資本支出以維持競爭力。</p>
+
+<h3>相關投資題材與具體連結</h3>
+
+<ul><li><strong>AI：</strong> AI伺服器需求的爆發是當前PCB產業最主要的成長動能。健鼎作為AI伺服器副板供應商，及美系CSP的合作夥伴，直接受惠於AI基礎設施的快速擴張。</li>
+<li><strong>HBM（高頻寬記憶體）：</strong> HBM需求推升記憶體模組板需求。健鼎在記憶體模組板領域為國際DRAM大廠提供服務，受益於HBM市場成長。</li>
+<li><strong>電動車：</strong> 全球汽車產業電動化及智能化趨勢，推動汽車電子PCB行業增長。新能源汽車核心電控系統對PCB的可靠性、散熱性能及電流承載能力要求更高。健鼎在車用高階HDI板領域布局，主要客戶為歐系T1及美系電動車廠商，直接受益於電動車市場發展。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<ul><li><strong>2026年02月26日：股利政策</strong></li>
+</ul>    *   健鼎(3044)於2025年度發放現金股利10.3元，除息日為2025年07月10日，現金發放日為2025年08月14日。
+<ul><li><strong>2026年02月12日：2026年1月營收創歷史新高</strong></li>
+</ul>    *   合併營收達<strong>77.49億元</strong>，月增<strong>21.97%</strong>，年增<strong>30.98%</strong>，創歷史新高。主要受惠於部分客戶因應春節長假提前拉貨，加上伺服器與記憶體模組用板終端需求持續暢旺。公司預期今年首季營收有望超越2025年第四季高點，力拚再創單季新高。
+<p>*   儘管營收創高，部分法人選擇獲利了結，導致股價在2月初從417元高點回檔至375元附近。</p>
+<ul><li><strong>2026年02月02日：記憶體/伺服器訂單能見度至下半年</strong></li>
+</ul>    *   DRAM與SSD相關應用受惠價格回溫，推升營運動能。法人估計2025年DRAM、SSD營收年增逾<strong>40%</strong>，伺服器與網通產品年增逾<strong>20%</strong>。近期訂單能見度已延伸至2026年下半年，記憶體與伺服器仍為主要動能來源。
+<ul><li><strong>2026年01月22日：獲利能力較佳產品持續成長</strong></li>
+</ul>    *   受惠獲利能力較佳的記憶體與伺服器產品持續成長，2025年全年營收達<strong>733.99億元</strong>，年增<strong>11.54%</strong>，創歷年新高。
+<p>*   2025年第四季營收達<strong>189.79億元</strong>，年增<strong>11.35%</strong>，創同期新高。</p>
+<ul><li><strong>2025年12月23日：2026年第一季接單暢旺</strong></li>
+</ul>    *   終端客戶需求強勁，健鼎科技2026年第一季接單暢旺，預期將是淡季不淡，不排除挑戰歷年同期新高。
+<p>*   2025年前三季稅後盈餘<strong>77.53億元</strong>，每股盈餘<strong>14.75元</strong>。</p>
+<ul><li><strong>2025年12月11日：法說會公布2025年前三季財報</strong></li>
+</ul>    *   健鼎科技於法說會公布2025年前三季財報，營運表現強勁，達成「三率三升」。累計前三季EPS達<strong>14.75元</strong>（年增<strong>26%</strong>），毛利率升至<strong>26.0%</strong>，創歷史新高。
+<ul><li><strong>2025年11月21日：記憶體與伺服器雙主軸驅動未來營運</strong></li>
+</ul>    *   健鼎表示，未來營運將由記憶體與伺服器雙主軸驅動。受AI熱潮推升HBM需求，使DDR4、DDR5產能被持續排擠，市場供應趨緊，帶動記憶體板需求快速升溫。
+
+<strong>外資/投信近期買賣超 (2026/02/26-2026/03/05)：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>日期</th><th>外資買賣超 (張)</th><th>投信買賣超 (張)</th><th>自營商買賣超 (張)</th></tr></thead><tbody>
+<tr><td>2026/03/05</td><td>買超 108</td><td>買超 0</td><td>賣超 10</td></tr>
+<tr><td>2026/03/04</td><td>賣超 253</td><td>買超 263</td><td>賣超 65</td></tr>
+<tr><td>2026/03/03</td><td>賣超 751</td><td>買超 505</td><td>賣超 11</td></tr>
+<tr><td>2026/03/02</td><td>買超 477</td><td>買超 0</td><td>賣超 134</td></tr>
+<tr><td>2026/02/26</td><td>買超 227</td><td>買超 0</td><td>賣超 780</td></tr>
+<tr><td>截至2026/02/10</td><td>買超 859</td><td>賣超 1157</td><td>-</td></tr>
+</tbody></table></div>
+
+<h2>⭐ 成長動能時間軸</h2>
+
+<ul><li><strong>2025年全年：</strong></li>
+</ul>    *   <strong>營收表現：</strong> 合併營收達 <strong>733.99億元</strong>，年增<strong>11.54%</strong>，創歷年新高。
+<p>*   <strong>獲利表現：</strong> 法人推估全年EPS上看 <strong>20元</strong>。DRAM與SSD營收年增逾<strong>40%</strong>，伺服器與網通產品年增逾<strong>20%</strong>。</p>
+<p>*   <strong>資本支出：</strong> 約 <strong>40億至50億元</strong>。</p>
+<ul><li><strong>2025年第四季：</strong></li>
+</ul>    *   <strong>營收表現：</strong> 營收達 <strong>189.79億元</strong>，創同期新高。
+<ul><li><strong>2026年第一季：</strong></li>
+</ul>    *   <strong>越南新廠試產：</strong> 越南周德新廠規劃於<strong>2026年第一季啟動試產</strong>，開出每月約 <strong>30萬呎</strong> 的新產能，主要生產筆電及伺服器板。初期月營收貢獻約 <strong>2億～3億元</strong>。
+<p>*   <strong>營收展望：</strong> 法人預估營收可望維持2025年第四季的旺季水準 (<strong>189.79億元</strong>)，甚至挑戰歷年同期新高。</p>
+<ul><li><strong>2026年上半年：</strong></li>
+</ul>    *   <strong>訂單能見度：</strong> 記憶體模組及伺服器應用板訂單持續湧入，目前能見度已延伸至<strong>2026年下半年</strong>。
+<ul><li><strong>2026年全年：</strong></li>
+</ul>    *   <strong>資本支出：</strong> 規劃提升至 <strong>50億～60億元</strong>，投資重心聚焦越南新廠。
+<p>*   <strong>營運展望：</strong> 法人看好營收及獲利可望續寫新猷，預估稅後純益有望較去年成長一成，EPS介於 <strong>22.51～26.26元</strong>。</p>
+<p>*   <strong>產品組合：</strong></p>
+<p>*   <strong>記憶體業務佔比：</strong> 有望提升至 <strong>26%</strong> (DRAM/SSD相關營收占比約23.2%)，受惠於HBM需求與DDR5/DDR4價格回溫。</p>
+<p>*   <strong>伺服器業務佔比：</strong> 有望提升至 <strong>33%</strong>。受惠歐美客戶AI ASIC專案與多平台導入 (Intel Eagle Stream穩定、Birch Stream滲透率提升至10%-15%，Oak Stream導入)。部分案型有望切入主板，產品層級與單價可望提升。</p>
+<p>*   <strong>高階產品比重：</strong> 持續提高高層數板（HLC）與高密度互連板（HDI）比重，有助於維持穩定的製造效率與良率，並直接影響毛利率表現。</p>
+<p>*   <strong>其他業務：</strong> 車用、NB與手機等業務，法人仍估計將呈現小幅增長。NB端受惠於邊緣AI PC及Windows 10停止支援後的換機需求。</p>
+<ul><li><strong>中長期 (2026年後)：</strong></li>
+</ul>    *   <strong>新客戶/新市場：</strong> 積極切入電動車、車用電子與低軌衛星等高成長應用，尋求新的成長曲線。
+<p>*   <strong>產能擴充：</strong> 中國廠區持續汰舊換新與製程升級，仙桃廠強化多層板與HDI產能，湖北及無錫廠產能將隨需求逐季開出。</p>
+
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+
+<li><strong>AI伺服器與高階記憶體雙輪驅動：</strong> AI伺服器需求持續爆發，健鼎作為美系CSP供應商，將受益於AI ASIC專案和多個新平台導入（如Intel Birch Stream滲透率提升至10-15%，Oak Stream導入），甚至有望切入主板，提升產品層級與單價。同時，HBM需求強勁及DDR5升級將帶動記憶體模組板出貨量，預估2026年記憶體業務佔比有望提升至26% (DRAM/SSD相關營收占比約23.2%)，伺服器業務佔比提升至33%。</li>
+<li><strong>越南新廠產能貢獻：</strong> 越南周德新廠預計於2026年第一季啟動試產，規劃每月約30萬呎新產能，主要供應NB及伺服器板。這不僅擴大整體產能，也助於分散生產基地，並提供客戶就近服務，初期可貢獻每月2-3億元營收，未來將逐步放量。</li>
+<li><strong>產品組合優化持續：</strong> 公司持續聚焦高密度連接板 (HDI) 及高層數板 (HLC) 等高毛利產品，將高階板件配置至新產能，此產品結構優化將是維持獲利成長的關鍵。</li>
+<li><strong>邊緣AI PC與車用電子需求：</strong> NB市場受惠於邊緣AI PC換機潮及Windows 10停止支援後的更新需求。車用高階HDI板受惠於電動車ADAS、智慧座艙及車用鏡頭模組等應用持續增長，健鼎在此領域的客戶基礎穩固。</li>
+
+<h3>風險</h3>
+
+<li><strong>市場競爭加劇與價格壓力：</strong> PCB產業競爭激烈，特別是中低階產品面臨價格壓力。雖然健鼎聚焦高階，但在高階車用板部分仍存在歐美價格競爭。</li>
+<li><strong>高階材料供需緊張與成本波動：</strong> AI算力基建帶動高階材料（如HVLP4銅箔、玻纖布、鑽針等）需求暴增，可能導致供應吃緊及採購成本上升，若無法順利轉嫁給客戶，將影響毛利率。</li>
+<li><strong>地緣政治與供應鏈不確定性：</strong> 儘管健鼎已積極布局越南，但全球地緣政治緊張與貿易政策調整仍可能對供應鏈穩定性及營運帶來潛在影響。</li>
+<li><strong>客戶集中度：</strong> 健鼎客戶包含多家國際大廠，雖確保訂單穩定，但也需留意若單一客戶訂單波動可能帶來的風險。</li>
+<li><strong>短期股價修正壓力：</strong> 營收獲利創高後，部分法人可能選擇獲利了結，導致股價在短期內面臨評價修正壓力，投資人需留意市場資金輪動節奏。</li>
+
+<h2>投資結論</h2>
+
+<p>綜合以上深度分析，健鼎 (3044) 在2026年仍具備強勁的成長動能與投資價值：</p>
+
+<li><strong>AI與記憶體雙主軸驅動高階成長：</strong> 健鼎作為AI伺服器與高頻寬記憶體 (HBM) 應用PCB的核心供應商，直接受惠於AI時代的關鍵趨勢。隨著DDR5滲透率提升、AI ASIC專案導入及AI伺服器高層數板需求爆發，公司在高毛利的伺服器與記憶體業務佔比將持續提升，推動營收與獲利增長。</li>
+<li><strong>越南新廠啟動，產能與營收再添活水：</strong> 越南周德新廠預計於2026年第一季試產，每月30萬呎的新產能將主要用於NB及伺服器板，提供顯著的營收增量與產能彈性，同時有效分散地緣政治風險，滿足客戶分散供應鏈的需求。</li>
+<li><strong>財務表現穩健，產品組合持續優化：</strong> 公司2025年實現「三率三升」，前三季EPS達14.75元，法人推估全年EPS上看20元。持續提高高層數板(HLC)與高階HDI板比重，加上成本轉嫁能力，預計2026年獲利能力將維持強勁。</li>
+<li><strong>產業趨勢正向，健鼎地位穩固：</strong> 全球PCB市場在AI、5G、電動車等趨勢下持續擴張，健鼎作為全球第七大PCB、第三大HDI供應商，憑藉其技術實力、高階產品組合與全球客戶基礎，在產業高值化趨勢中具備競爭優勢。</li>
+<li><strong>2026年營運展望樂觀：</strong> 法人平均預估健鼎2026年EPS介於<strong>22.51～26.26元</strong>。考量健鼎在AI、高階記憶體與車用領域的成長潛力及獲利能力，給予其略高於產業平均的本益比區間。若以市場給予領導廠商的18-22倍本益比評價，推估2026年目標價區間為 <strong>405元至578元</strong>。</li>
+
+<strong>目標價區間建議：405元 - 578元</strong>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 14:50</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="3044_健鼎_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="3044_健鼎_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="3044_健鼎_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

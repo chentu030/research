@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6706 惠特 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>6706 惠特 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+
+<p>惠特（6706）正積極從傳統LED測試設備轉型至矽光子、共同封裝光學（CPO）與化合物半導體等高成長領域，並在2026年第二季前力拚單季轉虧為盈。儘管近期財務數據仍處低谷，且新業務尚處驗證與小量出貨階段，但隨著AI與高速傳輸需求驅動產業升級，加上14.91億元仲裁案勝訴大幅改善財務體質，其轉型效益與成長潛力值得市場關注。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">6706 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-6706" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-6706" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-6706');
+    var obvContainer = document.getElementById('obv-chart-6706');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 101.0, "high": 110.0, "low": 100.5, "close": 107.0}, {"time": "2025-12-05", "open": 105.5, "high": 109.0, "low": 105.0, "close": 108.5}, {"time": "2025-12-08", "open": 110.0, "high": 119.0, "low": 109.0, "close": 119.0}, {"time": "2025-12-09", "open": 118.0, "high": 123.0, "low": 114.0, "close": 116.5}, {"time": "2025-12-10", "open": 115.5, "high": 125.0, "low": 114.5, "close": 118.0}, {"time": "2025-12-11", "open": 114.5, "high": 116.0, "low": 107.0, "close": 108.0}, {"time": "2025-12-12", "open": 109.0, "high": 118.5, "low": 106.5, "close": 118.5}, {"time": "2025-12-15", "open": 118.5, "high": 123.0, "low": 116.0, "close": 118.5}, {"time": "2025-12-16", "open": 117.0, "high": 118.0, "low": 107.0, "close": 109.0}, {"time": "2025-12-17", "open": 109.0, "high": 114.0, "low": 106.5, "close": 108.0}, {"time": "2025-12-18", "open": 107.0, "high": 118.0, "low": 101.5, "close": 110.5}, {"time": "2025-12-19", "open": 114.0, "high": 117.0, "low": 108.0, "close": 112.5}, {"time": "2025-12-22", "open": 116.5, "high": 121.5, "low": 115.5, "close": 119.0}, {"time": "2025-12-23", "open": 119.5, "high": 130.5, "low": 118.0, "close": 130.5}, {"time": "2025-12-24", "open": 133.0, "high": 142.0, "low": 128.5, "close": 139.5}, {"time": "2025-12-26", "open": 138.0, "high": 140.5, "low": 134.0, "close": 134.0}, {"time": "2025-12-29", "open": 134.5, "high": 136.0, "low": 130.5, "close": 130.5}, {"time": "2025-12-30", "open": 131.0, "high": 139.5, "low": 130.0, "close": 136.5}, {"time": "2025-12-31", "open": 138.5, "high": 149.5, "low": 137.5, "close": 140.5}, {"time": "2026-01-02", "open": 141.5, "high": 145.5, "low": 136.0, "close": 136.5}, {"time": "2026-01-05", "open": 137.0, "high": 140.5, "low": 131.0, "close": 135.5}, {"time": "2026-01-06", "open": 135.5, "high": 138.0, "low": 130.0, "close": 131.5}, {"time": "2026-01-07", "open": 131.5, "high": 134.0, "low": 126.0, "close": 128.0}, {"time": "2026-01-08", "open": 128.0, "high": 132.0, "low": 125.0, "close": 125.5}, {"time": "2026-01-09", "open": 126.0, "high": 126.0, "low": 119.0, "close": 120.5}, {"time": "2026-01-12", "open": 121.5, "high": 123.0, "low": 118.5, "close": 119.0}, {"time": "2026-01-13", "open": 118.5, "high": 118.5, "low": 108.0, "close": 116.5}, {"time": "2026-01-14", "open": 117.5, "high": 118.0, "low": 114.0, "close": 114.5}, {"time": "2026-01-15", "open": 114.5, "high": 117.0, "low": 113.0, "close": 115.0}, {"time": "2026-01-16", "open": 116.5, "high": 122.0, "low": 116.0, "close": 121.0}, {"time": "2026-01-19", "open": 125.5, "high": 133.0, "low": 125.0, "close": 133.0}, {"time": "2026-01-20", "open": 131.0, "high": 133.0, "low": 126.5, "close": 128.5}, {"time": "2026-01-21", "open": 125.5, "high": 125.5, "low": 116.0, "close": 116.0}, {"time": "2026-01-22", "open": 117.5, "high": 118.5, "low": 111.5, "close": 112.5}, {"time": "2026-01-23", "open": 113.5, "high": 116.5, "low": 111.0, "close": 113.5}, {"time": "2026-01-26", "open": 112.5, "high": 114.0, "low": 110.5, "close": 111.5}, {"time": "2026-01-27", "open": 113.5, "high": 116.0, "low": 109.5, "close": 110.5}, {"time": "2026-01-28", "open": 111.5, "high": 118.5, "low": 111.5, "close": 115.5}, {"time": "2026-01-29", "open": 118.5, "high": 127.0, "low": 116.0, "close": 127.0}, {"time": "2026-01-30", "open": 128.0, "high": 128.5, "low": 115.5, "close": 117.5}, {"time": "2026-02-02", "open": 112.0, "high": 115.0, "low": 110.0, "close": 110.5}, {"time": "2026-02-03", "open": 114.0, "high": 118.5, "low": 107.5, "close": 109.0}, {"time": "2026-02-04", "open": 108.5, "high": 117.0, "low": 107.0, "close": 115.5}, {"time": "2026-02-05", "open": 127.0, "high": 127.0, "low": 127.0, "close": 127.0}, {"time": "2026-02-06", "open": 125.5, "high": 125.5, "low": 114.5, "close": 114.5}, {"time": "2026-02-09", "open": 116.5, "high": 116.5, "low": 108.0, "close": 108.0}, {"time": "2026-02-10", "open": 109.0, "high": 118.0, "low": 109.0, "close": 114.5}, {"time": "2026-02-11", "open": 114.0, "high": 114.5, "low": 108.5, "close": 109.0}, {"time": "2026-02-23", "open": 111.0, "high": 116.0, "low": 108.0, "close": 114.5}, {"time": "2026-02-24", "open": 113.5, "high": 125.5, "low": 113.5, "close": 125.5}, {"time": "2026-02-25", "open": 127.5, "high": 131.5, "low": 116.5, "close": 121.5}, {"time": "2026-02-26", "open": 122.5, "high": 133.5, "low": 119.5, "close": 133.5}, {"time": "2026-03-02", "open": 131.0, "high": 133.0, "low": 122.0, "close": 125.5}, {"time": "2026-03-03", "open": 135.0, "high": 144.0, "low": 129.5, "close": 135.5}, {"time": "2026-03-04", "open": 131.0, "high": 133.0, "low": 122.0, "close": 125.5}, {"time": "2026-03-05", "open": 133.0, "high": 138.0, "low": 127.5, "close": 131.0}, {"time": "2026-03-06", "open": 129.5, "high": 130.5, "low": 118.0, "close": 120.0}, {"time": "2026-03-09", "open": 108.0, "high": 110.5, "low": 108.0, "close": 108.5}, {"time": "2026-03-10", "open": 111.0, "high": 112.5, "low": 106.0, "close": 109.5}, {"time": "2026-03-11", "open": 112.0, "high": 116.0, "low": 112.0, "close": 113.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 24029.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 8467.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 14365.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 16474.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 9801.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 11085.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 11256.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 26418.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 11960.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 7745.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 16063.0, "color": "#ef5350"}, {"time": "2025-12-19", "value": 15234.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 14368.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 10635.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 38081.0, "color": "#ef5350"}, {"time": "2025-12-26", "value": 14319.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 7001.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 13806.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 24623.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 12068.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 9409.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 6726.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 6459.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 4952.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 5221.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 3164.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 9412.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 3656.0, "color": "#26a69a"}, {"time": "2026-01-15", "value": 2248.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 6825.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 11019.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 9385.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 10090.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 4546.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 2616.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 1696.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 2967.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 3426.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 14177.0, "color": "#ef5350"}, {"time": "2026-01-30", "value": 10405.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 3691.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 5044.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 4196.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 3700.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 4716.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 7444.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 5656.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 3153.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 3520.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 7191.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 10335.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 13897.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 8647.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 15488.0, "color": "#ef5350"}, {"time": "2026-03-04", "value": 8647.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 7512.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 10402.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 3292.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 4704.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 3015.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 113.8}, {"time": "2025-12-11", "value": 114.0}, {"time": "2025-12-12", "value": 116.0}, {"time": "2025-12-15", "value": 115.9}, {"time": "2025-12-16", "value": 114.4}, {"time": "2025-12-17", "value": 112.4}, {"time": "2025-12-18", "value": 112.9}, {"time": "2025-12-19", "value": 111.7}, {"time": "2025-12-22", "value": 111.8}, {"time": "2025-12-23", "value": 116.1}, {"time": "2025-12-24", "value": 122.4}, {"time": "2025-12-26", "value": 127.1}, {"time": "2025-12-29", "value": 130.7}, {"time": "2025-12-30", "value": 134.2}, {"time": "2025-12-31", "value": 136.2}, {"time": "2026-01-02", "value": 135.6}, {"time": "2026-01-05", "value": 135.9}, {"time": "2026-01-06", "value": 136.1}, {"time": "2026-01-07", "value": 134.4}, {"time": "2026-01-08", "value": 131.4}, {"time": "2026-01-09", "value": 128.2}, {"time": "2026-01-12", "value": 124.9}, {"time": "2026-01-13", "value": 121.9}, {"time": "2026-01-14", "value": 119.2}, {"time": "2026-01-15", "value": 117.1}, {"time": "2026-01-16", "value": 117.2}, {"time": "2026-01-19", "value": 120.0}, {"time": "2026-01-20", "value": 122.4}, {"time": "2026-01-21", "value": 122.7}, {"time": "2026-01-22", "value": 122.2}, {"time": "2026-01-23", "value": 120.7}, {"time": "2026-01-26", "value": 116.4}, {"time": "2026-01-27", "value": 112.8}, {"time": "2026-01-28", "value": 112.7}, {"time": "2026-01-29", "value": 115.6}, {"time": "2026-01-30", "value": 116.4}, {"time": "2026-02-02", "value": 116.2}, {"time": "2026-02-03", "value": 115.9}, {"time": "2026-02-04", "value": 115.9}, {"time": "2026-02-05", "value": 115.9}, {"time": "2026-02-06", "value": 115.3}, {"time": "2026-02-09", "value": 114.8}, {"time": "2026-02-10", "value": 115.9}, {"time": "2026-02-11", "value": 114.6}, {"time": "2026-02-23", "value": 112.1}, {"time": "2026-02-24", "value": 114.3}, {"time": "2026-02-25", "value": 117.0}, {"time": "2026-02-26", "value": 120.8}, {"time": "2026-03-02", "value": 124.1}, {"time": "2026-03-03", "value": 128.3}, {"time": "2026-03-04", "value": 128.3}, {"time": "2026-03-05", "value": 130.2}, {"time": "2026-03-06", "value": 127.5}, {"time": "2026-03-09", "value": 124.1}, {"time": "2026-03-10", "value": 118.9}, {"time": "2026-03-11", "value": 116.4}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 113.1}, {"time": "2025-12-18", "value": 113.45}, {"time": "2025-12-19", "value": 113.85}, {"time": "2025-12-22", "value": 113.85}, {"time": "2025-12-23", "value": 115.25}, {"time": "2025-12-24", "value": 117.4}, {"time": "2025-12-26", "value": 120.0}, {"time": "2025-12-29", "value": 121.2}, {"time": "2025-12-30", "value": 123.0}, {"time": "2025-12-31", "value": 126.15}, {"time": "2026-01-02", "value": 129.0}, {"time": "2026-01-05", "value": 131.5}, {"time": "2026-01-06", "value": 133.4}, {"time": "2026-01-07", "value": 134.3}, {"time": "2026-01-08", "value": 133.8}, {"time": "2026-01-09", "value": 131.9}, {"time": "2026-01-12", "value": 130.4}, {"time": "2026-01-13", "value": 129.0}, {"time": "2026-01-14", "value": 126.8}, {"time": "2026-01-15", "value": 124.25}, {"time": "2026-01-16", "value": 122.7}, {"time": "2026-01-19", "value": 122.45}, {"time": "2026-01-20", "value": 122.15}, {"time": "2026-01-21", "value": 120.95}, {"time": "2026-01-22", "value": 119.65}, {"time": "2026-01-23", "value": 118.95}, {"time": "2026-01-26", "value": 118.2}, {"time": "2026-01-27", "value": 117.6}, {"time": "2026-01-28", "value": 117.7}, {"time": "2026-01-29", "value": 118.9}, {"time": "2026-01-30", "value": 118.55}, {"time": "2026-02-02", "value": 116.3}, {"time": "2026-02-03", "value": 114.35}, {"time": "2026-02-04", "value": 114.3}, {"time": "2026-02-05", "value": 115.75}, {"time": "2026-02-06", "value": 115.85}, {"time": "2026-02-09", "value": 115.5}, {"time": "2026-02-10", "value": 115.9}, {"time": "2026-02-11", "value": 115.25}, {"time": "2026-02-23", "value": 114.0}, {"time": "2026-02-24", "value": 114.8}, {"time": "2026-02-25", "value": 115.9}, {"time": "2026-02-26", "value": 118.35}, {"time": "2026-03-02", "value": 119.35}, {"time": "2026-03-03", "value": 120.2}, {"time": "2026-03-04", "value": 121.3}, {"time": "2026-03-05", "value": 123.6}, {"time": "2026-03-06", "value": 124.15}, {"time": "2026-03-09", "value": 124.1}, {"time": "2026-03-10", "value": 123.6}, {"time": "2026-03-11", "value": 122.35}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 121.05}, {"time": "2026-01-05", "value": 122.475}, {"time": "2026-01-06", "value": 123.625}, {"time": "2026-01-07", "value": 124.075}, {"time": "2026-01-08", "value": 124.525}, {"time": "2026-01-09", "value": 124.65}, {"time": "2026-01-12", "value": 125.2}, {"time": "2026-01-13", "value": 125.1}, {"time": "2026-01-14", "value": 124.9}, {"time": "2026-01-15", "value": 125.2}, {"time": "2026-01-16", "value": 125.85}, {"time": "2026-01-19", "value": 126.975}, {"time": "2026-01-20", "value": 127.775}, {"time": "2026-01-21", "value": 127.625}, {"time": "2026-01-22", "value": 126.725}, {"time": "2026-01-23", "value": 125.425}, {"time": "2026-01-26", "value": 124.3}, {"time": "2026-01-27", "value": 123.3}, {"time": "2026-01-28", "value": 122.25}, {"time": "2026-01-29", "value": 121.575}, {"time": "2026-01-30", "value": 120.625}, {"time": "2026-02-02", "value": 119.375}, {"time": "2026-02-03", "value": 118.25}, {"time": "2026-02-04", "value": 117.625}, {"time": "2026-02-05", "value": 117.7}, {"time": "2026-02-06", "value": 117.4}, {"time": "2026-02-09", "value": 116.85}, {"time": "2026-02-10", "value": 116.75}, {"time": "2026-02-11", "value": 116.475}, {"time": "2026-02-23", "value": 116.45}, {"time": "2026-02-24", "value": 116.675}, {"time": "2026-02-25", "value": 116.1}, {"time": "2026-02-26", "value": 116.35}, {"time": "2026-03-02", "value": 116.825}, {"time": "2026-03-03", "value": 117.975}, {"time": "2026-03-04", "value": 118.575}, {"time": "2026-03-05", "value": 119.55}, {"time": "2026-03-06", "value": 120.025}, {"time": "2026-03-09", "value": 119.675}, {"time": "2026-03-10", "value": 118.8}, {"time": "2026-03-11", "value": 118.575}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 8467.0}, {"time": "2025-12-08", "value": 22832.0}, {"time": "2025-12-09", "value": 6358.0}, {"time": "2025-12-10", "value": 16159.0}, {"time": "2025-12-11", "value": 5074.0}, {"time": "2025-12-12", "value": 16330.0}, {"time": "2025-12-15", "value": 16330.0}, {"time": "2025-12-16", "value": 4370.0}, {"time": "2025-12-17", "value": -3375.0}, {"time": "2025-12-18", "value": 12688.0}, {"time": "2025-12-19", "value": 27922.0}, {"time": "2025-12-22", "value": 42290.0}, {"time": "2025-12-23", "value": 52925.0}, {"time": "2025-12-24", "value": 91006.0}, {"time": "2025-12-26", "value": 76687.0}, {"time": "2025-12-29", "value": 69686.0}, {"time": "2025-12-30", "value": 83492.0}, {"time": "2025-12-31", "value": 108115.0}, {"time": "2026-01-02", "value": 96047.0}, {"time": "2026-01-05", "value": 86638.0}, {"time": "2026-01-06", "value": 79912.0}, {"time": "2026-01-07", "value": 73453.0}, {"time": "2026-01-08", "value": 68501.0}, {"time": "2026-01-09", "value": 63280.0}, {"time": "2026-01-12", "value": 60116.0}, {"time": "2026-01-13", "value": 50704.0}, {"time": "2026-01-14", "value": 47048.0}, {"time": "2026-01-15", "value": 49296.0}, {"time": "2026-01-16", "value": 56121.0}, {"time": "2026-01-19", "value": 67140.0}, {"time": "2026-01-20", "value": 57755.0}, {"time": "2026-01-21", "value": 47665.0}, {"time": "2026-01-22", "value": 43119.0}, {"time": "2026-01-23", "value": 45735.0}, {"time": "2026-01-26", "value": 44039.0}, {"time": "2026-01-27", "value": 41072.0}, {"time": "2026-01-28", "value": 44498.0}, {"time": "2026-01-29", "value": 58675.0}, {"time": "2026-01-30", "value": 48270.0}, {"time": "2026-02-02", "value": 44579.0}, {"time": "2026-02-03", "value": 39535.0}, {"time": "2026-02-04", "value": 43731.0}, {"time": "2026-02-05", "value": 47431.0}, {"time": "2026-02-06", "value": 42715.0}, {"time": "2026-02-09", "value": 35271.0}, {"time": "2026-02-10", "value": 40927.0}, {"time": "2026-02-11", "value": 37774.0}, {"time": "2026-02-23", "value": 41294.0}, {"time": "2026-02-24", "value": 48485.0}, {"time": "2026-02-25", "value": 38150.0}, {"time": "2026-02-26", "value": 52047.0}, {"time": "2026-03-02", "value": 43400.0}, {"time": "2026-03-03", "value": 58888.0}, {"time": "2026-03-04", "value": 50241.0}, {"time": "2026-03-05", "value": 57753.0}, {"time": "2026-03-06", "value": 47351.0}, {"time": "2026-03-09", "value": 44059.0}, {"time": "2026-03-10", "value": 48763.0}, {"time": "2026-03-11", "value": 51778.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>惠特科技（6706）是一家光電半導體測試設備與雷射微細加工設備供應商。公司近年營運重心已策略性轉向矽光子、化合物半導體，並鎖定CPO等先進光通訊市場。</p>
+
+<strong>核心產品與服務：</strong>
+<li><strong>LED / Micro / Mini LED 測試與製程設備</strong>：涵蓋晶粒點測機、分選機、AOI、Dumping、Mass Transfer、Implant等。應用於手機背光、穿戴裝置、車用與大型顯示器。</li>
+<li><strong>雷射二極體與化合物半導體測試</strong>：提供VCSEL/PD點測機、遠/近場點測、EML/邊射型雷射低溫點測與分選，以及功率半導體晶圓點測。應用於3D感測、光通訊、LiDAR、自駕、資料中心光模組、SiC/GaN功率元件。</li>
+<li><strong>雷射微細加工</strong>：包含陶瓷切割、雙雷射Strip切割、PCB雷射切割/鑽孔、晶圓刻印、雷射清潔（已應用於Pogo Pin與Probe Card清針）。</li>
+<li><strong>矽光子解決方案</strong>：開發矽光子元件貼合機（FAS）、矽光子單晶點測機（FOT）、光纖陣列功能測試機（FAT）、光纖陣列移除機（MFR）與外觀檢測機（FAI）等CPO相關設備。</li>
+<li><strong>測試代工與 OEM</strong>：提供LED晶粒點測代工、外觀檢測代工與分類代工，並擴大DFB與EEL元件的測試與分選代工服務。</li>
+<li><strong>工業 4.0 與新產品</strong>：高功率LiDAR量測、AI中央控管平台、AGV+Prober/Sorter整合，以及為AI眼鏡精密生產開發的組裝與測試系列自動化設備。</li>
+
+<strong>營收結構（2025年前三季）</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>營收金額 (億元)</th><th>營收佔比</th></tr></thead><tbody>
+<tr><td>設備銷售</td><td>4.53</td><td>約 60%</td></tr>
+<tr><td>代工業務</td><td>2.76</td><td>約 30%</td></tr>
+<tr><td>其他</td><td>未揭露</td><td>約 10%</td></tr>
+</tbody></table></div>
+
+<strong>製造基地：</strong>
+<p>新營運總部已於2025年9月落成啟用，整合原先分散於臺中及桃園的六個廠區，並取得銀級綠建築認證。測試與分選代工廠區位於精密科學園區。目前未找到各製造基地的具體營收貢獻比例資料。</p>
+
+<strong>所屬細分產業和相關題材：</strong>
+<p>半導體設備、光電半導體測試設備、雷射微細加工設備、光通訊設備、化合物半導體設備。</p>
+<p>相關題材：矽光子（Silicon Photonics）、共同封裝光學（CPO）、化合物半導體（SiC/GaN）、雷射元件代工（DFB/EEL）、Micro/Mini LED、AI、先進封裝。</p>
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>前瞻技術佈局</strong>：惠特在矽光子、CPO及化合物半導體測試設備領域積極投入，已開發出矽光子元件貼合機等一系列CPO相關設備，並對外接單AI眼鏡精密生產設備，精準切入AI時代高速運算與資料中心傳輸升級的關鍵趨勢。</li>
+<li><strong>雷射應用整合能力</strong>：公司不僅提供LED/Micro/Mini LED測試，更拓展至VCSEL/PD、EML/邊射型雷射測試，並涵蓋陶瓷切割、PCB雷射切割、晶圓刻印等雷射微細加工技術，形成多元且高附加價值的雷射應用解決方案。</li>
+<li><strong>代工服務拓展</strong>：加碼投資DFB與EEL邊射型雷射元件的測試、分選與AOI設備，力拚成為台灣最大的雷射光源代工廠，預期2026年代工營收占比將突破五成，提供穩定營收來源。</li>
+<li><strong>財務體質改善</strong>：2026年2月5日仲裁案勝訴，可追回約14.91億元款項，大幅改善公司流動性及財務健全度，降低呆帳風險，有助於未來營運發展。</li>
+<li><strong>營運效率提升</strong>：新總部於2025年9月啟用，整合研發、生產與倉儲管理，預期將顯著提升管理綜效、溝通效率及產能彈性。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (萬元)</th><th>月增率 MoM (%)</th><th>年增率 YoY (%)</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>5,038.9</td><td>16.70</td><td>-63.82</td></tr>
+<tr><td>2025年12月</td><td>4,317.8</td><td>6.13</td><td>-68.16</td></tr>
+<tr><td>2025年11月</td><td>4,068.3</td><td>9.06</td><td>-66.37</td></tr>
+<tr><td>2025年10月</td><td>3,730.2</td><td>-1.65</td><td>-65.96</td></tr>
+<tr><td>2025年9月</td><td>3,792.7</td><td>7.74</td><td>-55.32</td></tr>
+<tr><td>2025年8月</td><td>3,520.1</td><td>0.53</td><td>-46.40</td></tr>
+</tbody></table></div>
+
+<strong>分析：</strong>
+<p>惠特月營收在2025年下半年雖呈現逐步回升態勢，2026年1月達到5,038.9萬元，創近7個月新高，但相較去年同期仍大幅衰退逾六成。公司說明主因是積極轉型中的新產品仍在驗證狀態，客戶尚未放量，導致營收基期較低。</p>
+
+<h3>季度數據</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>營收 (億元)</th><th>毛利率 (%)</th><th>營業淨損 (萬元)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>1.0814</td><td>36.9</td><td>7,800</td><td>-0.28</td></tr>
+</tbody></table></div>
+
+<strong>分析：</strong>
+<p>2025年第三季營收1.0814億元創歷史新低，毛利率雖回升至36.9%，但營業淨損7,800萬元，EPS為-0.28元，顯示營運仍處於虧損狀態。儘管毛利率改善，但營收規模不足以支應固定成本及費用。</p>
+
+<h3>年度趨勢</h3>
+
+<ul><li><strong>2024年實際營收</strong>：9.27875 億元。</li>
+<li><strong>2024年實際 EPS</strong>：-4.29 元。</li>
+<li><strong>2025年累計營收</strong> (至12月)：8.99 億元。</li>
+<li><strong>2025年累計 EPS</strong> (至第三季)：-3.69 元。</li>
+<li><strong>2025年預估 EPS</strong>：過往券商報告曾預估2025年EPS可達6.1元或6.19元至8.55元（發布日期：2025年6月至7月），但根據2025年前三季的實際虧損情況，此預估數字已明顯不適用。</li>
+</ul>
+<strong>分析：</strong>
+<p>公司連續兩年處於虧損狀態，2025年累計營收和EPS表現均不佳，反映傳統業務衰退與新業務轉型陣痛。營運能否在2026年第二季如期轉盈，將是關鍵觀察點。</p>
+
+<h2>法說會重點</h2>
+
+<strong>最近一次法說會日期：</strong> 2025年11月25日。
+
+<strong>管理層發言與具體Guidance：</strong>
+<li><strong>營運重心轉型：</strong> 公司營運重心已從傳統LED測試設備轉向矽光子與化合物半導體，鎖定CPO等先進光通訊市場。</li>
+<li><strong>矽光子與CPO設備進展：</strong></li>
+<p>*   首台矽光子元件貼合機已對外出機，CPO相關設備也與多家客戶進行實驗機驗證，並開始貢獻小量營收。</p>
+<p>*   產品線涵蓋矽光子探針機、主動對位設備、光纖陣列功能測試機、AOI檢測設備及Rework機台等，提供高精度製程解決方案。</p>
+<li><strong>代工業務爆發：</strong> DFB（分佈式回饋）與EEL（邊射型雷射）雷射元件代工業務需求強勁，目標成為台灣最大的代工廠，預期2026年代工營收占比有望突破五成。</li>
+<li><strong>新動能佈局：</strong></li>
+<p>*   雷射清潔設備已在Pogo Pin與Probe Card清針應用上配合客戶驗證，市場潛力看好。</p>
+<p>*   AI眼鏡精密生產系列自動化設備已接單研發生產，期望成為中期新動能來源之一。</p>
+<li><strong>轉虧為盈目標：</strong> 管理層力拚於2026年第二季前達成單季轉虧為盈。</li>
+<li><strong>產能與資本支出：</strong> 新總部已於2025年9月啟用，整合台中多處廠區，有助於提升管理綜效及溝通效率，並擴張產能。法說會中未明確提及具體的產能利用率數字或明確的資本支出金額。</li>
+
+<h2>券商觀點</h2>
+
+<p>目前可查閱的券商報告目標價多已過時，主要反映公司在2025年中期的潛在價值評估，與其後公布的實際營運表現存在較大落差。</p>
+
+<strong>券商目標價（過時資訊）</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名</th><th>目標價 (元)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>元富證券投顧</td><td>180</td><td>買進</td><td>2024年8月16日</td></tr>
+<tr><td>未具名券商報告</td><td>180</td><td>買進</td><td>2025年6月10日</td></tr>
+<tr><td>未具名券商報告</td><td>180</td><td>買進</td><td>2025年7月11日</td></tr>
+</tbody></table></div>
+
+<strong>2025-2026年 EPS 預估：</strong>
+<ul><li>2025年EPS預估：6.1元 (2025年6月10日/7月11日) 或 6.19元至8.55元 (2025年6月10日)。上述預估皆已與公司實際營運大幅偏離。</li>
+<li>未找到2026年最新且來源明確的EPS預估數字。</li>
+</ul>
+<strong>評等調整：</strong>
+<p>目前未找到2025-2026年最新且來源明確的重大調升/調降評等資料。</p>
+
+<strong>分析：</strong>
+<p>市場對惠特的期待主要來自其轉型後的巨大潛力，但由於實際業績尚未兌現，且券商報告多屬舊資訊，投資者應以公司最新財報與法說會展望為主要參考依據。</p>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2025Q3</td><td>36.90</td><td>-72.00</td><td>-20.31</td></tr>
+<tr><td>2025Q2</td><td>9.58</td><td>-37.60</td><td>-100.65</td></tr>
+<tr><td>2025Q1</td><td>15.40</td><td>-16.64</td><td>-3.84</td></tr>
+<tr><td>2024Q4</td><td>7.87</td><td>-24.47</td><td>-6.19</td></tr>
+<tr><td>2024Q3</td><td>14.78</td><td>-44.86</td><td>-47.03</td></tr>
+<tr><td>2024Q2</td><td>-6.20</td><td>-101.09</td><td>-72.69</td></tr>
+<tr><td>2024Q1</td><td>17.69</td><td>-89.03</td><td>-40.01</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化的原因分析：</strong>
+<p>惠特在2024年第二季毛利率曾降至-6.20%，顯示營運面臨巨大挑戰。2025年第二季毛利率雖回升至9.58%，但仍處低點，且稅後淨利率錄得-100.65%，反映營收下滑時固定成本與費用未能有效縮減，導致虧損擴大。2025年第三季毛利率回升至36.9%，但營業利益率及稅後淨利率仍為負值，整體獲利能力仍有待改善。這可能與新產品驗證階段成本較高、產能利用率不足以及舊有Mini LED業務去化壓力有關。</p>
+
+<h3>存貨分析</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數 (天)</th><th>應收帳款收現天數 (天)</th><th>營運週轉天數 (天)</th></tr></thead><tbody>
+<tr><td>2025Q3</td><td>1238.5</td><td>413.05</td><td>1651.55</td></tr>
+<tr><td>2025Q2</td><td>376.11</td><td>229.06</td><td>605.17</td></tr>
+<tr><td>2025Q1</td><td>273.15</td><td>134.9</td><td>408.05</td></tr>
+<tr><td>2024Q4</td><td>299.22</td><td>111.37</td><td>410.59</td></tr>
+</tbody></table></div>
+
+<strong>存貨與營運分析：</strong>
+<p>2025年第三季存貨週轉天數顯著飆升至1238.5天，遠高於過往同期，同期應收帳款收現天數也從2024年Q4的111.37天大幅增加至413.05天。這兩項關鍵指標的惡化，導致營運週轉天數高達1651.55天，顯示公司存貨去化緩慢、應收帳款回收困難，資金積壓嚴重，短期經營效率大幅降低，資金週轉風險上升。這也反映了市場需求疲軟及新產品尚未大規模放量前的過渡期壓力。</p>
+
+<h3>資本支出與折舊攤銷</h3>
+
+<ul><li><strong>近3年資本支出趨勢：</strong> 缺乏直接具體數據，但從投資現金流可間接觀察。惠特2025年Q3的投資現金流為-280,517仟元；2025年前9個月自由現金流為-1,352,577仟元，2024年前9個月為-594,940仟元，顯示公司仍有持續的資金投入需求。</li>
+<li><strong>未來資本支出計畫：</strong> 新總部已於2025年9月啟用，此為一項重大資本投資。公司亦決議加碼投資DFB、EEL邊射型雷射元件所需的測試、分選與AOI設備，以擴大代工產能，此部分將帶動未來資本支出。</li>
+<li><strong>折舊攤銷趨勢：</strong> 2025年Q3折舊為32,862仟元，攤銷為1,548仟元，與過往季度變化不大。</li>
+</ul>
+<h3>負債與自由現金流</h3>
+
+<ul><li><strong>負債比率：</strong> 2025年Q3負債佔資產比率為46.83%，較2024年Q3的48.23%略有下降，但整體仍處於波動上升趨勢。債務股本比為64.24%。</li>
+<li><strong>EBITDA：</strong> 截至2025年11月9日，EBITDA為-365.51M，為負值，反映公司營運獲利能力不足。</li>
+<li><strong>自由現金流量：</strong> 惠特近期自由現金流持續為負值，2025年前9個月累計為-1,352,577仟元，表明公司經營活動產生的現金不足以支應投資活動所需，資金壓力較大。</li>
+</ul>
+<h3>業外收支</h3>
+
+<p>惠特業外收支佔營收比率在2024年和2025年Q1-Q3波動較大。2024年上半年曾提列呆帳與呆滯料，導致營運虧損，公司表示呆帳已提列98%，下半年將擺脫包袱。2026年2月5日仲裁案勝訴可追回約14.91億元款項，將顯著改善業外收入並降低未來潛在的呆帳提列風險。</p>
+
+<h2>股權異動</h2>
+
+<h3>董監事/大股東申報轉讓紀錄</h3>
+
+<ul><li><strong>2025/05/05：</strong> 廣略管理顧問有限公司 (董事本人) 申報轉讓100張。</li>
+<li><strong>2025/05/05：</strong> 文生熱處理股份有限公司 (法人董事代表人) 申報轉讓80張。</li>
+<li><strong>2025/04/01：</strong> 廣略管理顧問有限公司 (董事本人) 申報轉讓80張。</li>
+<li><strong>2025/04/01：</strong> 文生熱處理股份有限公司 (法人董事代表人) 申報轉讓80張。</li>
+</ul>
+<p>截至2026年1月，董事長鎧叡投資有限公司持股3,992張 (5.08%)，質押比率25.05%。董事廣略管理顧問有限公司持股410張 (0.52%)，質押比率70.73%。</p>
+
+<h3>庫藏股買回紀錄</h3>
+
+<p>目前未找到2024-2026年惠特庫藏股買回的最新資料。</p>
+
+<h3>可轉換公司債（CB）</h3>
+
+<ul><li><strong>惠特一 (67061)：</strong> 已於2024年2月3日到期，依債券面額以現金一次償還。</li>
+<li><strong>惠特二 (67062)：</strong> 為無擔保可轉換公司債。</li>
+</ul>    *   <strong>發行日：</strong> 2024年10月25日。
+<p>*   <strong>到期日：</strong> 2027年10月25日。</p>
+<p>*   <strong>轉換價格：</strong> 178.8元。</p>
+<p>*   <strong>發行總額：</strong> 5億元。</p>
+
+<h3>增減資計畫</h3>
+
+<ul><li><strong>現金增資計畫：</strong> 惠特於2024年度進行現金增資，發行普通股5,000,000股，每股面額新台幣10元，發行價格每股132元。</li>
+<li><strong>增資基準日：</strong> 2024年11月21日。</li>
+<li><strong>資金用途：</strong> 償還銀行借款及充實營運資金。</li>
+</ul>
+<h3>股利政策</h3>
+
+<ul><li><strong>2024年：</strong> 現金股利0元，股票股利0元。</li>
+<li><strong>2023年：</strong> 現金股利2.51元，股票股利0.99元，合計3.5元 (股利所屬年度)。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>市場規模與CAGR成長率</h3>
+
+<ul><li><strong>半導體測試設備市場：</strong> 2025年全球規模為76.5億美元，預計2026年成長至81.5億美元，至2034年達143.8億美元，CAGR為7.35%。另有報告預估2025年為152億美元，至2033年達296億美元，CAGR為8.7%。</li>
+<li><strong>雷射微細加工市場：</strong> 2025年預估10.7億美元，2026年成長至11.8億美元，CAGR為9.61%，預計至2032年達20.5億美元。另有報告預估2025年25億美元，至2033年達64.2億美元，CAGR為12.5%。</li>
+<li><strong>矽光子市場：</strong> 全球市場規模預計將從2024年的2.78億美元，快速成長至2030年的27億美元，CAGR高達46%。另有報告預估2025年超過28.1億美元，2026年達35.1億美元，至2035年將超過319億美元，CAGR超過27.5%。</li>
+<li><strong>化合物半導體市場：</strong> 預計將從2025年的842.9億美元成長到2026年的911.1億美元，CAGR達8.1%，至2030年達1240.6億美元。</li>
+</ul>
+<strong>供需狀況：</strong>
+<p>半導體測試設備市場受惠於AI與HPC對測試需求的爆炸式增長，特別是SoC測試預計2025年成長41%。HBM市場極度短缺，亦帶動記憶體測試需求。整體ATE市場預計2026年將達到80億美元的巔峰。矽光子技術與CPO預計2026年正式進入大規模商轉，開啟「光進銅退」時代。2023年全球CPO連接埠僅5萬個，預計2026年將突破450萬個，市場規模從2024年的4,600萬美元跳漲到2026年的35.1億美元。當前市場成長最大限制因素是客戶無塵室空間建置進度，顯示設備市場處於供不應求或產能擴張受限狀態。</p>
+
+<strong>產業的平均毛利率水準：</strong>
+<p>未找到半導體測試設備、光電半導體測試設備、雷射微細加工設備產業的平均毛利率水準的具體2025-2026年數據。</p>
+
+<h3>競爭格局</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>惠特 (6706)</th><th>國際大型半導體測試設備商 (如 Advantest)</th><th>特定利基競爭者 (如 創新服務 7828)</th></tr></thead><tbody>
+<tr><td><strong>主要市場</strong></td><td>矽光子、CPO、化合物半導體、雷射微細加工</td><td>廣泛的半導體測試 (記憶體、SoC)；綜合性解決方案</td><td>特定高階測試應用 (MEMS探針卡植針)</td></tr>
+<tr><td><strong>技術方向</strong></td><td>轉向高階光通訊與功率半導體測試、雷射製程創新</td><td>全方位測試技術、領先製程節點測試、廣泛研發投入</td><td>高精度、專用自動化設備、特定材料製程</td></tr>
+<tr><td><strong>產能</strong></td><td>新總部整合提升、代工加碼投資 DFB/EEL，具擴產潛力</td><td>規模龐大、全球佈局、具高度生產彈性</td><td>聚焦特定高階設備，產能相對較小但專業性強</td></tr>
+<tr><td><strong>客戶</strong></td><td>美系客戶 (矽光子)、資料中心、光通訊模組、電動車</td><td>全球主要晶圓廠與 IDM (如 Intel, Samsung, TSMC)</td><td>特定晶圓廠或探針卡廠</td></tr>
+<tr><td><strong>價格</strong></td><td>利基市場高附加價值，產品單價與毛利率潛力較高</td><td>具市場主導力、標準化產品議價能力強，高端客製化高價</td><td>高技術門檻，產品單價高，利潤空間優異</td></tr>
+</tbody></table></div>
+
+<strong>台灣同業比較：</strong>
+<p>未找到2024-2026年台灣半導體測試設備或雷射微細加工同業的完整營收規模、毛利率、EPS對比的最新資料。</p>
+
+<h3>產業趨勢</h3>
+
+<li><strong>AI、HPC與先進封裝技術的快速發展：</strong></li>
+<p>*   <strong>具體影響：</strong> AI對高效能晶片與記憶體的爆炸性需求，推動對先進製程（如5nm及以下）、先進封裝（如CoWoS、3D IC、CPO）及高階測試設備的強勁投資。晶圓層級測試的重要性提升，以確保良率。HPC對SoC測試要求日益嚴苛，導致測試設備數量需求增加。</p>
+<li><strong>矽光子技術與CPO（共同封裝光學）的興起：</strong></li>
+<p>*   <strong>具體影響：</strong> AI算力增加使傳統銅線傳輸逼近物理極限，矽光子（CPO）技術將於2026年大規模商轉，開啟「光進銅退」時代。CPO具低功耗、超高速優勢，將加速導入資料中心，為光通訊測試設備帶來龐大商機。</p>
+<li><strong>化合物半導體（如SiC/GaN）的普及：</strong></li>
+<p>*   <strong>具體影響：</strong> 功率半導體是綠能轉型關鍵，在電動車、再生能源等高功率應用中，SiC/GaN扮演核心角色。新材料的導入對測試設備提出新的要求，如功率半導體晶圓點測等。</p>
+
+<strong>對惠特而言的具體機會和威脅：</strong>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>轉型契機</strong>：積極轉向矽光子、化合物半導體和CPO等先進光通訊市場，與AI、HPC趨勢高度契合。
+<p>*   <strong>技術領先</strong>：在LED/Micro/Mini LED測試、VCSEL/PD點測、化合物半導體測試及雷射微細加工等核心技術具優勢。</p>
+<p>*   <strong>先進封裝需求</strong>：受惠於CoWoS等先進封裝產能擴張，以及晶圓級測試、高階測試設備需求增加。</p>
+<p>*   <strong>資料中心擴張</strong>：資料中心對高速、低延遲光互連的需求，直接帶動矽光子測試設備。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>技術快速迭代</strong>：需持續投入研發以保持競爭力。
+<p>*   <strong>國際大廠競爭</strong>：全球半導體測試設備市場由國際巨頭主導，惠特作為相對較小的參與者，面臨資金、研發、客戶基礎上的強大競爭。</p>
+<p>*   <strong>市場波動性</strong>：半導體產業具循環性，若需求不如預期，可能影響營收與獲利。</p>
+
+<strong>相關投資題材的具體連結：</strong>
+<ul><li><strong>AI</strong>：AI市場需求是半導體測試設備產業成長核心驅動力，特別是高階SoC測試。AI晶片對先進測試技術的需求與惠特轉型方向直接相關。</li>
+<li><strong>HBM</strong>：HBM是AI應用不可或缺，市場極度短缺，對HBM測試需求將持續增長，惠特半導體測試設備佈局有望間接受惠。</li>
+<li><strong>電動車（EV）</strong>：電動車發展推動功率半導體（SiC/GaN）需求，惠特提供功率半導體晶圓點測，具潛在連結。</li>
+<li><strong>共同封裝光學（CPO）</strong>：CPO是因應AI算力需求的新一代光通訊技術，惠特明確鎖定此市場，將直接受惠。</li>
+<li><strong>Micro/Mini LED</strong>：惠特仍提供相關測試設備，應用於手機背光、穿戴裝置、車用與大型顯示器等持續發展領域。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<h3>利多事件</h3>
+
+<ul><li><strong>仲裁案勝訴 (2026年2月5日)</strong>：與湖北三安光電及泉州三安半導體科技仲裁案獲勝訴，預計可追回約14.91億元款項，大幅改善公司財務體質與流動性。</li>
+<li><strong>新總部啟用 (2025年9月)</strong>：新總部整合研發、生產與倉儲管理，面積逾55,000平方公尺，提升管理綜效與溝通效率。</li>
+<li><strong>矽光子元件貼合機出貨 (2025年9月12日)</strong>：首台矽光子元件貼合機已獲客戶驗證並開始小量出貨給美系客戶，運作效率優於預期，顯示新技術受到市場肯定。</li>
+<li><strong>代工業務潛力 (2025年11月法說會)</strong>：DFB、FEL測試代工業務需求殷切，訂單能見度明確，總經理預期2026年可望倍數成長，代工營收占比將超過50%。</li>
+<li><strong>CPO/MPO及雷射清潔設備發酵 (2025年11月法說會)</strong>：CPO/MPO、雷射清潔及精密光學等新產品陸續發酵中，CPO相關設備與多家客戶進行實驗機驗證。</li>
+<li><strong>AI眼鏡精密生產設備接單 (2025年11月法說會)</strong>：已接單研發生產AI眼鏡精密生產系列設備，期望成為中期新動能。</li>
+<li><strong>外資買超 (2026年2月-3月)</strong>：外資在2026年2月23、24日大舉買超706張及2,717張，2月26日買超1,030張，3月3日買超243張，顯示市場對其矽光子與AI裝置題材的期待。</li>
+</ul>
+<h3>利空事件</h3>
+
+<ul><li><strong>營收表現仍低 (2026年1月)</strong>：1月合併營收5,038.9萬元，月增16.7%，但年減63.82%，顯示轉型期間新產品尚未放量，營收仍處相對低檔。</li>
+<li><strong>財務持續虧損 (2025年第三季)</strong>：第三季EPS為-0.28元，前三季累計EPS為-3.69元，營運尚未轉虧為盈。</li>
+<li><strong>Mini LED產能去化挑戰 (2025年6月股東會)</strong>：公司仍面臨Mini LED產能去化挑戰，影響舊有業務。</li>
+<li><strong>存貨與應收帳款壓力 (2025年第三季)</strong>：存貨週轉天數飆升至1238.5天，應收帳款收現天數達413.05天，顯示營運效率大幅降低，資金週轉風險上升。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能事件</th><th>具體內容</th></tr></thead><tbody>
+<tr><td><strong>2024年</strong></td><td><strong>新產品線導入</strong></td><td>矽光子元件貼合機及CPO相關設備陸續出機首台。</td></tr>
+<tr><td><strong>2025年9月</strong></td><td><strong>擴廠與營運整合</strong></td><td>新總部落成啟用，斥資23.61億元興建，整合研發、生產、倉儲，提升管理綜效、溝通效率及產能彈性。</td></tr>
+<tr><td><strong>2025年9月</strong></td><td><strong>新客戶與市場驗證</strong></td><td>矽光子元件貼合機小量出貨給美系客戶，並獲客戶驗證與肯定。</td></tr>
+<tr><td><strong>2025年</strong></td><td><strong>客戶結構優化</strong></td><td>客戶結構從過往高度依賴中國大陸市場，轉為台灣客戶占比約略八成，有效分散地緣政治風險。</td></tr>
+<tr><td><strong>2025年11月</strong></td><td><strong>CPO設備多客戶驗證</strong></td><td>CPO相關設備已與多家客戶進行實驗機驗證，並開始貢獻初步營收。</td></tr>
+<tr><td><strong>2025年11月</strong></td><td><strong>AI眼鏡市場佈局</strong></td><td>投入AI眼鏡組裝與測試相關精密光學設備，並已接單研發生產，期望成為中期新動能。</td></tr>
+<tr><td><strong>2025年11月</strong></td><td><strong>雷射清潔應用拓展</strong></td><td>雷射清潔設備在Pogo Pin與Probe Card清針應用上已配合客戶驗證，潛力看好。</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td><strong>仲裁案資金回流</strong></td><td>仲裁案勝訴，預計可追回約14.91億元款項，顯著改善公司現金流與財務體質，有助於支應未來發展。</td></tr>
+<tr><td><strong>2026年Q2前</strong></td><td><strong>單季轉虧為盈目標</strong></td><td>管理層力拚達成單季轉虧為盈，若實現將是營運轉折點。</td></tr>
+<tr><td><strong>2026年</strong></td><td><strong>代工業務倍數成長</strong></td><td>DFB、EEL測試代工業務需求強勁，公司決議加碼投資相關測試、分選與AOI設備，預期代工營收占比突破五成並實現倍數成長。目標成為「台灣最大的雷射光源代工廠」。</td></tr>
+<tr><td><strong>2026年</strong></td><td><strong>矽光子與CPO大規模商轉</strong></td><td>隨著AI運算需求帶動高速傳輸，矽光子與CPO技術預計正式進入大規模商轉，惠特作為設備供應商將直接受惠。CPO連接埠預計從2023年的5萬個躍升至2026年的450萬個，市場規模同步激增。</td></tr>
+<tr><td><strong>長期</strong></td><td><strong>終端應用拓展</strong></td><td>AI伺服器、資料中心、AI眼鏡等終端應用對高速光通訊、先進測試與精密製造的需求將持續成長，為惠特提供穩定的成長基礎。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+
+<p>惠特在2026年將迎來多重成長動能的匯聚：</p>
+
+<li><strong>矽光子與CPO市場爆發</strong>：隨著AI、HPC需求持續高漲，資料中心對高速傳輸的需求將驅動矽光子與CPO技術從驗證期進入大規模商轉。惠特已成功出機矽光子元件貼合機予美系客戶，並與多家客戶驗證CPO相關設備，預計2026年將迎接關鍵放量期。</li>
+<li><strong>雷射元件代工業務躍升</strong>：DFB、EEL邊射型雷射元件測試代工需求強勁，公司積極加碼投資，目標2026年代工營收占比突破五成並實現倍數成長，有望成為新的穩定獲利引擎。</li>
+<li><strong>AI眼鏡與雷射清潔新應用</strong>：已接單研發生產AI眼鏡精密生產系列設備，並在Pogo Pin與Probe Card清針應用上驗證雷射清潔設備，這些新業務有望在中期帶來額外營收貢獻。</li>
+<li><strong>財務體質改善與營運轉機</strong>：仲裁案勝訴追回的14.91億元款項將顯著提升公司財務穩健性，降低營運風險。管理層力拚2026年第二季前單季轉虧為盈的目標，若能達成將是重要的里程碑。</li>
+<li><strong>新總部效益發酵</strong>：新總部的啟用將整合營運、提升效率，為產能擴充和新產品研發提供堅實基礎。</li>
+
+<h3>風險因子</h3>
+
+<li><strong>基本面復甦進度不確定</strong>：儘管轉型題材熱絡，但惠特目前營收與獲利數據仍處於低檔，新產品放量速度與客戶導入進度仍需觀察，若實際出貨不如預期，轉虧為盈的目標可能延後。</li>
+<li><strong>客戶導入與市場競爭壓力</strong>：矽光子與CPO商機雖大，但技術門檻高，且可能面臨國際大廠的激烈競爭。客戶的導入速度、對供應商的選擇（自建或委外）以及惠特在價格與良率上的競爭力，將影響其市場滲透率。</li>
+<li><strong>Mini LED業務去化挑戰</strong>：舊有Mini LED產能過剩，市場需求不如預期，這部分業務的持續去化壓力可能拖累整體獲利。</li>
+<li><strong>營運效率與資金週轉風險</strong>：2025年第三季存貨週轉天數與應收帳款收現天數顯著惡化，顯示營運週轉效率低落，儘管仲裁案勝訴有助於資金回籠，但仍需持續改善經營效率。</li>
+<li><strong>技術迭代與研發投入</strong>：半導體產業技術快速迭代，惠特需持續投入大量研發以保持競爭力，若研發投入不足或方向偏差，可能影響其在先進技術領域的領先地位。</li>
+
+<h2>投資結論</h2>
+
+<p>惠特正處於營運轉型的關鍵時刻，儘管短期財報表現不佳，但其在矽光子、CPO、化合物半導體等新興領域的積極佈局，使其有望抓住AI時代高速傳輸與運算升級的巨大商機。</p>
+
+<li><strong>轉型正確，潛力巨大</strong>：公司戰略性轉向AI與高速傳輸相關的矽光子、CPO及化合物半導體測試市場，方向明確且符合產業趨勢。尤其CPO市場預計在2026年大規模爆發，惠特有望作為關鍵設備供應商直接受惠。</li>
+<li><strong>財務壓力緩解，利多浮現</strong>：仲裁案勝訴將為公司帶來14.91億元的現金回流，大幅改善財務結構與營運資金，同時降低過去呆帳的負面影響，為新業務發展提供堅實的資金基礎。</li>
+<li><strong>代工業務提供營收護城河</strong>：公司加碼投資DFB/EEL代工，目標成為台灣最大雷射光源代工廠，預計2026年代工營收占比突破五成。這將提供相對穩定的營收與獲利，平衡設備銷售的週期性波動。</li>
+<li><strong>近期催化劑與風險並存</strong>：2026年第二季前力拚單季轉虧為盈的目標，以及矽光子與CPO設備的客戶驗證與放量進度，將是支撐股價上漲的關鍵催化劑。然而，新業務實際放量速度、舊業務去化壓力，以及公司營運效率的改善程度仍是風險所在。</li>
+<li><strong>目標價區間建議：$155 - $190 (未來12-18個月)</strong></li>
+<p>考量到惠特在先進光通訊與化合物半導體領域的長期成長潛力，以及仲裁案勝訴對財務體質的顯著助益，我們認為市場對其2026年第二季轉虧為盈的預期具備實現的可能性。若新產品能按計畫放量，配合代工業務的成長，公司營運將迎來拐點。基於未來獲利能力的恢復與新市場的爆發性成長，我們給予惠特未來12-18個月的目標價區間為 <strong>$155 - $190</strong>。此區間反映了其轉型成功後的市值重估空間，但也納入了新業務導入期仍可能面臨的執行與市場風險。建議投資者持續追蹤公司訂單能見度與每月營收表現。</p>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 09:36</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="6706_惠特_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="6706_惠特_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="6706_惠特_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

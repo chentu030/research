@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6533 晶心科 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>6533 晶心科 深度研究報告</h1>
+
+<strong>今天日期：2026年03月06日</strong>
+
+<h2>一句話摘要</h2>
+<p>晶心科作為全球 RISC-V 矽智財（IP）領導者，正透過高階 Cuzco 系列處理器與 AndesAIRE 解決方案，積極搶攻 AI、資料中心及車用電子等高成長市場。儘管 2025 年受研發費用與市場逆風影響面臨短期虧損，但隨著 RISC-V 生態系統的成熟與多項授權案陸續進入量產，以及 Cuzco 系列產品預計於 2026 年中開始貢獻營收，公司有望在 2026-2027 年迎來權利金收入的爆發性成長與獲利轉折。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">6533 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-6533" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-6533" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-6533');
+    var obvContainer = document.getElementById('obv-chart-6533');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 269.5, "high": 275.5, "low": 267.0, "close": 271.0}, {"time": "2025-12-05", "open": 270.0, "high": 272.5, "low": 269.0, "close": 270.0}, {"time": "2025-12-08", "open": 271.0, "high": 272.5, "low": 269.0, "close": 269.0}, {"time": "2025-12-09", "open": 270.0, "high": 270.5, "low": 267.5, "close": 270.0}, {"time": "2025-12-10", "open": 271.0, "high": 277.0, "low": 271.0, "close": 272.0}, {"time": "2025-12-11", "open": 266.0, "high": 271.5, "low": 260.5, "close": 261.5}, {"time": "2025-12-12", "open": 264.0, "high": 265.0, "low": 259.0, "close": 259.5}, {"time": "2025-12-15", "open": 257.0, "high": 257.0, "low": 252.0, "close": 254.0}, {"time": "2025-12-16", "open": 250.5, "high": 253.0, "low": 246.5, "close": 250.0}, {"time": "2025-12-17", "open": 260.0, "high": 260.0, "low": 248.0, "close": 249.5}, {"time": "2025-12-18", "open": 246.0, "high": 246.5, "low": 243.5, "close": 243.5}, {"time": "2025-12-19", "open": 245.5, "high": 247.5, "low": 243.5, "close": 243.5}, {"time": "2025-12-22", "open": 245.0, "high": 247.0, "low": 244.0, "close": 244.5}, {"time": "2025-12-23", "open": 245.0, "high": 248.0, "low": 240.5, "close": 240.5}, {"time": "2025-12-24", "open": 240.5, "high": 244.0, "low": 240.5, "close": 240.5}, {"time": "2025-12-26", "open": 243.0, "high": 244.5, "low": 236.5, "close": 237.0}, {"time": "2025-12-29", "open": 239.0, "high": 241.5, "low": 237.5, "close": 240.0}, {"time": "2025-12-30", "open": 238.0, "high": 242.5, "low": 234.0, "close": 240.5}, {"time": "2025-12-31", "open": 240.5, "high": 244.0, "low": 239.0, "close": 240.0}, {"time": "2026-01-02", "open": 240.0, "high": 246.0, "low": 240.0, "close": 242.0}, {"time": "2026-01-05", "open": 242.5, "high": 246.0, "low": 236.0, "close": 236.0}, {"time": "2026-01-06", "open": 237.5, "high": 247.0, "low": 237.5, "close": 245.0}, {"time": "2026-01-07", "open": 247.0, "high": 247.5, "low": 241.0, "close": 247.0}, {"time": "2026-01-08", "open": 249.5, "high": 264.5, "low": 246.5, "close": 254.5}, {"time": "2026-01-09", "open": 257.0, "high": 257.0, "low": 246.5, "close": 247.0}, {"time": "2026-01-12", "open": 250.0, "high": 250.0, "low": 246.0, "close": 246.5}, {"time": "2026-01-13", "open": 248.0, "high": 248.5, "low": 241.0, "close": 241.0}, {"time": "2026-01-14", "open": 242.5, "high": 248.0, "low": 242.5, "close": 243.0}, {"time": "2026-01-15", "open": 242.0, "high": 245.0, "low": 238.5, "close": 239.5}, {"time": "2026-01-16", "open": 243.5, "high": 243.5, "low": 239.0, "close": 239.0}, {"time": "2026-01-19", "open": 238.5, "high": 252.0, "low": 238.5, "close": 250.5}, {"time": "2026-01-20", "open": 250.5, "high": 250.5, "low": 244.5, "close": 244.5}, {"time": "2026-01-21", "open": 244.5, "high": 244.5, "low": 237.5, "close": 237.5}, {"time": "2026-01-22", "open": 240.5, "high": 243.0, "low": 237.5, "close": 237.5}, {"time": "2026-01-23", "open": 239.0, "high": 253.0, "low": 239.0, "close": 243.5}, {"time": "2026-01-26", "open": 245.5, "high": 246.5, "low": 243.0, "close": 245.5}, {"time": "2026-01-27", "open": 248.0, "high": 253.0, "low": 247.0, "close": 247.0}, {"time": "2026-01-28", "open": 249.5, "high": 249.5, "low": 243.0, "close": 244.0}, {"time": "2026-01-29", "open": 249.0, "high": 252.5, "low": 245.5, "close": 246.5}, {"time": "2026-01-30", "open": 247.5, "high": 248.0, "low": 237.0, "close": 239.0}, {"time": "2026-02-02", "open": 235.5, "high": 241.0, "low": 234.0, "close": 236.0}, {"time": "2026-02-03", "open": 238.5, "high": 240.0, "low": 231.0, "close": 234.5}, {"time": "2026-02-04", "open": 234.5, "high": 234.5, "low": 231.5, "close": 232.5}, {"time": "2026-02-05", "open": 231.5, "high": 233.0, "low": 227.0, "close": 229.0}, {"time": "2026-02-06", "open": 228.0, "high": 228.0, "low": 217.5, "close": 220.0}, {"time": "2026-02-09", "open": 225.0, "high": 225.0, "low": 219.0, "close": 224.5}, {"time": "2026-02-10", "open": 225.0, "high": 228.5, "low": 220.0, "close": 228.5}, {"time": "2026-02-11", "open": 224.5, "high": 224.5, "low": 220.5, "close": 223.0}, {"time": "2026-02-23", "open": 223.0, "high": 227.5, "low": 220.5, "close": 226.5}, {"time": "2026-02-24", "open": 226.0, "high": 229.5, "low": 224.5, "close": 225.5}, {"time": "2026-02-25", "open": 225.5, "high": 225.5, "low": 217.0, "close": 217.5}, {"time": "2026-02-26", "open": 218.0, "high": 223.5, "low": 217.0, "close": 219.0}, {"time": "2026-03-02", "open": 196.0, "high": 199.0, "low": 186.0, "close": 189.5}, {"time": "2026-03-03", "open": 214.0, "high": 215.0, "low": 200.0, "close": 200.0}, {"time": "2026-03-04", "open": 196.0, "high": 199.0, "low": 186.0, "close": 189.5}, {"time": "2026-03-05", "open": 197.5, "high": 199.5, "low": 194.0, "close": 199.5}, {"time": "2026-03-06", "open": 195.5, "high": 204.0, "low": 194.5, "close": 200.5}, {"time": "2026-03-09", "open": 189.0, "high": 192.0, "low": 186.0, "close": 191.0}, {"time": "2026-03-10", "open": 192.5, "high": 194.0, "low": 183.0, "close": 185.0}, {"time": "2026-03-11", "open": 186.0, "high": 194.5, "low": 186.0, "close": 192.5}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 302.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 197.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 186.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 284.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 222.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 891.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 261.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 275.0, "color": "#26a69a"}, {"time": "2025-12-16", "value": 419.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 284.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 300.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 211.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 203.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 340.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 216.0, "color": "#ef5350"}, {"time": "2025-12-26", "value": 426.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 208.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 423.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 241.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 353.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 359.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 594.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 539.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 1193.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 425.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 244.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 288.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 236.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 304.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 193.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 601.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 307.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 421.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 332.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 574.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 266.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 616.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 374.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 658.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 385.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 372.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 364.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 242.0, "color": "#26a69a"}, {"time": "2026-02-05", "value": 401.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 485.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 182.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 273.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 411.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 456.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 299.0, "color": "#26a69a"}, {"time": "2026-02-25", "value": 943.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 1550.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 744.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 911.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 744.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 359.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 302.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 455.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 691.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 394.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 270.4}, {"time": "2025-12-11", "value": 268.5}, {"time": "2025-12-12", "value": 266.4}, {"time": "2025-12-15", "value": 263.4}, {"time": "2025-12-16", "value": 259.4}, {"time": "2025-12-17", "value": 254.9}, {"time": "2025-12-18", "value": 251.3}, {"time": "2025-12-19", "value": 248.1}, {"time": "2025-12-22", "value": 246.2}, {"time": "2025-12-23", "value": 244.3}, {"time": "2025-12-24", "value": 242.5}, {"time": "2025-12-26", "value": 241.2}, {"time": "2025-12-29", "value": 240.5}, {"time": "2025-12-30", "value": 239.7}, {"time": "2025-12-31", "value": 239.6}, {"time": "2026-01-02", "value": 239.9}, {"time": "2026-01-05", "value": 239.7}, {"time": "2026-01-06", "value": 240.7}, {"time": "2026-01-07", "value": 242.0}, {"time": "2026-01-08", "value": 244.9}, {"time": "2026-01-09", "value": 245.9}, {"time": "2026-01-12", "value": 248.0}, {"time": "2026-01-13", "value": 247.2}, {"time": "2026-01-14", "value": 246.4}, {"time": "2026-01-15", "value": 243.4}, {"time": "2026-01-16", "value": 241.8}, {"time": "2026-01-19", "value": 242.6}, {"time": "2026-01-20", "value": 243.3}, {"time": "2026-01-21", "value": 242.2}, {"time": "2026-01-22", "value": 241.8}, {"time": "2026-01-23", "value": 242.7}, {"time": "2026-01-26", "value": 241.7}, {"time": "2026-01-27", "value": 242.2}, {"time": "2026-01-28", "value": 243.5}, {"time": "2026-01-29", "value": 245.3}, {"time": "2026-01-30", "value": 244.4}, {"time": "2026-02-02", "value": 242.5}, {"time": "2026-02-03", "value": 240.0}, {"time": "2026-02-04", "value": 237.7}, {"time": "2026-02-05", "value": 234.2}, {"time": "2026-02-06", "value": 230.4}, {"time": "2026-02-09", "value": 228.1}, {"time": "2026-02-10", "value": 226.9}, {"time": "2026-02-11", "value": 225.0}, {"time": "2026-02-23", "value": 224.5}, {"time": "2026-02-24", "value": 225.6}, {"time": "2026-02-25", "value": 224.2}, {"time": "2026-02-26", "value": 222.3}, {"time": "2026-03-02", "value": 215.6}, {"time": "2026-03-03", "value": 210.3}, {"time": "2026-03-04", "value": 203.1}, {"time": "2026-03-05", "value": 199.5}, {"time": "2026-03-06", "value": 195.8}, {"time": "2026-03-09", "value": 196.1}, {"time": "2026-03-10", "value": 193.1}, {"time": "2026-03-11", "value": 193.7}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 262.65}, {"time": "2025-12-18", "value": 259.9}, {"time": "2025-12-19", "value": 257.25}, {"time": "2025-12-22", "value": 254.8}, {"time": "2025-12-23", "value": 251.85}, {"time": "2025-12-24", "value": 248.7}, {"time": "2025-12-26", "value": 246.25}, {"time": "2025-12-29", "value": 244.3}, {"time": "2025-12-30", "value": 242.95}, {"time": "2025-12-31", "value": 241.95}, {"time": "2026-01-02", "value": 241.2}, {"time": "2026-01-05", "value": 240.45}, {"time": "2026-01-06", "value": 240.6}, {"time": "2026-01-07", "value": 240.85}, {"time": "2026-01-08", "value": 242.25}, {"time": "2026-01-09", "value": 242.9}, {"time": "2026-01-12", "value": 243.85}, {"time": "2026-01-13", "value": 243.95}, {"time": "2026-01-14", "value": 244.2}, {"time": "2026-01-15", "value": 244.15}, {"time": "2026-01-16", "value": 243.85}, {"time": "2026-01-19", "value": 245.3}, {"time": "2026-01-20", "value": 245.25}, {"time": "2026-01-21", "value": 244.3}, {"time": "2026-01-22", "value": 242.6}, {"time": "2026-01-23", "value": 242.25}, {"time": "2026-01-26", "value": 242.15}, {"time": "2026-01-27", "value": 242.75}, {"time": "2026-01-28", "value": 242.85}, {"time": "2026-01-29", "value": 243.55}, {"time": "2026-01-30", "value": 243.55}, {"time": "2026-02-02", "value": 242.1}, {"time": "2026-02-03", "value": 241.1}, {"time": "2026-02-04", "value": 240.6}, {"time": "2026-02-05", "value": 239.75}, {"time": "2026-02-06", "value": 237.4}, {"time": "2026-02-09", "value": 235.3}, {"time": "2026-02-10", "value": 233.45}, {"time": "2026-02-11", "value": 231.35}, {"time": "2026-02-23", "value": 229.35}, {"time": "2026-02-24", "value": 228.0}, {"time": "2026-02-25", "value": 226.15}, {"time": "2026-02-26", "value": 224.6}, {"time": "2026-03-02", "value": 220.3}, {"time": "2026-03-03", "value": 217.4}, {"time": "2026-03-04", "value": 214.35}, {"time": "2026-03-05", "value": 211.85}, {"time": "2026-03-06", "value": 209.05}, {"time": "2026-03-09", "value": 205.85}, {"time": "2026-03-10", "value": 201.7}, {"time": "2026-03-11", "value": 198.4}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 251.925}, {"time": "2026-01-05", "value": 250.175}, {"time": "2026-01-06", "value": 248.925}, {"time": "2026-01-07", "value": 247.825}, {"time": "2026-01-08", "value": 247.05}, {"time": "2026-01-09", "value": 245.8}, {"time": "2026-01-12", "value": 245.05}, {"time": "2026-01-13", "value": 244.125}, {"time": "2026-01-14", "value": 243.575}, {"time": "2026-01-15", "value": 243.05}, {"time": "2026-01-16", "value": 242.525}, {"time": "2026-01-19", "value": 242.875}, {"time": "2026-01-20", "value": 242.925}, {"time": "2026-01-21", "value": 242.575}, {"time": "2026-01-22", "value": 242.425}, {"time": "2026-01-23", "value": 242.575}, {"time": "2026-01-26", "value": 243.0}, {"time": "2026-01-27", "value": 243.35}, {"time": "2026-01-28", "value": 243.525}, {"time": "2026-01-29", "value": 243.85}, {"time": "2026-01-30", "value": 243.7}, {"time": "2026-02-02", "value": 243.7}, {"time": "2026-02-03", "value": 243.175}, {"time": "2026-02-04", "value": 242.45}, {"time": "2026-02-05", "value": 241.175}, {"time": "2026-02-06", "value": 239.825}, {"time": "2026-02-09", "value": 238.725}, {"time": "2026-02-10", "value": 238.1}, {"time": "2026-02-11", "value": 237.1}, {"time": "2026-02-23", "value": 236.45}, {"time": "2026-02-24", "value": 235.775}, {"time": "2026-02-25", "value": 234.125}, {"time": "2026-02-26", "value": 232.85}, {"time": "2026-03-02", "value": 230.45}, {"time": "2026-03-03", "value": 228.575}, {"time": "2026-03-04", "value": 225.875}, {"time": "2026-03-05", "value": 223.575}, {"time": "2026-03-06", "value": 221.25}, {"time": "2026-03-09", "value": 218.6}, {"time": "2026-03-10", "value": 215.525}, {"time": "2026-03-11", "value": 213.2}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -197.0}, {"time": "2025-12-08", "value": -383.0}, {"time": "2025-12-09", "value": -99.0}, {"time": "2025-12-10", "value": 123.0}, {"time": "2025-12-11", "value": -768.0}, {"time": "2025-12-12", "value": -1029.0}, {"time": "2025-12-15", "value": -1304.0}, {"time": "2025-12-16", "value": -1723.0}, {"time": "2025-12-17", "value": -2007.0}, {"time": "2025-12-18", "value": -2307.0}, {"time": "2025-12-19", "value": -2307.0}, {"time": "2025-12-22", "value": -2104.0}, {"time": "2025-12-23", "value": -2444.0}, {"time": "2025-12-24", "value": -2444.0}, {"time": "2025-12-26", "value": -2870.0}, {"time": "2025-12-29", "value": -2662.0}, {"time": "2025-12-30", "value": -2239.0}, {"time": "2025-12-31", "value": -2480.0}, {"time": "2026-01-02", "value": -2127.0}, {"time": "2026-01-05", "value": -2486.0}, {"time": "2026-01-06", "value": -1892.0}, {"time": "2026-01-07", "value": -1353.0}, {"time": "2026-01-08", "value": -160.0}, {"time": "2026-01-09", "value": -585.0}, {"time": "2026-01-12", "value": -829.0}, {"time": "2026-01-13", "value": -1117.0}, {"time": "2026-01-14", "value": -881.0}, {"time": "2026-01-15", "value": -1185.0}, {"time": "2026-01-16", "value": -1378.0}, {"time": "2026-01-19", "value": -777.0}, {"time": "2026-01-20", "value": -1084.0}, {"time": "2026-01-21", "value": -1505.0}, {"time": "2026-01-22", "value": -1505.0}, {"time": "2026-01-23", "value": -931.0}, {"time": "2026-01-26", "value": -665.0}, {"time": "2026-01-27", "value": -49.0}, {"time": "2026-01-28", "value": -423.0}, {"time": "2026-01-29", "value": 235.0}, {"time": "2026-01-30", "value": -150.0}, {"time": "2026-02-02", "value": -522.0}, {"time": "2026-02-03", "value": -886.0}, {"time": "2026-02-04", "value": -1128.0}, {"time": "2026-02-05", "value": -1529.0}, {"time": "2026-02-06", "value": -2014.0}, {"time": "2026-02-09", "value": -1832.0}, {"time": "2026-02-10", "value": -1559.0}, {"time": "2026-02-11", "value": -1970.0}, {"time": "2026-02-23", "value": -1514.0}, {"time": "2026-02-24", "value": -1813.0}, {"time": "2026-02-25", "value": -2756.0}, {"time": "2026-02-26", "value": -1206.0}, {"time": "2026-03-02", "value": -1950.0}, {"time": "2026-03-03", "value": -1039.0}, {"time": "2026-03-04", "value": -1783.0}, {"time": "2026-03-05", "value": -1424.0}, {"time": "2026-03-06", "value": -1122.0}, {"time": "2026-03-09", "value": -1577.0}, {"time": "2026-03-10", "value": -2268.0}, {"time": "2026-03-11", "value": -1874.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>晶心科（6533）是一家專注於 CPU IP（矽智財）的供應商，也是 RISC-V 國際組織的創始頂級會員，在全球 RISC-V 生態系統中扮演領導角色。公司採無晶圓廠（Fabless）模式，總部設於台灣新竹科學園區，並於美國德州奧斯汀設有子公司 Condor Computing 專責高階 RISC-V CPU IP 開發。</p>
+
+<strong>公司主要業務與核心產品/服務：</strong>
+<ul><li><strong>AndeStar™ 架構</strong>：專利的32位元/64位元RISC風格CPU架構。</li>
+<li><strong>AndesCore™ 系列CPU</strong>：涵蓋32位元/64位元處理器，針對不同應用領域：</li>
+</ul>    *   <strong>AX系列</strong>：高效能應用，支援Linux，適用於AI、資料中心，如AX65系列、AX66、AX46MPV。
+<p>*   <strong>D系列</strong>：數位訊號處理（DSP）應用，適用於AIoT、消費性電子，如D25F-SE、D45-SE、D23-SE。</p>
+<p>*   <strong>N系列</strong>：主流嵌入式應用，適用於車用與微控制器（MCU），如N25F-SE。</p>
+<ul><li><strong>AndesAIRE™ 解決方案</strong>：專為邊緣及端點推論設計，例如最新的深度學習加速器（DLA）AnDLA I370。</li>
+<li><strong>AndeShape™ 平台</strong>、<strong>AndeSight™ IDE</strong> (整合開發環境)及<strong>AndeSoft™ SW Stack</strong> (軟體堆疊)。</li>
+<li><strong>最新高階產品</strong>：代號「Cuzco」的CPU系列，鎖定資料中心、AI及車用高效能運算市場，預計於2026年第二季/第三季開始貢獻營收。</li>
+</ul>
+<strong>2025年前三季營收組合：</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>營收類別</th><th>佔比</th></tr></thead><tbody>
+<tr><td>授權金</td><td>64%</td></tr>
+<tr><td>權利金</td><td>20%</td></tr>
+<tr><td>維護服務費</td><td>16%</td></tr>
+</tbody></table></div>
+
+<strong>2025年前三季應用組合：</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>應用類別</th><th>佔比 (2025年前三季)</th><th>備註</th></tr></thead><tbody>
+<tr><td>AI應用</td><td>40%</td><td>2025上半年為44%，2024年為38%。若計入IoT與MCU中含有的AI元素，實際佔比已逾50%。</td></tr>
+<tr><td>消費性電子</td><td>27%</td><td>2025上半年為14%。</td></tr>
+<tr><td>物聯網 (IoT)</td><td>14%</td><td>2025上半年為16%。</td></tr>
+<tr><td>通訊/網通</td><td>7%</td><td>2025上半年通訊與網路為10%。</td></tr>
+<tr><td>儲存</td><td>7%</td><td></td></tr>
+<tr><td>資安與其他</td><td>6%</td><td></td></tr>
+<tr><td>車用</td><td>3%</td><td>2025上半年為3%，2024年為9%，預計2027年提升至20%。</td></tr>
+</tbody></table></div>
+
+<strong>2025年前三季地區營收貢獻比例：</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>地區</th><th>佔比</th></tr></thead><tbody>
+<tr><td>台灣</td><td>41%</td></tr>
+<tr><td>美國</td><td>33%</td></tr>
+<tr><td>中國</td><td>18%</td></tr>
+<tr><td>歐洲</td><td>6%</td></tr>
+<tr><td>韓國</td><td>1%</td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+<li><strong>RISC-V 生態系統領導地位</strong>：晶心科是 RISC-V 國際組織的創始頂級會員，在標準制定、技術發展及生態系推動上扮演關鍵角色，擁有超過 30% 的 RISC-V 晶片出貨量市場份額，受益於 RISC-V 開放、高效能、低功耗及可客製化的特性，在 AI、車用和 IoT 市場具備競爭優勢。</li>
+<li><strong>高階 CPU IP 技術領先</strong>：專注於中高階 RISC-V CPU 核心開發，如針對資料中心和 AI 的 Cuzco 系列以及 AX 系列高效能處理器，具備向量處理器與客製化擴展（ACE），已獲大型美系客戶青睞，技術實力與前瞻佈局為其提供差異化優勢。</li>
+<li><strong>深耕高成長應用市場</strong>：策略性將資源投入 AI、車用電子與物聯網（IoT）等高成長領域，並已取得 ISO 26262 功能安全認證，產品進入多家國際車用客戶供應鏈，形成早期進入者優勢。</li>
+<li><strong>全球研發與業務佈局</strong>：在美國奧斯汀設立 Condor Computing 子公司，專責超高效能 RISC-V CPU IP 開發，並在德國慕尼黑設立技術資源中心，有效強化全球研發能量並深耕重要市場客戶。</li>
+<li><strong>穩固的權利金成長潛力</strong>：隨著近年簽訂的 RISC-V 授權案陸續進入量產，權利金收入預計在未來 2-3 年內大幅提升，將優化營收結構並帶來更穩定的現金流。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>1.03</td><td>-48.80%</td><td>+7.80%</td></tr>
+<tr><td>2025年12月</td><td>2.01</td><td>+83.68%</td><td>+29.01%</td></tr>
+<tr><td>2025年11月</td><td>1.09</td><td>-27.21%</td><td>-28.11%</td></tr>
+<tr><td>2025年10月</td><td>1.50</td><td>-29.94%</td><td>-1.85%</td></tr>
+<tr><td>2025年09月</td><td>2.15</td><td>+39.83%</td><td>-7.98%</td></tr>
+<tr><td>2025年08月</td><td>1.54</td><td>+56.01%</td><td>+93.77%</td></tr>
+</tbody></table></div>
+
+<h3>季度數據 (2025年第三季)</h3>
+<ul><li><strong>季營收</strong>：新台幣 4.67 億元，年增率 <strong>+8.8%</strong>。</li>
+<li><strong>毛利率</strong>：99.97%。</li>
+<li><strong>營業利益率</strong>：-5.16%。</li>
+<li><strong>EPS</strong>：0.17元。</li>
+</ul>    <em>   </em>註：2025年第四季合併財務報告預計於2026年3月9日提報董事會，因此尚未公布。*
+
+<h3>年度趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>營收 (新台幣億元)</th><th>年增率</th><th>EPS (新台幣元)</th></tr></thead><tbody>
+<tr><td>2024 (實際)</td><td>13.82</td><td>+30.6%</td><td>0.04</td></tr>
+<tr><td>2025 (預估)</td><td>國泰證券：14.78</td><td>-</td><td>國泰證券：-7.83</td></tr>
+<tr><td></td><td>凱基投顧：17.23</td><td></td><td>台新投顧：-1.99</td></tr>
+<tr><td></td><td></td><td></td><td>嗨投資：-7.67</td></tr>
+<tr><td>2026 (預估)</td><td>凱基證券：18.40</td><td>-</td><td>國泰證券：0.95</td></tr>
+<tr><td></td><td></td><td></td><td>摩根大通：9.67</td></tr>
+</tbody></table></div>
+
+<h2>法說會重點</h2>
+<strong>最近一次法說會內容</strong>：2025年12月2日（國泰證券第四季論壇，涵蓋Q3法說內容）
+
+<ul><li><strong>RISC-V 架構佔比</strong>：2025年第一季至第三季，RISC-V 在授權金營收中佔比已達 <strong>96%</strong>，在權利金中佔比達 <strong>92%</strong> (上半年數據)，幾乎完全主導收入。</li>
+<li><strong>策略聚焦</strong>：持續將資源投入 AI、車用電子與物聯網(IoT)等高成長領域，專注於中高階 RISC-V CPU 核心開發。</li>
+<li><strong>高階產品</strong>：最新 Cuzco 系列高階 CPU 鎖定資料中心、AI 及車用高效能運算市場，已獲客戶高度關注，預計 <strong>2026年第二季/第三季</strong> 開始貢獻營收。</li>
+<li><strong>營收組合</strong>：2025年前三季授權金佔 <strong>64%</strong>；權利金佔 <strong>20%</strong>；維護服務費佔 <strong>16%</strong>。</li>
+<li><strong>應用類別</strong>：2025年前三季 AI 應用佔營收 <strong>40%</strong>，若計入其他應用中的 AI 成分，實際佔比在 2025上半年已超過 <strong>50%</strong>。</li>
+<li><strong>車用市場</strong>：2024年車用營收佔比達 <strong>9%</strong>。公司預計未來持續擴大，已取得 ISO 26262 SL-D 安全認證並進入多家國際車用客戶供應鏈。</li>
+<li><strong>客戶拓展</strong>：2025年新增五家大型國際性客戶，並喜獲美系客戶大單，帶來可觀簽約授權金。一家美國大型雲端服務供應商貢獻公司整體營收約 <strong>15%</strong>。</li>
+<li><strong>市場分佈</strong>：2025年前三季台灣佔 <strong>41%</strong>，美國提升至 <strong>33%</strong>，中國佔 <strong>18%</strong>，歐洲佔 <strong>6%</strong>。</li>
+<li><strong>管理層 Guidance</strong>：</li>
+</ul>    *   對 2025年第四季營運抱持信心，認為半導體產業已逐漸回溫。
+<p>*   公司不提供具體全年財務預測，但內部目標維持「高度成長」，參考過去平均 <strong>27%</strong> 的年成長率。</p>
+<p>*   長期目標是權利金收入佔比能持續提升，使營收結構更趨穩定。</p>
+<ul><li><strong>產能利用率/資本支出</strong>：法說會中未提供 2024-2026 年具體數據。</li>
+</ul>
+<h2>券商觀點</h2>
+<h3>券商目標價與評等</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期</th><th>備註</th></tr></thead><tbody>
+<tr><td>國泰證券</td><td>300</td><td>-</td><td>2026年01月12日</td><td></td></tr>
+<tr><td>台新投顧</td><td>431</td><td>-</td><td>2025年09月17日</td><td></td></tr>
+<tr><td>凱基投顧</td><td>375</td><td>-</td><td>2025年07月23日</td><td></td></tr>
+<tr><td>FactSet (中位數)</td><td>346.92</td><td>(綜合分析師)</td><td>2025年10月22日</td><td>最高估值 601.42元，最低估值 287.44元。</td></tr>
+</tbody></table></div>
+
+<h3>券商 2025-2026 年 EPS 預估</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>2025年 EPS 預估 (新台幣元)</th><th>2026年 EPS 預估 (新台幣元)</th></tr></thead><tbody>
+<tr><td>國泰證券</td><td>-7.83</td><td>0.95</td></tr>
+<tr><td>台新投顧</td><td>-1.99</td><td>-</td></tr>
+<tr><td>凱基投顧</td><td>-</td><td>預期為獲利爆發年</td></tr>
+<tr><td>摩根大通證券</td><td>-</td><td>9.67 (2025/09/05預估)</td></tr>
+</tbody></table></div>
+
+<h3>近期評等調整</h3>
+<ul><li>2025年10月22日：FactSet 綜合分析師目標價調降至 <strong>346.92元</strong>，幅度約 <strong>3.45%</strong>。</li>
+<li>2025年06月16日：FactSet 綜合分析師目標價調降至 <strong>400元</strong>，幅度約 <strong>6.98%</strong>。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2024年Q1</td><td>99.85%</td><td>-91.13%</td><td>-23.84%</td></tr>
+<tr><td>2024年Q2</td><td>100.06%</td><td>-52.65%</td><td>-27.96%</td></tr>
+<tr><td>2024年Q3</td><td>99.94%</td><td>5.59%</td><td>-0.42%</td></tr>
+<tr><td>2024年Q4</td><td>99.95%</td><td>8.84%</td><td>28.69%</td></tr>
+<tr><td>2025年Q1</td><td>99.89%</td><td>-60.61%</td><td>-42.22%</td></tr>
+<tr><td>2025年Q2</td><td>99.88%</td><td>-61.79%</td><td>-101.20%</td></tr>
+<tr><td>2025年Q3</td><td>99.97%</td><td>-5.16%</td><td>1.81%</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化原因分析：</strong>
+<ul><li><strong>高毛利率維持</strong>：晶心科的毛利率長期維持在極高水準 (接近 100%)，突顯其 IP 產品的高附加價值特性，成本主要為研發費用。</li>
+<li><strong>營業費用增加</strong>：2025年上半年營業費用年增約 6%，其中研發（R&amp;D）支出增加比例最高，主要因 2024年新增人力於 2025年需支付全年薪酬，以及美國研發及業務團隊擴張和德國子公司設立等開銷。</li>
+<li><strong>上半年虧損擴大</strong>：2025年上半年因市場逆風、美國新產品開發費用增加及匯兌損失，導致單季虧損較大 (2025年Q2 EPS -5.58元)。累計前三季營業損失達新台幣 361,177仟元，較去年同期虧損增加 14.0%。</li>
+<li><strong>第三季營運回溫</strong>：2025年第三季營運顯著回溫，營收季增 <strong>66.9%</strong>，單季 EPS 轉正為 <strong>0.17元</strong>，稅後淨利率達 <strong>1.81%</strong>，營業利益率虧損幅度亦大幅收斂至 -5.16%。公司自 Q3 起已加強費用控管。</li>
+<li><strong>業外收支波動</strong>：2025年第二季因匯兌損失造成單季虧損擴大，業外收支對營收比率在 2025年 Q2 為 -19.68%，Q3 為 -7.82%，顯示業外支出或損失仍對獲利產生負面影響。</li>
+</ul>
+<h3>存貨與營運</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數</th><th>應收帳款週轉天數</th></tr></thead><tbody>
+<tr><td>2024年Q4</td><td>1029.76</td><td>52.36</td></tr>
+<tr><td>2025年Q1</td><td>1188.23</td><td>61.58</td></tr>
+<tr><td>2025年Q2</td><td>1154.95</td><td>39.26</td></tr>
+<tr><td>2025年Q3</td><td>2687.67</td><td>35.35</td></tr>
+</tbody></table></div>
+
+<strong>存貨與應收帳款分析：</strong>
+<ul><li><strong>存貨週轉天數異常升高</strong>：2025年第三季存貨週轉天數大幅增加至 <strong>2687.67天</strong>，遠高於前期，顯示存貨消化速度顯著減緩，可能存在庫存堆積或市場需求趨緩的現象，需密切關注。</li>
+<li><strong>應收帳款週轉天數改善</strong>：2025年第二季及第三季應收帳款週轉天數呈現明顯下降，從 Q1 的 61.58天降至 Q3 的 <strong>35.35天</strong>，顯示公司收款能力有所提升。</li>
+</ul>
+<h3>資本支出</h3>
+<ul><li><strong>近3年資本支出金額與趨勢</strong>：未找到 2024-2026年具體的資本支出金額與趨勢。</li>
+<li><strong>未來資本支出計畫</strong>：晶心科原規劃於 2025年進行現金增資 <strong>13.15億元</strong> 用於開發高階產品及新大樓落成費用，但已於 <strong>2025年11月18日</strong> 決議撤銷此現金增資案，並獲金管會核准。公司表示將改以自有資金支應營運所需，顯示公司對現金流管理具信心，但也可能限制擴張彈性。</li>
+</ul>
+<h2>股權異動</h2>
+
+<ul><li><strong>董監事/大股東申報轉讓紀錄</strong>：</li>
+</ul>    *   2023年8月25日，董事翔發投資股份有限公司申報轉讓晶心科股票 <strong>1,652張</strong>，轉讓後持股從 5,657.32張降至 4,005.32張。
+<p>*   截至 2025年2月資料，董事翔發投資股份有限公司持股為 <strong>3,249張</strong> (6.42%)，行政院國家發展基金管理會持股 <strong>2,979張</strong> (5.88%)。</p>
+<p>*   未找到 2024年以後除上述之外的最新董監事/大股東申報轉讓紀錄。</p>
+<ul><li><strong>庫藏股買回紀錄</strong>：未找到 2024-2026年庫藏股買回紀錄。</li>
+<li><strong>可轉換公司債 (CB)</strong>：晶心科曾發行國內第一次無擔保轉換公司債，其轉換價格因現金增資撤銷而迴轉為原訂之 <strong>308元</strong>。</li>
+<li><strong>增減資計畫</strong>：原規劃於 2025年進行現金增資 <strong>500萬股</strong>，募集 <strong>13.15億元</strong>，但已於 <strong>2025年11月18日</strong> 決議撤銷，將改以自有資金支應。未找到減資計畫。</li>
+<li><strong>股利政策</strong>：</li>
+</ul>    *   2024年 (發放年度2025年)：未發放股利。
+<p>*   2023年 (發放年度2024年)：未發放股利。</p>
+<p>*   2022年 (發放年度2023年)：現金股利 <strong>1.5元</strong>。</p>
+<p>*   2021年 (發放年度2022年)：現金股利 <strong>2.849元</strong>。</p>
+<p>*   <strong>趨勢</strong>：近兩年（2024、2025年度）未發放股利，可能反映公司將資金優先投入高階產品開發和市場拓展。</p>
+
+<h2>產業分析</h2>
+
+<h3>產業數據</h3>
+<ul><li><strong>RISC-V 技術市場</strong>：</li>
+</ul>    *   2025年市場規模預計 <strong>13.4億美元至13.5億美元</strong>。
+<p>*   2026年預計成長至 <strong>18.9億美元至19.1億美元</strong>。</p>
+<p>*   2026-2031年 CAGR 預計達 <strong>41.21%至41.23%</strong>，到 2031年達到 <strong>106.2億美元至107億美元</strong>。</p>
+<ul><li><strong>半導體 IP 市場 (廣泛)</strong>：</li>
+</ul>    *   2025年市場規模介於 <strong>79.7億美元至102億美元</strong>。
+<p>*   2026年預計成長至 <strong>83.9億美元至88.7億美元</strong>。</p>
+<p>*   2026-2034年 CAGR 預計達 <strong>6.2%至11.3%</strong>，到 2034年達到 <strong>113.3億美元至234億美元</strong>。</p>
+<ul><li><strong>處理器 IP 市場</strong>：</li>
+</ul>    *   2024年市場規模約 <strong>58.8億美元至69.44億美元</strong>。
+<p>*   2025-2035年 CAGR 預計達 <strong>5.64%至7.84%</strong>。</p>
+<ul><li><strong>全球 CPU 市場 (更廣泛)</strong>：</li>
+</ul>    *   2024年市場規模約 <strong>752億美元</strong>。
+<p>*   2025年預計成長至 <strong>791.9億美元</strong>。</p>
+<p>*   2026-2033年 CAGR 預計達 <strong>5.3%</strong>，到 2033年達到 <strong>1,196.9億美元</strong>。</p>
+<ul><li><strong>供需狀況</strong>：市場對先進運算解決方案（AI、IoT、車用）需求強勁。半導體 IP 成長主要受客製化晶片需求驅動。RISC-V 因其開源特性，正被越來越多實體用於商業產品。市場普遍處於健康需求增長狀態。</li>
+<li><strong>產業平均毛利率</strong>：2024年半導體產業平均毛利率從 23.5% 上升至 28.6%。IP 供應商如晶心科，其業務模式使其毛利率高達 <strong>99.97%</strong> (2025年Q3)。</li>
+</ul>
+<h3>競爭格局</h3>
+<strong>全球前 5 大半導體 IP 公司 (2023年數據)</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>2023 年市場佔有率</th></tr></thead><tbody>
+<tr><td>Arm Holdings Ltd.</td><td>41%</td></tr>
+<tr><td>Synopsys Inc.</td><td>(主要參與者)</td></tr>
+<tr><td>Imagination Technologies</td><td>8%</td></tr>
+<tr><td>Cadence Design Systems, Inc.</td><td>5%</td></tr>
+<tr><td>Fujitsu Limited</td><td>4%</td></tr>
+</tbody></table></div>
+<em>晶心科（Andes Technology Corporation）亦為半導體 IP 及 RISC-V 技術市場主要參與者。</em>
+
+<strong>晶心科 vs. 主要競爭對手比較</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>比較項目</th><th>晶心科 (Andes Technology)</th><th>Arm Holdings</th><th>SiFive</th></tr></thead><tbody>
+<tr><td><strong>架構</strong></td><td>RISC-V (開放標準、免權利金)</td><td>ARM (專有授權模式，權利金)</td><td>RISC-V (開放標準，可客製化)</td></tr>
+<tr><td><strong>生態系統</strong></td><td>RISC-V 國際組織創始頂級會員，領導者。</td><td>長期主導行動運算，龐大成熟生態系統。</td><td>RISC-V 領域領導者，提供先進可客製化核心。</td></tr>
+<tr><td><strong>技術優勢</strong></td><td>20年 IP 專業，專注中高階 RISC-V CPU，具備 AI 向量處理器，車用功能安全認證。Cuzco 系列鎖定資料中心、AI、車用。</td><td>行動裝置、嵌入式系統，高性能、低功耗。性能差距與 RISC-V 逐漸縮小。</td><td>擅長先進可客製化核心，早期高階 RISC-V 處理器推動者。</td></tr>
+<tr><td><strong>市場重點</strong></td><td>AI、車用、IoT、資料中心。</td><td>行動運算、伺服器、PC、嵌入式。</td><td>高階運算、AI、資料中心、客製化晶片。</td></tr>
+<tr><td><strong>合作夥伴</strong></td><td>Meta、Renesas、TetraMem、Phison 等。</td><td>廣泛的晶片設計、製造、軟體合作夥伴。</td><td>Intel、Western Digital 等。</td></tr>
+</tbody></table></div>
+
+<strong>台灣同業比較 (2025年Q3)</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>業務模式</th><th>2024 年全年營收 (億元)</th><th>2025 年 Q3 累計營收 (億元)</th><th>2024 年全年 EPS (元)</th><th>2025 年 Q3 EPS (元)</th><th>2025 年 Q3 毛利率</th></tr></thead><tbody>
+<tr><td>晶心科 (6533)</td><td>CPU IP 授權、權利金</td><td>13.8</td><td>10.17</td><td>0.04</td><td>0.17</td><td>99.97%</td></tr>
+<tr><td>創意 (3443)</td><td>ASIC 設計服務、IP、Turnkey</td><td>257.5 (約)</td><td>-</td><td>25.75</td><td>28.13 (預估全年)</td><td>33.3% (Q2)</td></tr>
+<tr><td>智原 (3035)</td><td>ASIC 設計服務、IP、Turnkey</td><td>(未提供)</td><td>151.85 (前九月累計)</td><td>4.04</td><td>0.58</td><td>33.21%</td></tr>
+</tbody></table></div>
+<em>註：晶心科主要為純 IP 授權，毛利率極高；創意、智原提供 ASIC 設計服務及 IP，營收規模較大，毛利率受 Turnkey 業務比重影響。</em>
+
+<h3>產業趨勢</h3>
+<li><strong>RISC-V 開源架構的崛起</strong>：RISC-V 的開放標準和免權利金特性正在顛覆傳統專有處理器市場。RISC-V 預計到 <strong>2026年1月</strong> 在全球處理器市場佔有 <strong>25%</strong> 份額。Meta、Qualcomm 等大廠將其視為 AI 和客製化晶片長期戰略選項，大幅提升其市場潛力。</li>
+<li><strong>AI 整合與邊緣運算</strong>：AI 和機器學習推動對專業化處理器 IP 的需求。AI 加速器晶片的 IP 核心採用率每年增長 <strong>25%</strong>。RISC-V 憑藉其可擴展向量單元在邊緣 AI 應用中具有優勢。AI PC 趨勢預計在 <strong>2026年中期</strong> 推出第二代 RISC-V 筆記型電腦。</li>
+<li><strong>異質整合與 Chiplet 技術</strong>：Chiplet 技術提高晶片設計靈活性、可擴展性和良率，增加對高速介面 IP 的需求。</li>
+
+<strong>對晶心科的具體機會與威脅</strong>
+<ul><li><strong>機會</strong>：</li>
+</ul>    *   <strong>RISC-V 生態系統領導地位</strong>：作為 RISC-V 國際組織創始頂級會員，在新興 RISC-V 市場中佔據有利地位。
+<p>*   <strong>AI 和車用市場強勁成長</strong>：AI 佔 2025上半年營收 <strong>44%</strong>，車用佔 <strong>9%</strong>，且預計持續成長至 2027年 <strong>20%</strong>，是未來主要成長動能。</p>
+<p>*   <strong>高階產品動能</strong>：Cuzco 系列高階 CPU 預計 2026年第二季/第三季貢獻營收，拓展資料中心等高利潤市場。</p>
+<p>*   <strong>與 Arm 性能差距縮小</strong>：RISC-V CPU 核心與高端 Arm 處理器性能差距預計 2026年底將趨於一致，提升競爭力。</p>
+<ul><li><strong>威脅</strong>：</li>
+</ul>    *   <strong>來自成熟架構的競爭</strong>：Arm 和 x86 仍有穩固市場地位和龐大生態系統。
+<p>*   <strong>RISC-V 生態系統成熟度</strong>：相較於 Arm，RISC-V 軟體生態系統仍需時間發展，工具鏈標準化和軟體支援廣泛性有待提升，ISA 擴展碎片化可能增加軟體複雜性。</p>
+<p>*   <strong>獲利壓力</strong>：短期內因研發投入、市場競爭導致營運費用高企，獲利仍面臨挑戰。</p>
+
+<strong>相關投資題材的具體連結</strong>
+<ul><li><strong>AI (人工智慧)</strong>：晶心科的 AX 系列處理器專為高效能 AI 應用和資料中心設計。Meta 和 Qualcomm 積極推動 RISC-V 在 AI 領域應用。128 位元核心在邊緣 AI 中的整合向量運算需求預計以 <strong>41.88%</strong> CAGR 成長。</li>
+<li><strong>電動車 (EV)</strong>：車用電子和 ADAS 發展是 IP 市場重要驅動力，車用 IP 核心市場預計到 2030年將以 <strong>18.7%</strong> CAGR 成長。晶心科已取得 ISO 26262 SL-D 認證，並積極推出車規 CPU，進入國際車用供應鏈，車用營收佔比預計從 2025年的 <strong>4%</strong> 提升至 2027年的 <strong>20%</strong>。</li>
+<li><strong>HBM (高頻寬記憶體)</strong>：HBM 是資料中心和 HPC 關鍵技術。儘管晶心科無直接 HBM 產品，但其高效能 AX 系列和 Cuzco 系列 CPU 應用於資料中心，未來可能與 HBM 有更緊密整合需求，間接受益於 HBM 需求。</li>
+</ul>
+<h2>近期催化劑 (2025年12月至2026年3月)</h2>
+<strong>利多事件：</strong>
+<ul><li><strong>2026年02月26日</strong>：晶心科預計於 3月12日至19日赴證交所自行辦理法人說明會，有望釋出更多營運展望利多。</li>
+<li><strong>2026年01月13日</strong>：國泰證期研究指出，晶心科 2026年成長動能將集中在車用、物聯網及 AI 應用，預計掌握更多授權合約。</li>
+<li><strong>2026年01月10日</strong>：2025年12月營收 <strong>2.01億元</strong>，月增 <strong>83.68%</strong>，年增 <strong>29.01%</strong>，顯示營運底部回升。</li>
+<li><strong>2025年12月28日</strong>：2025年共增加五家大型國際性客戶，並接獲美系客戶大單，積極搶占 AI 基礎建設商機。</li>
+<li><strong>2025年12月18日</strong>：2025年第三季營運轉虧為盈，單季 EPS 轉正為 <strong>0.17元</strong>，營收季增 <strong>66.9%</strong>。最新 Cuzco 系列高階 CPU 預計 <strong>2026年第二季/第三季</strong> 開始貢獻營收。</li>
+<li><strong>2025年12月02日</strong>：SHD Group 預測全球 RISC-V 晶片出貨量到 2030年將超過 <strong>160億顆</strong>，RISC-V IP 市場營收預計在 2027年將從授權金主導轉為權利金主導。</li>
+</ul>
+<strong>利空/中性事件：</strong>
+<ul><li><strong>2026年03月09日</strong>：將提報董事會 2025年第四季合併財務報告，若財報不如預期可能影響股價。</li>
+<li><strong>2026年02月10日</strong>：2026年1月營收 <strong>1.03億元</strong>，月減 <strong>48.8%</strong>，主因是季節性因素及缺乏大型授權金貢獻，但仍年增 <strong>7.8%</strong>。</li>
+<li><strong>2025年12月14日</strong>：2025年11月營收 <strong>1.09億元</strong>，月減 <strong>27.21%</strong>，年減 <strong>28.11%</strong>，顯示營收波動性較大。</li>
+<li><strong>2025年11月11日</strong>：公告現金增資案延長特定人股款繳款期間，後續於 11月18日決議撤銷，可能影響市場對公司資本擴張計畫的信心，儘管公司表示改以自有資金支應。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能類別</th><th>具體事件</th><th>預計影響 / 備註</th></tr></thead><tbody>
+<tr><td><strong>2025年</strong></td><td><strong>新客戶/市場</strong></td><td>- 增加五家大型國際性客戶，其中一家美國大型 CSP 客戶貢獻整體營收約 <strong>15%</strong>。</td><td>強化全球市場佈局，為未來營收提供堅實基礎。</td></tr>
+<tr><td><strong>2025年 Q3 前</strong></td><td><strong>新客戶/市場</strong></td><td>- AI 領域指標性客戶：Meta 的 AI 推薦系統加速器 (MTIA)、Fractile 的記憶體內運算 (CIM) 晶片。</td><td>鞏固在 AI 領域的技術領先地位與市場份額。</td></tr>
+<tr><td></td><td></td><td>- 車用領域 Design-win：應用於鏡頭感測器 (MetaSilicon)、顯示觸控 (ILITEK)、車用 MCU 等。</td><td>進入多元車用供應鏈，為未來車用營收爆發奠定基礎。</td></tr>
+<tr><td></td><td><strong>資本支出</strong></td><td>- 研發及業務團隊擴張：營業費用年增 <strong>11.4%</strong>，反映美國研發團隊擴張及德國子公司設立。</td><td>提升研發實力與全球服務能力，但短期內增加獲利壓力。公司已表示 Q3 起加強費用控管。</td></tr>
+<tr><td><strong>2025年下半年</strong></td><td><strong>需求面</strong></td><td>- AI 相關營收佔比達 <strong>44%</strong> (上半年)，若計入 IoT 與 MCU 中 AI 元素，實際佔比逾 <strong>50%</strong>。</td><td>AI 為公司最主要成長動能。</td></tr>
+<tr><td><strong>2026年 Q1</strong></td><td><strong>擴廠</strong></td><td>- 新大樓落成開銷：支應新大樓於 2026年上半年落成後的開銷。</td><td>提升工作環境與研發容量，顯示公司對未來成長的長期承諾，但撤銷增資後改為自有資金支應。</td></tr>
+<tr><td><strong>2026年 Q2/Q3</strong></td><td><strong>新產品</strong></td><td>- Cuzco 系列高階 CPU：鎖定資料中心、AI 及車用高效能運算市場，預計開始貢獻營收。</td><td>關鍵性高階產品，有望大幅拉升平均授權金價位，並打開資料中心等新藍海市場。摩根大通預期 2026 年 EPS 大幅成長至 9.67 元，與此產品貢獻高度相關。</td></tr>
+<tr><td><strong>2026年</strong></td><td><strong>新產品</strong></td><td>- D45SE：新產品 D45SE 可用於 ADAS 相關應用。</td><td>拓展車用 ADAS 市場，強化在自動駕駛領域的佈局。</td></tr>
+<tr><td></td><td><strong>產能</strong></td><td>- 中國 T1 車廠供應商採用 D25F-SE 開發馬達、光感與煞車燈控制模組，預計 2026年量產。</td><td>大陸車用市場的重要突破，將帶動權利金收入增長。</td></tr>
+<tr><td><strong>2026年起</strong></td><td><strong>需求面</strong></td><td>- RISC-V 在 SoC 市場滲透率預計從 2023年的 <strong>2.7%</strong> 攀升至 2030年的 <strong>22.3%</strong>。</td><td>產業趨勢明確利好 RISC-V 領導者晶心科，RISC-V 替代 Arm 趨勢將持續。</td></tr>
+<tr><td></td><td><strong>產能</strong></td><td>- 權利金收入佔比優化：目前大量 RISC-V 授權案預期在未來 2-3年陸續進入量產，挹注穩定的權利金。</td><td>營收結構將從授權金主導轉為權利金主導 (預計 2027年)，帶來更穩定、高毛利的經常性收入。這也是券商預期 2026-2027 年獲利爆發的關鍵動能。</td></tr>
+<tr><td></td><td><strong>新客戶/市場</strong></td><td>- 持續開拓更多全球性客戶，尤其在 AI、車用和 IoT 領域。</td><td>擴大市場份額，分散客戶風險。</td></tr>
+<tr><td><strong>長期 (至 2030年)</strong></td><td><strong>需求面</strong></td><td>- 全球 RISC-V 晶片出貨量預計將突破 <strong>160億顆</strong>。</td><td>巨大的市場潛力，晶心科作為 IP 供應商將直接受益於晶片出貨量增長帶來的權利金。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+<li><strong>Cuzco 系列高階 CPU 貢獻營收</strong>：最主要的催化劑，預計於 2026年第二季/第三季開始貢獻營收，鎖定資料中心、AI 及車用高效能運算市場，有望顯著提升平均授權金價格與公司整體營收。</li>
+<li><strong>RISC-V 權利金收入爆發</strong>：隨著 2025年新增的五家大型國際客戶及其他 RISC-V 授權案陸續進入量產，公司預期權利金收入將在未來 2-3年內大幅增長，並預計在 2027年轉為營收主導力量。</li>
+<li><strong>AI 與車用市場滲透率持續提升</strong>：公司將資源集中於 AI、車用和 IoT 等高成長領域，預估車用營收佔比將從 2025年的 <strong>4%</strong> 提升至 2027年的 <strong>20%</strong>。AI 應用佔比亦將維持高位 (<strong>~45%</strong>)。</li>
+<li><strong>全球客戶拓展效益</strong>：2025年新增五家大型國際客戶及美系大單，這些客戶的開案量和後續量產將為 2026年帶來可觀的營收動能。</li>
+<li><strong>RISC-V 生態系統成熟</strong>：RISC-V 架構持續取代傳統架構，全球晶片出貨量預計到 2030年將突破 <strong>160億顆</strong>，晶心科作為領導者將直接受益。</li>
+
+<h3>風險</h3>
+<li><strong>獲利仍面臨挑戰</strong>：儘管 2025年 Q3 轉虧為盈，但累計前三季仍營業虧損，且營運費用 (特別是研發開支) 持續居高不下，2026年能否穩定獲利仍需密切觀察。</li>
+<li><strong>市場競爭加劇</strong>：半導體產業週期性波動、新興 RISC-V IP 供應商的擴展以及中國市場的殺價競爭，都可能對晶心科的授權金和權利金構成壓力。Arm 公司從 IP 跨足 IC 領域的策略轉變，也可能加速客戶轉向 RISC-V，帶來機遇的同時也加劇了競爭動態。</li>
+<li><strong>權利金收入波動</strong>：2025年第三季權利金收入年減 <strong>9.3%</strong>，儘管季增，但年減趨勢反映晶片出貨可能面臨壓力或產品組合變化，權利金的成長仍存在不確定性。</li>
+<li><strong>全球總經與地緣政治風險</strong>：全球經濟放緩、高通膨、升息壓力以及美中貿易對抗等地緣政治緊張局勢，都可能影響半導體產業的整體需求。</li>
+<li><strong>技術與生態系統風險</strong>：RISC-V 生態系統在工具鏈標準化和軟體支援廣泛性方面仍不如 Arm 成熟，RISC-V ISA 擴展的碎片化可能增加開發複雜性，影響客戶採用速度。</li>
+
+<h2>投資結論</h2>
+<p>晶心科作為 RISC-V 矽智財的領頭羊，正處於產業轉型與自身產品升級的關鍵節點。儘管 2025 年受高研發投入與市場逆風影響，導致上半年虧損擴大，但在第三季已展現營運回溫跡象，且其在 AI、車用、資料中心等高成長應用領域的深耕與高階產品佈局，預示著 2026-2027 年的營運轉折點。</p>
+
+<strong>基於以上深度分析，提出以下 3-5 點投資結論：</strong>
+<li><strong>長線佈局 RISC-V 趨勢的純粹標的</strong>：晶心科是全球 RISC-V 生態系統的關鍵參與者，受益於 RISC-V 架構在全球處理器市場的快速滲透。預計 RISC-V 晶片出貨量到 2030 年將突破 <strong>160 億顆</strong>，為公司帶來龐大的權利金成長潛力。對於看好 RISC-V 長期取代 Arm 和 x86 趨勢的投資者而言，晶心科是核心配置標的。</li>
+<li><strong>高階產品與應用市場驅動營收爆發</strong>：代號「Cuzco」的高階 CPU 系列預計於 <strong>2026年第二季/第三季</strong> 開始貢獻營收，鎖定資料中心、AI 及車用高效能運算市場，有望顯著提升公司營收與平均授權金價格。同時，公司在 AI 與車用市場的策略性深耕，預計將帶動其營收佔比從 2025 年的 <strong>40% (AI)</strong> 與 <strong>3% (車用)</strong> 逐步提升，形成未來幾年的主要成長引擎。</li>
+<li><strong>獲利能力有望於 2026-2027 年顯著改善</strong>：儘管 2025 年整體 EPS 預估仍為負值，但 2025 年第三季已轉虧為盈，且管理層對 2026 年展望積極。隨著 Cuzco 等高階產品的營收貢獻以及大量 RISC-V 授權案陸續進入量產並轉化為權利金收入，券商普遍預期公司將在 <strong>2026 年轉虧為盈</strong>，並在 <strong>2027 年實現獲利大幅跳升</strong>。權利金佔比提升也將優化營收結構，提高長期獲利穩定性。</li>
+<li><strong>審慎評估短期波動與風險</strong>：晶心科目前股價已反應部分未來成長預期，但短期內仍需關注其營運費用控管、存貨週轉天數異常拉高以及權利金收入的穩定性。全球經濟不確定性與半導體產業的週期性波動，以及 RISC-V 生態系成熟度不足帶來的潛在風險，投資人應審慎評估。</li>
+
+<strong>目標價區間建議：</strong>
+<p>綜合考量晶心科作為 RISC-V 領導者，在高成長應用市場的佈局，以及 2026-2027 年高階產品與權利金收入帶來的獲利轉折潛力，並參考券商對 2026 年 EPS 預估在 <strong>0.95元至9.67元</strong> 之間的高度差異，以及 FactSet 分析師中位數目標價 <strong>346.92元</strong>。</p>
+
+<p>我們認為，晶心科的合理目標價區間應落在 <strong>380元至450元</strong>。此區間反映了其作為稀缺 IP 標的的長期成長溢價，以及 2026-2027 年高階產品營收和權利金放量帶來的獲利爆發潛力，同時也考量了短期營運費用壓力、市場競爭及營收波動的風險。投資者可逢低佈局，並長期追蹤其高階產品進展及權利金收入的實際認列狀況。</p>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:01</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="6533_晶心科_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="6533_晶心科_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="6533_晶心科_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

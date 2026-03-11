@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6869 雲豹能源 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>6869 雲豹能源 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>雲豹能源（6869）為全方位綠能整合投資集團，以儲能與綠電交易為雙核心引擎，2025年合併營收達74.69億元創歷史新高，年增96.9%，預計2026年邁入「高股利時代」，配發率目標達八成。公司積極佈局海外市場，複製光電與儲能專業能力至日本及東南亞，並計畫透過旗下子公司天能綠電與台普威能源的上市櫃，加速集團營運成長，目標十年內營收達千億元規模，奠定亞洲低碳新能源整合集團領導地位。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">6869 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-6869" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-6869" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-6869');
+    var obvContainer = document.getElementById('obv-chart-6869');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 95.6, "high": 96.0, "low": 94.2, "close": 95.0}, {"time": "2025-12-05", "open": 94.6, "high": 94.9, "low": 93.4, "close": 93.9}, {"time": "2025-12-08", "open": 95.2, "high": 101.5, "low": 95.2, "close": 96.9}, {"time": "2025-12-09", "open": 97.2, "high": 97.2, "low": 93.9, "close": 94.0}, {"time": "2025-12-10", "open": 94.3, "high": 94.3, "low": 92.9, "close": 93.3}, {"time": "2025-12-11", "open": 94.3, "high": 94.3, "low": 91.5, "close": 91.7}, {"time": "2025-12-12", "open": 92.6, "high": 93.7, "low": 91.9, "close": 92.4}, {"time": "2025-12-15", "open": 92.8, "high": 95.8, "low": 91.6, "close": 94.3}, {"time": "2025-12-16", "open": 94.1, "high": 97.5, "low": 93.9, "close": 94.5}, {"time": "2025-12-17", "open": 94.8, "high": 95.3, "low": 92.9, "close": 92.9}, {"time": "2025-12-18", "open": 92.6, "high": 93.7, "low": 92.0, "close": 92.1}, {"time": "2025-12-19", "open": 93.1, "high": 93.8, "low": 92.3, "close": 93.5}, {"time": "2025-12-22", "open": 93.9, "high": 94.8, "low": 93.3, "close": 94.1}, {"time": "2025-12-23", "open": 95.0, "high": 96.2, "low": 94.3, "close": 95.6}, {"time": "2025-12-24", "open": 96.5, "high": 97.9, "low": 95.9, "close": 95.9}, {"time": "2025-12-26", "open": 95.9, "high": 98.3, "low": 92.9, "close": 95.3}, {"time": "2025-12-29", "open": 96.2, "high": 97.3, "low": 93.9, "close": 93.9}, {"time": "2025-12-30", "open": 93.5, "high": 93.6, "low": 92.5, "close": 92.5}, {"time": "2025-12-31", "open": 92.5, "high": 92.6, "low": 91.2, "close": 91.4}, {"time": "2026-01-02", "open": 91.6, "high": 92.8, "low": 91.3, "close": 91.5}, {"time": "2026-01-05", "open": 92.3, "high": 93.2, "low": 90.5, "close": 92.7}, {"time": "2026-01-06", "open": 93.7, "high": 93.8, "low": 92.1, "close": 92.4}, {"time": "2026-01-07", "open": 92.0, "high": 92.6, "low": 91.3, "close": 91.4}, {"time": "2026-01-08", "open": 91.9, "high": 91.9, "low": 90.5, "close": 90.7}, {"time": "2026-01-09", "open": 91.0, "high": 91.9, "low": 89.5, "close": 91.4}, {"time": "2026-01-12", "open": 91.5, "high": 93.2, "low": 91.2, "close": 92.7}, {"time": "2026-01-13", "open": 94.6, "high": 99.8, "low": 94.6, "close": 96.3}, {"time": "2026-01-14", "open": 96.7, "high": 98.8, "low": 95.5, "close": 97.3}, {"time": "2026-01-15", "open": 98.6, "high": 98.6, "low": 94.8, "close": 95.4}, {"time": "2026-01-16", "open": 97.2, "high": 104.5, "low": 97.2, "close": 104.5}, {"time": "2026-01-19", "open": 112.5, "high": 112.5, "low": 104.0, "close": 109.0}, {"time": "2026-01-20", "open": 107.0, "high": 108.0, "low": 104.5, "close": 105.0}, {"time": "2026-01-21", "open": 104.5, "high": 108.5, "low": 102.5, "close": 103.0}, {"time": "2026-01-22", "open": 105.0, "high": 108.0, "low": 104.5, "close": 107.5}, {"time": "2026-01-23", "open": 113.0, "high": 118.0, "low": 111.5, "close": 118.0}, {"time": "2026-01-26", "open": 122.5, "high": 123.5, "low": 116.0, "close": 120.0}, {"time": "2026-01-27", "open": 119.5, "high": 119.5, "low": 115.0, "close": 116.0}, {"time": "2026-01-28", "open": 116.0, "high": 119.5, "low": 113.0, "close": 119.5}, {"time": "2026-01-29", "open": 118.0, "high": 118.0, "low": 113.0, "close": 113.5}, {"time": "2026-01-30", "open": 113.0, "high": 115.5, "low": 108.0, "close": 108.0}, {"time": "2026-02-02", "open": 104.5, "high": 109.0, "low": 104.5, "close": 107.5}, {"time": "2026-02-03", "open": 109.0, "high": 109.0, "low": 105.0, "close": 107.0}, {"time": "2026-02-04", "open": 106.0, "high": 111.0, "low": 105.5, "close": 110.0}, {"time": "2026-02-05", "open": 108.5, "high": 111.5, "low": 107.0, "close": 111.5}, {"time": "2026-02-06", "open": 109.0, "high": 109.5, "low": 105.5, "close": 105.5}, {"time": "2026-02-09", "open": 107.5, "high": 107.5, "low": 103.5, "close": 104.5}, {"time": "2026-02-10", "open": 104.0, "high": 108.0, "low": 104.0, "close": 106.0}, {"time": "2026-02-11", "open": 104.5, "high": 104.5, "low": 101.5, "close": 103.0}, {"time": "2026-02-23", "open": 102.0, "high": 103.0, "low": 100.0, "close": 102.5}, {"time": "2026-02-24", "open": 102.5, "high": 105.5, "low": 102.0, "close": 103.5}, {"time": "2026-02-25", "open": 104.5, "high": 113.5, "low": 104.5, "close": 113.5}, {"time": "2026-02-26", "open": 111.0, "high": 111.5, "low": 107.5, "close": 109.5}, {"time": "2026-03-02", "open": 106.5, "high": 117.0, "low": 102.5, "close": 110.5}, {"time": "2026-03-03", "open": 113.0, "high": 113.5, "low": 105.0, "close": 107.5}, {"time": "2026-03-04", "open": 106.5, "high": 117.0, "low": 102.5, "close": 110.5}, {"time": "2026-03-05", "open": 109.5, "high": 114.0, "low": 108.0, "close": 108.5}, {"time": "2026-03-06", "open": 108.5, "high": 110.0, "low": 105.5, "close": 107.5}, {"time": "2026-03-09", "open": 103.5, "high": 112.0, "low": 101.0, "close": 106.0}, {"time": "2026-03-10", "open": 106.5, "high": 107.0, "low": 103.5, "close": 105.0}, {"time": "2026-03-11", "open": 107.5, "high": 110.5, "low": 106.0, "close": 110.5}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 368.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 500.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 2323.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 798.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 570.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 847.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 393.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 852.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 1163.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 502.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 435.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 428.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 405.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 615.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 718.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 1430.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 621.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 555.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 726.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 464.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 847.0, "color": "#ef5350"}, {"time": "2026-01-06", "value": 527.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 512.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 569.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 686.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 865.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 3285.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 1748.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 896.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 2244.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 7497.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 1982.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 1722.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 1577.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 2342.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 6280.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 1608.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 2011.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 1628.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 1681.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 924.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 728.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 771.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 1096.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 1074.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 687.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 732.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 892.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 836.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 831.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 2564.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 3734.0, "color": "#26a69a"}, {"time": "2026-03-02", "value": 3897.0, "color": "#ef5350"}, {"time": "2026-03-03", "value": 1197.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 3897.0, "color": "#ef5350"}, {"time": "2026-03-05", "value": 1918.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 1035.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 2474.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 971.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 1720.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 94.62}, {"time": "2025-12-11", "value": 93.96000000000001}, {"time": "2025-12-12", "value": 93.66}, {"time": "2025-12-15", "value": 93.14}, {"time": "2025-12-16", "value": 93.24}, {"time": "2025-12-17", "value": 93.16}, {"time": "2025-12-18", "value": 93.24}, {"time": "2025-12-19", "value": 93.46000000000001}, {"time": "2025-12-22", "value": 93.42}, {"time": "2025-12-23", "value": 93.64}, {"time": "2025-12-24", "value": 94.24}, {"time": "2025-12-26", "value": 94.88}, {"time": "2025-12-29", "value": 94.96000000000001}, {"time": "2025-12-30", "value": 94.64}, {"time": "2025-12-31", "value": 93.8}, {"time": "2026-01-02", "value": 92.92}, {"time": "2026-01-05", "value": 92.4}, {"time": "2026-01-06", "value": 92.1}, {"time": "2026-01-07", "value": 91.88000000000001}, {"time": "2026-01-08", "value": 91.74000000000001}, {"time": "2026-01-09", "value": 91.72}, {"time": "2026-01-12", "value": 91.72}, {"time": "2026-01-13", "value": 92.5}, {"time": "2026-01-14", "value": 93.67999999999999}, {"time": "2026-01-15", "value": 94.62}, {"time": "2026-01-16", "value": 97.24}, {"time": "2026-01-19", "value": 100.5}, {"time": "2026-01-20", "value": 102.24}, {"time": "2026-01-21", "value": 103.38}, {"time": "2026-01-22", "value": 105.8}, {"time": "2026-01-23", "value": 108.5}, {"time": "2026-01-26", "value": 110.7}, {"time": "2026-01-27", "value": 112.9}, {"time": "2026-01-28", "value": 116.2}, {"time": "2026-01-29", "value": 117.4}, {"time": "2026-01-30", "value": 115.4}, {"time": "2026-02-02", "value": 112.9}, {"time": "2026-02-03", "value": 111.1}, {"time": "2026-02-04", "value": 109.2}, {"time": "2026-02-05", "value": 108.8}, {"time": "2026-02-06", "value": 108.3}, {"time": "2026-02-09", "value": 107.7}, {"time": "2026-02-10", "value": 107.5}, {"time": "2026-02-11", "value": 106.1}, {"time": "2026-02-23", "value": 104.3}, {"time": "2026-02-24", "value": 103.9}, {"time": "2026-02-25", "value": 105.7}, {"time": "2026-02-26", "value": 106.4}, {"time": "2026-03-02", "value": 107.9}, {"time": "2026-03-03", "value": 108.9}, {"time": "2026-03-04", "value": 110.3}, {"time": "2026-03-05", "value": 109.3}, {"time": "2026-03-06", "value": 108.9}, {"time": "2026-03-09", "value": 108.0}, {"time": "2026-03-10", "value": 107.5}, {"time": "2026-03-11", "value": 107.5}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 93.89}, {"time": "2025-12-18", "value": 93.6}, {"time": "2025-12-19", "value": 93.56}, {"time": "2025-12-22", "value": 93.28}, {"time": "2025-12-23", "value": 93.44}, {"time": "2025-12-24", "value": 93.7}, {"time": "2025-12-26", "value": 94.06}, {"time": "2025-12-29", "value": 94.21000000000001}, {"time": "2025-12-30", "value": 94.03}, {"time": "2025-12-31", "value": 93.72}, {"time": "2026-01-02", "value": 93.58}, {"time": "2026-01-05", "value": 93.64}, {"time": "2026-01-06", "value": 93.53}, {"time": "2026-01-07", "value": 93.26}, {"time": "2026-01-08", "value": 92.77000000000001}, {"time": "2026-01-09", "value": 92.32000000000001}, {"time": "2026-01-12", "value": 92.06}, {"time": "2026-01-13", "value": 92.3}, {"time": "2026-01-14", "value": 92.78}, {"time": "2026-01-15", "value": 93.18}, {"time": "2026-01-16", "value": 94.48}, {"time": "2026-01-19", "value": 96.11}, {"time": "2026-01-20", "value": 97.37}, {"time": "2026-01-21", "value": 98.53}, {"time": "2026-01-22", "value": 100.21000000000001}, {"time": "2026-01-23", "value": 102.87}, {"time": "2026-01-26", "value": 105.6}, {"time": "2026-01-27", "value": 107.57000000000001}, {"time": "2026-01-28", "value": 109.79}, {"time": "2026-01-29", "value": 111.6}, {"time": "2026-01-30", "value": 111.95}, {"time": "2026-02-02", "value": 111.8}, {"time": "2026-02-03", "value": 112.0}, {"time": "2026-02-04", "value": 112.7}, {"time": "2026-02-05", "value": 113.1}, {"time": "2026-02-06", "value": 111.85}, {"time": "2026-02-09", "value": 110.3}, {"time": "2026-02-10", "value": 109.3}, {"time": "2026-02-11", "value": 107.65}, {"time": "2026-02-23", "value": 106.55}, {"time": "2026-02-24", "value": 106.1}, {"time": "2026-02-25", "value": 106.7}, {"time": "2026-02-26", "value": 106.95}, {"time": "2026-03-02", "value": 107.0}, {"time": "2026-03-03", "value": 106.6}, {"time": "2026-03-04", "value": 107.1}, {"time": "2026-03-05", "value": 107.5}, {"time": "2026-03-06", "value": 107.65}, {"time": "2026-03-09", "value": 107.95}, {"time": "2026-03-10", "value": 108.2}, {"time": "2026-03-11", "value": 108.9}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 93.735}, {"time": "2026-01-05", "value": 93.62}, {"time": "2026-01-06", "value": 93.545}, {"time": "2026-01-07", "value": 93.27000000000001}, {"time": "2026-01-08", "value": 93.10499999999999}, {"time": "2026-01-09", "value": 93.01}, {"time": "2026-01-12", "value": 93.06}, {"time": "2026-01-13", "value": 93.255}, {"time": "2026-01-14", "value": 93.405}, {"time": "2026-01-15", "value": 93.45}, {"time": "2026-01-16", "value": 94.03}, {"time": "2026-01-19", "value": 94.875}, {"time": "2026-01-20", "value": 95.45}, {"time": "2026-01-21", "value": 95.89500000000001}, {"time": "2026-01-22", "value": 96.49}, {"time": "2026-01-23", "value": 97.595}, {"time": "2026-01-26", "value": 98.83000000000001}, {"time": "2026-01-27", "value": 99.935}, {"time": "2026-01-28", "value": 101.285}, {"time": "2026-01-29", "value": 102.39}, {"time": "2026-01-30", "value": 103.215}, {"time": "2026-02-02", "value": 103.955}, {"time": "2026-02-03", "value": 104.68499999999999}, {"time": "2026-02-04", "value": 105.61500000000001}, {"time": "2026-02-05", "value": 106.655}, {"time": "2026-02-06", "value": 107.35999999999999}, {"time": "2026-02-09", "value": 107.95}, {"time": "2026-02-10", "value": 108.43499999999999}, {"time": "2026-02-11", "value": 108.72}, {"time": "2026-02-23", "value": 109.075}, {"time": "2026-02-24", "value": 109.025}, {"time": "2026-02-25", "value": 109.25}, {"time": "2026-02-26", "value": 109.475}, {"time": "2026-03-02", "value": 109.85}, {"time": "2026-03-03", "value": 109.85}, {"time": "2026-03-04", "value": 109.475}, {"time": "2026-03-05", "value": 108.9}, {"time": "2026-03-06", "value": 108.475}, {"time": "2026-03-09", "value": 107.8}, {"time": "2026-03-10", "value": 107.375}, {"time": "2026-03-11", "value": 107.5}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -500.0}, {"time": "2025-12-08", "value": 1823.0}, {"time": "2025-12-09", "value": 1025.0}, {"time": "2025-12-10", "value": 455.0}, {"time": "2025-12-11", "value": -392.0}, {"time": "2025-12-12", "value": 1.0}, {"time": "2025-12-15", "value": 853.0}, {"time": "2025-12-16", "value": 2016.0}, {"time": "2025-12-17", "value": 1514.0}, {"time": "2025-12-18", "value": 1079.0}, {"time": "2025-12-19", "value": 1507.0}, {"time": "2025-12-22", "value": 1912.0}, {"time": "2025-12-23", "value": 2527.0}, {"time": "2025-12-24", "value": 3245.0}, {"time": "2025-12-26", "value": 1815.0}, {"time": "2025-12-29", "value": 1194.0}, {"time": "2025-12-30", "value": 639.0}, {"time": "2025-12-31", "value": -87.0}, {"time": "2026-01-02", "value": 377.0}, {"time": "2026-01-05", "value": 1224.0}, {"time": "2026-01-06", "value": 697.0}, {"time": "2026-01-07", "value": 185.0}, {"time": "2026-01-08", "value": -384.0}, {"time": "2026-01-09", "value": 302.0}, {"time": "2026-01-12", "value": 1167.0}, {"time": "2026-01-13", "value": 4452.0}, {"time": "2026-01-14", "value": 6200.0}, {"time": "2026-01-15", "value": 5304.0}, {"time": "2026-01-16", "value": 7548.0}, {"time": "2026-01-19", "value": 15045.0}, {"time": "2026-01-20", "value": 13063.0}, {"time": "2026-01-21", "value": 11341.0}, {"time": "2026-01-22", "value": 12918.0}, {"time": "2026-01-23", "value": 15260.0}, {"time": "2026-01-26", "value": 21540.0}, {"time": "2026-01-27", "value": 19932.0}, {"time": "2026-01-28", "value": 21943.0}, {"time": "2026-01-29", "value": 20315.0}, {"time": "2026-01-30", "value": 18634.0}, {"time": "2026-02-02", "value": 17710.0}, {"time": "2026-02-03", "value": 16982.0}, {"time": "2026-02-04", "value": 17753.0}, {"time": "2026-02-05", "value": 18849.0}, {"time": "2026-02-06", "value": 17775.0}, {"time": "2026-02-09", "value": 17088.0}, {"time": "2026-02-10", "value": 17820.0}, {"time": "2026-02-11", "value": 16928.0}, {"time": "2026-02-23", "value": 16092.0}, {"time": "2026-02-24", "value": 16923.0}, {"time": "2026-02-25", "value": 19487.0}, {"time": "2026-02-26", "value": 15753.0}, {"time": "2026-03-02", "value": 19650.0}, {"time": "2026-03-03", "value": 18453.0}, {"time": "2026-03-04", "value": 22350.0}, {"time": "2026-03-05", "value": 20432.0}, {"time": "2026-03-06", "value": 19397.0}, {"time": "2026-03-09", "value": 16923.0}, {"time": "2026-03-10", "value": 15952.0}, {"time": "2026-03-11", "value": 17672.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>雲豹能源是一家全方位的綠能整合投資集團，業務涵蓋再生能源電廠開發、投資、建置及維運管理。近年來已成功轉型，以「儲能」與「綠電交易」為雙核心獲利引擎。</p>
+
+<strong>核心產品與服務：</strong>
+<ul><li><strong>太陽光電：</strong> 電廠開發、投資、建置與維運。</li>
+<li><strong>儲能：</strong> 提供儲能系統工程服務，並建置大型儲能案場，透過子公司台普威能源。</li>
+<li><strong>綠電交易/售電平台：</strong> 透過子公司天能綠電提供綠電交易服務，穩居國內民營售電業龍頭。</li>
+<li><strong>水處理：</strong> 提供水處理工程服務，帶來穩定營收。</li>
+<li><strong>風力發電：</strong> 策略性投資離岸風電產業鏈。</li>
+<li><strong>永續循環/循環經濟：</strong> 新佈局業務，包含有機質廢棄物再利用及生質能蒸氣廠等。</li>
+<li><strong>資產管理：</strong> 成立「雲豹資產管理公司」，目標到2026年達成10億美元資產規模。</li>
+<li><strong>智慧電能與AI能源管理：</strong> 提供智慧電能、AI能源管理、碳顧問與零碳技術等。</li>
+</ul>
+<strong>2025年營收結構（依業務劃分）：</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>營收金額 (新台幣億元)</th><th>佔比 (%)</th></tr></thead><tbody>
+<tr><td>儲能工程</td><td>29.4</td><td>39</td></tr>
+<tr><td>售電事業</td><td>23.8</td><td>32</td></tr>
+<tr><td>維運、水處理及其他業務</td><td>21.49</td><td>29</td></tr>
+<tr><td><strong>總計</strong></td><td><strong>74.69</strong></td><td><strong>100</strong></td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+<li><strong>綠電交易龍頭地位：</strong> 旗下子公司天能綠電已簽訂超過250億度綠電長約，並穩居國內民營售電業第一，具備強大市場議價能力與穩定現金流。</li>
+<li><strong>全方位綠能整合能力：</strong> 業務涵蓋太陽光電、儲能、綠電交易、水處理、風電及循環經濟，能提供客戶一站式解決方案，降低單一業務風險。</li>
+<li><strong>大型儲能案場實績：</strong> 擁有全台最大光儲工程統包案及多個大型儲能案場建置經驗，子公司台普威能源為儲能系統整合領導者。</li>
+<li><strong>積極海外市場拓展：</strong> 成功複製經驗至日本及東南亞（菲律賓、泰國、越南），多元化營收來源，掌握區域能源轉型商機。</li>
+<li><strong>高科技客戶群基礎：</strong> 綠電交易客戶涵蓋半導體、光電、金融等高耗能、高綠電需求產業，受益於AI與資料中心擴張趨勢。</li>
+<li><strong>子公司資本市場助力：</strong> 天能綠電預計轉上櫃、台普威能源預計登錄興櫃，將有助於提升集團評價與籌資能力。</li>
+
+<h2>財務分析</h2>
+
+<h3>近六個月月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣千元)</th><th>月增率 MoM (%)</th><th>年增率 YoY (%)</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>355,674</td><td>-65.32</td><td>23.19</td></tr>
+<tr><td>2025年12月</td><td>1,025,477</td><td>149.51</td><td>112.13</td></tr>
+<tr><td>2025年11月</td><td>411,004</td><td>-24.14</td><td>53.13</td></tr>
+<tr><td>2025年10月</td><td>541,764</td><td>-35.4</td><td>32.9</td></tr>
+<tr><td>2025年9月</td><td>838,660</td><td>160.11</td><td>276.46</td></tr>
+<tr><td>2025年8月</td><td>322,420</td><td>-56.69</td><td>76.83</td></tr>
+</tbody></table></div>
+
+<h3>2025年季度數據</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>季營收 (新台幣億元)</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>EPS (新台幣元)</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>19.1</td><td>10.21</td><td>1.84</td><td>-0.49</td></tr>
+<tr><td>2025年第四季</td><td><em>資料未提供</em></td><td><em>資料未提供</em></td><td><em>資料未提供</em></td><td><em>資料未提供</em></td></tr>
+</tbody></table></div>
+
+<h3>全年度營收與 EPS</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>全年營收 (新台幣億元)</th><th>EPS (新台幣元)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2024年實際</td><td>37.93</td><td>8.89</td><td>歷史新高</td></tr>
+<tr><td>2025年預估</td><td>74.69</td><td>5.49</td><td>CMoney預估 (74.69億元) / 康和證券預估 (5.49元)</td></tr>
+<tr><td></td><td>69.52</td><td>3.03</td><td>康和證券預估 (69.52億元) / 國泰證券預估 (3.03元)</td></tr>
+<tr><td></td><td>73.00</td><td>0.93</td><td>國泰證券預估 (73億元) / 統一證券預估 (0.93元)</td></tr>
+<tr><td></td><td>71.76</td><td></td><td>統一證券預估</td></tr>
+</tbody></table></div>
+<em>註：2025年實際營收74.69億元已於2026年2月5日/6日公布，此數字與CMoney原先預估值相符。各券商對2025年EPS預估差異較大。</em>
+
+<h2>法說會重點</h2>
+<strong>最近一次法說會日期：</strong> 2025年11月20日
+
+<strong>管理層對各產品線的具體Guidance：</strong>
+<ul><li><strong>綠電交易：</strong></li>
+</ul>    *   截至2025年10月，天能綠電合約總度數已達250億度，預計未來三到五年將翻倍成長至500億度。
+<p>*   預計2025年轉供4.3億度，2026年增加至6.6億度，2027年進一步提升至8.8億度。</p>
+<ul><li><strong>儲能：</strong></li>
+</ul>    *   旗下台普威能源與錸寶科技合作推進60MW/205.6MWh大型儲能案場，工程總金額約新台幣30億元，預計2026年上半年商轉。
+<p>*   日本多處儲能案場已陸續開工，預期可貢獻2026年全年營收約10-15%。</p>
+<p>*   2026年日本儲能開工量預計提升至78MW，2027年日本目標開發儲能案場容量達262MW。</p>
+<ul><li><strong>太陽光電：</strong></li>
+</ul>    *   集團累積開發及自持容量已突破1GW。
+<p>*   預估2026年光電目標開工153MW。</p>
+<p>*   海外市場方面，開發中容量合計超過500MW。</p>
+<ul><li><strong>水處理：</strong> 預計2025年至2027年每年可貢獻約新台幣9至10億元營收。台北市濱江水資源再生中心案已於2025年第一季開工。</li>
+</ul>
+<strong>管理層給出的下季/下半年Guidance：</strong>
+<ul><li>管理層表示，2025年是雲豹能源未來三年高度成長的元年。</li>
+<li>預計2025年第四季日本市場將有突破性進展，可望貢獻集團整體營收5-10%。</li>
+<li>公司鎖定2026年邁入「高股利時代」，配發率預計達8成。</li>
+<li>2026年營收期望再創新高，預期將迎來「豐收之年」。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<h3>券商目標價與評等</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>康和證券</td><td>152</td><td>買進</td><td>2025年10月2日</td></tr>
+<tr><td>國泰證券</td><td>117</td><td>買進</td><td>2025年12月2日</td></tr>
+<tr><td>統一證券</td><td>116</td><td>買進</td><td>2025年12月1日</td></tr>
+</tbody></table></div>
+
+<h3>券商對 2025-2026年 EPS 預估</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>2025年 EPS 預估 (新台幣元)</th><th>2026年 EPS 預估 (新台幣元)</th></tr></thead><tbody>
+<tr><td>康和證券</td><td>5.49</td><td><em>未提供</em></td></tr>
+<tr><td>國泰證券</td><td>3.03</td><td><em>未提供</em></td></tr>
+<tr><td>統一證券</td><td>0.93</td><td><em>未提供</em></td></tr>
+</tbody></table></div>
+<em>註：法人圈普遍預估2026年EPS有望挑戰10元歷史新高。</em>
+
+<strong>重大評等調升/調降：</strong>
+<p>目前未找到雲豹能源（6869）近期有重大調升或調降評等的具體報告，現有券商報告多維持「看多」評等。</p>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢 (近七季)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季別</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅前淨利率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2025Q3</td><td>10.21</td><td>1.84</td><td>-2.95</td><td>-3.71</td></tr>
+<tr><td>2025Q2</td><td>8.38</td><td>2.23</td><td>22.64</td><td>21.26</td></tr>
+<tr><td>2025Q1</td><td>11.16</td><td>-2.10</td><td>-26.91</td><td>-26.30</td></tr>
+<tr><td>2024Q4</td><td>8.93</td><td>-7.03</td><td>83.81</td><td>85.41</td></tr>
+<tr><td>2024Q3</td><td>13.19</td><td>-10.14</td><td>-2.28</td><td>0.15</td></tr>
+<tr><td>2024Q2</td><td>18.66</td><td>1.77</td><td>14.07</td><td>13.51</td></tr>
+<tr><td>2024Q1</td><td>23.01</td><td>4.64</td><td>5.86</td><td>5.14</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化的原因分析：</strong>
+<ul><li><strong>2025年前三季營收成長與營業利益提升</strong>：主要受惠於儲能案場陸續完工與綠電交易快速成長所帶動。特別是2025年第三季綠電交易營收達6.4億元，年增118%，顯示穩健成長。</li>
+<li><strong>2025年第三季轉虧</strong>：雲豹能源於2025年第三季因受丹妮絲等災損，導致單季再度陷入虧損，每股虧損0.49元。</li>
+<li><strong>產品組合影響</strong>：在2025年上半年，工程收入佔比56.8% (20.4億元)，發售電收入佔比30.5% (10.9億元)。公司預期隨著高毛利的售電收入與維運服務比重提升，未來毛利率有望穩定回升至15%-18%。</li>
+<li><strong>未來展望</strong>：公司預期隨著多處綠能案場陸續完工併網、子公司營收貢獻持續挹注，2025年第四季將延續成長動能，強化全年營運表現。</li>
+</ul>
+<h3>存貨分析與資本支出</h3>
+<ul><li><strong>近3年資本支出金額與趨勢：</strong> 目前未提供2024-2026年具體資本支出金額與趨勢資料。</li>
+<li><strong>未來資本支出計畫與預計新增產能：</strong></li>
+</ul>    *   子公司台普威能源與錸寶科技合作推進的60MW／205.6MWh大型儲能案場，工程總金額達新台幣30億元，預計於2026年上半年商轉。
+<p>*   公司國內有兩座大型光電案場及小型專案穩定推進，海外市場開發中容量合計超過500MW。</p>
+<p>*   日本多處儲能案場已陸續開工，預計將在2026年貢獻全年營收約10-15%。</p>
+<ul><li><strong>折舊攤銷趨勢：</strong> 未提供2024-2026年具體折舊攤銷趨勢資料。</li>
+<li><strong>近4季存貨金額與存貨週轉天數趨勢：</strong> 未提供2024-2026年具體資料。</li>
+<li><strong>應收帳款週轉天數趨勢：</strong> 未提供2024-2026年具體資料。</li>
+<li><strong>存貨是否有異常堆積或備料現象：</strong> 未找到2025-2026年相關最新資料。</li>
+</ul>
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓紀錄：</strong> 未找到2024-2026年最新紀錄。</li>
+<li><strong>庫藏股買回紀錄：</strong> 未找到2024-2026年最新紀錄。</li>
+<li><strong>發行可轉換公司債（CB）及轉換價格：</strong> 未找到2024-2026年最新資料。</li>
+<li><strong>現金增資或減資計畫：</strong> 未找到2024-2026年最新資料。</li>
+<li><strong>股利政策：</strong> 公司預估2026年獲利將比2025年更佳，將積極推進「高股利策略」，配發率目標達八成，期望受到「高股息族群」青睞。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>市場規模與CAGR成長率</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>市場類別</th><th>2025年市場規模 (預估)</th><th>2026年市場規模 (預估)</th><th>2026-2034年 CAGR (預估)</th></tr></thead><tbody>
+<tr><td>全球再生能源</td><td>1.0787兆美元</td><td>1.13871兆美元</td><td>6.17%</td></tr>
+<tr><td>全球太陽光電</td><td>5,028.4億美元</td><td>6,326.1億美元</td><td>14.56%</td></tr>
+<tr><td>全球儲能電池出貨量</td><td>&gt;640GWh</td><td>&gt;1,000GWh</td><td>57% (2025-2026 YoY)</td></tr>
+<tr><td>全球水處理系統</td><td>451.5億美元</td><td>488.3億美元</td><td>8.15%</td></tr>
+<tr><td>全球水和廢水處理</td><td>3,723.9億美元</td><td>4,003.2億美元</td><td>7.50%</td></tr>
+</tbody></table></div>
+
+<h3>供需狀況</h3>
+<ul><li><strong>太陽光電：</strong> 2025年全球太陽光電市場因產能過剩與價格下跌，加速市場集中化。電網瓶頸與技術人力不足仍為發展限制。2025年底全球太陽能板安裝量達500GW高峰，中國佔一半以上。預計2026年中國太陽能年新增發電量將從2025年約300GW驟降至200GW，帶動全球首次年度下滑。</li>
+<li><strong>儲能：</strong> 2025年全球儲能市場呈現爆發性增長，需求側將儲能電芯供需格局從「供過於求」帶向「緊平衡」，部分型號儲能電芯因「供不應求」出現漲價。2026年，AI時代的用電焦慮可能驅動AI資料中心配儲需求成為新增量引擎。預計2025年與2026年國內儲能新增裝機有望達到150GWh、203GWh；預計2025年全球儲能新增裝機約為290GWh，2030年有望達到1.17TWh。</li>
+</ul>
+<h3>產業平均毛利率水準</h3>
+<ul><li><strong>雲豹能源 (2025年Q3)：</strong> 10.21%。</li>
+<li><strong>雲豹能源工程類：</strong> 介於10-15%，代操合約可達20-30%。</li>
+<li><strong>儲能工程：</strong> 被視為高毛利領域。</li>
+</ul>
+<h3>競爭格局</h3>
+
+<strong>全球儲能系統集成商 (交流側) - 2025年Q1</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>排名</th><th>公司名稱</th><th>市佔率 (2025年Q1)</th></tr></thead><tbody>
+<tr><td>1</td><td>陽光電源</td><td><em>未提供</em></td></tr>
+<tr><td>2</td><td>Tesla</td><td><em>未提供</em></td></tr>
+<tr><td>3</td><td>比亞迪儲能</td><td><em>未提供</em></td></tr>
+<tr><td>4</td><td>海博思創</td><td><em>未提供</em></td></tr>
+<tr><td>5</td><td>中車株洲所</td><td><em>未提供</em></td></tr>
+</tbody></table></div>
+<em>註：陽光電源超越特斯拉登頂全球第一，比亞迪儲能首次躋身前三。</em>
+
+<strong>全球儲能系統集成商 (整體) - 2025年</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>排名</th><th>公司名稱</th><th>市佔率 (2025年)</th></tr></thead><tbody>
+<tr><td>1</td><td>特斯拉</td><td>15%</td></tr>
+<tr><td>2</td><td>陽光電源</td><td>14%</td></tr>
+<tr><td>3</td><td>中國中車</td><td>8%</td></tr>
+</tbody></table></div>
+<em>註：前三名合計市佔率為37%。全球前十大儲能系統集成商中有7家為中國企業。</em>
+
+<strong>全球戶儲系統廠商 (排名)</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>排名</th><th>公司名稱</th></tr></thead><tbody>
+<tr><td>1</td><td>Tesla</td></tr>
+<tr><td>2</td><td>華為</td></tr>
+<tr><td>3</td><td>比亞迪</td></tr>
+<tr><td>4</td><td>派能科技</td></tr>
+<tr><td>5</td><td>陽光電源</td></tr>
+</tbody></table></div>
+<em>註：戶儲市場CR5僅47.7%，競爭激烈。</em>
+
+<strong>雲豹能源 vs 主要競爭對手 (台灣市場)</strong>
+<p>雲豹能源在台灣市場，特別是綠電交易領域，子公司天能綠電已穩居國內民營售電業龍頭地位。</p>
+<ul><li><strong>客戶：</strong> 天能綠電與日月光、美光、Gogoro、玉山金控等國內外知名企業建立長期合作關係。</li>
+<li><strong>產能/轉供量：</strong> 天能綠電2024年轉供1.8億度，2025年已簽約預計轉供4.3億度，長約保障已達160億度，合約總價值約880億元。</li>
+<li><strong>儲能：</strong> 旗下台普威能源與錸寶科技合作推進60MW／205.6MWh全台最大光儲工程統包案。</li>
+<li><strong>台灣同業：</strong> 天方能源(3073)、森崴能源(6806)、三地能源(6946)、富威電力(6994)、美格儲能(7409)、天能綠電(7842)。</li>
+</ul>    *   <strong>雲豹能源 (6869) 2025年財務數據：</strong>
+<p>*   全年營收：74.69億元。</p>
+<p>*   Q1毛利率：11.2%。Q3毛利率：10.21%。</p>
+<p>*   Q1 EPS：-1.77元。2025年EPS (預估)：1.57元。</p>
+<p>*   2024年EPS：8.89元。</p>
+<p>*   2025年9月營業毛利率：9.52%。稅後淨利率：3.97%。</p>
+<p>*   2025年股利：現金股利5.01元。</p>
+    <em>   </em>台灣其他同業的2025-2026年最新營收、毛利率、EPS數據未提供具體且可直接比較的公開資料。*
+
+<h3>產業趨勢</h3>
+<li><strong>AI與智慧電網整合：</strong> AI驅動數據中心電力需求倍增，全球數據中心電力需求預計在2026年成長17%，並在2030年以前每年保持14%成長。AI能優化再生能源整合至電網，提升電網韌性與效率，確保穩定供電。</li>
+<li><strong>儲能技術的進步與多元化：</strong> 隨著再生能源占比提高，儲能系統成為電網穩定的關鍵。長時儲能（≧4小時）裝機佔比提升，電池儲能系統（BESS）市場快速發展。技術迭代、本地化運營和產業鏈協同將是決勝關鍵。</li>
+<li><strong>綠電交易模式演變與全球供應鏈重組：</strong> 綠電交易從「保價收購」轉向「競價模式」，淘汰弱勢業者。全球供應鏈面臨重組，特別是中國在電池供應鏈的主導地位受挑戰，如美國FEOC規範可能導致供應鏈瓶頸，各國將加強本土供應鏈。</li>
+
+<h3>對雲豹能源的具體機會和威脅</h3>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>AI驅動的綠電與儲能需求：</strong> 台灣半導體與AI資料中心擴張，對綠電與穩定供電需求強勁，雲豹能源作為綠電與儲能供應商直接受惠。
+<p>*   <strong>綠電交易龍頭地位：</strong> 天能綠電的龍頭地位與大量長約確保穩定獲利，並能因應高科技客戶的RE100需求。</p>
+<p>*   <strong>多元化佈局：</strong> 從光電轉型為儲能、綠電雙核心，並拓展水處理、循環經濟等，分散風險並抓住多重成長機會。</p>
+<p>*   <strong>海外市場拓展：</strong> 日本及東南亞市場的儲能與光電案場逐步貢獻營收，提供新的成長動能。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>太陽能產業競爭加劇：</strong> 全球太陽能市場因產能過剩和價格下跌，可能對雲豹能源的太陽能業務毛利率造成壓力。
+<p>*   <strong>政策變動與供應鏈挑戰：</strong> 各國能源政策轉向、貿易保護主義（如FEOC）及全球供應鏈重組，可能影響海外業務拓展成本與時程。</p>
+<p>*   <strong>電網穩定與技術人力限制：</strong> 台灣電網基礎設施與技術人力不足可能限制再生能源併網速度。</p>
+
+<h3>相關投資題材連結</h3>
+<ul><li><strong>AI與綠電/儲能：</strong> AI算力設施對電力需求倍增，特別是AI資料中心對綠電與儲能調頻的需求攀升，雲豹能源直接受益。</li>
+<li><strong>電動車與儲能：</strong> 電動車普及增加電力需求及充電基礎設施建設，儲能系統在其中扮演關鍵角色。</li>
+<li><strong>HBM（高頻寬記憶體）：</strong> HBM生產為高耗能產業，對綠電需求日益增加，間接推動對雲豹能源綠電交易業務的需求。</li>
+</ul>
+<h2>近期催化劑</h2>
+<ul><li><strong>2026年03月05日：</strong> 外資賣超366張，自營商賣超26張，總計三大法人賣超390張。</li>
+<li><strong>2026年03月04日：</strong> 股價盤中上漲3.26%至111元，受綠電與儲能長線成長題材支撐。外資買超218張，自營商買超24張，總計三大法人買超242張。</li>
+<li><strong>2026年03月03日：</strong> 外資賣超140張，自營商賣超10張，總計三大法人賣超150張。</li>
+<li><strong>2026年03月02日：</strong> 外資買超51張，自營商買超4張，總計三大法人買超55張。</li>
+<li><strong>2026年02月26日：</strong> 外資賣超359張，自營商賣超20張，總計三大法人賣超379張。</li>
+<li><strong>2026年02月25日：</strong> 海外布局策略積極推動，鎖定日本與東南亞。2025年營收結構中，儲能占比39%、售電占比32%，合計逾七成。外資買超535張，自營商買超40張，總計三大法人買超575張。</li>
+<li><strong>2026年02月05日/06日：</strong> 雲豹能源歡慶成立十週年，啟動十年經營計畫，目標集團營收達千億元規模。旗下子公司天能綠電與台普威能源預計於今年（2026年）第二季分別推進上櫃與登錄興櫃。公布2025年合併營收達新台幣74.69億元，年增96.9%，創歷史新高。</li>
+<li><strong>2026年01月23日：</strong> 法人圈預估雲豹能源2026年EPS有望挑戰10元歷史新高。公司正式宣布2026年將邁入「高股利元年」，盈餘配發率目標直衝80%。</li>
+<li><strong>2026年01月22日：</strong> 子公司台普威能源取得全台最大光儲案工程統包，與和暄綠能合作。</li>
+<li><strong>2026年01月：</strong> 2026年1月合併營收為3.56億元，年增23.19%。</li>
+<li><strong>2025年12月05日：</strong> 子公司天能綠電與國內電信龍頭中華電信簽訂46億度綠電長約，自2027年至2047年為期20年。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能類別</th><th>具體項目</th><th>相關數據</th></tr></thead><tbody>
+<tr><td><strong>2025年Q4</strong></td><td>新市場</td><td>日本市場儲能業務突破性進展</td><td>預計貢獻集團整體營收5-10%</td></tr>
+<tr><td><strong>2026年1月20日</strong></td><td>新客戶/市場</td><td>子公司天能綠電獲櫃買中心正式審議通過股票上櫃申請案</td><td>將推動集團評價與營運動能</td></tr>
+<tr><td><strong>2026年1月22日</strong></td><td>產能/擴廠</td><td>子公司台普威能源取得全台最大光儲工程統包案</td><td>與和暄綠能合作，48MW／185.7MWh</td></tr>
+<tr><td><strong>2026年2月</strong></td><td>營運成果</td><td>公布2025年合併營收</td><td>達新台幣74.69億元，年增96.9%，創歷史新高</td></tr>
+<tr><td><strong>2026年Q2</strong></td><td>擴廠/產能</td><td>台中60MW/180MWh E-dReg儲能案場預計上線</td><td></td></tr>
+<tr><td><strong>2026年Q2</strong></td><td>新客戶/市場</td><td>子公司天能綠電預計轉上櫃，台普威能源預計登錄興櫃</td><td>將成為集團營運新引擎</td></tr>
+<tr><td><strong>2026年上半年</strong></td><td>擴廠/產能</td><td>與錸寶科技合作的60MW／205.6MWh大型儲能案場預計商轉</td><td>工程總金額約新台幣30億元</td></tr>
+<tr><td><strong>2026年</strong></td><td>產能/擴廠</td><td>日本儲能開工量提升</td><td>預計達78MW，全年貢獻集團營收約10-15%</td></tr>
+<tr><td><strong>2026年</strong></td><td>產能/擴廠</td><td>光電目標開工量</td><td>153MW</td></tr>
+<tr><td><strong>2026年</strong></td><td>產能/擴廠</td><td>其他綠能工程開工量</td><td>100MW</td></tr>
+<tr><td><strong>2026年</strong></td><td>需求/成長</td><td>天能綠電預計轉供度數</td><td>增至6.6億度</td></tr>
+<tr><td><strong>2026年</strong></td><td>股利政策</td><td>邁入「高股利時代」</td><td>配發率目標達八成</td></tr>
+<tr><td><strong>2026年起</strong></td><td>擴廠/產能</td><td>嘉義120MW漁電共生案場逐步貢獻營收</td><td></td></tr>
+<tr><td><strong>2026年起</strong></td><td>新市場</td><td>菲律賓200MW新案場預計貢獻營收</td><td></td></tr>
+<tr><td><strong>2027年</strong></td><td>需求/成長</td><td>天能綠電預計轉供度數</td><td>進一步提升至8.8億度</td></tr>
+<tr><td><strong>2027年前</strong></td><td>擴廠/產能</td><td>台普威能源結盟日本GREEN ENERGY，共同開發20座高壓儲能案場及2座特高壓案場</td><td>日本目標開發儲能案場容量達262MW</td></tr>
+<tr><td><strong>2027年起</strong></td><td>新客戶</td><td>天能綠電與中華電信簽訂46億度綠電長約</td><td>為期20年 (至2047年)</td></tr>
+<tr><td><strong>2028年</strong></td><td>擴廠/產能</td><td>桃園航空城太陽光電設施完工</td><td></td></tr>
+<tr><td><strong>2028年</strong></td><td>新市場/擴廠</td><td>越南子公司源利新能源目標開發容量</td><td>100MW以上</td></tr>
+<tr><td><strong>2028年</strong></td><td>新市場/擴廠</td><td>泰國子公司SolarX Renewable目標開發容量</td><td>100MW以上</td></tr>
+<tr><td><strong>未來3-5年</strong></td><td>需求/成長</td><td>天能綠電合約總度數翻倍成長</td><td>從250億度至500億度</td></tr>
+<tr><td><strong>未來三年 (至2029年)</strong></td><td>新市場/擴廠</td><td>海外市場累計開發規模</td><td>達300MW</td></tr>
+<tr><td><strong>2030年前</strong></td><td>新市場/擴廠</td><td>菲律賓合資公司SolarX目標累計投資案場</td><td>500MW</td></tr>
+<tr><td><strong>長期 (十年計畫)</strong></td><td>企業願景</td><td>集團營收達千億元規模</td><td>升級為「亞洲低碳新能源整合集團」</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+<strong>成長動能：</strong>
+<ul><li><strong>高股利政策：</strong> 預計邁入「高股利時代」，配發率目標達8成，有望吸引「高股息族群」。</li>
+<li><strong>子公司上市櫃：</strong> 天能綠電轉上櫃與台普威能源登錄興櫃，有望帶來顯著的投資評價重估與集團營運動能。</li>
+<li><strong>綠電交易持續擴張：</strong> 預計天能綠電2026年轉供度數將增至6.6億度，長約簽訂量已達250億度，提供穩定現金流。</li>
+<li><strong>儲能業務顯著成長：</strong> 日本儲能開工量提升至78MW，並貢獻集團全年營收10-15%。國內大型儲能案場（如與錸寶合作的60MW/205.6MWh案場）將於上半年商轉。</li>
+<li><strong>海外市場版圖擴大：</strong> 日本、菲律賓、泰國、越南等多處海外案場將陸續開工或貢獻營收，分散區域風險。</li>
+<li><strong>營收結構優化：</strong> 高毛利的售電收入與維運服務比重提升，預計集團整體毛利率將穩定回升至15%-18%。</li>
+<li><strong>AI驅動的綠電需求：</strong> 台灣半導體與AI資料中心對綠電的龐大需求，將持續推升雲豹能源的綠電交易與儲能業務。</li>
+</ul>
+<strong>風險：</strong>
+<ul><li><strong>太陽能產業競爭與毛利率壓力：</strong> 全球太陽能市場產能過剩及價格下跌，可能對公司太陽能業務的獲利能力造成壓力。</li>
+<li><strong>政策與法規變動：</strong> 台灣及海外各國的能源政策或法規若有變動，可能影響案場開發時程與經濟效益。</li>
+<li><strong>海外專案執行風險：</strong> 海外市場的政治、經濟、法規不確定性，以及專案執行效率，將是檢視「千億營收」目標的關鍵。</li>
+<li><strong>電網韌性與併網限制：</strong> 台灣電網基礎設施的瓶頸可能影響未來更多再生能源案場的併網速度。</li>
+</ul>
+<h2>投資結論</h2>
+<p>雲豹能源在2025年交出歷史新高的亮眼成績，並確立其在台灣綠電交易與儲能領域的領導地位。展望2026年，公司成長動能明確且多元，潛力巨大。</p>
+
+<li><strong>綠電與儲能雙引擎驅動營收與獲利：</strong> 受惠於全球淨零碳排、RE100承諾及AI資料中心對綠電的爆炸性需求，雲豹能源的綠電交易與儲能業務將持續高速成長。天能綠電作為民營售電龍頭的長約規模與台普威能源大型儲能案場的陸續商轉，將提供穩定的高質量營收。</li>
+<li><strong>海外拓展與子公司上市櫃提升集團價值：</strong> 積極佈局日本及東南亞市場，複製台灣成功經驗，將有效分散區域風險並開拓新成長曲線。天能綠電與台普威能源的上市櫃，有望重估集團價值，並為未來資本市場運作提供更多彈性。</li>
+<li><strong>高股利政策吸引長期投資者：</strong> 管理層明確宣示2026年將邁入「高股利時代」，配發率目標達八成，預期將吸引追求穩定收益的長期投資者，有助於股價穩定。</li>
+<li><strong>獲利能力有待優化，但產品組合改善可期：</strong> 儘管2025年第三季因災害影響導致單季虧損，但隨著高毛利售電收入及維運服務比重提升，預計2026年整體毛利率將回升至15%-18%，有利於獲利能力結構性改善。</li>
+
+<p>綜合考量雲豹能源在產業中的領導地位、明確的成長動能與優化後的營收結構，建議投資人積極關注。考量券商目標價區間與其2026年EPS挑戰歷史新高的潛力，給予<strong>買進</strong>評等，目標價區間建議為<strong>新台幣130元至150元</strong>。</p>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 14:24</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="6869_雲豹能源_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="6869_雲豹能源_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="6869_雲豹能源_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

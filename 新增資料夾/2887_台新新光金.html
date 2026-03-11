@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2887 台新新光金 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2887 台新新光金 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<strong>台新新光金合併綜效進入「獲利爆發期」，2026 年 1 月單月 EPS 達 0.35 元，正式躍升台灣前四大金控並朝全球型金融集團邁進。</strong>
+
+<hr>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2887 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2887" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2887" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2887');
+    var obvContainer = document.getElementById('obv-chart-2887');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 18.85, "high": 19.15, "low": 18.8, "close": 19.15}, {"time": "2025-12-05", "open": 19.15, "high": 19.25, "low": 19.1, "close": 19.25}, {"time": "2025-12-08", "open": 19.25, "high": 19.35, "low": 19.1, "close": 19.1}, {"time": "2025-12-09", "open": 19.25, "high": 19.35, "low": 19.1, "close": 19.1}, {"time": "2025-12-10", "open": 19.15, "high": 19.25, "low": 19.15, "close": 19.15}, {"time": "2025-12-11", "open": 19.3, "high": 19.35, "low": 19.15, "close": 19.25}, {"time": "2025-12-12", "open": 19.3, "high": 19.5, "low": 19.25, "close": 19.4}, {"time": "2025-12-15", "open": 19.3, "high": 19.5, "low": 19.15, "close": 19.35}, {"time": "2025-12-16", "open": 19.25, "high": 20.15, "low": 19.2, "close": 20.05}, {"time": "2025-12-17", "open": 20.2, "high": 21.6, "low": 20.15, "close": 21.25}, {"time": "2025-12-18", "open": 21.65, "high": 21.7, "low": 21.2, "close": 21.3}, {"time": "2025-12-19", "open": 21.1, "high": 21.9, "low": 21.1, "close": 21.4}, {"time": "2025-12-22", "open": 21.45, "high": 21.65, "low": 21.2, "close": 21.2}, {"time": "2025-12-23", "open": 21.2, "high": 21.25, "low": 20.9, "close": 20.9}, {"time": "2025-12-24", "open": 21.05, "high": 21.25, "low": 20.75, "close": 20.75}, {"time": "2025-12-26", "open": 20.8, "high": 20.95, "low": 20.6, "close": 20.6}, {"time": "2025-12-29", "open": 20.6, "high": 20.8, "low": 20.2, "close": 20.4}, {"time": "2025-12-30", "open": 20.3, "high": 20.7, "low": 20.3, "close": 20.55}, {"time": "2025-12-31", "open": 20.6, "high": 20.75, "low": 20.4, "close": 20.4}, {"time": "2026-01-02", "open": 20.4, "high": 20.65, "low": 20.35, "close": 20.4}, {"time": "2026-01-05", "open": 20.4, "high": 21.25, "low": 20.4, "close": 21.0}, {"time": "2026-01-06", "open": 21.2, "high": 21.25, "low": 20.9, "close": 20.9}, {"time": "2026-01-07", "open": 20.8, "high": 20.95, "low": 20.7, "close": 20.85}, {"time": "2026-01-08", "open": 20.9, "high": 21.0, "low": 20.65, "close": 20.75}, {"time": "2026-01-09", "open": 20.75, "high": 20.95, "low": 20.55, "close": 20.85}, {"time": "2026-01-12", "open": 20.95, "high": 21.05, "low": 20.8, "close": 20.9}, {"time": "2026-01-13", "open": 20.85, "high": 21.1, "low": 20.8, "close": 21.05}, {"time": "2026-01-14", "open": 21.1, "high": 21.25, "low": 21.0, "close": 21.25}, {"time": "2026-01-15", "open": 21.25, "high": 21.65, "low": 21.25, "close": 21.6}, {"time": "2026-01-16", "open": 21.75, "high": 21.9, "low": 21.65, "close": 21.85}, {"time": "2026-01-19", "open": 21.85, "high": 22.9, "low": 21.65, "close": 22.85}, {"time": "2026-01-20", "open": 22.95, "high": 23.1, "low": 22.75, "close": 22.9}, {"time": "2026-01-21", "open": 22.7, "high": 22.8, "low": 22.05, "close": 22.1}, {"time": "2026-01-22", "open": 22.4, "high": 22.5, "low": 22.05, "close": 22.1}, {"time": "2026-01-23", "open": 22.3, "high": 22.4, "low": 22.1, "close": 22.15}, {"time": "2026-01-26", "open": 22.2, "high": 23.0, "low": 22.1, "close": 22.9}, {"time": "2026-01-27", "open": 22.9, "high": 23.35, "low": 22.9, "close": 23.2}, {"time": "2026-01-28", "open": 23.35, "high": 23.4, "low": 22.7, "close": 22.85}, {"time": "2026-01-29", "open": 22.85, "high": 23.1, "low": 22.6, "close": 22.85}, {"time": "2026-01-30", "open": 22.95, "high": 23.05, "low": 22.55, "close": 22.7}, {"time": "2026-02-02", "open": 22.65, "high": 22.7, "low": 22.2, "close": 22.35}, {"time": "2026-02-03", "open": 22.65, "high": 23.1, "low": 22.65, "close": 22.75}, {"time": "2026-02-04", "open": 22.8, "high": 23.45, "low": 22.75, "close": 23.05}, {"time": "2026-02-05", "open": 23.15, "high": 23.3, "low": 23.05, "close": 23.1}, {"time": "2026-02-06", "open": 23.05, "high": 23.35, "low": 22.8, "close": 23.35}, {"time": "2026-02-09", "open": 23.5, "high": 24.0, "low": 23.4, "close": 23.8}, {"time": "2026-02-10", "open": 23.9, "high": 24.0, "low": 23.7, "close": 23.95}, {"time": "2026-02-11", "open": 24.0, "high": 24.2, "low": 23.9, "close": 24.0}, {"time": "2026-02-23", "open": 24.7, "high": 25.45, "low": 24.7, "close": 25.3}, {"time": "2026-02-24", "open": 25.5, "high": 25.5, "low": 24.75, "close": 25.3}, {"time": "2026-02-25", "open": 25.3, "high": 25.4, "low": 24.9, "close": 24.9}, {"time": "2026-02-26", "open": 24.9, "high": 26.0, "low": 24.85, "close": 25.6}, {"time": "2026-03-02", "open": 25.0, "high": 25.0, "low": 23.9, "close": 24.15}, {"time": "2026-03-03", "open": 25.0, "high": 25.4, "low": 24.8, "close": 25.3}, {"time": "2026-03-04", "open": 25.0, "high": 25.0, "low": 23.9, "close": 24.15}, {"time": "2026-03-05", "open": 24.7, "high": 24.85, "low": 24.1, "close": 24.55}, {"time": "2026-03-06", "open": 24.4, "high": 24.5, "low": 24.25, "close": 24.4}, {"time": "2026-03-09", "open": 22.9, "high": 23.95, "low": 22.9, "close": 23.95}, {"time": "2026-03-10", "open": 24.45, "high": 24.5, "low": 24.05, "close": 24.3}, {"time": "2026-03-11", "open": 24.3, "high": 24.75, "low": 24.2, "close": 24.35}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 111375.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 53865.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 47823.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 47823.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 34664.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 54517.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 96606.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 73701.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 435583.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 641237.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 552106.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 491465.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 485118.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 362590.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 322885.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 272059.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 90280.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 45139.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 59128.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 45786.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 102245.0, "color": "#ef5350"}, {"time": "2026-01-06", "value": 64918.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 57208.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 55563.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 32154.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 39842.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 76674.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 78142.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 98732.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 76131.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 149397.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 75126.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 157264.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 80039.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 42076.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 80181.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 85893.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 60984.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 53191.0, "color": "#ef5350"}, {"time": "2026-01-30", "value": 60661.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 64272.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 46683.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 57658.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 46609.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 59372.0, "color": "#ef5350"}, {"time": "2026-02-09", "value": 98989.0, "color": "#ef5350"}, {"time": "2026-02-10", "value": 62682.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 81495.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 182389.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 94610.0, "color": "#26a69a"}, {"time": "2026-02-25", "value": 75891.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 183396.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 211184.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 73823.0, "color": "#ef5350"}, {"time": "2026-03-04", "value": 211184.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 97135.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 47838.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 125997.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 65925.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 44477.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 19.15}, {"time": "2025-12-11", "value": 19.169999999999998}, {"time": "2025-12-12", "value": 19.2}, {"time": "2025-12-15", "value": 19.25}, {"time": "2025-12-16", "value": 19.44}, {"time": "2025-12-17", "value": 19.86}, {"time": "2025-12-18", "value": 20.27}, {"time": "2025-12-19", "value": 20.669999999999998}, {"time": "2025-12-22", "value": 21.04}, {"time": "2025-12-23", "value": 21.21}, {"time": "2025-12-24", "value": 21.11}, {"time": "2025-12-26", "value": 20.97}, {"time": "2025-12-29", "value": 20.77}, {"time": "2025-12-30", "value": 20.64}, {"time": "2025-12-31", "value": 20.54}, {"time": "2026-01-02", "value": 20.47}, {"time": "2026-01-05", "value": 20.55}, {"time": "2026-01-06", "value": 20.65}, {"time": "2026-01-07", "value": 20.71}, {"time": "2026-01-08", "value": 20.78}, {"time": "2026-01-09", "value": 20.869999999999997}, {"time": "2026-01-12", "value": 20.85}, {"time": "2026-01-13", "value": 20.880000000000003}, {"time": "2026-01-14", "value": 20.96}, {"time": "2026-01-15", "value": 21.130000000000003}, {"time": "2026-01-16", "value": 21.330000000000002}, {"time": "2026-01-19", "value": 21.720000000000002}, {"time": "2026-01-20", "value": 22.09}, {"time": "2026-01-21", "value": 22.26}, {"time": "2026-01-22", "value": 22.360000000000003}, {"time": "2026-01-23", "value": 22.419999999999998}, {"time": "2026-01-26", "value": 22.43}, {"time": "2026-01-27", "value": 22.490000000000002}, {"time": "2026-01-28", "value": 22.64}, {"time": "2026-01-29", "value": 22.79}, {"time": "2026-01-30", "value": 22.9}, {"time": "2026-02-02", "value": 22.79}, {"time": "2026-02-03", "value": 22.7}, {"time": "2026-02-04", "value": 22.740000000000002}, {"time": "2026-02-05", "value": 22.79}, {"time": "2026-02-06", "value": 22.92}, {"time": "2026-02-09", "value": 23.21}, {"time": "2026-02-10", "value": 23.45}, {"time": "2026-02-11", "value": 23.64}, {"time": "2026-02-23", "value": 24.080000000000002}, {"time": "2026-02-24", "value": 24.47}, {"time": "2026-02-25", "value": 24.69}, {"time": "2026-02-26", "value": 25.02}, {"time": "2026-03-02", "value": 25.05}, {"time": "2026-03-03", "value": 25.05}, {"time": "2026-03-04", "value": 24.82}, {"time": "2026-03-05", "value": 24.75}, {"time": "2026-03-06", "value": 24.509999999999998}, {"time": "2026-03-09", "value": 24.47}, {"time": "2026-03-10", "value": 24.27}, {"time": "2026-03-11", "value": 24.31}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 19.505000000000003}, {"time": "2025-12-18", "value": 19.72}, {"time": "2025-12-19", "value": 19.935}, {"time": "2025-12-22", "value": 20.145}, {"time": "2025-12-23", "value": 20.325}, {"time": "2025-12-24", "value": 20.485}, {"time": "2025-12-26", "value": 20.619999999999997}, {"time": "2025-12-29", "value": 20.72}, {"time": "2025-12-30", "value": 20.84}, {"time": "2025-12-31", "value": 20.875}, {"time": "2026-01-02", "value": 20.79}, {"time": "2026-01-05", "value": 20.759999999999998}, {"time": "2026-01-06", "value": 20.71}, {"time": "2026-01-07", "value": 20.675}, {"time": "2026-01-08", "value": 20.66}, {"time": "2026-01-09", "value": 20.669999999999998}, {"time": "2026-01-12", "value": 20.7}, {"time": "2026-01-13", "value": 20.765}, {"time": "2026-01-14", "value": 20.835}, {"time": "2026-01-15", "value": 20.955000000000002}, {"time": "2026-01-16", "value": 21.1}, {"time": "2026-01-19", "value": 21.285}, {"time": "2026-01-20", "value": 21.485}, {"time": "2026-01-21", "value": 21.61}, {"time": "2026-01-22", "value": 21.745}, {"time": "2026-01-23", "value": 21.875}, {"time": "2026-01-26", "value": 22.075}, {"time": "2026-01-27", "value": 22.29}, {"time": "2026-01-28", "value": 22.45}, {"time": "2026-01-29", "value": 22.575}, {"time": "2026-01-30", "value": 22.66}, {"time": "2026-02-02", "value": 22.61}, {"time": "2026-02-03", "value": 22.595}, {"time": "2026-02-04", "value": 22.69}, {"time": "2026-02-05", "value": 22.79}, {"time": "2026-02-06", "value": 22.91}, {"time": "2026-02-09", "value": 23.0}, {"time": "2026-02-10", "value": 23.075}, {"time": "2026-02-11", "value": 23.19}, {"time": "2026-02-23", "value": 23.435}, {"time": "2026-02-24", "value": 23.695}, {"time": "2026-02-25", "value": 23.95}, {"time": "2026-02-26", "value": 24.235}, {"time": "2026-03-02", "value": 24.345}, {"time": "2026-03-03", "value": 24.565}, {"time": "2026-03-04", "value": 24.645}, {"time": "2026-03-05", "value": 24.72}, {"time": "2026-03-06", "value": 24.765}, {"time": "2026-03-09", "value": 24.759999999999998}, {"time": "2026-03-10", "value": 24.66}, {"time": "2026-03-11", "value": 24.565}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 20.1475}, {"time": "2026-01-05", "value": 20.240000000000002}, {"time": "2026-01-06", "value": 20.322499999999998}, {"time": "2026-01-07", "value": 20.41}, {"time": "2026-01-08", "value": 20.4925}, {"time": "2026-01-09", "value": 20.5775}, {"time": "2026-01-12", "value": 20.66}, {"time": "2026-01-13", "value": 20.7425}, {"time": "2026-01-14", "value": 20.8375}, {"time": "2026-01-15", "value": 20.915}, {"time": "2026-01-16", "value": 20.945}, {"time": "2026-01-19", "value": 21.0225}, {"time": "2026-01-20", "value": 21.0975}, {"time": "2026-01-21", "value": 21.142500000000002}, {"time": "2026-01-22", "value": 21.2025}, {"time": "2026-01-23", "value": 21.2725}, {"time": "2026-01-26", "value": 21.3875}, {"time": "2026-01-27", "value": 21.5275}, {"time": "2026-01-28", "value": 21.642500000000002}, {"time": "2026-01-29", "value": 21.765}, {"time": "2026-01-30", "value": 21.880000000000003}, {"time": "2026-02-02", "value": 21.947499999999998}, {"time": "2026-02-03", "value": 22.04}, {"time": "2026-02-04", "value": 22.15}, {"time": "2026-02-05", "value": 22.267500000000002}, {"time": "2026-02-06", "value": 22.392500000000002}, {"time": "2026-02-09", "value": 22.5375}, {"time": "2026-02-10", "value": 22.6825}, {"time": "2026-02-11", "value": 22.82}, {"time": "2026-02-23", "value": 23.005000000000003}, {"time": "2026-02-24", "value": 23.177500000000002}, {"time": "2026-02-25", "value": 23.28}, {"time": "2026-02-26", "value": 23.415}, {"time": "2026-03-02", "value": 23.517500000000002}, {"time": "2026-03-03", "value": 23.677500000000002}, {"time": "2026-03-04", "value": 23.7775}, {"time": "2026-03-05", "value": 23.86}, {"time": "2026-03-06", "value": 23.919999999999998}, {"time": "2026-03-09", "value": 23.975}, {"time": "2026-03-10", "value": 24.0475}, {"time": "2026-03-11", "value": 24.130000000000003}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 53865.0}, {"time": "2025-12-08", "value": 6042.0}, {"time": "2025-12-09", "value": 6042.0}, {"time": "2025-12-10", "value": 40706.0}, {"time": "2025-12-11", "value": 95223.0}, {"time": "2025-12-12", "value": 191829.0}, {"time": "2025-12-15", "value": 118128.0}, {"time": "2025-12-16", "value": 553711.0}, {"time": "2025-12-17", "value": 1194948.0}, {"time": "2025-12-18", "value": 1747054.0}, {"time": "2025-12-19", "value": 2238519.0}, {"time": "2025-12-22", "value": 1753401.0}, {"time": "2025-12-23", "value": 1390811.0}, {"time": "2025-12-24", "value": 1067926.0}, {"time": "2025-12-26", "value": 795867.0}, {"time": "2025-12-29", "value": 705587.0}, {"time": "2025-12-30", "value": 750726.0}, {"time": "2025-12-31", "value": 691598.0}, {"time": "2026-01-02", "value": 691598.0}, {"time": "2026-01-05", "value": 793843.0}, {"time": "2026-01-06", "value": 728925.0}, {"time": "2026-01-07", "value": 671717.0}, {"time": "2026-01-08", "value": 616154.0}, {"time": "2026-01-09", "value": 648308.0}, {"time": "2026-01-12", "value": 688150.0}, {"time": "2026-01-13", "value": 764824.0}, {"time": "2026-01-14", "value": 842966.0}, {"time": "2026-01-15", "value": 941698.0}, {"time": "2026-01-16", "value": 1017829.0}, {"time": "2026-01-19", "value": 1167226.0}, {"time": "2026-01-20", "value": 1242352.0}, {"time": "2026-01-21", "value": 1085088.0}, {"time": "2026-01-22", "value": 1085088.0}, {"time": "2026-01-23", "value": 1127164.0}, {"time": "2026-01-26", "value": 1207345.0}, {"time": "2026-01-27", "value": 1293238.0}, {"time": "2026-01-28", "value": 1232254.0}, {"time": "2026-01-29", "value": 1232254.0}, {"time": "2026-01-30", "value": 1171593.0}, {"time": "2026-02-02", "value": 1107321.0}, {"time": "2026-02-03", "value": 1154004.0}, {"time": "2026-02-04", "value": 1211662.0}, {"time": "2026-02-05", "value": 1258271.0}, {"time": "2026-02-06", "value": 1317643.0}, {"time": "2026-02-09", "value": 1416632.0}, {"time": "2026-02-10", "value": 1479314.0}, {"time": "2026-02-11", "value": 1560809.0}, {"time": "2026-02-23", "value": 1743198.0}, {"time": "2026-02-24", "value": 1743198.0}, {"time": "2026-02-25", "value": 1667307.0}, {"time": "2026-02-26", "value": 1850703.0}, {"time": "2026-03-02", "value": 1639519.0}, {"time": "2026-03-03", "value": 1713342.0}, {"time": "2026-03-04", "value": 1502158.0}, {"time": "2026-03-05", "value": 1599293.0}, {"time": "2026-03-06", "value": 1551455.0}, {"time": "2026-03-09", "value": 1425458.0}, {"time": "2026-03-10", "value": 1491383.0}, {"time": "2026-03-11", "value": 1535860.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>台新新光金融控股（以下簡稱台新新光金）於 2024 年 7 月完成台新金與新光金之控股層級合併。目前正處於子公司深度整併期，具備銀行、壽險、證券三合一之「多引擎」動能。</p>
+
+<h3>業務結構與獲利貢獻（2025 年自結數據）</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>業務板塊</th><th>核心子公司</th><th>獲利貢獻比重</th><th>2025 稅後純益 (億元)</th><th>關鍵優勢</th></tr></thead><tbody>
+<tr><td><strong>銀行業務</strong></td><td>台新銀行 / 新光銀行</td><td>57%</td><td>213.9</td><td>數位銀行 Richart 領先、NIM 達 1.34%</td></tr>
+<tr><td><strong>保險業務</strong></td><td>新光人壽 (含台新人壽)</td><td>21%</td><td>約 78.5</td><td>合併後躍升全台前三大壽險、CSM 穩定釋放</td></tr>
+<tr><td><strong>證券業務</strong></td><td>台新證券 / 元富證券</td><td>13%</td><td>48.0</td><td>經紀市佔率達 5.13% (市場第 4 大)</td></tr>
+<tr><td><strong>其他</strong></td><td>投信、創投、海外</td><td>9%</td><td>33.2</td><td>投信 AUM 達 5,300 億元</td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>核心競爭優勢</h2>
+<li><strong>通路綜效極大化</strong>：合併後擁有全台最密集的銀行通路，可直接推動高價值保單（CSM）銷售，2025 年新契約保費（FYP）年增達 191%。</li>
+<li><strong>資產規模紅利</strong>：集團總資產突破 8 兆元，晉升台灣前四大金控，在國際市場洽談聯貸與海外設點更具議價力。</li>
+<li><strong>AI 與土地資產整合</strong>：新光人壽北士科 T17、T18 土地案引進 <strong>NVIDIA (輝達)</strong> 進駐，不僅穩定租金收益，更開啟與 AI 供應鏈的長期金融服務機會。</li>
+<li><strong>數位金融領先地位</strong>：Richart 數位帳戶市佔率持續維持全台第一，2026 年導入 Agentic AI 轉型，預期將降低 15-20% 的營運人力成本。</li>
+
+<hr>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢表（受合併報表因素影響，YoY 呈現爆發性增長）</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>營收金額 (億元)</th><th>月增率 MoM</th><th>年增率 YoY</th><th>備註</th></tr></thead><tbody>
+<tr><td><strong>2026/01</strong></td><td>187.73</td><td>-15.69%</td><td><strong>+219.42%</strong></td><td>合併綜效顯現，壽險獲利挹注</td></tr>
+<tr><td><strong>2025/12</strong></td><td>222.66</td><td>+8.46%</td><td><strong>+229.51%</strong></td><td>2025 年底結算高峰</td></tr>
+<tr><td><strong>2025/11</strong></td><td>205.29</td><td>+16.21%</td><td>+187.19%</td><td>銀行利息手續費穩健成長</td></tr>
+<tr><td><strong>2025/10</strong></td><td>176.70</td><td>-10.19%</td><td>+168.66%</td><td>市場波動影響自營收益</td></tr>
+<tr><td><strong>2025/09</strong></td><td>239.50</td><td>+52.46%</td><td>+236.79%</td><td>單月一次性合併調整利益</td></tr>
+<tr><td><strong>2025/08</strong></td><td>157.10</td><td>+55.95%</td><td>+77.99%</td><td>合併初期數據反映</td></tr>
+</tbody></table></div>
+
+<h3>季度與年度數據</h3>
+<ul><li><strong>2025 Q3 關鍵數據</strong>：營收累計 2,935.8 億元，毛利率 66.48%，營業利益率 29.36%，單季 EPS 0.59 元。</li>
+<li><strong>全年度 EPS 趨勢</strong>：</li>
+</ul>    *   2024 (實際)：1.39 元
+<p>*   2025 (實際)：1.91 元 (創歷史新高)</p>
+<p>*   2026 (預估)：根據 1 月單月 0.35 元估算，全年挑戰 <strong>2.1 - 2.5 元</strong>。</p>
+
+<hr>
+
+<h2>法說會重點</h2>
+<ul><li><strong>子公司整併時程</strong>：</li>
+</ul>    *   <strong>壽險</strong>：2026/01/01 已完成合併為「新光人壽」。
+<p>*   <strong>證券</strong>：2026/04/06 將完成台新與元富證券合併，據點增至 55 處。</p>
+<p>*   <strong>銀行</strong>：系統最為複雜，目標於 <strong>2026 年底</strong> 完成 IT 整併。</p>
+<ul><li><strong>股利政策</strong>：管理層明確表示，2026 年發放之現金股利將「優於 2025 年的 0.9 元」，市場預期落點為 <strong>1.0 - 1.1 元</strong>。</li>
+<li><strong>資本支出</strong>：2026 年預計投入 <strong>30-50 億元</strong> 於銀行數位轉型與 IT 系統對齊。</li>
+</ul>
+<hr>
+
+<h2>券商觀點</h2>
+<em>註：部分早期報告尚未完全反映 2026 年初獲利爆發，目標價存在低估。</em>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>報告日期</th><th>評等</th><th>目標價</th><th>2026 EPS 預估</th></tr></thead><tbody>
+<tr><td><strong>凱基投顧</strong></td><td>2025/12/03</td><td>持有 (保守)</td><td>20.0</td><td>1.55</td></tr>
+<tr><td><strong>統一投顧</strong></td><td>2025/12/03</td><td>中立 (保守)</td><td>19.0</td><td>1.70</td></tr>
+<tr><td><strong>Cmoney 社群專家</strong></td><td>2026/02/15</td><td>買進</td><td><strong>35.0 - 40.0</strong></td><td>2.50</td></tr>
+<tr><td><strong>FactSet 調查中位數</strong></td><td>2025/05/18</td><td>⚠️過時</td><td>17.25</td><td>--</td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢 (2025 季度)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>指標</th><th>2025 Q1</th><th>2025 Q2</th><th>2025 Q3</th><th>2025 Q4 (自結)</th></tr></thead><tbody>
+<tr><td><strong>稅後淨利率</strong></td><td>23.2%</td><td>24.5%</td><td>27.6%</td><td><strong>29.8%</strong></td></tr>
+<tr><td><strong>單季 EPS</strong></td><td>0.33</td><td>0.38</td><td>0.53</td><td>0.67</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>資產品質</strong>：2025 年底逾放比（NPL）僅 0.14%，備抵呆帳覆蓋率達 892.7%，體質極其優異。</li>
+<li><strong>資本適足率</strong>：壽險端 RBC 於 2025 年底已順利達標 200% 以上，緩解增資壓力。</li>
+</ul>
+<hr>
+
+<h2>股權異動</h2>
+<ul><li><strong>申報轉讓</strong>：近期無大規模大股東申報轉讓，籌碼面穩定。</li>
+<li><strong>庫藏股</strong>：目前無大規模執行庫藏股。</li>
+<li><strong>股本變化</strong>：因合併案發行新股，2025 年總股本膨脹約 <strong>90%</strong>，但因獲利成長幅度更大（2026/01 YoY +454%），EPS 稀釋壓力已被獲利成長抵銷。</li>
+<li><strong>外資動向</strong>：2026 年 1 月中旬外資連買 7 日達 16 萬張，目前持股比約 23.22%。</li>
+</ul>
+<hr>
+
+<h2>產業分析</h2>
+<h3>台灣金控競爭格局 (2025 全年數據)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>2025 獲利 (億元)</th><th>EPS (元)</th><th>預估殖利率</th><th>關鍵動態</th></tr></thead><tbody>
+<tr><td><strong>富邦金 (2881)</strong></td><td>1,208.5</td><td>8.36</td><td>4.84%</td><td>獲利王</td></tr>
+<tr><td><strong>國泰金 (2882)</strong></td><td>1,079.9</td><td>7.08</td><td>5.43%</td><td>資本韌性高</td></tr>
+<tr><td><strong>中信金 (2891)</strong></td><td>806.2</td><td>4.08</td><td>5.49%</td><td>銀行獲利新高</td></tr>
+<tr><td><strong>台新新光金 (2887)</strong></td><td><strong>373.6</strong></td><td><strong>1.91</strong></td><td><strong>5.20%</strong></td><td><strong>獲利成長 86%，合併綜效爆發</strong></td></tr>
+</tbody></table></div>
+
+<hr>
+
+<h2>近期催化劑</h2>
+<ul><li><strong>利多事件</strong>：</li>
+</ul>    *   2026/04/06 證券子公司正式合併。
+<p>*   2026/05 股東會公布股利發放數字（預期驚喜）。</p>
+<p>*   2026 下半年 申請設立美國分行。</p>
+<ul><li><strong>利空/風險事件</strong>：</li>
+</ul>    *   2026 年底銀行系統整併難度高，若出 Bug 可能影響客戶信心。
+<p>*   2026 接軌 IFRS 17 與 ICS 新制之資本需求挑戰。</p>
+
+<hr>
+
+<h2>⭐ 成長動能時間軸</h2>
+<ul><li><strong>2026/01/01</strong>：新光人壽完成合併，更名掛牌。</li>
+<li><strong>2026/02</strong>：單月 EPS 0.35 元，創歷史新高。</li>
+<li><strong>2026/04/06</strong>：<strong>關鍵節點</strong> - 台新證券與元富證券正式合併。</li>
+<li><strong>2026/05</strong>：股東會確認優於預期的股利政策（預估 1.0 元以上）。</li>
+<li><strong>2026/Q3</strong>：NVIDIA 進駐 T17/T18 土地案後續效應顯現。</li>
+<li><strong>2026/11</strong>：啟動全球型金融金控計畫，申設美國分行。</li>
+<li><strong>2026/12/31</strong>：完成台新銀與新光銀 IT 系統整併，達成完整一體化。</li>
+</ul>
+<hr>
+
+<h2>2026 展望</h2>
+<ul><li><strong>成長動能</strong>：受惠於「以銀養險、以險壯銀」，銀行端 NIM 穩定且壽險端 CSM 快速累積。證券合併後市佔率躍升將帶來強勁經紀手續費收益。</li>
+<li><strong>風險因素</strong>：股本膨脹 90% 對 ROE 的稀釋效果，以及全球降息循環對壽險避險成本的影響。</li>
+</ul>
+<hr>
+
+<h2>投資結論</h2>
+<li><strong>合併綜效顯現</strong>：2026 年 1 月獲利數據已證明合併利大於弊，獲利天花板大幅提升。</li>
+<li><strong>估值重評價 (Re-rating)</strong>：股價已突破 25.6 元歷史新高，隨著獲利預期上修，本益比有望從目前的 12 倍向富邦/國泰的 15 倍靠攏。</li>
+<li><strong>高息題材助攻</strong>：預期 2026 年配息 1.0 - 1.1 元，殖利率在 4.5%-5% 之間，具備高股息 ETF 納入題材。</li>
+<li><strong>建議操作</strong>：目前處於獲利上升軌道，長線看好合併綜效，建議於回檔至 <strong>24.5 - 26.0 元</strong> 區間分批布局，<strong>目標價區間建議為 32.0 - 38.0 元</strong>。</li>
+
+<hr>
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-02 06:18</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2887_台新新光金_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2887_台新新光金_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2887_台新新光金_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

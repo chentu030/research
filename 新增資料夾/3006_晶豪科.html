@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3006 晶豪科 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>3006 晶豪科 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>晶豪科受惠於AI驅動的記憶體「超級週期」及DRAM產能排擠效應，利基型記憶體報價顯著上揚，已於2025年Q3實現單季轉盈，並在2025年Q4實現EPS 3.68元的爆發性成長。公司預期2026年營運將在量價齊揚下持續高速成長，產品組合優化與新興應用佈局提供長期成長動能，惟短期需關注股價漲幅與上游成本轉嫁壓力。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">3006 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-3006" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-3006" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-3006');
+    var obvContainer = document.getElementById('obv-chart-3006');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 77.7, "high": 79.4, "low": 76.7, "close": 78.9}, {"time": "2025-12-05", "open": 79.2, "high": 80.3, "low": 77.6, "close": 80.0}, {"time": "2025-12-08", "open": 80.8, "high": 83.5, "low": 80.8, "close": 82.9}, {"time": "2025-12-09", "open": 80.8, "high": 83.5, "low": 80.8, "close": 82.9}, {"time": "2025-12-10", "open": 82.5, "high": 83.9, "low": 81.2, "close": 81.9}, {"time": "2025-12-11", "open": 82.8, "high": 83.3, "low": 80.5, "close": 81.1}, {"time": "2025-12-12", "open": 81.5, "high": 83.9, "low": 81.5, "close": 82.6}, {"time": "2025-12-15", "open": 81.0, "high": 81.5, "low": 79.2, "close": 81.5}, {"time": "2025-12-16", "open": 80.8, "high": 80.8, "low": 77.4, "close": 78.3}, {"time": "2025-12-17", "open": 78.6, "high": 82.8, "low": 78.6, "close": 81.7}, {"time": "2025-12-18", "open": 82.8, "high": 83.8, "low": 81.4, "close": 81.5}, {"time": "2025-12-19", "open": 83.4, "high": 84.5, "low": 80.6, "close": 80.6}, {"time": "2025-12-22", "open": 82.8, "high": 85.0, "low": 82.7, "close": 84.1}, {"time": "2025-12-23", "open": 85.7, "high": 89.5, "low": 85.0, "close": 87.7}, {"time": "2025-12-24", "open": 89.3, "high": 96.4, "low": 87.5, "close": 96.4}, {"time": "2025-12-26", "open": 98.2, "high": 106.0, "low": 98.0, "close": 105.0}, {"time": "2025-12-29", "open": 104.5, "high": 105.0, "low": 96.6, "close": 98.1}, {"time": "2025-12-30", "open": 105.0, "high": 107.5, "low": 104.5, "close": 107.5}, {"time": "2025-12-31", "open": 115.0, "high": 118.0, "low": 114.5, "close": 118.0}, {"time": "2026-01-02", "open": 119.5, "high": 129.5, "low": 117.0, "close": 129.5}, {"time": "2026-01-05", "open": 141.0, "high": 142.0, "low": 134.0, "close": 139.0}, {"time": "2026-01-06", "open": 135.5, "high": 144.5, "low": 134.5, "close": 144.5}, {"time": "2026-01-07", "open": 152.0, "high": 152.0, "low": 146.5, "close": 146.5}, {"time": "2026-01-08", "open": 143.5, "high": 150.0, "low": 143.5, "close": 146.5}, {"time": "2026-01-09", "open": 142.0, "high": 142.0, "low": 132.5, "close": 136.0}, {"time": "2026-01-12", "open": 142.5, "high": 146.5, "low": 142.0, "close": 146.0}, {"time": "2026-01-13", "open": 151.0, "high": 151.0, "low": 142.0, "close": 146.5}, {"time": "2026-01-14", "open": 147.0, "high": 148.5, "low": 145.5, "close": 148.5}, {"time": "2026-01-15", "open": 149.5, "high": 152.0, "low": 148.0, "close": 151.5}, {"time": "2026-01-16", "open": 154.5, "high": 158.0, "low": 152.0, "close": 154.5}, {"time": "2026-01-19", "open": 158.5, "high": 165.0, "low": 158.5, "close": 158.5}, {"time": "2026-01-20", "open": 145.5, "high": 152.0, "low": 145.5, "close": 152.0}, {"time": "2026-01-21", "open": 150.0, "high": 150.0, "low": 137.0, "close": 137.0}, {"time": "2026-01-22", "open": 150.5, "high": 150.5, "low": 144.0, "close": 147.5}, {"time": "2026-01-23", "open": 160.0, "high": 162.0, "low": 138.0, "close": 142.0}, {"time": "2026-01-26", "open": 143.0, "high": 156.0, "low": 141.5, "close": 156.0}, {"time": "2026-01-27", "open": 158.5, "high": 167.5, "low": 149.5, "close": 151.0}, {"time": "2026-01-28", "open": 158.0, "high": 166.0, "low": 158.0, "close": 166.0}, {"time": "2026-01-29", "open": 174.5, "high": 180.0, "low": 162.0, "close": 177.5}, {"time": "2026-01-30", "open": 185.0, "high": 195.0, "low": 184.5, "close": 195.0}, {"time": "2026-02-02", "open": 195.0, "high": 195.0, "low": 176.5, "close": 183.0}, {"time": "2026-02-03", "open": 195.5, "high": 196.5, "low": 165.0, "close": 168.5}, {"time": "2026-02-04", "open": 166.0, "high": 175.5, "low": 165.0, "close": 173.0}, {"time": "2026-02-05", "open": 165.5, "high": 174.5, "low": 164.0, "close": 169.5}, {"time": "2026-02-06", "open": 165.5, "high": 167.0, "low": 153.0, "close": 160.0}, {"time": "2026-02-09", "open": 169.0, "high": 169.5, "low": 160.0, "close": 162.0}, {"time": "2026-02-10", "open": 162.5, "high": 163.0, "low": 151.0, "close": 155.0}, {"time": "2026-02-11", "open": 152.5, "high": 158.5, "low": 151.5, "close": 154.0}, {"time": "2026-02-23", "open": 160.0, "high": 163.5, "low": 153.5, "close": 155.0}, {"time": "2026-02-24", "open": 155.0, "high": 169.0, "low": 152.0, "close": 167.0}, {"time": "2026-02-25", "open": 167.0, "high": 167.5, "low": 155.0, "close": 159.0}, {"time": "2026-02-26", "open": 158.5, "high": 159.0, "low": 151.5, "close": 156.5}, {"time": "2026-03-02", "open": 149.5, "high": 154.0, "low": 143.0, "close": 146.5}, {"time": "2026-03-03", "open": 170.0, "high": 172.5, "low": 153.0, "close": 155.0}, {"time": "2026-03-04", "open": 149.5, "high": 154.0, "low": 143.0, "close": 146.5}, {"time": "2026-03-05", "open": 158.0, "high": 158.0, "low": 147.5, "close": 148.0}, {"time": "2026-03-06", "open": 146.5, "high": 156.5, "low": 144.5, "close": 146.5}, {"time": "2026-03-09", "open": 132.0, "high": 134.0, "low": 132.0, "close": 132.0}, {"time": "2026-03-10", "open": 140.0, "high": 145.0, "low": 135.5, "close": 145.0}, {"time": "2026-03-11", "open": 152.0, "high": 159.5, "low": 150.5, "close": 159.5}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 6188.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 5507.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 9110.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 9110.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 5597.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 4280.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 4676.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 2803.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 4310.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 5212.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 6024.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 4617.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 6061.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 15630.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 35140.0, "color": "#ef5350"}, {"time": "2025-12-26", "value": 57458.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 40214.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 24286.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 44647.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 32964.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 53407.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 12928.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 9090.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 7536.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 5139.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 4257.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 2713.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 2240.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 2943.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 3455.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 3692.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 2253.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 4847.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 3196.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 60031.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 27277.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 52347.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 36158.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 61525.0, "color": "#ef5350"}, {"time": "2026-01-30", "value": 59444.0, "color": "#ef5350"}, {"time": "2026-02-02", "value": 66806.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 76414.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 34170.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 18444.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 22571.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 20142.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 17088.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 11837.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 20732.0, "color": "#26a69a"}, {"time": "2026-02-24", "value": 17852.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 19052.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 11071.0, "color": "#26a69a"}, {"time": "2026-03-02", "value": 19915.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 24539.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 19915.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 21179.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 16591.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 6532.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 14486.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 19481.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 81.32000000000001}, {"time": "2025-12-11", "value": 81.76}, {"time": "2025-12-12", "value": 82.28}, {"time": "2025-12-15", "value": 82.0}, {"time": "2025-12-16", "value": 81.08}, {"time": "2025-12-17", "value": 81.03999999999999}, {"time": "2025-12-18", "value": 81.12}, {"time": "2025-12-19", "value": 80.72}, {"time": "2025-12-22", "value": 81.24}, {"time": "2025-12-23", "value": 83.12}, {"time": "2025-12-24", "value": 86.06}, {"time": "2025-12-26", "value": 90.76}, {"time": "2025-12-29", "value": 94.26}, {"time": "2025-12-30", "value": 98.94}, {"time": "2025-12-31", "value": 105.0}, {"time": "2026-01-02", "value": 111.62}, {"time": "2026-01-05", "value": 118.42}, {"time": "2026-01-06", "value": 127.7}, {"time": "2026-01-07", "value": 135.5}, {"time": "2026-01-08", "value": 141.2}, {"time": "2026-01-09", "value": 142.5}, {"time": "2026-01-12", "value": 143.9}, {"time": "2026-01-13", "value": 144.3}, {"time": "2026-01-14", "value": 144.7}, {"time": "2026-01-15", "value": 145.7}, {"time": "2026-01-16", "value": 149.4}, {"time": "2026-01-19", "value": 151.9}, {"time": "2026-01-20", "value": 153.0}, {"time": "2026-01-21", "value": 150.7}, {"time": "2026-01-22", "value": 149.9}, {"time": "2026-01-23", "value": 147.4}, {"time": "2026-01-26", "value": 146.9}, {"time": "2026-01-27", "value": 146.7}, {"time": "2026-01-28", "value": 152.5}, {"time": "2026-01-29", "value": 158.5}, {"time": "2026-01-30", "value": 169.1}, {"time": "2026-02-02", "value": 174.5}, {"time": "2026-02-03", "value": 178.0}, {"time": "2026-02-04", "value": 179.4}, {"time": "2026-02-05", "value": 177.8}, {"time": "2026-02-06", "value": 170.8}, {"time": "2026-02-09", "value": 166.6}, {"time": "2026-02-10", "value": 163.9}, {"time": "2026-02-11", "value": 160.1}, {"time": "2026-02-23", "value": 157.2}, {"time": "2026-02-24", "value": 158.6}, {"time": "2026-02-25", "value": 158.0}, {"time": "2026-02-26", "value": 158.3}, {"time": "2026-03-02", "value": 156.8}, {"time": "2026-03-03", "value": 156.8}, {"time": "2026-03-04", "value": 152.7}, {"time": "2026-03-05", "value": 150.5}, {"time": "2026-03-06", "value": 148.5}, {"time": "2026-03-09", "value": 145.6}, {"time": "2026-03-10", "value": 143.6}, {"time": "2026-03-11", "value": 146.2}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 81.17999999999999}, {"time": "2025-12-18", "value": 81.44}, {"time": "2025-12-19", "value": 81.5}, {"time": "2025-12-22", "value": 81.62}, {"time": "2025-12-23", "value": 82.1}, {"time": "2025-12-24", "value": 83.55}, {"time": "2025-12-26", "value": 85.94}, {"time": "2025-12-29", "value": 87.49}, {"time": "2025-12-30", "value": 90.09}, {"time": "2025-12-31", "value": 94.06}, {"time": "2026-01-02", "value": 98.84}, {"time": "2026-01-05", "value": 104.59}, {"time": "2026-01-06", "value": 110.97999999999999}, {"time": "2026-01-07", "value": 117.22}, {"time": "2026-01-08", "value": 123.1}, {"time": "2026-01-09", "value": 127.05999999999999}, {"time": "2026-01-12", "value": 131.16}, {"time": "2026-01-13", "value": 136.0}, {"time": "2026-01-14", "value": 140.1}, {"time": "2026-01-15", "value": 143.45}, {"time": "2026-01-16", "value": 145.95}, {"time": "2026-01-19", "value": 147.9}, {"time": "2026-01-20", "value": 148.65}, {"time": "2026-01-21", "value": 147.7}, {"time": "2026-01-22", "value": 147.8}, {"time": "2026-01-23", "value": 148.4}, {"time": "2026-01-26", "value": 149.4}, {"time": "2026-01-27", "value": 149.85}, {"time": "2026-01-28", "value": 151.6}, {"time": "2026-01-29", "value": 154.2}, {"time": "2026-01-30", "value": 158.25}, {"time": "2026-02-02", "value": 160.7}, {"time": "2026-02-03", "value": 162.35}, {"time": "2026-02-04", "value": 165.95}, {"time": "2026-02-05", "value": 168.15}, {"time": "2026-02-06", "value": 169.95}, {"time": "2026-02-09", "value": 170.55}, {"time": "2026-02-10", "value": 170.95}, {"time": "2026-02-11", "value": 169.75}, {"time": "2026-02-23", "value": 167.5}, {"time": "2026-02-24", "value": 164.7}, {"time": "2026-02-25", "value": 162.3}, {"time": "2026-02-26", "value": 161.1}, {"time": "2026-03-02", "value": 158.45}, {"time": "2026-03-03", "value": 157.0}, {"time": "2026-03-04", "value": 155.65}, {"time": "2026-03-05", "value": 154.25}, {"time": "2026-03-06", "value": 153.4}, {"time": "2026-03-09", "value": 151.2}, {"time": "2026-03-10", "value": 150.2}, {"time": "2026-03-11", "value": 149.45}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 90.01}, {"time": "2026-01-05", "value": 93.015}, {"time": "2026-01-06", "value": 96.24}, {"time": "2026-01-07", "value": 99.42}, {"time": "2026-01-08", "value": 102.6}, {"time": "2026-01-09", "value": 105.30499999999999}, {"time": "2026-01-12", "value": 108.55}, {"time": "2026-01-13", "value": 111.745}, {"time": "2026-01-14", "value": 115.095}, {"time": "2026-01-15", "value": 118.755}, {"time": "2026-01-16", "value": 122.39500000000001}, {"time": "2026-01-19", "value": 126.245}, {"time": "2026-01-20", "value": 129.815}, {"time": "2026-01-21", "value": 132.45999999999998}, {"time": "2026-01-22", "value": 135.45}, {"time": "2026-01-23", "value": 137.73}, {"time": "2026-01-26", "value": 140.28}, {"time": "2026-01-27", "value": 142.925}, {"time": "2026-01-28", "value": 145.85}, {"time": "2026-01-29", "value": 148.825}, {"time": "2026-01-30", "value": 152.1}, {"time": "2026-02-02", "value": 154.3}, {"time": "2026-02-03", "value": 155.5}, {"time": "2026-02-04", "value": 156.825}, {"time": "2026-02-05", "value": 157.975}, {"time": "2026-02-06", "value": 159.175}, {"time": "2026-02-09", "value": 159.975}, {"time": "2026-02-10", "value": 160.4}, {"time": "2026-02-11", "value": 160.675}, {"time": "2026-02-23", "value": 160.85}, {"time": "2026-02-24", "value": 161.475}, {"time": "2026-02-25", "value": 161.5}, {"time": "2026-02-26", "value": 161.725}, {"time": "2026-03-02", "value": 162.2}, {"time": "2026-03-03", "value": 162.575}, {"time": "2026-03-04", "value": 162.8}, {"time": "2026-03-05", "value": 162.4}, {"time": "2026-03-06", "value": 162.175}, {"time": "2026-03-09", "value": 160.475}, {"time": "2026-03-10", "value": 158.85}, {"time": "2026-03-11", "value": 157.075}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 5507.0}, {"time": "2025-12-08", "value": 14617.0}, {"time": "2025-12-09", "value": 14617.0}, {"time": "2025-12-10", "value": 9020.0}, {"time": "2025-12-11", "value": 4740.0}, {"time": "2025-12-12", "value": 9416.0}, {"time": "2025-12-15", "value": 6613.0}, {"time": "2025-12-16", "value": 2303.0}, {"time": "2025-12-17", "value": 7515.0}, {"time": "2025-12-18", "value": 1491.0}, {"time": "2025-12-19", "value": -3126.0}, {"time": "2025-12-22", "value": 2935.0}, {"time": "2025-12-23", "value": 18565.0}, {"time": "2025-12-24", "value": 53705.0}, {"time": "2025-12-26", "value": 111163.0}, {"time": "2025-12-29", "value": 70949.0}, {"time": "2025-12-30", "value": 95235.0}, {"time": "2025-12-31", "value": 139882.0}, {"time": "2026-01-02", "value": 172846.0}, {"time": "2026-01-05", "value": 226253.0}, {"time": "2026-01-06", "value": 239181.0}, {"time": "2026-01-07", "value": 248271.0}, {"time": "2026-01-08", "value": 248271.0}, {"time": "2026-01-09", "value": 243132.0}, {"time": "2026-01-12", "value": 247389.0}, {"time": "2026-01-13", "value": 250102.0}, {"time": "2026-01-14", "value": 252342.0}, {"time": "2026-01-15", "value": 255285.0}, {"time": "2026-01-16", "value": 258740.0}, {"time": "2026-01-19", "value": 262432.0}, {"time": "2026-01-20", "value": 260179.0}, {"time": "2026-01-21", "value": 255332.0}, {"time": "2026-01-22", "value": 258528.0}, {"time": "2026-01-23", "value": 198497.0}, {"time": "2026-01-26", "value": 225774.0}, {"time": "2026-01-27", "value": 173427.0}, {"time": "2026-01-28", "value": 209585.0}, {"time": "2026-01-29", "value": 271110.0}, {"time": "2026-01-30", "value": 330554.0}, {"time": "2026-02-02", "value": 263748.0}, {"time": "2026-02-03", "value": 187334.0}, {"time": "2026-02-04", "value": 221504.0}, {"time": "2026-02-05", "value": 203060.0}, {"time": "2026-02-06", "value": 180489.0}, {"time": "2026-02-09", "value": 200631.0}, {"time": "2026-02-10", "value": 183543.0}, {"time": "2026-02-11", "value": 171706.0}, {"time": "2026-02-23", "value": 192438.0}, {"time": "2026-02-24", "value": 210290.0}, {"time": "2026-02-25", "value": 191238.0}, {"time": "2026-02-26", "value": 180167.0}, {"time": "2026-03-02", "value": 160252.0}, {"time": "2026-03-03", "value": 184791.0}, {"time": "2026-03-04", "value": 164876.0}, {"time": "2026-03-05", "value": 186055.0}, {"time": "2026-03-06", "value": 169464.0}, {"time": "2026-03-09", "value": 162932.0}, {"time": "2026-03-10", "value": 177418.0}, {"time": "2026-03-11", "value": 196899.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>晶豪科（3006）是一家專業的記憶體IC設計公司，採取「無晶圓廠」(Fabless) 模式，核心業務為利基型記憶體、快閃記憶體及類比/混合訊號IC的IC設計、研發與銷售。主要將晶圓代工交由專業代工廠，其中力積電(6770)是其記憶體產品的最大客戶。</p>
+
+<strong>主要產品線：</strong>
+<ul><li><strong>利基型記憶體 (DRAM)</strong>：包含SDRAM、DDR、DDR2、DDR3及DDR4等產品，應用於工控、車用、物聯網、網通設備及AI邊緣運算等領域。</li>
+<li><strong>快閃記憶體 (Flash)</strong>：包含NOR Flash與NAND Flash (SLC NAND)。</li>
+<li><strong>多晶片封裝記憶體</strong>：MCP / eMCP / eMMC，主要應用於手機、物聯網裝置、車用電子、工控設備與智慧家電。</li>
+<li><strong>非記憶體產品線</strong>：類比與混合訊號IC，如Class D音訊放大器、電源管理IC，以及馬達驅動、無線通訊 (Wireless SOC) 和感測器IC (Sensor IC) 等新興應用。</li>
+</ul>
+<strong>營收結構 (2026年1月28日資料)：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品線</th><th>營收佔比 (約)</th><th>備註</th></tr></thead><tbody>
+<tr><td>DRAM (利基型記憶體)</td><td>55%</td><td>其中DDR2/DDR3合計約45%，DDR4約一成多</td></tr>
+<tr><td>eMCP/MCP</td><td>30%</td><td>多晶片封裝記憶體</td></tr>
+<tr><td>類比IC與其他產品</td><td>15%</td><td>包含電源管理IC、音訊放大器等</td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+<li><strong>利基型市場深耕與產品多元化</strong>：晶豪科在利基型DRAM、NOR Flash市場深耕多年，產品線廣泛且具備客製化能力，應用領域涵蓋消費電子、工控、車用、網通、物聯網及AI邊緣運算等，能有效分散市場風險並抓住多重成長機會。</li>
+<li><strong>受惠記憶體產業結構性轉變</strong>：國際記憶體大廠（三星、SK海力士、美光）因AI伺服器對HBM和DDR5需求的激增，將產能優先轉移至高階產品，導致傳統DDR3、DDR4等利基型DRAM和NOR Flash出現結構性供給吃緊，晶豪科作為專業利基型供應商直接受益於此趨勢，享有報價上漲的優勢。</li>
+<li><strong>非記憶體產品線的成長潛力</strong>：積極拓展類比與混合訊號IC，如電源管理、音訊放大器、無線通訊及感測器IC等，有助於分散單一記憶體產品的營運風險，並拓展新的成長動能，尤其在車用與IoT市場具備競爭力。</li>
+<li><strong>庫存去化完成與轉盈能力</strong>：公司已成功走出庫存去化週期，並於2025年Q3實現單季轉盈，2025年Q4獲利大幅成長，顯示其在景氣回升時能迅速反映市場變化並恢復獲利能力。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>2026年2月</td><td>20.95</td><td>-2.39%</td><td>128.40%</td></tr>
+<tr><td>2026年1月</td><td>21.46</td><td>-1.13%</td><td>129.42%</td></tr>
+<tr><td>2025年12月</td><td>21.71</td><td>54.94%</td><td>107.86%</td></tr>
+<tr><td>2025年11月</td><td>14.01</td><td>13.45%</td><td>45.38%</td></tr>
+<tr><td>2025年10月</td><td>12.35</td><td>-5.61%</td><td>7.69%</td></tr>
+<tr><td>2025年9月</td><td>13.08</td><td>16.73%</td><td>5.96%</td></tr>
+</tbody></table></div>
+
+<h3>季度數據</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度季度</th><th>季營收 (新台幣億元)</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>單季EPS (新台幣元)</th><th>稅後淨利 (新台幣億元)</th></tr></thead><tbody>
+<tr><td>2025年Q4</td><td>48.07</td><td>32.33%</td><td>20.25%</td><td>3.68</td><td>10.35</td></tr>
+<tr><td>2025年Q3</td><td>35.77</td><td>12.92%</td><td>-2.30%</td><td>0.05</td><td>0.14</td></tr>
+<tr><td>2025年Q2</td><td>34.22</td><td>3.85%</td><td>-11.88%</td><td>-2.97</td><td>-8.34</td></tr>
+<tr><td>2025年Q1</td><td>27.69</td><td>11.82%</td><td>-5.37%</td><td>-0.74</td><td>-2.08</td></tr>
+<tr><td>2024年Q4</td><td>31.06</td><td>10.36%</td><td>-5.24%</td><td>0.52</td><td>1.46</td></tr>
+</tbody></table></div>
+
+<h3>年度趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>營收 (新台幣億元)</th><th>歸屬母公司稅後淨利 (新台幣億元)</th><th>EPS (新台幣元)</th><th>毛利率 (%)</th><th>營益率 (%)</th></tr></thead><tbody>
+<tr><td>2025</td><td>145.75</td><td>2.45</td><td>0.87</td><td>17.1%</td><td>2.4%</td></tr>
+<tr><td>2024</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>2023</td><td>240.24</td><td>13.59</td><td>4.88</td><td>25.17%</td><td>13.51%</td></tr>
+</tbody></table></div>
+
+<h2>法說會重點 (2025年12月04日)</h2>
+<ul><li><strong>市場狀況</strong>：記憶體市場供不應求，DRAM報價持續飆漲。公司預期2025年第三季開始回溫，第四季營運轉正，並對2026年展望續看升，尚未看到需求再度回落的跡象。</li>
+<li><strong>產品報價與訂單</strong>：DDR3報價從年初約1美元漲到法說會時約3.5美元。2025年第四季價格已在8、9月談定，2026年第一季漲價效益會更明顯。許多客戶積極拜訪晶豪科，希望穩定供貨，甚至有原本使用三星的客戶來詢問DDR3/DDR4產品。</li>
+<li><strong>產能與成本</strong>：代工廠商力積電（6770）的相關產能已滿，有逐月調價的壓力。晶豪科坦言在市場行情好轉下，力積電的代工費用勢必調漲，但預期公司將反映給客戶以維持毛利。</li>
+<li><strong>產品發展</strong>：DDR4目前量產主力為25奈米，19奈米與合作廠商仍在開發中。DDR4在公司營收占比約5%，隨大顆粒比重提升，後續占比有望增加；價格走勢以「往上或持平」為基調，要再回落相對不易。</li>
+<li><strong>Guidance</strong>：2025年第四季本業可望正式轉虧為盈，單季毛利率可望顯著高於第三季。2026年上半年展望尚屬樂觀，毛利率可望朝向高檔水準。</li>
+</ul>
+<h2>券商觀點</h2>
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>日期</th><th>目標價區間 (新台幣元)</th><th>評等</th><th>備註</th></tr></thead><tbody>
+<tr><td>方格子分析報告</td><td>2026年2月1日</td><td>長期內在價值：120-210</td><td>建議由買進持有轉為且戰且走</td><td>估值區間，非傳統目標價</td></tr>
+<tr><td>方格子分析報告</td><td>2026年2月1日</td><td>短期戰術參考：150-225</td><td>建議由買進持有轉為且戰且走</td><td>估值區間，非傳統目標價</td></tr>
+<tr><td>英為財情 (⚠️過時)</td><td>2026年3月2日更新</td><td>12個月平均：65.00</td><td>⚠️與現況嚴重不符，請忽略此資料。</td><td>網站資料可能未更新</td></tr>
+</tbody></table></div>
+
+<strong>2025-2026年EPS預估：</strong>
+<ul><li><strong>2025年實際EPS</strong>：新台幣0.87元。</li>
+<li><strong>2026年EPS預估</strong>：</li>
+</ul>    *   方格子分析報告 (2026年2月1日)：維持樂觀預估 <strong>18.76元</strong>。
+<p>*   CMoney投資網誌 (2026年3月2日)：預計2026年EPS持續成長5% (基於調整後EPS)。</p>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2025年Q4</td><td>32.33%</td><td>20.25%</td><td>21.51%</td></tr>
+<tr><td>2025年Q3</td><td>12.92%</td><td>-2.30%</td><td>0.38%</td></tr>
+<tr><td>2025年Q2</td><td>3.85%</td><td>-11.88%</td><td>-22.11%</td></tr>
+<tr><td>2025年Q1</td><td>11.82%</td><td>-5.37%</td><td>-2.62%</td></tr>
+<tr><td>2024年Q4</td><td>10.36%</td><td>-5.24%</td><td>3.45%</td></tr>
+<tr><td>2024年Q3</td><td>16.23%</td><td>1.20%</td><td>6.10%</td></tr>
+<tr><td>2024年Q2</td><td>15.66%</td><td>0.02%</td><td>6.88%</td></tr>
+<tr><td>2024年Q1</td><td>5.73%</td><td>-8.13%</td><td>-1.76%</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化原因分析：</strong>
+<p>晶豪科在2025年Q4實現獲利爆發，毛利率從Q3的12.92%大幅提升至32.33%，營業利益率與稅後淨利率也顯著轉正。這主要得益於記憶體市場在2025年下半年開始的強勁復甦，特別是DRAM報價飆漲對利基型產品的拉抬。國際大廠將產能轉向HBM，導致晶豪科主力產品DDR3、DDR4及SLC NAND、NOR Flash供應吃緊，價格顯著回升。此外，2025年Q3存貨跌價損失回沖1.93億元也對當季毛利率產生正面助益。雖然上游代工成本可能因力積電產能吃緊而調漲，但公司預計能將成本轉嫁客戶，有助於維持毛利率表現。</p>
+
+<h3>存貨分析</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度季度</th><th>存貨週轉天數 (天)</th><th>應收帳款收現天數 (天)</th></tr></thead><tbody>
+<tr><td>2025年Q4</td><td>201.86</td><td>35.76</td></tr>
+<tr><td>2025年Q3</td><td>220.78</td><td>38.52</td></tr>
+<tr><td>2025年Q2</td><td>229.33</td><td>39.91</td></tr>
+<tr><td>2025年Q1</td><td>286.14</td><td>44.88</td></tr>
+<tr><td>2024年Q4</td><td>248.95</td><td>43.25</td></tr>
+</tbody></table></div>
+
+<strong>存貨與應收帳款分析：</strong>
+<p>晶豪科的存貨週轉天數在2025年從高點286.14天（Q1）持續下降至201.86天（Q4），顯示公司已成功走出庫存去化階段，且隨著市場景氣回溫，存貨去化速度顯著加快。應收帳款收現天數也同步下降，從2025年Q1的44.88天降至Q4的35.76天，表明公司收款效率提升，營運資金壓力減輕。這兩項指標的改善，皆是記憶體產業反轉向上的正面訊號。</p>
+
+<h3>資本支出與折舊攤銷</h3>
+<ul><li><strong>近3年資本支出金額與趨勢</strong>：目前未找到晶豪科近3年（2023-2025）具體的資本支出金額與趨勢。作為Fabless模式公司，資本支出主要用於研發投入而非建廠。</li>
+<li><strong>未來資本支出計畫與預計新增產能</strong>：</li>
+</ul>    *   2026年整體出貨量受限於可取得的晶圓產能，但記憶體價格持續走揚將帶動全年營收成長。
+<p>*   DDR4產品可望優先導入合作晶圓廠的19奈米製程量產，相關營收占比將隨產能開出而提升，成為中期營運結構調整的關鍵。</p>
+<p>*   持續投入Edge AI領域，以Base Die/PIM構想與工研院、力積電合作，目標在2027年嘗試tape-out。</p>
+<p>*   力積電出售銅鑼廠以邏輯製程為主，對晶豪科影響有限；若設備轉作記憶體，長期有助於產能擴充。</p>
+
+<strong>折舊攤銷趨勢 (千元)</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>年度季度</th><th>折舊 (千元)</th><th>攤銷 (千元)</th></tr></thead><tbody>
+<tr><td>2025年Q4</td><td>98,937</td><td>42,409</td></tr>
+<tr><td>2025年Q3</td><td>93,000</td><td>43,000</td></tr>
+<tr><td>2025年Q2</td><td>93,000</td><td>42,000</td></tr>
+<tr><td>2025年Q1</td><td>97,000</td><td>42,000</td></tr>
+<tr><td>2024年Q4</td><td>104,000</td><td>42,000</td></tr>
+<tr><td>2024年Q3</td><td>114,000</td><td>37,000</td></tr>
+<tr><td>2024年Q2</td><td>120,000</td><td>37,000</td></tr>
+<tr><td>2024年Q1</td><td>122,000</td><td>37,000</td></tr>
+</tbody></table></div>
+<p>折舊和攤銷金額在過去8季保持相對穩定，折舊金額略有下降趨勢，攤銷金額大致持平。</p>
+
+<h2>股權異動</h2>
+<ul><li><strong>近期董監事/大股東申報轉讓紀錄</strong>：近一年未找到相關紀錄。</li>
+<li><strong>庫藏股買回紀錄</strong>：目前未找到2024年以後的庫藏股買回紀錄。</li>
+<li><strong>可轉換公司債 (CB)</strong>：</li>
+</ul>    *   <strong>代號</strong>：30061 (晶豪科一)
+<p>*   <strong>發行日</strong>：2023年10月27日</p>
+<p>*   <strong>到期日</strong>：2026年10月27日</p>
+<p>*   <strong>目前轉換價</strong>：85.1元 (發行時為85.6元)</p>
+<ul><li><strong>近期增減資計畫</strong>：目前未找到2024年以後的現金增資或減資計畫。</li>
+<li><strong>股利政策 (現金股利)</strong>：</li>
+</ul><div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>現金股利 (元/股)</th><th>股票股利 (元/股)</th><th>除息日 (預估)</th><th>發放日 (預估)</th></tr></thead><tbody>
+<tr><td>2025 (擬)</td><td>1.0</td><td>0</td><td>2025年7月9日</td><td>2025年8月7日</td></tr>
+<tr><td>2024</td><td>0.6</td><td>0</td><td>2024年7月4日</td><td>2024年7月31日</td></tr>
+<tr><td>2023</td><td>1.8</td><td>0</td><td>-</td><td>-</td></tr>
+</tbody></table></div>
+<p>晶豪科近年主要以現金股利為主。</p>
+
+<h2>產業分析</h2>
+
+<h3>全球市場規模與年均複合成長率 (CAGR)</h3>
+<div class="table-wrapper"><table>
+<thead><tr><th>產業細分</th><th>2025年估值</th><th>2026年估值 (或下一期)</th><th>CAGR (指定期間)</th><th>2031/2033/2034/2035年估值</th></tr></thead><tbody>
+<tr><td>整體半導體記憶體市場</td><td>1189億美元</td><td>-</td><td>7.4% (2026-2035)</td><td>2260億美元 (2035年)</td></tr>
+<tr><td>DRAM市場</td><td>1218.3億美元</td><td>1283.6億美元</td><td>7.20% (2026-2034)</td><td>2237億美元 (2034年)</td></tr>
+<tr><td>DRAM市場</td><td>1086.8億美元</td><td>1263.1億美元</td><td>16.22% (2026-2031)</td><td>2677.7億美元 (2031年)</td></tr>
+<tr><td>NOR Flash市場</td><td>30.5億美元</td><td>32.3億美元</td><td>5.75% (2026-2031)</td><td>42.7億美元 (2031年)</td></tr>
+<tr><td>NOR Flash市場</td><td>28億美元</td><td>-</td><td>7.5% (2025-2033)</td><td>50億美元 (2033年)</td></tr>
+<tr><td>日本類比IC市場</td><td>56億美元</td><td>-</td><td>3.61% (2026-2034)</td><td>77億美元 (2034年)</td></tr>
+</tbody></table></div>
+
+<strong>供需狀況：</strong>
+<p>目前記憶體市場呈現嚴重「供不應求」的超級週期。</p>
+<ul><li><strong>DRAM</strong>：2026年Q1全球通用DRAM合約價環比暴漲90%-95%。DDR4 8Gb現貨價從2025年低點3.2美元飆升至15美元，累計漲幅高達369%。DDR5現貨漲幅也超過300%。2026年全球DRAM市場存在約15%的供需缺口，預計最快2027年Q1才能平衡。三星、SK海力士、美光等大廠已將大量消費級DRAM先進產能轉向生產HBM，導致傳統DRAM供應緊張。DRAM三大原廠已通知2026年產能已銷售一空，全年缺貨態勢確立。</li>
+<li><strong>NAND Flash</strong>：現貨價格過去一年上漲超過600%，合約價格翻倍。預計2026年需求成長20-22%，供給僅增15-17%，將出現短缺。</li>
+<li><strong>NOR Flash</strong>：同樣面臨供給不足，主要受AI伺服器需求增加導致產能被排擠，AI伺服器每機架NOR Flash搭載量已從3-5個增加到30個以上。旺宏可能在2026年Q1調漲NOR Flash晶片價格30%。</li>
+</ul>
+<strong>產業平均毛利率水準：</strong>
+<ul><li>在超級週期下，記憶體上游原廠毛利率顯著提升。DRAM價格每上漲10%，頭部廠商毛利率可提升3-5個百分點。本輪漲幅超455%，使得頭部廠商毛利率從虧損線躍升至50%-70%。</li>
+<li>美光2026財年Q1毛利率從2025年Q1的18%飆升至56%。</li>
+</ul>
+<h3>競爭格局</h3>
+<strong>全球主要DRAM原廠市佔率 (2025年估計)：</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>主要產品</th><th>DRAM市場市佔率 (估計)</th></tr></thead><tbody>
+<tr><td>三星電子 (Samsung)</td><td>DRAM, NAND</td><td>約35-36%</td></tr>
+<tr><td>SK海力士 (SK Hynix)</td><td>DRAM, NAND</td><td>約20%</td></tr>
+<tr><td>美光科技 (Micron)</td><td>DRAM, NAND</td><td>約15%</td></tr>
+<tr><td>長鑫存儲 (CXMT)</td><td>DRAM</td><td>預計2025年底DDR5市佔率7%，2026年15%</td></tr>
+</tbody></table></div>
+
+<strong>晶豪科 vs 主要競爭對手比較：</strong>
+<p>晶豪科主要聚焦於利基型記憶體IC設計。</p>
+<div class="table-wrapper"><table>
+<thead><tr><th>產品領域</th><th>晶豪科優勢</th><th>主要競爭對手</th></tr></thead><tbody>
+<tr><td>利基型DRAM</td><td>深耕多年，產品線廣泛，客製化能力強。受惠大廠轉移HBM產能，利基型DRAM供應吃緊，市佔率有望提升。應用於消費、工控、車用、IoT。</td><td>鈺創、南亞科 (部分利基型)、國際大廠非HBM/主流DRAM產品線</td></tr>
+<tr><td>NOR Flash</td><td>在市場佔有一席之地，受惠AI伺服器需求增長。產品線涵蓋多種密度。</td><td>旺宏、華邦電、兆易創新、英飛凌、普冉半導體</td></tr>
+<tr><td>類比/混合訊號IC</td><td>積極拓展電源管理、音訊放大器、馬達驅動、無線通訊和感測器IC等新興應用，有助分散記憶體單一風險。</td><td>德儀、亞德諾等國際大廠，及台灣眾多類比IC設計公司</td></tr>
+</tbody></table></div>
+
+<strong>台灣同業比較 (2024年數據待更新)：</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>公司代號</th><th>公司名稱</th><th>主要業務</th><th>2024年營收 (新台幣億元)</th><th>2024年毛利率 (%)</th><th>2024年EPS (新台幣元)</th><th>備註</th></tr></thead><tbody>
+<tr><td>3006</td><td>晶豪科</td><td>利基型記憶體、Flash、類比IC設計</td><td>待更新</td><td>待更新</td><td>待更新</td><td>-</td></tr>
+<tr><td>2344</td><td>華邦電</td><td>利基型DRAM、NOR Flash (IDM)</td><td>待更新</td><td>待更新</td><td>待更新</td><td>IDM廠</td></tr>
+<tr><td>2337</td><td>旺宏</td><td>NOR Flash、NAND Flash、ROM (IDM)</td><td>待更新</td><td>待更新</td><td>待更新</td><td>IDM廠</td></tr>
+<tr><td>5351</td><td>鈺創</td><td>利基型DRAM、USB IC設計</td><td>待更新</td><td>待更新</td><td>待更新</td><td>利基型DRAM競爭者</td></tr>
+</tbody></table></div>
+<em>(註：台灣IC設計市場在2026年預計成長11%，但中國IC設計產值已超越台灣，需留意中國競爭加劇。)</em>
+
+<h3>產業趨勢</h3>
+<li><strong>AI應用對記憶體需求的爆炸性增長</strong>：AI訓練與推論需超高頻寬、低延遲記憶體，加速HBM採用。HBM產能被巨頭優先用於AI伺服器，排擠傳統DRAM、NAND及NOR Flash產能，推升價格。AI伺服器單機架NOR Flash搭載量從3-5個增至30個以上。</li>
+<li><strong>記憶體技術向DDR5、LPDDR5X及HBM等先進規格演進</strong>：DDR4產能加速退出，資源優先分配給HBM和DDR5，導致標準DRAM供應短缺。HBM技術從HBM3e到HBM4不斷演進，提升容量和頻寬，成為AI發展的重要限制。</li>
+<li><strong>車用電子、物聯網 (IoT) 和工業控制領域的普及</strong>：電動車、自駕車對車規級NOR Flash和DRAM需求急劇增加，要求高可靠性、低延遲和功能安全認證。IoT邊緣裝置對低功耗、高效率利基型記憶體需求持續成長。</li>
+
+<strong>對晶豪科的具體機會與威脅：</strong>
+<ul><li><strong>機會</strong>：</li>
+</ul>    *   <strong>利基型記憶體需求強勁</strong>：AI排擠效應導致利基型DRAM、NOR Flash供應吃緊，價格上漲，晶豪科直接受益。
+<p>*   <strong>產品應用多元化</strong>：產品廣泛應用於消費、工控、車用、物聯網，抓住不同市場成長機會，特別是車用和IoT。</p>
+<p>*   <strong>類比/混合訊號IC拓展</strong>：分散營運風險，拓展電源管理、音訊放大器等新成長動能。</p>
+<p>*   <strong>AI邊緣應用商機</strong>：邊緣AI裝置對低功耗、高效率記憶體需求增加，為利基型產品帶來新成長點。</p>
+<ul><li><strong>威脅</strong>：</li>
+</ul>    *   <strong>原廠漲價壓力</strong>：作為Fabless，上游晶圓代工和封測廠成本增加可能侵蝕毛利率。
+<p>*   <strong>競爭加劇</strong>：利基型市場需求增長可能吸引更多競爭者，尤其來自中國大陸。</p>
+<p>*   <strong>總體經濟不確定性</strong>：全球經濟疲軟可能影響消費性電子需求，對部分產品線造成壓力。</p>
+<p>*   <strong>技術發展挑戰</strong>：HBM等高階技術及新興非揮發性記憶體可能帶來長期挑戰。</p>
+
+<strong>相關投資題材的具體連結：</strong>
+<ul><li><strong>AI (人工智慧)</strong>：HBM產能排擠效應導致利基型DRAM和NOR Flash供應緊張及價格上漲，晶豪科受惠。邊緣AI裝置對嵌入式、低功耗、高可靠性記憶體需求增加。</li>
+<li><strong>電動車 (EV)</strong>：車用電子對車規級NOR Flash和DRAM需求增長，晶豪科積極佈局車用工控領域。</li>
+<li><strong>物聯網 (IoT)</strong>：智慧裝置、感測器對低功耗、小尺寸記憶體和感測器IC需求龐大，晶豪科的MCP/eMCP/eMMC及感測器IC產品線與此趨勢高度連結。</li>
+</ul>
+<h2>近期催化劑</h2>
+<strong>利多催化劑：</strong>
+<ul><li><strong>記憶體超級週期</strong>：AI應用帶動HBM需求激增，國際大廠產能轉移，導致利基型DRAM（DDR3/DDR4）與NOR Flash供應吃緊，價格持續飆漲。DDR3報價從年初1美元漲至3.5美元，DDR4價格走勢以「往上或持平」為基調。</li>
+<li><strong>財務表現顯著轉佳</strong>：2025年Q3單季轉盈（EPS 0.05元），2025年Q4獲利爆發（EPS 3.68元），營收、毛利率、營益率大幅提升。2025年12月單月獲利達2.41元，創近年新高。</li>
+<li><strong>強勁的營收成長</strong>：2026年1月營收21.46億元，年增129.42%；2月營收20.95億元，年增128.40%。累計前2月營收42.41億元，年增128.91%。</li>
+<li><strong>客戶與訂單能見度佳</strong>：許多客戶積極拜訪晶豪科以確保供貨，甚至有原本使用三星的客戶轉來詢問DDR3/DDR4。Wi-Fi 7題材帶動網通設備升級，訂單能見度已延伸至2026年上半年。</li>
+<li><strong>產品組合優化</strong>：DDR4產品可望優先導入合作晶圓廠19奈米製程量產，營收佔比將隨產能開出而提升。</li>
+<li><strong>庫存回沖利益</strong>：2025年Q3因存貨跌價損失回沖1.93億元，對毛利率有正面助益。</li>
+</ul>
+<strong>利空催化劑：</strong>
+<ul><li><strong>短期股價漲幅過大風險</strong>：股價短線急漲，市場共識從悲觀轉為樂觀，估值修復已完成，進入動能交易階段，需留意短線乖離與回檔風險。</li>
+<li><strong>上游成本壓力</strong>：代工廠商力積電產能已滿，有逐月調價壓力，代工費用勢必調漲，可能侵蝕毛利率，需觀察轉嫁能力。</li>
+<li><strong>競爭加劇</strong>：中國大陸供應鏈國產化對訂單結構的影響速度與範圍需持續關注。</li>
+<li><strong>法人籌碼鬆動</strong>：2026年3月部分交易日外資與自營商呈現賣超。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能/事件</th><th>具體說明</th></tr></thead><tbody>
+<tr><td><strong>2025年Q3</strong></td><td><strong>營運轉虧為盈</strong></td><td>單季營收35.77億元，毛利率回升至12.92%，EPS 0.05元，實現單季轉盈。同時存貨跌價損失回沖1.93億元。</td></tr>
+<tr><td><strong>2025年Q4</strong></td><td><strong>獲利爆發性成長</strong></td><td>單季營收48.07億元，毛利率32.33%，EPS達3.68元，稅後淨利10.35億元，年成長850.29%。12月單月EPS達2.41元，創近年新高。</td></tr>
+<tr><td><strong>2025年12月</strong></td><td><strong>法說會：利基型DRAM報價飆漲</strong></td><td>DDR3報價從年初約1美元漲到約3.5美元。公司對2026年上半年展望樂觀。許多客戶積極拜訪，甚至有原本使用三星的客戶詢問DDR3/DDR4。</td></tr>
+<tr><td><strong>2026年1月</strong></td><td><strong>記憶體景氣全面復甦 / DDR4製程升級 / AI邊緣運算商機</strong></td><td>受惠AI應用激增、國際大廠產能轉向HBM/DDR5，傳統DDR3/DDR4等利基型產品供給吃緊、報價上揚。DDR4產品可望優先導入合作晶圓廠的<strong>19奈米製程量產</strong>，相關營收占比將提升。法人看好晶豪科有望掌握AI邊緣運算等應用商機。</td></tr>
+<tr><td><strong>2026年2月</strong></td><td><strong>營收強勁成長趨勢確立</strong></td><td>1月及2月營收分別年增129.42%與128.40%，累計前2月年增128.91%，顯示記憶體景氣回溫的趨勢確立。市場對2026年EPS共識快速切換至樂觀的18元區間。</td></tr>
+<tr><td><strong>2026年上半年</strong></td><td><strong>記憶體漲價效益顯現</strong></td><td>法說會指出2026年Q1漲價效益會更明顯。公司預期2026年上半年營運展望樂觀，毛利率可望朝向高檔水準。WIFI 7帶動網通設備升級，訂單能見度延伸至2026年上半年。</td></tr>
+<tr><td><strong>2026年全年</strong></td><td><strong>AI驅動的利基型記憶體需求 / 產品組合優化 / 獲利挑戰五年新高</strong></td><td>國際大廠產能轉向HBM導致利基型DRAM、NOR Flash供給吃緊，晶豪科受惠。透過DDR4、車用、MCP佔比提升，優化產品組合以提高獲利。法人預估2026年EPS有望挑戰2021年以來五年新高，甚至有分析師樂觀預估達18.76元。</td></tr>
+<tr><td><strong>2027年</strong></td><td><strong>Edge AI aiPIM 架構研發進展</strong></td><td>晶豪科以Edge AI為目標推動aiPIM架構，目前進入研發設計階段，與工研院、力積電合作進行FPGA驗證，目標在2027年嘗試tape-out。這將是公司中期重要的技術與產品創新動能。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+<strong>成長動能：</strong>
+<ul><li><strong>記憶體超級週期延續</strong>：2026年DRAM及NAND Flash市場預計將持續供不應求，DRAM市場存在約15%供需缺口。主要受AI伺服器及HBM需求驅動，使得國際大廠產能持續排擠傳統利基型記憶體，報價將維持高檔甚至繼續上漲。</li>
+<li><strong>產品組合優化與新製程導入</strong>：DDR4產品在19奈米製程的量產將逐步提升營收佔比和產品ASP。公司積極佈局車用、工控、物聯網及AI邊緣運算等高成長應用市場，進一步優化獲利結構。</li>
+<li><strong>AI應用全面滲透</strong>：AI手機、AI PC等邊緣AI裝置的普及將全面推升對低功耗、高效率利基型記憶體的需求，為晶豪科帶來新的成長點。</li>
+<li><strong>庫存健康化與漲價效益傳導</strong>：公司已走出庫存去化階段，健康的庫存水位有利於充分享受記憶體價格上漲帶來的紅利，預計漲價效益將在2026年上半年更明顯地反映在毛利率及獲利上。法人普遍預估2026年EPS有望挑戰2021年以來的五年新高，甚至有分析師預估達18.76元。</li>
+</ul>
+<strong>風險：</strong>
+<ul><li><strong>上游代工成本持續攀升</strong>：力積電等代工夥伴產能滿載，代工費用調漲壓力仍存，若轉嫁不如預期，可能侵蝕獲利。</li>
+<li><strong>總體經濟與終端需求不確定性</strong>：全球經濟放緩或消費性電子需求復甦不如預期，可能影響部分產品線的出貨動能。</li>
+<li><strong>市場競爭加劇</strong>：雖然利基型市場受AI排擠效應帶動，但隨著市場吸引力增加，潛在競爭者（尤其來自中國大陸）的加入，可能帶來長期競爭壓力。</li>
+<li><strong>股價高估與波動風險</strong>：晶豪科股價在短期內急漲，估值快速修復，可能面臨漲幅過大後的技術性修正或法人獲利了結壓力。</li>
+</ul>
+<h2>投資結論</h2>
+<li><strong>結構性利基，坐享超級週期紅利</strong>：晶豪科核心業務利基型記憶體因AI應用導致的國際大廠產能排擠效應，使其在DRAM與NOR Flash市場供需吃緊的環境中取得價格主導權，利潤率顯著提升。此結構性優勢預期將貫穿2026年，為公司帶來穩健的漲價空間。</li>
+<li><strong>財務表現強勁轉折，獲利進入爆發期</strong>：公司已成功度過景氣谷底，2025年Q3轉虧為盈，Q4更實現EPS 3.68元的爆發性獲利。隨著庫存去化完成和平均銷售單價上揚，2026年獲利能力將持續顯著增長，有望挑戰歷史新高。</li>
+<li><strong>產品組合與新興應用拓展，奠定長期成長基石</strong>：積極導入19奈米DDR4製程，提升高ASP產品比重，並在車用電子、工控、物聯網及Edge AI等新興應用領域持續深耕。這些多元佈局將為晶豪科提供超越記憶體週期波動的長期成長動能。</li>
+<li><strong>上游成本與市場競爭為潛在挑戰，需持續關注</strong>：作為Fabless，上游晶圓代工成本的持續上漲仍是潛在壓力。此外，中國大陸記憶體產業的崛起以及整體市場競爭環境的變化，是中長期需要留意的風險。短期內股價已大幅上漲，建議投資人評估追高風險。</li>
+
+<strong>基於2026年EPS樂觀預估達18.76元，並考量記憶體產業處於上升週期，若給予10-12倍本益比，其合理價值區間約落在188元至225元。鑑於短期漲幅已大，建議投資人可待股價回檔至</strong>180-200元**區間分批佈局，以掌握產業轉折點帶來的長期成長潛力。
+
+<hr>
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 00:21</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="3006_晶豪科_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="3006_晶豪科_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="3006_晶豪科_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

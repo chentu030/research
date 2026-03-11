@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6949 沛爾生醫-創 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>6949 沛爾生醫-創 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+
+<p>沛爾生醫-創正值關鍵轉型期，儘管2025年仍處於虧損狀態（EPS -7.23元，累積虧損達實收資本額二分之一），但公司多項CAR-T及新型胜肽產品線具備領先技術與臨床進度。隨著竹北PIC/S GMP廠預計於2026年第一季啟動商業化生產，新型胜肽PP011預計於2026年第三季進入一期臨床，以及PL001 CAR-T提前終止二期試驗的加速上市潛力，公司營運有望逐步從純研發轉向商業化，為未來營收帶來顯著成長動能。然而，其仍面臨高昂的研發成本、激烈的市場競爭與不確定的授權談判進度等挑戰。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">6949 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-6949" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-6949" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-6949');
+    var obvContainer = document.getElementById('obv-chart-6949');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 378.0, "high": 378.0, "low": 371.0, "close": 373.5}, {"time": "2025-12-05", "open": 373.5, "high": 375.5, "low": 364.5, "close": 367.0}, {"time": "2025-12-08", "open": 360.0, "high": 367.0, "low": 342.0, "close": 352.0}, {"time": "2025-12-09", "open": 360.0, "high": 367.0, "low": 342.0, "close": 352.0}, {"time": "2025-12-10", "open": 353.0, "high": 379.0, "low": 353.0, "close": 372.0}, {"time": "2025-12-11", "open": 384.5, "high": 384.5, "low": 372.5, "close": 377.0}, {"time": "2025-12-12", "open": 380.0, "high": 389.0, "low": 373.5, "close": 385.0}, {"time": "2025-12-15", "open": 375.0, "high": 398.0, "low": 375.0, "close": 398.0}, {"time": "2025-12-16", "open": 396.5, "high": 396.5, "low": 370.5, "close": 382.0}, {"time": "2025-12-17", "open": 382.0, "high": 388.0, "low": 379.0, "close": 381.0}, {"time": "2025-12-18", "open": 377.5, "high": 381.0, "low": 370.0, "close": 373.0}, {"time": "2025-12-19", "open": 369.5, "high": 370.0, "low": 360.0, "close": 360.0}, {"time": "2025-12-22", "open": 363.0, "high": 366.0, "low": 349.0, "close": 354.5}, {"time": "2025-12-23", "open": 359.5, "high": 361.5, "low": 352.5, "close": 355.0}, {"time": "2025-12-24", "open": 357.0, "high": 368.0, "low": 355.0, "close": 359.0}, {"time": "2025-12-26", "open": 358.0, "high": 365.0, "low": 353.0, "close": 359.0}, {"time": "2025-12-29", "open": 359.0, "high": 361.5, "low": 343.5, "close": 351.5}, {"time": "2025-12-30", "open": 346.5, "high": 351.5, "low": 337.0, "close": 343.5}, {"time": "2025-12-31", "open": 343.5, "high": 347.5, "low": 342.5, "close": 342.5}, {"time": "2026-01-02", "open": 342.5, "high": 345.0, "low": 308.5, "close": 308.5}, {"time": "2026-01-05", "open": 320.0, "high": 333.0, "low": 315.0, "close": 317.0}, {"time": "2026-01-06", "open": 317.0, "high": 322.0, "low": 314.5, "close": 319.0}, {"time": "2026-01-07", "open": 318.0, "high": 336.0, "low": 318.0, "close": 326.5}, {"time": "2026-01-08", "open": 332.5, "high": 346.5, "low": 325.0, "close": 336.5}, {"time": "2026-01-09", "open": 336.0, "high": 341.5, "low": 330.0, "close": 333.5}, {"time": "2026-01-12", "open": 332.0, "high": 336.0, "low": 327.0, "close": 327.0}, {"time": "2026-01-13", "open": 317.0, "high": 348.0, "low": 315.5, "close": 332.5}, {"time": "2026-01-14", "open": 331.5, "high": 338.0, "low": 327.0, "close": 338.0}, {"time": "2026-01-15", "open": 338.0, "high": 359.0, "low": 337.5, "close": 351.0}, {"time": "2026-01-16", "open": 352.5, "high": 363.0, "low": 352.5, "close": 360.0}, {"time": "2026-01-19", "open": 359.5, "high": 385.0, "low": 359.5, "close": 379.5}, {"time": "2026-01-20", "open": 380.0, "high": 417.0, "low": 380.0, "close": 415.5}, {"time": "2026-01-21", "open": 429.5, "high": 445.0, "low": 429.5, "close": 433.0}, {"time": "2026-01-22", "open": 437.5, "high": 457.5, "low": 437.5, "close": 443.0}, {"time": "2026-01-23", "open": 444.0, "high": 449.0, "low": 426.0, "close": 430.0}, {"time": "2026-01-26", "open": 435.5, "high": 473.0, "low": 426.0, "close": 473.0}, {"time": "2026-01-27", "open": 490.0, "high": 520.0, "low": 489.5, "close": 513.0}, {"time": "2026-01-28", "open": 520.0, "high": 563.0, "low": 515.0, "close": 560.0}, {"time": "2026-01-29", "open": 590.0, "high": 610.0, "low": 561.0, "close": 585.0}, {"time": "2026-01-30", "open": 590.0, "high": 600.0, "low": 562.0, "close": 600.0}, {"time": "2026-02-02", "open": 588.0, "high": 620.0, "low": 585.0, "close": 601.0}, {"time": "2026-02-03", "open": 615.0, "high": 615.0, "low": 587.0, "close": 589.0}, {"time": "2026-02-04", "open": 589.0, "high": 620.0, "low": 589.0, "close": 620.0}, {"time": "2026-02-05", "open": 620.0, "high": 653.0, "low": 620.0, "close": 648.0}, {"time": "2026-02-06", "open": 648.0, "high": 679.0, "low": 648.0, "close": 679.0}, {"time": "2026-02-09", "open": 695.0, "high": 698.0, "low": 685.0, "close": 685.0}, {"time": "2026-02-10", "open": 660.0, "high": 695.0, "low": 660.0, "close": 688.0}, {"time": "2026-02-11", "open": 688.0, "high": 688.0, "low": 662.0, "close": 678.0}, {"time": "2026-02-23", "open": 651.0, "high": 680.0, "low": 650.0, "close": 660.0}, {"time": "2026-02-24", "open": 660.0, "high": 690.0, "low": 655.0, "close": 690.0}, {"time": "2026-02-25", "open": 690.0, "high": 700.0, "low": 680.0, "close": 690.0}, {"time": "2026-02-26", "open": 715.0, "high": 758.0, "low": 621.0, "close": 695.0}, {"time": "2026-03-02", "open": 622.0, "high": 632.0, "low": 602.0, "close": 613.0}, {"time": "2026-03-03", "open": 690.0, "high": 694.0, "low": 630.0, "close": 638.0}, {"time": "2026-03-04", "open": 622.0, "high": 632.0, "low": 602.0, "close": 613.0}, {"time": "2026-03-05", "open": 617.0, "high": 648.0, "low": 585.0, "close": 591.0}, {"time": "2026-03-06", "open": 570.0, "high": 595.0, "low": 545.0, "close": 564.0}, {"time": "2026-03-09", "open": 508.0, "high": 560.0, "low": 508.0, "close": 560.0}, {"time": "2026-03-10", "open": 586.0, "high": 605.0, "low": 558.0, "close": 575.0}, {"time": "2026-03-11", "open": 575.0, "high": 610.0, "low": 570.0, "close": 599.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 86.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 127.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 358.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 358.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 174.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 82.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 212.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 204.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 193.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 102.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 117.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 126.0, "color": "#26a69a"}, {"time": "2025-12-22", "value": 137.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 82.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 228.0, "color": "#ef5350"}, {"time": "2025-12-26", "value": 106.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 154.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 227.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 44.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 480.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 280.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 212.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 163.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 246.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 73.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 83.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 680.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 216.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 273.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 175.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 434.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 610.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 539.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 337.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 320.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 578.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 637.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 583.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 244.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 190.0, "color": "#ef5350"}, {"time": "2026-02-02", "value": 401.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 83.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 131.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 122.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 156.0, "color": "#ef5350"}, {"time": "2026-02-09", "value": 107.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 68.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 83.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 119.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 75.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 60.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 645.0, "color": "#26a69a"}, {"time": "2026-03-02", "value": 425.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 883.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 425.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 481.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 464.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 301.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 295.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 147.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 363.3}, {"time": "2025-12-11", "value": 364.0}, {"time": "2025-12-12", "value": 367.6}, {"time": "2025-12-15", "value": 376.8}, {"time": "2025-12-16", "value": 382.8}, {"time": "2025-12-17", "value": 384.6}, {"time": "2025-12-18", "value": 383.8}, {"time": "2025-12-19", "value": 378.8}, {"time": "2025-12-22", "value": 370.1}, {"time": "2025-12-23", "value": 364.7}, {"time": "2025-12-24", "value": 360.3}, {"time": "2025-12-26", "value": 357.5}, {"time": "2025-12-29", "value": 355.8}, {"time": "2025-12-30", "value": 353.6}, {"time": "2025-12-31", "value": 351.1}, {"time": "2026-01-02", "value": 341.0}, {"time": "2026-01-05", "value": 332.6}, {"time": "2026-01-06", "value": 326.1}, {"time": "2026-01-07", "value": 322.7}, {"time": "2026-01-08", "value": 321.5}, {"time": "2026-01-09", "value": 326.5}, {"time": "2026-01-12", "value": 328.5}, {"time": "2026-01-13", "value": 331.2}, {"time": "2026-01-14", "value": 333.5}, {"time": "2026-01-15", "value": 336.4}, {"time": "2026-01-16", "value": 341.7}, {"time": "2026-01-19", "value": 352.2}, {"time": "2026-01-20", "value": 368.8}, {"time": "2026-01-21", "value": 387.8}, {"time": "2026-01-22", "value": 406.2}, {"time": "2026-01-23", "value": 420.2}, {"time": "2026-01-26", "value": 438.9}, {"time": "2026-01-27", "value": 458.4}, {"time": "2026-01-28", "value": 483.8}, {"time": "2026-01-29", "value": 512.2}, {"time": "2026-01-30", "value": 546.2}, {"time": "2026-02-02", "value": 571.8}, {"time": "2026-02-03", "value": 587.0}, {"time": "2026-02-04", "value": 599.0}, {"time": "2026-02-05", "value": 611.6}, {"time": "2026-02-06", "value": 627.4}, {"time": "2026-02-09", "value": 644.2}, {"time": "2026-02-10", "value": 664.0}, {"time": "2026-02-11", "value": 675.6}, {"time": "2026-02-23", "value": 678.0}, {"time": "2026-02-24", "value": 680.2}, {"time": "2026-02-25", "value": 681.2}, {"time": "2026-02-26", "value": 682.6}, {"time": "2026-03-02", "value": 669.6}, {"time": "2026-03-03", "value": 665.2}, {"time": "2026-03-04", "value": 649.8}, {"time": "2026-03-05", "value": 630.0}, {"time": "2026-03-06", "value": 603.8}, {"time": "2026-03-09", "value": 593.2}, {"time": "2026-03-10", "value": 580.6}, {"time": "2026-03-11", "value": 577.8}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 373.95}, {"time": "2025-12-18", "value": 373.9}, {"time": "2025-12-19", "value": 373.2}, {"time": "2025-12-22", "value": 373.45}, {"time": "2025-12-23", "value": 373.75}, {"time": "2025-12-24", "value": 372.45}, {"time": "2025-12-26", "value": 370.65}, {"time": "2025-12-29", "value": 367.3}, {"time": "2025-12-30", "value": 361.85}, {"time": "2025-12-31", "value": 357.9}, {"time": "2026-01-02", "value": 350.65}, {"time": "2026-01-05", "value": 345.05}, {"time": "2026-01-06", "value": 340.95}, {"time": "2026-01-07", "value": 338.15}, {"time": "2026-01-08", "value": 336.3}, {"time": "2026-01-09", "value": 333.75}, {"time": "2026-01-12", "value": 330.55}, {"time": "2026-01-13", "value": 328.65}, {"time": "2026-01-14", "value": 328.1}, {"time": "2026-01-15", "value": 328.95}, {"time": "2026-01-16", "value": 334.1}, {"time": "2026-01-19", "value": 340.35}, {"time": "2026-01-20", "value": 350.0}, {"time": "2026-01-21", "value": 360.65}, {"time": "2026-01-22", "value": 371.3}, {"time": "2026-01-23", "value": 380.95}, {"time": "2026-01-26", "value": 395.55}, {"time": "2026-01-27", "value": 413.6}, {"time": "2026-01-28", "value": 435.8}, {"time": "2026-01-29", "value": 459.2}, {"time": "2026-01-30", "value": 483.2}, {"time": "2026-02-02", "value": 505.35}, {"time": "2026-02-03", "value": 522.7}, {"time": "2026-02-04", "value": 541.4}, {"time": "2026-02-05", "value": 561.9}, {"time": "2026-02-06", "value": 586.8}, {"time": "2026-02-09", "value": 608.0}, {"time": "2026-02-10", "value": 625.5}, {"time": "2026-02-11", "value": 637.3}, {"time": "2026-02-23", "value": 644.8}, {"time": "2026-02-24", "value": 653.8}, {"time": "2026-02-25", "value": 662.7}, {"time": "2026-02-26", "value": 673.3}, {"time": "2026-03-02", "value": 672.6}, {"time": "2026-03-03", "value": 671.6}, {"time": "2026-03-04", "value": 665.0}, {"time": "2026-03-05", "value": 655.6}, {"time": "2026-03-06", "value": 643.2}, {"time": "2026-03-09", "value": 631.4}, {"time": "2026-03-10", "value": 622.9}, {"time": "2026-03-11", "value": 613.8}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 362.3}, {"time": "2026-01-05", "value": 359.475}, {"time": "2026-01-06", "value": 357.075}, {"time": "2026-01-07", "value": 355.8}, {"time": "2026-01-08", "value": 355.025}, {"time": "2026-01-09", "value": 353.1}, {"time": "2026-01-12", "value": 350.6}, {"time": "2026-01-13", "value": 347.975}, {"time": "2026-01-14", "value": 344.975}, {"time": "2026-01-15", "value": 343.425}, {"time": "2026-01-16", "value": 342.375}, {"time": "2026-01-19", "value": 342.7}, {"time": "2026-01-20", "value": 345.475}, {"time": "2026-01-21", "value": 349.4}, {"time": "2026-01-22", "value": 353.8}, {"time": "2026-01-23", "value": 357.35}, {"time": "2026-01-26", "value": 363.05}, {"time": "2026-01-27", "value": 371.125}, {"time": "2026-01-28", "value": 381.95}, {"time": "2026-01-29", "value": 394.075}, {"time": "2026-01-30", "value": 408.65}, {"time": "2026-02-02", "value": 422.85}, {"time": "2026-02-03", "value": 436.35}, {"time": "2026-02-04", "value": 451.025}, {"time": "2026-02-05", "value": 466.6}, {"time": "2026-02-06", "value": 483.875}, {"time": "2026-02-09", "value": 501.775}, {"time": "2026-02-10", "value": 519.55}, {"time": "2026-02-11", "value": 536.55}, {"time": "2026-02-23", "value": 552.0}, {"time": "2026-02-24", "value": 568.5}, {"time": "2026-02-25", "value": 584.025}, {"time": "2026-02-26", "value": 598.0}, {"time": "2026-03-02", "value": 607.0}, {"time": "2026-03-03", "value": 616.75}, {"time": "2026-03-04", "value": 625.9}, {"time": "2026-03-05", "value": 631.8}, {"time": "2026-03-06", "value": 634.35}, {"time": "2026-03-09", "value": 634.35}, {"time": "2026-03-10", "value": 633.85}, {"time": "2026-03-11", "value": 633.8}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -127.0}, {"time": "2025-12-08", "value": -485.0}, {"time": "2025-12-09", "value": -485.0}, {"time": "2025-12-10", "value": -311.0}, {"time": "2025-12-11", "value": -229.0}, {"time": "2025-12-12", "value": -17.0}, {"time": "2025-12-15", "value": 187.0}, {"time": "2025-12-16", "value": -6.0}, {"time": "2025-12-17", "value": -108.0}, {"time": "2025-12-18", "value": -225.0}, {"time": "2025-12-19", "value": -351.0}, {"time": "2025-12-22", "value": -488.0}, {"time": "2025-12-23", "value": -406.0}, {"time": "2025-12-24", "value": -178.0}, {"time": "2025-12-26", "value": -178.0}, {"time": "2025-12-29", "value": -332.0}, {"time": "2025-12-30", "value": -559.0}, {"time": "2025-12-31", "value": -603.0}, {"time": "2026-01-02", "value": -1083.0}, {"time": "2026-01-05", "value": -803.0}, {"time": "2026-01-06", "value": -591.0}, {"time": "2026-01-07", "value": -428.0}, {"time": "2026-01-08", "value": -182.0}, {"time": "2026-01-09", "value": -255.0}, {"time": "2026-01-12", "value": -338.0}, {"time": "2026-01-13", "value": 342.0}, {"time": "2026-01-14", "value": 558.0}, {"time": "2026-01-15", "value": 831.0}, {"time": "2026-01-16", "value": 1006.0}, {"time": "2026-01-19", "value": 1440.0}, {"time": "2026-01-20", "value": 2050.0}, {"time": "2026-01-21", "value": 2589.0}, {"time": "2026-01-22", "value": 2926.0}, {"time": "2026-01-23", "value": 2606.0}, {"time": "2026-01-26", "value": 3184.0}, {"time": "2026-01-27", "value": 3821.0}, {"time": "2026-01-28", "value": 4404.0}, {"time": "2026-01-29", "value": 4648.0}, {"time": "2026-01-30", "value": 4838.0}, {"time": "2026-02-02", "value": 5239.0}, {"time": "2026-02-03", "value": 5156.0}, {"time": "2026-02-04", "value": 5287.0}, {"time": "2026-02-05", "value": 5409.0}, {"time": "2026-02-06", "value": 5565.0}, {"time": "2026-02-09", "value": 5672.0}, {"time": "2026-02-10", "value": 5740.0}, {"time": "2026-02-11", "value": 5657.0}, {"time": "2026-02-23", "value": 5538.0}, {"time": "2026-02-24", "value": 5613.0}, {"time": "2026-02-25", "value": 5613.0}, {"time": "2026-02-26", "value": 6258.0}, {"time": "2026-03-02", "value": 5833.0}, {"time": "2026-03-03", "value": 6716.0}, {"time": "2026-03-04", "value": 6291.0}, {"time": "2026-03-05", "value": 5810.0}, {"time": "2026-03-06", "value": 5346.0}, {"time": "2026-03-09", "value": 5045.0}, {"time": "2026-03-10", "value": 5340.0}, {"time": "2026-03-11", "value": 5487.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>沛爾生醫-創（6949）主要從事「嵌合抗原受體T細胞（CAR-T）」相關服務及產品的研發、開發與製造，以及特管辦法細胞產品。公司致力於開發與推動與歐美同步的免疫細胞治療及幹細胞再生醫學治療技術。</p>
+
+<h3>核心產品線</h3>
+
+<ul><li><strong>PL001 (CD19 CAR-T)</strong>：用於治療B細胞淋巴癌。目前正進行第二期臨床試驗，已取得衛福部同意臨床試驗計畫書變更，增列期中報告並計畫依分析結果<strong>申請提前終止臨床二期試驗</strong>。</li>
+<li><strong>新型胜肽產品PP011</strong>：規劃用於類風濕性關節炎的治療。臨床前試驗顯示對比輝瑞藥物有相當的消炎作用，且擁有更好的骨密度修復。該產品也被發現對<strong>減肥市場具高度潛力</strong>，並已引發藥廠興趣，正進行授權談判中。預計2026年上半年申請人體臨床試驗，下半年啟動，並計畫於2026年第三季啟動第一期臨床試驗。</li>
+<li><strong>間皮素多鏈CAR-T (PL002)</strong>：用於治療卵巢癌。目標是2027年申請進入人體臨床試驗，2028年啟動一/二期試驗。</li>
+<li><strong>BCMA CAR-T (PL003)</strong>：針對多發性骨髓瘤。已啟動動物試驗，並已在國內用於三位恩慈療法病患，腫瘤控制率與消除率有不錯成效。目標是2026年下半年申請人體臨床試驗，2027年正式啟動第一期臨床試驗。</li>
+<li><strong>慢病毒製造技術</strong>：公司擁有專利的新型慢病毒（LV）製造技術，可有效將DNA導入細胞，大幅降低製造成本，並有助於突破全球細胞基因療法面臨的關鍵原料供應瓶頸。竹北廠預計最快於2026年開始產出GMP等級的慢病毒。</li>
+</ul>
+<h3>營收結構</h3>
+
+<p>根據2026年1月27日的報導，細胞製品佔營收比重高達98%。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>佔營收比重 (約)</th><th>備註</th></tr></thead><tbody>
+<tr><td>細胞製品 (CAR-T, 特管辦法)</td><td>98%</td><td>主要營收來源</td></tr>
+<tr><td>其他</td><td>2%</td><td>包含因子公司對新客戶委任規劃廠房設計收入等</td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>領先的CAR-T技術平台：</strong></li>
+<p>*   <strong>PL001臨床療效優異：</strong> 法說會指出，PL001的臨床數據令人振奮，超過<strong>60%</strong>的病患腫瘤完全消失，其中最長追蹤達四年，其療效優於諾華現有產品Kymriah (約50%)。</p>
+<p>*   <strong>新型慢病毒製造技術：</strong> 擁有專利的新型慢病毒製造技術，有效降低製造成本並解決全球關鍵原料供應瓶頸。</p>
+<p>*   <strong>7日高Tscm（幹細胞樣記憶T細胞）製程與多鏈CAR技術：</strong> 提升CAR-T細胞的製造效率與潛在療效。</p>
+<li><strong>多元化產品線與市場拓展潛力：</strong></li>
+<p>*   除了CAR-T治療血液癌，PL002佈局實體瘤（卵巢癌），符合產業擴展趨勢。</p>
+<p>*   新型胜肽PP011不僅針對類風濕性關節炎，更發現<strong>減肥市場潛力</strong>，有望大幅擴展市場應用範圍。</p>
+<p>*   未來開發重心轉向<strong>異體產品</strong>，具備「現成」產品的成本與生產優勢。</p>
+<li><strong>自主GMP製造能力：</strong></li>
+<p>*   竹北生醫園區的PIC/S GMP廠面積達<strong>1,000坪</strong>，CAR-T產能規劃為每年<strong>300例</strong>，預計2026年第一季開始商業化生產，並預留<strong>200坪</strong>空間專門投入慢病毒製造，預計2026年產出GMP等級慢病毒，確保關鍵原料自主供應。</p>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣千元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>1,979</td><td>-14.55%</td><td>-78.35%</td></tr>
+<tr><td>2025年12月</td><td>2,320</td><td>36.88%</td><td>26.35%</td></tr>
+<tr><td>2025年11月</td><td>1,690</td><td>-21.45%</td><td>7.98%</td></tr>
+<tr><td>2025年10月</td><td>2,154</td><td>14.09%</td><td>53.53%</td></tr>
+<tr><td>2025年9月</td><td>1,890</td><td>-23.06%</td><td>8.38%</td></tr>
+<tr><td>2025年8月</td><td>2,450</td><td>-24.63%</td><td>63.38%</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>月營收分析：</strong> 2026年1月營收表現較弱，月增與年增率雙雙衰退。但2025年12月營收創近4個月新高，月增36.88%，年增26.35%。整體而言，月營收波動較大，仍處於早期發展階段。</li>
+</ul>
+<h3>季度數據</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>會計區間</th><th>季營收 (新台幣千元)</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>EPS (新台幣元)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2025年第四季</td><td>6,164</td><td>未提供</td><td>未提供</td><td>N/A</td><td>季營收為10-12月營收加總，其他數據未提供</td></tr>
+<tr><td>2025年第三季</td><td>未提供</td><td>-88.26%</td><td>-1662.02%</td><td>-4.65</td><td></td></tr>
+<tr><td>2025年第二季</td><td>5,870</td><td>未提供</td><td>未提供</td><td>-1.33</td><td></td></tr>
+</tbody></table></div>
+
+<h3>年度趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>總營收 (新台幣千元)</th><th>EPS (新台幣元)</th><th>備註</th></tr></thead><tbody>
+<tr><td>22024年</td><td>20,000</td><td>-6.83</td><td></td></tr>
+<tr><td>2025年</td><td>31,424</td><td>-7.23</td><td>虧損較2024年擴大，累積虧損達實收資本額二分之一</td></tr>
+</tbody></table></div>
+
+<h2>法說會重點 (2025年12月4日)</h2>
+
+<ul><li><strong>CAR-T產品 (PL001)：</strong></li>
+</ul>    *   CD19 CAR-T (B細胞淋巴癌) 第二期臨床試驗收案順利，預計於2025年第四季完成最後一名病患收案，觀察期一年。
+<p>*   規劃於<strong>2027年</strong>依再生醫療雙法申請藥證並直接販售。</p>
+<p>*   臨床數據令人振奮，超過<strong>60%</strong>的病患腫瘤完全消失，優於諾華現有產品 (約50%)。</p>
+<ul><li><strong>新型胜肽產品 (PP011)：</strong></li>
+</ul>    *   預計於<strong>2026年第三季</strong>進入第一期臨床試驗。
+<p>*   已發現其<strong>減肥功效</strong>，授權談判正在與藥廠進行中。</p>
+<ul><li><strong>異體CAR-T產品：</strong></li>
+</ul>    *   PL002 (間皮素異體 CAR-T) 與 PL003 (BCMA 異體 CAR-T) 皆預計於<strong>2027年</strong>啟動第一期臨床試驗。
+<p>*   公司未來的開發重心將轉向異體產品，不再推動新的自體產品。</p>
+<ul><li><strong>授權計畫：</strong></li>
+</ul>    *   授權談判仍在進行中，但受到美國對中國及全球貿易政策不確定性的影響，部分藥廠投資步調趨於保守，目前進度有所放緩。
+<ul><li><strong>產能與資本支出：</strong></li>
+</ul>    *   <strong>竹北PIC/S GMP廠 (1,000坪)：</strong> CAR-T產能規劃為每年<strong>300例</strong>。
+<p>*   廠房已於2025年第三季完成驗證確效，2025年第四季完成CAR-T區域的GMP藥廠認證查核，並預計於<strong>2026年第一季</strong>開始生產商業化CAR-T產品。</p>
+<p>*   已預留約<strong>200坪空間</strong>專門投入慢病毒製造，預計最快於<strong>2026年</strong>開始產出GMP等級的慢病毒。</p>
+<p>*   公司正在考慮將技術轉移至第三地設廠，以應對潛在的台灣出口高關稅問題。</p>
+<p>*   <strong>管理層未提及具體資本支出金額與下季/下半年營收/EPS guidance。</strong></p>
+
+<h2>券商觀點</h2>
+
+<strong>未找到近期券商報告的具體目標價及評等資料。</strong>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<p>沛爾生醫-創2025年全年財務報告顯示，公司仍處於研發與初期投資階段，毛利率及營益率為負值，虧損持續。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季度</th><th>營業收入 (千元)</th><th>營業毛損 (千元)</th><th>營業毛利率 (%)</th><th>營業利益 (千元)</th><th>營業利益率 (%)</th><th>稅前淨利 (千元)</th><th>歸屬母公司淨利 (千元)</th><th>基本每股盈餘 (元)</th></tr></thead><tbody>
+<tr><td>22024年全年</td><td>20,000</td><td>未提供</td><td>未提供</td><td>未提供</td><td>未提供</td><td>未提供</td><td>未提供</td><td>-6.83</td></tr>
+<tr><td>2025年全年</td><td>31,424</td><td>(4,391)</td><td>-13.97%</td><td>(467,350)</td><td>-1487.16%</td><td>(452,672)</td><td>(423,938)</td><td>-7.23</td></tr>
+<tr><td>2025年第四季</td><td>6,164</td><td>未提供</td><td>未提供</td><td>未提供</td><td>未提供</td><td>未提供</td><td>未提供</td><td>N/A</td></tr>
+<tr><td>2025年第三季</td><td>未提供</td><td>未提供</td><td>-88.26%</td><td>未提供</td><td>-1662.02%</td><td>未提供</td><td>未提供</td><td>-4.65</td></tr>
+<tr><td>2025年第二季</td><td>5,870</td><td>未提供</td><td>未提供</td><td>未提供</td><td>未提供</td><td>-83,404</td><td>-77,803</td><td>-1.33</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>利潤率變化分析：</strong> 2025年全年虧損較2024年擴大，主因公司仍處於研發階段，營收規模尚小，但研發投入與營運費用高昂，導致毛損與大幅營業虧損。</li>
+</ul>
+<h3>存貨分析與資本支出</h3>
+
+<ul><li><strong>存貨與營運：</strong> 未找到2024-2026年的最新存貨金額、存貨週轉天數趨勢、應收帳款週轉天數趨勢，以及存貨是否有異常堆積或備料現象的相關資訊。</li>
+<li><strong>資本支出：</strong> 未找到2024-2026年的最新具體資本支出金額與趨勢。然而，公司在竹北PIC/S GMP廠的建置（CAR-T產能與慢病毒製造空間）是重要的資本支出投入，預計將在2026年帶來產能效益。</li>
+</ul>
+<h2>股權異動</h2>
+
+<ul><li><strong>董監事/大股東申報轉讓紀錄：</strong> 未找到2024-2026年的最新董監事/大股東申報轉讓紀錄。</li>
+<li><strong>庫藏股買回紀錄：</strong> 未找到2024-2026年的最新庫藏股買回紀錄。</li>
+<li><strong>可轉換公司債（CB）：</strong> 未找到2024-2026年發行可轉換公司債（CB）及轉換價格的最新資料。</li>
+<li><strong>現金增資與減資：</strong></li>
+</ul>    *   2025年曾辦理現金增資案，全體董事放棄認購達得認購股數二分之一以上，並洽特定人認購。該催繳期間於2026年1月26日屆滿並完成股票發放。
+<p>*   2026年3月4日，董事會訂定115年3月4日為員工認股權憑證轉換普通股之增資基準日，發行價格每股新台幣20元，發行股數115,000股。</p>
+<ul><li><strong>股利政策：</strong> 沛爾生醫-創在2024年與2025年均<strong>未發放</strong>現金股利及股票股利。</li>
+</ul>
+<h3>其他財報重點</h3>
+
+<ul><li><strong>負債比率：</strong> 截至2025年底，負債比率約為<strong>19.8%</strong> (總負債418,269千元 / 總資產2,112,225千元)，財務結構尚屬穩健。</li>
+<li><strong>自由現金流量與業外收支：</strong> 未找到2024-2026年的最新自由現金流量趨勢與業外收支重大項目資料。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>該產業全球市場規模與 CAGR 成長率</h3>
+
+<p>CAR-T細胞療法市場預計將在未來幾年呈現顯著增長，儘管不同報告預估值有所差異，但皆指向高速成長：</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>市場類別</th><th>2025年市場規模 (估計)</th><th>2026年市場規模 (估計)</th><th>2026-2033/2035 CAGR</th><th>2033/2035年市場規模 (估計)</th></tr></thead><tbody>
+<tr><td>CAR-T細胞療法 (報告一)</td><td>58.2億美元</td><td>69.9億美元</td><td>18.06% (至2033年)</td><td>223.6億美元</td></tr>
+<tr><td>CAR-T細胞療法 (報告二)</td><td>205.4億美元</td><td>未提供</td><td>29.29% (至2035年)</td><td>2680億美元</td></tr>
+<tr><td>CAR-T細胞療法 (報告三)</td><td>89.5億美元</td><td>109.2億美元</td><td>7.34% (至2034年)</td><td>192.5億美元</td></tr>
+<tr><td>細胞治療製造市場</td><td>未提供</td><td>62億美元</td><td>14.2% (至2036年)</td><td>232億美元 (2036年)</td></tr>
+<tr><td>廣義細胞治療市場</td><td>65.5億美元</td><td>未提供</td><td>17.32% (至2031年)</td><td>145.6億美元 (2031年)</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>供需狀況：</strong> 市場需求持續增長，主要受癌症患病率上升、個人化細胞療法普及、基因編輯技術進步及監管支持推動。供應端雖有CDMOs參與、技術改進與自動化進程，但仍面臨生產瓶頸和地區性服務不足，<strong>降低銷貨成本（COGS）成為主要競爭指標</strong>。異體CAR-T的發展有望縮短製造時程並大幅提升可及性。</li>
+</ul>
+<ul><li><strong>產業平均毛利率水準：</strong> 目前未找到CAR-T細胞療法或廣義細胞治療產業的明確平均毛利率數據。但CAR-T療法生產成本高昂（單劑量可能超過35萬美元），業界目標將異體CAR-T成本降至每劑1萬至2萬美元以下，顯示成本控制對維持利潤至關重要。</li>
+</ul>
+<h3>競爭格局</h3>
+
+<h4>全球前 5 大 CAR-T 細胞療法公司 (基於2022年市佔率)</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>成立年份</th><th>總部</th><th>公司規模（員工）</th><th>主要產品或服務</th></tr></thead><tbody>
+<tr><td>Gilead Sciences (Kite Pharma)</td><td>1987</td><td>美國加州</td><td>10,001+</td><td>Yescarta®, Tecartus® (CAR-T療法)</td></tr>
+<tr><td>Bristol Myers Squibb</td><td>1887</td><td>美國新澤西州</td><td>10,001+</td><td>Breyanzi® (CAR-T療法)</td></tr>
+<tr><td>Novartis AG</td><td>1996</td><td>瑞士巴塞爾</td><td>10,001+</td><td>Kymriah® (CAR-T療法)</td></tr>
+<tr><td>Janssen (Johnson &amp; Johnson)</td><td>1968</td><td>加拿大安大略省</td><td>5,001-10,000</td><td>Carvykti® (CAR-T療法，與Legend Biotech合作)</td></tr>
+<tr><td>JW Therapeutics</td><td>2016</td><td>中國上海</td><td>51-200</td><td>(專注於CAR-T療法開發)</td></tr>
+</tbody></table></div>
+
+<h4>沛爾生醫-創 vs 主要競爭對手的具體比較</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>比較項目</th><th>沛爾生醫-創 (6949)</th><th>主要競爭對手 (已商業化大廠)</th></tr></thead><tbody>
+<tr><td><strong>技術</strong></td><td><strong>PL001 (CD19 CAR-T)：</strong> 二期臨床，療效&gt;60%，優於諾華Kymriah (約50%)。<strong>PL002 (間皮素多鏈CAR-T)：</strong> 實體瘤 (卵巢癌)佈局。<strong>PP011 (新型胜肽)：</strong> 類風濕性關節炎/減肥潛力。<strong>慢病毒製造：</strong> 自有專利技術，降低成本。<strong>異體CAR-T：</strong> 未來開發重心。</td><td><strong>Kymriah, Yescarta, Tecartus, Breyanzi, Carvykti：</strong> 主要針對CD19/BCMA血液惡性腫瘤。業界趨勢往實體瘤、異體CAR-T、基因編輯、裝甲型CAR-T發展。</td></tr>
+<tr><td><strong>產能</strong></td><td><strong>竹北PIC/S GMP廠：</strong> CAR-T產能每年300例，2026年Q1商業化生產。慢病毒製造2026年產出。</td><td>大型藥廠擁有大規模製造設施，或大量委外CDMO。Kite Pharma計畫2026年前產能增四倍。Allogene目標年產3萬-6萬劑以上。</td></tr>
+<tr><td><strong>客戶</strong></td><td><strong>目標客群多元化：</strong> B細胞淋巴癌、卵巢癌、類風濕性關節炎、潛在減肥市場。</td><td>主要服務血液惡性腫瘤患者，積極擴展至實體瘤及自體免疫疾病。</td></tr>
+<tr><td><strong>價格</strong></td><td>產品處於臨床試驗階段，無公開定價。</td><td>已上市CAR-T產品價格高昂，單劑量超過35萬美元。降低生產成本是重要目標。</td></tr>
+</tbody></table></div>
+
+<h4>台灣同業比較</h4>
+
+<p>很抱歉，在可用的資料中，未能找到沛爾生醫-創（6949）及其台灣同業（細胞治療領域）在2024-2026年間的最新營收規模、毛利率及EPS的具體比較數據。台灣細胞治療公司多數仍處於研發或早期商業化階段，財務數據透明度及可比性有限。</p>
+
+<h3>產業趨勢</h3>
+
+<li><strong>實體瘤CAR-T療法的進展 (Solid Tumor CAR-T Advancement)</strong></li>
+<p>*   <strong>趨勢：</strong> CAR-T療法在血液癌表現出色，但在實體瘤中受限於免疫抑制性腫瘤微環境(TME)。研究正積極開發「裝甲型」CAR-T細胞以克服TME障礙。</p>
+<p>*   <strong>具體影響：</strong> 將CAR-T療法應用擴展至卵巢癌等難治實體瘤，顯著擴大市場潛力。</p>
+<p>*   <strong>對沛爾生醫-創：</strong> PL002針對卵巢癌的間皮素多鏈CAR-T開發，與此全球趨勢高度契合，若成功將佔據重要地位。</p>
+<li><strong>異體（現成）CAR-T療法的發展 (Allogeneic CAR-T Development)</strong></li>
+<p>*   <strong>趨勢：</strong> 自體CAR-T療法存在製造時間長、成本高、難規模化等限制。異體CAR-T利用健康捐贈者細胞，可提供更快速、成本效益更高、可擴展的「現成」治療。預計到2031年異體產品複合年增長率將達15.22%。</p>
+<p>*   <strong>具體影響：</strong> 大幅提高患者可及性，縮短治療等待時間，降低成本。</p>
+<p>*   <strong>對沛爾生醫-創：</strong> 公司未來開發重心轉向異體產品，符合此一產業長期發展方向，有助於提升競爭力與市場份額。</p>
+<li><strong>AI在藥物發現與開發中的應用 (AI in Drug Discovery and Development)</strong></li>
+<p>*   <strong>趨勢：</strong> AI正加速藥物發現、開發、臨床試驗數據分析及監管審查，可壓縮30-40%的發現時程，並縮短臨床前開發時間至13-18個月。</p>
+<p>*   <strong>具體影響：</strong> 顯著提高研發效率，縮短上市時間，降低成本，並優化臨床試驗設計。</p>
+<p>*   <strong>對沛爾生醫-創：</strong> 可藉助AI工具加速新型CAR-T靶點識別、CAR結構優化、臨床結果預測及製造流程優化，加速產品開發進程。</p>
+
+<h2>近期催化劑</h2>
+
+<h3>利多事件清單</h3>
+
+<ul><li><strong>CAR-T產品加速上市：</strong> 2026年1月28日，PL001取得衛福部同意變更臨床試驗計畫書，增列期中報告並計畫申請<strong>提前終止臨床二期試驗</strong>，有望加速藥證申請。</li>
+<li><strong>GMP廠商業化生產：</strong> 竹北PIC/S GMP廠CAR-T產能規劃達每年<strong>300例</strong>，預計<strong>2026年第一季</strong>開始生產商業化CAR-T產品。</li>
+<li><strong>新型胜肽產品潛力：</strong> PP011被發現具有<strong>減肥功效</strong>，已引發藥廠興趣並進行授權談判，有望為公司帶來非腫瘤領域的市場與收入。</li>
+<li><strong>慢病毒自主製造：</strong> 竹北廠預計最快於<strong>2026年</strong>開始產出GMP等級的慢病毒，降低對外部供應鏈依賴並節省成本。</li>
+<li><strong>外資買超：</strong> 2026年3月2日外資買超75張，2026年累計買超1,113張，顯示外資對公司潛力的看好。</li>
+<li><strong>股價表現：</strong> 2026年1月下旬股價曾攻上<strong>505元</strong>新高，反映市場對細胞療法題材及公司進度的樂觀預期。</li>
+</ul>
+<h3>利空事件清單</h3>
+
+<ul><li><strong>財務狀況惡化：</strong> 2026年3月4日董事會公告，2025年全年合併虧損<strong>新台幣4.24億元</strong> (EPS -7.23元)，且<strong>累積虧損達實收資本額二分之一</strong>，並決議不分配114年度員工酬勞及董事酬勞。</li>
+<li><strong>月營收表現不佳：</strong> 2026年1月合併營收為<strong>197.9萬元</strong>，較上月減少<strong>14.55%</strong>，較去年同期減少<strong>78.35%</strong>，營收表現雙雙衰退。</li>
+<li><strong>授權談判進度放緩：</strong> 授權談判受美國對中國及全球貿易政策不確定性影響，部分藥廠投資步調趨於保守，導致談判進度放緩。</li>
+<li><strong>現金增資董事放棄認購：</strong> 2025年12月24日公告114年度現金增資全體董事放棄認購股數達得認購股數二分之一以上，可能影響市場信心。</li>
+<li><strong>無股利政策：</strong> 2024年及2025年均不發放股利。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能類型</th><th>具體事件</th><th>相關產品/技術</th></tr></thead><tbody>
+<tr><td>2025年第四季</td><td>產品進度</td><td>PL001二期臨床試驗完成最後一名病患收案。竹北IC/S GMP CAR-T區域完成GMP藥廠認證查核。</td><td>PL001</td></tr>
+<tr><td><strong>2026年第一季</strong></td><td><strong>產能/商業化</strong></td><td><strong>竹北IC/S GMP廠開始生產商業化CAR-T產品。</strong></td><td>PL001</td></tr>
+<tr><td>2026年上半年</td><td>產品進度</td><td>新型胜肽產品PP011預計申請進入人體臨床試驗。</td><td>PP011</td></tr>
+<tr><td>2026年第三季</td><td>產品進度</td><td>新型胜肽產品PP011預計啟動第一期臨床試驗。沛爾轉投資TCMC細胞工廠預計完成驗證。</td><td>PP011</td></tr>
+<tr><td>2026年下半年</td><td>產品進度</td><td>BCMA CAR-T (PL003) 預計申請人體臨床試驗。</td><td>PL003</td></tr>
+<tr><td><strong>2026年</strong></td><td><strong>產能/技術</strong></td><td><strong>竹北廠預計開始產出GMP等級的慢病毒。</strong></td><td>慢病毒技術</td></tr>
+<tr><td>2027年</td><td>產品進度</td><td>PL001依再生醫療雙法申請藥證並直接販售。間皮素多鏈CAR-T (PL002) 預計申請進入人體臨床試驗。BCMA CAR-T (PL003) 預計正式啟動第一期臨床試驗。</td><td>PL001, PL002, PL003</td></tr>
+<tr><td>2028年</td><td>產品進度</td><td>間皮素多鏈CAR-T (PL002) 預計啟動一/二期試驗。</td><td>PL002</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+
+<li><strong>CAR-T商業化元年：</strong> 竹北GMP廠於2026年第一季啟動商業化CAR-T產品生產，預計將為公司帶來首次的產品銷售收入，為營收結構帶來根本性轉變。PL001提前終止二期試驗的決策，可能大幅縮短其藥證申請時程。</li>
+<li><strong>新型胜肽產品線突破：</strong> PP011在減肥市場的潛力巨大，若授權談判於2026年取得實質進展，將為公司帶來可觀的權利金收入。同時，其進入類風濕性關節炎一期臨床，亦為公司開闢新戰場。</li>
+<li><strong>關鍵原料自主供應：</strong> 慢病毒製造廠預計2026年上線，將解決關鍵原料供應瓶頸，降低生產成本，提升整體毛利率潛力。</li>
+<li><strong>異體產品線佈局：</strong> 公司重心轉向異體CAR-T產品開發，符合產業趨勢，有望在長期市場競爭中取得優勢。</li>
+
+<strong>風險：</strong>
+
+<li><strong>持續虧損與財務壓力：</strong> 公司2025年仍大幅虧損，且累積虧損已達實收資本額二分之一，現金流管理與後續募資能力將是關鍵挑戰。</li>
+<li><strong>研發時程與成果不確定性：</strong> 儘管PL001有望加速，但新藥開發仍具高度不確定性，PP011及其他CAR-T產品的臨床試驗結果將直接影響公司價值。</li>
+<li><strong>市場競爭激烈：</strong> CAR-T市場已有大型藥廠主導，沛爾生醫-創需展現更強的差異化優勢才能突圍。</li>
+<li><strong>授權談判與地緣政治風險：</strong> 授權談判進度放緩，以及台灣出口可能面臨的30%以上高額關稅，將直接影響公司的國際化佈局與盈利能力。</li>
+
+<h2>投資結論</h2>
+
+<p>沛爾生醫-創（6949）正處於由研發導向轉型為商業化營運的關鍵時期，2026年將有多項重要里程碑有望兌現，為公司未來成長注入強勁動能，但同時也需面對新藥開發的固有風險與財務挑戰。</p>
+
+<li><strong>商業化曙光乍現：</strong> 2026年第一季竹北GMP廠的CAR-T商業化生產，以及PL001提前終止二期試驗的潛在加速上市，是公司營收從研發服務轉向產品銷售的重大轉折點。這是判斷公司未來盈利能力的核心催化劑。</li>
+<li><strong>多元產品線與市場擴張：</strong> PL001在血液癌領域展現優異療效，PL002佈局實體瘤，加上PP011在類風濕性關節炎及減肥市場的雙重潛力，顯示公司在技術佈局與市場拓展上的野心，有助於分散單一產品風險。</li>
+<li><strong>核心技術與自主產能護城河：</strong> 自有新型慢病毒製造技術與2026年上線的GMP級慢病毒產能，有望大幅降低成本並確保供應穩定，形成重要的競爭優勢。</li>
+<li><strong>高風險高報酬，需密切關注執行力：</strong> 儘管公司前景看好，但目前的持續虧損、高研發投入、授權談判不確定性及激烈的市場競爭，都使其投資風險偏高。投資人需密切追蹤各產品臨床進度、授權談判結果及竹北廠的實際產能利用率與營收貢獻。</li>
+<li><strong>投資建議：</strong> 考量沛爾生醫-創正值關鍵轉型期，2026年多項成長動能有望逐步兌現，然新藥研發與商業化仍具高度不確定性與風險。若PL001能順利於2027年獲證並商業化，且PP011授權談判取得進展，則公司價值將顯著提升。綜合評估其在細胞治療領域的技術潛力與市場佈局，建議<strong>長期投資者可於股價回檔至NT$380 - NT$450區間擇機佈局</strong>，並以<strong>NT$550 - NT$650</strong>為成功兌現里程碑後的目標價區間，但需注意其為高波動生技股，需有承受較高風險的準備。</li>
+
+<hr>
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:00</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="6949_沛爾生醫-創_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="6949_沛爾生醫-創_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="6949_沛爾生醫-創_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

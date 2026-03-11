@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2613 中櫃 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2613 中櫃 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>中櫃（2613）作為台灣港埠碼頭與貨櫃集散站的領導業者，受惠於穩健的基礎設施業務及航運產業輪動題材，儘管面臨全球海運市場運力過剩挑戰，仍透過成本控制與效率提升維持獲利韌性，並以穩定股利政策吸引資金，2026年首月營收年增14.65%，展望營運持穩向上，然需留意全球經濟放緩與航運供需失衡風險。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2613 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2613" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2613" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2613');
+    var obvContainer = document.getElementById('obv-chart-2613');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 25.45, "high": 26.3, "low": 25.1, "close": 25.2}, {"time": "2025-12-05", "open": 25.15, "high": 25.15, "low": 24.25, "close": 24.3}, {"time": "2025-12-08", "open": 24.3, "high": 24.3, "low": 23.9, "close": 24.1}, {"time": "2025-12-09", "open": 24.0, "high": 24.1, "low": 23.9, "close": 23.95}, {"time": "2025-12-10", "open": 23.9, "high": 24.0, "low": 23.75, "close": 23.75}, {"time": "2025-12-11", "open": 23.9, "high": 24.0, "low": 23.7, "close": 23.7}, {"time": "2025-12-12", "open": 23.95, "high": 24.0, "low": 23.5, "close": 23.65}, {"time": "2025-12-15", "open": 23.7, "high": 24.0, "low": 23.5, "close": 23.65}, {"time": "2025-12-16", "open": 23.75, "high": 23.75, "low": 23.3, "close": 23.55}, {"time": "2025-12-17", "open": 23.55, "high": 23.85, "low": 23.5, "close": 23.55}, {"time": "2025-12-18", "open": 23.4, "high": 23.4, "low": 23.0, "close": 23.15}, {"time": "2025-12-19", "open": 23.1, "high": 23.5, "low": 23.0, "close": 23.5}, {"time": "2025-12-22", "open": 23.5, "high": 23.5, "low": 23.2, "close": 23.45}, {"time": "2025-12-23", "open": 23.45, "high": 23.55, "low": 23.3, "close": 23.55}, {"time": "2025-12-24", "open": 23.6, "high": 24.25, "low": 23.4, "close": 23.4}, {"time": "2025-12-26", "open": 23.45, "high": 23.6, "low": 23.3, "close": 23.45}, {"time": "2025-12-29", "open": 23.7, "high": 24.05, "low": 23.6, "close": 24.0}, {"time": "2025-12-30", "open": 24.1, "high": 24.1, "low": 23.5, "close": 23.75}, {"time": "2025-12-31", "open": 23.8, "high": 23.8, "low": 23.6, "close": 23.65}, {"time": "2026-01-02", "open": 24.0, "high": 24.75, "low": 24.0, "close": 24.05}, {"time": "2026-01-05", "open": 24.2, "high": 24.3, "low": 23.5, "close": 23.55}, {"time": "2026-01-06", "open": 23.55, "high": 23.7, "low": 23.4, "close": 23.45}, {"time": "2026-01-07", "open": 23.7, "high": 24.1, "low": 23.7, "close": 24.05}, {"time": "2026-01-08", "open": 24.15, "high": 24.5, "low": 23.8, "close": 24.0}, {"time": "2026-01-09", "open": 24.3, "high": 24.4, "low": 23.8, "close": 24.0}, {"time": "2026-01-12", "open": 24.0, "high": 24.5, "low": 23.85, "close": 24.35}, {"time": "2026-01-13", "open": 24.45, "high": 24.55, "low": 24.05, "close": 24.2}, {"time": "2026-01-14", "open": 24.25, "high": 24.8, "low": 24.25, "close": 24.7}, {"time": "2026-01-15", "open": 24.8, "high": 25.0, "low": 24.65, "close": 24.85}, {"time": "2026-01-16", "open": 24.95, "high": 24.95, "low": 24.5, "close": 24.5}, {"time": "2026-01-19", "open": 24.4, "high": 24.8, "low": 24.1, "close": 24.55}, {"time": "2026-01-20", "open": 24.7, "high": 24.7, "low": 24.4, "close": 24.4}, {"time": "2026-01-21", "open": 24.4, "high": 24.6, "low": 24.25, "close": 24.25}, {"time": "2026-01-22", "open": 24.35, "high": 24.5, "low": 24.35, "close": 24.45}, {"time": "2026-01-23", "open": 24.2, "high": 24.45, "low": 24.1, "close": 24.1}, {"time": "2026-01-26", "open": 24.15, "high": 24.3, "low": 23.95, "close": 24.15}, {"time": "2026-01-27", "open": 24.3, "high": 24.7, "low": 24.2, "close": 24.2}, {"time": "2026-01-28", "open": 24.75, "high": 26.2, "low": 24.65, "close": 24.9}, {"time": "2026-01-29", "open": 25.1, "high": 25.3, "low": 24.7, "close": 24.8}, {"time": "2026-01-30", "open": 25.0, "high": 25.0, "low": 24.35, "close": 24.35}, {"time": "2026-02-02", "open": 24.7, "high": 24.7, "low": 24.05, "close": 24.35}, {"time": "2026-02-03", "open": 24.35, "high": 24.5, "low": 24.05, "close": 24.1}, {"time": "2026-02-04", "open": 24.35, "high": 25.0, "low": 24.25, "close": 24.95}, {"time": "2026-02-05", "open": 25.0, "high": 25.8, "low": 24.5, "close": 24.6}, {"time": "2026-02-06", "open": 24.65, "high": 24.65, "low": 23.75, "close": 24.0}, {"time": "2026-02-09", "open": 24.5, "high": 24.5, "low": 23.85, "close": 24.05}, {"time": "2026-02-10", "open": 24.05, "high": 24.25, "low": 23.95, "close": 24.1}, {"time": "2026-02-11", "open": 24.35, "high": 24.35, "low": 24.0, "close": 24.2}, {"time": "2026-02-23", "open": 24.3, "high": 24.85, "low": 24.3, "close": 24.7}, {"time": "2026-02-24", "open": 24.75, "high": 24.9, "low": 24.55, "close": 24.6}, {"time": "2026-02-25", "open": 24.6, "high": 24.9, "low": 24.5, "close": 24.65}, {"time": "2026-02-26", "open": 24.55, "high": 25.1, "low": 24.55, "close": 24.9}, {"time": "2026-03-02", "open": 29.45, "high": 30.0, "low": 25.65, "close": 26.1}, {"time": "2026-03-03", "open": 25.3, "high": 27.75, "low": 25.3, "close": 27.75}, {"time": "2026-03-04", "open": 29.45, "high": 30.0, "low": 25.65, "close": 26.1}, {"time": "2026-03-05", "open": 26.2, "high": 27.8, "low": 25.5, "close": 26.1}, {"time": "2026-03-06", "open": 26.15, "high": 27.0, "low": 25.5, "close": 25.8}, {"time": "2026-03-09", "open": 25.7, "high": 27.8, "low": 24.9, "close": 26.35}, {"time": "2026-03-10", "open": 26.0, "high": 26.2, "low": 25.6, "close": 25.7}, {"time": "2026-03-11", "open": 25.5, "high": 25.9, "low": 25.45, "close": 25.85}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 3032.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 1070.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 425.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 209.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 288.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 223.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 334.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 511.0, "color": "#26a69a"}, {"time": "2025-12-16", "value": 523.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 350.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 744.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 482.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 361.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 302.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 783.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 403.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 482.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 196.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 146.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 796.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 441.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 275.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 531.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 259.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 289.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 497.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 338.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 655.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 451.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 333.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 518.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 344.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 289.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 264.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 347.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 277.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 233.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 1840.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 835.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 436.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 410.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 319.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 561.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 870.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 602.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 254.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 197.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 290.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 460.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 248.0, "color": "#26a69a"}, {"time": "2026-02-25", "value": 358.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 471.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 14269.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 6617.0, "color": "#ef5350"}, {"time": "2026-03-04", "value": 14269.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 3468.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 1712.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 5083.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 993.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 738.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 24.259999999999998}, {"time": "2025-12-11", "value": 23.96}, {"time": "2025-12-12", "value": 23.830000000000002}, {"time": "2025-12-15", "value": 23.74}, {"time": "2025-12-16", "value": 23.66}, {"time": "2025-12-17", "value": 23.619999999999997}, {"time": "2025-12-18", "value": 23.509999999999998}, {"time": "2025-12-19", "value": 23.48}, {"time": "2025-12-22", "value": 23.44}, {"time": "2025-12-23", "value": 23.44}, {"time": "2025-12-24", "value": 23.41}, {"time": "2025-12-26", "value": 23.47}, {"time": "2025-12-29", "value": 23.57}, {"time": "2025-12-30", "value": 23.630000000000003}, {"time": "2025-12-31", "value": 23.65}, {"time": "2026-01-02", "value": 23.78}, {"time": "2026-01-05", "value": 23.8}, {"time": "2026-01-06", "value": 23.69}, {"time": "2026-01-07", "value": 23.75}, {"time": "2026-01-08", "value": 23.82}, {"time": "2026-01-09", "value": 23.81}, {"time": "2026-01-12", "value": 23.97}, {"time": "2026-01-13", "value": 24.119999999999997}, {"time": "2026-01-14", "value": 24.25}, {"time": "2026-01-15", "value": 24.419999999999998}, {"time": "2026-01-16", "value": 24.52}, {"time": "2026-01-19", "value": 24.56}, {"time": "2026-01-20", "value": 24.6}, {"time": "2026-01-21", "value": 24.509999999999998}, {"time": "2026-01-22", "value": 24.43}, {"time": "2026-01-23", "value": 24.35}, {"time": "2026-01-26", "value": 24.27}, {"time": "2026-01-27", "value": 24.23}, {"time": "2026-01-28", "value": 24.36}, {"time": "2026-01-29", "value": 24.43}, {"time": "2026-01-30", "value": 24.48}, {"time": "2026-02-02", "value": 24.52}, {"time": "2026-02-03", "value": 24.5}, {"time": "2026-02-04", "value": 24.51}, {"time": "2026-02-05", "value": 24.470000000000002}, {"time": "2026-02-06", "value": 24.4}, {"time": "2026-02-09", "value": 24.34}, {"time": "2026-02-10", "value": 24.34}, {"time": "2026-02-11", "value": 24.19}, {"time": "2026-02-23", "value": 24.21}, {"time": "2026-02-24", "value": 24.330000000000002}, {"time": "2026-02-25", "value": 24.45}, {"time": "2026-02-26", "value": 24.61}, {"time": "2026-03-02", "value": 24.990000000000002}, {"time": "2026-03-03", "value": 25.6}, {"time": "2026-03-04", "value": 25.9}, {"time": "2026-03-05", "value": 26.189999999999998}, {"time": "2026-03-06", "value": 26.369999999999997}, {"time": "2026-03-09", "value": 26.419999999999998}, {"time": "2026-03-10", "value": 26.01}, {"time": "2026-03-11", "value": 25.96}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 23.94}, {"time": "2025-12-18", "value": 23.735}, {"time": "2025-12-19", "value": 23.655}, {"time": "2025-12-22", "value": 23.59}, {"time": "2025-12-23", "value": 23.55}, {"time": "2025-12-24", "value": 23.515}, {"time": "2025-12-26", "value": 23.490000000000002}, {"time": "2025-12-29", "value": 23.525}, {"time": "2025-12-30", "value": 23.535}, {"time": "2025-12-31", "value": 23.544999999999998}, {"time": "2026-01-02", "value": 23.595}, {"time": "2026-01-05", "value": 23.634999999999998}, {"time": "2026-01-06", "value": 23.630000000000003}, {"time": "2026-01-07", "value": 23.69}, {"time": "2026-01-08", "value": 23.735}, {"time": "2026-01-09", "value": 23.794999999999998}, {"time": "2026-01-12", "value": 23.884999999999998}, {"time": "2026-01-13", "value": 23.905}, {"time": "2026-01-14", "value": 24.0}, {"time": "2026-01-15", "value": 24.119999999999997}, {"time": "2026-01-16", "value": 24.165}, {"time": "2026-01-19", "value": 24.265}, {"time": "2026-01-20", "value": 24.36}, {"time": "2026-01-21", "value": 24.380000000000003}, {"time": "2026-01-22", "value": 24.425}, {"time": "2026-01-23", "value": 24.435}, {"time": "2026-01-26", "value": 24.415}, {"time": "2026-01-27", "value": 24.415}, {"time": "2026-01-28", "value": 24.435}, {"time": "2026-01-29", "value": 24.43}, {"time": "2026-01-30", "value": 24.415}, {"time": "2026-02-02", "value": 24.395}, {"time": "2026-02-03", "value": 24.365000000000002}, {"time": "2026-02-04", "value": 24.435}, {"time": "2026-02-05", "value": 24.45}, {"time": "2026-02-06", "value": 24.44}, {"time": "2026-02-09", "value": 24.43}, {"time": "2026-02-10", "value": 24.42}, {"time": "2026-02-11", "value": 24.35}, {"time": "2026-02-23", "value": 24.34}, {"time": "2026-02-24", "value": 24.365000000000002}, {"time": "2026-02-25", "value": 24.395}, {"time": "2026-02-26", "value": 24.475}, {"time": "2026-03-02", "value": 24.59}, {"time": "2026-03-03", "value": 24.905}, {"time": "2026-03-04", "value": 25.115000000000002}, {"time": "2026-03-05", "value": 25.32}, {"time": "2026-03-06", "value": 25.490000000000002}, {"time": "2026-03-09", "value": 25.705000000000002}, {"time": "2026-03-10", "value": 25.805}, {"time": "2026-03-11", "value": 25.93}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 23.767500000000002}, {"time": "2026-01-05", "value": 23.685}, {"time": "2026-01-06", "value": 23.642500000000002}, {"time": "2026-01-07", "value": 23.64}, {"time": "2026-01-08", "value": 23.642500000000002}, {"time": "2026-01-09", "value": 23.655}, {"time": "2026-01-12", "value": 23.6875}, {"time": "2026-01-13", "value": 23.715}, {"time": "2026-01-14", "value": 23.767500000000002}, {"time": "2026-01-15", "value": 23.8325}, {"time": "2026-01-16", "value": 23.880000000000003}, {"time": "2026-01-19", "value": 23.95}, {"time": "2026-01-20", "value": 23.994999999999997}, {"time": "2026-01-21", "value": 24.035}, {"time": "2026-01-22", "value": 24.080000000000002}, {"time": "2026-01-23", "value": 24.115000000000002}, {"time": "2026-01-26", "value": 24.15}, {"time": "2026-01-27", "value": 24.16}, {"time": "2026-01-28", "value": 24.2175}, {"time": "2026-01-29", "value": 24.275}, {"time": "2026-01-30", "value": 24.29}, {"time": "2026-02-02", "value": 24.330000000000002}, {"time": "2026-02-03", "value": 24.3625}, {"time": "2026-02-04", "value": 24.4075}, {"time": "2026-02-05", "value": 24.4375}, {"time": "2026-02-06", "value": 24.4375}, {"time": "2026-02-09", "value": 24.4225}, {"time": "2026-02-10", "value": 24.4175}, {"time": "2026-02-11", "value": 24.392500000000002}, {"time": "2026-02-23", "value": 24.384999999999998}, {"time": "2026-02-24", "value": 24.39}, {"time": "2026-02-25", "value": 24.395}, {"time": "2026-02-26", "value": 24.419999999999998}, {"time": "2026-03-02", "value": 24.5125}, {"time": "2026-03-03", "value": 24.677500000000002}, {"time": "2026-03-04", "value": 24.7775}, {"time": "2026-03-05", "value": 24.875}, {"time": "2026-03-06", "value": 24.955000000000002}, {"time": "2026-03-09", "value": 25.0275}, {"time": "2026-03-10", "value": 25.072499999999998}, {"time": "2026-03-11", "value": 25.1475}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -1070.0}, {"time": "2025-12-08", "value": -1495.0}, {"time": "2025-12-09", "value": -1704.0}, {"time": "2025-12-10", "value": -1992.0}, {"time": "2025-12-11", "value": -2215.0}, {"time": "2025-12-12", "value": -2549.0}, {"time": "2025-12-15", "value": -2549.0}, {"time": "2025-12-16", "value": -3072.0}, {"time": "2025-12-17", "value": -3072.0}, {"time": "2025-12-18", "value": -3816.0}, {"time": "2025-12-19", "value": -3334.0}, {"time": "2025-12-22", "value": -3695.0}, {"time": "2025-12-23", "value": -3393.0}, {"time": "2025-12-24", "value": -4176.0}, {"time": "2025-12-26", "value": -3773.0}, {"time": "2025-12-29", "value": -3291.0}, {"time": "2025-12-30", "value": -3487.0}, {"time": "2025-12-31", "value": -3633.0}, {"time": "2026-01-02", "value": -2837.0}, {"time": "2026-01-05", "value": -3278.0}, {"time": "2026-01-06", "value": -3553.0}, {"time": "2026-01-07", "value": -3022.0}, {"time": "2026-01-08", "value": -3281.0}, {"time": "2026-01-09", "value": -3281.0}, {"time": "2026-01-12", "value": -2784.0}, {"time": "2026-01-13", "value": -3122.0}, {"time": "2026-01-14", "value": -2467.0}, {"time": "2026-01-15", "value": -2016.0}, {"time": "2026-01-16", "value": -2349.0}, {"time": "2026-01-19", "value": -1831.0}, {"time": "2026-01-20", "value": -2175.0}, {"time": "2026-01-21", "value": -2464.0}, {"time": "2026-01-22", "value": -2200.0}, {"time": "2026-01-23", "value": -2547.0}, {"time": "2026-01-26", "value": -2270.0}, {"time": "2026-01-27", "value": -2037.0}, {"time": "2026-01-28", "value": -197.0}, {"time": "2026-01-29", "value": -1032.0}, {"time": "2026-01-30", "value": -1468.0}, {"time": "2026-02-02", "value": -1468.0}, {"time": "2026-02-03", "value": -1787.0}, {"time": "2026-02-04", "value": -1226.0}, {"time": "2026-02-05", "value": -2096.0}, {"time": "2026-02-06", "value": -2698.0}, {"time": "2026-02-09", "value": -2444.0}, {"time": "2026-02-10", "value": -2247.0}, {"time": "2026-02-11", "value": -1957.0}, {"time": "2026-02-23", "value": -1497.0}, {"time": "2026-02-24", "value": -1745.0}, {"time": "2026-02-25", "value": -1387.0}, {"time": "2026-02-26", "value": -916.0}, {"time": "2026-03-02", "value": 13353.0}, {"time": "2026-03-03", "value": 19970.0}, {"time": "2026-03-04", "value": 5701.0}, {"time": "2026-03-05", "value": 5701.0}, {"time": "2026-03-06", "value": 3989.0}, {"time": "2026-03-09", "value": 9072.0}, {"time": "2026-03-10", "value": 8079.0}, {"time": "2026-03-11", "value": 8817.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>中國貨櫃運輸股份有限公司（中櫃，股票代碼2613）主要經營港埠碼頭與內陸貨櫃集散站，以及商港區船舶貨物裝卸承攬業務。此外，公司也辦理貨櫃修理維護業務、一般倉庫及保稅業務等多元服務。</p>
+
+<h3>營收結構 (2025年Q3)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>營收佔比</th></tr></thead><tbody>
+<tr><td>碼頭業務</td><td>86.7%</td></tr>
+<tr><td>櫃場業務</td><td>7.5%</td></tr>
+<tr><td>其他業務</td><td>5.8%</td></tr>
+</tbody></table></div>
+
+<h3>製造基地與市佔率 (2025年Q1-Q3)</h3>
+
+<p>中櫃專注於臺灣的貨櫃集散業務，擁有北、中、南三大據點，主要承租並經營基隆港西19-21號碼頭及台中港10、11號碼頭。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>據點</th><th>2025年Q1-Q3貨櫃裝卸量 (萬TEU)</th><th>2024年Q1-Q3貨櫃裝卸量 (萬TEU)</th><th>2025年Q1-Q3總裝卸量 (萬TEU)</th><th>年增率 (YoY)</th><th>2025年Q1-Q3市佔率</th><th>2024年Q1-Q3市佔率</th></tr></thead><tbody>
+<tr><td>基隆港</td><td>52.0</td><td>53.6</td><td>119.7</td><td>-2.5%</td><td>43.41%</td><td>43.65%</td></tr>
+<tr><td>台中港</td><td>45.0</td><td>42.3</td><td>119.0</td><td>-2.1%</td><td>35.58%</td><td>35.32%</td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>穩固的市場領導地位：</strong> 在台灣主要港口（基隆港與台中港）的貨櫃裝卸業務中擁有領先市佔率（基隆港43.41%，台中港35.58%），反映其深厚的營運經驗與客戶基礎。</li>
+<li><strong>多元且穩定的業務模式：</strong> 業務涵蓋碼頭營運、貨櫃集散、修理維護及倉儲保稅，形成相對穩定的收入來源，降低單一業務波動風險。</li>
+<li><strong>財務韌性與成本控制：</strong> 儘管全球海運市場面臨多重逆風，公司透過營運效率提升與成本控制，仍展現良好的財務韌性及獲利能力，2025年Q1-Q3 EPS已超越2024全年。</li>
+<li><strong>積極響應ESG與智慧化：</strong> 持續進行設備汰舊換新，引進新式橋式機與電動化設備，並在台中31號碼頭導入綠電，提升作業效率並達成碳中和目標，符合綠色港口趨勢。</li>
+<li><strong>高股利吸引力：</strong> 2025年度配發每股現金股利1.0元，以近期股價計算，現金殖利率約3.83%，具備一定的防禦性與投資吸引力。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 (MoM)</th><th>年增率 (YoY)</th></tr></thead><tbody>
+<tr><td>2 2026年1月</td><td>3.07</td><td>-1.20%</td><td>14.65%</td></tr>
+<tr><td>2025年12月</td><td>3.11</td><td>14.52%</td><td>5.27%</td></tr>
+<tr><td>2025年11月</td><td>2.71</td><td>2.19%</td><td>-4.87%</td></tr>
+<tr><td>2025年10月</td><td>2.65</td><td>-8.24%</td><td>5.28%</td></tr>
+<tr><td>2025年9月</td><td>2.89</td><td>-2.32%</td><td>3.85%</td></tr>
+<tr><td>2025年8月</td><td>2.96</td><td>2.01%</td><td>-0.25%</td></tr>
+</tbody></table></div>
+
+<strong>分析：</strong> 中櫃2026年1月營收達3.07億元，年增14.65%，創十年單月營收同期新高，顯示營運動能延續2025年底的強勁表現。儘管有月份波動，但整體年增率趨勢穩定，反映其業務量在不利的產業環境中仍能維持增長。
+
+<h3>季度財務數據 (新台幣千元)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季度</th><th>營收</th><th>營業毛利</th><th>營業利益</th><th>稅後淨利</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2025 Q3</td><td>877,386</td><td>159,965</td><td>101,000</td><td>49,615</td><td>0.36</td></tr>
+<tr><td>2025 Q2</td><td>869,609</td><td>157,180</td><td>102,000</td><td>35,374</td><td>0.26</td></tr>
+<tr><td>2025 Q1</td><td>771,692</td><td>114,723</td><td>62,000</td><td>32,370</td><td>0.23</td></tr>
+<tr><td>2024 Q4</td><td>833,892</td><td>144,011</td><td>93,000</td><td>-1,162</td><td>-0.01</td></tr>
+<tr><td>2024 Q3</td><td>849,000</td><td>153,000</td><td>96,000</td><td>50,000</td><td>0.36</td></tr>
+<tr><td>2024 Q2</td><td>834,000</td><td>144,000</td><td>92,000</td><td>47,000</td><td>0.34</td></tr>
+<tr><td>2024 Q1</td><td>769,000</td><td>109,000</td><td>60,000</td><td>21,000</td><td>0.15</td></tr>
+</tbody></table></div>
+
+<strong>分析：</strong> 2025年第三季EPS為0.36元，季增38.46%，顯示獲利能力有所改善。累計2025年前三季EPS為0.85元，已超越2024年全年獲利（0.84元），反映公司營運表現穩健，且毛利率及營業利益率在2025年均呈增長態勢。
+
+<h3>年度營收與EPS</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>全年營收 (新台幣億元)</th><th>EPS (新台幣元)</th></tr></thead><tbody>
+<tr><td>2025</td><td>33.68 (實際)</td><td>0.85 (Q1-Q3累計)</td></tr>
+<tr><td>2024</td><td>32.85 (實際)</td><td>0.84 (實際)</td></tr>
+</tbody></table></div>
+
+<strong>分析：</strong> 2025年全年營收達33.68億元，較2024年32.85億元成長2.5%。在2025年前三季EPS已超越2024全年水準，顯示公司整體營運狀況持續改善。
+
+<h2>法說會重點</h2>
+
+<p>中櫃於2025年11月21日舉行法人說明會，說明2025年前三季營運成果與市場展望。</p>
+
+<ul><li><strong>營運成果 (2025 Q1-Q3)：</strong></li>
+</ul>    *   累計合併營收為新台幣25.19億元，年增2.7%。
+<p>*   累計稅後淨利為1.17億元，每股盈餘(EPS)為0.85元，已超越2024年全年。</p>
+<p>*   核心碼頭作業量年減3.2%，反映全球海運市場貨量放緩，但公司獲利能力仍提升。</p>
+<ul><li><strong>業務部門營收比重：</strong> 碼頭業務佔合併營收86.7%，櫃場業務佔7.5%，其他業務佔5.8%。</li>
+<li><strong>市佔率表現：</strong> 基隆港裝卸量市佔率為43.41%，台中港市佔率為35.58%，維持市場領先地位。</li>
+<li><strong>資本支出與效率提升：</strong> 公司持續進行設備汰舊換新，引進新式橋式機與電動化設備，並在台中31號碼頭導入綠電，以提升作業效率並達成碳中和目標。</li>
+<li><strong>管理層展望與Guidance：</strong></li>
+</ul>    *   管理層表示，若排除報廢損失與移泊成本等特殊因素，2025年的財務表現應優於2024年。
+<p>*   面對海運市場供過於求的新常態，預計2025年全球船隊運能將增長6.3%，遠高於貨運需求增長率2%，導致運價面臨下行壓力。</p>
+<p>*   公司將專注於成本控制、提升服務品質，並透過綠色港口的競爭優勢吸引客戶，以應對市場的不確定性。</p>
+
+<h2>券商觀點</h2>
+
+<p>目前公開資料中，未有針對中櫃（2613）於2025-2026年度的具體券商目標價及EPS預估。部分報導僅提及特定券商對貨櫃航運龍頭（如長榮）的目標價，但未涵蓋中櫃。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期 (資訊發布)</th></tr></thead><tbody>
+<tr><td>(無明確資料)</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
+</tbody></table></div>
+
+<strong>註：</strong> CMoney研究員曾於2024年11月5日提及中櫃股價報36.3元，但此為股價而非目標價，且已過時。
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢 (季，單位：%)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季度</th><th>營收 (千元)</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2025 Q3</td><td>877,386</td><td>18.23%</td><td>11.51%</td><td>5.65%</td></tr>
+<tr><td>2025 Q2</td><td>869,609</td><td>18.08%</td><td>11.73%</td><td>4.07%</td></tr>
+<tr><td>2025 Q1</td><td>771,692</td><td>14.86%</td><td>8.04%</td><td>4.19%</td></tr>
+<tr><td>2024 Q4</td><td>833,892</td><td>17.27%</td><td>11.15%</td><td>-0.14%</td></tr>
+<tr><td>2024 Q3</td><td>849,000</td><td>18.02%</td><td>11.31%</td><td>5.89%</td></tr>
+<tr><td>2024 Q2</td><td>834,000</td><td>17.27%</td><td>11.03%</td><td>5.64%</td></tr>
+<tr><td>2024 Q1</td><td>769,000</td><td>14.17%</td><td>7.80%</td><td>2.73%</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化原因分析：</strong>
+<p>2025年第三季毛利率、營業利益率和稅後淨利率均呈現穩健表現，其中毛利率維持在18%以上。相較2024年第四季度的稅後淨利為負值，2025年第一季至第三季已恢復穩定獲利。整體利潤率的改善，可能歸因於公司在營運效率提升與成本控制上的努力。業外損益對稅前淨利的影響仍較大，尤其2024年Q4和2025年Q3，顯示公司在非核心業務或投資上可能存在波動，需進一步關注。</p>
+
+<h3>存貨與營運週轉趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季度</th><th>存貨週轉天數 (天)</th><th>應收帳款週轉天數 (天)</th><th>自由現金流 (千元)</th></tr></thead><tbody>
+<tr><td>2025 Q3</td><td>22.74</td><td>62.27</td><td>-101,143</td></tr>
+<tr><td>2025 Q2</td><td>22.99</td><td>57.83</td><td>-13,985</td></tr>
+<tr><td>2025 Q1</td><td>24.70</td><td>64.14</td><td>75,106</td></tr>
+<tr><td>2024 Q4</td><td>23.84</td><td>60.36</td><td>42,550</td></tr>
+</tbody></table></div>
+
+<strong>分析：</strong>
+<ul><li><strong>存貨週轉天數：</strong> 近四季維持在22-25天之間，顯示中櫃的存貨管理能力良好，未有異常堆積或備料現象。</li>
+<li><strong>應收帳款週轉天數：</strong> 約在58-64天之間波動，收款速度穩定，未見明顯惡化。</li>
+<li><strong>自由現金流量：</strong> 2025年第一季和2024年第四季為正值，但在2025年第二季轉為負值，第三季惡化至-101,143千元，這可能反映公司在該季度有較大的資本支出或其他投資活動，需要持續關注其現金運用狀況。</li>
+</ul>
+<h3>資本支出與折舊攤銷</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季度</th><th>折舊 (千元)</th><th>攤銷 (千元)</th></tr></thead><tbody>
+<tr><td>2025 Q3</td><td>158,103</td><td>1,307</td></tr>
+<tr><td>2025 Q2</td><td>157,477</td><td>1,312</td></tr>
+<tr><td>2025 Q1</td><td>158,762</td><td>1,313</td></tr>
+<tr><td>2024 Q4</td><td>155,361</td><td>1,336</td></tr>
+</tbody></table></div>
+
+<strong>分析：</strong> 近幾季折舊攤銷金額維持相對穩定，反映公司固定資產規模和使用狀況變化不大。法說會提及公司持續進行設備汰舊換新，引進新式橋式機與電動化設備，暗示持續的資本支出以維持競爭力與效率，但具體金額未公開。
+
+<h2>股權異動</h2>
+
+<h3>董監事持股與轉讓</h3>
+
+<ul><li><strong>2026年1月董監事持股比例：</strong> 37.12%。</li>
+<li><strong>主要股東持股：</strong> 董事長大同通運股份有限公司持股29,485張（19.9%），設質5,000張（17.0%）；大統海運股份有限公司持股12,914張（8.70%），設質5,000張（38.72%）。</li>
+<li><strong>近期申報轉讓：</strong> 未找到2024年以後董監事/大股東申報轉讓的最新紀錄。</li>
+</ul>
+<h3>庫藏股、可轉債、增減資</h3>
+
+<ul><li><strong>庫藏股買回：</strong> 未找到2024年以後的庫藏股買回紀錄。</li>
+<li><strong>可轉換公司債 (CB)：</strong> 未找到2024年以後發行可轉換公司債的紀錄。</li>
+<li><strong>現金增資或減資：</strong> 未找到2024年以後現金增資或減資計畫的紀錄。</li>
+</ul>
+<h3>股利政策 (現金股利，股票股利)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度 (發放年度)</th><th>現金股利 (元)</th><th>股票股利 (元)</th><th>除息日</th><th>現金發放日</th><th>現金殖利率 (2026/03/04收盤價25.75元)</th></tr></thead><tbody>
+<tr><td>2025</td><td>1.0</td><td>0.0</td><td>N/A</td><td>N/A</td><td>3.83%</td></tr>
+<tr><td>2024</td><td>1.0</td><td>0.0</td><td>2025/3/13</td><td>2025/4/11</td><td>3.83%</td></tr>
+<tr><td>2023</td><td>0.6</td><td>0.0</td><td>2024/3/14</td><td>2024/4/12</td><td>2.33%</td></tr>
+</tbody></table></div>
+
+<strong>分析：</strong> 中櫃近年主要以現金股利為主，2025年度配發現金股利1.0元，較2024年度維持不變，顯示公司在穩定獲利後，積極回饋股東，提供具有吸引力的現金殖利率。
+
+<h2>產業分析</h2>
+
+<h3>全球貨櫃碼頭營運市場規模與成長</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>市場定義</th><th>2025年市場規模 (美元)</th><th>2026年市場規模 (美元)</th><th>複合年成長率 (CAGR)</th><th>CAGR區間</th><th>2031/2032/2034年預估規模 (美元)</th></tr></thead><tbody>
+<tr><td>全球貨櫃碼頭營運</td><td>754億</td><td>783.9億</td><td>3.96%</td><td>2026-2031年</td><td>951.9億 (2031年)</td></tr>
+<tr><td>海運港口服務</td><td>965.7億</td><td>1003.1億</td><td>5.06%</td><td>2026-2034年</td><td>1489.3億 (2034年)</td></tr>
+<tr><td>港口及碼頭營運</td><td>49.5141億</td><td>N/A</td><td>9.8%</td><td>2026-2032年</td><td>95.2736億 (2032年)</td></tr>
+<tr><td>港口及碼頭營運</td><td>N/A</td><td>N/A</td><td>12%</td><td>2024-2029年</td><td>628.8億 (2029年)</td></tr>
+</tbody></table></div>
+
+<h3>供需狀況</h3>
+
+<p>全球海運市場預計在2026年面臨<strong>供過於求</strong>的嚴峻挑戰。</p>
+
+<ul><li><strong>供給方面：</strong> 預計2026年將有大量新造船交付，全球運力供給增速預計為3.6%，導致供給過剩壓力顯著。若紅海危機緩解，全球船舶需求將減少約10%，進一步加劇運力過剩。</li>
+<li><strong>需求方面：</strong> 國際貨幣基金組織（IMF）預計2026年世界經濟增長動能將進一步減弱至3.1%。儘管2025年全球貨櫃運輸總量達到1.929億TEU，增長4.7%，但同期整體運費水平卻下滑近20%，顯示貨量增長與運價上漲之間的正相關性正在弱化。</li>
+</ul>
+<h3>產業的平均毛利率水準</h3>
+<p>目前未找到2025-2026年貨櫃碼頭或港口營運產業的具體平均毛利率水準的最新資料。</p>
+
+<h3>競爭格局</h3>
+
+<h4>全球主要貨櫃碼頭營運商</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>主要業務/備註</th></tr></thead><tbody>
+<tr><td>PSA International Pte Ltd</td><td>全球領先的港口及碼頭營運商。</td></tr>
+<tr><td>DP World</td><td>港口及碼頭營運巨頭，亦涉足港口基礎設施與物流。</td></tr>
+<tr><td>China Merchants Port Holdings</td><td>中國大型港口營運商，業務遍及全球。</td></tr>
+<tr><td>APM Terminals (A.P. Moller-Maersk)</td><td>馬士基旗下碼頭營運部門，全球主要港口服務供應商。</td></tr>
+<tr><td>Hutchison Ports</td><td>長江和記實業旗下，全球最大的港口投資、發展和營運商之一。</td></tr>
+<tr><td>COSCO Shipping Ports Ltd</td><td>中國遠洋海運集團旗下，全球領先的碼頭營運商。</td></tr>
+</tbody></table></div>
+
+<h4>中櫃 vs 主要競爭對手比較</h4>
+
+<p>目前未找到2025-2026年關於中櫃與其主要競爭對手在技術、產能、客戶或價格方面的具體比較資料。</p>
+
+<h4>台灣同業比較</h4>
+
+<p>台灣上市櫃公司中，陽明（2609）、長榮（2603）、萬海（2615）主要為貨櫃航運公司，而非純粹的碼頭營運商，故無法直接進行營收規模、毛利率、EPS的同業比較。中櫃的業務模式更偏向基礎設施服務。</p>
+
+<h3>產業趨勢</h3>
+
+<li><strong>港口智慧化與自動化：</strong></li>
+<p>*   <strong>趨勢：</strong> 導入AI、IoT、大數據、自動化裝卸、無人機及預測性抵港時間（ETA）工具，台灣港務公司已於2025年啟動AI數位轉型。</p>
+<p>*   <strong>影響：</strong> 提升港口吞吐量與貨物周轉速度，降低人力成本與錯誤，強化安全管理，並透過數據分析支持決策。自動化貨櫃碼頭市場規模預計在2026-2035年間以7.9% CAGR成長。</p>
+<li><strong>綠色港口與永續發展 (ESG)：</strong></li>
+<p>*   <strong>趨勢：</strong> 積極推動節能減碳、岸電系統、低碳港口政策，將ESG理念融入核心業務。</p>
+<p>*   <strong>影響：</strong> 減少能源消耗與排放，符合國際海事組織（IMO）減排目標，提升企業形象與競爭力。</p>
+<li><strong>供應鏈韌性與區域化：</strong></li>
+<p>*   <strong>趨勢：</strong> 地緣政治衝突與貿易保護主義加速供應鏈重組，企業重視韌性並加速區域化布局。</p>
+<p>*   <strong>影響：</strong> 物流與航運業者加速多元布局以分散風險，亞洲區域內貿易增長，對數位化與AI應用要求提高以符合國際標準。</p>
+
+<h3>對中櫃的具體機會與威脅</h3>
+
+<ul><li><strong>機會：</strong></li>
+</ul>    *   搭上台灣智慧港口轉型浪潮，提升營運效率與競爭力。
+<p>*   發展綠色永續服務，吸引ESG導向客戶，提升企業形象。</p>
+<p>*   受惠於亞洲區域內貿易成長，穩定貨櫃集散和倉儲業務量。</p>
+<p>*   電子商務蓬勃發展持續推升貨物運輸與倉儲需求。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   全球運力過剩與運價下行壓力，可能影響碼頭服務費率及營收。
+<p>*   紅海危機緩解導致全球有效運力釋放，加劇供過於求，對業務量和收益造成負面影響。</p>
+<p>*   技術升級所需的大額投資，若未能及時跟進，可能在競爭中處於劣勢。</p>
+<p>*   全球經濟成長放緩，可能影響整體貨物貿易量。</p>
+
+<h3>相關投資題材連結</h3>
+
+<ul><li><strong>AI (人工智慧)：</strong> 智慧港口的核心技術，可用於智能調度、自動化裝卸、智慧監控等，直接提升中櫃營運效率。</li>
+<li><strong>物聯網 (IoT) 與大數據分析：</strong> 智慧港口基礎，用於實時數據採集與決策支持，提高運營可視性。</li>
+<li><strong>ESG (環境、社會、公司治理)：</strong> 推動綠色港口、節能減碳，符合全球永續發展趨勢，提升企業形象並吸引投資。</li>
+</ul>
+<h2>近期催化劑 (2025年12月6日 – 2026年3月6日)</h2>
+
+<ul><li><strong>2026年1月營收表現：</strong> 新台幣3.07億元，年增14.65%，創十年單月營收同期新高，展現良好開局。</li>
+<li><strong>2025年度股利政策：</strong> 董事會決議配發每股現金股利1.0元，以2026年3月4日收盤價25.75元計算，現金殖利率約3.83%，具穩定配息吸引力。</li>
+<li><strong>2025年法說會資訊 (2025/11/21)：</strong> 強調透過成本控制與服務品質提升應對市場逆風，累計前三季EPS已超越2024年全年。</li>
+<li><strong>三大法人近期買賣超：</strong> 截至2026年3月5日，三大法人合計賣超1,173張，其中外資賣超1,140張，顯示近期法人有獲利了結壓力。但在2月下旬曾有外資買超紀錄。</li>
+<li><strong>2025年全年營收：</strong> 33.68億元，較2024年成長。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<ul><li><strong>持續性動能 (即時至2026年)：</strong></li>
+</ul>    *   <strong>效率提升與綠色港口建設：</strong> 公司持續投入設備汰舊換新（如新式橋式機、電動化設備）與綠電導入（台中31號碼頭），以提升作業效率，降低營運成本，並達成碳中和目標，此為長期競爭力基礎。
+<p>*   <strong>成本控制與服務品質強化：</strong> 面對海運市場供過於求，公司專注於精準成本控制與提升服務品質，以維持客戶黏著度與市場份額。</p>
+<p>*   <strong>亞洲區域貿易增長：</strong> 亞洲區域內貿易作為全球最大航線板塊，持續深化的一體化趨勢將為中櫃在台灣的港埠業務提供穩定需求支撐。</p>
+<ul><li><strong>潛在催化動能 (2026年下半年至2027年)：</strong></li>
+</ul>    *   <strong>全球散裝需求回溫：</strong> 市場預期2026年全球散裝需求將回溫，尤其西非鐵礦、煤鐵與穀物運輸量放大，有望間接帶動港埠業務成長。
+<p>*   <strong>智慧港口技術導入深化：</strong> 台灣港務公司啟動AI數位轉型計畫，中櫃若能積極配合或自主導入更多AI、IoT應用，將進一步提升營運效率與服務價值。</p>
+<p>*   <strong>新客戶/新市場拓展：</strong> 隨著供應鏈區域化與多元化，若能抓住新興貿易路線或新客戶群，將為公司帶來增量業務，但目前無具體資料。</p>
+<p>*   <strong>產能優化與擴充：</strong> 雖無具體擴廠或產能擴充計畫，但設備汰舊換新與效率提升，實質上可視為「有效產能」的提升。</p>
+
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+<ul><li><strong>營收強勢開局：</strong> 2026年1月營收年增14.65%，為全年營運奠定良好基礎，顯示其在特定市場或策略調整下仍具成長潛力。</li>
+<li><strong>港埠基礎設施剛性需求：</strong> 作為港埠基礎設施服務商，中櫃業務相對穩定，受海運景氣波動影響較航運公司小，具防禦性。</li>
+<li><strong>散裝航運與港埠題材輪動：</strong> 若全球散裝航運市場如預期回溫，西非鐵礦、煤鐵與穀物運輸量放大，中櫃作為後段受惠股，業務量有望提升。</li>
+<li><strong>智慧化與綠色港口轉型：</strong> 持續投資於設備升級和綠電導入，提升營運效率和ESG形象，將有助於長期競爭力。</li>
+</ul>
+<h3>風險因子</h3>
+<ul><li><strong>全球海運市場供過於求：</strong> 預計2026年新船大量交付，運力過剩將持續對運價和碼頭服務費率形成壓力。</li>
+<li><strong>全球經濟成長放緩：</strong> IMF預計2026年世界經濟增長動能減弱，可能影響整體貨物貿易量，進而衝擊中櫃業務。</li>
+<li><strong>地緣政治風險：</strong> 紅海危機等不確定性因素雖短期拉長航程，但若危機緩解，可能導致運力大量釋放，加劇供需失衡。</li>
+<li><strong>2026年第一季EPS警訊：</strong> 資料顯示2026年第一季EPS為-0.08元，若此為預估數且非單一偶發因素，可能暗示公司獲利能力面臨挑戰，需要密切關注後續財報以確認營運走向。</li>
+<li><strong>法人賣壓：</strong> 近期三大法人合計賣超，顯示市場對短期股價上漲空間持謹慎態度。</li>
+</ul>
+<h2>投資結論</h2>
+
+<p>中櫃（2613）作為台灣重要的港埠碼頭與貨櫃集散站營運商，具備穩固的市場地位和穩定的現金流。考量其2025年穩健的獲利與配息能力、2026年1月營收的強勁表現，以及其基礎設施服務的防禦性，我們認為其投資價值在於其穩定性與長期趨勢。</p>
+
+<p>然而，全球海運市場運力過剩與經濟成長放緩的風險不容忽視，且2026年第一季可能出現的EPS負值，暗示了短期營運的潛在挑戰，這將對市場預期造成壓力。</p>
+
+<li><strong>穩健的基礎業務與高殖利率：</strong> 中櫃在台灣港口的市佔率穩定，業務模式具韌性。2025年度配發每股現金股利1.0元，現金殖利率約3.83%，提供具吸引力的股利回報，適合追求穩定收益的投資者。</li>
+<li><strong>營運效率與ESG轉型：</strong> 公司持續投入設備更新與綠電導入，不僅提升營運效率，也符合全球ESG趨勢，有助於長期競爭力與企業形象。</li>
+<li><strong>航運題材的間接受惠者：</strong> 儘管非直接的航運公司，但當散裝與貨櫃航運景氣回升時，中櫃作為港埠服務提供商，可望間接受惠於貨量增加。</li>
+<li><strong>需關注短期財報風險：</strong> 2026年第一季EPS預估為-0.08元為重要警訊，投資人應密切關注公司後續財報與管理層解釋，以評估是否為一次性因素或長期趨勢轉變。</li>
+<li><strong>目標價區間建議：</strong> 基於2025年穩健的獲利與配息能力，以及2026年1月營收的強勁表現，並考量其作為基礎設施服務的防禦性，但同時考量潛在的短期營運逆風及法人賣壓，預估合理目標價區間為 <strong>新台幣 26.0 - 30.0 元</strong>。此區間反映其當前現金殖利率的合理估值，並給予穩健成長與潛在產業輪動題材的溫和溢價空間。</li>
+
+<hr>
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 00:28</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2613_中櫃_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2613_中櫃_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2613_中櫃_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

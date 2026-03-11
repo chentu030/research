@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3535 晶彩科 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>3535 晶彩科 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+
+<p>晶彩科（3535）成功由面板檢測設備轉型至半導體先進封裝與AI晶片量測領域，其獨家紅外線（IR）技術已成功切入台積電CoWoS-L Gen2與CoPoS等高階製程供應鏈。在2026年1月營收跳增9,477.22%的強勁表現下，預期第二季起半導體設備將進入密集出貨階段，並在高毛利產品組合優化下，有望帶動公司營運於2026年由虧轉盈，迎來爆發性成長與結構性質變。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">3535 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-3535" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-3535" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-3535');
+    var obvContainer = document.getElementById('obv-chart-3535');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 90.1, "high": 92.7, "low": 89.6, "close": 90.9}, {"time": "2025-12-05", "open": 90.1, "high": 91.5, "low": 87.2, "close": 89.0}, {"time": "2025-12-08", "open": 89.0, "high": 97.9, "low": 87.8, "close": 97.9}, {"time": "2025-12-09", "open": 89.0, "high": 97.9, "low": 87.8, "close": 97.9}, {"time": "2025-12-10", "open": 91.0, "high": 91.6, "low": 85.5, "close": 87.0}, {"time": "2025-12-11", "open": 86.8, "high": 87.6, "low": 85.5, "close": 85.5}, {"time": "2025-12-12", "open": 86.1, "high": 88.0, "low": 84.7, "close": 86.8}, {"time": "2025-12-15", "open": 84.2, "high": 88.8, "low": 84.1, "close": 87.9}, {"time": "2025-12-16", "open": 87.9, "high": 89.8, "low": 84.6, "close": 85.3}, {"time": "2025-12-17", "open": 86.0, "high": 92.5, "low": 85.8, "close": 90.3}, {"time": "2025-12-18", "open": 89.3, "high": 91.5, "low": 87.5, "close": 87.5}, {"time": "2025-12-19", "open": 88.6, "high": 91.0, "low": 87.8, "close": 91.0}, {"time": "2025-12-22", "open": 92.4, "high": 94.9, "low": 90.0, "close": 90.2}, {"time": "2025-12-23", "open": 91.0, "high": 91.5, "low": 89.3, "close": 91.0}, {"time": "2025-12-24", "open": 91.8, "high": 95.4, "low": 90.4, "close": 91.5}, {"time": "2025-12-26", "open": 92.4, "high": 94.4, "low": 91.2, "close": 91.3}, {"time": "2025-12-29", "open": 92.0, "high": 94.3, "low": 91.4, "close": 91.6}, {"time": "2025-12-30", "open": 92.0, "high": 95.0, "low": 90.9, "close": 93.7}, {"time": "2025-12-31", "open": 94.9, "high": 96.5, "low": 93.0, "close": 93.3}, {"time": "2026-01-02", "open": 93.5, "high": 99.7, "low": 93.3, "close": 95.8}, {"time": "2026-01-05", "open": 98.3, "high": 104.0, "low": 94.0, "close": 94.1}, {"time": "2026-01-06", "open": 94.8, "high": 95.4, "low": 91.3, "close": 91.6}, {"time": "2026-01-07", "open": 91.3, "high": 92.7, "low": 90.8, "close": 91.4}, {"time": "2026-01-08", "open": 91.6, "high": 94.5, "low": 90.5, "close": 94.1}, {"time": "2026-01-09", "open": 94.0, "high": 97.2, "low": 91.4, "close": 94.5}, {"time": "2026-01-12", "open": 94.0, "high": 94.0, "low": 85.2, "close": 85.4}, {"time": "2026-01-13", "open": 85.0, "high": 87.7, "low": 84.3, "close": 85.5}, {"time": "2026-01-14", "open": 86.0, "high": 89.6, "low": 84.4, "close": 88.9}, {"time": "2026-01-15", "open": 90.8, "high": 97.7, "low": 90.8, "close": 97.7}, {"time": "2026-01-16", "open": 100.0, "high": 103.0, "low": 92.2, "close": 96.9}, {"time": "2026-01-19", "open": 98.0, "high": 106.5, "low": 95.5, "close": 106.5}, {"time": "2026-01-20", "open": 108.0, "high": 117.0, "low": 104.5, "close": 115.5}, {"time": "2026-01-21", "open": 113.0, "high": 114.0, "low": 104.0, "close": 104.0}, {"time": "2026-01-22", "open": 108.0, "high": 109.5, "low": 98.2, "close": 101.0}, {"time": "2026-01-23", "open": 102.0, "high": 102.0, "low": 98.0, "close": 99.2}, {"time": "2026-01-26", "open": 100.0, "high": 105.5, "low": 98.8, "close": 103.0}, {"time": "2026-01-27", "open": 101.0, "high": 103.5, "low": 99.4, "close": 103.5}, {"time": "2026-01-28", "open": 106.5, "high": 109.5, "low": 102.5, "close": 104.5}, {"time": "2026-01-29", "open": 103.0, "high": 105.5, "low": 99.2, "close": 99.9}, {"time": "2026-01-30", "open": 100.5, "high": 101.5, "low": 97.0, "close": 100.5}, {"time": "2026-02-02", "open": 101.0, "high": 101.5, "low": 91.1, "close": 93.0}, {"time": "2026-02-03", "open": 96.0, "high": 98.8, "low": 93.5, "close": 95.4}, {"time": "2026-02-04", "open": 95.4, "high": 102.0, "low": 93.8, "close": 99.3}, {"time": "2026-02-05", "open": 99.9, "high": 109.0, "low": 98.5, "close": 109.0}, {"time": "2026-02-06", "open": 107.0, "high": 111.5, "low": 102.5, "close": 107.0}, {"time": "2026-02-09", "open": 112.5, "high": 117.0, "low": 109.0, "close": 111.5}, {"time": "2026-02-10", "open": 111.5, "high": 111.5, "low": 102.5, "close": 102.5}, {"time": "2026-02-11", "open": 102.0, "high": 104.5, "low": 101.0, "close": 103.5}, {"time": "2026-02-23", "open": 104.0, "high": 106.0, "low": 100.0, "close": 104.5}, {"time": "2026-02-24", "open": 102.5, "high": 105.5, "low": 102.5, "close": 105.5}, {"time": "2026-02-25", "open": 111.0, "high": 116.0, "low": 111.0, "close": 116.0}, {"time": "2026-02-26", "open": 124.0, "high": 127.5, "low": 124.0, "close": 127.5}, {"time": "2026-03-02", "open": 126.0, "high": 130.5, "low": 118.0, "close": 128.0}, {"time": "2026-03-03", "open": 144.5, "high": 149.0, "low": 126.0, "close": 126.0}, {"time": "2026-03-04", "open": 126.0, "high": 130.5, "low": 118.0, "close": 128.0}, {"time": "2026-03-05", "open": 137.0, "high": 140.5, "low": 132.0, "close": 135.0}, {"time": "2026-03-06", "open": 132.5, "high": 148.5, "low": 131.0, "close": 148.5}, {"time": "2026-03-09", "open": 137.0, "high": 147.0, "low": 134.5, "close": 147.0}, {"time": "2026-03-10", "open": 140.5, "high": 146.0, "low": 132.5, "close": 132.5}, {"time": "2026-03-11", "open": 132.5, "high": 138.0, "low": 127.0, "close": 129.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 7649.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 7120.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 9920.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 9920.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 12150.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 3309.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 3212.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 2851.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 3375.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 8016.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 5044.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 3415.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 8546.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 2780.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 7880.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 3359.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 4602.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 5484.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 8120.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 10638.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 17912.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 7122.0, "color": "#26a69a"}, {"time": "2026-01-07", "value": 3129.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 3032.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 6085.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 14390.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 5260.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 5943.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 17975.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 23951.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 15514.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 21933.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 11330.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 11609.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 5853.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 7778.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 5257.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 8443.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 5697.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 4980.0, "color": "#ef5350"}, {"time": "2026-02-02", "value": 7893.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 4925.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 4743.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 18047.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 27953.0, "color": "#ef5350"}, {"time": "2026-02-09", "value": 15938.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 11861.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 4483.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 4625.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 2689.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 7236.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 4303.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 14780.0, "color": "#ef5350"}, {"time": "2026-03-03", "value": 15941.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 14780.0, "color": "#ef5350"}, {"time": "2026-03-05", "value": 12032.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 12312.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 15949.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 20905.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 26043.0, "color": "#26a69a"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 92.54}, {"time": "2025-12-11", "value": 91.46000000000001}, {"time": "2025-12-12", "value": 91.02000000000001}, {"time": "2025-12-15", "value": 89.02000000000001}, {"time": "2025-12-16", "value": 86.5}, {"time": "2025-12-17", "value": 87.16}, {"time": "2025-12-18", "value": 87.56}, {"time": "2025-12-19", "value": 88.4}, {"time": "2025-12-22", "value": 88.86}, {"time": "2025-12-23", "value": 90.0}, {"time": "2025-12-24", "value": 90.24}, {"time": "2025-12-26", "value": 91.0}, {"time": "2025-12-29", "value": 91.12}, {"time": "2025-12-30", "value": 91.82000000000001}, {"time": "2025-12-31", "value": 92.28}, {"time": "2026-01-02", "value": 93.14}, {"time": "2026-01-05", "value": 93.7}, {"time": "2026-01-06", "value": 93.7}, {"time": "2026-01-07", "value": 93.24}, {"time": "2026-01-08", "value": 93.4}, {"time": "2026-01-09", "value": 93.14}, {"time": "2026-01-12", "value": 91.4}, {"time": "2026-01-13", "value": 90.17999999999999}, {"time": "2026-01-14", "value": 89.67999999999999}, {"time": "2026-01-15", "value": 90.4}, {"time": "2026-01-16", "value": 90.88000000000001}, {"time": "2026-01-19", "value": 95.1}, {"time": "2026-01-20", "value": 101.1}, {"time": "2026-01-21", "value": 104.12}, {"time": "2026-01-22", "value": 104.78}, {"time": "2026-01-23", "value": 105.24000000000001}, {"time": "2026-01-26", "value": 104.54}, {"time": "2026-01-27", "value": 102.14}, {"time": "2026-01-28", "value": 102.24}, {"time": "2026-01-29", "value": 102.02000000000001}, {"time": "2026-01-30", "value": 102.28}, {"time": "2026-02-02", "value": 100.28}, {"time": "2026-02-03", "value": 98.66}, {"time": "2026-02-04", "value": 97.62}, {"time": "2026-02-05", "value": 99.44}, {"time": "2026-02-06", "value": 100.74}, {"time": "2026-02-09", "value": 104.44000000000001}, {"time": "2026-02-10", "value": 105.85999999999999}, {"time": "2026-02-11", "value": 106.7}, {"time": "2026-02-23", "value": 105.8}, {"time": "2026-02-24", "value": 105.5}, {"time": "2026-02-25", "value": 106.4}, {"time": "2026-02-26", "value": 111.4}, {"time": "2026-03-02", "value": 116.3}, {"time": "2026-03-03", "value": 120.6}, {"time": "2026-03-04", "value": 125.1}, {"time": "2026-03-05", "value": 128.9}, {"time": "2026-03-06", "value": 133.1}, {"time": "2026-03-09", "value": 136.9}, {"time": "2026-03-10", "value": 138.2}, {"time": "2026-03-11", "value": 138.4}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 89.85}, {"time": "2025-12-18", "value": 89.51}, {"time": "2025-12-19", "value": 89.71000000000001}, {"time": "2025-12-22", "value": 88.94}, {"time": "2025-12-23", "value": 88.25}, {"time": "2025-12-24", "value": 88.7}, {"time": "2025-12-26", "value": 89.28}, {"time": "2025-12-29", "value": 89.76}, {"time": "2025-12-30", "value": 90.34}, {"time": "2025-12-31", "value": 91.14}, {"time": "2026-01-02", "value": 91.69}, {"time": "2026-01-05", "value": 92.35}, {"time": "2026-01-06", "value": 92.41}, {"time": "2026-01-07", "value": 92.53}, {"time": "2026-01-08", "value": 92.84}, {"time": "2026-01-09", "value": 93.14}, {"time": "2026-01-12", "value": 92.55}, {"time": "2026-01-13", "value": 91.94}, {"time": "2026-01-14", "value": 91.46000000000001}, {"time": "2026-01-15", "value": 91.9}, {"time": "2026-01-16", "value": 92.01}, {"time": "2026-01-19", "value": 93.25}, {"time": "2026-01-20", "value": 95.64}, {"time": "2026-01-21", "value": 96.9}, {"time": "2026-01-22", "value": 97.59}, {"time": "2026-01-23", "value": 98.06}, {"time": "2026-01-26", "value": 99.82000000000001}, {"time": "2026-01-27", "value": 101.62}, {"time": "2026-01-28", "value": 103.17999999999999}, {"time": "2026-01-29", "value": 103.4}, {"time": "2026-01-30", "value": 103.75999999999999}, {"time": "2026-02-02", "value": 102.41}, {"time": "2026-02-03", "value": 100.4}, {"time": "2026-02-04", "value": 99.92999999999999}, {"time": "2026-02-05", "value": 100.72999999999999}, {"time": "2026-02-06", "value": 101.51}, {"time": "2026-02-09", "value": 102.36}, {"time": "2026-02-10", "value": 102.26}, {"time": "2026-02-11", "value": 102.16}, {"time": "2026-02-23", "value": 102.62}, {"time": "2026-02-24", "value": 103.12}, {"time": "2026-02-25", "value": 105.42}, {"time": "2026-02-26", "value": 108.63}, {"time": "2026-03-02", "value": 111.5}, {"time": "2026-03-03", "value": 113.2}, {"time": "2026-03-04", "value": 115.3}, {"time": "2026-03-05", "value": 117.65}, {"time": "2026-03-06", "value": 122.25}, {"time": "2026-03-09", "value": 126.6}, {"time": "2026-03-10", "value": 129.4}, {"time": "2026-03-11", "value": 131.75}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 90.77000000000001}, {"time": "2026-01-05", "value": 90.92999999999999}, {"time": "2026-01-06", "value": 91.06}, {"time": "2026-01-07", "value": 90.735}, {"time": "2026-01-08", "value": 90.545}, {"time": "2026-01-09", "value": 90.92}, {"time": "2026-01-12", "value": 90.91499999999999}, {"time": "2026-01-13", "value": 90.85}, {"time": "2026-01-14", "value": 90.9}, {"time": "2026-01-15", "value": 91.52000000000001}, {"time": "2026-01-16", "value": 91.85}, {"time": "2026-01-19", "value": 92.8}, {"time": "2026-01-20", "value": 94.025}, {"time": "2026-01-21", "value": 94.715}, {"time": "2026-01-22", "value": 95.215}, {"time": "2026-01-23", "value": 95.6}, {"time": "2026-01-26", "value": 96.185}, {"time": "2026-01-27", "value": 96.78}, {"time": "2026-01-28", "value": 97.32000000000001}, {"time": "2026-01-29", "value": 97.65}, {"time": "2026-01-30", "value": 97.885}, {"time": "2026-02-02", "value": 97.83}, {"time": "2026-02-03", "value": 98.02000000000001}, {"time": "2026-02-04", "value": 98.41499999999999}, {"time": "2026-02-05", "value": 99.16}, {"time": "2026-02-06", "value": 99.785}, {"time": "2026-02-09", "value": 101.09}, {"time": "2026-02-10", "value": 101.94}, {"time": "2026-02-11", "value": 102.67}, {"time": "2026-02-23", "value": 103.00999999999999}, {"time": "2026-02-24", "value": 103.44000000000001}, {"time": "2026-02-25", "value": 103.915}, {"time": "2026-02-26", "value": 104.51500000000001}, {"time": "2026-03-02", "value": 105.715}, {"time": "2026-03-03", "value": 106.965}, {"time": "2026-03-04", "value": 108.405}, {"time": "2026-03-05", "value": 110.005}, {"time": "2026-03-06", "value": 112.255}, {"time": "2026-03-09", "value": 114.38}, {"time": "2026-03-10", "value": 116.00999999999999}, {"time": "2026-03-11", "value": 117.43499999999999}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -7120.0}, {"time": "2025-12-08", "value": 2800.0}, {"time": "2025-12-09", "value": 2800.0}, {"time": "2025-12-10", "value": -9350.0}, {"time": "2025-12-11", "value": -12659.0}, {"time": "2025-12-12", "value": -9447.0}, {"time": "2025-12-15", "value": -6596.0}, {"time": "2025-12-16", "value": -9971.0}, {"time": "2025-12-17", "value": -1955.0}, {"time": "2025-12-18", "value": -6999.0}, {"time": "2025-12-19", "value": -3584.0}, {"time": "2025-12-22", "value": -12130.0}, {"time": "2025-12-23", "value": -9350.0}, {"time": "2025-12-24", "value": -1470.0}, {"time": "2025-12-26", "value": -4829.0}, {"time": "2025-12-29", "value": -227.0}, {"time": "2025-12-30", "value": 5257.0}, {"time": "2025-12-31", "value": -2863.0}, {"time": "2026-01-02", "value": 7775.0}, {"time": "2026-01-05", "value": -10137.0}, {"time": "2026-01-06", "value": -17259.0}, {"time": "2026-01-07", "value": -20388.0}, {"time": "2026-01-08", "value": -17356.0}, {"time": "2026-01-09", "value": -11271.0}, {"time": "2026-01-12", "value": -25661.0}, {"time": "2026-01-13", "value": -20401.0}, {"time": "2026-01-14", "value": -14458.0}, {"time": "2026-01-15", "value": 3517.0}, {"time": "2026-01-16", "value": -20434.0}, {"time": "2026-01-19", "value": -4920.0}, {"time": "2026-01-20", "value": 17013.0}, {"time": "2026-01-21", "value": 5683.0}, {"time": "2026-01-22", "value": -5926.0}, {"time": "2026-01-23", "value": -11779.0}, {"time": "2026-01-26", "value": -4001.0}, {"time": "2026-01-27", "value": 1256.0}, {"time": "2026-01-28", "value": 9699.0}, {"time": "2026-01-29", "value": 4002.0}, {"time": "2026-01-30", "value": 8982.0}, {"time": "2026-02-02", "value": 1089.0}, {"time": "2026-02-03", "value": 6014.0}, {"time": "2026-02-04", "value": 10757.0}, {"time": "2026-02-05", "value": 28804.0}, {"time": "2026-02-06", "value": 851.0}, {"time": "2026-02-09", "value": 16789.0}, {"time": "2026-02-10", "value": 4928.0}, {"time": "2026-02-11", "value": 9411.0}, {"time": "2026-02-23", "value": 14036.0}, {"time": "2026-02-24", "value": 16725.0}, {"time": "2026-02-25", "value": 23961.0}, {"time": "2026-02-26", "value": 28264.0}, {"time": "2026-03-02", "value": 43044.0}, {"time": "2026-03-03", "value": 27103.0}, {"time": "2026-03-04", "value": 41883.0}, {"time": "2026-03-05", "value": 53915.0}, {"time": "2026-03-06", "value": 66227.0}, {"time": "2026-03-09", "value": 50278.0}, {"time": "2026-03-10", "value": 29373.0}, {"time": "2026-03-11", "value": 3330.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>晶彩科主要從事「自動光學檢測」（AOI）及精密量測設備的研發、製造與銷售，並提供設備零組件及維修服務。過去專注於TFT-LCD面板檢測，是台灣唯一成功打入面板廠陣列段AOI設備的供應商。近年來，公司積極將機器視覺技術拓展至半導體先進封裝、Micro LED/Micro OLED、PCB等高成長新興領域。</p>
+
+<strong>核心產品與技術：</strong>
+<ul><li><strong>FOPLP Die Location量測機</strong>：用於扇出型面板級封裝（FOPLP）的晶粒定位量測。</li>
+<li><strong>FOPLP RDL細線路AOI檢測設備</strong>：可檢測2微米級線路。</li>
+<li><strong>AOI量測對位設備</strong>：已打入先進封裝供應鏈。</li>
+<li><strong>Horus系列機台</strong>：整合AI檢測與自動化量測功能，成功卡位最新的CoPoS與SoIC供應鏈。</li>
+<li><strong>獨家紅外線（IR）量測技術</strong>：能穿透矽載板等遮蔽介質，精準捕捉內部元件與孔位間的微米級位移，已成功打入台積電CoWoS-L Gen2製程。</li>
+</ul>
+<strong>營收結構預期：</strong>
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>2021年上半年營收佔比</th><th>2025年目標營收佔比</th><th>2026年展望</th></tr></thead><tbody>
+<tr><td>顯示器相關設備</td><td>約80%</td><td>50%</td><td>比重持續下降，營收結構質變</td></tr>
+<tr><td>半導體/PCB/先進封裝等</td><td>約20%</td><td>50%</td><td>比重顯著提升，毛利率改善</td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>獨家紅外線量測技術：</strong> 晶彩科獨有的紅外線（IR）量測技術，能有效穿透不透明材料（如矽載板），精準量測內部結構的微米級位移，此技術已獲台積電CoWoS-L Gen2製程驗證，並納入CoPoS首波供應鏈，具有高度技術壁壘與獨占性。</li>
+<li><strong>成功轉型與卡位先進製程：</strong> 公司從傳統面板檢測成功轉型，將機器視覺技術應用於半導體先進封裝（FOPLP, CoPoS, SoIC），並以Horus系列機台切入高階封裝供應鏈，精準把握AI晶片發展帶來的檢測需求。</li>
+<li><strong>高精度微米級檢測能力：</strong> FOPLP RDL細線路AOI檢測設備可檢測2微米級線路，滿足先進封裝對超精細線路的高精度檢測要求。</li>
+<li><strong>AI整合與自動化：</strong> Horus系列機台整合AI檢測與自動化量測功能，提升檢測效率與準確性，符合產業智能化趨勢。</li>
+<li><strong>台灣面板AOI領先地位：</strong> 曾是台灣唯一成功打入面板廠陣列段AOI設備的供應商，顯示其在光學檢測領域的深厚技術基礎和客戶信任度。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額（新台幣百萬元）</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>151.00</td><td>79.83%</td><td>9447.00%</td></tr>
+<tr><td>2025年12月</td><td>84.41</td><td>-28.51%</td><td>959.75%</td></tr>
+<tr><td>2025年11月</td><td>118.00</td><td>173.67%</td><td>82.58%</td></tr>
+<tr><td>2025年10月</td><td>43.14</td><td>-49.71%</td><td>2519.43%</td></tr>
+<tr><td>2025年9月</td><td>85.78</td><td>329.15%</td><td>4028.15%</td></tr>
+<tr><td>2025年8月</td><td>19.99</td><td>342.23%</td><td>-49.32%</td></tr>
+</tbody></table></div>
+
+<h3>季度數據 (截至2025年第三季)</h3>
+
+<ul><li><strong>2025年第三季EPS</strong>：-0.06元</li>
+<li><strong>2025年第三季毛利率</strong>：46.91%</li>
+<li><strong>2025年第三季營業利益率</strong>：-14.15%</li>
+<li><strong>2025年第三季季營收</strong>：未找到明確的2025年第三季營收總額數據。</li>
+</ul>
+<h3>年度趨勢</h3>
+
+<ul><li><strong>2024年實際營收</strong>：新台幣6.68億元</li>
+<li><strong>2024年實際EPS</strong>：0.69元</li>
+<li><strong>2025年全年營收</strong>：新台幣4.60億元 (累計至12月)</li>
+<li><strong>2025年全年EPS</strong>：累積至2025年第三季為-1.74元；2025年12月單月獲利0.14億元，每股盈餘0.18元，全年最終EPS預計於2026年3月6日公布。</li>
+</ul>
+<h2>法說會重點</h2>
+
+<ul><li><strong>最近一次法說會日期：</strong> 2025年7月25日 (已超過6個月，資訊可能過時)。</li>
+<li><strong>管理層發言與Guidance：</strong></li>
+</ul>    *   公司正積極轉型非顯示器事業，投入Micro LED和先進封裝等新興領域。Micro LED市場預期顯著成長，晶彩科已與重要客戶建立合作關係。
+<p>*   先進封裝市場呈現穩定成長趨勢，晶彩科已推出相應的量測工具。</p>
+<p>*   管理層預期2026年公司營運有望由虧轉盈，並預計自2026年第2季起將開始放量出貨，後續業績可望逐季成長。</p>
+<ul><li><strong>具體出貨量/訂單能見度：</strong></li>
+</ul>    *   晶彩科獨家紅外線量測技術已成功打入台積電第2代CoWoS-L供應鏈，並入列CoPoS首波供應鏈，預計2026年第2季起開始放量出貨，需求動能有望延續至2027年。
+<p>*   FOPLP Die Location量測機已打入封測大廠。</p>
+<p>*   HORUS系列機台已於2025年底拿到關鍵客戶訂單，並在第四季開始正式出貨，標誌公司正式切入半導體供應鏈。</p>
+<p>*   券商報告預估，2026年晶彩科的設備預計出貨68~80台，年增率高達566%。</p>
+<ul><li><strong>產能利用率、資本支出金額：</strong> 未找到2025-2026年的最新資料。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣)</th><th>評等</th><th>報告更新日期</th></tr></thead><tbody>
+<tr><td>金玉峰證券投資顧問股份有限公司</td><td>113元</td><td>買進</td><td>2026年1月29日</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>2025-2026年EPS預估：</strong></li>
+</ul>    *   金玉峰證券投資顧問股份有限公司 (富果直送) 預估2026年EPS達5.65元。
+<ul><li><strong>近期評等調升/調降：</strong> 未找到2025-2026年的最新資料。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>46.91%</td><td>-14.15%</td><td>-3.89%</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>利潤率變化原因分析：</strong></li>
+</ul>    *   2025年第三季毛利率達46.91%，顯示公司產品具一定競爭力。然而，因營收規模較小及費用支出影響，仍處於營業虧損狀態。
+<p>*   隨著晶彩科成功轉型至高毛利的半導體先進封裝檢測機台，其產品組合將顯著優化。先進封裝AOI設備的單價和毛利明顯高於傳統面板設備，一台機台的營收貢獻能抵過過去多台機台。</p>
+<p>*   預期自2026年第二季半導體設備開始密集出貨後，營收規模將放大，高毛利產品比重增加，有助於毛利率重回成長軌道，並帶動營業利益率轉正，實現營運由虧轉盈。</p>
+
+<h3>存貨與營運</h3>
+
+<ul><li><strong>近4季存貨金額與存貨週轉天數趨勢</strong>：未找到2024-2026年的最新資料。</li>
+<li><strong>應收帳款週轉天數趨勢</strong>：未找到2024-2026年的最新資料。</li>
+<li><strong>存貨異常堆積或備料現象</strong>：未找到2024-2026年的最新資料。然而，2026年1月營收的爆發性成長主要歸因於設備銷售與驗收時程集中，顯示在手訂單能有效轉化為營收。</li>
+</ul>
+<h3>資本支出</h3>
+
+<ul><li><strong>近3年資本支出金額與趨勢</strong>：未找到2024-2026年的最新資料。</li>
+<li><strong>未來資本支出計畫與預計新增產能</strong>：未找到2025-2026年的最新資料。儘管無明確資本支出計畫，但與日商羅自、平田機工在自動化領域深化合作，並預期2027年提供給日商的機械手臂與晶圓搬運系統量能將較2026年顯著成長，暗示了產能擴充或技術整合的動向。</li>
+</ul>
+<h3>其他財報重點</h3>
+
+<ul><li><strong>負債比率與淨負債/EBITDA</strong>：未找到2024-2026年的最新資料。</li>
+<li><strong>自由現金流量趨勢</strong>：未找到2024-2026年的最新資料。</li>
+<li><strong>業外收支重大項目</strong>：2026年1月單月稅後純益4,122萬元，每股稅後純益0.52元，主要來自設備銷售的本業營收認列。</li>
+</ul>
+<h2>股權異動</h2>
+
+<ul><li><strong>近期董監事/大股東申報轉讓紀錄</strong>：未找到2025-2026年的最新資料。</li>
+<li><strong>庫藏股買回紀錄（張數、區間、目的）</strong>：未找到2025-2026年的最新資料。</li>
+<li><strong>是否有發行可轉換公司債（CB）及轉換價格</strong>：未找到2025-2026年的最新資料。</li>
+<li><strong>近期是否有現金增資或減資計畫</strong>：未找到2025-2026年的最新資料。</li>
+<li><strong>股利政策（現金股利、股票股利歷史）</strong>：未找到2024-2025年的最新股利政策或發放記錄。</li>
+</ul>
+<h2>產業分析</h2>
+
+<h3>市場規模與CAGR成長率</h3>
+
+<p>晶彩科所處的AOI及精密量測設備市場，受惠於工業4.0、電子產品微型化、半導體先進製程以及AI驅動的需求，呈現高速成長。</p>
+
+<ul><li><strong>自動光學檢測 (AOI) 市場：</strong></li>
+</ul>    *   2025年全球AOI市場規模為<strong>13.8億美元</strong>，預計2026年將達<strong>16.8億美元</strong>。
+<p>*   2026年至2035年CAGR將超過<strong>24.5%</strong>，到2035年市場規模有望超過<strong>123.5億美元</strong>。</p>
+<p>*   晶圓AOI系統市場在2025年達<strong>2.76億美元</strong>，預計2026年至2032年CAGR為<strong>6.9%</strong>，到2032年達<strong>4.37億美元</strong>。</p>
+<ul><li><strong>精密量測設備市場：</strong></li>
+</ul>    *   預計從2025年的<strong>98.9億美元</strong>增長到2026年的<strong>106.1億美元</strong>，CAGR為<strong>7.3%</strong>。
+<p>*   半導體檢測系統市場在2025年超過<strong>72.4億美元</strong>，預計2026年達<strong>77.7億美元</strong>，並在2026年至2035年期間以超過<strong>8.1%</strong>的CAGR增長，到2035年達<strong>157.8億美元</strong>。</p>
+<ul><li><strong>先進封裝用AOI設備市場：</strong></li>
+</ul>    *   全球市場銷售額在2025年達<strong>0.32億美元</strong>，預計2026年至2032年CAGR為<strong>8.3%</strong>，到2032年達<strong>0.55億美元</strong>。
+<ul><li><strong>Micro LED 市場：</strong></li>
+</ul>    *   市場規模在2025年為<strong>14億美元</strong>，預計到2026年達<strong>24億美元</strong>。
+<p>*   在2026年至2038年預測期內，CAGR將達<strong>64.1%</strong>，到2038年底達<strong>9,379億美元</strong>。</p>
+<ul><li><strong>PCB 檢測設備市場：</strong></li>
+</ul>    *   預計從2025年的<strong>44.3億美元</strong>增長到2026年的<strong>49.1億美元</strong>，CAGR為<strong>10.8%</strong>。
+
+<h3>供需狀況</h3>
+
+<p>半導體設備市場，特別是與AI和先進封裝相關的檢測與量測設備，目前呈現<strong>供不應求</strong>的狀況。</p>
+<ul><li>2026年全球半導體設備產業正式進入由AI驅動的超級成長週期，晶圓廠設備 (WFE) 市場規模將突破<strong>1300億美元</strong>大關。</li>
+<li>多數半導體設備廠商指出，市場成長的最大限制因素已非需求端，而是客戶無塵室空間的建置進度。</li>
+<li>台積電CoWoS產能衝<strong>12.5萬片</strong>翻倍，並預計2026年半導體設備產業將迎超級循環年。</li>
+<li>2026年3奈米以下先進製程產能將成長逾<strong>4成</strong>，先進製程產能持續供不應求。</li>
+</ul>
+<h3>產業平均毛利率水準</h3>
+
+<p>檢測設備行業的毛利率普遍較高，高階半導體檢測設備的毛利動輒<strong>6成以上</strong>，有些甚至被形容「比台積電還好賺」。此高毛利特性有利於晶彩科轉型後的獲利能力提升。</p>
+
+<h3>競爭格局</h3>
+
+<h4>全球主要競爭者 (未找到明確市佔率數據，列出主要參與者)</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>領域</th><th>備註</th></tr></thead><tbody>
+<tr><td>KLA Corporation</td><td>半導體檢測設備</td><td>半導體檢測設備龍頭廠商。</td></tr>
+<tr><td>Applied Materials</td><td>半導體設備</td><td>全球領先的半導體設備供應商之一。</td></tr>
+<tr><td>Tokyo Electron (TEL)</td><td>半導體設備</td><td>全球領先的半導體設備供應商之一。</td></tr>
+<tr><td>ASML</td><td>半導體設備 (曝光機,計量)</td><td>在半導體設備領域扮演關鍵角色，其計量與檢測設備受管制。</td></tr>
+<tr><td>Koh Young</td><td>自動光學檢測 (AOI)</td><td>SMT、半導體封裝AOI主要參與者。</td></tr>
+<tr><td>Camtek</td><td>自動光學檢測 (AOI)</td><td>專注於半導體前段、中段AOI設備。</td></tr>
+<tr><td>Saki Corporation</td><td>自動光學檢測 (AOI)</td><td>SMT領域的AOI領導者。</td></tr>
+<tr><td>Nordson Corporation</td><td>自動光學檢測 (AOI)</td><td>多元化檢測設備供應商。</td></tr>
+</tbody></table></div>
+
+<h4>晶彩科 vs. 台灣同業比較</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>晶彩科 (3535)</th><th>牧德 (3563)</th><th>倍利科 (7822)</th></tr></thead><tbody>
+<tr><td><strong>主要業務</strong></td><td>AOI/精密量測，顯示器轉型半導體先進封裝、Micro LED、PCB</td><td>PCB/載板AOI、半導體先進封裝AOI</td><td>以AI演算法為核心的高階半導體光學檢測與量測設備</td></tr>
+<tr><td><strong>核心技術</strong></td><td>獨家紅外線 (IR) 量測，FOPLP、CoPoS、SoIC 檢測</td><td>AI檢測技術應用於先進封裝，3D量測能力</td><td>AI深度學習演算法，20億張缺陷影像資料，軟硬體整合</td></tr>
+<tr><td><strong>客戶群體</strong></td><td>面板廠，台積電CoWoS-L Gen2/CoPoS供應鏈，封測大廠</td><td>半導體先進封裝客戶，PCB/載板客戶</td><td>台積電先進製程供應鏈，國內外半導體廠，市占率約8成</td></tr>
+<tr><td><strong>2025年營收</strong></td><td>4.60億元 (累計至12月)</td><td>大成長108% (預估)</td><td>20.75億元，年增187.82%</td></tr>
+<tr><td><strong>2025年EPS</strong></td><td>-1.74元 (累計至Q3)</td><td>獲利大躍進 (預估)</td><td>獲利大躍進 (預估)</td></tr>
+<tr><td><strong>毛利率</strong></td><td>2025Q3 46.91%，預期轉型後將提升</td><td>未找到最新具體資料</td><td>預計2026年與2025年持平 (高於平均)</td></tr>
+<tr><td><strong>相對優勢</strong></td><td>IR技術獨占性，成功切入台積電CoWoS/CoPoS高階製程</td><td>PCB/載板基礎穩固，AI先進封裝快速成長</td><td>深度嵌入半導體大廠，AI演算法壁壘高，獲利能力強勁</td></tr>
+</tbody></table></div>
+
+<h2>產業趨勢</h2>
+
+<h3>關鍵技術趨勢與具體影響</h3>
+
+<li><strong>AI與深度學習在檢測中的應用：</strong></li>
+<p>*   <strong>具體影響：</strong> AI驅動的檢測系統能更精準辨識極微小缺陷，降低「過殺」與「漏檢」問題，顯著提升良率與製程效率。隨著半導體製程進入3奈米及2奈米，即時3D GAA結構的量檢測需求對AI檢測至關重要。晶彩科的AI OM技術直接受益於此趨勢，提升其產品競爭力。</p>
+<li><strong>先進封裝技術的快速發展：</strong></li>
+<p>*   <strong>具體影響：</strong> AI與高效能晶片需求強勁推升2.5D/3D異質整合、CoWoS、SoIC、FOPLP、CoPoS等先進封裝技術加速落地。這使得AOI與Metrology的重要性大幅提升，檢測及量測產業正出現結構性成長期。高階封裝對檢測精度要求極高，晶彩科在FOPLP、CoPoS、SoIC的布局迎合了這一趨勢。</p>
+<li><strong>面板級封裝 (FOPLP) 的興起：</strong></li>
+<p>*   <strong>具體影響：</strong> 相較於晶圓級封裝，FOPLP的AOI掃描面積大五倍，需要更高速相機與大視野鏡頭，且面板級翹曲問題顯著，對AOI的掃描速度與精度要求更高。FOPLP已進入量產，CoPoS也將於2026年量產，帶動相關設備的更新潮，晶彩科的FOPLP Die Location量測機及RDL細線路AOI檢測設備處於有利位置。</p>
+
+<h3>對晶彩科的具體機會和威脅</h3>
+
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>轉型契機：</strong> 成功從LCD轉型至半導體先進封裝、Micro LED/OLED等高成長領域。
+<p>*   <strong>核心技術優勢：</strong> 紅外線(IR)量測技術、FOPLP檢測、Horus機台等在新興市場具獨特競爭力。</p>
+<p>*   <strong>AI應用深化：</strong> AI OM技術符合產業AI化趨勢，提升檢測效能。</p>
+<p>*   <strong>產業超級循環：</strong> 半導體產業進入AI驅動的成長週期，先進封裝需求為晶彩科提供龐大市場機會。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>激烈競爭：</strong> 面臨KLA、Applied Materials等國際大廠及台灣同業（牧德、倍利科）的激烈競爭。
+<p>*   <strong>技術快速迭代：</strong> 半導體製程與封裝技術發展迅速，需持續高額研發投入。</p>
+<p>*   <strong>人才與供應鏈挑戰：</strong> 無塵室建置、基板短缺、人才匱乏可能影響設備交期。</p>
+<p>*   <strong>股價修正壓力：</strong> 短期股價漲幅過大，可能面臨獲利了結賣壓。</p>
+
+<h3>相關投資題材的具體連結</h3>
+
+<ul><li><strong>AI (人工智慧)：</strong> AI晶片對檢測精度要求極高，使AOI檢測從「選配」變為「標配剛需」。AI與HPC晶片是推動先進封裝發展的關鍵，晶彩科的AI OM技術直接受益。</li>
+<li><strong>HBM (高頻寬記憶體)：</strong> HBM堆疊與封裝等關鍵節點需精密檢測。先進封裝市場受惠於異質整合對AI處理器至關重要，HBM整合是重要環節，晶彩科在先進封裝檢測的佈局與HBM題材高度相關。</li>
+<li><strong>先進封裝：</strong> 晶彩科的核心業務轉向之一，其FOPLP、CoPoS、SoIC等產品直接服務此市場。台積電CoWoS產能吃緊，OSAT業者成為AI封測需求擴張的第二波動能，晶彩科作為設備供應商直接受惠。</li>
+<li><strong>Micro LED / Micro OLED：</strong> 晶彩科將機器視覺技術應用於Micro LED/Micro OLED檢測解決方案，直接受惠於此市場在穿戴、車用、高階顯示器等領域的快速成長。</li>
+</ul>
+<h2>近期催化劑</h2>
+
+<h3>利多事件清單</h3>
+<ul><li><strong>2026年3月4日：</strong> 晶彩科元月單月獲利0.41億元，月增182.52%、年增272%，每股盈餘0.52元，月增188.88%、年增272%。外資連續五天買超力挺，累計買超4304張。</li>
+<li><strong>2026年3月3日：</strong> 公布1月合併營收達1.51億元，年增率高達9,447%，創19個月新高。單月稅後純益4,122萬元，每股稅後純益0.52元。</li>
+<li><strong>2026年2月25日：</strong> 股價受惠AI先進封裝題材發酵攻上漲停116元。紅外線偵測技術通過晶圓大廠製程驗證，題材與基本面同步加溫。</li>
+<li><strong>2026年2月9日：</strong> 公告1月合併營收1.52億元，月增79.84%，較去年同期大增9,477.22%，寫下近19個月以來新高。</li>
+<li><strong>2026年2月5日：</strong> 股價強勢突破百元大關，AI先進封裝題材發酵，外資回補助攻。</li>
+<li><strong>2026年2月2日：</strong> 獨家紅外線（IR）量測技術成功打入台積電CoWoS-L Gen2製程，並入列首波CoPoS供應鏈。預計第2季起密集出貨，需求動能延續至2027年。</li>
+<li><strong>2026年1月21日：</strong> 2025年12月單月獲利0.14億元，年增155%，每股盈餘0.18元，年增155%，成功單月轉盈。</li>
+<li><strong>2025年12月13日：</strong> 2025年11月營收1.18億元，月增173.67%，年增82.58%。</li>
+<li><strong>近期：</strong> 成功由面板檢測轉向半導體先進封裝領域，AI自動光學檢測設備(AOI)已切入半導體大廠CoWoS及CoPoS等高階封裝製程，去年下半年虧損已見收斂。</li>
+</ul>
+<h3>利空事件清單</h3>
+<ul><li><strong>2026年3月3日：</strong> 股價在經歷連六日大漲後，湧現獲利了結賣壓，終場帶量跌停收在126元。主力籌碼出現顯著賣壓，當日賣超1,153張。</li>
+<li><strong>2025年上半年：</strong> 營收表現疲軟，第二季營收降至5,304萬元，年減87.2%，為歷年低點。前五月合併營收為7,597.9萬元，年減64.1%。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能</th><th>具體內容</th></tr></thead><tbody>
+<tr><td><strong>2025年第四季</strong></td><td><strong>新客戶/新市場切入</strong></td><td>HORUS系列AOI機台獲得重要客戶下單，正式切入半導體供應鏈。</td></tr>
+<tr><td><strong>2026年第二季起</strong></td><td><strong>新客戶/新市場/需求爆發</strong></td><td>獨家紅外線偵測技術已通過晶圓龍頭CoWoS-L Gen2製程驗證，並入列CoPoS首波供應鏈，預計開始密集出貨，需求動能一路延續至2027年，並已全面導入台積電包含AP3、AP5、AP8及美國廠等全球產線。CoPoS預計於2026年進入試產階段。</td></tr>
+<tr><td><strong>22026年</strong></td><td><strong>新客戶/新市場/產能提升</strong></td><td>Horus系列機台成功卡位最新的CoPoS與SoIC供應鏈，出貨動能將更強勁。FOPLP Die Location量測機台已獲封測大廠採用。與日商羅自（RORZE）、平田機工（Hirata）深化自動化領域合作。券商預估設備出貨68~80台，年增566%。</td></tr>
+<tr><td><strong>2025-2030年</strong></td><td><strong>需求面：AI晶片先進封裝需求</strong></td><td>下游AI晶片先進封裝需求爆發，CoWoS-L與CoPoS已確立為未來AI晶片封裝主流，其中2.5D/3D封裝市場的複合年均成長率（CAGR）更高達17%。</td></tr>
+<tr><td><strong>2026-2038年</strong></td><td><strong>需求面：Micro LED市場成長</strong></td><td>Micro LED市場預計複合年增長率（CAGR）將達到64.1%，到2038年底將達到9,379億美元，帶動相關檢測設備需求。</td></tr>
+<tr><td><strong>長期</strong></td><td><strong>需求面：高階晶片製程複雜化</strong></td><td>高階晶片製程日益複雜、單顆晶片成本高昂，對AOI自動光學檢測的依賴日漸提高。</td></tr>
+<tr><td><strong>未來未定時程</strong></td><td><strong>新應用拓展</strong></td><td>切入AI伺服器液冷管接件加工測試等新應用。陸續投入扇出型晶圓級封裝（FOWLP）、2.5D/3D IC封裝等新興市場的檢測解決方案。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+<p>晶彩科2026年展望極為樂觀，主要受益於成功轉型至高毛利的半導體先進封裝檢測領域。其獨家紅外線（IR）量測技術成功打入台積電CoWoS-L Gen2及CoPoS供應鏈，確保了未來兩年的關鍵訂單與出貨動能。隨著2026年第二季起設備密集出貨，預期營收將呈現逐季成長，全年營收結構將顯著質變，高毛利的半導體機台出貨比重增加，有助於毛利率重回成長軌道，驅動公司由虧轉盈，並有望挑戰歷史新高EPS（法人預估2026年EPS達5.65元）。AI晶片與HBM需求爆發，以及2.5D/3D先進封裝的CAGR高達17%，為晶彩科提供了強勁的產業順風。</p>
+
+<strong>風險：</strong>
+<p>儘管成長動能強勁，但仍需留意以下風險：</p>
+<li><strong>營收認列不穩定：</strong> 設備銷售與驗收時程集中導致營收波動大。</li>
+<li><strong>客戶集中度高：</strong> 新訂單高度依賴台積電等少數大客戶，若客戶資本支出或時程延後將產生衝擊。</li>
+<li><strong>技術迭代與競爭：</strong> 半導體技術快速發展，需持續投入研發以維持競爭力，同時面臨國際大廠與台灣同業的激烈競爭。</li>
+<li><strong>股價修正壓力：</strong> 近期股價已因利多而大幅上漲，存在短線獲利了結賣壓與技術面修正風險。</li>
+<li><strong>總體經濟與產業循環：</strong> 全球經濟不確定性及半導體產業循環可能影響整體需求。</li>
+
+<h2>投資結論</h2>
+
+<li><strong>轉型成功，卡位高成長領域：</strong> 晶彩科成功從傳統面板檢測設備製造商轉型為AI晶片先進封裝檢測設備供應商，精準把握半導體異質整合與AI晶片爆發性成長的產業趨勢，為公司長期成長奠定堅實基礎。</li>
+<li><strong>獨家技術獲龍頭驗證，具高度壁壘：</strong> 其獨特的紅外線（IR）量測技術成功打入台積電CoWoS-L Gen2及CoPoS供應鏈，證明其技術實力與市場稀缺性，形成強大競爭優勢與訂單能見度。</li>
+<li><strong>2026年營運迎來爆發點，由虧轉盈可期：</strong> 2026年1月營收高達1.51億元，年增9,447.22%，已展現強勁的營收動能。隨著第二季起先進封裝設備將密集出貨，加上高毛利產品比重提升，公司有望在2026年實現獲利由虧轉盈，法人預估2026年EPS可達5.65元。</li>
+<li><strong>產業趨勢強勁，長期動能無虞：</strong> 受益於AI、HBM、先進封裝（2.5D/3D CAGR 17%）及Micro LED（CAGR 64.1%）等題材，檢測設備需求持續旺盛，晶彩科作為關鍵設備供應商，長期成長動能無虞。</li>
+<li><strong>目標價區間建議：</strong> 考量晶彩科在半導體先進封裝檢測領域的獨家技術優勢與2026年預期EPS 5.65元，以及券商給出的目標價113元（隱含約20倍2026年預估本益比），我們認為其具有高成長潛力，若市場給予20-25倍本益比，建議目標價區間為 <strong>113元 – 141元</strong>。</li>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 00:20</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="3535_晶彩科_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="3535_晶彩科_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="3535_晶彩科_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

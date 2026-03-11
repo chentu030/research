@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1446 宏和 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>1446 宏和 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>宏和 (1446) 已成功轉型為以營建開發為核心的資產股，營建業務於2024年貢獻高達97%的營收，帶動全年EPS達9.82元。儘管近期紡織業務面臨市場逆風導致營收波動劇烈，且財務體質需持續關注，但公司管理層承諾穩健經營，並祭出2025年高達8.68%的現金殖利率，凸顯其資產價值與股東回報潛力。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">1446 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-1446" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-1446" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-1446');
+    var obvContainer = document.getElementById('obv-chart-1446');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 18.35, "high": 18.4, "low": 18.15, "close": 18.3}, {"time": "2025-12-05", "open": 18.4, "high": 18.45, "low": 18.05, "close": 18.05}, {"time": "2025-12-08", "open": 18.05, "high": 18.1, "low": 17.95, "close": 18.1}, {"time": "2025-12-09", "open": 18.05, "high": 18.1, "low": 17.95, "close": 18.1}, {"time": "2025-12-10", "open": 18.0, "high": 18.05, "low": 17.85, "close": 18.05}, {"time": "2025-12-11", "open": 18.25, "high": 18.25, "low": 17.9, "close": 18.0}, {"time": "2025-12-12", "open": 18.05, "high": 18.1, "low": 17.95, "close": 17.95}, {"time": "2025-12-15", "open": 17.8, "high": 18.3, "low": 17.8, "close": 18.15}, {"time": "2025-12-16", "open": 18.25, "high": 18.4, "low": 18.15, "close": 18.25}, {"time": "2025-12-17", "open": 18.2, "high": 18.3, "low": 18.0, "close": 18.3}, {"time": "2025-12-18", "open": 18.25, "high": 18.25, "low": 18.15, "close": 18.2}, {"time": "2025-12-19", "open": 18.2, "high": 18.25, "low": 18.0, "close": 18.2}, {"time": "2025-12-22", "open": 18.25, "high": 18.3, "low": 18.1, "close": 18.2}, {"time": "2025-12-23", "open": 18.25, "high": 18.3, "low": 18.15, "close": 18.15}, {"time": "2025-12-24", "open": 18.2, "high": 18.2, "low": 18.1, "close": 18.15}, {"time": "2025-12-26", "open": 18.3, "high": 18.45, "low": 18.3, "close": 18.3}, {"time": "2025-12-29", "open": 18.4, "high": 18.5, "low": 18.3, "close": 18.3}, {"time": "2025-12-30", "open": 18.3, "high": 18.4, "low": 18.15, "close": 18.25}, {"time": "2025-12-31", "open": 18.2, "high": 18.3, "low": 18.15, "close": 18.3}, {"time": "2026-01-02", "open": 18.2, "high": 18.3, "low": 18.05, "close": 18.3}, {"time": "2026-01-05", "open": 18.3, "high": 18.3, "low": 18.05, "close": 18.15}, {"time": "2026-01-06", "open": 18.1, "high": 18.25, "low": 17.95, "close": 18.1}, {"time": "2026-01-07", "open": 18.1, "high": 18.2, "low": 17.85, "close": 18.2}, {"time": "2026-01-08", "open": 18.25, "high": 18.3, "low": 18.05, "close": 18.05}, {"time": "2026-01-09", "open": 18.25, "high": 18.25, "low": 18.05, "close": 18.15}, {"time": "2026-01-12", "open": 18.15, "high": 18.3, "low": 18.05, "close": 18.1}, {"time": "2026-01-13", "open": 18.0, "high": 18.2, "low": 17.95, "close": 18.0}, {"time": "2026-01-14", "open": 17.95, "high": 18.15, "low": 17.95, "close": 18.05}, {"time": "2026-01-15", "open": 18.1, "high": 18.3, "low": 18.05, "close": 18.25}, {"time": "2026-01-16", "open": 18.35, "high": 18.35, "low": 18.0, "close": 18.1}, {"time": "2026-01-19", "open": 18.1, "high": 18.35, "low": 18.1, "close": 18.3}, {"time": "2026-01-20", "open": 18.3, "high": 18.3, "low": 18.1, "close": 18.1}, {"time": "2026-01-21", "open": 18.1, "high": 18.2, "low": 17.25, "close": 17.35}, {"time": "2026-01-22", "open": 17.55, "high": 17.6, "low": 17.3, "close": 17.4}, {"time": "2026-01-23", "open": 17.4, "high": 17.45, "low": 17.25, "close": 17.45}, {"time": "2026-01-26", "open": 17.5, "high": 17.7, "low": 17.5, "close": 17.55}, {"time": "2026-01-27", "open": 17.75, "high": 17.75, "low": 17.4, "close": 17.45}, {"time": "2026-01-28", "open": 17.45, "high": 17.5, "low": 17.35, "close": 17.4}, {"time": "2026-01-29", "open": 17.4, "high": 17.4, "low": 17.15, "close": 17.3}, {"time": "2026-01-30", "open": 17.3, "high": 17.3, "low": 17.0, "close": 17.0}, {"time": "2026-02-02", "open": 17.0, "high": 17.0, "low": 16.6, "close": 16.65}, {"time": "2026-02-03", "open": 16.85, "high": 16.85, "low": 16.65, "close": 16.75}, {"time": "2026-02-04", "open": 16.75, "high": 16.95, "low": 16.75, "close": 16.8}, {"time": "2026-02-05", "open": 16.9, "high": 17.0, "low": 16.7, "close": 16.9}, {"time": "2026-02-06", "open": 16.9, "high": 16.9, "low": 16.55, "close": 16.6}, {"time": "2026-02-09", "open": 16.65, "high": 16.65, "low": 16.35, "close": 16.55}, {"time": "2026-02-10", "open": 16.6, "high": 16.6, "low": 16.35, "close": 16.45}, {"time": "2026-02-11", "open": 16.45, "high": 16.45, "low": 16.2, "close": 16.25}, {"time": "2026-02-23", "open": 16.45, "high": 16.65, "low": 16.3, "close": 16.6}, {"time": "2026-02-24", "open": 16.6, "high": 16.65, "low": 16.45, "close": 16.5}, {"time": "2026-02-25", "open": 16.55, "high": 16.55, "low": 16.1, "close": 16.15}, {"time": "2026-02-26", "open": 16.2, "high": 16.2, "low": 16.0, "close": 16.15}, {"time": "2026-03-02", "open": 16.15, "high": 16.3, "low": 15.9, "close": 16.3}, {"time": "2026-03-03", "open": 16.15, "high": 16.2, "low": 15.95, "close": 16.0}, {"time": "2026-03-04", "open": 15.8, "high": 15.8, "low": 15.2, "close": 15.3}, {"time": "2026-03-05", "open": 15.5, "high": 15.6, "low": 15.35, "close": 15.35}, {"time": "2026-03-06", "open": 15.35, "high": 15.6, "low": 15.3, "close": 15.45}, {"time": "2026-03-09", "open": 15.0, "high": 15.05, "low": 14.5, "close": 14.85}, {"time": "2026-03-10", "open": 15.0, "high": 15.1, "low": 14.9, "close": 15.0}, {"time": "2026-03-11", "open": 15.7, "high": 16.25, "low": 15.6, "close": 16.1}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 103.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 83.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 96.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 96.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 116.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 132.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 62.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 89.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 136.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 82.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 41.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 90.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 110.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 51.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 69.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 103.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 106.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 64.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 42.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 195.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 130.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 215.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 182.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 120.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 66.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 273.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 134.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 189.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 236.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 210.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 238.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 232.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 1065.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 271.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 229.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 272.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 230.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 137.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 272.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 211.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 368.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 87.0, "color": "#26a69a"}, {"time": "2026-02-04", "value": 143.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 108.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 120.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 144.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 137.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 235.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 285.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 113.0, "color": "#26a69a"}, {"time": "2026-02-25", "value": 601.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 367.0, "color": "#26a69a"}, {"time": "2026-03-02", "value": 335.0, "color": "#ef5350"}, {"time": "2026-03-03", "value": 193.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 383.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 137.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 117.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 327.0, "color": "#26a69a"}, {"time": "2026-03-10", "value": 115.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 444.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 18.12}, {"time": "2025-12-11", "value": 18.060000000000002}, {"time": "2025-12-12", "value": 18.04}, {"time": "2025-12-15", "value": 18.05}, {"time": "2025-12-16", "value": 18.080000000000002}, {"time": "2025-12-17", "value": 18.130000000000003}, {"time": "2025-12-18", "value": 18.169999999999998}, {"time": "2025-12-19", "value": 18.22}, {"time": "2025-12-22", "value": 18.23}, {"time": "2025-12-23", "value": 18.21}, {"time": "2025-12-24", "value": 18.18}, {"time": "2025-12-26", "value": 18.2}, {"time": "2025-12-29", "value": 18.22}, {"time": "2025-12-30", "value": 18.23}, {"time": "2025-12-31", "value": 18.259999999999998}, {"time": "2026-01-02", "value": 18.29}, {"time": "2026-01-05", "value": 18.259999999999998}, {"time": "2026-01-06", "value": 18.22}, {"time": "2026-01-07", "value": 18.21}, {"time": "2026-01-08", "value": 18.16}, {"time": "2026-01-09", "value": 18.130000000000003}, {"time": "2026-01-12", "value": 18.119999999999997}, {"time": "2026-01-13", "value": 18.1}, {"time": "2026-01-14", "value": 18.07}, {"time": "2026-01-15", "value": 18.11}, {"time": "2026-01-16", "value": 18.1}, {"time": "2026-01-19", "value": 18.14}, {"time": "2026-01-20", "value": 18.160000000000004}, {"time": "2026-01-21", "value": 18.020000000000003}, {"time": "2026-01-22", "value": 17.85}, {"time": "2026-01-23", "value": 17.72}, {"time": "2026-01-26", "value": 17.57}, {"time": "2026-01-27", "value": 17.44}, {"time": "2026-01-28", "value": 17.45}, {"time": "2026-01-29", "value": 17.43}, {"time": "2026-01-30", "value": 17.34}, {"time": "2026-02-02", "value": 17.16}, {"time": "2026-02-03", "value": 17.02}, {"time": "2026-02-04", "value": 16.9}, {"time": "2026-02-05", "value": 16.82}, {"time": "2026-02-06", "value": 16.740000000000002}, {"time": "2026-02-09", "value": 16.72}, {"time": "2026-02-10", "value": 16.66}, {"time": "2026-02-11", "value": 16.55}, {"time": "2026-02-23", "value": 16.490000000000002}, {"time": "2026-02-24", "value": 16.47}, {"time": "2026-02-25", "value": 16.39}, {"time": "2026-02-26", "value": 16.330000000000002}, {"time": "2026-03-02", "value": 16.34}, {"time": "2026-03-03", "value": 16.22}, {"time": "2026-03-04", "value": 15.98}, {"time": "2026-03-05", "value": 15.819999999999999}, {"time": "2026-03-06", "value": 15.680000000000001}, {"time": "2026-03-09", "value": 15.39}, {"time": "2026-03-10", "value": 15.190000000000001}, {"time": "2026-03-11", "value": 15.35}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 18.125}, {"time": "2025-12-18", "value": 18.115000000000002}, {"time": "2025-12-19", "value": 18.130000000000003}, {"time": "2025-12-22", "value": 18.14}, {"time": "2025-12-23", "value": 18.145}, {"time": "2025-12-24", "value": 18.154999999999998}, {"time": "2025-12-26", "value": 18.185}, {"time": "2025-12-29", "value": 18.22}, {"time": "2025-12-30", "value": 18.23}, {"time": "2025-12-31", "value": 18.235}, {"time": "2026-01-02", "value": 18.235}, {"time": "2026-01-05", "value": 18.23}, {"time": "2026-01-06", "value": 18.22}, {"time": "2026-01-07", "value": 18.22}, {"time": "2026-01-08", "value": 18.21}, {"time": "2026-01-09", "value": 18.21}, {"time": "2026-01-12", "value": 18.19}, {"time": "2026-01-13", "value": 18.16}, {"time": "2026-01-14", "value": 18.14}, {"time": "2026-01-15", "value": 18.134999999999998}, {"time": "2026-01-16", "value": 18.115000000000002}, {"time": "2026-01-19", "value": 18.130000000000003}, {"time": "2026-01-20", "value": 18.130000000000003}, {"time": "2026-01-21", "value": 18.045}, {"time": "2026-01-22", "value": 17.98}, {"time": "2026-01-23", "value": 17.91}, {"time": "2026-01-26", "value": 17.855}, {"time": "2026-01-27", "value": 17.8}, {"time": "2026-01-28", "value": 17.735}, {"time": "2026-01-29", "value": 17.64}, {"time": "2026-01-30", "value": 17.53}, {"time": "2026-02-02", "value": 17.365000000000002}, {"time": "2026-02-03", "value": 17.23}, {"time": "2026-02-04", "value": 17.175}, {"time": "2026-02-05", "value": 17.125}, {"time": "2026-02-06", "value": 17.04}, {"time": "2026-02-09", "value": 16.94}, {"time": "2026-02-10", "value": 16.84}, {"time": "2026-02-11", "value": 16.725}, {"time": "2026-02-23", "value": 16.655}, {"time": "2026-02-24", "value": 16.605}, {"time": "2026-02-25", "value": 16.555}, {"time": "2026-02-26", "value": 16.494999999999997}, {"time": "2026-03-02", "value": 16.445}, {"time": "2026-03-03", "value": 16.355}, {"time": "2026-03-04", "value": 16.225}, {"time": "2026-03-05", "value": 16.105}, {"time": "2026-03-06", "value": 16.005000000000003}, {"time": "2026-03-09", "value": 15.865}, {"time": "2026-03-10", "value": 15.705000000000002}, {"time": "2026-03-11", "value": 15.665000000000001}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 18.18}, {"time": "2026-01-05", "value": 18.1725}, {"time": "2026-01-06", "value": 18.175}, {"time": "2026-01-07", "value": 18.18}, {"time": "2026-01-08", "value": 18.177500000000002}, {"time": "2026-01-09", "value": 18.182499999999997}, {"time": "2026-01-12", "value": 18.1875}, {"time": "2026-01-13", "value": 18.19}, {"time": "2026-01-14", "value": 18.185}, {"time": "2026-01-15", "value": 18.185}, {"time": "2026-01-16", "value": 18.175}, {"time": "2026-01-19", "value": 18.18}, {"time": "2026-01-20", "value": 18.175}, {"time": "2026-01-21", "value": 18.1325}, {"time": "2026-01-22", "value": 18.095}, {"time": "2026-01-23", "value": 18.06}, {"time": "2026-01-26", "value": 18.0225}, {"time": "2026-01-27", "value": 17.98}, {"time": "2026-01-28", "value": 17.9375}, {"time": "2026-01-29", "value": 17.8875}, {"time": "2026-01-30", "value": 17.822499999999998}, {"time": "2026-02-02", "value": 17.7475}, {"time": "2026-02-03", "value": 17.68}, {"time": "2026-02-04", "value": 17.61}, {"time": "2026-02-05", "value": 17.552500000000002}, {"time": "2026-02-06", "value": 17.475}, {"time": "2026-02-09", "value": 17.3975}, {"time": "2026-02-10", "value": 17.32}, {"time": "2026-02-11", "value": 17.23}, {"time": "2026-02-23", "value": 17.1475}, {"time": "2026-02-24", "value": 17.067500000000003}, {"time": "2026-02-25", "value": 16.96}, {"time": "2026-02-26", "value": 16.8625}, {"time": "2026-03-02", "value": 16.81}, {"time": "2026-03-03", "value": 16.740000000000002}, {"time": "2026-03-04", "value": 16.6325}, {"time": "2026-03-05", "value": 16.5225}, {"time": "2026-03-06", "value": 16.4225}, {"time": "2026-03-09", "value": 16.294999999999998}, {"time": "2026-03-10", "value": 16.18}, {"time": "2026-03-11", "value": 16.134999999999998}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -83.0}, {"time": "2025-12-08", "value": 13.0}, {"time": "2025-12-09", "value": 13.0}, {"time": "2025-12-10", "value": -103.0}, {"time": "2025-12-11", "value": -235.0}, {"time": "2025-12-12", "value": -297.0}, {"time": "2025-12-15", "value": -208.0}, {"time": "2025-12-16", "value": -72.0}, {"time": "2025-12-17", "value": 10.0}, {"time": "2025-12-18", "value": -31.0}, {"time": "2025-12-19", "value": -31.0}, {"time": "2025-12-22", "value": -31.0}, {"time": "2025-12-23", "value": -82.0}, {"time": "2025-12-24", "value": -82.0}, {"time": "2025-12-26", "value": 21.0}, {"time": "2025-12-29", "value": 21.0}, {"time": "2025-12-30", "value": -43.0}, {"time": "2025-12-31", "value": -1.0}, {"time": "2026-01-02", "value": -1.0}, {"time": "2026-01-05", "value": -131.0}, {"time": "2026-01-06", "value": -346.0}, {"time": "2026-01-07", "value": -164.0}, {"time": "2026-01-08", "value": -284.0}, {"time": "2026-01-09", "value": -218.0}, {"time": "2026-01-12", "value": -491.0}, {"time": "2026-01-13", "value": -625.0}, {"time": "2026-01-14", "value": -436.0}, {"time": "2026-01-15", "value": -200.0}, {"time": "2026-01-16", "value": -410.0}, {"time": "2026-01-19", "value": -172.0}, {"time": "2026-01-20", "value": -404.0}, {"time": "2026-01-21", "value": -1469.0}, {"time": "2026-01-22", "value": -1198.0}, {"time": "2026-01-23", "value": -969.0}, {"time": "2026-01-26", "value": -697.0}, {"time": "2026-01-27", "value": -927.0}, {"time": "2026-01-28", "value": -1064.0}, {"time": "2026-01-29", "value": -1336.0}, {"time": "2026-01-30", "value": -1547.0}, {"time": "2026-02-02", "value": -1915.0}, {"time": "2026-02-03", "value": -1828.0}, {"time": "2026-02-04", "value": -1685.0}, {"time": "2026-02-05", "value": -1577.0}, {"time": "2026-02-06", "value": -1697.0}, {"time": "2026-02-09", "value": -1841.0}, {"time": "2026-02-10", "value": -1978.0}, {"time": "2026-02-11", "value": -2213.0}, {"time": "2026-02-23", "value": -1928.0}, {"time": "2026-02-24", "value": -2041.0}, {"time": "2026-02-25", "value": -2642.0}, {"time": "2026-02-26", "value": -2642.0}, {"time": "2026-03-02", "value": -2307.0}, {"time": "2026-03-03", "value": -2500.0}, {"time": "2026-03-04", "value": -2883.0}, {"time": "2026-03-05", "value": -2746.0}, {"time": "2026-03-06", "value": -2629.0}, {"time": "2026-03-09", "value": -2956.0}, {"time": "2026-03-10", "value": -2841.0}, {"time": "2026-03-11", "value": -2397.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>宏和精密紡織股份有限公司（1446）成立於1978年，1991年上市。其核心業務已從傳統紡織製造大幅轉向營建地產開發，近年營收主要來自營建專案認列。</p>
+
+<strong>主要業務與產品線：</strong>
+<ul><li><strong>紡織布料與織品製造：</strong> 生產針織布、梭織布、功能性紡織品（抗菌、防水、透氣）、環保與可持續發展產品（回收再利用材料、生物基纖維）。</li>
+<li><strong>營建及地產業務：</strong> 國民住宅及商業大樓的興建、出租與出售。</li>
+</ul>
+<strong>營收結構 (2024年為例)：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>業務類別</th><th>營收佔比</th></tr></thead><tbody>
+<tr><td>營建事業部</td><td>97%</td></tr>
+<tr><td>平織布業務</td><td>3%</td></tr>
+</tbody></table></div>
+
+<em>註：根據2025年11月法說會資訊。</em>
+
+<strong>製造基地：</strong>
+<p>宏和總部及主要生產基地設於<strong>台灣</strong>，為技術創新與研發核心。此外，亦在<strong>中國大陸</strong>與<strong>東南亞</strong>設有生產據點。目前未有各基地具體營收貢獻比例資料。</p>
+
+<strong>所屬細分產業與相關題材：</strong>
+<p>公司隸屬於<strong>紡織纖維產業類別</strong>，同時涉足<strong>營建地產</strong>業務。相關題材包括：</p>
+<ul><li><strong>織布與紡織中游</strong></li>
+<li><strong>資產股</strong>：因其營建地產業務及可能持有的不動產資產。</li>
+<li><strong>功能性紡織品</strong>：受惠於市場對高功能、環保紡織品的需求。</li>
+</ul>
+<h2>核心競爭優勢</h2>
+<li><strong>成功的業務轉型與資產活化：</strong> 宏和成功將營運重心轉向營建開發，2024年營建事業部貢獻達97%的營收，大幅提升公司獲利能力，證明其在不動產開發與資產活化方面的執行能力。</li>
+<li><strong>穩健的財務策略：</strong> 2025年11月法說會管理層強調「穩定成長」及「穩健經營」，計劃在維持健全財務結構基礎上保守穩健開發不動產，降低盲目擴張風險。2024年公司負債比率顯著降低，股東權益大幅增加。</li>
+<li><strong>高殖利率吸引力：</strong> 2025年宣布配發現金股利2.00元，現金殖利率高達8.68%，對價值型投資者具吸引力。</li>
+<li><strong>紡織業務的特定客戶基礎：</strong> 其平織布業務客戶群廣泛，包含日本知名布疋商社、量販店、品牌專賣店等，顯示在特定市場仍具一定競爭力。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢</h3>
+<p>宏和（1446）最近 6 個月的月營收數據呈現較大波動，主要受到營建案認列時程影響。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣)</th><th>月增率 MoM</th><th>年增率 YoY</th><th>備註</th></tr></thead><tbody>
+<tr><td>2 026年 1月</td><td>671.5 萬元</td><td>-23.03%</td><td>-95.31%</td><td>當月營建無認列收入</td></tr>
+<tr><td>2 025年 12月</td><td>872.4 萬元</td><td>-37.64%</td><td>-93.61%</td><td></td></tr>
+<tr><td>2 025年 11月</td><td>1,399.1 萬元</td><td>52.55%</td><td>24.32%</td><td>當月營建無認列收入</td></tr>
+<tr><td>2 025年 10月</td><td>917.1 萬元</td><td>-18.79%</td><td>-98.05%</td><td></td></tr>
+<tr><td>2 025年 9月</td><td>1,129.3 萬元</td><td>-90.69%</td><td>-97.06%</td><td></td></tr>
+<tr><td>2 025年 8月</td><td>12,131.9 萬元</td><td>37.20%</td><td>-80.54%</td><td></td></tr>
+</tbody></table></div>
+
+<h3>季度數據</h3>
+<ul><li><strong>2025年Q3 EPS：</strong> 新台幣 0.59 元，較前一季減少 43%，較去年同期減少 88%。</li>
+<li><strong>2025年Q1至Q3累計EPS：</strong> 新台幣 2.05 元，累計成長率為 -93.48%。</li>
+</ul>
+<h3>年度趨勢</h3>
+<ul><li><strong>2024年全年EPS：</strong> 新台幣 9.82 元。</li>
+<li><strong>2025年全年營收 (截至12月)：</strong> 新台幣 10.19741 億元。</li>
+</ul>
+<h2>法說會重點</h2>
+<p>宏和於2025年11月25日受邀參加元大證券線上法人說明會，闡述公司營運狀況，重點摘要如下：</p>
+<ul><li><strong>營運重心轉變：</strong> 公司營運重心已從傳統紡織製造業大幅轉向營建開發。</li>
+<li><strong>2024年財務表現卓越：</strong> 營收實現爆炸性成長，稅後淨利及每股盈餘（EPS）大幅躍升，負債比率顯著降低，股東權益大幅增加。</li>
+<li><strong>營建事業部主導獲利：</strong> 2024年（113年）的優異財務表現，主要歸因於營建事業部的成功貢獻，其在2024年幾乎佔據了全部營收。</li>
+<li><strong>未來營運策略：</strong> 強調「穩定成長」及「穩健經營」。</li>
+<li><strong>不動產開發計畫：</strong> 計劃在維持健全財務結構的基礎上，保守穩健地開發不動產並進行投資合建。</li>
+<li><strong>營收結構：</strong> 法說會中指出，營建事業部貢獻公司約97%營收，平織布業務佔3%。</li>
+</ul>
+<h2>券商觀點</h2>
+<p>目前未找到2025-2026年宏和（1446）的券商目標價、EPS預估數字或評等調整的最新公開資料。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td><strong>無</strong></td><td><strong>無</strong></td><td><strong>無</strong></td><td><strong>無</strong></td></tr>
+</tbody></table></div>
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+<p>宏和的利潤率在2024年至2025年期間呈現波動，反映營運環境的變化。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2024年Q1</td><td>50.74%</td><td>42.47%</td><td>40.86%</td></tr>
+<tr><td>2024年Q2</td><td>49.01%</td><td>39.17%</td><td>37.89%</td></tr>
+<tr><td>2024年Q3</td><td>50.81%</td><td>43.46%</td><td>42.13%</td></tr>
+<tr><td>2024年Q4</td><td>47.91%</td><td>35.28%</td><td>17.04%</td></tr>
+<tr><td>2025年Q1</td><td>45.84%</td><td>35.15%</td><td>19.72%</td></tr>
+<tr><td>2025年Q2</td><td>49.16%</td><td>38.32%</td><td>30.11%</td></tr>
+<tr><td>2025年Q3</td><td>43.17%</td><td>32.24%</td><td>36.76%</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化分析：</strong>
+<ul><li><strong>毛利率與營業利益率：</strong> 在2024年維持於高檔，但2025年Q3略有下降，分別為43.17%和32.24%。這可能反映紡織業務的市場壓力或營建項目成本結構變化。</li>
+<li><strong>稅後淨利率：</strong> 於2024年Q4及2025年Q1顯著下降至17.04%和19.72%，但在2025年Q2和Q3回升至30.11%和36.76%。</li>
+<li><strong>營收與業外收支影響：</strong> 2025年各季度營收年增率呈現大幅負成長 (例如Q3為-86.13%)，對整體利潤率造成壓力。業外收支對稅前淨利影響顯著，2025年Q1 (-69.85%) 和Q2 (-22.55%) 呈現負向影響，但Q3轉為正向15.67%，是稅後淨利率回升的原因之一。</li>
+</ul>
+<h3>存貨與營運</h3>
+<ul><li><strong>存貨週轉天數：</strong> 2024年Q4為586.82天，2025年Q1躍升至1074.5天，Q2降至646.7天，Q3再度大幅增加至1123.67天。這顯示存貨消化速度在2025年顯著減緩，可能存在存貨跌價風險或備料堆積。</li>
+<li><strong>應收帳款週轉天數：</strong> 2024年Q4為0.85天，2025年Q1為2.21天，Q2為1.38天，Q3為3.24天。整體仍保持較低水平，顯示公司收款效率良好。</li>
+</ul>
+<h3>資本支出與產能</h3>
+<ul><li><strong>近3年資本支出趨勢：</strong> 2025年Q3資本支出為0，2024年各季度投資現金流也極低。這表明公司目前資本開支保守，未進行大幅擴張。</li>
+<li><strong>折舊攤銷：</strong> 2025年Q3折舊金額為2,899千元。</li>
+<li>目前未找到具體的未來資本支出計畫與預計新增產能公開資料。</li>
+</ul>
+<h3>其他財報重點</h3>
+<ul><li><strong>負債比率：</strong> 2025年Q3為11.65%，較前一季下降，顯示公司財務結構相對穩健。</li>
+<li><strong>自由現金流量：</strong> 2025年Q3為5,865千元。</li>
+<li><strong>業外收支：</strong> 波動較大，2025年Q1為-69.85%，Q2為-22.55%，Q3為15.67%，對淨利潤影響顯著。</li>
+</ul>
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓紀錄：</strong> 未找到2024-2026年最新資料。</li>
+<li><strong>庫藏股買回紀錄：</strong> 未找到2024-2026年最新資料。</li>
+<li><strong>發行可轉換公司債（CB）：</strong> 未找到2024-2026年最新資料。</li>
+<li><strong>現金增資或減資計畫：</strong> 未找到2024-2026年最新資料。</li>
+</ul>
+<strong>股利政策 (歷史)：</strong>
+<p>宏和近兩年股利發放情況如下：</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>現金股利 (元/股)</th><th>股票股利 (元/股)</th><th>除息日</th><th>現金殖利率 (以除息日股價計)</th></tr></thead><tbody>
+<tr><td>2025</td><td>2.00</td><td>0</td><td>2025/07/21</td><td>8.68%</td></tr>
+<tr><td>2024</td><td>0.70</td><td>0</td><td>2024/07/16</td><td>1.31%</td></tr>
+</tbody></table></div>
+
+<h2>產業分析</h2>
+
+<h3>產業數據</h3>
+<strong>全球紡織市場規模與成長率：</strong>
+<p>全球紡織市場規模預計將穩健成長。</p>
+<ul><li>2025年約為<strong>1.065兆美元</strong>至<strong>2.123兆美元</strong>之間。</li>
+<li>多份報告預估2026年至2034年間複合年增長率（CAGR）介於<strong>5.09%至7.11%</strong>。</li>
+<li>機能性紡織品市場：預計從2025年的<strong>1,598億美元</strong>成長到2026年的<strong>1,715.5億美元</strong>，CAGR為<strong>7.4%</strong>，並預計2030年達到<strong>2,308.1億美元</strong>，CAGR為<strong>7.7%</strong>。</li>
+<li>技術紡織品市場：2025年為<strong>2,528.1億美元</strong>，預計到2034年將以<strong>6%</strong>的CAGR成長至<strong>4,267.1億美元</strong>。</li>
+<li>斯潘德克斯纖維（Spandex fiber）市場：預計2025年至2029年期間將以<strong>7.5%</strong>的CAGR成長，增額達<strong>44.737億美元</strong>。</li>
+</ul>
+<strong>供需狀況：</strong>
+<p>全球紡織產業「承壓前行、結構優化」，面臨全球需求分化、原料價格波動等挑戰，但整體保持韌性。中國紡織業出口受壓但結構性韌性存在，中間品（化纖、紗線、織物）出口增長良好。規模以上企業產能利用率保持在合理區間，化纖、毛紡織、麻紡織、長絲織造等子行業生產增勢優於行業平均。</p>
+
+<strong>產業平均毛利率水準：</strong>
+<ul><li>紡織製造業平均毛利率在2026年約為<strong>86%</strong>。</li>
+<li>服裝業在2026年的良好毛利率目標為<strong>60-70%</strong>。</li>
+</ul>
+<h3>競爭格局</h3>
+<p>全球紡織產業市場集中度中等。</p>
+
+<strong>全球主要紡織公司：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>國家/地區</th><th>主要業務/產品</th></tr></thead><tbody>
+<tr><td>恆力紡織 (Hengli Textile)</td><td>中國</td><td>纖維、紡織、石化等</td></tr>
+<tr><td>申洲國際集團控股有限公司</td><td>中國</td><td>針織服裝製造商，主要生產運動服飾</td></tr>
+<tr><td>東麗工業株式會社 (Toray Industries)</td><td>日本</td><td>纖維、紡織品、塑料、化工等，高性能纖維和碳纖維</td></tr>
+<tr><td>Chargeurs SA</td><td>法國</td><td>時尚（襯裡、羊毛）、保護（技術紡織品）、資產保護</td></tr>
+<tr><td>信實工業 (Reliance Industries)</td><td>印度</td><td>煉油、石化、零售、電信、紡織等，滌綸纖維生產大廠</td></tr>
+<tr><td>遠東新世紀 (Far Eastern New Century)</td><td>台灣</td><td>石化、聚酯、紡織、電信、營建等，聚酯纖維及回收聚酯生產大廠</td></tr>
+</tbody></table></div>
+
+<em>註：目前未找到宏和（1446）與上述競爭對手在技術、產能、客戶、價格等方面的具體比較資料。</em>
+
+<strong>台灣同業比較：</strong>
+<p>台灣紡織業積極布局高值化產品，強調機能面料、永續材料與品牌直供。</p>
+<ul><li><strong>儒鴻 (1476)：</strong> 聚焦機能布、彈性針織與垂直整合供應鏈，高毛利新產品占比約15%，目標提升至20%，有助支撐2026年平均售價（ASP）。</li>
+<li><strong>聚陽 (1477)：</strong> 透過科技與時尚跨界整合，強化客戶黏著度。</li>
+<li><strong>遠東新 (1402)：</strong> 亦積極推動高值化策略。</li>
+</ul>
+<em>註：目前未找到宏和（1446）與儒鴻、聚陽等台灣同業在營收規模、毛利率、EPS的直接對比數據。</em>
+
+<h3>產業趨勢</h3>
+<li><strong>數位化轉型與智慧製造：</strong></li>
+<p>*   <strong>具體影響：</strong> AI貫穿設計、生產、物流、銷售全鏈條，實現智能排產、質量預警、個性化定制，可降低返工率30%以上，縮短交付週期20%-30%。智能驗布、自動化倉儲等普及，使小批量、快交付成為主流。</p>
+<li><strong>綠色低碳與永續發展：</strong></li>
+<p>*   <strong>具體影響：</strong> 歐盟CBAM將於2026年實施，促使紡織業推動低碳永續、循環利用，再生纖維、生物基纖維產能擴張，綠色產品認證提升。對環保、可追溯性和透明供應鏈的需求日益增長。</p>
+<li><strong>高值化與機能性紡織品：</strong></li>
+<p>*   <strong>具體影響：</strong> 產業價值鏈向中高端攀升，龍頭企業聚焦技術研發與品牌建設，功能性面料、智能可穿戴、高端產業用紡織品佔比提升。工業/技術紡織品成長最快，受汽車輕量化及基礎設施現代化推動。</p>
+
+<strong>對宏和的具體機會與威脅：</strong>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   若能在機能性紡織品及環保可持續產品領域持續創新，將受惠於高值化市場成長。
+<p>*   運用數位化技術提升紡織業務效率。</p>
+<p>*   營建地產業務提供穩定現金流與獲利來源。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   全球紡織需求疲弱，競爭加劇，可能對其紡織業務造成壓力。
+<p>*   原材料價格波動與國際貿易政策不確定性。</p>
+<p>*   日益嚴格的環保法規與碳排放要求。</p>
+<p>*   技術創新不足恐在市場中失去優勢。</p>
+<p>*   營建收入認列波動性高，對整體營收及獲利造成不確定性。</p>
+
+<strong>相關投資題材連結：</strong>
+<ul><li><strong>AI (人工智慧)：</strong></li>
+</ul>    *   <strong>紡織品智慧回收：</strong> AI演算法結合光譜分析，提升紡織品回收效率。
+<p>*   <strong>智慧製造：</strong> 應用於紡織設計、生產、物流，提高效率。</p>
+<p>*   <strong>人形機器人材料：</strong> 高強度紡織新材料可用於人形機器人核心傳動部件。</p>
+<ul><li><strong>電動車 (EV)：</strong></li>
+</ul>    *   <strong>汽車用紡織材料需求：</strong> 電動車產量擴大，帶動汽車內飾、安全氣囊、高性能輕量化複合材料的需求增長。
+<ul><li><strong>HBM (高頻寬記憶體)：</strong></li>
+</ul>    *   目前未找到HBM與紡織產業有直接且具體連結的最新資料。
+
+<h2>近期催化劑</h2>
+
+<h3>利多事件清單</h3>
+<ul><li><strong>營建業務貢獻卓越：</strong> 2024年營建事業部幾乎佔全部營收，帶動公司整體獲利能力，全年EPS達9.82元。</li>
+<li><strong>高現金股利發放：</strong> 2025年宣布配發2.00元現金股利，除息日為2025年7月21日，現金殖利率達8.68%，對股東回報具吸引力。</li>
+<li><strong>管理層穩健經營策略：</strong> 2025年11月法說會重申以「穩定成長」及「穩健經營」為原則，保守穩健地開發不動產並進行投資合建，為未來營運提供方向。</li>
+</ul>
+<h3>利空事件清單</h3>
+<ul><li><strong>月營收大幅波動：</strong> 2026年1月營收為671.5萬元，月減23.03%，年減95.31%，主要因當月營建無認列收入。2025年12月營收亦月減37.65%，年減93.61%，顯示營建案認列的不確定性造成營收不穩定。</li>
+<li><strong>獲利表現下滑：</strong> 2025年Q3 EPS為0.59元，季減43.27%，年減87.89%；2025年Q1至Q3累計EPS為2.05元，累計成長率為-93.48%。</li>
+<li><strong>股價表現不佳：</strong> 截至2025年11月23日，宏和在「蛇年」（2025年）跌幅前20大上市公司中，顯示其股價表現面臨壓力。</li>
+<li><strong>財務體質風險：</strong> 財報狗健診顯示宏和只通過33%的排除地雷股檢查項目，財務體質風險相對較高。</li>
+<li><strong>存貨週轉天數增加：</strong> 2025年Q3存貨週轉天數達1123.67天，顯示存貨消化速度減緩，潛在跌價風險增加。</li>
+<li><strong>外資賣超：</strong> 2026年至今（截至2026年3月4日），外資累計買賣超為-114張。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+<p>宏和的成長動能已從傳統紡織轉向以<strong>營建開發</strong>為核心，並預期以此模式維持「穩定成長」與「穩健經營」。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>成長動能類別</th><th>具體描述</th><th>時間軸 / 狀態</th></tr></thead><tbody>
+<tr><td><strong>營建事業部</strong></td><td><strong>核心營收與獲利引擎。</strong> 管理層在2025年11月法說會明確指出，營建事業部已是公司主要獲利來源，2024年幾乎貢獻全部營收（97%）。未來策略將維持健全財務結構，保守穩健地開發不動產並進行投資合建。</td><td><strong>持續進行，未來數年主要營運重心。</strong> 營收認列將依工程進度與完工交屋時點。</td></tr>
+<tr><td><strong>紡織業務</strong></td><td>平織布業務佔營收約3%，主要客戶涵蓋布疋商社、量販店、通訊販賣、品牌專賣店及制服承製商，多為日本知名企業。若能深耕機能性、環保高值化產品，仍具發展潛力。</td><td><strong>長期維持，潛在機會點，但非主要成長動能。</strong> 無具體新品或產能擴充時程。</td></tr>
+<tr><td><strong>擴廠計畫</strong></td><td>未找到2025-2026年具體擴廠計畫、投資金額及完工/量產時間資訊。</td><td><strong>未知。</strong></td></tr>
+<tr><td><strong>新客戶/市場</strong></td><td>主要成長來自營建市場。紡織業務現有客戶群廣泛穩定，但無新客戶或市場擴張計畫資訊。</td><td><strong>未知。</strong></td></tr>
+<tr><td><strong>資本支出</strong></td><td>2025年Q3資本支出為0，顯示公司目前無大幅資本支出計畫。</td><td><strong>近期無。</strong></td></tr>
+<tr><td><strong>產能擴充</strong></td><td>未找到2025-2026年宏和現有產能與規劃產能的具體數字及時程資訊。</td><td><strong>未知。</strong></td></tr>
+<tr><td><strong>需求面</strong></td><td>主要驅動力來自下游營建市場的需求成長，受房市景氣與政策影響。紡織市場則面臨全球經濟不確定性與競爭。</td><td><strong>營建市場需求：</strong> 需持續追蹤房市景氣。 <strong>紡織市場需求：</strong> 預期承壓。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<h3>成長動能</h3>
+<li><strong>營建業務穩定貢獻：</strong> 宏和的營運重心已成功轉向營建開發，2024年營建事業部貢獻了公司約97%的營收，未來仍將是公司主要營收及獲利來源。管理層已確立「穩定成長」及「穩健經營」的策略，專注於保守穩健地開發不動產與投資合建，有助於鎖定未來年度的營收及利潤。</li>
+<li><strong>資產價值與高殖利率：</strong> 公司在營建地產領域的佈局，使其具備資產重估的潛力。2025年高達2.00元現金股利，提供8.68%的現金殖利率，將持續吸引追求穩定現金流的投資者。</li>
+<li><strong>高值化紡織品潛力：</strong> 儘管佔比不高，但若能持續投入機能性、環保紡織品的研發與市場拓展，可望在特定利基市場中取得較高毛利，作為營建業務的補充。</li>
+
+<h3>風險</h3>
+<li><strong>營建營收認列不確定性：</strong> 營建案的營收認列受完工進度及交屋時程影響，導致公司月營收波動劇烈，如2026年1月因無營建認列導致營收年減95.31%，這將增加季度與年度營收預測的難度。</li>
+<li><strong>全球紡織市場持續疲弱：</strong> 傳統紡織業務面臨全球經濟成長趨緩、通貨膨脹與激烈競爭的壓力，可能壓縮紡織部門的獲利空間，且若未能有效轉型高值化，將持續成為營運包袱。</li>
+<li><strong>財務體質與存貨風險：</strong> 財報狗健診顯示宏和財務體質風險較高（僅通過33%檢查項目），加上2025年Q3存貨週轉天數高達1123.67天，顯示存貨消化減緩，可能面臨跌價損失風險。</li>
+<li><strong>房地產市場波動：</strong> 營建地產業務易受總體經濟環境、政府政策及利率變化影響。若房市景氣下行，可能影響未來的推案銷售與獲利表現。</li>
+<li><strong>競爭加劇：</strong> 在紡織業，來自低成本國家的競爭壓力持續存在。在營建業，宏和亦面臨建台(1107)、潤隆(1808)等眾多同業的競爭。</li>
+
+<h2>投資結論</h2>
+<p>宏和（1446）已成功從傳統紡織製造業轉型為以營建開發為主體的公司，其投資價值應重新評估。</p>
+
+<li><strong>轉型效益顯現，營建為核心驅動力：</strong> 宏和在2024年憑藉營建事業部的出色表現，實現全年EPS 9.82元的亮眼成績。這一成功的業務轉型是其未來的主要成長動能，儘管營收認列具有波動性，但其在不動產開發上的保守穩健策略，有助於長期價值的積累。</li>
+<li><strong>高股利政策彰顯價值：</strong> 2025年宣布配發2.00元現金股利，提供高達8.68%的現金殖利率，使其成為具吸引力的收益型股票，尤其在市場震盪時期，高股息能提供一定的下檔保護。</li>
+<li><strong>財務波動與管理挑戰：</strong> 近期月營收因營建案認列時點不確定而大幅波動，且公司財務體質（財報狗健診33%）與存貨週轉天數增加（2025年Q3達1123.67天）需持續密切關注。這些因素可能導致股價短期波動，也反映營運管理上仍有提升空間。</li>
+<li><strong>資產股特性與長期潛力：</strong> 除了來自營建案的現金流，宏和所持有的不動產資產也賦予其資產股特性。隨著時間推移，不動產價值的增長潛力，是其穩健經營策略下的另一層保障。</li>
+<li><strong>投資建議區間：</strong> 考量宏和的業務轉型成果、穩健的股利政策以及資產價值，但同時面臨營收波動與財務管理挑戰，建議將其視為具備「資產重估潛力」與「高股利收益」的複合型投資標的。基於2024年高EPS與高殖利率，並預期未來營建案持續貢獻，儘管紡織業務承壓，宏和的合理股價區間應介於<strong>新台幣 25 元至 32 元</strong>。此區間反映其當前獲利能力（考慮營建認列高峰的潛力）、穩定股利發放以及資產價值，同時也考量了短期營收波動與市場對營建股的本益比評價。</li>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 14:34</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="1446_宏和_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="1446_宏和_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="1446_宏和_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

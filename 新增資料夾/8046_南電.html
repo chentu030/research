@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8046 南電 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>8046 南電 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>南電受惠2025年載板產業築底復甦，第四季獲利強勁翻揚。展望2026年，憑藉AI伺服器、HPC及ASIC晶片帶動高階ABF載板強勁需求，加上T-Glass關鍵材料短缺支撐載板報價上揚，預期營運將迎來爆發性成長，法人平均預估EPS有望達7.45元至15.65元。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">8046 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-8046" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-8046" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-8046');
+    var obvContainer = document.getElementById('obv-chart-8046');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 269.0, "high": 272.0, "low": 258.5, "close": 258.5}, {"time": "2025-12-05", "open": 259.0, "high": 276.5, "low": 258.5, "close": 270.0}, {"time": "2025-12-08", "open": 272.0, "high": 272.5, "low": 265.0, "close": 270.0}, {"time": "2025-12-09", "open": 270.0, "high": 286.0, "low": 266.0, "close": 284.0}, {"time": "2025-12-10", "open": 288.5, "high": 293.0, "low": 278.5, "close": 280.0}, {"time": "2025-12-11", "open": 283.0, "high": 289.0, "low": 277.5, "close": 278.0}, {"time": "2025-12-12", "open": 280.5, "high": 282.5, "low": 271.0, "close": 271.5}, {"time": "2025-12-15", "open": 265.5, "high": 270.0, "low": 264.5, "close": 266.0}, {"time": "2025-12-16", "open": 263.5, "high": 264.0, "low": 246.0, "close": 249.0}, {"time": "2025-12-17", "open": 253.0, "high": 253.5, "low": 242.5, "close": 243.5}, {"time": "2025-12-18", "open": 241.5, "high": 245.0, "low": 232.0, "close": 234.5}, {"time": "2025-12-19", "open": 239.0, "high": 242.0, "low": 235.0, "close": 239.5}, {"time": "2025-12-22", "open": 244.0, "high": 246.5, "low": 240.5, "close": 244.0}, {"time": "2025-12-23", "open": 245.0, "high": 245.0, "low": 239.0, "close": 239.0}, {"time": "2025-12-24", "open": 240.5, "high": 244.0, "low": 239.0, "close": 239.0}, {"time": "2025-12-26", "open": 241.0, "high": 248.0, "low": 239.0, "close": 246.5}, {"time": "2025-12-29", "open": 247.5, "high": 247.5, "low": 237.0, "close": 240.5}, {"time": "2025-12-30", "open": 239.5, "high": 241.0, "low": 235.0, "close": 240.5}, {"time": "2025-12-31", "open": 242.0, "high": 247.0, "low": 241.0, "close": 241.0}, {"time": "2026-01-02", "open": 243.5, "high": 246.0, "low": 236.0, "close": 237.0}, {"time": "2026-01-05", "open": 243.0, "high": 247.0, "low": 237.0, "close": 241.5}, {"time": "2026-01-06", "open": 243.5, "high": 248.0, "low": 240.5, "close": 244.5}, {"time": "2026-01-07", "open": 247.0, "high": 253.5, "low": 240.0, "close": 241.5}, {"time": "2026-01-08", "open": 241.5, "high": 243.5, "low": 235.0, "close": 237.0}, {"time": "2026-01-09", "open": 237.5, "high": 242.0, "low": 235.5, "close": 240.5}, {"time": "2026-01-12", "open": 244.5, "high": 260.5, "low": 243.0, "close": 254.5}, {"time": "2026-01-13", "open": 255.5, "high": 273.5, "low": 251.5, "close": 268.0}, {"time": "2026-01-14", "open": 272.0, "high": 278.0, "low": 260.5, "close": 261.5}, {"time": "2026-01-15", "open": 262.0, "high": 278.0, "low": 258.5, "close": 263.5}, {"time": "2026-01-16", "open": 269.0, "high": 289.5, "low": 266.5, "close": 289.5}, {"time": "2026-01-19", "open": 295.0, "high": 318.0, "low": 287.0, "close": 318.0}, {"time": "2026-01-20", "open": 312.0, "high": 349.5, "low": 311.5, "close": 341.5}, {"time": "2026-01-21", "open": 349.5, "high": 375.5, "low": 345.0, "close": 361.0}, {"time": "2026-01-22", "open": 374.5, "high": 375.0, "low": 357.0, "close": 370.5}, {"time": "2026-01-23", "open": 370.5, "high": 382.0, "low": 366.0, "close": 382.0}, {"time": "2026-01-26", "open": 374.0, "high": 375.0, "low": 368.5, "close": 370.0}, {"time": "2026-01-27", "open": 374.0, "high": 396.0, "low": 374.0, "close": 395.0}, {"time": "2026-01-28", "open": 393.0, "high": 397.5, "low": 390.5, "close": 396.0}, {"time": "2026-01-29", "open": 390.0, "high": 390.0, "low": 356.5, "close": 374.0}, {"time": "2026-01-30", "open": 370.0, "high": 400.0, "low": 370.0, "close": 388.5}, {"time": "2026-02-02", "open": 381.0, "high": 381.0, "low": 360.0, "close": 368.0}, {"time": "2026-02-03", "open": 378.0, "high": 397.0, "low": 372.5, "close": 394.5}, {"time": "2026-02-04", "open": 384.0, "high": 410.0, "low": 384.0, "close": 410.0}, {"time": "2026-02-05", "open": 400.0, "high": 400.0, "low": 390.0, "close": 397.5}, {"time": "2026-02-06", "open": 375.5, "high": 379.0, "low": 360.0, "close": 379.0}, {"time": "2026-02-09", "open": 402.0, "high": 416.5, "low": 391.0, "close": 416.5}, {"time": "2026-02-10", "open": 417.0, "high": 449.5, "low": 402.5, "close": 409.5}, {"time": "2026-02-11", "open": 411.5, "high": 427.0, "low": 405.5, "close": 416.0}, {"time": "2026-02-23", "open": 448.5, "high": 457.5, "low": 448.5, "close": 457.5}, {"time": "2026-02-24", "open": 478.0, "high": 503.0, "low": 477.0, "close": 503.0}, {"time": "2026-02-25", "open": 530.0, "high": 553.0, "low": 510.0, "close": 553.0}, {"time": "2026-02-26", "open": 548.0, "high": 572.0, "low": 532.0, "close": 555.0}, {"time": "2026-03-02", "open": 466.0, "high": 466.0, "low": 450.0, "close": 450.0}, {"time": "2026-03-03", "open": 545.0, "high": 560.0, "low": 500.0, "close": 500.0}, {"time": "2026-03-04", "open": 466.0, "high": 466.0, "low": 450.0, "close": 450.0}, {"time": "2026-03-05", "open": 488.0, "high": 488.0, "low": 441.5, "close": 461.0}, {"time": "2026-03-06", "open": 461.0, "high": 471.5, "low": 450.0, "close": 469.5}, {"time": "2026-03-09", "open": 423.0, "high": 423.0, "low": 423.0, "close": 423.0}, {"time": "2026-03-10", "open": 434.5, "high": 445.0, "low": 409.0, "close": 428.0}, {"time": "2026-03-11", "open": 444.5, "high": 470.5, "low": 444.5, "close": 470.5}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 11344.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 20809.0, "color": "#ef5350"}, {"time": "2025-12-08", "value": 9004.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 21650.0, "color": "#ef5350"}, {"time": "2025-12-10", "value": 14628.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 12189.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 8863.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 6366.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 10927.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 10179.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 11204.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 5911.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 4469.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 3571.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 3937.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 7271.0, "color": "#ef5350"}, {"time": "2025-12-29", "value": 6213.0, "color": "#26a69a"}, {"time": "2025-12-30", "value": 4096.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 4387.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 5671.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 11833.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 7749.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 19234.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 5620.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 4535.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 16616.0, "color": "#ef5350"}, {"time": "2026-01-13", "value": 27686.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 19821.0, "color": "#26a69a"}, {"time": "2026-01-15", "value": 19967.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 30877.0, "color": "#ef5350"}, {"time": "2026-01-19", "value": 54304.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 60259.0, "color": "#ef5350"}, {"time": "2026-01-21", "value": 47780.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 8382.0, "color": "#26a69a"}, {"time": "2026-01-23", "value": 7401.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 5186.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 3062.0, "color": "#ef5350"}, {"time": "2026-01-28", "value": 1891.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 4182.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 3873.0, "color": "#ef5350"}, {"time": "2026-02-02", "value": 2964.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 2966.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 2855.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 2340.0, "color": "#26a69a"}, {"time": "2026-02-06", "value": 3296.0, "color": "#ef5350"}, {"time": "2026-02-09", "value": 3653.0, "color": "#ef5350"}, {"time": "2026-02-10", "value": 35847.0, "color": "#26a69a"}, {"time": "2026-02-11", "value": 20741.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 6259.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 14641.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 27562.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 29703.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 4542.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 3183.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 4542.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 4226.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 2398.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 710.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 3808.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 1732.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 272.5}, {"time": "2025-12-11", "value": 276.4}, {"time": "2025-12-12", "value": 276.7}, {"time": "2025-12-15", "value": 275.9}, {"time": "2025-12-16", "value": 268.9}, {"time": "2025-12-17", "value": 261.6}, {"time": "2025-12-18", "value": 252.9}, {"time": "2025-12-19", "value": 246.5}, {"time": "2025-12-22", "value": 242.1}, {"time": "2025-12-23", "value": 240.1}, {"time": "2025-12-24", "value": 239.2}, {"time": "2025-12-26", "value": 241.6}, {"time": "2025-12-29", "value": 241.8}, {"time": "2025-12-30", "value": 241.1}, {"time": "2025-12-31", "value": 241.5}, {"time": "2026-01-02", "value": 241.1}, {"time": "2026-01-05", "value": 240.1}, {"time": "2026-01-06", "value": 240.9}, {"time": "2026-01-07", "value": 241.1}, {"time": "2026-01-08", "value": 240.3}, {"time": "2026-01-09", "value": 241.0}, {"time": "2026-01-12", "value": 243.6}, {"time": "2026-01-13", "value": 248.3}, {"time": "2026-01-14", "value": 252.3}, {"time": "2026-01-15", "value": 257.6}, {"time": "2026-01-16", "value": 267.4}, {"time": "2026-01-19", "value": 280.1}, {"time": "2026-01-20", "value": 294.8}, {"time": "2026-01-21", "value": 314.7}, {"time": "2026-01-22", "value": 336.1}, {"time": "2026-01-23", "value": 354.6}, {"time": "2026-01-26", "value": 365.0}, {"time": "2026-01-27", "value": 375.7}, {"time": "2026-01-28", "value": 382.7}, {"time": "2026-01-29", "value": 383.4}, {"time": "2026-01-30", "value": 384.7}, {"time": "2026-02-02", "value": 384.3}, {"time": "2026-02-03", "value": 384.2}, {"time": "2026-02-04", "value": 387.0}, {"time": "2026-02-05", "value": 391.7}, {"time": "2026-02-06", "value": 389.8}, {"time": "2026-02-09", "value": 399.5}, {"time": "2026-02-10", "value": 402.5}, {"time": "2026-02-11", "value": 403.7}, {"time": "2026-02-23", "value": 415.7}, {"time": "2026-02-24", "value": 440.5}, {"time": "2026-02-25", "value": 467.8}, {"time": "2026-02-26", "value": 496.9}, {"time": "2026-03-02", "value": 503.7}, {"time": "2026-03-03", "value": 512.2}, {"time": "2026-03-04", "value": 501.6}, {"time": "2026-03-05", "value": 483.2}, {"time": "2026-03-06", "value": 466.1}, {"time": "2026-03-09", "value": 460.7}, {"time": "2026-03-10", "value": 446.3}, {"time": "2026-03-11", "value": 450.4}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 267.05}, {"time": "2025-12-18", "value": 264.65}, {"time": "2025-12-19", "value": 261.6}, {"time": "2025-12-22", "value": 259.0}, {"time": "2025-12-23", "value": 254.5}, {"time": "2025-12-24", "value": 250.4}, {"time": "2025-12-26", "value": 247.25}, {"time": "2025-12-29", "value": 244.15}, {"time": "2025-12-30", "value": 241.6}, {"time": "2025-12-31", "value": 240.8}, {"time": "2026-01-02", "value": 240.15}, {"time": "2026-01-05", "value": 240.85}, {"time": "2026-01-06", "value": 241.35}, {"time": "2026-01-07", "value": 241.1}, {"time": "2026-01-08", "value": 240.9}, {"time": "2026-01-09", "value": 241.05}, {"time": "2026-01-12", "value": 241.85}, {"time": "2026-01-13", "value": 244.6}, {"time": "2026-01-14", "value": 246.7}, {"time": "2026-01-15", "value": 248.95}, {"time": "2026-01-16", "value": 254.2}, {"time": "2026-01-19", "value": 261.85}, {"time": "2026-01-20", "value": 271.55}, {"time": "2026-01-21", "value": 283.5}, {"time": "2026-01-22", "value": 296.85}, {"time": "2026-01-23", "value": 311.0}, {"time": "2026-01-26", "value": 322.55}, {"time": "2026-01-27", "value": 335.25}, {"time": "2026-01-28", "value": 348.7}, {"time": "2026-01-29", "value": 359.75}, {"time": "2026-01-30", "value": 369.65}, {"time": "2026-02-02", "value": 374.65}, {"time": "2026-02-03", "value": 379.95}, {"time": "2026-02-04", "value": 384.85}, {"time": "2026-02-05", "value": 387.55}, {"time": "2026-02-06", "value": 387.25}, {"time": "2026-02-09", "value": 391.9}, {"time": "2026-02-10", "value": 393.35}, {"time": "2026-02-11", "value": 395.35}, {"time": "2026-02-23", "value": 403.7}, {"time": "2026-02-24", "value": 415.15}, {"time": "2026-02-25", "value": 433.65}, {"time": "2026-02-26", "value": 449.7}, {"time": "2026-03-02", "value": 453.7}, {"time": "2026-03-03", "value": 463.95}, {"time": "2026-03-04", "value": 471.05}, {"time": "2026-03-05", "value": 475.5}, {"time": "2026-03-06", "value": 481.5}, {"time": "2026-03-09", "value": 482.2}, {"time": "2026-03-10", "value": 479.25}, {"time": "2026-03-11", "value": 476.0}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 253.6}, {"time": "2026-01-05", "value": 252.75}, {"time": "2026-01-06", "value": 251.475}, {"time": "2026-01-07", "value": 250.05}, {"time": "2026-01-08", "value": 247.7}, {"time": "2026-01-09", "value": 245.725}, {"time": "2026-01-12", "value": 244.55}, {"time": "2026-01-13", "value": 244.375}, {"time": "2026-01-14", "value": 244.15}, {"time": "2026-01-15", "value": 244.875}, {"time": "2026-01-16", "value": 247.175}, {"time": "2026-01-19", "value": 251.35}, {"time": "2026-01-20", "value": 256.45}, {"time": "2026-01-21", "value": 262.3}, {"time": "2026-01-22", "value": 268.875}, {"time": "2026-01-23", "value": 276.025}, {"time": "2026-01-26", "value": 282.2}, {"time": "2026-01-27", "value": 289.925}, {"time": "2026-01-28", "value": 297.7}, {"time": "2026-01-29", "value": 304.35}, {"time": "2026-01-30", "value": 311.925}, {"time": "2026-02-02", "value": 318.25}, {"time": "2026-02-03", "value": 325.75}, {"time": "2026-02-04", "value": 334.175}, {"time": "2026-02-05", "value": 342.2}, {"time": "2026-02-06", "value": 349.125}, {"time": "2026-02-09", "value": 357.225}, {"time": "2026-02-10", "value": 364.3}, {"time": "2026-02-11", "value": 372.025}, {"time": "2026-02-23", "value": 381.725}, {"time": "2026-02-24", "value": 392.4}, {"time": "2026-02-25", "value": 404.15}, {"time": "2026-02-26", "value": 414.825}, {"time": "2026-03-02", "value": 419.275}, {"time": "2026-03-03", "value": 425.75}, {"time": "2026-03-04", "value": 429.15}, {"time": "2026-03-05", "value": 433.7}, {"time": "2026-03-06", "value": 437.425}, {"time": "2026-03-09", "value": 438.775}, {"time": "2026-03-10", "value": 441.475}, {"time": "2026-03-11", "value": 445.575}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": 20809.0}, {"time": "2025-12-08", "value": 20809.0}, {"time": "2025-12-09", "value": 42459.0}, {"time": "2025-12-10", "value": 27831.0}, {"time": "2025-12-11", "value": 15642.0}, {"time": "2025-12-12", "value": 6779.0}, {"time": "2025-12-15", "value": 413.0}, {"time": "2025-12-16", "value": -10514.0}, {"time": "2025-12-17", "value": -20693.0}, {"time": "2025-12-18", "value": -31897.0}, {"time": "2025-12-19", "value": -25986.0}, {"time": "2025-12-22", "value": -21517.0}, {"time": "2025-12-23", "value": -25088.0}, {"time": "2025-12-24", "value": -25088.0}, {"time": "2025-12-26", "value": -17817.0}, {"time": "2025-12-29", "value": -24030.0}, {"time": "2025-12-30", "value": -24030.0}, {"time": "2025-12-31", "value": -19643.0}, {"time": "2026-01-02", "value": -25314.0}, {"time": "2026-01-05", "value": -13481.0}, {"time": "2026-01-06", "value": -5732.0}, {"time": "2026-01-07", "value": -24966.0}, {"time": "2026-01-08", "value": -30586.0}, {"time": "2026-01-09", "value": -26051.0}, {"time": "2026-01-12", "value": -9435.0}, {"time": "2026-01-13", "value": 18251.0}, {"time": "2026-01-14", "value": -1570.0}, {"time": "2026-01-15", "value": 18397.0}, {"time": "2026-01-16", "value": 49274.0}, {"time": "2026-01-19", "value": 103578.0}, {"time": "2026-01-20", "value": 163837.0}, {"time": "2026-01-21", "value": 211617.0}, {"time": "2026-01-22", "value": 219999.0}, {"time": "2026-01-23", "value": 227400.0}, {"time": "2026-01-26", "value": 222214.0}, {"time": "2026-01-27", "value": 225276.0}, {"time": "2026-01-28", "value": 227167.0}, {"time": "2026-01-29", "value": 222985.0}, {"time": "2026-01-30", "value": 226858.0}, {"time": "2026-02-02", "value": 223894.0}, {"time": "2026-02-03", "value": 226860.0}, {"time": "2026-02-04", "value": 229715.0}, {"time": "2026-02-05", "value": 227375.0}, {"time": "2026-02-06", "value": 224079.0}, {"time": "2026-02-09", "value": 227732.0}, {"time": "2026-02-10", "value": 191885.0}, {"time": "2026-02-11", "value": 212626.0}, {"time": "2026-02-23", "value": 218885.0}, {"time": "2026-02-24", "value": 233526.0}, {"time": "2026-02-25", "value": 261088.0}, {"time": "2026-02-26", "value": 290791.0}, {"time": "2026-03-02", "value": 286249.0}, {"time": "2026-03-03", "value": 289432.0}, {"time": "2026-03-04", "value": 284890.0}, {"time": "2026-03-05", "value": 289116.0}, {"time": "2026-03-06", "value": 291514.0}, {"time": "2026-03-09", "value": 290804.0}, {"time": "2026-03-10", "value": 294612.0}, {"time": "2026-03-11", "value": 296344.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>南電（8046）為台塑集團旗下高階IC載板大廠，在全球覆晶載板（FC載板）領域具備龍頭地位。其核心產品主要包括ABF載板、BT載板以及高階印刷電路板（HDI、剛柔板），廣泛應用於AI晶片、伺服器、通訊設備及車用電子等高階領域。</p>
+
+<strong>產品線與營收結構 (2026年1月資料)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品類別</th><th>營收比重 (約)</th><th>主要應用領域</th></tr></thead><tbody>
+<tr><td>ABF載板</td><td>50%～55%</td><td>AI GPU、伺服器CPU、先進網通ASIC、AI PC</td></tr>
+<tr><td>BT載板</td><td>30%～35%</td><td>手機PMIC、DDR、車用MCU、記憶體應用</td></tr>
+<tr><td>高階HDI等</td><td>10%～20%</td><td>高階印刷電路板 (HDI)、剛柔板等，未明確佔比</td></tr>
+</tbody></table></div>
+
+<strong>製造基地</strong>
+<p>南電的產能據點包括台灣桃園龜山、桃園平鎮，以及中國廣東東莞和崑山昆盈。目前未找到2025-2026年各製造基地營收貢獻比例的最新資料。</p>
+
+<strong>所屬細分產業與相關題材</strong>
+<ul><li><strong>IC載板（IC Substrate）與高階印刷電路板（HDI）</strong></li>
+<li><strong>AI人工智慧與高速運算（HPC）</strong>：AI伺服器、AI PC、高速運算等高階ABF載板。</li>
+<li><strong>800G交換器與ASIC（客製化晶片）</strong>：AI ASIC、800G交換器等關鍵專案。預計ASIC相關營收占比在2026年下半年突破一成。</li>
+<li><strong>載板漲價趨勢</strong>：受上游T-Glass等材料供應緊張影響，2025年已多次調漲BT與ABF載板價格，漲價動能預計延續至2026年。</li>
+<li><strong>記憶體應用需求</strong>：BT載板受記憶體應用需求復甦帶動。</li>
+</ul>
+<h2>核心競爭優勢</h2>
+<li><strong>高階載板技術領先地位</strong>：南電在全球覆晶載板（FC載板）領域具備龍頭地位，尤其在高階ABF載板領域技術實力雄厚，能滿足AI GPU、伺服器CPU、先進網通ASIC等嚴苛要求。</li>
+<li><strong>AI/HPC市場深度佈局</strong>：積極切入AI伺服器、AI PC、800G交換器及多個ASIC專案，是AI高效能運算載板的重要供應商，產品能見度高。</li>
+<li><strong>供應鏈韌性與材料優勢</strong>：隸屬台塑集團，集團內南亞自製T-Glass已於2025年10月取得認證，並自2026年2月起逐步增加供給，有助於緩解關鍵材料T-Glass的供應緊張，相較同業具備更穩定的料源優勢。</li>
+<li><strong>彈性報價策略</strong>：相較於多採長期合約的競爭對手，南電非長期合約比例較高，能更快速地反映市場漲價趨勢，轉嫁成本並提升毛利率。</li>
+<li><strong>客戶專案擴展潛力</strong>：2026年將啟動新ASIC客戶出貨，並規劃下半年切入第二家美系雲端服務供應商（CSP）ASIC供應鏈，為未來成長提供強勁動能。</li>
+
+<h2>財務分析</h2>
+<h3>月營收趨勢</h3>
+<p>南電的月營收在2025年底至2026年初呈現穩健的年增長，顯示營運持續復甦。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (新台幣億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年2月</td><td>31.66</td><td>-14.90%</td><td>12.84%</td></tr>
+<tr><td>2026年1月</td><td>37.20</td><td>-5.18%</td><td>44.98%</td></tr>
+<tr><td>2025年12月</td><td>39.24</td><td>11.02%</td><td>46.57%</td></tr>
+<tr><td>2025年11月</td><td>35.34</td><td>-4.64%</td><td>37.14%</td></tr>
+<tr><td>2025年10月</td><td>37.06</td><td>4.72%</td><td>41.68%</td></tr>
+<tr><td>2025年9月</td><td>35.39</td><td>-7.04%</td><td>19.22%</td></tr>
+</tbody></table></div>
+
+<h3>季度數據</h3>
+<p>南電在2025年第四季的營運表現強勁，獲利大幅提升，顯示產業景氣已走出谷底。</p>
+
+<ul><li><strong>2025年第四季</strong>：</li>
+</ul>    *   季營收：新台幣111.64億元，季增1.8%，年增41.86%。
+<p>*   毛利率：12.52%。</p>
+<p>*   營業利益率：8.63%。</p>
+<p>*   EPS：1.86元，創近十季新高。</p>
+
+<h3>年度趨勢</h3>
+<p>2025年南電營運大幅好轉，營收與獲利皆有顯著成長，預期2026年將延續成長軌道。</p>
+
+<ul><li><strong>22024年實際</strong>：</li>
+</ul>    *   全年營收：新台幣322.83億元。
+<p>*   EPS：0.32元。</p>
+<ul><li><strong>2025年實際</strong>：</li>
+</ul>    *   全年營收：新台幣401.73億元，年增24.44%。
+<p>*   歸屬母公司淨利：19.47億元，年增840.63%。</p>
+<p>*   EPS：3.01元。</p>
+<ul><li><strong>2026年預估</strong>：</li>
+</ul>    *   全年營收：分析師預估約528.31億元至706.10億元。
+<p>*   EPS：CMoney法人機構平均預估介於7.45元至15.65元之間 (2026年3月3日)。</p>
+
+<h2>法說會重點</h2>
+<p>南電最近一次法說會資訊未明確標示日期。然而，根據財報發布後的市場分析及管理層對未來的展望，可整理出以下重點：</p>
+
+<ul><li><strong>產品線聚焦與出貨動能</strong>：</li>
+</ul>    *   南電將2026年營運動能聚焦於高階載板，尤其是ABF載板被視為核心項目。
+<p>*   受益於AI伺服器帶動的高階ABF載板需求以及BT載板價格回穩，營運前景看好。</p>
+<p>*   AI GPU、ASIC與800G交換器進入量產節奏下，載板需求強勁。</p>
+<p>*   ABF與BT載板出貨組合將持續改善，產品報價走揚使全年營運明顯翻轉。</p>
+<ul><li><strong>價格與原物料趨勢</strong>：</li>
+</ul>    *   上游T-Glass玻纖布缺貨與原物料漲價，導致BT與ABF載板價格同步走揚，可能出現供應缺口。
+<p>*   預計2026年上半年ABF載板每季平均報價維持5%以上成長；BT載板同期報價預計成長5%～10%。</p>
+<p>*   原料緊張情況預計將延續至2026年下半年，有利於價格條件。</p>
+<ul><li><strong>產能與資本支出</strong>：</li>
+</ul>    *   目前未找到2025-2026年關於具體產能利用率與資本支出金額的最新資料。
+<ul><li><strong>2026年展望</strong>：</li>
+</ul>    *   2026年第一季營收有望淡季不淡。
+<p>*   法人看好南電2026年營運可望延續成長軌道，ABF受益於AI ASIC、800G、AI PC等應用擴增，出貨與ASP雙雙提升。</p>
+<p>*   公司加速推動多元材料認證與新世代載板量產，為2026年營收與毛利添動能。</p>
+
+<h2>券商觀點</h2>
+<p>多家券商看好南電受惠於AI伺服器與高階載板需求，紛紛上調目標價與評等。</p>
+
+<strong>券商目標價與評等</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣元)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>中國信託綜合證券</td><td>700</td><td>看多</td><td>2026年2月26日</td></tr>
+<tr><td>高盛證券</td><td>655</td><td>買進</td><td>2026年2月3日</td></tr>
+<tr><td>美系外資 (未具名)</td><td>515 / 490</td><td>買進</td><td>2026年2月25日</td></tr>
+<tr><td>FactSet (平均)</td><td>350</td><td>-</td><td>2026年2月23日</td></tr>
+<tr><td>FactSet (平均)</td><td>340</td><td>-</td><td>2026年2月3日</td></tr>
+</tbody></table></div>
+
+<strong>2025-2026年EPS預估與評等調整</strong>
+
+<ul><li><strong>2025年EPS預估</strong>：</li>
+</ul>    *   FactSet最新調查：中位數2.57元 (2026年2月23日)。曾於2026年2月3日由2.51元上修至2.65元，後再小幅下修。
+<p>*   2026年1月21日券商報告提及，有2家券商預估2025年EPS落在2.6～3.25元間。</p>
+<ul><li><strong>2026年EPS預估</strong>：</li>
+</ul>    *   中國信託綜合證券：預估2026年度EPS約13.05元 (2026年2月26日)。
+<p>*   CMoney法人機構平均預估：2026年度EPS介於7.45～15.65元之間 (2026年3月3日)。</p>
+<p>*   FactSet最新調查：平均預估9.93元，中位數9.13元。</p>
+<p>*   2026年1月21日券商報告提及，有2家券商預估2026年EPS落在12.64～13.58元間。</p>
+<ul><li><strong>評等調整</strong>：</li>
+</ul>    *   法人預估南電2026年度稅後純益較上月預估調升4.16% (2026年3月3日)，顯示對獲利展望更加樂觀。
+<p>*   多家外資券商看好AI伺服器需求帶動的高階ABF載板供需缺口擴大，以及南電在ASIC專案中的供應優勢，紛紛上調南電評等至「買進」或「強力買進」。</p>
+
+<h2>財報深度分析</h2>
+<h3>利潤率趨勢</h3>
+<p>南電的利潤率在2025年呈現顯著改善，尤其在第四季。這主要得益於產品組合優化、載板報價上漲以及市況回溫。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2024年Q1</td><td>-5.36</td><td>-11.18</td><td>-2.15</td></tr>
+<tr><td>2024年Q2</td><td>2.26</td><td>-2.55</td><td>1.46</td></tr>
+<tr><td>2024年Q3</td><td>5.85</td><td>1.36</td><td>0.64</td></tr>
+<tr><td>2024年Q4</td><td>0.22</td><td>-4.96</td><td>2.27</td></tr>
+<tr><td><strong>2024年全年</strong></td><td><strong>1.1</strong></td><td><strong>-</strong></td><td><strong>-</strong></td></tr>
+<tr><td>2025年Q1</td><td>5.09</td><td>0.39</td><td>2.45</td></tr>
+<tr><td>2025年Q2</td><td>8.02</td><td>3.82</td><td>-1.96</td></tr>
+<tr><td>2025年Q3</td><td>9.57</td><td>5.66</td><td>6.61</td></tr>
+<tr><td>2025年Q4</td><td>12.52</td><td>8.63</td><td>10.76</td></tr>
+<tr><td><strong>2025年全年</strong></td><td><strong>9.08</strong></td><td><strong>4.93</strong></td><td><strong>4.85</strong></td></tr>
+</tbody></table></div>
+<em>2025年全年稅後淨利率根據19.47億元淨利/401.73億元營收計算</em>
+
+<strong>利潤率變化的原因分析</strong>：
+<ul><li><strong>產品組合與價格</strong>：2025年營運走出谷底，主要動能來自AI伺服器帶動的高階ABF載板需求以及BT載板價格回穩。BT載板自2025年7月起調漲價格，ABF載板也陸續調價，預期2026年首季仍有漲幅空間。高階ABF載板於2026年上半年期間，每季平均報價預估維持5％以上成長；BT載板於同期報價則預計成長5％～10％，有助毛利率持續墊高。</li>
+<li><strong>成本轉嫁</strong>：儘管上游T-Glass等關鍵材料供應緊張導致價格高漲，但南電在高階應用中具備供應優勢，擁有議價與成本轉嫁能力。為強化產能穩定度，南電於2026年間推進原材料第二與第三來源認證作業，提升供應彈性。</li>
+<li><strong>市況回溫與新台幣貶值</strong>：受惠市況回溫、漲價效益及新台幣回貶，南電2025年第三季稅後淨利強彈。</li>
+</ul>
+<h3>存貨與營運週轉</h3>
+<p>南電的存貨週轉天數在2025年整體呈現健康趨勢，顯示庫存去化狀況良好。</p>
+
+<ul><li><strong>存貨週轉天數趨勢</strong>：</li>
+</ul>    *   2025年Q1：48.05天
+<p>*   2025年Q2：46.34天</p>
+<p>*   2025年Q3：42.82天</p>
+<p>*   2025年Q4：45.15天</p>
+<ul><li><strong>應收帳款週轉天數趨勢</strong>：</li>
+</ul>    *   2025年Q1：76.44天
+<p>*   2025年Q2：71.10天</p>
+<p>*   2025年Q3：71.80天</p>
+<p>*   2025年Q4：76.97天</p>
+<ul><li><strong>營運週轉天數</strong> (應收帳款週轉天數 + 存貨週轉天數)：2025年Q4為122.12天。</li>
+<li><strong>存貨異常備料現象</strong>：目前沒有明確報導指出南電有異常堆積或備料現象。然而，考量到T-Glass等關鍵材料長期供應吃緊，公司為確保供貨穩定，進行戰略性備料的可能性存在。</li>
+</ul>
+<h3>資本支出與產能</h3>
+<p>目前未找到南電近3年具體的資本支出金額與趨勢、未來資本支出計畫與預計新增產能、以及折舊攤銷趨勢的詳細數據。但產業趨勢顯示，2026年營運主軸將轉向結構調整後的放量，ABF載板隨高速交換器、ASIC與AI相關應用專案推進，出貨量與ASP結構預期同步改善。高階玻纖布T-glass新產能最快需至2027年下半年才會明顯開出，意味著2026～2027年載板供應仍處偏緊格局，有利高階載板價格維持。</p>
+
+<h3>其他財報重點</h3>
+<ul><li><strong>負債比率</strong>：</li>
+</ul>    *   2024年Q4: 27.79%
+<p>*   2025年Q1: 27.42%</p>
+<p>*   2025年Q2: 26.77%</p>
+<p>*   2025年Q3: 25.35%</p>
+<p>*   2025年Q4: 24.64%</p>
+<p>南電的負債比率在2025年呈現下降趨勢，且在ABF載板產業中排名第一，顯示財務結構相對穩健。</p>
+<ul><li><strong>業外收支</strong>：2025年第三季業外顯著轉盈達2.86億元，主因新台幣回貶帶來匯兌收益。2025年全年業外收益驟減74.6%，主因利息及其他收入減少、新台幣強升導致匯損影響。</li>
+</ul>
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓紀錄</strong>：目前未找到2024-2026年南電董監事/大股東申報轉讓的具體紀錄。</li>
+<li><strong>庫藏股買回紀錄</strong>：目前未找到2024-2026年南電庫藏股買回的紀錄。</li>
+<li><strong>可轉換公司債（CB）</strong>：目前未找到2024-2026年南電發行可轉換公司債的紀錄。</li>
+<li><strong>現金增資或減資計畫</strong>：目前未找到2024-2026年南電現金增資或減資計畫的紀錄。</li>
+<li><strong>股利政策</strong>：</li>
+</ul>    *   2025年度（將於2026年發放）：董事會決議每股配發現金股利2元，配發率約66%。
+<p>*   2024年度（已於2025年發放）：每股現金股利1元。</p>
+
+<h2>產業分析</h2>
+<h3>市場規模與成長率</h3>
+<p>全球IC載板市場在AI與HPC需求驅動下呈現強勁成長態勢。</p>
+
+<ul><li><strong>IC載板整體市場</strong>：</li>
+</ul>    *   全球先進IC載板市場規模在2025年達到211.2億美元，預計2026年將達到231億美元，並在2026年至2035年間以約10.4%的複合年增長率（CAGR）成長，預計到2035年將達到568億美元。
+<ul><li><strong>ABF載板市場</strong>：</li>
+</ul>    *   全球ABF載板市場規模在2025年預計為57.15億美元，並在2026年至2032年間以10.7%的CAGR成長，預計到2032年將達到119.31億美元。摩根士丹利預計，受AI強勁驅動，ABF載板市場產值在2025年至2030年間將加速成長，年複合成長率（CAGR）達16.1%。
+<ul><li><strong>BT載板市場</strong>：</li>
+</ul>    *   未找到2025-2026年BT載板全球市場規模及CAGR的具體數據。但BT載板受記憶體需求回升帶動，預期2026年記憶體市場將出現供給短缺與價格上漲，進一步支撐BT相關產品的漲價。
+
+<h3>供需狀況</h3>
+<p>高階ABF載板市場正進入新的上升週期，呈現顯著的供不應求。</p>
+
+<ul><li><strong>ABF載板</strong>：由於AI與伺服器需求強勁成長，ABF載板的供應吃緊情況預計逐月惡化。高盛預計供需缺口將在2026年下半年達到10%，並在2027年擴大至21%，2028年進一步達到42%。2025年生成式AI伺服器的大規模導入導致ABF載板供給吃緊，ABF面板的交期超過35週，現貨價格較2024年合約價溢價高達25%。</li>
+<li><strong>BT載板</strong>：也因T-Glass原料成本上升而進行調漲，部分品項單月漲幅甚至達25%。預計2026年BT載板價格將會隨之上漲。</li>
+<li><strong>關鍵材料T-Glass</strong>：低損耗玻纖布供應短缺預計將持續到2026年底，甚至可能到2027年日東紡新產能開出後才能緩解，這加劇了載板的供需吃緊。</li>
+</ul>
+<h3>產業平均毛利率水準</h3>
+<p>儘管缺乏整個IC載板產業的平均毛利率具體數據，但由於ABF載板的漲價潮及產品組合優化，預期載板廠商毛利率將顯著修復，重新站回25%至30%的高標區間。欣興預期，由於AI產品比重增加，產品組合優化，2026年首季毛利率將優於2025年第四季的15.77%。</p>
+
+<h3>競爭格局</h3>
+<p>若以企業總部所在地為統計基準，台灣為全球最大載板供應業者（33.5%）。</p>
+
+<strong>全球前五大載板公司及市佔率 (2024年資料)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>總部所在地</th><th>2024年全球市佔率</th></tr></thead><tbody>
+<tr><td>欣興（Unimicron）</td><td>台灣</td><td>17.6%</td></tr>
+<tr><td>三星電機（SEMCO）</td><td>韓國</td><td>12.0%</td></tr>
+<tr><td>Ibiden</td><td>日本</td><td>10.5%</td></tr>
+<tr><td>南電（Nanya PCB）</td><td>台灣</td><td>6.9%</td></tr>
+<tr><td>Shinko</td><td>日本</td><td>6.9%</td></tr>
+</tbody></table></div>
+
+<strong>南電 vs 主要競爭對手比較</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>南電 (8046)</th><th>欣興 (3037)</th><th>Ibiden</th><th>景碩 (3189)</th></tr></thead><tbody>
+<tr><td><strong>技術與產品</strong></td><td>佈局AI伺服器、800G交換器、ASIC；2026年ASIC佔比估達8%。</td><td>全球ABF龍頭，16+層高階佔ABF營收60%，AI相關逾50%；Nvidia Blackwell次供、Rubin 3成市佔；ASIC 7成市佔。</td><td>AI載板Tier 1，客戶結構相似；產能、客製化意願可能限制ASIC份額。</td><td>-</td></tr>
+<tr><td><strong>產能</strong></td><td>南亞自製T-Glass (2025/10認證，2026/2增供)；與日東紡合作至2027年織造20%玻纖布，確保料源。</td><td>2025/206億、2026/190億資本支出；光復一廠擴產提升18%。</td><td>2027年開出新產能，較現有增150%。</td><td>-</td></tr>
+<tr><td><strong>客戶</strong></td><td>AI伺服器、高速交換器、ASIC專案客戶；雲端服務供應商ASIC平台；尚未切入Nvidia GPU供應鏈。</td><td>Nvidia (GPU AI伺服器)；Google、Meta等ASIC晶片訂單。</td><td>類似欣興。</td><td>-</td></tr>
+<tr><td><strong>價格</strong></td><td>長期合約較少，能快速反映市場。2025Q3 BT載板漲25%，協調再漲30%；ABF低階產品2025Q3漲價。</td><td>多採長期合約，漲幅較慢。BT載板2025Q4漲價，ABF載板2026年起新價格出貨。</td><td>-</td><td>預計2026Q1/Q2 ABF/BT載板維持季漲3%～5%。</td></tr>
+</tbody></table></div>
+
+<strong>台灣同業比較 (2025年資料)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>2025年營收 (億元)</th><th>2025年EPS (元)</th><th>2025年Q4毛利率 (%)</th><th>2026年EPS預估 (元) (法人平均)</th></tr></thead><tbody>
+<tr><td>欣興</td><td>1312.4</td><td>4.38</td><td>15.77</td><td>14.79 (摩根大通)</td></tr>
+<tr><td>南電</td><td>401.73</td><td>3.01</td><td>12.52</td><td>7.45-15.65 (CMoney)</td></tr>
+<tr><td>景碩</td><td>-</td><td>-</td><td>-</td><td>摩根士丹利預估2026年EPS約11元</td></tr>
+</tbody></table></div>
+
+<h3>產業趨勢</h3>
+<li><strong>AI人工智慧與高速運算（HPC）晶片需求爆發</strong>：</li>
+<p>*   <strong>具體影響</strong>：AI晶片需求推動載板朝「大面積（80x80mm提升至100x100mm）、高層數（14-16層提升至22-24層）、細線路」發展。這導致良率下降，大幅推升T-Glass等關鍵材料消耗量，使ABF載板需求轉向更高產值、更高技術門檻的高效能運算領域。AI伺服器出貨量預估2025年達315萬台，年增83%。</p>
+<li><strong>先進封裝技術演進（CoWoS、CoPoS、Chiplet、玻璃基板）</strong>：</li>
+<p>*   <strong>具體影響</strong>：台積電積極推進CoWoS與新一代CoPoS，需要先進IC載板提供訊號完整性、高效功耗和散熱能力。Chiplet架構、無核心中介層和TSV技術發展，對IC載板設計製造提出更高要求。玻璃基板技術預計2020年代後期商用化，可能成為超高密度封裝ABF載板的戰略替代方案。</p>
+<li><strong>T-Glass低損耗玻纖布等關鍵材料供給吃緊</strong>：</li>
+<p>*   <strong>具體影響</strong>：T-Glass是高階ABF與BT載板重要原料，目前供應極度吃緊，由少數美、日大廠壟斷，交期自8週延長至30週以上，價格大漲三成，預計短缺狀況將至少持續到2026年第四季，甚至可能到2027年。材料短缺直接推動ABF和BT載板報價調升，有利於載板廠商轉嫁成本並修復毛利率。</p>
+
+<h3>對南電而言的具體機會和威脅</h3>
+<ul><li><strong>機會</strong>：</li>
+</ul>    *   <strong>AI/HPC強勁需求</strong>：積極佈局AI伺服器、高速交換器與ASIC專案，搭上AI晶片順風車，高階產品能見度提升。
+<p>*   <strong>產品組合優化與價格彈性</strong>：非長約與現貨訂單比例較高，能最快反映市場行情，在載板漲價潮中受惠程度較大。</p>
+<p>*   <strong>T-Glass料源穩定性</strong>：擁有集團內南亞自製T-Glass支援，並與日東紡合作，有助於確保關鍵原料穩定供應。</p>
+<p>*   <strong>新專案啟動</strong>：2026年啟動新ASIC客戶專案，結合雲端服務供應商ASIC平台放量，預計將進一步拉升高階ABF出貨量。</p>
+<ul><li><strong>威脅</strong>：</li>
+</ul>    *   <strong>AI GPU市場競爭</strong>：尚未成功切入輝達（Nvidia）GPU供應鏈，在高階GPU載板市場市佔可能受限於主要競爭對手。
+<p>*   <strong>製造複雜性與良率挑戰</strong>：載板尺寸增大、層數增加和線路微細化，製造難度提高，可能導致良率下降。</p>
+<p>*   <strong>技術轉型挑戰</strong>：先進封裝技術快速演進，需要持續投入研發以保持技術領先。</p>
+<p>*   <strong>客戶集中度</strong>：主要客戶涵蓋Broadcom、AMD(含Xilinx)與Marvell，合計營收比重約六成，客戶訂單變動可能影響營運。</p>
+
+<h3>相關投資題材</h3>
+<ul><li><strong>AI人工智慧與高速運算（HPC）</strong>：AI伺服器GPU、伺服器CPU、先進網通ASIC等高階晶片是ABF載板的主要應用，南電直接受惠。</li>
+<li><strong>HBM（高頻寬記憶體）</strong>：HBM需求攀升將帶動記憶體市場成長，進而帶動BT載板需求，南電BT載板業務間接受惠。</li>
+<li><strong>電動車與車用電子</strong>：汽車產業對先進IC載板需求不斷成長，BT載板也應用於車用MCU等產品，為長期潛在成長動能。</li>
+</ul>
+<h2>近期催化劑</h2>
+<strong>利多事件</strong>
+<ul><li><strong>2025年財報表現亮眼 (2026/02/25)</strong>：全年合併營收達401.73億元，年增24.44%；歸屬母公司淨利19.47億元，年增840.63%，EPS 3.01元。2025年第四季單季獲利達12.02億元，EPS 1.86元，單季獲利賺贏去年前三季總和，顯示營運已走出谷底並加速復甦。</li>
+<li><strong>載板報價上漲與供需吃緊 (2026年1月起)</strong>：ABF與BT載板價格傳出漲價消息，T-Glass等關鍵材料供應短缺加劇供需缺口，有利於載板廠商轉嫁成本、提升毛利率。</li>
+<li><strong>AI/HPC需求超乎預期 (2026年1月起)</strong>：AI高效能運算需求強勁，加上新客戶、新專案導入，帶動高階ABF載板出貨量及ASP雙升。</li>
+<li><strong>法人調升評等與目標價 (2026年2月起)</strong>：多家外資券商看好AI伺服器需求帶動的高階ABF載板供需缺口擴大，以及南電在ASIC專案中的供應優勢，紛紛上調評等至「買進」或「強力買進」，目標價上看490元至700元。</li>
+<li><strong>關鍵材料料源強化 (2026年2月起)</strong>：南亞自製T-Glass已於2025年10月認證，並自2026年2月起逐步增加供給，與日東紡合作至2027年，強化供應穩定性。</li>
+<li><strong>2026年1月、2月營收公告 (2026/03/03)</strong>：累計2026年前2月營收約68.87億元，年增高達28.19%，顯示仍處於成長軌道。</li>
+<li><strong>現金股利發放 (2026/02/25)</strong>：董事會決議2025年每股配發現金股利2元，配發率約66%。</li>
+</ul>
+<strong>利空事件</strong>
+<ul><li><strong>2026年2月營收月減 (2026/03/03)</strong>：2026年2月合併營收為31.66億元，月減14.9%。法人指出，月減可能為短期訂單調整或工作天數影響，但年增顯示仍處於成長軌道。</li>
+<li><strong>T-Glass材料長期供應緊張</strong>：儘管南電有集團內部支援，但全球高階T-Glass材料由少數大廠壟斷，供應緊張預計將持續到2027年，可能限制整體產業擴產速度。</li>
+<li><strong>客戶集中度風險</strong>：主要客戶涵蓋Broadcom、AMD(含Xilinx)與Marvell，合計營收比重約六成，客戶訂單變動仍是潛在風險。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+<ul><li><strong>2025年10月</strong>：南電所屬集團南亞自製的T-glass取得認證。</li>
+<li><strong>2025年第四季</strong>：營運明顯翻轉，獲利達12.02億元，季營收111.64億元。BT載板價格開始調漲。</li>
+<li><strong>2026年第一季</strong>：</li>
+</ul>    *   預計開始啟動ASIC新客戶的出貨計畫。
+<p>*   既有大客戶將量產1.6T的網通交換器晶片，ABF載板出貨量預期提升。</p>
+<p>*   ABF載板報價預估每季平均維持5%以上成長；BT載板報價預計成長5％～10％。</p>
+<p>*   預計營收有望淡季不淡。</p>
+<ul><li><strong>2026年2月起</strong>：南亞自製的T-glass逐步增加供給，強化材料供應穩定度。</li>
+<li><strong>2026年上半年</strong>：ABF載板每季平均報價維持5％以上成長；BT載板同期報價預計成長5％～10％。</li>
+<li><strong>2026年下半年</strong>：</li>
+</ul>    *   市場預估ABF載板供需缺口將達10%。
+<p>*   規劃逐步切入第二家美系雲端服務供應商（CSP）ASIC供應鏈。</p>
+<p>*   ASIC產品全年營收占比有機會逼近1成。</p>
+<ul><li><strong>2026年全年</strong>：</li>
+</ul>    *   AI PC換機潮啟動，有利於ABF載板需求。
+<p>*   加速推動多元材料認證與新世代載板量產。</p>
+<p>*   ABF載板受益於AI ASIC、800G、AI PC等應用擴增，出貨與ASP雙升。</p>
+<p>*   BT載板調價效益延續，受惠於記憶體需求持續成長。</p>
+<p>*   參與Amazon、Meta與Microsoft等雲端業者自研ASIC專案。</p>
+<ul><li><strong>2025年至2028年</strong>：ABF載板年複合成長率將達70%。AI相關需求占總體ABF需求比例將從2025年的24%提升至2028年的46%。</li>
+<li><strong>2026年下半年至2027年</strong>：高階玻纖布T-glass新產能最快至此時段才會明顯開出，意味載板供應仍處偏緊格局。</li>
+<li><strong>至2027年</strong>：南亞與日本日東紡合作，協助織造其約20%的玻纖布。</li>
+<li><strong>2027年</strong>：Ibiden計畫開出新產能，較現有增加150%。</li>
+<li><strong>2028年</strong>：ABF載板供需缺口預計擴大至42%。</li>
+</ul>
+<h2>2026 展望</h2>
+<h3>成長動能</h3>
+<li><strong>AI/HPC核心驅動</strong>：AI伺服器、AI PC、800G高速交換器以及美系CSP自研ASIC晶片需求強勁，南電高階ABF載板出貨量與平均銷售單價（ASP）將雙雙提升。</li>
+<li><strong>新客戶/專案導入</strong>：2026年第一季啟動ASIC新客戶出貨，下半年切入第二家美系CSP ASIC供應鏈，預計ASIC營收佔比將逼近1成，開拓新的成長空間。</li>
+<li><strong>產品報價持續上揚</strong>：受上游T-Glass低損耗玻纖布長期供應吃緊影響，ABF載板與BT載板價格在2026年仍有漲價空間，有助於毛利率持續擴張。</li>
+<li><strong>集團內部材料協同</strong>：南亞自製T-Glass已獲認證並將於2026年2月起增加供給，加上與日東紡的合作，確保關鍵原料的穩定供應，降低生產風險。</li>
+<li><strong>BT載板需求復甦</strong>：記憶體市場回溫及5G天線模組、車用MCU等應用增長，帶動BT載板產能利用率提升與調價效益延續。</li>
+
+<h3>風險</h3>
+<li><strong>關鍵材料供應不確定性</strong>：T-Glass等高階材料供應緊張，儘管南電有應對策略，但若缺料狀況惡化超乎預期，仍可能限制產能擴張與出貨。</li>
+<li><strong>AI GPU市場競爭</strong>：南電尚未成功切入Nvidia GPU供應鏈，在高階GPU載板市場的市佔可能相對受限於主要競爭對手，若AI加速器架構發生重大變革，可能帶來不確定性。</li>
+<li><strong>全球總經情勢波動</strong>：全球經濟放緩、高通膨、利率政策變化等總體經濟因素，可能影響終端需求，進而傳導至IC載板產業。</li>
+<li><strong>地緣政治與貿易摩擦</strong>：作為全球化供應鏈的一環，任何國際貿易政策變化或地緣政治風險，都可能對南電的營運造成潛在影響。</li>
+<li><strong>技術迭代與良率挑戰</strong>：AI晶片對載板要求越來越高（大面積、高層數、細線路），製造複雜度增加可能帶來良率挑戰，影響生產成本與獲利。</li>
+
+<h2>投資結論</h2>
+<p>南電（8046）在經歷2025年觸底反彈後，正迎來由AI與HPC需求引領的強勁成長週期。以下是我們的投資結論：</p>
+
+<li><strong>AI/HPC帶動高階需求爆發</strong>：南電作為高階ABF載板龍頭，積極佈局AI伺服器、800G交換器及ASIC專案，搭上AI浪潮核心。2026年新ASIC客戶和1.6T網通交換器晶片的量產，將為營收帶來顯著增長動能。AI相關需求占ABF總需求的比例預計從2025年的24%增至2028年的46%，為南電提供長期成長基礎。</li>
+<li><strong>載板漲價趨勢與毛利率修復</strong>：受惠於T-Glass等關鍵材料供給吃緊，ABF載板每季報價預估平均成長5%以上，BT載板成長5-10%，有利於公司轉嫁成本、優化產品組合，預計毛利率將從2025年Q4的12.52%進一步提升。</li>
+<li><strong>財務體質穩健與效率改善</strong>：2025年第四季獲利單季賺贏前三季總和，EPS達1.86元，顯示營運效率顯著改善。負債比率持續下降至24.64%，財務結構穩健，為未來擴張提供良好基礎。</li>
+<li><strong>關鍵料源確保競爭優勢</strong>：集團內南亞T-Glass的自製化及與日東紡的策略合作，有效緩解了高階材料的供應瓶頸，相較於缺乏此類資源的競爭者，南電在供應鏈穩定性上具備獨特優勢。</li>
+<li><strong>法人看好成長潛力</strong>：多家外資機構上調南電評等與目標價，法人平均預估2026年EPS區間為7.45元至15.65元，顯示市場對其未來獲利能力有高度期待。</li>
+
+<p>綜合上述分析，考量AI產業帶來的結構性成長機會、載板供需失衡下的價格上漲動能，以及南電在技術和供應鏈上的競爭優勢，我們給予南電「<strong>買進</strong>」評等。</p>
+
+<strong>建議目標價區間：新台幣 480元 至 680元。</strong>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 14:36</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="8046_南電_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="8046_南電_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="8046_南電_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

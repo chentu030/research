@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6141 柏承 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>6141 柏承 深度研究報告</h1>
+
+<h2>一句話摘要</h2>
+<p>柏承（6141）正積極轉型為高附加價值印刷電路板（PCB）製造商，營運重心已全面轉移至高度自動化的南通新廠，並策略性佈局半導體測試板、Mini/Micro LED、CPO載板及5G等新興應用。公司經歷2024年虧損後，2025年毛利率已由負轉正，虧損幅度大幅收斂，管理層預期2026年將是公司翻正獲利的新篇章，儘管營收回穩仍需時間觀察。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">6141 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-6141" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-6141" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-6141');
+    var obvContainer = document.getElementById('obv-chart-6141');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 11.0, "high": 11.35, "low": 11.0, "close": 11.3}, {"time": "2025-12-05", "open": 11.15, "high": 11.2, "low": 10.95, "close": 11.05}, {"time": "2025-12-08", "open": 10.95, "high": 10.95, "low": 10.75, "close": 10.85}, {"time": "2025-12-09", "open": 10.95, "high": 10.95, "low": 10.75, "close": 10.85}, {"time": "2025-12-10", "open": 10.85, "high": 11.05, "low": 10.8, "close": 10.8}, {"time": "2025-12-11", "open": 10.85, "high": 11.0, "low": 10.75, "close": 10.8}, {"time": "2025-12-12", "open": 10.75, "high": 11.1, "low": 10.75, "close": 10.9}, {"time": "2025-12-15", "open": 10.8, "high": 11.6, "low": 10.4, "close": 11.6}, {"time": "2025-12-16", "open": 11.6, "high": 11.6, "low": 11.1, "close": 11.2}, {"time": "2025-12-17", "open": 11.2, "high": 11.25, "low": 11.0, "close": 11.1}, {"time": "2025-12-18", "open": 11.1, "high": 11.1, "low": 11.0, "close": 11.05}, {"time": "2025-12-19", "open": 11.0, "high": 11.3, "low": 11.0, "close": 11.25}, {"time": "2025-12-22", "open": 11.2, "high": 11.5, "low": 11.2, "close": 11.25}, {"time": "2025-12-23", "open": 11.2, "high": 11.2, "low": 11.05, "close": 11.15}, {"time": "2025-12-24", "open": 11.15, "high": 11.15, "low": 11.0, "close": 11.0}, {"time": "2025-12-26", "open": 10.95, "high": 11.0, "low": 10.85, "close": 10.85}, {"time": "2025-12-29", "open": 10.9, "high": 11.05, "low": 10.75, "close": 10.95}, {"time": "2025-12-30", "open": 10.95, "high": 10.95, "low": 10.6, "close": 10.85}, {"time": "2025-12-31", "open": 10.75, "high": 10.8, "low": 10.5, "close": 10.6}, {"time": "2026-01-02", "open": 10.5, "high": 10.5, "low": 10.35, "close": 10.5}, {"time": "2026-01-05", "open": 10.3, "high": 10.5, "low": 10.2, "close": 10.35}, {"time": "2026-01-06", "open": 10.2, "high": 10.5, "low": 10.2, "close": 10.45}, {"time": "2026-01-07", "open": 10.45, "high": 10.7, "low": 10.45, "close": 10.7}, {"time": "2026-01-08", "open": 10.9, "high": 11.75, "low": 10.75, "close": 11.75}, {"time": "2026-01-09", "open": 11.75, "high": 12.25, "low": 11.5, "close": 12.1}, {"time": "2026-01-12", "open": 12.2, "high": 12.35, "low": 11.95, "close": 12.1}, {"time": "2026-01-13", "open": 11.95, "high": 12.0, "low": 11.5, "close": 11.7}, {"time": "2026-01-14", "open": 11.7, "high": 11.7, "low": 11.5, "close": 11.55}, {"time": "2026-01-15", "open": 11.55, "high": 11.9, "low": 11.5, "close": 11.7}, {"time": "2026-01-16", "open": 11.9, "high": 11.95, "low": 11.55, "close": 11.65}, {"time": "2026-01-19", "open": 11.75, "high": 11.95, "low": 11.7, "close": 11.85}, {"time": "2026-01-20", "open": 11.95, "high": 11.95, "low": 11.55, "close": 11.6}, {"time": "2026-01-21", "open": 11.5, "high": 11.65, "low": 11.35, "close": 11.65}, {"time": "2026-01-22", "open": 11.8, "high": 12.1, "low": 11.75, "close": 12.0}, {"time": "2026-01-23", "open": 12.0, "high": 12.0, "low": 11.55, "close": 11.7}, {"time": "2026-01-26", "open": 11.8, "high": 12.0, "low": 11.7, "close": 11.9}, {"time": "2026-01-27", "open": 11.9, "high": 11.95, "low": 11.7, "close": 11.7}, {"time": "2026-01-28", "open": 11.7, "high": 11.95, "low": 11.6, "close": 11.85}, {"time": "2026-01-29", "open": 12.0, "high": 12.0, "low": 11.45, "close": 11.45}, {"time": "2026-01-30", "open": 11.45, "high": 11.45, "low": 11.15, "close": 11.2}, {"time": "2026-02-02", "open": 11.2, "high": 11.2, "low": 10.9, "close": 10.9}, {"time": "2026-02-03", "open": 10.95, "high": 11.05, "low": 10.8, "close": 10.95}, {"time": "2026-02-04", "open": 10.85, "high": 11.2, "low": 10.85, "close": 11.15}, {"time": "2026-02-05", "open": 11.1, "high": 11.3, "low": 10.95, "close": 11.1}, {"time": "2026-02-06", "open": 10.9, "high": 10.9, "low": 10.7, "close": 10.7}, {"time": "2026-02-09", "open": 11.0, "high": 11.0, "low": 10.6, "close": 10.6}, {"time": "2026-02-10", "open": 10.6, "high": 10.75, "low": 10.55, "close": 10.65}, {"time": "2026-02-11", "open": 10.9, "high": 10.9, "low": 10.5, "close": 10.7}, {"time": "2026-02-23", "open": 10.7, "high": 11.25, "low": 10.7, "close": 11.15}, {"time": "2026-02-24", "open": 11.15, "high": 11.3, "low": 11.1, "close": 11.25}, {"time": "2026-02-25", "open": 11.35, "high": 11.35, "low": 11.15, "close": 11.3}, {"time": "2026-02-26", "open": 11.2, "high": 12.4, "low": 11.2, "close": 12.4}, {"time": "2026-03-02", "open": 13.0, "high": 13.6, "low": 13.0, "close": 13.6}, {"time": "2026-03-03", "open": 14.95, "high": 14.95, "low": 14.95, "close": 14.95}, {"time": "2026-03-04", "open": 16.4, "high": 16.4, "low": 16.4, "close": 16.4}, {"time": "2026-03-05", "open": 18.0, "high": 18.0, "low": 18.0, "close": 18.0}, {"time": "2026-03-06", "open": 18.5, "high": 18.5, "low": 16.6, "close": 17.95}, {"time": "2026-03-09", "open": 16.9, "high": 16.9, "low": 16.7, "close": 16.8}, {"time": "2026-03-10", "open": 17.55, "high": 18.15, "low": 17.45, "close": 17.8}, {"time": "2026-03-11", "open": 17.5, "high": 18.3, "low": 17.5, "close": 18.1}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 268.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 190.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 98.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 98.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 105.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 182.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 124.0, "color": "#ef5350"}, {"time": "2025-12-15", "value": 470.0, "color": "#ef5350"}, {"time": "2025-12-16", "value": 286.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 116.0, "color": "#26a69a"}, {"time": "2025-12-18", "value": 31.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 215.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 189.0, "color": "#ef5350"}, {"time": "2025-12-23", "value": 89.0, "color": "#26a69a"}, {"time": "2025-12-24", "value": 126.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 247.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 233.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 70.0, "color": "#26a69a"}, {"time": "2025-12-31", "value": 261.0, "color": "#26a69a"}, {"time": "2026-01-02", "value": 320.0, "color": "#ef5350"}, {"time": "2026-01-05", "value": 196.0, "color": "#ef5350"}, {"time": "2026-01-06", "value": 154.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 182.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 1119.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 1755.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 501.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 294.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 373.0, "color": "#26a69a"}, {"time": "2026-01-15", "value": 232.0, "color": "#ef5350"}, {"time": "2026-01-16", "value": 284.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 368.0, "color": "#ef5350"}, {"time": "2026-01-20", "value": 289.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 217.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 662.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 290.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 402.0, "color": "#ef5350"}, {"time": "2026-01-27", "value": 227.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 262.0, "color": "#ef5350"}, {"time": "2026-01-29", "value": 241.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 277.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 238.0, "color": "#26a69a"}, {"time": "2026-02-03", "value": 176.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 255.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 79.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 227.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 196.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 84.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 213.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 294.0, "color": "#ef5350"}, {"time": "2026-02-24", "value": 308.0, "color": "#ef5350"}, {"time": "2026-02-25", "value": 388.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 1520.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 2351.0, "color": "#ef5350"}, {"time": "2026-03-03", "value": 1793.0, "color": "#ef5350"}, {"time": "2026-03-04", "value": 4073.0, "color": "#ef5350"}, {"time": "2026-03-05", "value": 2340.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 12121.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 2736.0, "color": "#26a69a"}, {"time": "2026-03-10", "value": 2071.0, "color": "#ef5350"}, {"time": "2026-03-11", "value": 1809.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 10.97}, {"time": "2025-12-11", "value": 10.870000000000001}, {"time": "2025-12-12", "value": 10.84}, {"time": "2025-12-15", "value": 10.99}, {"time": "2025-12-16", "value": 11.059999999999999}, {"time": "2025-12-17", "value": 11.120000000000001}, {"time": "2025-12-18", "value": 11.17}, {"time": "2025-12-19", "value": 11.24}, {"time": "2025-12-22", "value": 11.17}, {"time": "2025-12-23", "value": 11.16}, {"time": "2025-12-24", "value": 11.14}, {"time": "2025-12-26", "value": 11.1}, {"time": "2025-12-29", "value": 11.040000000000001}, {"time": "2025-12-30", "value": 10.959999999999999}, {"time": "2025-12-31", "value": 10.85}, {"time": "2026-01-02", "value": 10.75}, {"time": "2026-01-05", "value": 10.65}, {"time": "2026-01-06", "value": 10.55}, {"time": "2026-01-07", "value": 10.52}, {"time": "2026-01-08", "value": 10.75}, {"time": "2026-01-09", "value": 11.069999999999999}, {"time": "2026-01-12", "value": 11.419999999999998}, {"time": "2026-01-13", "value": 11.669999999999998}, {"time": "2026-01-14", "value": 11.84}, {"time": "2026-01-15", "value": 11.83}, {"time": "2026-01-16", "value": 11.74}, {"time": "2026-01-19", "value": 11.690000000000001}, {"time": "2026-01-20", "value": 11.67}, {"time": "2026-01-21", "value": 11.690000000000001}, {"time": "2026-01-22", "value": 11.75}, {"time": "2026-01-23", "value": 11.76}, {"time": "2026-01-26", "value": 11.77}, {"time": "2026-01-27", "value": 11.790000000000001}, {"time": "2026-01-28", "value": 11.83}, {"time": "2026-01-29", "value": 11.719999999999999}, {"time": "2026-01-30", "value": 11.62}, {"time": "2026-02-02", "value": 11.419999999999998}, {"time": "2026-02-03", "value": 11.27}, {"time": "2026-02-04", "value": 11.129999999999999}, {"time": "2026-02-05", "value": 11.059999999999999}, {"time": "2026-02-06", "value": 10.959999999999999}, {"time": "2026-02-09", "value": 10.9}, {"time": "2026-02-10", "value": 10.84}, {"time": "2026-02-11", "value": 10.75}, {"time": "2026-02-23", "value": 10.76}, {"time": "2026-02-24", "value": 10.870000000000001}, {"time": "2026-02-25", "value": 11.01}, {"time": "2026-02-26", "value": 11.36}, {"time": "2026-03-02", "value": 11.940000000000001}, {"time": "2026-03-03", "value": 12.7}, {"time": "2026-03-04", "value": 13.73}, {"time": "2026-03-05", "value": 15.069999999999999}, {"time": "2026-03-06", "value": 16.18}, {"time": "2026-03-09", "value": 16.82}, {"time": "2026-03-10", "value": 17.39}, {"time": "2026-03-11", "value": 17.73}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 11.045}, {"time": "2025-12-18", "value": 11.02}, {"time": "2025-12-19", "value": 11.040000000000001}, {"time": "2025-12-22", "value": 11.08}, {"time": "2025-12-23", "value": 11.11}, {"time": "2025-12-24", "value": 11.129999999999999}, {"time": "2025-12-26", "value": 11.135}, {"time": "2025-12-29", "value": 11.14}, {"time": "2025-12-30", "value": 11.065000000000001}, {"time": "2025-12-31", "value": 11.004999999999999}, {"time": "2026-01-02", "value": 10.945}, {"time": "2026-01-05", "value": 10.875}, {"time": "2026-01-06", "value": 10.795}, {"time": "2026-01-07", "value": 10.739999999999998}, {"time": "2026-01-08", "value": 10.8}, {"time": "2026-01-09", "value": 10.91}, {"time": "2026-01-12", "value": 11.035}, {"time": "2026-01-13", "value": 11.11}, {"time": "2026-01-14", "value": 11.18}, {"time": "2026-01-15", "value": 11.29}, {"time": "2026-01-16", "value": 11.405}, {"time": "2026-01-19", "value": 11.555}, {"time": "2026-01-20", "value": 11.67}, {"time": "2026-01-21", "value": 11.765}, {"time": "2026-01-22", "value": 11.790000000000001}, {"time": "2026-01-23", "value": 11.75}, {"time": "2026-01-26", "value": 11.73}, {"time": "2026-01-27", "value": 11.73}, {"time": "2026-01-28", "value": 11.76}, {"time": "2026-01-29", "value": 11.735}, {"time": "2026-01-30", "value": 11.69}, {"time": "2026-02-02", "value": 11.595}, {"time": "2026-02-03", "value": 11.53}, {"time": "2026-02-04", "value": 11.48}, {"time": "2026-02-05", "value": 11.389999999999999}, {"time": "2026-02-06", "value": 11.29}, {"time": "2026-02-09", "value": 11.16}, {"time": "2026-02-10", "value": 11.055}, {"time": "2026-02-11", "value": 10.94}, {"time": "2026-02-23", "value": 10.91}, {"time": "2026-02-24", "value": 10.915000000000001}, {"time": "2026-02-25", "value": 10.955}, {"time": "2026-02-26", "value": 11.1}, {"time": "2026-03-02", "value": 11.345}, {"time": "2026-03-03", "value": 11.73}, {"time": "2026-03-04", "value": 12.3}, {"time": "2026-03-05", "value": 13.040000000000001}, {"time": "2026-03-06", "value": 13.77}, {"time": "2026-03-09", "value": 14.38}, {"time": "2026-03-10", "value": 15.044999999999998}, {"time": "2026-03-11", "value": 15.73}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 10.995000000000001}, {"time": "2026-01-05", "value": 10.9475}, {"time": "2026-01-06", "value": 10.9175}, {"time": "2026-01-07", "value": 10.91}, {"time": "2026-01-08", "value": 10.955}, {"time": "2026-01-09", "value": 11.02}, {"time": "2026-01-12", "value": 11.084999999999999}, {"time": "2026-01-13", "value": 11.125}, {"time": "2026-01-14", "value": 11.122499999999999}, {"time": "2026-01-15", "value": 11.147499999999999}, {"time": "2026-01-16", "value": 11.175}, {"time": "2026-01-19", "value": 11.215}, {"time": "2026-01-20", "value": 11.2325}, {"time": "2026-01-21", "value": 11.2525}, {"time": "2026-01-22", "value": 11.295}, {"time": "2026-01-23", "value": 11.33}, {"time": "2026-01-26", "value": 11.3825}, {"time": "2026-01-27", "value": 11.42}, {"time": "2026-01-28", "value": 11.47}, {"time": "2026-01-29", "value": 11.5125}, {"time": "2026-01-30", "value": 11.5475}, {"time": "2026-02-02", "value": 11.575}, {"time": "2026-02-03", "value": 11.6}, {"time": "2026-02-04", "value": 11.622499999999999}, {"time": "2026-02-05", "value": 11.59}, {"time": "2026-02-06", "value": 11.52}, {"time": "2026-02-09", "value": 11.445}, {"time": "2026-02-10", "value": 11.3925}, {"time": "2026-02-11", "value": 11.35}, {"time": "2026-02-23", "value": 11.3225}, {"time": "2026-02-24", "value": 11.302499999999998}, {"time": "2026-02-25", "value": 11.275}, {"time": "2026-02-26", "value": 11.315000000000001}, {"time": "2026-03-02", "value": 11.4125}, {"time": "2026-03-03", "value": 11.559999999999999}, {"time": "2026-03-04", "value": 11.795}, {"time": "2026-03-05", "value": 12.1}, {"time": "2026-03-06", "value": 12.4125}, {"time": "2026-03-09", "value": 12.66}, {"time": "2026-03-10", "value": 12.977500000000001}, {"time": "2026-03-11", "value": 13.3225}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -190.0}, {"time": "2025-12-08", "value": -288.0}, {"time": "2025-12-09", "value": -288.0}, {"time": "2025-12-10", "value": -393.0}, {"time": "2025-12-11", "value": -393.0}, {"time": "2025-12-12", "value": -269.0}, {"time": "2025-12-15", "value": 201.0}, {"time": "2025-12-16", "value": -85.0}, {"time": "2025-12-17", "value": -201.0}, {"time": "2025-12-18", "value": -232.0}, {"time": "2025-12-19", "value": -17.0}, {"time": "2025-12-22", "value": -17.0}, {"time": "2025-12-23", "value": -106.0}, {"time": "2025-12-24", "value": -232.0}, {"time": "2025-12-26", "value": -479.0}, {"time": "2025-12-29", "value": -246.0}, {"time": "2025-12-30", "value": -316.0}, {"time": "2025-12-31", "value": -577.0}, {"time": "2026-01-02", "value": -897.0}, {"time": "2026-01-05", "value": -1093.0}, {"time": "2026-01-06", "value": -939.0}, {"time": "2026-01-07", "value": -757.0}, {"time": "2026-01-08", "value": 362.0}, {"time": "2026-01-09", "value": 2117.0}, {"time": "2026-01-12", "value": 2117.0}, {"time": "2026-01-13", "value": 1823.0}, {"time": "2026-01-14", "value": 1450.0}, {"time": "2026-01-15", "value": 1682.0}, {"time": "2026-01-16", "value": 1398.0}, {"time": "2026-01-19", "value": 1766.0}, {"time": "2026-01-20", "value": 1477.0}, {"time": "2026-01-21", "value": 1694.0}, {"time": "2026-01-22", "value": 2356.0}, {"time": "2026-01-23", "value": 2066.0}, {"time": "2026-01-26", "value": 2468.0}, {"time": "2026-01-27", "value": 2241.0}, {"time": "2026-01-28", "value": 2503.0}, {"time": "2026-01-29", "value": 2262.0}, {"time": "2026-01-30", "value": 1985.0}, {"time": "2026-02-02", "value": 1747.0}, {"time": "2026-02-03", "value": 1923.0}, {"time": "2026-02-04", "value": 2178.0}, {"time": "2026-02-05", "value": 2099.0}, {"time": "2026-02-06", "value": 1872.0}, {"time": "2026-02-09", "value": 1676.0}, {"time": "2026-02-10", "value": 1760.0}, {"time": "2026-02-11", "value": 1973.0}, {"time": "2026-02-23", "value": 2267.0}, {"time": "2026-02-24", "value": 2575.0}, {"time": "2026-02-25", "value": 2963.0}, {"time": "2026-02-26", "value": 4483.0}, {"time": "2026-03-02", "value": 6834.0}, {"time": "2026-03-03", "value": 8627.0}, {"time": "2026-03-04", "value": 12700.0}, {"time": "2026-03-05", "value": 15040.0}, {"time": "2026-03-06", "value": 2919.0}, {"time": "2026-03-09", "value": 183.0}, {"time": "2026-03-10", "value": 2254.0}, {"time": "2026-03-11", "value": 4063.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+<p>柏承主要從事印刷電路板（PCB）製造業務，其核心產品包括半導體測試板與消費性HDI（高密度連接板）印刷電路板。產品應用廣泛，涵蓋手機、耳機、相機、LED及穿戴裝置等消費性電子產品。近年更積極佈局Mini/Micro LED、穿戴裝置、CPO載板及5G應用等高附加價值新興領域。</p>
+
+<p>在高階電路板方面，其產品運用包含Mini LED、Micro LED的RGB直顯屏、用於MCU、CSP和FCCSP等半導體封裝應用的零件封裝載板（目前處於樣品階段），以及5G產品（通訊模組、IoT、車聯網、光通訊高速模組產品）。</p>
+
+<strong>營收結構（2025年產品組合，依生產基地劃分）</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>生產基地</th><th>產品線</th><th>營收佔比</th></tr></thead><tbody>
+<tr><td><strong>台灣廠</strong></td><td>半導體測試板</td><td>41%</td></tr>
+<tr><td></td><td>量產板</td><td>35%</td></tr>
+<tr><td></td><td>樣品板</td><td>17%</td></tr>
+<tr><td></td><td>商品</td><td>7%</td></tr>
+<tr><td><strong>南通廠</strong></td><td>智能互聯網</td><td>45%</td></tr>
+<tr><td></td><td>RGB直顯屏</td><td>19%</td></tr>
+<tr><td></td><td>手機</td><td>17%</td></tr>
+<tr><td></td><td>網通</td><td>11%</td></tr>
+<tr><td></td><td>其他</td><td>8%</td></tr>
+</tbody></table></div>
+
+<em>註：另有資料顯示，柏承的營收佔比為量產板 (82.1%)、樣品板 (14.5%)、其他營運事業部 (3.3%)，此分類可能為更廣義的產品範疇。</em>
+
+<strong>製造基地</strong>
+<p>柏承主要生產基地包括台灣廠和中國大陸的南通廠。</p>
+<ul><li><strong>台灣廠：</strong> 主要生產樣品板、小量板及高層數晶圓測試板，且接單穩定成長並有盈餘。</li>
+<li><strong>南通廠：</strong> 於2025年進入量產，為高度自動化新廠。南通廠目前產值佔比已達八成，取代舊有昆山廠後，預期將有助於改善整體毛利率結構。產品線除了手機板，也將打入其資訊電子生態系的供應鏈，並進一步搶進光模塊、Micro LED基板、類載板等利基型市場。</li>
+</ul>    *   昆山廠已於2024年9月1日起停產，其產能由南通廠銜接。
+
+<strong>所屬細分產業與相關題材</strong>
+<p>柏承所屬產業為電子零組件業之印刷電路板製造。相關題材包括：</p>
+<ul><li><strong>AI伺服器與高階IC基板：</strong> 佈局AI伺服器相關IC基板。</li>
+<li><strong>Mini/Micro LED：</strong> 未來發展重心放在HDI技術於Mini/Micro LED應用。</li>
+<li><strong>5G應用與IoT：</strong> 積極佈局5G與IoT等高成長領域，並已量產及持續開發。</li>
+<li><strong>穿戴裝置與AR/VR：</strong> 產品應用涵蓋穿戴裝置，並佈局AR/VR等新興市場。</li>
+<li><strong>CPO載板：</strong> 延伸佈局至CPO (Co-Packaged Optics) 載板。</li>
+</ul>
+<h2>核心競爭優勢</h2>
+<li><strong>高附加價值產品轉型：</strong> 柏承將營運重心轉向高毛利的半導體測試板、Mini/Micro LED、CPO載板及5G通訊等高階應用，有效避開中低階PCB市場的價格競爭。</li>
+<li><strong>自動化南通新廠效益：</strong> 昆山舊廠停產，資源集中於高度自動化的南通新廠，大幅提升生產效率、降低成本，並改善毛利率結構，為轉虧為盈奠定基礎。</li>
+<li><strong>先進技術佈局：</strong> 在HDI高階電路板、軟硬結合板等領域具備量產與持續開發能力，特別是在RGB直顯屏、零件封裝載板（樣品階段）與光通訊高速模組等前瞻技術上具有潛力。</li>
+<li><strong>穩固的客戶關係：</strong> 台灣廠半導體測試板接單穩定成長，南通廠成功切入大陸本土大型品牌資訊電子生態系的供應鏈，並獲得手機客戶訂單回流。</li>
+
+<h2>財務分析</h2>
+
+<strong>月營收趨勢</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額（億元）</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>1.64</td><td>+33.59%</td><td>+19.85%</td></tr>
+<tr><td>2025年12月</td><td>1.23</td><td>-13.6%</td><td>-24.65%</td></tr>
+<tr><td>2025年11月</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>2025年10月</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>2025年9月</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>2025年8月</td><td>-</td><td>-</td><td>-</td></tr>
+</tbody></table></div>
+
+<em>註：2025年8月至11月的月營收數據未在資料中明確提供。</em>
+
+<strong>季度數據</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>季營收（億元）</th><th>毛利率（%）</th><th>營業利益率（%）</th><th>EPS（元）</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>4.32</td><td>5.94</td><td>-14.15</td><td>-0.51</td></tr>
+<tr><td>2025年第二季</td><td>-</td><td>3.83</td><td>-20.55</td><td>-</td></tr>
+<tr><td>2025年第一季</td><td>-</td><td>20.41</td><td>2.20</td><td>-1.89</td></tr>
+<tr><td>2024年第四季</td><td>-</td><td>-4.66</td><td>-32.27</td><td>-</td></tr>
+<tr><td>2024年第三季</td><td>-</td><td>-6.13</td><td>-34.97</td><td>-</td></tr>
+<tr><td>2024年第二季</td><td>-</td><td>-14.36</td><td>-29.86</td><td>-</td></tr>
+<tr><td>2024年第一季</td><td>-</td><td>-23.71</td><td>-37.63</td><td>-</td></tr>
+</tbody></table></div>
+
+<em>註：部分季度營收及EPS數據未在資料中明確提供，或因合併計算而無法單獨列示。毛利率和營業利益率數據來自「財報深度分析」中的利潤率趨勢。</em>
+
+<strong>年度趨勢</strong>
+<ul><li><strong>2025年累積EPS（截至Q3）：</strong> -1.99元。</li>
+<li><strong>2024實際全年EPS：</strong> -5.99元（此為截至2024年第三季的累計數，但部分資料將其視為2024全年）。</li>
+<li><strong>2025年1月至12月累計營收：</strong> 約17.94億元，較去年同期年減21.6%。</li>
+</ul>
+<h2>法說會重點 (2025年12月26日)</h2>
+<ul><li><strong>轉虧為盈關鍵轉折點：</strong> 管理層指出，歷經2024年底至2025年整年的調整，公司毛利率已由負轉正，虧損幅度亦大幅收斂。</li>
+<li><strong>2026年獲利展望：</strong> 管理層預告2026年將是公司重新翻正獲利的新篇章。</li>
+<li><strong>生產重心轉移：</strong> 生產重心已自昆山廠完全轉移至南通廠，南通廠的高度自動化生產將顯著提升毛利率及產能。</li>
+<li><strong>產品組合策略：</strong></li>
+</ul>    *   <strong>HDI高階電路板 (RGB直顯屏)</strong>：應用於Mini LED、Micro LED，目前為量產生產並持續開發。
+<p>*   <strong>HDI高階電路板 (零件封裝載板)</strong>：應用於MCU、CSP、FCCSP，目前處於樣品階段。</p>
+<p>*   <strong>HDI高階電路板 (5G產品)</strong>：應用於5G手機、5G IoT模組、5G車聯網產品、光通訊高速模組產品，目前為量產生產並持續開發。</p>
+<p>*   <strong>HDI軟硬結合板</strong>：應用於掃碼鏡頭、攝像頭鏡頭（如耳機、手錶、手環、指環、AR/VR），目前為量產生產並持續開發。</p>
+<ul><li><strong>產能與資本支出：</strong> 南通廠已進入量產，但法說會未提供具體產能利用率及資本支出金額數據。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<strong>券商目標價及評等</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價（元）</th><th>評等</th><th>日期</th><th>備註</th></tr></thead><tbody>
+<tr><td>（未明確指出）</td><td>24～28</td><td>看多</td><td>2025年12月27日</td><td>來自兩家券商報告，為目標價區間建議</td></tr>
+<tr><td>（未明確指出）</td><td>28</td><td>-</td><td>2025年5月15日</td><td>⚠️過時資訊（已超過6個月）</td></tr>
+</tbody></table></div>
+
+<strong>券商EPS預估</strong>
+<ul><li><strong>2025年度EPS預估：</strong> 2025年12月27日券商報告預估落在<strong>-7.61元至-6.56元</strong>間。</li>
+<li><strong>早期2025年度EPS預估：</strong> 2025年5月15日券商報告預期為2.73元 (⚠️過時資訊)。</li>
+<li><strong>2026年度EPS預估：</strong> 未找到2026年券商具體EPS預估數字。</li>
+</ul>
+<strong>評等調升/調降</strong>
+<ul><li>未找到2025-2026年的最新重大調升/調降評等資料。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<strong>利潤率趨勢</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季度</th><th>毛利率（%）</th><th>營業利益率（%）</th><th>稅後淨利率（%）</th></tr></thead><tbody>
+<tr><td>2024年Q1</td><td>-23.71</td><td>-37.63</td><td>-37.68</td></tr>
+<tr><td>2024年Q2</td><td>-14.36</td><td>-29.86</td><td>-38.98</td></tr>
+<tr><td>2024年Q3</td><td>-6.13</td><td>-34.97</td><td>-41.65</td></tr>
+<tr><td>2024年Q4</td><td>-4.66</td><td>-32.27</td><td>-63.53</td></tr>
+<tr><td>2025年Q1</td><td>20.41</td><td>2.20</td><td>-1.89</td></tr>
+<tr><td>2025年Q2</td><td>3.83</td><td>-20.55</td><td>-41.41</td></tr>
+<tr><td>2025年Q3</td><td>5.94</td><td>-14.15</td><td>-20.27</td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化分析：</strong>
+<p>柏承在2024年各季利潤率普遍為負，顯示營運面臨嚴峻挑戰。然而，2025年第一季毛利率顯著轉正至20.41%，營業利益率也轉正至2.20%，稅後淨利率虧損大幅收斂。儘管2025年第二、三季毛利率雖維持正值（3.83%、5.94%），但營業利益率和稅後淨利率又再度轉負，顯示營運仍處於調整期，獲利穩定性尚待提升。南通廠的高度自動化生產以及半導體測試板需求回升，有望持續改善其獲利結構。</p>
+
+<strong>存貨與營運</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度/季度</th><th>存貨週轉率（次）</th><th>存貨週轉天數（天）</th><th>應收帳款週轉率（次）</th><th>應收帳款收現天數（天）</th></tr></thead><tbody>
+<tr><td>2024年Q4</td><td>2.13</td><td>42.79</td><td>0.62</td><td>147.00</td></tr>
+<tr><td>2025年Q1</td><td>2.03</td><td>44.89</td><td>0.69</td><td>131.71</td></tr>
+<tr><td>2025年Q2</td><td>2.42</td><td>37.66</td><td>0.63</td><td>145.34</td></tr>
+<tr><td>2025年Q3</td><td>2.20</td><td>41.44</td><td>0.57</td><td>160.16</td></tr>
+</tbody></table></div>
+
+<em>註：存貨與應收帳款週轉天數呈現波動，2025年第三季應收帳款收現天數有所增加，可能反映客戶付款條件或市場狀況變化。</em>
+
+<strong>資本支出與產能</strong>
+<ul><li><strong>近3年資本支出金額與趨勢：</strong> 未找到2024-2026年具體資本支出金額。</li>
+<li><strong>未來資本支出計畫與預計新增產能：</strong> 未找到2025-2026年最新資料。僅知南通廠已進入量產，自動化生產將提升產能。</li>
+<li><strong>折舊攤銷趨勢：</strong> 折舊性固定資產成長率在2024年至2025年第三季呈現負成長趨勢，顯示公司固定資產規模可能有所縮減或舊廠設備加速攤提。</li>
+</ul>    *   2024年Q1: 4.97%, Q2: 3.49%, Q3: 1.21%, Q4: -4.56%
+<p>*   2025年Q1: -7.77%, Q2: -13.13%, Q3: -20.41%</p>
+
+<h2>股權異動</h2>
+<ul><li><strong>董監事/大股東申報轉讓：</strong> 未找到2024-2026年的最新紀錄（最近一次為2018年）。</li>
+<li><strong>庫藏股買回紀錄：</strong> 未找到2024-2026年的買回紀錄。最近一次紀錄發生在2022年：</li>
+</ul>    *   2022年9月21日至11月20日：決議買回1,000張，區間價格16.00至34.00元，目的為維護公司信用及股東權益，已註銷。平均每股買回均價19.24元。
+<p>*   2022年6月2日至8月1日：決議買回1,000張，區間價格17元至37元下限，目的為轉讓予員工。</p>
+<ul><li><strong>可轉換公司債（CB）：</strong> 未找到2024-2026年的發行紀錄。</li>
+<li><strong>增減資計畫：</strong> 未找到2024-2026年的增資或減資計畫。</li>
+<li><strong>股利政策：</strong></li>
+</ul>    *   2024年度：現金股利0.00元，股票股利0.00元。
+<p>*   2023年度：現金股利0.00元，股票股利0.00元。</p>
+<p>*   2022年度：現金股利1.00元，股票股利0.00元。</p>
+
+<h2>產業分析</h2>
+
+<strong>市場規模與成長率</strong>
+<ul><li>全球印刷電路板 (PCB) 市場：</li>
+</ul>    *   <strong>2025年規模預計：</strong> 約741.2億美元至949.5億美元。
+<p>*   <strong>2026年預計成長至：</strong> 774.5億美元至1,086億美元。</p>
+<p>*   <strong>2026年至2035年複合年增長率 (CAGR)：</strong> 約5.3%至6.65%。</p>
+<ul><li><strong>其他預估：</strong></li>
+</ul>    *   台灣電路板協會 (TPCA) 與工研院產科國際所分析，2025年全球PCB產值預估將達923.6億美元，年成長率達15.4%；展望2026年，產值可望進一步攀升至1,052億美元，年增13.9%。
+<p>*   另一報告預估2026年全球PCB產值可達898.1億美元，年增率約13.5%。</p>
+
+<strong>供需狀況</strong>
+<p>目前PCB產業呈現「強弱分明」趨勢，高階產品面臨「缺料大年」：</p>
+<ul><li><strong>高階 PCB 供不應求：</strong> 受益於AI算力基礎設施建置，AI伺服器、高效運算 (HPC) 和800G/1.6T高速交換器對高階PCB需求急速放大，導致高階產能持續吃緊。</li>
+<li><strong>關鍵材料短缺：</strong> 上游關鍵材料如HVLP4銅箔、高階玻纖布 (M8、M9等級CCL)、以及鑽針面臨供需緊張，供需缺口預計將持續擴大至2026年甚至2027年。</li>
+<li><strong>中低階產品供應相對充足：</strong> 軟板市場仍疲弱，主要受手機市場影響；車用PCB短期也難翻轉，面臨砍價壓力。</li>
+</ul>
+<strong>產業平均毛利率水準</strong>
+<p>缺乏2025-2026年PCB產業平均毛利率具體數據。然而，高階PCB產品毛利率明顯優於產業平均，例如金像電受惠高層數AI主板占比拉升，單季毛利率曾提升至35.6%。上游CCL大廠如台光電、台燿等因高階材料供不應求，訂單滿載，顯示高階產品帶來高利潤空間。</p>
+
+<strong>競爭格局</strong>
+
+<strong>全球主要PCB生產國市佔率趨勢</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>國家/地區</th><th>2024年全球市佔率</th><th>2025年全球市佔率 (預估)</th></tr></thead><tbody>
+<tr><td>中國大陸</td><td>約 34.9%</td><td>約 37.6%</td></tr>
+<tr><td>日本</td><td>約 14.4%</td><td>未找到最新資料</td></tr>
+<tr><td>韓國</td><td>約 9.8%</td><td>未找到最新資料</td></tr>
+</tbody></table></div>
+
+<em>註：缺乏全球PCB產業2025-2026年前五大公司的具體排名和市佔率數據。台灣在高階伺服器板、HDI板與ABF載板等領域具有優勢，但未找到整體市佔率數據。</em>
+
+<strong>柏承 vs 主要競爭對手比較</strong>
+<p>目前未能找到柏承 (6141) 與其主要競爭對手在技術、產能、客戶、價格方面2025-2026年的直接比較數據。然而，柏承正將重心轉向半導體測試板、CPO載板、Mini/Micro LED應用等高附加價值產品，台灣廠半導體測試板佔營收41%，顯示其在高階領域已有佈局，競爭力將取決於技術能力、良率控制及與客戶共同設計的能力。</p>
+
+<strong>台灣同業比較（高階、AI相關PCB廠商亮點）</strong>
+<p>台灣PCB產業聚落完整。在AI趨勢下，高階伺服器板、高頻高速材料供應商表現強勁：</p>
+<ul><li><strong>金像電 (2368)：</strong> 全球伺服器PCB龍頭之一，AI伺服器需求推動，單季AI相關營收佔比已超過4成，高層數AI主板拉升毛利率至35.6%。</li>
+<li><strong>定穎投控 (3715)：</strong> 泰國廠鎖定高階汽車與伺服器板市場，客戶有輝達、AMD及Google，AI目標佔比40%。</li>
+<li><strong>高技 (5439)：</strong> 主要客戶為AWS，AI佔比達70%。</li>
+<li><strong>台光電 (2383)、台燿 (6274)：</strong> 銅箔基板 (CCL) 廠商，受益於AI伺服器、800G交換器等高階需求，台光電單季毛利率達30.1%。</li>
+<li><strong>金居 (8358)：</strong> 積極轉型高階HVLP銅箔產品線，預計2026年高階銅箔材料將供不應求。</li>
+<li><strong>尖點 (8021)：</strong> 以鍍膜鑽針技術領先，預計2026年高階鍍膜針比重達60%。</li>
+</ul>
+<strong>產業趨勢</strong>
+<li><strong>AI伺服器與高效能運算 (HPC) 帶動高階化：</strong> AI伺服器對PCB用量、層數、材料等級要求同步上升，主機板層數從12-16層增至20-30層以上，背板甚至達44-56層。驅動高層數多層板 (HLC)、高密度連接板 (HDI) 需求，並推升對M8、M9等級高階CCL、低損耗材料（如Q-glass石英布）及HVLP4銅箔的需求。</li>
+<li><strong>高速網路通訊 (800G/1.6T) 驅動材料升級：</strong> 1.6T網路通訊技術要求CCL等級從M8提升至M9，銅箔技術演進至HVLP4等級（粗糙度1.5微米以下），以應對高頻損耗。</li>
+<li><strong>地緣政治與供應鏈重組：</strong> 地緣政治風險促使PCB供應鏈加速全球分散布局，例如泰國崛起為第二大PCB生產基地。廠商需維持核心技術並確保供應穩定。</li>
+
+<strong>對柏承的機會與威脅</strong>
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>高附加價值產品成長：</strong> 柏承佈局半導體測試板、Mini/Micro LED、CPO載板及5G應用，與AI及高速傳輸趨勢高度相關，台灣廠半導體測試板佔營收41%已具基礎。
+<p>*   <strong>新興技術應用潛力：</strong> 在Mini/Micro LED、AR/VR、CPO載板等前瞻領域佈局，有機會抓住市場需求。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>中低階產品競爭壓力：</strong> 若仍有中低階產品營收，將面臨市場供過於求和價格競爭。
+<p>*   <strong>高階技術與材料競爭：</strong> 高階市場競爭激烈，需持續研發。高階材料短缺可能影響成本與交期。</p>
+<p>*   <strong>資本支出與擴產壓力：</strong> 擴充高階產能需大額資本支出，考驗財務狀況。</p>
+<p>*   <strong>全球供應鏈重組：</strong> 地緣政治可能影響客戶結構和生產基地佈局。</p>
+
+<strong>相關投資題材連結</strong>
+<ul><li><strong>AI (人工智慧)：</strong> AI伺服器需求帶動高層數PCB、HDI板、高頻高速CCL和銅箔需求。柏承的半導體測試板、CPO載板及5G應用與AI算力基礎設施和邊緣AI發展相關。</li>
+<li><strong>HBM (高頻寬記憶體)：</strong> HBM製造需先進封裝技術，間接推升高階IC載板需求。柏承的半導體測試板和CPO載板佈局，可能使其間接受益於HBM帶動的高階封裝產業鏈。</li>
+<li><strong>電動車：</strong> 電動車電子系統對PCB需求量大，ADAS推升高層數和HDI PCB採用。柏承產品應用涵蓋車聯網、5G車聯網應用，有機會切入該市場。</li>
+</ul>
+<h2>近期催化劑</h2>
+<ul><li><strong>2026年03月06日：</strong> 因股價漲幅較大被證交所列入注意股。</li>
+<li><strong>2026年03月05日：</strong> 股價拉至漲停18.0元，受惠於關閉昆山廠、南通新廠自動化、手機客戶訂單回流及營收回溫。</li>
+<li><strong>2026年03月04日：</strong> 股價急攻大漲9.7%至16.4元，受惠於1月營收年增近兩成，市場關注手機HDI板與南通新廠效益。</li>
+<li><strong>2026年03月03日：</strong> 股價亮燈漲停至14.95元，主力與外資同步回補。市場預期營運轉機、南通新廠效益及產品組合調整。</li>
+<li><strong>2026年02月12日/10日：</strong> 公告2026年1月合併營收1.64億元，創近7個月新高，月增33.59%、年增19.85%，營收表現亮眼。</li>
+<li><strong>2025年12月26日：</strong> 舉行法人說明會，管理層預告2026年將是公司重新翻正獲利的新篇章，毛利率由負轉正，虧損大幅收斂。重點在生產重心轉移至南通廠與高階產品佈局。</li>
+<li><strong>2025年12月：</strong> 公告2025年12月合併營收1.23億元，月減13.6%、年減24.65%。</li>
+<li><strong>2025年08月21日：</strong> 因2025年上半年財報每股淨值9.29元低於票面，自8月22日起遭暫停融資融券交易。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間</th><th>成長動能項目</th><th>具體內容</th></tr></thead><tbody>
+<tr><td><strong>2024年9月1日</strong></td><td><strong>擴廠計畫</strong></td><td>昆山廠停產，產能由南通廠銜接。</td></tr>
+<tr><td><strong>2025年</strong></td><td><strong>擴廠計畫</strong></td><td>南通廠首期產能已完成建置並進入量產，以全部HDI製程生產，自動化程度高。</td></tr>
+<tr><td></td><td><strong>產能擴充</strong></td><td>南通廠已建置基本的30萬平方呎新產能，總產能開出後將超越原有昆山廠。</td></tr>
+<tr><td></td><td><strong>新客戶/新市場</strong></td><td>手機客戶重新下單。</td></tr>
+<tr><td></td><td><strong>新客戶/新市場</strong></td><td>台灣廠半導體測試板、小量板及高層數晶圓測試板接單穩定成長且獲利。</td></tr>
+<tr><td><strong>2025年Q3起動能強</strong></td><td><strong>新客戶/新市場</strong></td><td>切入資訊電子生態系供應鏈，延續與大陸本土大型品牌合作，除手機板外，將打入其資訊電子生態系的供應鏈。</td></tr>
+<tr><td><strong>2025年12月法說會</strong></td><td><strong>新市場</strong></td><td><strong>高階HDI電路板 - RGB直顯屏</strong>：鎖定Mini LED和Micro LED，處於「量產生產持續開發」階段。</td></tr>
+<tr><td></td><td><strong>新市場</strong></td><td><strong>高階HDI電路板 - 零件封裝載板</strong>：運用於MCU、CSP、FCCSP，處於「樣品階段」。</td></tr>
+<tr><td></td><td><strong>新市場</strong></td><td><strong>5G產品</strong>：通訊模組、IoT模組、車聯網產品、光通訊高速模組產品，處於「量產生產持續開發」階段。</td></tr>
+<tr><td></td><td><strong>新市場</strong></td><td><strong>HDI軟硬結合板</strong>：掃碼鏡頭、攝像頭鏡頭，運用於耳機、手錶、手環、指環、AR/VR等，處於「量產生產持續開發」階段。</td></tr>
+<tr><td><strong>2026年</strong></td><td><strong>需求面</strong></td><td>市場看好AI伺服器、高速運算、車電需求帶動PCB產業下半年業績。</td></tr>
+<tr><td></td><td><strong>管理層展望</strong></td><td>管理層預期將是公司重新翻正獲利的新篇章。</td></tr>
+<tr><td><strong>2026年3月</strong></td><td><strong>產能擴充</strong></td><td>南通廠目前產值占比已達八成。</td></tr>
+<tr><td></td><td><strong>新客戶/新市場</strong></td><td>下游與AI伺服器相關IC基板及新型顯示技術亦有佈局。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+<ul><li><strong>南通廠效益全面顯現：</strong> 昆山廠停產後，南通廠作為高度自動化的生產基地，其高效率與低成本優勢將全面改善毛利率結構。南通廠目前產值已佔八成，預期將帶來顯著營運槓桿。</li>
+<li><strong>高階產品線發力：</strong> 半導體測試板（台灣廠佔比41%）、Mini/Micro LED的RGB直顯屏、5G通訊模組及光通訊高速模組產品的持續量產與開發，以及處於樣品階段的零件封裝載板，都將推升產品組合價值。</li>
+<li><strong>新興市場切入：</strong> 成功切入大陸本土大型品牌資訊電子生態系供應鏈，以及手機客戶訂單回流，有望帶動營收成長。AI伺服器相關IC基板和新型顯示技術的佈局也將受益於產業趨勢。</li>
+</ul>
+<strong>風險：</strong>
+<ul><li><strong>營收回穩挑戰：</strong> 儘管獲利能力改善，但2025年累計營收仍年減21.6%，12月營收亦年減24.65%，營收能否持續有效反彈以支撐獲利成長，仍是關鍵挑戰。</li>
+<li><strong>市場價格競爭：</strong> PCB產業整體仍面臨傳統需求轉弱與價格競爭壓力，若高階產品未能持續放量或毛利受擠壓，恐影響獲利。</li>
+<li><strong>過往虧損與財務體質：</strong> 公司過往虧損較大，2025年上半年每股淨值曾低於票面，財務體質仍需時間強化。</li>
+<li><strong>新廠產能利用率與折舊：</strong> 南通新廠的產能利用率能否穩定拉升，以及自動化設備折舊是否會在短期壓抑獲利表現，均需密切關注。</li>
+<li><strong>總經與技術指標風險：</strong> 產業景氣波動、材料供需不穩定，以及短線股價急漲後乖離率擴大，若量能無法續航，恐有回測短期支撐的風險。</li>
+</ul>
+<h2>投資結論</h2>
+<p>柏承（6141）正處於關鍵的轉型期，從過去的虧損泥淖中走出，展現出顯著的營運改善跡象。基於上述深度分析，我們得出以下投資結論：</p>
+
+<li><strong>轉型效益顯現，獲利展望改善：</strong> 柏承已成功將營運重心轉移至高度自動化的南通新廠，並策略性聚焦於高附加價值的半導體測試板、Mini/Micro LED、CPO載板及5G應用。2025年毛利率由負轉正，虧損大幅收斂，管理層預期2026年將翻正獲利，顯示轉型努力已開始見效。</li>
+<li><strong>高階產品佈局符合產業趨勢：</strong> PCB產業正朝高階化、高值化發展，AI伺服器、高速通訊對高層數、低損耗PCB及材料需求強勁。柏承在半導體測試板、光通訊模組及CPO載板的佈局，使其有望搭上AI與高速傳輸的產業順風車。台灣廠半導體測試板佔營收41%是其在高階領域的堅實基礎。</li>
+<li><strong>營收回穩仍待觀察，需關注訂單能見度：</strong> 儘管2026年1月營收創近7個月新高，但2025年全年營收仍大幅下滑，且月營收波動較大。投資者需密切關注其新廠接單是否來自結構性客戶擴張而非短期補貨，以及營收能否持續穩定增長，以支持其獲利預期。</li>
+<li><strong>技術與財務風險並存：</strong> 高階PCB市場技術競爭激烈，且關鍵材料供不應求可能影響生產成本。同時，公司過去的虧損歷史與2025年第三季應收帳款收現天數增加，提示財務穩健性仍需持續觀察。</li>
+<li><strong>目標價區間建議：</strong> 綜合考量柏承的轉型成果、高階產品成長潛力以及券商在2025年12月27日給予的評等，我們建議投資者可關注其營收回穩及獲利能力持續提升的後續數據。基於現有資訊，並參考券商觀點，建議投資目標價區間為 <strong>24元至28元</strong>。</li>
+
+<strong>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 13:04</strong>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="6141_柏承_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="6141_柏承_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="6141_柏承_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

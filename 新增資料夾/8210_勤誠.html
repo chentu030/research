@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8210 勤誠 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>8210 勤誠 深度研究報告</h1>
+
+<strong>今天日期：2026年03月06日</strong>
+
+<h2>一句話摘要</h2>
+
+<p>勤誠（8210）作為全球領先的AI伺服器機殼與機櫃解決方案供應商，正受惠於AI與雲端資料中心資本支出爆發性成長。憑藉其領先的技術實力、全球化產能佈局及高附加價值產品組合，勤誠預計2026年營收及獲利將迎來雙位數強勁成長，營運持續締造新高。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">8210 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-8210" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-8210" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-8210');
+    var obvContainer = document.getElementById('obv-chart-8210');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 898.0, "high": 912.0, "low": 882.0, "close": 892.0}, {"time": "2025-12-05", "open": 893.0, "high": 903.0, "low": 890.0, "close": 891.0}, {"time": "2025-12-08", "open": 899.0, "high": 941.0, "low": 892.0, "close": 936.0}, {"time": "2025-12-09", "open": 933.0, "high": 945.0, "low": 895.0, "close": 911.0}, {"time": "2025-12-10", "open": 920.0, "high": 921.0, "low": 895.0, "close": 899.0}, {"time": "2025-12-11", "open": 910.0, "high": 934.0, "low": 904.0, "close": 904.0}, {"time": "2025-12-12", "open": 920.0, "high": 931.0, "low": 906.0, "close": 915.0}, {"time": "2025-12-15", "open": 899.0, "high": 899.0, "low": 866.0, "close": 875.0}, {"time": "2025-12-16", "open": 869.0, "high": 884.0, "low": 860.0, "close": 862.0}, {"time": "2025-12-17", "open": 870.0, "high": 908.0, "low": 864.0, "close": 894.0}, {"time": "2025-12-18", "open": 892.0, "high": 900.0, "low": 872.0, "close": 886.0}, {"time": "2025-12-19", "open": 900.0, "high": 945.0, "low": 900.0, "close": 943.0}, {"time": "2025-12-22", "open": 951.0, "high": 970.0, "low": 935.0, "close": 942.0}, {"time": "2025-12-23", "open": 949.0, "high": 976.0, "low": 947.0, "close": 955.0}, {"time": "2025-12-24", "open": 972.0, "high": 992.0, "low": 963.0, "close": 964.0}, {"time": "2025-12-26", "open": 980.0, "high": 986.0, "low": 971.0, "close": 973.0}, {"time": "2025-12-29", "open": 978.0, "high": 987.0, "low": 960.0, "close": 986.0}, {"time": "2025-12-30", "open": 981.0, "high": 1010.0, "low": 972.0, "close": 1000.0}, {"time": "2025-12-31", "open": 1005.0, "high": 1015.0, "low": 988.0, "close": 1005.0}, {"time": "2026-01-02", "open": 1000.0, "high": 1010.0, "low": 939.0, "close": 954.0}, {"time": "2026-01-05", "open": 979.0, "high": 984.0, "low": 941.0, "close": 957.0}, {"time": "2026-01-06", "open": 961.0, "high": 1005.0, "low": 958.0, "close": 990.0}, {"time": "2026-01-07", "open": 999.0, "high": 1030.0, "low": 972.0, "close": 975.0}, {"time": "2026-01-08", "open": 969.0, "high": 969.0, "low": 919.0, "close": 921.0}, {"time": "2026-01-09", "open": 927.0, "high": 940.0, "low": 905.0, "close": 910.0}, {"time": "2026-01-12", "open": 923.0, "high": 933.0, "low": 902.0, "close": 911.0}, {"time": "2026-01-13", "open": 927.0, "high": 965.0, "low": 920.0, "close": 952.0}, {"time": "2026-01-14", "open": 971.0, "high": 998.0, "low": 965.0, "close": 979.0}, {"time": "2026-01-15", "open": 977.0, "high": 977.0, "low": 933.0, "close": 933.0}, {"time": "2026-01-16", "open": 942.0, "high": 949.0, "low": 924.0, "close": 928.0}, {"time": "2026-01-19", "open": 930.0, "high": 930.0, "low": 903.0, "close": 903.0}, {"time": "2026-01-20", "open": 903.0, "high": 911.0, "low": 892.0, "close": 900.0}, {"time": "2026-01-21", "open": 896.0, "high": 940.0, "low": 895.0, "close": 909.0}, {"time": "2026-01-22", "open": 933.0, "high": 945.0, "low": 908.0, "close": 940.0}, {"time": "2026-01-23", "open": 943.0, "high": 970.0, "low": 933.0, "close": 969.0}, {"time": "2026-01-26", "open": 980.0, "high": 994.0, "low": 949.0, "close": 971.0}, {"time": "2026-01-27", "open": 976.0, "high": 995.0, "low": 963.0, "close": 965.0}, {"time": "2026-01-28", "open": 972.0, "high": 986.0, "low": 943.0, "close": 948.0}, {"time": "2026-01-29", "open": 951.0, "high": 963.0, "low": 929.0, "close": 930.0}, {"time": "2026-01-30", "open": 930.0, "high": 931.0, "low": 892.0, "close": 905.0}, {"time": "2026-02-02", "open": 891.0, "high": 921.0, "low": 884.0, "close": 900.0}, {"time": "2026-02-03", "open": 913.0, "high": 957.0, "low": 912.0, "close": 955.0}, {"time": "2026-02-04", "open": 964.0, "high": 994.0, "low": 962.0, "close": 988.0}, {"time": "2026-02-05", "open": 993.0, "high": 1085.0, "low": 993.0, "close": 1085.0}, {"time": "2026-02-06", "open": 1035.0, "high": 1050.0, "low": 977.0, "close": 977.0}, {"time": "2026-02-09", "open": 1000.0, "high": 1000.0, "low": 930.0, "close": 931.0}, {"time": "2026-02-10", "open": 942.0, "high": 990.0, "low": 926.0, "close": 983.0}, {"time": "2026-02-11", "open": 980.0, "high": 1000.0, "low": 966.0, "close": 975.0}, {"time": "2026-02-23", "open": 978.0, "high": 981.0, "low": 890.0, "close": 890.0}, {"time": "2026-02-24", "open": 905.0, "high": 906.0, "low": 861.0, "close": 870.0}, {"time": "2026-02-25", "open": 880.0, "high": 914.0, "low": 880.0, "close": 909.0}, {"time": "2026-02-26", "open": 916.0, "high": 925.0, "low": 891.0, "close": 918.0}, {"time": "2026-03-02", "open": 900.0, "high": 913.0, "low": 866.0, "close": 880.0}, {"time": "2026-03-03", "open": 939.0, "high": 970.0, "low": 912.0, "close": 912.0}, {"time": "2026-03-04", "open": 900.0, "high": 913.0, "low": 866.0, "close": 880.0}, {"time": "2026-03-05", "open": 915.0, "high": 950.0, "low": 914.0, "close": 930.0}, {"time": "2026-03-06", "open": 935.0, "high": 950.0, "low": 919.0, "close": 939.0}, {"time": "2026-03-09", "open": 874.0, "high": 887.0, "low": 861.0, "close": 871.0}, {"time": "2026-03-10", "open": 902.0, "high": 908.0, "low": 877.0, "close": 887.0}, {"time": "2026-03-11", "open": 902.0, "high": 909.0, "low": 868.0, "close": 894.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 1136.0, "color": "#26a69a"}, {"time": "2025-12-05", "value": 859.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 2217.0, "color": "#ef5350"}, {"time": "2025-12-09", "value": 3047.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 1681.0, "color": "#26a69a"}, {"time": "2025-12-11", "value": 2252.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 1709.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 2604.0, "color": "#26a69a"}, {"time": "2025-12-16", "value": 982.0, "color": "#26a69a"}, {"time": "2025-12-17", "value": 2341.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 1455.0, "color": "#26a69a"}, {"time": "2025-12-19", "value": 3608.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 2227.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 2109.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 2705.0, "color": "#26a69a"}, {"time": "2025-12-26", "value": 1282.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 1255.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 1261.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 1549.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 3664.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 1764.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 3135.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 2794.0, "color": "#26a69a"}, {"time": "2026-01-08", "value": 4176.0, "color": "#26a69a"}, {"time": "2026-01-09", "value": 2187.0, "color": "#26a69a"}, {"time": "2026-01-12", "value": 1364.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 3178.0, "color": "#ef5350"}, {"time": "2026-01-14", "value": 3100.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 1885.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 1462.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 1638.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 1386.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 1831.0, "color": "#ef5350"}, {"time": "2026-01-22", "value": 2119.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 2721.0, "color": "#ef5350"}, {"time": "2026-01-26", "value": 2458.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 2150.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 2861.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 1901.0, "color": "#26a69a"}, {"time": "2026-01-30", "value": 2238.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 1409.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 2170.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 4146.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 7761.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 3285.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 4900.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 2968.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 2436.0, "color": "#26a69a"}, {"time": "2026-02-23", "value": 7584.0, "color": "#26a69a"}, {"time": "2026-02-24", "value": 7123.0, "color": "#26a69a"}, {"time": "2026-02-25", "value": 3885.0, "color": "#ef5350"}, {"time": "2026-02-26", "value": 3903.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 2459.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 3205.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 2459.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 2521.0, "color": "#ef5350"}, {"time": "2026-03-06", "value": 1861.0, "color": "#ef5350"}, {"time": "2026-03-09", "value": 2652.0, "color": "#26a69a"}, {"time": "2026-03-10", "value": 1951.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 5395.0, "color": "#26a69a"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 905.8}, {"time": "2025-12-11", "value": 908.2}, {"time": "2025-12-12", "value": 913.0}, {"time": "2025-12-15", "value": 900.8}, {"time": "2025-12-16", "value": 891.0}, {"time": "2025-12-17", "value": 890.0}, {"time": "2025-12-18", "value": 886.4}, {"time": "2025-12-19", "value": 892.0}, {"time": "2025-12-22", "value": 905.4}, {"time": "2025-12-23", "value": 924.0}, {"time": "2025-12-24", "value": 938.0}, {"time": "2025-12-26", "value": 955.4}, {"time": "2025-12-29", "value": 964.0}, {"time": "2025-12-30", "value": 975.6}, {"time": "2025-12-31", "value": 985.6}, {"time": "2026-01-02", "value": 983.6}, {"time": "2026-01-05", "value": 980.4}, {"time": "2026-01-06", "value": 981.2}, {"time": "2026-01-07", "value": 976.2}, {"time": "2026-01-08", "value": 959.4}, {"time": "2026-01-09", "value": 950.6}, {"time": "2026-01-12", "value": 941.4}, {"time": "2026-01-13", "value": 933.8}, {"time": "2026-01-14", "value": 934.6}, {"time": "2026-01-15", "value": 937.0}, {"time": "2026-01-16", "value": 940.6}, {"time": "2026-01-19", "value": 939.0}, {"time": "2026-01-20", "value": 928.6}, {"time": "2026-01-21", "value": 914.6}, {"time": "2026-01-22", "value": 916.0}, {"time": "2026-01-23", "value": 924.2}, {"time": "2026-01-26", "value": 937.8}, {"time": "2026-01-27", "value": 950.8}, {"time": "2026-01-28", "value": 958.6}, {"time": "2026-01-29", "value": 956.6}, {"time": "2026-01-30", "value": 943.8}, {"time": "2026-02-02", "value": 929.6}, {"time": "2026-02-03", "value": 927.6}, {"time": "2026-02-04", "value": 935.6}, {"time": "2026-02-05", "value": 966.6}, {"time": "2026-02-06", "value": 981.0}, {"time": "2026-02-09", "value": 987.2}, {"time": "2026-02-10", "value": 992.8}, {"time": "2026-02-11", "value": 990.2}, {"time": "2026-02-23", "value": 951.2}, {"time": "2026-02-24", "value": 929.8}, {"time": "2026-02-25", "value": 925.4}, {"time": "2026-02-26", "value": 912.4}, {"time": "2026-03-02", "value": 893.4}, {"time": "2026-03-03", "value": 897.8}, {"time": "2026-03-04", "value": 899.8}, {"time": "2026-03-05", "value": 904.0}, {"time": "2026-03-06", "value": 908.2}, {"time": "2026-03-09", "value": 906.4}, {"time": "2026-03-10", "value": 901.4}, {"time": "2026-03-11", "value": 904.2}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 897.9}, {"time": "2025-12-18", "value": 897.3}, {"time": "2025-12-19", "value": 902.5}, {"time": "2025-12-22", "value": 903.1}, {"time": "2025-12-23", "value": 907.5}, {"time": "2025-12-24", "value": 914.0}, {"time": "2025-12-26", "value": 920.9}, {"time": "2025-12-29", "value": 928.0}, {"time": "2025-12-30", "value": 940.5}, {"time": "2025-12-31", "value": 954.8}, {"time": "2026-01-02", "value": 960.8}, {"time": "2026-01-05", "value": 967.9}, {"time": "2026-01-06", "value": 972.6}, {"time": "2026-01-07", "value": 975.9}, {"time": "2026-01-08", "value": 972.5}, {"time": "2026-01-09", "value": 967.1}, {"time": "2026-01-12", "value": 960.9}, {"time": "2026-01-13", "value": 957.5}, {"time": "2026-01-14", "value": 955.4}, {"time": "2026-01-15", "value": 948.2}, {"time": "2026-01-16", "value": 945.6}, {"time": "2026-01-19", "value": 940.2}, {"time": "2026-01-20", "value": 931.2}, {"time": "2026-01-21", "value": 924.6}, {"time": "2026-01-22", "value": 926.5}, {"time": "2026-01-23", "value": 932.4}, {"time": "2026-01-26", "value": 938.4}, {"time": "2026-01-27", "value": 939.7}, {"time": "2026-01-28", "value": 936.6}, {"time": "2026-01-29", "value": 936.3}, {"time": "2026-01-30", "value": 934.0}, {"time": "2026-02-02", "value": 933.7}, {"time": "2026-02-03", "value": 939.2}, {"time": "2026-02-04", "value": 947.1}, {"time": "2026-02-05", "value": 961.6}, {"time": "2026-02-06", "value": 962.4}, {"time": "2026-02-09", "value": 958.4}, {"time": "2026-02-10", "value": 960.2}, {"time": "2026-02-11", "value": 962.9}, {"time": "2026-02-23", "value": 958.9}, {"time": "2026-02-24", "value": 955.4}, {"time": "2026-02-25", "value": 956.3}, {"time": "2026-02-26", "value": 952.6}, {"time": "2026-03-02", "value": 941.8}, {"time": "2026-03-03", "value": 924.5}, {"time": "2026-03-04", "value": 914.8}, {"time": "2026-03-05", "value": 914.7}, {"time": "2026-03-06", "value": 910.3}, {"time": "2026-03-09", "value": 899.9}, {"time": "2026-03-10", "value": 899.6}, {"time": "2026-03-11", "value": 902.0}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 929.35}, {"time": "2026-01-05", "value": 932.6}, {"time": "2026-01-06", "value": 937.55}, {"time": "2026-01-07", "value": 939.5}, {"time": "2026-01-08", "value": 940.0}, {"time": "2026-01-09", "value": 940.55}, {"time": "2026-01-12", "value": 940.9}, {"time": "2026-01-13", "value": 942.75}, {"time": "2026-01-14", "value": 947.95}, {"time": "2026-01-15", "value": 951.5}, {"time": "2026-01-16", "value": 953.2}, {"time": "2026-01-19", "value": 954.05}, {"time": "2026-01-20", "value": 951.9}, {"time": "2026-01-21", "value": 950.25}, {"time": "2026-01-22", "value": 949.5}, {"time": "2026-01-23", "value": 949.75}, {"time": "2026-01-26", "value": 949.65}, {"time": "2026-01-27", "value": 948.6}, {"time": "2026-01-28", "value": 946.0}, {"time": "2026-01-29", "value": 942.25}, {"time": "2026-01-30", "value": 939.8}, {"time": "2026-02-02", "value": 936.95}, {"time": "2026-02-03", "value": 935.2}, {"time": "2026-02-04", "value": 935.85}, {"time": "2026-02-05", "value": 944.05}, {"time": "2026-02-06", "value": 947.4}, {"time": "2026-02-09", "value": 948.4}, {"time": "2026-02-10", "value": 949.95}, {"time": "2026-02-11", "value": 949.75}, {"time": "2026-02-23", "value": 947.6}, {"time": "2026-02-24", "value": 944.7}, {"time": "2026-02-25", "value": 945.0}, {"time": "2026-02-26", "value": 945.9}, {"time": "2026-03-02", "value": 944.45}, {"time": "2026-03-03", "value": 943.05}, {"time": "2026-03-04", "value": 938.6}, {"time": "2026-03-05", "value": 936.55}, {"time": "2026-03-06", "value": 935.25}, {"time": "2026-03-09", "value": 931.4}, {"time": "2026-03-10", "value": 929.25}, {"time": "2026-03-11", "value": 928.7}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -859.0}, {"time": "2025-12-08", "value": 1358.0}, {"time": "2025-12-09", "value": -1689.0}, {"time": "2025-12-10", "value": -3370.0}, {"time": "2025-12-11", "value": -1118.0}, {"time": "2025-12-12", "value": 591.0}, {"time": "2025-12-15", "value": -2013.0}, {"time": "2025-12-16", "value": -2995.0}, {"time": "2025-12-17", "value": -654.0}, {"time": "2025-12-18", "value": -2109.0}, {"time": "2025-12-19", "value": 1499.0}, {"time": "2025-12-22", "value": -728.0}, {"time": "2025-12-23", "value": 1381.0}, {"time": "2025-12-24", "value": 4086.0}, {"time": "2025-12-26", "value": 5368.0}, {"time": "2025-12-29", "value": 6623.0}, {"time": "2025-12-30", "value": 7884.0}, {"time": "2025-12-31", "value": 9433.0}, {"time": "2026-01-02", "value": 5769.0}, {"time": "2026-01-05", "value": 7533.0}, {"time": "2026-01-06", "value": 10668.0}, {"time": "2026-01-07", "value": 7874.0}, {"time": "2026-01-08", "value": 3698.0}, {"time": "2026-01-09", "value": 1511.0}, {"time": "2026-01-12", "value": 2875.0}, {"time": "2026-01-13", "value": 6053.0}, {"time": "2026-01-14", "value": 9153.0}, {"time": "2026-01-15", "value": 7268.0}, {"time": "2026-01-16", "value": 5806.0}, {"time": "2026-01-19", "value": 4168.0}, {"time": "2026-01-20", "value": 2782.0}, {"time": "2026-01-21", "value": 4613.0}, {"time": "2026-01-22", "value": 6732.0}, {"time": "2026-01-23", "value": 9453.0}, {"time": "2026-01-26", "value": 11911.0}, {"time": "2026-01-27", "value": 9761.0}, {"time": "2026-01-28", "value": 6900.0}, {"time": "2026-01-29", "value": 4999.0}, {"time": "2026-01-30", "value": 2761.0}, {"time": "2026-02-02", "value": 1352.0}, {"time": "2026-02-03", "value": 3522.0}, {"time": "2026-02-04", "value": 7668.0}, {"time": "2026-02-05", "value": 15429.0}, {"time": "2026-02-06", "value": 12144.0}, {"time": "2026-02-09", "value": 7244.0}, {"time": "2026-02-10", "value": 10212.0}, {"time": "2026-02-11", "value": 7776.0}, {"time": "2026-02-23", "value": 192.0}, {"time": "2026-02-24", "value": -6931.0}, {"time": "2026-02-25", "value": -3046.0}, {"time": "2026-02-26", "value": 857.0}, {"time": "2026-03-02", "value": -1602.0}, {"time": "2026-03-03", "value": 1603.0}, {"time": "2026-03-04", "value": -856.0}, {"time": "2026-03-05", "value": 1665.0}, {"time": "2026-03-06", "value": 3526.0}, {"time": "2026-03-09", "value": 874.0}, {"time": "2026-03-10", "value": 2825.0}, {"time": "2026-03-11", "value": 8220.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>勤誠是台灣伺服器機殼龍頭廠商，主營電腦週邊設備與伺服器機殼／機櫃的設計、製造與貿易，並深入聚焦於AI伺服器與雲端機房應用。其核心產品包括AI伺服器機殼和機櫃解決方案，已成功切入NVIDIA GB系列（如GB200、GB300）及HGX平台供應鏈，同時也是ASIC伺服器機殼（如Google TPU）的重要供應商。公司亦積極開發次世代降噪櫃、電源櫃及Open Rack Wide (ORW)機櫃等高附加價值產品，並拓展至承接機櫃內更多關鍵機構件。勤誠透過OTS標準品、JDM（聯合設計製造）及OEM Plus（代工加值）等多樣化服務模式，滿足客戶客製化需求並提供全方位機構整合方案。</p>
+
+<h3>營收結構預估</h3>
+
+<p>勤誠營收幾乎100%來自伺服器機構件。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品線分類</th><th>2023年營收佔比</th><th>2025年預估營收佔比</th><th>2026年預估營收佔比</th><th>備註</th></tr></thead><tbody>
+<tr><td>AI相關產品</td><td>約 30% - 35%</td><td>超過 50%</td><td>60% - 70%</td><td>包含AI伺服器機殼與機櫃，受益於AI伺服器浪潮。</td></tr>
+<tr><td>機櫃相關產品</td><td>低個位數</td><td>約 9% - 10%</td><td>約 14% - 15%</td><td>涵蓋次世代降噪櫃、電源櫃、ORW機櫃等高附加價值產品。</td></tr>
+<tr><td>通用伺服器</td><td>約 65% - 70%</td><td>低於 50%</td><td>逐漸下降</td><td>仍為基礎業務，但佔比隨AI業務擴大而相對降低。</td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>AI伺服器領導地位：</strong> 勤誠深度切入NVIDIA GB系列（GB200/GB300）與HGX平台，以及Google TPU等ASIC伺服器供應鏈，在高階AI伺服器機殼市場具領先優勢。預計2026年AI相關營收佔比可達60%至70%。</li>
+<li><strong>高附加價值產品整合能力：</strong> 積極開發並導入次世代降噪櫃、電源櫃及Open Rack Wide (ORW)機櫃等高階客製化產品，並承接更多關鍵機構件，有效提升產品ASP與毛利率。</li>
+<li><strong>全球在地化產能佈局：</strong> 為因應地緣政治風險及客戶在地化生產需求，勤誠積極於台灣、中國、馬來西亞及美國（加州、德州）擴建產能，強化供應鏈韌性與交期彈性。馬來西亞與美國新廠預計於2026年陸續量產，總投資金額已達20億新台幣。</li>
+<li><strong>彈性服務模式與客戶黏著度：</strong> 提供OTS標準品、JDM（聯合設計製造）及OEM Plus（代工加值）等多元服務模式，與美系及中系Tier-1 CSP（雲端服務供應商）建立緊密合作關係，訂單能見度高。</li>
+
+<h2>財務分析</h2>
+
+<h3>近六個月月營收趨勢</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>26.50</td><td>-2.22%</td><td>137.01%</td></tr>
+<tr><td>2025年12月</td><td>27.10</td><td>33.09%</td><td>68.38%</td></tr>
+<tr><td>2025年11月</td><td>20.37</td><td>2.18%</td><td>68.44%</td></tr>
+<tr><td>2025年10月</td><td>19.93</td><td>-8.43%</td><td>90.50%</td></tr>
+<tr><td>2025年09月</td><td>18.26</td><td>4.60%</td><td>34.60%</td></tr>
+<tr><td>2025年08月</td><td>17.45</td><td>-1.70%</td><td>31.90%</td></tr>
+</tbody></table></div>
+
+<h3>最新季度數據 (2025年第三季)</h3>
+
+<ul><li><strong>季營收：</strong> 新台幣 56.6 億元 (年增 32.6%)</li>
+<li><strong>毛利率：</strong> 31.33%</li>
+<li><strong>營業利益率：</strong> 22.83%</li>
+<li><strong>EPS：</strong> 新台幣 8.01 元 (季增 16.59%，年增 50%)</li>
+</ul>
+<h3>全年度營收與 EPS</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>營收 (億元)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2024年實際</td><td>145.17</td><td>16.05</td></tr>
+<tr><td>2025年預估</td><td>220.01 - 220.02</td><td>28.34 - 28.78</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>2025年營收：</strong> 依 FactSet 中位數預估為新台幣 220.01 億元，年增 51.55%，創歷史新高。</li>
+<li><strong>2025年EPS：</strong> 依 FactSet 中位數預估為新台幣 28.78 元 (2026/02/23 上修自 28.55 元)。</li>
+</ul>
+<h2>法說會重點 (整理自 2025/08/07 法說會及 2026/03/05 最新報導)</h2>
+
+<ul><li><strong>產品線與訂單能見度：</strong></li>
+</ul>    *   <strong>AI相關產品：</strong> 2025年營收佔比已突破總營收一半，預計2026年可望進一步攀升至60%至70%區間。AI伺服器需求持續暢旺，主要客戶涵蓋美系與中系Tier-1 CSP，其資本支出規劃維持高水準，帶動訂單需求持續。HGX B200/B300伺服器已於2025年第四季完成產品轉換，多項ASIC伺服器專案與降噪櫃專案於2026年第一季持續出貨。
+<p>*   <strong>機櫃業務：</strong> 預計2025年機櫃全年營收比重可達高個位數百分比，並於2026年突破雙位數百分比（約14%）。目前有1至2個量產專案，並推出次世代降噪櫃、電源櫃及ORW機櫃等高附加價值產品。</p>
+<ul><li><strong>產能利用率與資本支出：</strong></li>
+</ul>    *   <strong>2025年資本支出：</strong> 預算為新台幣15億至20億元，主要用於支持AI及通用型伺服器業務發展。
+<p>*   <strong>全球產能佈局：</strong></p>
+<p>*   <strong>嘉義廠：</strong> 已導入高度自動化生產。</p>
+<p>*   <strong>美國NCT廠：</strong> 已於2025年底小量試產，加州NCT廠預計於2026年第二季啟用。</p>
+<p>*   <strong>美國德州廠：</strong> 預計2025年底敲定廠址、2026年動工，最快2026年底至2027年初加入量產行列，量產後可貢獻月產能8萬至10萬台。累計美國子公司投資金額達新台幣20億元。</p>
+<p>*   <strong>馬來西亞廠：</strong> 已動工，預計2026年5月試營運，2026年下半年投產，月產能同樣規劃8萬至10萬台。</p>
+<p>*   公司強調將持續自動化投資與產能布局，以應對新產品導入與需求成長。</p>
+<ul><li><strong>管理層對未來 guidance：</strong></li>
+</ul>    *   <strong>2025年下半年：</strong> 營運穩健續升，優於上半年，預計2025年營運創歷史新高。
+<p>*   <strong>2026年：</strong> 營運將呈現「先蹲後跳」態勢，上半年集中調整庫存與完成新產品小量出貨，下半年產能與產出有望逐步放大，預計全年營運實現雙位數增長。</p>
+<p>*   <strong>2026年第一季：</strong> 法人估算，營收可望「淡季不淡」，預期首季營收約新台幣65.5億元，毛利率估約29.6%。</p>
+
+<h2>券商觀點</h2>
+
+<h3>券商目標價與評等</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>美系外資</td><td>1,250</td><td>納入追蹤 (首次)</td><td>2026年02月25日</td></tr>
+<tr><td>CMoney 彙整報告</td><td>1,205 - 1,250</td><td>N/A</td><td>2026年02月24日</td></tr>
+<tr><td>FactSet (中位數)</td><td>1,200</td><td>N/A</td><td>2026年02月23日</td></tr>
+<tr><td>大和資本</td><td>1,200</td><td>買進</td><td>2025年12月25日</td></tr>
+<tr><td>美系外資 (摩根士丹利)</td><td>1,130</td><td>加碼</td><td>2025年11月05日</td></tr>
+</tbody></table></div>
+
+<h3>2025-2026年 EPS 預估</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱/機構</th><th>2025年 EPS 預估 (元)</th><th>2026年 EPS 預估 (元)</th></tr></thead><tbody>
+<tr><td>FactSet (中位數)</td><td>28.78 (上修)</td><td>43.26</td></tr>
+<tr><td>CMoney 彙整報告</td><td>28.34 - 28.48</td><td>41.73 - 43.74</td></tr>
+<tr><td>美林</td><td>28.34</td><td>43.74</td></tr>
+<tr><td>法人 (2026/02/06 報導)</td><td>N/A</td><td>有望挑戰近 50</td></tr>
+<tr><td>美系外資 (2025/11/05 報導)</td><td>N/A</td><td>37.27</td></tr>
+</tbody></table></div>
+
+<h3>重大調升/調降評等</h3>
+
+<ul><li><strong>2026年02月25日：</strong> 美系外資首度將勤誠納入追蹤，給予目標價1,250元，看好其在AI供應鏈的領先地位。</li>
+<li><strong>2026年02月23日：</strong> FactSet 將勤誠2025年 EPS 預估中位數由28.55元上修至28.78元。</li>
+<li><strong>2025年11月05日：</strong> 美系外資摩根士丹利（MS）將勤誠目標價由730元調升至1,130元，維持「加碼」評等。</li>
+</ul>
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢</h3>
+
+<p>勤誠近期的利潤率呈現顯著成長趨勢，主要得益於AI伺服器與雲端資料中心需求的強勁增長，以及產品組合優化，帶動產品平均售價（ASP）與營收規模提升。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>31.33%</td><td>22.83%</td><td>18.18%</td></tr>
+<tr><td>2025年第二季</td><td>29.92%</td><td>22.86%</td><td>15.52%</td></tr>
+<tr><td>2025年第一季</td><td>28.87%</td><td>21.31%</td><td>16.31%</td></tr>
+<tr><td>2024年第四季</td><td>24.74%</td><td>15.15%</td><td>12.33%</td></tr>
+<tr><td>2024年第三季</td><td>28.84%</td><td>20.92%</td><td>15.50%</td></tr>
+<tr><td>2024年第二季</td><td>25.31%</td><td>16.17%</td><td>12.67%</td></tr>
+<tr><td>2024年第一季</td><td>24.83%</td><td>16.00%</td><td>13.56%</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>利潤率變化原因：</strong> 產品組合轉向高階AI伺服器與機櫃產品，推升產品均價與營收規模。2025年第三季毛利率達31.33%，創下2014年第三季以來新高。匯率波動亦可能影響毛利，公司表示匯率變動1%可能影響毛利0.5%至0.7%，影響獲利10%。</li>
+</ul>
+<h3>存貨分析</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數</th><th>應收帳款週轉天數</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>73.3 天</td><td>81.76 天</td></tr>
+<tr><td>2025年第二季</td><td>63.19 天</td><td>71.64 天</td></tr>
+<tr><td>2025年第一季</td><td>73.99 天</td><td>82.87 天</td></tr>
+<tr><td>2024年第四季</td><td>61.08 天</td><td>84.69 天</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>存貨與應收帳款趨勢：</strong> 存貨週轉天數與應收帳款週轉天數在2024年第四季至2025年第二季呈現下降趨勢，顯示營運效率提升。2025年第三季略有回升，但仍在健康區間。由於AI伺服器需求強勁，公司積極備貨以滿足客戶訂單，存貨水平適度增加屬於正常現象。然而，2025年第四季營收爆發，可能導致年底應收帳款餘額創歷史新高，在現金流管理上需持續關注。</li>
+</ul>
+<h3>資本支出</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>資本支出 (千元)</th><th>折舊 (千元)</th><th>攤銷 (千元)</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>-265,221</td><td>96,840</td><td>3,346</td></tr>
+<tr><td>2025年第二季</td><td>-468,221</td><td>100,460</td><td>3,303</td></tr>
+<tr><td>2025年第一季</td><td>-77,203</td><td>79,303</td><td>3,281</td></tr>
+<tr><td>2024年第四季</td><td>-174,749</td><td>77,400</td><td>3,255</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>資本支出趨勢：</strong> 勤誠近年持續高額資本支出，以支持AI及通用型伺服器業務發展與全球化產能擴建。</li>
+</ul>    *   <strong>2025年預計投入：</strong> 新台幣15億至20億元。
+<p>*   <strong>馬來西亞新廠：</strong> 預計2026年5月試量產，年中正式量產，月產能規劃8萬至10萬台。</p>
+<p>*   <strong>美國德州廠：</strong> 累計投資新台幣20億元，預計最快2026年底至2027年初量產，月產能同樣規劃8萬至10萬台。</p>
+<p>*   <strong>美國加州NCT廠：</strong> 預計2026年第二季啟用，切入水冷及高單價機櫃業務。</p>
+<ul><li>折舊攤銷金額伴隨產能擴張，預計未來將呈現上升趨勢。</li>
+</ul>
+<h3>其他財報重點</h3>
+
+<ul><li><strong>自由現金流量：</strong></li>
+</ul>    *   2025年第三季: 新台幣155,930千元
+<p>*   2025年第二季: 新台幣459,405千元</p>
+<p>*   2025年第一季: 新台幣521,870千元</p>
+<p>*   2024年第四季: 新台幣571,135千元</p>
+<p>*   自由現金流量自2024年第四季以來呈現下降趨勢，顯示在積極擴產及營運資金需求增加下，現金流面臨壓力，需持續關注其變化。</p>
+<ul><li><strong>現金流量比率：</strong> 2025年第三季為435.2%，顯示公司短期償債能力及現金週轉能力良好。</li>
+</ul>
+<h2>股權異動</h2>
+
+<ul><li><strong>董監事/大股東申報轉讓：</strong></li>
+</ul>    *   2025年9月：多位經理人申報以信託方式轉讓股票，合計105張。
+<p>*   2024年12月：經理人陳亞男申報以信託方式轉讓60張股票。</p>
+<p>*   2024年10月：多位經理人申報以信託方式轉讓股票，合計85張。</p>
+<p>*   2024年1月：經理人陳亞男申報以信託方式轉讓144張股票。</p>
+<p>*   截至2026年3月4日，董監事及大股東持股比約為23.43%。</p>
+<ul><li><strong>庫藏股：</strong> 未發現2024年以後的庫藏股買回紀錄。</li>
+<li><strong>可轉換公司債 (CB)：</strong></li>
+</ul>    *   勤誠發行國內第一次無擔保轉換公司債 (代碼82101 勤誠一)。
+<p>*   發行日：2024年1月19日；到期日：2027年1月19日。</p>
+<p>*   發行總額：新台幣10億元。</p>
+<p>*   目前轉換價格：266.6元 (發行時為271.0元)。</p>
+<p>*   2025年11月6日因CB轉換普通股，增資發行3,740,687股，實收資本額增至新台幣1,253,191,460元。</p>
+<ul><li><strong>增減資：</strong> 近期主要為因應可轉債轉換而產生的增資。</li>
+<li><strong>股利政策：</strong></li>
+</ul>    *   2025年發放 (所屬年度2024年)：現金股利7.5元。
+<p>*   2024年發放 (所屬年度2023年)：現金股利5.0元。</p>
+<p>*   近年以現金股利為主，未發放股票股利。</p>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與成長率</h3>
+
+<p>伺服器市場正受惠於AI與資料中心需求而強勁成長。</p>
+
+<ul><li><strong>整體伺服器市場：</strong></li>
+</ul>    *   Research Nester預計全球伺服器市場規模將從2025年的1,093.1億美元成長至2026年的1,178.7億美元，預計到2035年將超過2,517.4億美元，2026年至2035年複合年增長率（CAGR）超過8.7%。
+<p>*   高盛（Goldman Sachs）預計2025年至2027年整體伺服器總潛在市場（TAM）將分別達到4,330億美元、6,060億美元和7,640億美元，年增率分別為71%、40%和26%。</p>
+<p>*   TrendForce預估2026年全球伺服器出貨量將年增12.8%，資策會（MIC）預估出貨量將達到1,500萬台。</p>
+<ul><li><strong>AI伺服器市場：</strong></li>
+</ul>    *   TrendForce預計2026年全球AI伺服器出貨量將年增逾28%。
+<p>*   DIGITIMES預估高階AI伺服器出貨量在2025年將達到109萬台，2026年成長至130萬台。</p>
+<p>*   資策會MIC預估2026年AI伺服器出貨量將衝上450萬台，佔整體伺服器市場三成。</p>
+<p>*   高盛預計全機架人工智慧伺服器（如NVIDIA GB200/GB300）在2026年出貨量將達5.5萬台。摩根士丹利（大摩）更將2026年GB200/GB300機架伺服器出貨量上調至7萬至8萬櫃，年增逾1.56倍。</p>
+<ul><li><strong>機架式伺服器市場：</strong> Vertex AI Search預計將從2025年的57.71億美元成長到2031年的118.6億美元，複合年成長率為12.76%。</li>
+</ul>
+<h3>供需狀況</h3>
+
+<p>目前伺服器產業呈現供不應求，尤其在AI相關領域。AI需求持續以超乎預期的速度成長，供應鏈瓶頸預計將從半導體轉移至利基記憶體與伺服器機架。大型CSP對AI伺服器的需求「瘋狂」，導致拉貨「供不應求」。</p>
+
+<h3>產業平均毛利率水準</h3>
+
+<p>勤誠近期毛利率約為31%。高階伺服器零組件因技術與專利門檻，可享有較高毛利率，例如伺服器導軌領導廠商川湖科技2025年第四季毛利率高達76%。ASIC專案允許更多客製化設計，有助於維持較高毛利率。</p>
+
+<h3>競爭格局</h3>
+
+<p>伺服器機殼與ODM/OEM市場競爭激烈。雖然缺乏針對機殼專業製造商的全球市佔率數據，但可從主要AI伺服器ODM的出貨狀況推測競爭態勢。</p>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>勤誠 (8210)</th><th>產業主要ODM供應商 (AI伺服器機架出貨佔比參考)</th><th>其他機殼概念股 (參考毛利率)</th></tr></thead><tbody>
+<tr><td><strong>主要業務</strong></td><td>伺服器機殼、機櫃解決方案 (AI/雲端/通用)</td><td>鴻海 (52%)、緯創 (21%)、廣達 (19%)</td><td>迎廣 (32%)、營邦 (26%)、晟銘電 (19%)</td></tr>
+<tr><td><strong>核心優勢</strong></td><td>- AI伺服器機殼/機櫃領導者</td><td>- 整機系統整合製造能力</td><td>- 各自利基市場與產品</td></tr>
+<tr><td></td><td>- 切入NVIDIA GB/HGX、Google TPU供應鏈</td><td>- 與主要CSP/品牌廠緊密合作關係</td><td></td></tr>
+<tr><td></td><td>- 高階客製化與機構整合能力</td><td>- 規模經濟與成本優勢</td><td></td></tr>
+<tr><td></td><td>- 全球在地化產能佈局 (美、馬)</td><td></td><td></td></tr>
+<tr><td><strong>毛利率</strong></td><td>31.33% (2025Q3)</td><td>N/A (ODM整體業務，非單純機殼)</td><td>南俊國際 (37%，導軌)</td></tr>
+<tr><td><strong>客戶</strong></td><td>美系/中系Tier-1 CSP、ODM、系統整合商</td><td>各大CSP、伺服器品牌廠</td><td>各類PC/伺服器製造商</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>勤誠的競爭優勢：</strong> 勤誠在高階AI伺服器機殼與機櫃解決方案上具備獨特優勢，憑藉其對NVIDIA GB系列、HGX平台及ASIC伺服器專案的深入參與，以及提供JDM與OEM Plus服務的能力，在市場中建立其不可取代的地位。</li>
+</ul>
+<h3>產業趨勢</h3>
+
+<li><strong>AI伺服器的高密度、高功耗與液冷解決方案普及：</strong></li>
+<p>*   <strong>趨勢：</strong> 隨著AI晶片運算能力提升，伺服器功耗密度飆升，液冷技術需求急劇增加。全機架式AI平台如NVIDIA NVL72/NVL144及AMD Helios，正轉向「乙太網路優先」並以液冷為預設配置。</p>
+<p>*   <strong>影響：</strong> 帶動伺服器機殼/機櫃設計的重大變革，需要整合複雜的液冷模組、冷卻板、管路系統。電源供應器、導軌等機構件也需針對高負載和液冷環境優化。</p>
+<li><strong>ASIC自研晶片與全機架設計的普及：</strong></li>
+<p>*   <strong>趨勢：</strong> Google、Meta等CSP積極擴張自研ASIC方案，推動ASIC AI伺服器出貨占比提升。TrendForce預估2026年ASIC AI伺服器出貨增速有望超越GPU AI伺服器。全機架設計也成為主流。</p>
+<p>*   <strong>影響：</strong> ASIC晶片與全機架設計要求伺服器機構件高度客製化，並與晶片、散熱、電源等次系統更緊密整合，提高進入門檻，有利具備強大設計與整合能力的廠商。</p>
+<li><strong>通用型伺服器與邊緣AI的復甦與擴張：</strong></li>
+<p>*   <strong>趨勢：</strong> AI推論服務發展帶動通用型伺服器進入替換與擴張週期。資策會MIC預估2026年邊緣AI硬體滲透率將接近兩成。</p>
+<p>*   <strong>影響：</strong> 為伺服器機殼廠商帶來更廣泛市場機會，涵蓋不同尺寸、散熱需求的解決方案。</p>
+
+<h3>對勤誠而言的具體機會和威脅</h3>
+
+<ul><li><strong>機會：</strong></li>
+</ul>    *   <strong>AI伺服器與機櫃需求強勁增長：</strong> 勤誠已切入NVIDIA GB系列、HGX平台及ASIC伺服器供應鏈，加上新一代液冷與ORW機櫃導入，直接受惠於AI市場爆發性成長與高客製化需求。
+<p>*   <strong>ASIC伺服器出貨倍增：</strong> 預期2026年對美、中CSP的ASIC伺服器出貨量將倍增。</p>
+<p>*   <strong>高附加價值產品提升營收比重：</strong> 2026年起導入多項新機櫃專案，預估機櫃營收比重將從2025年的約9-10%提升至2026年的14%，有助優化產品組合與毛利率。</p>
+<p>*   <strong>液冷相關機構件機會：</strong> 積極切入更多散熱相關機構件，受惠於液冷需求趨勢。</p>
+<ul><li><strong>威脅：</strong></li>
+</ul>    *   <strong>供應鏈瓶頸與競爭加劇：</strong> 伺服器機架被點名為2026年潛在瓶頸之一，可能引發更多競爭者投入或面臨關鍵零組件供貨不穩風險。
+<p>*   <strong>技術迭代速度快：</strong> AI伺服器技術演進迅速，若未能及時跟進最新標準和客戶需求，恐面臨市場份額被侵蝕風險。</p>
+<p>*   <strong>營運資金壓力：</strong> 應收帳款和存貨快速增長，自由現金流量下降，若客戶付款條件惡化，可能對現金流管理構成挑戰。</p>
+
+<h2>近期催化劑</h2>
+
+<h3>利多事件清單 (2025年12月至2026年3月)</h3>
+
+<ul><li><strong>2026年3月5日：</strong> 公布1月合併營收達新台幣26.5億元，年增137%，為單月歷史次高，法人估第一季營收「淡季不淡」。AI伺服器出貨與既有產品線持續貢獻。</li>
+<li><strong>2026年2月25日：</strong> 美系外資首度將勤誠納入追蹤，看好AI供應鏈地位，給予目標價1,250元，預估2025-2027年獲利年複合成長率達44%。</li>
+<li><strong>2026年2月9日：</strong> 法人預估2026年HGX伺服器出貨量將達9萬至10萬台，年增40%。馬來西亞新廠預計第三季放量。</li>
+<li><strong>2026年2月2日：</strong> 馬來西亞購地建廠計畫於2026年5月試量產。追加美國德州子公司投資，累計投資達新台幣20億元。</li>
+<li><strong>2026年1月26日：</strong> 外資預估AI相關機殼與機櫃出貨占比從2023年的30-35%顯著提升，預估2026年可達60-65%，推升ASP與營收。</li>
+<li><strong>2026年1月19日：</strong> 勤誠2025全年營收達新台幣220.01億元，年增51.55%，創歷史新高。2025年第四季單季營收67.4億元，季增19%。</li>
+<li><strong>2026年1月13日：</strong> 勤誠公告2025年12月合併營收創單月歷史新高；全年合併營收首次突破200億元大關。已切入NVIDIA GB系列與HGX平台供應鏈，擴大機櫃內關鍵機構件承接比例。</li>
+<li><strong>2025年11月7日法說會：</strong> 管理層對2026年全年營運雙位數增長深具信心。新切入機櫃業務2026年營收占比有望拉高至10%以上。</li>
+</ul>
+<h3>利空事件清單 (2025年12月至2026年3月)</h3>
+
+<ul><li><strong>2026年2月下旬：</strong> 外資與投信在2026年2月23、24日出現較明顯的連續賣超，單日合計賣超達4,266張及3,284張，顯示法人有調節壓力。</li>
+<li><strong>2026年2月9日：</strong> 短期籌碼面鬆動，高檔獲利了結賣壓湧現，股價在2月初創波段新高後進入修正。</li>
+<li><strong>2026年2月7日：</strong> 市場擔憂五大CSP資本支出佔營運現金流比例上揚，龐大AI投資可能導致自由現金流量進一步惡化，相關個股股價可能負向反應。</li>
+<li><strong>營運資金壓力：</strong> 2025年第三季法說會指出，應收帳款和存貨的快速增長，以及營運活動現金流量持平，值得關注。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+| 時間軸          | 成長動能類別     | 具體事件與量化目標                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ## <strong>8210 勤誠 深度研究報告</strong>
+
+<h3>一句話摘要</h3>
+
+<p>勤誠作為全球AI伺服器機殼與機櫃領導者，憑藉其領先技術、與CSP巨頭的深度合作、以及全球產能佈局，在AI產業強勁成長的帶動下，預期2026年營收及獲利將實現雙位數高成長，產品組合持續優化，並加速拓展高附加價值液冷與機櫃業務。</p>
+
+<h3>公司概覽</h3>
+
+<p>勤誠（8210）為台灣伺服器機構件龍頭，主營電腦週邊設備與伺服器機殼／機櫃的設計、製造與貿易。公司策略性聚焦於AI伺服器與雲端機房應用，核心產品涵蓋AI伺服器機殼及整櫃解決方案，已成功切入NVIDIA GB系列（如GB200、GB300）、HGX平台供應鏈，並提供Google TPU等ASIC伺服器機殼。此外，勤誠積極開發次世代降噪櫃、電源櫃及Open Rack Wide (ORW)機櫃等高附加價值產品，並拓展至承接機櫃內更多關鍵機構件，以提供全方位的機構整合方案。公司採OTS標準品、JDM（聯合設計製造）及OEM Plus（代工加值）等多元服務模式。</p>
+
+<strong>營收結構預估</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品線分類</th><th>2023年營收佔比</th><th>2025年預估營收佔比</th><th>2026年預估營收佔比</th><th>備註</th></tr></thead><tbody>
+<tr><td>AI相關產品</td><td>約 30% - 35%</td><td>超過 50%</td><td>60% - 70%</td><td>包含AI伺服器機殼與機櫃，受益於AI伺服器浪潮。</td></tr>
+<tr><td>機櫃相關產品</td><td>低個位數</td><td>約 9% - 10%</td><td>約 14% - 15%</td><td>涵蓋次世代降噪櫃、電源櫃、ORW機櫃等高附加價值產品。</td></tr>
+<tr><td>通用伺服器</td><td>約 65% - 70%</td><td>低於 50%</td><td>逐漸下降</td><td>仍為基礎業務，但佔比隨AI業務擴大而相對降低。</td></tr>
+</tbody></table></div>
+
+<h3>核心競爭優勢</h3>
+
+<li><strong>AI伺服器市場領先地位：</strong> 勤誠深度參與NVIDIA GB系列（GB200/GB300）與HGX平台、以及Google TPU等ASIC伺服器供應鏈，在高階AI伺服器機構件市場佔據領導地位，預計2026年AI相關產品營收貢獻將進一步拉升。</li>
+<li><strong>高附加價值產品整合與客製化能力：</strong> 具備開發次世代降噪櫃、電源櫃及ORW機櫃等高附加價值產品的能力，並能承接更多機櫃內關鍵機構件，有效提升產品平均售價（ASP）與毛利率。</li>
+<li><strong>全球化產能佈局與供應鏈韌性：</strong> 為滿足客戶在地化生產及分散地緣政治風險需求，積極於台灣、中國、馬來西亞及美國（加州、德州）擴建新廠，強化全球供應鏈的彈性與快速交期能力。</li>
+<li><strong>與CSP巨頭深度合作：</strong> 透過JDM（聯合設計製造）與OEM Plus模式，與美系、中系Tier-1雲端服務供應商（CSP）建立緊密合作關係，確保高訂單能見度與長期專案。</li>
+
+<h3>財務分析</h3>
+
+<h4>月營收趨勢</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元)</th><th>月增率 MoM</th><th>年增率 YoY</th></tr></thead><tbody>
+<tr><td>2026年01月</td><td>26.50</td><td>-2.22%</td><td>137.01%</td></tr>
+<tr><td>2025年12月</td><td>27.10</td><td>33.09%</td><td>68.38%</td></tr>
+<tr><td>2025年11月</td><td>20.37</td><td>2.18%</td><td>68.44%</td></tr>
+<tr><td>2025年10月</td><td>19.93</td><td>-8.43%</td><td>90.50%</td></tr>
+<tr><td>2025年09月</td><td>18.26</td><td>4.60%</td><td>34.60%</td></tr>
+<tr><td>2025年08月</td><td>17.45</td><td>-1.70%</td><td>31.90%</td></tr>
+</tbody></table></div>
+
+<strong>備註：</strong> 2026年1月營收達新台幣26.5億元，年增率高達137.01%，為單月歷史次高，顯示AI伺服器出貨強勁，首季可望「淡季不淡」。
+
+<h4>季度數據 (2025年第三季)</h4>
+
+<ul><li><strong>季營收：</strong> 新台幣 56.6 億元 (年增 32.6%)</li>
+<li><strong>毛利率：</strong> 31.33%</li>
+<li><strong>營業利益率：</strong> 22.83%</li>
+<li><strong>EPS：</strong> 新台幣 8.01 元 (季增 16.59%，年增 50%)</li>
+</ul>
+<h4>年度營收與 EPS</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>營收 (億元)</th><th>EPS (元)</th></tr></thead><tbody>
+<tr><td>2024年實際</td><td>145.17</td><td>16.05</td></tr>
+<tr><td>2025年預估</td><td>220.01 - 220.02</td><td>28.34 - 28.78</td></tr>
+</tbody></table></div>
+
+<strong>備註：</strong> 2025年營收預估將創歷史新高，年增逾51.55%， FactSet預估EPS達新台幣28.78元。
+
+<h3>法說會重點 (整理自 2025/08/07 法說會及 2026/03/05 最新報導)</h3>
+
+<ul><li><strong>AI產品線與訂單能見度：</strong></li>
+</ul>    *   2025年AI相關營收佔比已突破總營收一半，預計2026年可望進一步攀升至<strong>60%至70%</strong>。
+<p>*   AI伺服器需求持續暢旺，主要客戶涵蓋美系與中系Tier-1 CSP。</p>
+<p>*   NVIDIA HGX B200/B300伺服器已於<strong>2025年第四季</strong>完成產品轉換。</p>
+<p>*   多項ASIC伺服器專案與降噪櫃專案於<strong>2026年第一季</strong>持續出貨。</p>
+<ul><li><strong>機櫃業務進展：</strong></li>
+</ul>    *   2025年機櫃全年營收比重達高個位數百分比，2026年預計突破雙位數百分比至約<strong>14%</strong>。
+<p>*   目前有1至2個客製化機櫃量產專案，並持續推出次世代降噪櫃、電源櫃及ORW機櫃等高附加價值產品。</p>
+<ul><li><strong>產能佈局與資本支出：</strong></li>
+</ul>    *   <strong>2025年資本支出：</strong> 預算為新台幣<strong>15億至20億元</strong>，主要用於AI及通用型伺服器業務發展。
+<p>*   <strong>全球新廠時程：</strong></p>
+<p>*   <strong>美國NCT廠：</strong> 已於<strong>2025年底</strong>小量試產，加州小型NCT打樣廠預計<strong>2026年第二季</strong>啟用。</p>
+<p>*   <strong>美國德州廠：</strong> 預計<strong>2025年底</strong>敲定廠址、<strong>2026年</strong>動工，最快<strong>2026年底至2027年初</strong>加入量產，月產能可達<strong>8萬至10萬台</strong>。累計美國投資金額達新台幣<strong>20億元</strong>。</p>
+<p>*   <strong>馬來西亞廠：</strong> 預計<strong>2026年5月</strong>試營運，<strong>2026年下半年</strong>正式投產，月產能同樣規劃<strong>8萬至10萬台</strong>。</p>
+<ul><li><strong>管理層對未來展望：</strong></li>
+</ul>    *   <strong>2025年下半年：</strong> 營運將「穩健續升」，優於上半年，預期2025年營運將創下歷史新高。
+<p>*   <strong>2026年：</strong> 營運將呈現「先蹲後跳」態勢，上半年調整庫存與新產品小量出貨，下半年產能與產出逐步放大，預計全年營運實現<strong>雙位數增長</strong>。</p>
+<p>*   <strong>2026年第一季：</strong> 法人預估營收約新台幣<strong>65.5億元</strong>，毛利率約<strong>29.6%</strong>，呈現「淡季不淡」。</p>
+
+<h3>券商觀點</h3>
+
+<h4>目標價</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱</th><th>目標價 (新台幣)</th><th>評等</th><th>日期</th></tr></thead><tbody>
+<tr><td>美系外資</td><td>1,250</td><td>納入追蹤</td><td>2026年02月25日</td></tr>
+<tr><td>CMoney 彙整報告</td><td>1,205 - 1,250</td><td>N/A</td><td>2026年02月24日</td></tr>
+<tr><td>FactSet (中位數)</td><td>1,200</td><td>N/A</td><td>2026年02月23日</td></tr>
+<tr><td>大和資本</td><td>1,200</td><td>買進</td><td>2025年12月25日</td></tr>
+<tr><td>美系外資 (摩根士丹利)</td><td>1,130</td><td>加碼 (上調)</td><td>2025年11月05日</td></tr>
+</tbody></table></div>
+
+<h4>2025-2026年 EPS 預估</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名稱/機構</th><th>2025年 EPS 預估 (元)</th><th>2026年 EPS 預估 (元)</th></tr></thead><tbody>
+<tr><td>FactSet (中位數)</td><td>28.78 (上修自 28.55)</td><td>43.26</td></tr>
+<tr><td>CMoney 彙整報告</td><td>28.34 - 28.48</td><td>41.73 - 43.74</td></tr>
+<tr><td>美林</td><td>28.34</td><td>43.74</td></tr>
+<tr><td>法人 (2026/02/06 報導)</td><td>N/A</td><td>有望挑戰近 50</td></tr>
+<tr><td>美系外資 (2025/11/05 報導)</td><td>N/A</td><td>37.27</td></tr>
+</tbody></table></div>
+
+<h4>重大調升/調降評等</h4>
+
+<ul><li><strong>2026年02月25日：</strong> 美系外資首度將勤誠納入追蹤，給予目標價1,250元。</li>
+<li><strong>2025年11月05日：</strong> 摩根士丹利將目標價由730元上調至1,130元，維持「加碼」評等。</li>
+</ul>
+<h3>財報深度分析</h3>
+
+<h4>利潤率趨勢</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率</th><th>營業利益率</th><th>稅後淨利率</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>31.33%</td><td>22.83%</td><td>18.18%</td></tr>
+<tr><td>2025年第二季</td><td>29.92%</td><td>22.86%</td><td>15.52%</td></tr>
+<tr><td>2025年第一季</td><td>28.87%</td><td>21.31%</td><td>16.31%</td></tr>
+<tr><td>2024年第四季</td><td>24.74%</td><td>15.15%</td><td>12.33%</td></tr>
+<tr><td>2024年第三季</td><td>28.84%</td><td>20.92%</td><td>15.50%</td></tr>
+<tr><td>2024年第二季</td><td>25.31%</td><td>16.17%</td><td>12.67%</td></tr>
+<tr><td>2024年第一季</td><td>24.83%</td><td>16.00%</td><td>13.56%</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>利潤率變化原因：</strong> 2025年以來，勤誠的毛利率、營業利益率和稅後淨利率呈現逐季攀升趨勢，其中2025年第三季毛利率達31.33%，創下2014年第三季以來最佳，主要受惠於AI伺服器高階產品比重提升，帶動產品平均售價（ASP）與營收規模增長，優化產品組合。匯率變動亦為影響因素。</li>
+</ul>
+<h4>存貨分析</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>存貨週轉天數</th><th>應收帳款週轉天數</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>73.3 天</td><td>81.76 天</td></tr>
+<tr><td>2025年第二季</td><td>63.19 天</td><td>71.64 天</td></tr>
+<tr><td>2025年第一季</td><td>73.99 天</td><td>82.87 天</td></tr>
+<tr><td>2024年第四季</td><td>61.08 天</td><td>84.69 天</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>存貨與應收帳款趨勢：</strong> 2024年第四季至2025年第二季存貨及應收帳款週轉天數均有所下降，顯示營運效率提升。儘管2025年第三季略有回升，但仍屬健康範圍。在AI需求強勁下，適度備料以因應訂單增加。然而，2025年第四季營收爆發可能導致應收帳款餘額創歷史新高，對現金流管理構成挑戰。</li>
+</ul>
+<h4>資本支出</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>資本支出 (千元)</th><th>折舊 (千元)</th><th>攤銷 (千元)</th></tr></thead><tbody>
+<tr><td>2025年第三季</td><td>-265,221</td><td>96,840</td><td>3,346</td></tr>
+<tr><td>2025年第二季</td><td>-468,221</td><td>100,460</td><td>3,303</td></tr>
+<tr><td>2025年第一季</td><td>-77,203</td><td>79,303</td><td>3,281</td></tr>
+<tr><td>2024年第四季</td><td>-174,749</td><td>77,400</td><td>3,255</td></tr>
+</tbody></table></div>
+
+<ul><li><strong>未來資本支出計畫與預計新增產能：</strong></li>
+</ul>    *   <strong>2025年資本支出：</strong> 預計總投入新台幣15億至20億元，主要用於支持AI及通用型伺服器業務發展。
+<p>*   <strong>馬來西亞新廠：</strong> 預計<strong>2026年5月</strong>試量產，<strong>年中</strong>正式量產，月產能規劃<strong>8萬至10萬台</strong>。</p>
+<p>*   <strong>美國德州廠：</strong> 累計投資新台幣<strong>20億元</strong>，預計最快<strong>2026年底至2027年初</strong>加入量產，月產能可貢獻<strong>8萬至10萬台</strong>。</p>
+<p>*   <strong>美國加州NCT廠：</strong> 預計<strong>2026年第二季</strong>啟用，有望進一步切入水冷及高單價機櫃業務。</p>
+<ul><li>折舊攤銷金額伴隨產能擴張，未來可能呈現上升趨勢。</li>
+</ul>
+<h3>股權異動</h3>
+
+<ul><li><strong>董監事/大股東申報轉讓紀錄：</strong></li>
+</ul>    *   2025年9月：多位經理人以信託方式轉讓股票合計105張。
+<p>*   2024年12月：經理人陳亞男以信託方式轉讓60張股票。</p>
+<p>*   截至2026年3月4日，董監事及大股東持股比約為23.43%。</p>
+<ul><li><strong>庫藏股買回紀錄：</strong> 未發現2024年以後的庫藏股買回紀錄。</li>
+<li><strong>可轉換公司債 (CB)：</strong></li>
+</ul>    *   勤誠發行國內第一次無擔保轉換公司債 (82101 勤誠一)，發行總額新台幣10億元。
+<p>*   發行日2024年1月19日，到期日2027年1月19日。目前轉換價格為266.6元。</p>
+<p>*   2025年11月6日因可轉債轉換普通股，增資發行3,740,687股，實收資本額增至新台幣1,253,191,460元。</p>
+<ul><li><strong>現金增資或減資計畫：</strong> 近期主要為因可轉換公司債轉換而發行新股的增資。</li>
+<li><strong>股利政策：</strong></li>
+</ul>    *   2025年發放 (所屬年度2024年)：現金股利7.5元。
+<p>*   2024年發放 (所屬年度2023年)：現金股利5.0元。</p>
+<p>*   近年以發放現金股利為主。</p>
+
+<h3>產業分析</h3>
+
+<h4>市場規模與成長率</h4>
+
+<ul><li><strong>整體伺服器市場：</strong> Research Nester預計全球伺服器市場將從2025年的<strong>1,093.1億美元</strong>成長至2026年的<strong>1,178.7億美元</strong>。高盛預計整體伺服器總潛在市場（TAM）規模在2026年將達<strong>6,060億美元</strong>，年增<strong>40%</strong>。TrendForce預估2026年全球伺服器出貨量將年增<strong>12.8%</strong>，資策會（MIC）預估出貨量達<strong>1,500萬台</strong>。</li>
+<li><strong>AI伺服器市場：</strong> TrendForce預計2026年全球AI伺服器出貨量將年增逾<strong>28%</strong>。DIGITIMES預估高階AI伺服器出貨量2026年成長至<strong>130萬台</strong>。資策會MIC預估2026年AI伺服器出貨量衝上<strong>450萬台</strong>，佔整體伺服器市場的<strong>三成</strong>。摩根士丹利將2026年GB200/GB300機架伺服器出貨量上調至<strong>7萬至8萬櫃</strong>，年增逾<strong>1.56倍</strong>。</li>
+</ul>
+<h4>競爭格局</h4>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>項目</th><th>勤誠 (8210)</th><th>主要AI伺服器ODM (市場佔比為2025年GB200/300機架伺服器)</th><th>台灣其他機殼概念股 (2025Q3或近期毛利率參考)</th></tr></thead><tbody>
+<tr><td><strong>主要業務</strong></td><td>伺服器機殼與機櫃設計製造 (AI/雲端/通用)，提供機構件與整合方案</td><td>整機ODM製造，整合機殼、主板、散熱等</td><td>各自專精領域的機殼或機構件製造</td></tr>
+<tr><td><strong>核心技術</strong></td><td>AI伺服器機殼、NVIDIA GB/HGX、ASIC（Google TPU）平台、液冷與ORW機櫃整合設計</td><td>系統級整合、高效量產、全球供應鏈管理</td><td>不同程度的客製化與製程能力</td></tr>
+<tr><td><strong>主要客戶</strong></td><td>美系/中系Tier-1 CSP、ODM廠、系統整合商</td><td>各大雲端服務供應商 (CSP)、企業客戶</td><td>各類PC/伺服器製造商</td></tr>
+<tr><td><strong>產能佈局</strong></td><td>台灣(嘉義、樹林、五股)、中國(昆山、東莞)、馬來西亞(2026H1試產)、美國(NCT 2025E試產/德州2026E動工)</td><td>中國、台灣、墨西哥、捷克、越南等地</td><td>主要集中在台灣、中國</td></tr>
+<tr><td><strong>毛利率</strong></td><td><strong>31.33%</strong> (2025Q3)</td><td>N/A (ODM整體業務，非單純機殼，通常較低)</td><td>迎廣 (32%)、營邦 (26%)、晟銘電 (19%)</td></tr>
+<tr><td><strong>市場佔比</strong></td><td>N/A (作為機構件供應商，並非最終ODM出貨)</td><td>鴻海 (52%)、緯創 (21%)、廣達 (19%) (此為ODM廠的GB200/300機架出貨佔比，勤誠為其上游供應商之一)</td><td>N/A</td></tr>
+</tbody></table></div>
+
+<h4>產業趨勢</h4>
+
+<li><strong>AI伺服器高密度、高功耗與液冷散熱方案：</strong></li>
+<p>*   <strong>影響：</strong> AI伺服器功耗密度提升，促使產業轉向液冷散熱。勤誠在高階機櫃產品中積極導入液冷設計，切入更多散熱相關機構件，直接受益於此趨勢。</p>
+<li><strong>ASIC自研晶片與全機架設計普及：</strong></li>
+<p>*   <strong>影響：</strong> CSP業者擴展ASIC方案和全機架設計，要求伺服器機構件高度客製化與緊密整合。勤誠具備JDM能力，並已切入Google TPU等ASIC專案，有利於鞏固其在高階市場的地位。</p>
+<li><strong>通用型伺服器與邊緣AI的復甦：</strong></li>
+<p>*   <strong>影響：</strong> AI推論服務帶動通用型伺服器進入替換週期，以及邊緣AI硬體滲透率提升，擴大了伺服器機殼廠商的整體市場機會，涵蓋多元需求。</p>
+
+<h3>近期催化劑</h3>
+
+<ul><li><strong>利多事件：</strong></li>
+</ul>    1.  <strong>AI伺服器需求持續爆發：</strong> 2026年1月營收年增137.01%創歷史次高，且預期AI相關營收佔比將從2025年超過50%進一步提升至2026年的60-70%。
+<p>2.  <strong>高附加價值產品放量：</strong> 機櫃業務比重預計從2025年的9-10%提升至2026年的14-15%，次世代降噪櫃、電源櫃及ORW機櫃專案持續出貨。</p>
+<p>3.  <strong>全球產能陸續到位：</strong> 馬來西亞新廠預計2026年5月試產，美國德州廠最快2026年底量產，大幅提升全球供應能力。</p>
+<p>4.  <strong>切入NVIDIA最新平台供應鏈：</strong> 已完成HGX B200/B300產品轉換，並切入GB系列供應鏈，法人預估2026年HGX伺服器出貨量將年增40%達9-10萬台。</p>
+<p>5.  <strong>法人積極追蹤與目標價上修：</strong> 美系外資首次納入追蹤並給予1,250元目標價，顯示市場對其AI潛力高度認可，多數券商目標價區間落在1,200-1,250元。</p>
+<ul><li><strong>利空事件：</strong></li>
+</ul>    1.  <strong>短期法人調節壓力：</strong> 2026年2月下旬出現外資與投信較明顯的賣超，反映股價高檔的獲利了結賣壓。
+<p>2.  <strong>營運資金挑戰：</strong> 自由現金流量有下降趨勢，加上應收帳款與存貨的快速增長，可能帶來短期現金流管理壓力。</p>
+<p>3.  <strong>地緣政治與貿易風險：</strong> 全球政經情勢與供應鏈重組的不確定性，仍可能對全球佈局的營運帶來挑戰。</p>
+
+<h3>⭐ 成長動能時間軸</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間點</th><th>成長動能類別</th><th>具體事件與量化目標</th></tr></thead><tbody>
+<tr><td><strong>2024年10月30日</strong></td><td><strong>擴廠計畫</strong></td><td>馬來西亞新廠購地簽約（約新台幣3.57億元），預計2026年上半年試量產。</td></tr>
+<tr><td><strong>2025年11月下旬</strong></td><td><strong>擴廠計畫</strong></td><td>美國德州廠預計敲定廠址，2026年動工。馬來西亞廠預計2026年上半年試產。</td></tr>
+<tr><td><strong>2025年底</strong></td><td><strong>擴廠與產能</strong></td><td>美國NCT廠已小量試產。台灣五股NCT廠搬遷完成，大幅提升NCT產能。</td></tr>
+<tr><td><strong>2025年Q4</strong></td><td><strong>新產品與技術</strong></td><td>NVIDIA HGX B200/B300伺服器完成產品轉換，開始小量出貨。</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td><strong>新產品與技術</strong></td><td>多項ASIC伺服器專案與降噪櫃專案持續出貨。</td></tr>
+<tr><td><strong>2026年Q1</strong></td><td><strong>市場與客戶需求</strong></td><td>法人估算勤誠第一季營收約新台幣65.5億元，呈「淡季不淡」趨勢，主要由AI伺服器驅動。</td></tr>
+<tr><td><strong>2026年Q2</strong></td><td><strong>擴廠與產能</strong></td><td>美國加州NCT廠預計啟用，有望進一步切入水冷及高單價機櫃業務。</td></tr>
+<tr><td><strong>2026年5月</strong></td><td><strong>擴廠與產能</strong></td><td>馬來西亞新廠預計試量產。</td></tr>
+<tr><td><strong>2026年年中/H2</strong></td><td><strong>擴廠與產能</strong></td><td>馬來西亞新廠預計正式量產，月產能規劃8萬至10萬台。</td></tr>
+<tr><td><strong>2026年</strong></td><td><strong>市場與客戶需求</strong></td><td>AI相關產品營收佔比預計攀升至60-70%。機櫃相關營收佔比預計提升至14-15%。HGX伺服器出貨量預計達9-10萬台，年增40%。</td></tr>
+<tr><td><strong>2026年</strong></td><td><strong>資本支出增加</strong></td><td>預計資本支出預算為新台幣15-20億元，支持AI及通用型伺服器業務發展。累計美國投資達20億元。</td></tr>
+<tr><td><strong>2026年底-2027初</strong></td><td><strong>擴廠與產能</strong></td><td>美國德州廠預計加入量產行列，月產能可貢獻8萬至10萬台。</td></tr>
+</tbody></table></div>
+
+<h3>2026 展望</h3>
+
+<h4>成長動能</h4>
+
+<ul><li><strong>AI伺服器需求爆發：</strong> 受惠於CSP業者持續高額AI資本支出，NVIDIA GB系列、HGX平台及ASIC伺服器專案出貨持續放量，預計AI相關營收佔比將從2025年的超過50%進一步提升至2026年的60%至70%。法人預估2026年HGX伺服器出貨量將達9-10萬台，年增40%。</li>
+<li><strong>高附加價值機櫃業務擴張：</strong> 新切入的機櫃業務，包括次世代降噪櫃、電源櫃及ORW機櫃，預計2026年營收比重將提升至14%至15%，成為公司第二大產品線，並有望優化整體毛利率。</li>
+<li><strong>全球化產能效益顯現：</strong> 馬來西亞新廠預計於2026年5月試量產，年中正式量產；美國加州NCT廠預計2026年第二季啟用；美國德州廠最快2026年底加入量產。新產能將大幅提升勤誠的供應能力，滿足在地化與高成長需求。</li>
+<li><strong>通用型伺服器復甦：</strong> 除AI伺服器外，AI推論服務的發展亦將帶動通用型伺服器進入替換與擴張週期，為勤誠帶來更廣泛的市場機會。</li>
+</ul>
+<h4>風險因子</h4>
+
+<ul><li><strong>法人調節與技術面修正：</strong> 儘管基本面強勁，短期內勤誠仍面臨法人高檔獲利了結與技術性修正壓力，可能導致股價波動。</li>
+<li><strong>營運資金壓力：</strong> 應收帳款與存貨的快速增長，以及自由現金流量的下降趨勢，可能對公司的現金流管理構成挑戰。</li>
+<li><strong>產業競爭加劇與技術迭代：</strong> 伺服器機殼市場競爭激烈，且AI技術演進迅速，若未能持續領先或及時跟進最新技術標準，可能面臨市場份額被侵蝕的風險。</li>
+<li><strong>客戶集中度風險：</strong> 雖然與Tier-1 CSP合作緊密，但較高的客戶集中度可能使公司營收易受單一客戶資本支出或策略調整影響。</li>
+<li><strong>地緣政治與貿易不確定性：</strong> 全球政經局勢動盪、供應鏈重組、關稅戰等因素仍可能對勤誠的全球布局和營運帶來潛在挑戰。</li>
+</ul>
+<h3>投資結論</h3>
+
+<p>綜合勤誠在AI伺服器領域的領先地位、積極的全球產能佈局以及產品組合優化的趨勢，我們認為其成長動能強勁，展望樂觀。</p>
+
+<li><strong>AI黃金時代核心受惠者：</strong> 勤誠作為NVIDIA GB/HGX及ASIC伺服器供應鏈的關鍵成員，將直接且深度受惠於全球AI資料中心資本支出的爆發性成長。AI相關營收比重預計2026年將達60-70%，為獲利成長提供堅實基礎。</li>
+<li><strong>新產能與高附加價值產品雙軌驅動：</strong> 馬來西亞與美國新廠將於2026年陸續量產，大幅提升供應彈性。同時，機櫃業務與液冷相關高附加價值產品的滲透率提高，將有效提升產品ASP及整體毛利率，優化獲利結構。</li>
+<li><strong>財務表現強勁成長：</strong> 儘管存在短期波動與營運資金挑戰，但公司2025年營收與EPS均創新高，券商普遍預估2026年EPS將介於新台幣41.73至43.74元之間，甚至有望挑戰近50元，顯示其獲利能力具備爆發性成長潛力。</li>
+<li><strong>長期策略佈局完整：</strong> 勤誠在技術研發、全球在地化生產、以及與Tier-1客戶的深度合作上，展現了清晰且具前瞻性的長期發展策略，有助於其在快速變化的產業環境中保持競爭優勢。</li>
+
+<p>基於上述分析，並參考各券商對2026年獲利的預估，給予勤誠未來12個月的<strong>目標價區間為新台幣1,280元至1,350元</strong>。</p>
+
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 00:30</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="8210_勤誠_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="8210_勤誠_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="8210_勤誠_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>

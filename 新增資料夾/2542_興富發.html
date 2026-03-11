@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2542 興富發 研究報告</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<a href="index.html" class="back-link">← 返回清單</a>
+<div class="report-content">
+<h1>2542 興富發 深度研究報告</h1>
+
+<strong>今天日期：2026年03月06日</strong>
+
+<h2>一句話摘要</h2>
+
+<p>興富發（2542）受惠於台灣房市剛性需求回溫及新青安貸款政策支撐，正進入高達 <strong>4,957.52 億元</strong>在手案量的建案完工入帳高峰期，預計 <strong>2026 年至 2028 年每年將有逾 700 億元</strong>的完工量。公司策略性佈局商辦與飯店事業，輔以「只租不售」創造穩定現金流，營運展望從谷底翻揚，毛利率預期回穩至 <strong>26%</strong> 以上，成長動能強勁。</p>
+
+
+<div style="margin: 20px 0; padding: 16px; background: #fff; border: 1px solid #eaeaea; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <h3 style="margin-top:0; margin-bottom: 12px; font-size: 1.1rem; color: #111827;">2542 60-Day K-Line & OBV</h3>
+    <div id="kline-chart-2542" style="width: 100%; height: 350px;"></div>
+    <div id="obv-chart-2542" style="width: 100%; height: 150px; margin-top: 10px;"></div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (typeof LightweightCharts === 'undefined') return;
+    var chartContainer = document.getElementById('kline-chart-2542');
+    var obvContainer = document.getElementById('obv-chart-2542');
+    
+    var chart = LightweightCharts.createChart(chartContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+        rightPriceScale: { scaleMargins: { top: 0.1, bottom: 0.25 } }
+    });
+    
+    var candleSeries = chart.addCandlestickSeries({
+        upColor: '#ef5350', downColor: '#26a69a',
+        borderUpColor: '#ef5350', borderDownColor: '#26a69a',
+        wickUpColor: '#ef5350', wickDownColor: '#26a69a'
+    });
+    candleSeries.setData([{"time": "2025-12-04", "open": 37.9, "high": 38.4, "low": 37.9, "close": 38.1}, {"time": "2025-12-05", "open": 38.05, "high": 38.15, "low": 37.8, "close": 38.0}, {"time": "2025-12-08", "open": 38.1, "high": 38.35, "low": 37.95, "close": 37.95}, {"time": "2025-12-09", "open": 38.1, "high": 38.35, "low": 37.95, "close": 37.95}, {"time": "2025-12-10", "open": 37.65, "high": 38.1, "low": 37.65, "close": 37.65}, {"time": "2025-12-11", "open": 37.7, "high": 38.0, "low": 37.35, "close": 37.4}, {"time": "2025-12-12", "open": 37.55, "high": 37.75, "low": 37.35, "close": 37.35}, {"time": "2025-12-15", "open": 37.35, "high": 37.75, "low": 37.1, "close": 37.1}, {"time": "2025-12-16", "open": 36.95, "high": 37.5, "low": 36.9, "close": 37.35}, {"time": "2025-12-17", "open": 37.5, "high": 39.0, "low": 37.5, "close": 38.3}, {"time": "2025-12-18", "open": 38.4, "high": 39.45, "low": 38.2, "close": 39.15}, {"time": "2025-12-19", "open": 39.15, "high": 39.95, "low": 38.85, "close": 39.65}, {"time": "2025-12-22", "open": 39.85, "high": 39.85, "low": 39.0, "close": 39.1}, {"time": "2025-12-23", "open": 39.15, "high": 39.65, "low": 39.0, "close": 39.35}, {"time": "2025-12-24", "open": 39.5, "high": 40.3, "low": 39.5, "close": 39.95}, {"time": "2025-12-26", "open": 40.2, "high": 40.2, "low": 39.7, "close": 40.05}, {"time": "2025-12-29", "open": 40.05, "high": 40.2, "low": 39.85, "close": 40.2}, {"time": "2025-12-30", "open": 40.0, "high": 40.25, "low": 39.8, "close": 40.2}, {"time": "2025-12-31", "open": 40.2, "high": 40.25, "low": 39.85, "close": 40.2}, {"time": "2026-01-02", "open": 40.2, "high": 40.2, "low": 39.15, "close": 39.25}, {"time": "2026-01-05", "open": 39.2, "high": 39.3, "low": 38.9, "close": 38.95}, {"time": "2026-01-06", "open": 38.85, "high": 39.3, "low": 38.85, "close": 38.95}, {"time": "2026-01-07", "open": 38.95, "high": 39.25, "low": 38.7, "close": 38.95}, {"time": "2026-01-08", "open": 38.95, "high": 39.45, "low": 38.95, "close": 39.35}, {"time": "2026-01-09", "open": 39.5, "high": 40.2, "low": 39.5, "close": 39.9}, {"time": "2026-01-12", "open": 40.25, "high": 40.35, "low": 39.65, "close": 39.7}, {"time": "2026-01-13", "open": 39.8, "high": 39.95, "low": 39.2, "close": 39.4}, {"time": "2026-01-14", "open": 39.6, "high": 40.05, "low": 39.5, "close": 39.65}, {"time": "2026-01-15", "open": 39.9, "high": 40.0, "low": 39.45, "close": 39.45}, {"time": "2026-01-16", "open": 39.5, "high": 39.6, "low": 38.65, "close": 38.7}, {"time": "2026-01-19", "open": 38.5, "high": 38.85, "low": 38.2, "close": 38.4}, {"time": "2026-01-20", "open": 38.35, "high": 38.6, "low": 38.05, "close": 38.05}, {"time": "2026-01-21", "open": 38.05, "high": 38.2, "low": 37.85, "close": 37.85}, {"time": "2026-01-22", "open": 38.0, "high": 38.3, "low": 37.95, "close": 38.3}, {"time": "2026-01-23", "open": 38.4, "high": 38.6, "low": 38.0, "close": 38.05}, {"time": "2026-01-26", "open": 38.1, "high": 38.2, "low": 37.75, "close": 37.95}, {"time": "2026-01-27", "open": 38.0, "high": 38.25, "low": 37.65, "close": 37.7}, {"time": "2026-01-28", "open": 37.7, "high": 37.75, "low": 37.35, "close": 37.5}, {"time": "2026-01-29", "open": 37.5, "high": 37.75, "low": 37.2, "close": 37.65}, {"time": "2026-01-30", "open": 37.7, "high": 37.75, "low": 37.2, "close": 37.2}, {"time": "2026-02-02", "open": 37.15, "high": 37.4, "low": 36.95, "close": 37.25}, {"time": "2026-02-03", "open": 37.35, "high": 37.6, "low": 37.35, "close": 37.45}, {"time": "2026-02-04", "open": 37.45, "high": 38.1, "low": 37.45, "close": 37.95}, {"time": "2026-02-05", "open": 37.9, "high": 38.2, "low": 37.6, "close": 38.1}, {"time": "2026-02-06", "open": 38.0, "high": 38.1, "low": 37.55, "close": 37.75}, {"time": "2026-02-09", "open": 38.05, "high": 38.1, "low": 37.65, "close": 37.9}, {"time": "2026-02-10", "open": 38.0, "high": 38.3, "low": 37.75, "close": 38.3}, {"time": "2026-02-11", "open": 38.4, "high": 39.0, "low": 38.3, "close": 38.85}, {"time": "2026-02-23", "open": 39.25, "high": 39.35, "low": 38.35, "close": 38.4}, {"time": "2026-02-24", "open": 38.35, "high": 38.5, "low": 37.75, "close": 37.8}, {"time": "2026-02-25", "open": 37.8, "high": 37.9, "low": 37.45, "close": 37.6}, {"time": "2026-02-26", "open": 37.6, "high": 37.85, "low": 37.45, "close": 37.85}, {"time": "2026-03-02", "open": 37.05, "high": 37.05, "low": 36.65, "close": 36.85}, {"time": "2026-03-03", "open": 37.35, "high": 37.5, "low": 37.05, "close": 37.2}, {"time": "2026-03-04", "open": 37.05, "high": 37.05, "low": 36.65, "close": 36.85}, {"time": "2026-03-05", "open": 37.0, "high": 37.1, "low": 36.55, "close": 36.7}, {"time": "2026-03-06", "open": 36.6, "high": 36.65, "low": 36.25, "close": 36.3}, {"time": "2026-03-09", "open": 35.45, "high": 35.7, "low": 34.9, "close": 35.65}, {"time": "2026-03-10", "open": 36.25, "high": 36.35, "low": 35.8, "close": 36.0}, {"time": "2026-03-11", "open": 36.3, "high": 37.15, "low": 36.3, "close": 37.0}]);
+    
+    var volumeSeries = chart.addHistogramSeries({
+        color: '#26a69a',
+        priceFormat: { type: 'volume' },
+        priceScaleId: '', 
+    });
+    chart.priceScale('').applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
+    volumeSeries.setData([{"time": "2025-12-04", "value": 2706.0, "color": "#ef5350"}, {"time": "2025-12-05", "value": 1796.0, "color": "#26a69a"}, {"time": "2025-12-08", "value": 2118.0, "color": "#26a69a"}, {"time": "2025-12-09", "value": 2118.0, "color": "#26a69a"}, {"time": "2025-12-10", "value": 2536.0, "color": "#ef5350"}, {"time": "2025-12-11", "value": 5783.0, "color": "#26a69a"}, {"time": "2025-12-12", "value": 4412.0, "color": "#26a69a"}, {"time": "2025-12-15", "value": 4421.0, "color": "#26a69a"}, {"time": "2025-12-16", "value": 4828.0, "color": "#ef5350"}, {"time": "2025-12-17", "value": 11979.0, "color": "#ef5350"}, {"time": "2025-12-18", "value": 12282.0, "color": "#ef5350"}, {"time": "2025-12-19", "value": 14282.0, "color": "#ef5350"}, {"time": "2025-12-22", "value": 6979.0, "color": "#26a69a"}, {"time": "2025-12-23", "value": 3063.0, "color": "#ef5350"}, {"time": "2025-12-24", "value": 5342.0, "color": "#ef5350"}, {"time": "2025-12-26", "value": 3767.0, "color": "#26a69a"}, {"time": "2025-12-29", "value": 4172.0, "color": "#ef5350"}, {"time": "2025-12-30", "value": 2873.0, "color": "#ef5350"}, {"time": "2025-12-31", "value": 2916.0, "color": "#ef5350"}, {"time": "2026-01-02", "value": 4621.0, "color": "#26a69a"}, {"time": "2026-01-05", "value": 4328.0, "color": "#26a69a"}, {"time": "2026-01-06", "value": 2808.0, "color": "#ef5350"}, {"time": "2026-01-07", "value": 2959.0, "color": "#ef5350"}, {"time": "2026-01-08", "value": 3656.0, "color": "#ef5350"}, {"time": "2026-01-09", "value": 4476.0, "color": "#ef5350"}, {"time": "2026-01-12", "value": 5160.0, "color": "#26a69a"}, {"time": "2026-01-13", "value": 4114.0, "color": "#26a69a"}, {"time": "2026-01-14", "value": 3994.0, "color": "#ef5350"}, {"time": "2026-01-15", "value": 3462.0, "color": "#26a69a"}, {"time": "2026-01-16", "value": 8381.0, "color": "#26a69a"}, {"time": "2026-01-19", "value": 6065.0, "color": "#26a69a"}, {"time": "2026-01-20", "value": 4798.0, "color": "#26a69a"}, {"time": "2026-01-21", "value": 5374.0, "color": "#26a69a"}, {"time": "2026-01-22", "value": 3589.0, "color": "#ef5350"}, {"time": "2026-01-23", "value": 3273.0, "color": "#26a69a"}, {"time": "2026-01-26", "value": 3912.0, "color": "#26a69a"}, {"time": "2026-01-27", "value": 4587.0, "color": "#26a69a"}, {"time": "2026-01-28", "value": 5145.0, "color": "#26a69a"}, {"time": "2026-01-29", "value": 3086.0, "color": "#ef5350"}, {"time": "2026-01-30", "value": 5424.0, "color": "#26a69a"}, {"time": "2026-02-02", "value": 3143.0, "color": "#ef5350"}, {"time": "2026-02-03", "value": 1707.0, "color": "#ef5350"}, {"time": "2026-02-04", "value": 2110.0, "color": "#ef5350"}, {"time": "2026-02-05", "value": 2645.0, "color": "#ef5350"}, {"time": "2026-02-06", "value": 2031.0, "color": "#26a69a"}, {"time": "2026-02-09", "value": 2305.0, "color": "#26a69a"}, {"time": "2026-02-10", "value": 3742.0, "color": "#ef5350"}, {"time": "2026-02-11", "value": 6595.0, "color": "#ef5350"}, {"time": "2026-02-23", "value": 4475.0, "color": "#26a69a"}, {"time": "2026-02-24", "value": 5883.0, "color": "#26a69a"}, {"time": "2026-02-25", "value": 5014.0, "color": "#26a69a"}, {"time": "2026-02-26", "value": 4867.0, "color": "#ef5350"}, {"time": "2026-03-02", "value": 6973.0, "color": "#26a69a"}, {"time": "2026-03-03", "value": 4078.0, "color": "#26a69a"}, {"time": "2026-03-04", "value": 6973.0, "color": "#26a69a"}, {"time": "2026-03-05", "value": 3969.0, "color": "#26a69a"}, {"time": "2026-03-06", "value": 5372.0, "color": "#26a69a"}, {"time": "2026-03-09", "value": 6585.0, "color": "#ef5350"}, {"time": "2026-03-10", "value": 1926.0, "color": "#26a69a"}, {"time": "2026-03-11", "value": 3042.0, "color": "#ef5350"}]);
+    
+    var ma5Series = chart.addLineSeries({ color: '#2962FF', lineWidth: 1, title: 'MA5', crosshairMarkerVisible: false });
+    ma5Series.setData([{"time": "2025-12-10", "value": 37.93}, {"time": "2025-12-11", "value": 37.79}, {"time": "2025-12-12", "value": 37.660000000000004}, {"time": "2025-12-15", "value": 37.489999999999995}, {"time": "2025-12-16", "value": 37.37}, {"time": "2025-12-17", "value": 37.5}, {"time": "2025-12-18", "value": 37.85}, {"time": "2025-12-19", "value": 38.31}, {"time": "2025-12-22", "value": 38.71}, {"time": "2025-12-23", "value": 39.11}, {"time": "2025-12-24", "value": 39.44}, {"time": "2025-12-26", "value": 39.62}, {"time": "2025-12-29", "value": 39.730000000000004}, {"time": "2025-12-30", "value": 39.95}, {"time": "2025-12-31", "value": 40.120000000000005}, {"time": "2026-01-02", "value": 39.980000000000004}, {"time": "2026-01-05", "value": 39.760000000000005}, {"time": "2026-01-06", "value": 39.510000000000005}, {"time": "2026-01-07", "value": 39.260000000000005}, {"time": "2026-01-08", "value": 39.09}, {"time": "2026-01-09", "value": 39.220000000000006}, {"time": "2026-01-12", "value": 39.370000000000005}, {"time": "2026-01-13", "value": 39.46}, {"time": "2026-01-14", "value": 39.6}, {"time": "2026-01-15", "value": 39.62}, {"time": "2026-01-16", "value": 39.38}, {"time": "2026-01-19", "value": 39.12}, {"time": "2026-01-20", "value": 38.85}, {"time": "2026-01-21", "value": 38.489999999999995}, {"time": "2026-01-22", "value": 38.260000000000005}, {"time": "2026-01-23", "value": 38.129999999999995}, {"time": "2026-01-26", "value": 38.04}, {"time": "2026-01-27", "value": 37.97}, {"time": "2026-01-28", "value": 37.9}, {"time": "2026-01-29", "value": 37.769999999999996}, {"time": "2026-01-30", "value": 37.6}, {"time": "2026-02-02", "value": 37.46}, {"time": "2026-02-03", "value": 37.410000000000004}, {"time": "2026-02-04", "value": 37.5}, {"time": "2026-02-05", "value": 37.59}, {"time": "2026-02-06", "value": 37.7}, {"time": "2026-02-09", "value": 37.83}, {"time": "2026-02-10", "value": 38.0}, {"time": "2026-02-11", "value": 38.18}, {"time": "2026-02-23", "value": 38.239999999999995}, {"time": "2026-02-24", "value": 38.25}, {"time": "2026-02-25", "value": 38.19}, {"time": "2026-02-26", "value": 38.1}, {"time": "2026-03-02", "value": 37.7}, {"time": "2026-03-03", "value": 37.46}, {"time": "2026-03-04", "value": 37.27}, {"time": "2026-03-05", "value": 37.09}, {"time": "2026-03-06", "value": 36.78}, {"time": "2026-03-09", "value": 36.54}, {"time": "2026-03-10", "value": 36.3}, {"time": "2026-03-11", "value": 36.33}]);
+    var ma10Series = chart.addLineSeries({ color: '#FF6D00', lineWidth: 1, title: 'MA10', crosshairMarkerVisible: false });
+    ma10Series.setData([{"time": "2025-12-17", "value": 37.714999999999996}, {"time": "2025-12-18", "value": 37.82}, {"time": "2025-12-19", "value": 37.985}, {"time": "2025-12-22", "value": 38.1}, {"time": "2025-12-23", "value": 38.239999999999995}, {"time": "2025-12-24", "value": 38.47}, {"time": "2025-12-26", "value": 38.735}, {"time": "2025-12-29", "value": 39.019999999999996}, {"time": "2025-12-30", "value": 39.33}, {"time": "2025-12-31", "value": 39.614999999999995}, {"time": "2026-01-02", "value": 39.71}, {"time": "2026-01-05", "value": 39.690000000000005}, {"time": "2026-01-06", "value": 39.620000000000005}, {"time": "2026-01-07", "value": 39.605000000000004}, {"time": "2026-01-08", "value": 39.605000000000004}, {"time": "2026-01-09", "value": 39.6}, {"time": "2026-01-12", "value": 39.565000000000005}, {"time": "2026-01-13", "value": 39.485}, {"time": "2026-01-14", "value": 39.43}, {"time": "2026-01-15", "value": 39.355000000000004}, {"time": "2026-01-16", "value": 39.3}, {"time": "2026-01-19", "value": 39.245}, {"time": "2026-01-20", "value": 39.155}, {"time": "2026-01-21", "value": 39.045}, {"time": "2026-01-22", "value": 38.94}, {"time": "2026-01-23", "value": 38.755}, {"time": "2026-01-26", "value": 38.58}, {"time": "2026-01-27", "value": 38.410000000000004}, {"time": "2026-01-28", "value": 38.195}, {"time": "2026-01-29", "value": 38.015}, {"time": "2026-01-30", "value": 37.864999999999995}, {"time": "2026-02-02", "value": 37.75}, {"time": "2026-02-03", "value": 37.69}, {"time": "2026-02-04", "value": 37.7}, {"time": "2026-02-05", "value": 37.68}, {"time": "2026-02-06", "value": 37.65}, {"time": "2026-02-09", "value": 37.644999999999996}, {"time": "2026-02-10", "value": 37.705}, {"time": "2026-02-11", "value": 37.839999999999996}, {"time": "2026-02-23", "value": 37.915}, {"time": "2026-02-24", "value": 37.975}, {"time": "2026-02-25", "value": 38.010000000000005}, {"time": "2026-02-26", "value": 38.05}, {"time": "2026-03-02", "value": 37.94}, {"time": "2026-03-03", "value": 37.85}, {"time": "2026-03-04", "value": 37.760000000000005}, {"time": "2026-03-05", "value": 37.64}, {"time": "2026-03-06", "value": 37.44}, {"time": "2026-03-09", "value": 37.12}, {"time": "2026-03-10", "value": 36.88}, {"time": "2026-03-11", "value": 36.8}]);
+    var ma20Series = chart.addLineSeries({ color: '#6AA84F', lineWidth: 1, title: 'MA20', crosshairMarkerVisible: false });
+    ma20Series.setData([{"time": "2026-01-02", "value": 38.7125}, {"time": "2026-01-05", "value": 38.755}, {"time": "2026-01-06", "value": 38.8025}, {"time": "2026-01-07", "value": 38.852500000000006}, {"time": "2026-01-08", "value": 38.9225}, {"time": "2026-01-09", "value": 39.035000000000004}, {"time": "2026-01-12", "value": 39.15}, {"time": "2026-01-13", "value": 39.252500000000005}, {"time": "2026-01-14", "value": 39.38}, {"time": "2026-01-15", "value": 39.485}, {"time": "2026-01-16", "value": 39.505}, {"time": "2026-01-19", "value": 39.4675}, {"time": "2026-01-20", "value": 39.3875}, {"time": "2026-01-21", "value": 39.325}, {"time": "2026-01-22", "value": 39.2725}, {"time": "2026-01-23", "value": 39.177499999999995}, {"time": "2026-01-26", "value": 39.072500000000005}, {"time": "2026-01-27", "value": 38.947500000000005}, {"time": "2026-01-28", "value": 38.8125}, {"time": "2026-01-29", "value": 38.685}, {"time": "2026-01-30", "value": 38.582499999999996}, {"time": "2026-02-02", "value": 38.4975}, {"time": "2026-02-03", "value": 38.4225}, {"time": "2026-02-04", "value": 38.3725}, {"time": "2026-02-05", "value": 38.31}, {"time": "2026-02-06", "value": 38.2025}, {"time": "2026-02-09", "value": 38.1125}, {"time": "2026-02-10", "value": 38.0575}, {"time": "2026-02-11", "value": 38.0175}, {"time": "2026-02-23", "value": 37.964999999999996}, {"time": "2026-02-24", "value": 37.92}, {"time": "2026-02-25", "value": 37.88}, {"time": "2026-02-26", "value": 37.87}, {"time": "2026-03-02", "value": 37.82}, {"time": "2026-03-03", "value": 37.765}, {"time": "2026-03-04", "value": 37.705}, {"time": "2026-03-05", "value": 37.6425}, {"time": "2026-03-06", "value": 37.572500000000005}, {"time": "2026-03-09", "value": 37.480000000000004}, {"time": "2026-03-10", "value": 37.3975}, {"time": "2026-03-11", "value": 37.3875}]);
+
+    var obvChart = LightweightCharts.createChart(obvContainer, {
+        layout: { background: { type: 'solid', color: '#ffffff' }, textColor: '#333' },
+        grid: { vertLines: { color: '#f0f3fa' }, horzLines: { color: '#f0f3fa' } },
+        timeScale: { timeVisible: false, borderColor: '#D1D4DC' },
+        crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    });
+    var obvSeries = obvChart.addLineSeries({ color: '#9c27b0', lineWidth: 2, title: 'OBV' });
+    obvSeries.setData([{"time": "2025-12-04", "value": 0}, {"time": "2025-12-05", "value": -1796.0}, {"time": "2025-12-08", "value": -3914.0}, {"time": "2025-12-09", "value": -3914.0}, {"time": "2025-12-10", "value": -6450.0}, {"time": "2025-12-11", "value": -12233.0}, {"time": "2025-12-12", "value": -16645.0}, {"time": "2025-12-15", "value": -21066.0}, {"time": "2025-12-16", "value": -16238.0}, {"time": "2025-12-17", "value": -4259.0}, {"time": "2025-12-18", "value": 8023.0}, {"time": "2025-12-19", "value": 22305.0}, {"time": "2025-12-22", "value": 15326.0}, {"time": "2025-12-23", "value": 18389.0}, {"time": "2025-12-24", "value": 23731.0}, {"time": "2025-12-26", "value": 27498.0}, {"time": "2025-12-29", "value": 31670.0}, {"time": "2025-12-30", "value": 31670.0}, {"time": "2025-12-31", "value": 31670.0}, {"time": "2026-01-02", "value": 27049.0}, {"time": "2026-01-05", "value": 22721.0}, {"time": "2026-01-06", "value": 22721.0}, {"time": "2026-01-07", "value": 22721.0}, {"time": "2026-01-08", "value": 26377.0}, {"time": "2026-01-09", "value": 30853.0}, {"time": "2026-01-12", "value": 25693.0}, {"time": "2026-01-13", "value": 21579.0}, {"time": "2026-01-14", "value": 25573.0}, {"time": "2026-01-15", "value": 22111.0}, {"time": "2026-01-16", "value": 13730.0}, {"time": "2026-01-19", "value": 7665.0}, {"time": "2026-01-20", "value": 2867.0}, {"time": "2026-01-21", "value": -2507.0}, {"time": "2026-01-22", "value": 1082.0}, {"time": "2026-01-23", "value": -2191.0}, {"time": "2026-01-26", "value": -6103.0}, {"time": "2026-01-27", "value": -10690.0}, {"time": "2026-01-28", "value": -15835.0}, {"time": "2026-01-29", "value": -12749.0}, {"time": "2026-01-30", "value": -18173.0}, {"time": "2026-02-02", "value": -15030.0}, {"time": "2026-02-03", "value": -13323.0}, {"time": "2026-02-04", "value": -11213.0}, {"time": "2026-02-05", "value": -8568.0}, {"time": "2026-02-06", "value": -10599.0}, {"time": "2026-02-09", "value": -8294.0}, {"time": "2026-02-10", "value": -4552.0}, {"time": "2026-02-11", "value": 2043.0}, {"time": "2026-02-23", "value": -2432.0}, {"time": "2026-02-24", "value": -8315.0}, {"time": "2026-02-25", "value": -13329.0}, {"time": "2026-02-26", "value": -8462.0}, {"time": "2026-03-02", "value": -15435.0}, {"time": "2026-03-03", "value": -11357.0}, {"time": "2026-03-04", "value": -18330.0}, {"time": "2026-03-05", "value": -22299.0}, {"time": "2026-03-06", "value": -27671.0}, {"time": "2026-03-09", "value": -34256.0}, {"time": "2026-03-10", "value": -32330.0}, {"time": "2026-03-11", "value": -29288.0}]);
+    
+    chart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) obvChart.timeScale().setVisibleLogicalRange(range);
+    });
+    obvChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+        if (range) chart.timeScale().setVisibleLogicalRange(range);
+    });
+    
+    window.addEventListener('resize', function() {
+        chart.applyOptions({ width: chartContainer.clientWidth });
+        obvChart.applyOptions({ width: obvContainer.clientWidth });
+    });
+});
+</script>
+
+<h2>公司概覽</h2>
+
+<p>興富發建設主要從事委託營造廠商興建商業大樓及國民住宅的租賃與銷售業務，並提供室內裝潢設計施工、建材及裝潢材料買賣與進出口等服務。近年積極拓展飯店事業，與洲際（IHG）、萬豪（Marriott）、凱悅（Hyatt）等國際酒店集團合作開發，多元化收益來源。</p>
+
+<strong>核心產品線與未來佈局：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>產品類型</th><th>主要客群/策略</th><th>2026年推案重心</th></tr></thead><tbody>
+<tr><td>住宅</td><td>鎖定小坪數 2 房的剛性需求市場，受惠「新青年安心成家貸款」。</td><td>聚焦優質學區、交通便利、機能成熟區</td></tr>
+<tr><td>商辦</td><td>看好微型商辦與企業總部需求，部分大案改為「只租不售」。</td><td>5 案為商辦產品，總銷 1,155.9 億元</td></tr>
+<tr><td>飯店</td><td>與國際品牌合作，提升資產價值及多元收益。</td><td>多個國際品牌飯店將陸續開幕</td></tr>
+</tbody></table></div>
+
+<strong>在手案量地區分佈 (截至2025年12月2日法說會)：</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>地區</th><th>總銷案量 (億元)</th><th>佔比 (%)</th><th>備註</th></tr></thead><tbody>
+<tr><td>台中地區</td><td>1,810.30</td><td>37%</td><td>核心市場，部分商辦案如惠國88、90等 (總銷700億元) 改為只租不售</td></tr>
+<tr><td>台南及高雄</td><td>1,536.83</td><td>31%</td><td>近期營收貢獻主要地區 (2026年1月營收)</td></tr>
+<tr><td>大台北地區</td><td>1,041.08</td><td>21%</td><td></td></tr>
+<tr><td>桃竹地區</td><td>545.28</td><td>11%</td><td></td></tr>
+<tr><td><strong>總計</strong></td><td><strong>4,957.52</strong></td><td><strong>100%</strong></td><td></td></tr>
+</tbody></table></div>
+
+<h2>核心競爭優勢</h2>
+
+<li><strong>建案完工與交屋量豐沛</strong>：在手案量高達 <strong>4,957.52 億元</strong>，預計未來三年（2026-2028）每年完工量均超過 <strong>700 億元</strong>，至 2032 年每年皆備妥百億元以上完工量，提供穩定的營收基礎。</li>
+<li><strong>住宅與商辦雙軌佈局</strong>：靈活調整產品策略，住宅鎖定剛性需求，商辦則抓住企業總部及微型商辦市場機遇，2026年推案中 <strong>5 案為商辦</strong>，總銷金額達 <strong>1,155.9 億元</strong>。</li>
+<li><strong>飯店事業多角化發展</strong>：積極與洲際、萬豪、凱悅三大國際酒店集團合作，佈局飯店資產，有助於多元化收益來源，並提升集團資產價值。新北金山洲際酒店已開幕，台南安平雅樂軒酒店等將陸續加入營運。</li>
+<li><strong>靈活的資產活化策略</strong>：將台中七期部分總銷 <strong>700 億元</strong>商辦案改為「只租不售」，旨在創造長期穩定的現金流，並具備未來進行 REITs 資產證券化的潛力。</li>
+<li><strong>購地策略彈性調整</strong>：轉向積極布局都更、危老、合建案，以因應土地成本高漲並分散開發風險。</li>
+
+<h2>財務分析</h2>
+
+<h3>月營收趨勢 (2025年8月 - 2026年1月)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>月份</th><th>金額 (億元)</th><th>月增率 MoM (%)</th><th>年增率 YoY (%)</th><th>備註</th></tr></thead><tbody>
+<tr><td>2026年1月</td><td>47.61</td><td>-40.2</td><td>2480.63</td><td>創歷史同期新高，認列「福山案」、「VVS1」</td></tr>
+<tr><td>2025年12月</td><td>79.61</td><td>78.5</td><td>233.76</td><td>近 27 個月新高，認列「福山案」、「VVS1」</td></tr>
+<tr><td>2025年11月</td><td>44.61</td><td>11.3</td><td>43.32</td><td></td></tr>
+<tr><td>2025年10月</td><td>40.07</td><td>33.3</td><td>-36.46</td><td></td></tr>
+<tr><td>2025年9月</td><td>30.05</td><td>-21.4</td><td>-1.5</td><td></td></tr>
+<tr><td>2025年8月</td><td>38.22</td><td>135.8</td><td>8.44</td><td></td></tr>
+</tbody></table></div>
+
+<h3>季度數據 (2025年第三季)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>指標</th><th>2025年Q3</th><th>備註</th></tr></thead><tbody>
+<tr><td>季營收</td><td>新台幣 84.5 億元</td><td></td></tr>
+<tr><td>歸屬母公司稅後淨利</td><td>新台幣 15.2 億元</td><td>年減 15.03%</td></tr>
+<tr><td>EPS</td><td>新台幣 0.72 元</td><td>季增 196%，年減 14%</td></tr>
+<tr><td>毛利率</td><td>27.25% (2025Q3實際)</td><td>法說會指引後續將回歸 26%以上正常水準</td></tr>
+<tr><td>營業利益率</td><td>18.66% (2025Q3實際)</td><td></td></tr>
+<tr><td>稅後淨利率</td><td>16.63% (2025Q3實際)</td><td></td></tr>
+<tr><td>合約負債 (流動)</td><td>新台幣 233.51 億元</td><td>截至 2025年9月底，較去年底成長 20.9%</td></tr>
+<tr><td>已簽訂銷售合約總價</td><td>新台幣 2,132.97 億元</td><td>顯示大量營收已售出，待完工過戶認列</td></tr>
+</tbody></table></div>
+
+<h3>全年度營收與 EPS (2024實際 + 2025預估)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>年度</th><th>營收 (億元)</th><th>稅後純益 (億元)</th><th>EPS (元)</th><th>備註</th></tr></thead><tbody>
+<tr><td><strong>2024 (實際)</strong></td><td>369.28</td><td>62.87</td><td>3.13</td><td>營收年衰退 16.2%，稅後純益年增 157.96%</td></tr>
+<tr><td><strong>2025 (預估)</strong></td><td>308.01</td><td>52.43 (平均)</td><td>2.00-4.03</td><td>法人平均預估區間，統一證券預估 2.42 元</td></tr>
+</tbody></table></div>
+
+<h2>法說會重點 (2025年12月2日)</h2>
+
+<ul><li><strong>獲利谷底已過</strong>：管理層明確指出 2025 年前三季獲利雖不如預期 (EPS 0.95 元)，但獲利谷底已過，後續入帳個案的毛利率預期將回穩至 <strong>26%</strong> 以上。</li>
+<li><strong>完工入帳高峰期</strong>：</li>
+</ul>    *   2026 年：完工量高達 <strong>792.25 億元</strong>。
+<p>*   2027 年：完工量 <strong>743.38 億元</strong>。</p>
+<p>*   2028 年：完工量 <strong>749.86 億元</strong>。</p>
+<p>*   公司表示未來七年（至 2032 年）每年皆備妥 <strong>百億元以上</strong> 的完工量，未來動能無虞。</p>
+<ul><li><strong>新案推出計畫</strong>：2026 年計畫推出 <strong>7 大新案</strong>，其中 <strong>5 案為商辦產品</strong>，合計總銷金額達 <strong>1,155.9 億元</strong>，分佈於台北、桃園、台中、高雄。</li>
+<li><strong>「只租不售」策略</strong>：台中七期部分總銷 <strong>700 億元</strong> 的商辦案 (如惠國 88、90 等) 已決定改為「只租不售」，旨在創造穩定且長期的現金流。</li>
+<li><strong>購地策略調整</strong>：跟隨政策與重大建設發展，鎖定優質學區、交通便利、機能成熟區域，並積極布局都更、危老、合建案，以降低土地取得成本並分散風險。</li>
+<li><strong>產品市場劃分</strong>：「需要型」產品（自住剛性需求）因新青安貸款政策銷售穩健回溫；「想要型」產品（如台中微型商辦）受市場觀望氣氛影響，買方出手放緩。</li>
+</ul>
+<h2>券商觀點</h2>
+
+<h3>券商目標價</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>券商名</th><th>目標價 (元)</th><th>評等</th><th>日期</th><th>備註</th></tr></thead><tbody>
+<tr><td>統一證券</td><td>50</td><td>看多</td><td>2025年12月3日</td><td></td></tr>
+<tr><td>台新投顧</td><td>52</td><td>看多</td><td>2025年4月7日</td><td>另有 2024年11月25日報告亦為 52 元</td></tr>
+<tr><td>綜合分析師平均</td><td>49.57</td><td>看多</td><td>N/A</td><td>預估高點 57.14 元，預估低點 42 元</td></tr>
+<tr><td>陳重銘-不敗存股術APP法人系統</td><td>N/A</td><td>N/A</td><td>2025年11月12日</td><td>未提供目標價，僅有 EPS 預估</td></tr>
+</tbody></table></div>
+
+<h3>2025-2026 年 EPS 預估</h3>
+
+<ul><li><strong>統一證券 (2025年12月3日)</strong>：預估 2025 年 EPS 約 <strong>2.42 元</strong>。</li>
+<li><strong>台新投顧 (2025年4月7日)</strong>：預估 2025 年 EPS 約 <strong>4.03 元</strong>。</li>
+<li><strong>陳重銘-不敗存股術APP法人系統 (2025年11月12日)</strong>：預估 2025 年 EPS 約 <strong>2.60 元</strong>，2026 年 EPS 可望達 <strong>7.63 元</strong>。</li>
+<li><strong>其他法人預估 (2026年)</strong>：總銷售可能達 <strong>683 億元</strong>，EPS 約 <strong>8 元</strong> 附近 (誤差 +- 1 元)。</li>
+<li><strong>PressPlay作者預估 (2026年)</strong>：以稅後淨利 22% 計算，EPS 約在 <strong>4.9~6.2 元</strong> 上下；最保守情況 (稅後淨利率 15%)，EPS 也有 <strong>3~4 元</strong> 以上。</li>
+</ul>
+<strong>近期評等異動</strong>：目前搜尋結果未明確指出興富發近期有重大調升或調降評等。現有報告皆維持「看多」評等。
+
+<h2>財報深度分析</h2>
+
+<h3>利潤率趨勢 (2024年Q1 - 2025年Q3)</h3>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>季度</th><th>毛利率 (%)</th><th>營業利益率 (%)</th><th>稅後淨利率 (%)</th></tr></thead><tbody>
+<tr><td>2025年Q3</td><td>27.25</td><td>18.66</td><td>16.63</td></tr>
+<tr><td>2025年Q2</td><td>20.37</td><td>7.22</td><td>7.98</td></tr>
+<tr><td>2025年Q1</td><td>39.21</td><td>-5.55</td><td>-11.08</td></tr>
+<tr><td>2024年Q4</td><td>35.82</td><td>27.62</td><td>24.81</td></tr>
+<tr><td>2024年Q3</td><td>36.67</td><td>28.19</td><td>22.8</td></tr>
+<tr><td>2024年Q2</td><td>34.15</td><td>23.8</td><td>21.08</td></tr>
+<tr><td>2024年Q1</td><td>32.89</td><td>18.9</td><td>16.68</td></tr>
+<tr><td><strong>2024年全年</strong></td><td><strong>35.17</strong></td><td><strong>25.5</strong></td><td><strong>22.13</strong></td></tr>
+</tbody></table></div>
+
+<strong>利潤率變化原因分析：</strong>
+<p>2024 年受惠於「站前新鋭」、「文心愛鋭」等案完工入帳，全年稅後純益達 <strong>62.87 億元</strong>，EPS <strong>3.13 元</strong>，毛利率表現良好。然而 2025 年第一季因建案交屋進度遞延導致營收與獲利顯著下滑，毛利率雖高但營業利益率及稅後淨利率轉負。2025 年第二季獲利谷底，毛利率降至 <strong>20.37%</strong>。第三季毛利率回升至 <strong>27.25%</strong>，顯示獲利能力開始好轉。管理層預期後續入帳個案毛利率將回穩至 <strong>26%</strong> 以上，符合公司長期平均約 <strong>35%</strong> 的水準，顯示營收結構將回歸健康。</p>
+
+<h3>存貨分析</h3>
+
+<p>截至 2025 年 9 月底，興富發的合約負債 (流動) 已攀升至 <strong>233.51 億元</strong>，較去年底成長 <strong>20.9%</strong>。已簽訂銷售合約總價高達 <strong>2,132.97 億元</strong>。這表明大量建案已預售，存貨並非異常堆積，而是已售出待完工交屋認列的營收。這也為未來營收提供了高度的能見度與保障。</p>
+
+<h3>資本支出</h3>
+
+<p>未找到 2024-2026 年具體資本支出金額數據。然而，公司在 2025 年法說會中提及，由於土地價格居高不下且集團庫存土地量已達 <strong>千億元</strong>，將暫時維持「暫停購置素地」原則，並優先考慮都更、危老、合建等開發案，顯示資本支出策略轉向更具效益及風險控制的模式。預計 2025 年全台新案完工量高達 <strong>900 億元</strong>，2026-2028 年每年完工量均逾 <strong>700 億元</strong>，這代表將有大量的建案投入市場。</p>
+
+<h2>股權異動</h2>
+
+<ul><li><strong>董監事/大股東申報轉讓</strong>：2025 年 11 月 17 日，興富發董事鄭欽天及鄭秀慧申報轉讓持股合計 <strong>33,470 張</strong>，轉讓給「天圓投資公司籌備處代表人鄭秀慧」，目的是為了稅賦規劃，屬於集團內部股權調整，並非市場性賣出。</li>
+<li><strong>庫藏股/可轉債/增減資</strong>：未找到 2024-2026 年庫藏股買回、發行可轉換公司債 (CB) 或現金增資/減資計畫的紀錄。</li>
+<li><strong>股利政策</strong>：</li>
+</ul>    *   2024 年 (已於 2025 年 4 月 22 日公告)：擬發放每股現金股利 <strong>2 元</strong>、股票股利 <strong>0.5 元</strong>，合計 <strong>2.5 元</strong>。
+<p>*   2025 年 (預計發放)：2025 年 9 月 25 日發放現金股利 <strong>2 元</strong>、股票股利 <strong>0.5 元</strong>。</p>
+<p>*   回顧 2023 年股利政策：每股現金股利 <strong>0.5 元</strong>，股票股利 <strong>1 元</strong>。</p>
+
+<h2>產業分析</h2>
+
+<h3>市場規模與成長率</h3>
+
+<ul><li><strong>全球建築市場</strong>：預計 2025 年達到 <strong>16.45 兆美元</strong>，2026 年增長至 <strong>17.26 兆美元</strong>，年複合成長率 (CAGR) 為 <strong>4.9%</strong>。預計到 2030 年將達到 <strong>21.73 兆美元</strong> (2026-2030 年 CAGR 為 <strong>5.9%</strong>)。</li>
+<li><strong>全球房地產市場</strong>：2024 年為 <strong>113,423.3 億美元</strong>，預計 2025 年將達到 <strong>119,684.3 億美元</strong>，2026 年達到 <strong>126,290.9 億美元</strong>，預計到 2034 年擴大到 <strong>194,111 億美元</strong> (2025-2034 年 CAGR 為 <strong>5.52%</strong>)。</li>
+<li><strong>台灣營造業平均毛利率</strong>：已從過去的 3%-4% 翻倍成長至 <strong>7%</strong> 以上。</li>
+</ul>
+<h3>競爭格局</h3>
+
+<strong>全球主要建設公司 (非房地產開發商，來源: Straits Research)</strong>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>公司名稱</th><th>備註</th></tr></thead><tbody>
+<tr><td>China State Construction Engineering Corporation (CSCEC)</td><td>中國建築工程總公司</td></tr>
+<tr><td>Bechtel</td><td>美國最大的工程建設公司之一</td></tr>
+<tr><td>Vinci</td><td>法國跨國特許經營和建築公司</td></tr>
+<tr><td>Larsen &amp; Toubro (L&amp;T)</td><td>印度跨國企業集團，業務涵蓋工程、建築等</td></tr>
+<tr><td>Skanska</td><td>瑞典跨國建築和開發公司</td></tr>
+</tbody></table></div>
+
+<strong>興富發 vs 台灣同業比較：</strong>
+<p>儘管缺乏興富發與其他台灣同業在 2025-2026 年的直接營收規模、毛利率、EPS 比較表格，但從產業趨勢來看，興富發以其龐大的在手案量、高週轉策略以及多元化產品佈局，在台灣建設業中佔據領先地位。其毛利率在經歷谷底後，預期能回到 <strong>26% 以上</strong>的行業較高水準，優於台灣營造業平均 <strong>7%</strong> 以上的毛利率，展現其營運效益。</p>
+
+<h3>產業趨勢</h3>
+
+<li><strong>數位化與 BIM 導入</strong>：數位化建設、自動化、BIM (建築資訊模型) 及 3D 列印技術日益普及，有助於提高設計精度、優化施工流程、降低成本並縮短時程。</li>
+<li><strong>綠色建築與永續發展</strong>：市場對永續建築設計、智慧基礎設施及節能建築的需求增加，綠色認證成為提升物業價值的關鍵。</li>
+<li><strong>人工智慧 (AI) 應用</strong>：AI 帶動的數據中心建設需求龐大，同時 AI 技術將重塑房地產策略與決策，提升智慧建築管理效率和用戶體驗。</li>
+
+<strong>對興富發的具體機會與威脅：</strong>
+
+<ul><li><strong>機會</strong>：</li>
+</ul>    *   <strong>建案高峰與商辦需求</strong>：2025-2026 年間的建案完工入帳高峰，尤其商辦市場供需改善及 AI 帶動的廠辦需求，將大幅推升營收。
+<p>*   <strong>飯店事業拓展</strong>：觀光復甦帶動飯店業務成長，多元化收益。</p>
+<p>*   <strong>資產活化與穩健現金流</strong>：台中七期商辦「只租不售」策略，將創造長期穩定金流。</p>
+<ul><li><strong>威脅</strong>：</li>
+</ul>    *   <strong>台灣房市量縮價緩跌</strong>：2025 年台灣房市景氣呈現量縮價緩跌，民眾購屋意願保守，可能影響住宅建案去化速度。預估 2026 年全年交易量約 <strong>25.1 萬至 26.4 萬棟</strong>。
+<p>*   <strong>央行信用管制與高利率</strong>：持續的信用管制及高利率環境，推升房貸成本，影響購屋者購買力。</p>
+<p>*   <strong>營建成本上漲與缺工</strong>：建築原材料與裝修成本仍處高位，缺工問題可能影響建案進度及利潤空間。</p>
+
+<h2>近期催化劑</h2>
+
+<ul><li><strong>2026年02月11日</strong>：公告 2026 年 1 月合併營收達 <strong>47.61 億元</strong>，年增率高達 <strong>2,480.63%</strong>，創歷史同期新高，主要來自高雄「福山案」及台中「VVS1」等新建案入帳。</li>
+<li><strong>2026年02月09日</strong>：法人預估興富發 2026 年 EPS 約為 <strong>7.6 元</strong>。</li>
+<li><strong>2026年02月10日</strong>：外資單日買超 <strong>1,532 張</strong>，自營商買超 <strong>214 張</strong>，三大法人合計買超 <strong>1,719 張</strong>。</li>
+<li><strong>2025年12月27日</strong>：分析師指出，截至 2025 年 9 月底，合約負債 (流動) 已攀升至 <strong>233.51 億元</strong>，較去年底成長 <strong>20.9%</strong>；已簽訂銷售合約總價高達 <strong>2,132.97 億元</strong>，顯示未來營收動能無虞。</li>
+<li><strong>2025年12月02日</strong>：法說會明確指出獲利谷底已過，後續毛利率預期回穩至 <strong>26%</strong> 以上，並宣布 2026 年至 2028 年將有每年逾 <strong>700 億元</strong> 的完工量。2026 年將推出 <strong>7 大新案</strong>，其中 <strong>5 案為商辦</strong>，總銷達 <strong>1,155.9 億元</strong>。</li>
+<li><strong>2025年11月12日</strong>：公告 2025 年前三季營收 <strong>143.72 億元</strong>，稅後純益 <strong>20.1 億元</strong>，EPS <strong>0.95 元</strong>。法人預估 2026 年 EPS 有望成長至 <strong>7.63 元</strong>。</li>
+<li><strong>2025年09月25日</strong>：除權息，發放現金股利 <strong>2 元</strong>，股票股利 <strong>0.5 元</strong>。</li>
+</ul>
+<h2>⭐ 成長動能時間軸</h2>
+
+<div class="table-wrapper"><table>
+<thead><tr><th>時間</th><th>成長動能項目</th><th>具體內容</th></tr></thead><tbody>
+<tr><td><strong>2025年10月</strong></td><td><strong>需求回溫</strong></td><td>房市買氣已見小幅回暖跡象，剛性買盤陸續歸隊，受惠於國內科技業與 AI 產業發展帶動的總體經濟成長。</td></tr>
+<tr><td><strong>2025年12月</strong></td><td><strong>策略調整</strong></td><td>法說會提及「新青年安心成家貸款」政策支撐下，「需要型」剛性需求產品銷售穩健回溫。 台中七期總銷 <strong>700 億元</strong> 商辦案（惠國88、90等）改為「只租不售」策略，創造穩定長期現金流。購地策略調整為積極布局都更、危老、合建案，降低土地取得成本並分散風險。</td></tr>
+<tr><td><strong>2026年</strong></td><td><strong>產能擴充</strong></td><td>將迎來完工交屋高峰，預計完工量高達 <strong>792.25 億元</strong>。預計推出 <strong>7 大新案</strong>，其中 <strong>5 案為商辦</strong>，合計總銷達 <strong>1,155.9 億元</strong>，分佈於台北、桃園、台中、高雄。</td></tr>
+<tr><td><strong>2026年起</strong></td><td><strong>新市場/客戶</strong></td><td>看好台商回流及企業總部需求，大幅提高商辦產品比例。飯店事業持續拓展，新北金山洲際酒店已開幕，台南安平雅樂軒酒店將加入營運，未來還有台中七期Andaz安達仕酒店、高雄Hyatt Regency凱悅酒店等國際品牌飯店將陸續開幕，多元化收益來源。住宅部分鎖定剛性需求的小坪數2房產品。</td></tr>
+<tr><td><strong>2027年</strong></td><td><strong>產能持續</strong></td><td>預計完工量為 <strong>743.38 億元</strong>。</td></tr>
+<tr><td><strong>2028年</strong></td><td><strong>產能持續</strong></td><td>預計完工量為 <strong>749.86 億元</strong>。</td></tr>
+<tr><td><strong>至2032年</strong></td><td><strong>長期動能</strong></td><td>公司表示未來七年（至 2032 年）每年皆備妥 <strong>百億元以上</strong> 的完工量，提供長期的營收基礎。</td></tr>
+</tbody></table></div>
+
+<h2>2026 展望</h2>
+
+<strong>成長動能：</strong>
+
+<li><strong>建案完工量爆發</strong>：2026 年是興富發的交屋大年，預計完工量高達 <strong>792.25 億元</strong>，將帶動營收顯著成長，扭轉 2025 年營收低迷的態勢。</li>
+<li><strong>毛利率回穩與獲利改善</strong>：法說會指引未來毛利率將回穩至 <strong>26%</strong> 以上，加上龐大的完工入帳金額，預期 2026 年 EPS 將有大幅成長空間 (法人預估約 <strong>7.6~8 元</strong>)。</li>
+<li><strong>商辦與飯店多元化貢獻</strong>：2026 年推案重心轉向商辦（5 案，總銷 <strong>1,155.9 億元</strong>），符合產業對企業總部及科技廠辦的需求；飯店事業的陸續開幕也將提供額外營收。</li>
+<li><strong>穩定金流來源</strong>：台中七期總銷 <strong>700 億元</strong> 商辦改為「只租不售」，確保長期穩定的租金收益，並為集團保有高品質資產。</li>
+
+<strong>風險：</strong>
+
+<li><strong>缺工與工期遞延</strong>：營建業長期面臨缺工問題，可能導致建案實際交屋進度遞延，影響營收認列時點及單月營收波動。</li>
+<li><strong>商辦去化速度</strong>：雖然看好商辦市場，但高價商辦的銷售去化速度仍需觀察，若不如預期可能影響營收認列。</li>
+<li><strong>房市政策變動</strong>：營建業受政策影響大，若央行持續緊縮信用管制或政府出台新的打房政策，可能對整體房市氛圍和買氣造成衝擊。</li>
+<li><strong>毛利率維持挑戰</strong>：儘管管理層預期毛利率將回穩，但營建成本 (如原物料、人工) 仍有上漲壓力，實際毛利率是否能長期維持在目標水準仍需觀察。</li>
+
+<h2>投資結論</h2>
+
+<p>綜合以上深度分析，興富發（2542）在 2026 年至 2028 年將迎來前所未有的建案完工入帳高峰期，營運谷底已過，獲利能力將顯著回升。</p>
+
+<li><strong>高能見度營收爆發</strong>：龐大的在手合約負債 (逾 <strong>2,132.97 億元</strong>) 加上未來三年每年逾 <strong>700 億元</strong> 的完工量，為 2026 年後的營收成長奠定堅實基礎，營運能見度極高。2026 年 1 月營收已證明此趨勢。</li>
+<li><strong>產品策略調整得宜</strong>：住宅鎖定剛性需求，商辦則積極佈局高價值市場，加上飯店事業的多元化收益，有效分散風險並抓住市場新機遇。台中七期商辦「只租不售」策略亦將創造長期穩定的金流。</li>
+<li><strong>毛利率回歸正常水準</strong>：預期毛利率將從谷底回升並維持在 <strong>26%</strong> 以上，有助於推升整體獲利。法人預估 2026 年 EPS 有望達 <strong>7.6~8 元</strong>，顯示強勁的獲利成長潛力。</li>
+<li><strong>價值重估潛力</strong>：隨著營收與獲利持續釋出，市場對其高週轉率策略及多元資產組合的價值將重新評估。在房市回溫及政策利多下，具備資產證券化的潛力。</li>
+
+<strong>建議目標價區間：新台幣 52-58 元。</strong>
+<p>此區間主要考量法人機構平均目標價（約 49.57 元，高點 57.14 元）以及 2026 年預期 EPS 達 7.6-8 元所對應的合理本益比區間 (約 6.8x-7.2x)。隨著建案持續入帳及市場對其獲利展望的信心增強，興富發具備向上重估的空間。</p>
+
+<hr>
+<p>本報告由 AI 自動產生，資料來源為公開網路資訊，僅供參考，不構成投資建議。產生時間：2026-03-06 15:07</p>
+
+<hr>
+
+<h2>📊 資訊卡</h2>
+
+<img src="2542_興富發_company_overview.png" alt="company_overview" class="info-card">
+
+<img src="2542_興富發_industry_analysis.png" alt="industry_analysis" class="info-card">
+
+<img src="2542_興富發_investment_summary.png" alt="investment_summary" class="info-card">
+
+</div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-11 23:46</p>
+</footer>
+</body>
+</html>
