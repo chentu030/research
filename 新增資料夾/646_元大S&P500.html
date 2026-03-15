@@ -5,12 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>646 元大S&P500 研究報告</title>
 <link rel="stylesheet" href="../style.css">
-<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+<script src="../kline.js"></script>
 </head>
 <body>
 <div class="container">
 <a href="index.html" class="back-link">← 返回清單</a>
 <div class="report-content">
+<div class="kline-wrap" style="margin:20px 0;padding:16px;background:#fff;border:1px solid #eaeaea;border-radius:12px;">
+  <div id="kline-646" style="width:100%;"></div>
+</div>
+<script>document.addEventListener("DOMContentLoaded",function(){initKlineChart("kline-646","646");});</script>
 
 <h1>646 元大S&amp;P500 深度研究報告</h1>
 
@@ -179,7 +183,7 @@
 <script src="../search_index.js"></script>
 <footer class="site-footer">
 <p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
-<p>最後更新：2026-03-15 16:27</p>
+<p>最後更新：2026-03-15 16:45</p>
 </footer>
 </body>
 </html>

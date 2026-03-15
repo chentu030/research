@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>56 元大高股息 研究報告</title>
 <link rel="stylesheet" href="../style.css">
-<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+<script src="../kline.js"></script>
 </head>
 <body>
 <div class="container">
@@ -18,6 +18,10 @@
 
 <hr>
 
+<div class="kline-wrap" style="margin:20px 0;padding:16px;background:#fff;border:1px solid #eaeaea;border-radius:12px;">
+  <div id="kline-56" style="width:100%;"></div>
+</div>
+<script>document.addEventListener("DOMContentLoaded",function(){initKlineChart("kline-56","56");});</script>
 
 <h2>公司概覽（ETF 性質與資產結構）</h2>
 <p>元大高股息（0056）由元大投信發行，追蹤「臺灣高股息指數」，核心選股邏輯為從臺灣 50 與中型 100 指數中，篩選「預測未來一年」現金股息殖利率最高的 50 檔成分股。</p>
@@ -167,7 +171,7 @@
 <script src="../search_index.js"></script>
 <footer class="site-footer">
 <p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
-<p>最後更新：2026-03-15 16:27</p>
+<p>最後更新：2026-03-15 16:45</p>
 </footer>
 </body>
 </html>
