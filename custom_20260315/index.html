@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研究報告 custom_20260315</title>
+<link rel="stylesheet" href="../style.css">
+<script src="../kline.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="nav-bar">
+  <label>📅 清單</label>
+  <div class="custom-select" id="customListSelect">
+    <div class="select-selected" id="selectSelected">🔍 自訂 2026/03/15</div>
+    <div class="select-items" id="selectItems">
+      <div class="select-search">
+        <input type="text" id="selectSearchInput" placeholder="搜尋清單..." autocomplete="off">
+      </div>
+      <div class="select-options-container" id="selectOptionsContainer">
+        <div class="select-item same-as-selected" data-url="../custom_20260315/index.html">🔍 自訂 2026/03/15</div>
+        <div class="select-item" data-url="../20260309-20260311/index.html">2026/03/09 ~ 03/11</div>
+        <div class="select-item" data-url="../20260305-20260309/index.html">2026/03/05 ~ 03/09</div>
+        <div class="select-item" data-url="../20260304-20260306/index.html">2026/03/04 ~ 03/06</div>
+        <div class="select-item" data-url="../20260303-20260305/index.html">2026/03/03 ~ 03/05</div>
+        <div class="select-item" data-url="../20260302-20260304/index.html">2026/03/02 ~ 03/04</div>
+        <div class="select-item" data-url="../20260224-20260226/index.html">2026/02/24 ~ 02/26</div>
+        <div class="select-item" data-url="../20260204-20260206/index.html">2026/02/04 ~ 02/06</div>
+        <div class="select-item" data-url="../20260202-20260204/index.html">2026/02/02 ~ 02/04</div>
+      </div>
+    </div>
+  </div>
+  <div class="search-box">
+    <input type="text" id="stockSearch" placeholder="搜尋股票代碼或名稱..." oninput="globalSearch()" onfocus="globalSearch()" autocomplete="off">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var selected = document.getElementById("selectSelected");
+    var itemsList = document.getElementById("selectItems");
+    var searchInput = document.getElementById("selectSearchInput");
+    var optionsContainer = document.getElementById("selectOptionsContainer");
+    var optionDivs = optionsContainer.getElementsByClassName("select-item");
+
+    selected.addEventListener("click", function(e) {
+        e.stopPropagation();
+        this.classList.toggle("select-arrow-active");
+        itemsList.classList.toggle("select-show");
+        if (itemsList.classList.contains("select-show")) {
+            searchInput.focus();
+            searchInput.value = '';
+            filterOptions('');
+        }
+    });
+
+    for (var i = 0; i < optionDivs.length; i++) {
+        optionDivs[i].addEventListener("click", function(e) {
+            window.location.href = this.getAttribute("data-url");
+        });
+    }
+
+    searchInput.addEventListener("input", function() {
+        filterOptions(this.value.toLowerCase());
+    });
+
+    searchInput.addEventListener("click", function(e) {
+        e.stopPropagation();
+    });
+
+    function filterOptions(filter) {
+        for (var i = 0; i < optionDivs.length; i++) {
+            var txtValue = optionDivs[i].textContent || optionDivs[i].innerText;
+            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                optionDivs[i].style.display = "";
+            } else {
+                optionDivs[i].style.display = "none";
+            }
+        }
+    }
+
+    document.addEventListener("click", function(e) {
+        if (!itemsList.contains(e.target) && e.target !== selected) {
+            selected.classList.remove("select-arrow-active");
+            itemsList.classList.remove("select-show");
+        }
+    });
+});
+</script>
+
+<script>
+function toggleDetails(rowId) {
+    var detailsRow = document.getElementById(rowId);
+    if (detailsRow) {
+        if (detailsRow.style.display === 'none' || !detailsRow.style.display) {
+            detailsRow.style.display = 'table-row';
+        } else {
+            detailsRow.style.display = 'none';
+        }
+    }
+}
+
+function sortTable(tableId, n, type='str') {
+    var table, tbodies, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById(tableId);
+    switching = true;
+    dir = "desc"; 
+    
+    // Clear icons
+    var headers = table.getElementsByTagName("th");
+    for (var h = 0; h < headers.length; h++) {
+        headers[h].classList.remove("sort-asc", "sort-desc");
+    }
+    
+    while (switching) {
+        switching = false;
+        tbodies = table.tBodies; // Use tBodies array
+        for (i = 0; i < (tbodies.length - 1); i++) {
+            shouldSwitch = false;
+            // Get the main row (first row of the tbody) and the specific cell
+            x = tbodies[i].rows[0].getElementsByTagName("TD")[n];
+            y = tbodies[i + 1].rows[0].getElementsByTagName("TD")[n];
+            
+            var xVal = x.innerHTML.toLowerCase().replace(/<[^>]+>/g, '').trim();
+            var yVal = y.innerHTML.toLowerCase().replace(/<[^>]+>/g, '').trim();
+            
+            if (type === 'num') {
+                xVal = parseFloat(xVal.replace(/[%,]/g, '')) || 0;
+                yVal = parseFloat(yVal.replace(/[%,]/g, '')) || 0;
+            }
+            
+            if (dir == "asc") {
+                if (xVal > yVal) { shouldSwitch = true; break; }
+            } else if (dir == "desc") {
+                if (xVal < yVal) { shouldSwitch = true; break; }
+            }
+        }
+        if (shouldSwitch) {
+            tbodies[i].parentNode.insertBefore(tbodies[i + 1], tbodies[i]);
+            switching = true;
+            switchcount ++;      
+        } else {
+            if (switchcount == 0 && dir == "desc") {
+                dir = "asc";
+                switching = true;
+            }
+        }
+    }
+    headers[n].classList.add("sort-" + dir);
+}
+</script>
+<p style="color:var(--text-light);margin-bottom:15px;">共 4 支個股 (點擊標題可排序)</p>
+<div class="datatable-wrapper" style="overflow-x:auto;"><table class="datatable" id="table-fallback"><thead><tr><th class="text-left" onclick="sortTable('table-fallback', 0, 'str')">代碼 名稱</th><th onclick="sortTable('table-fallback', 1, 'str')">最新股價</th><th onclick="sortTable('table-fallback', 2, 'str')">產業</th><th onclick="sortTable('table-fallback', 3, 'str')">細產業</th><th onclick="sortTable('table-fallback', 4, 'num')">命中</th><th onclick="sortTable('table-fallback', 5, 'num')">平均勝率</th><th onclick="sortTable('table-fallback', 6, 'num')">勝率(10D)</th><th onclick="sortTable('table-fallback', 7, 'num')">勝率差</th><th onclick="sortTable('table-fallback', 8, 'num')">平均成本</th><th onclick="sortTable('table-fallback', 9, 'num')">成本差</th><th onclick="sortTable('table-fallback', 10, 'num')">報酬(1D)</th><th onclick="sortTable('table-fallback', 11, 'num')">報酬(2D)</th><th onclick="sortTable('table-fallback', 12, 'num')">報酬(3D)</th><th onclick="sortTable('table-fallback', 13, 'num')">報酬(5D)</th><th onclick="sortTable('table-fallback', 14, 'num')">報酬(10D)</th><th onclick="sortTable('table-fallback', 15, 'num')">DT</th><th onclick="sortTable('table-fallback', 16, 'num')">ON</th><th onclick="sortTable('table-fallback', 17, 'num')">SW</th><th onclick="sortTable('table-fallback', 18, 'num')">XS</th><th onclick="sortTable('table-fallback', 19, 'num')">S</th><th onclick="sortTable('table-fallback', 20, 'num')">M</th><th onclick="sortTable('table-fallback', 21, 'num')">L</th><th onclick="sortTable('table-fallback', 22, 'str')">關鍵分點</th></tr></thead><tbody><tr class="main-row" onclick="toggleDetails('details_table-fallback_3526')"><td class="text-left"><a href="3526_凡甲 (ALLTOP).html" style="white-space:nowrap;">3526 凡甲 (ALLTOP)</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td title=""><span class="truncate-group" style="max-width: 150px;"></span></td><td></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td title=""><span class="truncate-group"></span></td></tr><tr id="details_table-fallback_3526" class="details-row"><td colspan="23"><div class="details-content">【細產業】
+
+
+【關鍵分點總覽】
+</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-fallback_3665')"><td class="text-left"><a href="3665_貿聯-KY.html" style="white-space:nowrap;">3665 貿聯-KY</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td title=""><span class="truncate-group" style="max-width: 150px;"></span></td><td></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td title=""><span class="truncate-group"></span></td></tr><tr id="details_table-fallback_3665" class="details-row"><td colspan="23"><div class="details-content">【細產業】
+
+
+【關鍵分點總覽】
+</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-fallback_8155')"><td class="text-left"><a href="8155_博智.html" style="white-space:nowrap;">8155 博智</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td title=""><span class="truncate-group" style="max-width: 150px;"></span></td><td></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td title=""><span class="truncate-group"></span></td></tr><tr id="details_table-fallback_8155" class="details-row"><td colspan="23"><div class="details-content">【細產業】
+
+
+【關鍵分點總覽】
+</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-fallback_8210')"><td class="text-left"><a href="8210_勤誠.html" style="white-space:nowrap;">8210 勤誠</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td title=""><span class="truncate-group" style="max-width: 150px;"></span></td><td></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td title=""><span class="truncate-group"></span></td></tr><tr id="details_table-fallback_8210" class="details-row"><td colspan="23"><div class="details-content">【細產業】
+
+
+【關鍵分點總覽】
+</div></td></tr></tbody></table></div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-15 17:58</p>
+</footer>
+</body>
+</html>
