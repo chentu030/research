@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研究報告 20260203-20260205</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="nav-bar">
+  <label>📅 清單</label>
+  <div class="custom-select" id="customListSelect">
+    <div class="select-selected" id="selectSelected">2026/02/03 ~ 02/05</div>
+    <div class="select-items" id="selectItems">
+      <div class="select-search">
+        <input type="text" id="selectSearchInput" placeholder="搜尋清單..." autocomplete="off">
+      </div>
+      <div class="select-options-container" id="selectOptionsContainer">
+        <div class="select-item" data-url="../20260311-20260313/index.html">2026/03/11 ~ 03/13</div>
+        <div class="select-item" data-url="../20260310-20260312/index.html">2026/03/10 ~ 03/12</div>
+        <div class="select-item" data-url="../20260309-20260311/index.html">2026/03/09 ~ 03/11</div>
+        <div class="select-item" data-url="../20260306-20260310/index.html">2026/03/06 ~ 03/10</div>
+        <div class="select-item" data-url="../20260305-20260309/index.html">2026/03/05 ~ 03/09</div>
+        <div class="select-item" data-url="../20260304-20260306/index.html">2026/03/04 ~ 03/06</div>
+        <div class="select-item" data-url="../20260303-20260305/index.html">2026/03/03 ~ 03/05</div>
+        <div class="select-item" data-url="../20260302-20260304/index.html">2026/03/02 ~ 03/04</div>
+        <div class="select-item" data-url="../20260226-20260303/index.html">2026/02/26 ~ 03/03</div>
+        <div class="select-item" data-url="../20260225-20260302/index.html">2026/02/25 ~ 03/02</div>
+        <div class="select-item" data-url="../20260224-20260226/index.html">2026/02/24 ~ 02/26</div>
+        <div class="select-item" data-url="../20260223-20260225/index.html">2026/02/23 ~ 02/25</div>
+        <div class="select-item" data-url="../20260211-20260224/index.html">2026/02/11 ~ 02/24</div>
+        <div class="select-item" data-url="../20260210-20260223/index.html">2026/02/10 ~ 02/23</div>
+        <div class="select-item" data-url="../20260209-20260211/index.html">2026/02/09 ~ 02/11</div>
+        <div class="select-item" data-url="../20260206-20260210/index.html">2026/02/06 ~ 02/10</div>
+        <div class="select-item" data-url="../20260205-20260209/index.html">2026/02/05 ~ 02/09</div>
+        <div class="select-item" data-url="../20260204-20260206/index.html">2026/02/04 ~ 02/06</div>
+        <div class="select-item same-as-selected" data-url="../20260203-20260205/index.html">2026/02/03 ~ 02/05</div>
+        <div class="select-item" data-url="../20260202-20260204/index.html">2026/02/02 ~ 02/04</div>
+        <div class="select-item" data-url="../新增資料夾/index.html">新增資料夾</div>
+      </div>
+    </div>
+  </div>
+  <div class="search-box">
+    <input type="text" id="stockSearch" placeholder="搜尋股票代碼或名稱..." oninput="globalSearch()" onfocus="globalSearch()" autocomplete="off">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var selected = document.getElementById("selectSelected");
+    var itemsList = document.getElementById("selectItems");
+    var searchInput = document.getElementById("selectSearchInput");
+    var optionsContainer = document.getElementById("selectOptionsContainer");
+    var optionDivs = optionsContainer.getElementsByClassName("select-item");
+
+    selected.addEventListener("click", function(e) {
+        e.stopPropagation();
+        this.classList.toggle("select-arrow-active");
+        itemsList.classList.toggle("select-show");
+        if (itemsList.classList.contains("select-show")) {
+            searchInput.focus();
+            searchInput.value = '';
+            filterOptions('');
+        }
+    });
+
+    for (var i = 0; i < optionDivs.length; i++) {
+        optionDivs[i].addEventListener("click", function(e) {
+            window.location.href = this.getAttribute("data-url");
+        });
+    }
+
+    searchInput.addEventListener("input", function() {
+        filterOptions(this.value.toLowerCase());
+    });
+
+    searchInput.addEventListener("click", function(e) {
+        e.stopPropagation();
+    });
+
+    function filterOptions(filter) {
+        for (var i = 0; i < optionDivs.length; i++) {
+            var txtValue = optionDivs[i].textContent || optionDivs[i].innerText;
+            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                optionDivs[i].style.display = "";
+            } else {
+                optionDivs[i].style.display = "none";
+            }
+        }
+    }
+
+    document.addEventListener("click", function(e) {
+        if (!itemsList.contains(e.target) && e.target !== selected) {
+            selected.classList.remove("select-arrow-active");
+            itemsList.classList.remove("select-show");
+        }
+    });
+});
+</script>
+
+<script>
+function toggleDetails(rowId) {
+    var detailsRow = document.getElementById(rowId);
+    if (detailsRow) {
+        if (detailsRow.style.display === 'none' || !detailsRow.style.display) {
+            detailsRow.style.display = 'table-row';
+        } else {
+            detailsRow.style.display = 'none';
+        }
+    }
+}
+
+function sortTable(tableId, n, type='str') {
+    var table, tbodies, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById(tableId);
+    switching = true;
+    dir = "desc"; 
+    
+    // Clear icons
+    var headers = table.getElementsByTagName("th");
+    for (var h = 0; h < headers.length; h++) {
+        headers[h].classList.remove("sort-asc", "sort-desc");
+    }
+    
+    while (switching) {
+        switching = false;
+        tbodies = table.tBodies; // Use tBodies array
+        for (i = 0; i < (tbodies.length - 1); i++) {
+            shouldSwitch = false;
+            // Get the main row (first row of the tbody) and the specific cell
+            x = tbodies[i].rows[0].getElementsByTagName("TD")[n];
+            y = tbodies[i + 1].rows[0].getElementsByTagName("TD")[n];
+            
+            var xVal = x.innerHTML.toLowerCase().replace(/<[^>]+>/g, '').trim();
+            var yVal = y.innerHTML.toLowerCase().replace(/<[^>]+>/g, '').trim();
+            
+            if (type === 'num') {
+                xVal = parseFloat(xVal.replace(/[%,]/g, '')) || 0;
+                yVal = parseFloat(yVal.replace(/[%,]/g, '')) || 0;
+            }
+            
+            if (dir == "asc") {
+                if (xVal > yVal) { shouldSwitch = true; break; }
+            } else if (dir == "desc") {
+                if (xVal < yVal) { shouldSwitch = true; break; }
+            }
+        }
+        if (shouldSwitch) {
+            tbodies[i].parentNode.insertBefore(tbodies[i + 1], tbodies[i]);
+            switching = true;
+            switchcount ++;      
+        } else {
+            if (switchcount == 0 && dir == "desc") {
+                dir = "asc";
+                switching = true;
+            }
+        }
+    }
+    headers[n].classList.add("sort-" + dir);
+}
+</script>
+<div class="threshold-tabs">
+  <button class="tab-btn active" onclick="showTab('all')">
+    全部 (12)
+  </button>
+  <button class="tab-btn" onclick="showTab('5%')">5%勝率 (12)</button>
+  <button class="tab-btn" onclick="showTab('10%')">10%勝率 (8)</button>
+  <button class="tab-btn" onclick="showTab('15%')">15%勝率 (2)</button>
+</div>
+<div class="csv-downloads">
+  <span class="csv-link" data-threshold="5%">📥 <a href="Monitor2.0_5pct_20260203-20260205_StrictStyle.csv" style="color:var(--accent);">5%: Monitor2.0_5pct_20260203-20260205_StrictStyle.csv</a></span>
+  <span class="csv-link" data-threshold="10%">📥 <a href="Monitor2.0_10pct_20260203-20260205_StrictStyle.csv" style="color:var(--accent);">10%: Monitor2.0_10pct_20260203-20260205_StrictStyle.csv</a></span>
+  <span class="csv-link" data-threshold="15%">📥 <a href="Monitor2.0_15pct_20260203-20260205_StrictStyle.csv" style="color:var(--accent);">15%: Monitor2.0_15pct_20260203-20260205_StrictStyle.csv</a></span>
+</div>
+<div class="tab-content" id="tab-all" style="display:block;">
+<p style="color:var(--text-light);margin-bottom:15px;">共 12 支個股 (點擊標題可排序)</p>
+<div class="datatable-wrapper" style="overflow-x:auto;"><table class="datatable" id="table-all"><thead><tr><th class="text-left" onclick="sortTable('table-all', 0, 'str')">代碼 名稱</th><th onclick="sortTable('table-all', 1, 'str')">最新股價</th><th onclick="sortTable('table-all', 2, 'str')">產業</th><th onclick="sortTable('table-all', 3, 'str')">細產業</th><th onclick="sortTable('table-all', 4, 'num')">命中</th><th onclick="sortTable('table-all', 5, 'num')">平均勝率</th><th onclick="sortTable('table-all', 6, 'num')">勝率(10D)</th><th onclick="sortTable('table-all', 7, 'num')">勝率差</th><th onclick="sortTable('table-all', 8, 'num')">平均成本</th><th onclick="sortTable('table-all', 9, 'num')">成本差</th><th onclick="sortTable('table-all', 10, 'num')">報酬(1D)</th><th onclick="sortTable('table-all', 11, 'num')">報酬(2D)</th><th onclick="sortTable('table-all', 12, 'num')">報酬(3D)</th><th onclick="sortTable('table-all', 13, 'num')">報酬(5D)</th><th onclick="sortTable('table-all', 14, 'num')">報酬(10D)</th><th onclick="sortTable('table-all', 15, 'num')">DT</th><th onclick="sortTable('table-all', 16, 'num')">ON</th><th onclick="sortTable('table-all', 17, 'num')">SW</th><th onclick="sortTable('table-all', 18, 'num')">XS</th><th onclick="sortTable('table-all', 19, 'num')">S</th><th onclick="sortTable('table-all', 20, 'num')">M</th><th onclick="sortTable('table-all', 21, 'num')">L</th><th onclick="sortTable('table-all', 22, 'num')">0121</th><th onclick="sortTable('table-all', 23, 'num')">0122</th><th onclick="sortTable('table-all', 24, 'num')">0123</th><th onclick="sortTable('table-all', 25, 'num')">0126</th><th onclick="sortTable('table-all', 26, 'num')">0127</th><th onclick="sortTable('table-all', 27, 'num')">0129</th><th onclick="sortTable('table-all', 28, 'num')">0130</th><th onclick="sortTable('table-all', 29, 'num')">0202</th><th onclick="sortTable('table-all', 30, 'num')">0203</th><th onclick="sortTable('table-all', 31, 'num')">0205</th><th onclick="sortTable('table-all', 32, 'str')">關鍵分點</th></tr></thead><tbody><tr class="main-row" onclick="toggleDetails('details_table-all_2337')"><td class="text-left"><a href="2337_旺宏.html" style="white-space:nowrap;">2337 旺宏</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">半導體業</td><td title="非揮發性記憶體 IC生產 IC製造"><span class="truncate-group" style="max-width: 150px;">非揮發性記憶體 IC生產 IC製造</span></td><td>6</td><td style="white-space:nowrap;"><span class="negative">-0.44%</span></td><td style="white-space:nowrap;"><span class="positive">0.02%</span></td><td style="white-space:nowrap;"><span class="negative">-0.47%</span></td><td>90.34</td><td style="white-space:nowrap;"><span class="positive">1.51%</span></td><td style="white-space:nowrap;"><span class="negative">-1.61%</span></td><td style="white-space:nowrap;"><span class="negative">-7.94%</span></td><td style="white-space:nowrap;"><span class="negative">-4.72%</span></td><td style="white-space:nowrap;"><span class="positive">5.69%</span></td><td style="white-space:nowrap;"><span class="positive">29.29%</span></td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>3</td><td>9</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.0%
+[BUY|Mix|WR75%|7006兆豐台南_ON_L, 981A元大三峽_DT_M]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.0%
+[BUY|Mix|WR75%|7006兆豐台南_ON_L, 981A元大三峽_DT_M]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:8 | Rat:0.5%
+[BUY|Mix|WR81%|9316華南淡水_ON_L, 9693富邦新營_DT_M]
+[BUY|Mix|WR81%|592E元富城中_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|700f兆豐鹿港_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9278凱基永康_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|592r元富城東_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:8 | Rat:0.5%
+[BUY|Mix|WR81%|9316華南淡水_ON_L, 9693富邦新營_DT_M]
+[BUY|Mix|WR81%|592E元富城中_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|700f兆豐鹿港_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9278凱基永康_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|592r元富城東_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:6 | Rat:-0.4%
+[SELL|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9316華南淡水_ON_L, 9A9M永豐南投_DT_M]
+[BUY|Mix|WR72%|921M凱基八德_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|9189群益桃園_DT_M, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:6 | Rat:-0.4%
+[SELL|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9316華南淡水_ON_L, 9A9M永豐南投_DT_M]
+[BUY|Mix|WR72%|921M凱基八德_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|9189群益桃園_DT_M, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="7006兆豐台南_ON_L, 981A元大三峽_DT_M, 9316華南淡水_ON_L, 9693富邦新營_DT_M, 592E元富城中_DT_L, 6160中國信託_DT_L, 700f兆豐鹿港_DT_M, 9278凱基永康_DT_M, 592r元富城東_DT_L, 913Y群益館前_DT_L, 5380第一金證_DT_L, 9A9M永豐南投_DT_M, 921M凱基八德_DT_M, 9189群益桃園_DT_M"><span class="truncate-group">7006兆豐台南_ON_L, 981A元大三峽_DT_M, 9316華南淡水_ON_L, 9693富邦新營_DT_M, 592E元富城中_DT_L, 6160中國信託_DT_L, 700f兆豐鹿港_DT_M, 9278凱基永康_DT_M, 592r元富城東_DT_L, 913Y群益館前_DT_L, 5380第一金證_DT_L, 9A9M永豐南投_DT_M, 921M凱基八德_DT_M, 9189群益桃園_DT_M</span></td></tr><tr id="details_table-all_2337" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+非揮發性記憶體 IC生產 IC製造
+
+【每日分點勝率明細】
+[0127] Hits:1 | Rat:0.0%
+[BUY|Mix|WR75%|7006兆豐台南_ON_L, 981A元大三峽_DT_M]
+[0130] Hits:8 | Rat:0.5%
+[BUY|Mix|WR81%|9316華南淡水_ON_L, 9693富邦新營_DT_M]
+[BUY|Mix|WR81%|592E元富城中_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|700f兆豐鹿港_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9278凱基永康_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|592r元富城東_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]
+[0203] Hits:6 | Rat:-0.4%
+[SELL|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9316華南淡水_ON_L, 9A9M永豐南投_DT_M]
+[BUY|Mix|WR72%|921M凱基八德_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|9189群益桃園_DT_M, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]
+
+【關鍵分點總覽】
+20260127: [BUY|Mix|WR75%|7006兆豐台南_ON_L, 981A元大三峽_DT_M]
+20260130: [BUY|Mix|WR81%|9316華南淡水_ON_L, 9693富邦新營_DT_M]
+20260130: [BUY|Mix|WR81%|592E元富城中_DT_L, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR75%|700f兆豐鹿港_DT_M, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR75%|9278凱基永康_DT_M, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR72%|592r元富城東_DT_L, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]
+20260203: [SELL|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+20260203: [BUY|Mix|WR75%|9316華南淡水_ON_L, 9A9M永豐南投_DT_M]
+20260203: [BUY|Mix|WR72%|921M凱基八德_DT_M, 9316華南淡水_ON_L]
+20260203: [BUY|Mix|WR72%|9189群益桃園_DT_M, 9316華南淡水_ON_L]
+20260203: [SELL|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+20260203: [SELL|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-all_2353')"><td class="text-left"><a href="2353_宏碁.html" style="white-space:nowrap;">2353 宏碁</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電腦及週邊設備業</td><td title="桌上型電腦 伺服器 筆記型電腦 顯示器 投影機 平板電腦 消費性電子產品 週邊產品 電腦系統業"><span class="truncate-group" style="max-width: 150px;">桌上型電腦 伺服器 筆記型電腦 顯示器 投影機 平板電腦 消費性電子產品 週邊產品 電腦系統業</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.27%</span></td><td style="white-space:nowrap;"><span class="positive">0.27%</span></td><td style="white-space:nowrap;">0.00%</td><td>26.53</td><td style="white-space:nowrap;"><span class="positive">6.12%</span></td><td style="white-space:nowrap;"><span class="positive">2.18%</span></td><td style="white-space:nowrap;"><span class="negative">-2.90%</span></td><td style="white-space:nowrap;"><span class="negative">-1.81%</span></td><td style="white-space:nowrap;"><span class="negative">-0.36%</span></td><td style="white-space:nowrap;"><span class="negative">-0.54%</span></td><td>0</td><td>2</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.3%
+[BUY|ON|WR72%|8520中    農_ON_S, 9884元大斗信_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.3%
+[BUY|ON|WR72%|8520中    農_ON_S, 9884元大斗信_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="農_ON_S, 9884元大斗信_ON_L"><span class="truncate-group">農_ON_S, 9884元大斗信_ON_L</span></td></tr><tr id="details_table-all_2353" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+桌上型電腦 伺服器 筆記型電腦 顯示器 投影機 平板電腦 消費性電子產品 週邊產品 電腦系統業
+
+【每日分點勝率明細】
+[0203] Hits:1 | Rat:0.3%
+[BUY|ON|WR72%|8520中    農_ON_S, 9884元大斗信_ON_L]
+
+【關鍵分點總覽】
+20260203: [BUY|ON|WR72%|8520中    農_ON_S, 9884元大斗信_ON_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-all_2369')"><td class="text-left"><a href="2369_菱生.html" style="white-space:nowrap;">2369 菱生</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">半導體業</td><td title="IC封裝 IC測試 IC封裝測試"><span class="truncate-group" style="max-width: 150px;">IC封裝 IC測試 IC封裝測試</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.35%</span></td><td style="white-space:nowrap;"><span class="positive">0.35%</span></td><td style="white-space:nowrap;">0.00%</td><td>26.08</td><td style="white-space:nowrap;"><span class="positive">0.47%</span></td><td style="white-space:nowrap;"><span class="negative">-2.06%</span></td><td style="white-space:nowrap;"><span class="negative">-5.79%</span></td><td style="white-space:nowrap;"><span class="negative">-3.55%</span></td><td style="white-space:nowrap;"><span class="negative">-5.23%</span></td><td style="white-space:nowrap;"><span class="positive">9.91%</span></td><td>0</td><td>2</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.4%
+[BUY|ON|WR84%|913E群益基隆_ON_S, 989g元大嘉義_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.4%
+[BUY|ON|WR84%|913E群益基隆_ON_S, 989g元大嘉義_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="913E群益基隆_ON_S, 989g元大嘉義_ON_L"><span class="truncate-group">913E群益基隆_ON_S, 989g元大嘉義_ON_L</span></td></tr><tr id="details_table-all_2369" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+IC封裝 IC測試 IC封裝測試
+
+【每日分點勝率明細】
+[0203] Hits:1 | Rat:0.4%
+[BUY|ON|WR84%|913E群益基隆_ON_S, 989g元大嘉義_ON_L]
+
+【關鍵分點總覽】
+20260203: [BUY|ON|WR84%|913E群益基隆_ON_S, 989g元大嘉義_ON_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-all_2408')"><td class="text-left"><a href="2408_南亞科.html" style="white-space:nowrap;">2408 南亞科</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">半導體業</td><td title="DRAM IC生產 IC製造"><span class="truncate-group" style="max-width: 150px;">DRAM IC生產 IC製造</span></td><td>1</td><td style="white-space:nowrap;"><span class="negative">-0.01%</span></td><td style="white-space:nowrap;"><span class="negative">-0.01%</span></td><td style="white-space:nowrap;">0.00%</td><td>291.87</td><td style="white-space:nowrap;"><span class="negative">-2.01%</span></td><td style="white-space:nowrap;"><span class="negative">-9.06%</span></td><td style="white-space:nowrap;"><span class="negative">-11.76%</span></td><td style="white-space:nowrap;"><span class="negative">-10.02%</span></td><td style="white-space:nowrap;"><span class="negative">-10.65%</span></td><td style="white-space:nowrap;"><span class="negative">-7.47%</span></td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:-0.0%
+[SELL|Mix|WR72%|779P國票九鼎_ON_L, 9312華南民權_DT_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:-0.0%
+[SELL|Mix|WR72%|779P國票九鼎_ON_L, 9312華南民權_DT_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="779P國票九鼎_ON_L, 9312華南民權_DT_L"><span class="truncate-group">779P國票九鼎_ON_L, 9312華南民權_DT_L</span></td></tr><tr id="details_table-all_2408" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+DRAM IC生產 IC製造
+
+【每日分點勝率明細】
+[0203] Hits:1 | Rat:-0.0%
+[SELL|Mix|WR72%|779P國票九鼎_ON_L, 9312華南民權_DT_L]
+
+【關鍵分點總覽】
+20260203: [SELL|Mix|WR72%|779P國票九鼎_ON_L, 9312華南民權_DT_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-all_2409')"><td class="text-left"><a href="2409_友達.html" style="white-space:nowrap;">2409 友達</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">光電業</td><td title="面板業 中小尺吋面板 TFT-LCD OLED 觸控面板"><span class="truncate-group" style="max-width: 150px;">面板業 中小尺吋面板 TFT-LCD OLED 觸控面板</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.14%</span></td><td style="white-space:nowrap;">0.00%</td><td style="white-space:nowrap;"><span class="positive">0.14%</span></td><td>14.07</td><td style="white-space:nowrap;"><span class="positive">16.56%</span></td><td style="white-space:nowrap;"><span class="positive">17.56%</span></td><td style="white-space:nowrap;"><span class="positive">13.26%</span></td><td style="white-space:nowrap;"><span class="positive">12.90%</span></td><td style="white-space:nowrap;"><span class="positive">16.13%</span></td><td style="white-space:nowrap;"><span class="positive">23.30%</span></td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:-0.1%
+[SELL|Mix|WR72%|7791國票台東_ON_S, 9257凱基林口_DT_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:-0.1%
+[SELL|Mix|WR72%|7791國票台東_ON_S, 9257凱基林口_DT_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.0%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.0%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]</span></td><td title="Hits:1 | Rat:-0.2%
+[SELL|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:-0.2%
+[SELL|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]</span></td><td title="Hits:1 | Rat:0.2%
+[BUY|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.2%
+[BUY|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]</span></td><td title="Hits:1 | Rat:0.1%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.1%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="7791國票台東_ON_S, 9257凱基林口_DT_L, 6465大昌桃園_SW_S, 989D元大左營_DT_L, 585R統一東湖_DT_S, 962P富邦頭份_ON_L"><span class="truncate-group">7791國票台東_ON_S, 9257凱基林口_DT_L, 6465大昌桃園_SW_S, 989D元大左營_DT_L, 585R統一東湖_DT_S, 962P富邦頭份_ON_L</span></td></tr><tr id="details_table-all_2409" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+面板業 中小尺吋面板 TFT-LCD OLED 觸控面板
+
+【每日分點勝率明細】
+[0126] Hits:1 | Rat:-0.1%
+[SELL|Mix|WR72%|7791國票台東_ON_S, 9257凱基林口_DT_L]
+[0129] Hits:1 | Rat:0.0%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]
+[0130] Hits:1 | Rat:-0.2%
+[SELL|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]
+[0202] Hits:1 | Rat:0.2%
+[BUY|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]
+[0203] Hits:1 | Rat:0.1%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]
+
+【關鍵分點總覽】
+20260126: [SELL|Mix|WR72%|7791國票台東_ON_S, 9257凱基林口_DT_L]
+20260129: [BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]
+20260130: [SELL|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]
+20260202: [BUY|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]
+20260203: [BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-all_2413')"><td class="text-left"><a href="2413_環科.html" style="white-space:nowrap;">2413 環科</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電子零組件</td><td title="電源供應器 變壓器 被動元件 電感 電子零件元件 電子製造服務 電腦系統業"><span class="truncate-group" style="max-width: 150px;">電源供應器 變壓器 被動元件 電感 電子零件元件 電子製造服務 電腦系統業</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.35%</span></td><td style="white-space:nowrap;"><span class="negative">-0.07%</span></td><td style="white-space:nowrap;"><span class="positive">0.41%</span></td><td>45.83</td><td style="white-space:nowrap;"><span class="positive">5.61%</span></td><td style="white-space:nowrap;"><span class="negative">-11.88%</span></td><td style="white-space:nowrap;"><span class="negative">-12.29%</span></td><td style="white-space:nowrap;"><span class="negative">-9.81%</span></td><td style="white-space:nowrap;"><span class="negative">-5.68%</span></td><td style="white-space:nowrap;"><span class="positive">18.60%</span></td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:-0.7%
+[SELL|Mix|WR73%|983K元大學甲_DT_S, 989Q元大汐止_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:-0.7%
+[SELL|Mix|WR73%|983K元大學甲_DT_S, 989Q元大汐止_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.3%
+[BUY|Mix|WR75%|9352華南桃園_ON_S, 9634富邦羅東_SW_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.3%
+[BUY|Mix|WR75%|9352華南桃園_ON_S, 9634富邦羅東_SW_L]</span></td><td title="983K元大學甲_DT_S, 989Q元大汐止_ON_L, 9352華南桃園_ON_S, 9634富邦羅東_SW_L"><span class="truncate-group">983K元大學甲_DT_S, 989Q元大汐止_ON_L, 9352華南桃園_ON_S, 9634富邦羅東_SW_L</span></td></tr><tr id="details_table-all_2413" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+電源供應器 變壓器 被動元件 電感 電子零件元件 電子製造服務 電腦系統業
+
+【每日分點勝率明細】
+[0129] Hits:1 | Rat:-0.7%
+[SELL|Mix|WR73%|983K元大學甲_DT_S, 989Q元大汐止_ON_L]
+[0205] Hits:1 | Rat:0.3%
+[BUY|Mix|WR75%|9352華南桃園_ON_S, 9634富邦羅東_SW_L]
+
+【關鍵分點總覽】
+20260129: [SELL|Mix|WR73%|983K元大學甲_DT_S, 989Q元大汐止_ON_L]
+20260205: [BUY|Mix|WR75%|9352華南桃園_ON_S, 9634富邦羅東_SW_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-all_2457')"><td class="text-left"><a href="2457_飛宏.html" style="white-space:nowrap;">2457 飛宏</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電子零組件</td><td title="電源供應器 電子零件元件"><span class="truncate-group" style="max-width: 150px;">電源供應器 電子零件元件</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.56%</span></td><td style="white-space:nowrap;"><span class="positive">0.56%</span></td><td style="white-space:nowrap;">0.00%</td><td>29.63</td><td style="white-space:nowrap;"><span class="positive">1.58%</span></td><td style="white-space:nowrap;"><span class="negative">-4.49%</span></td><td style="white-space:nowrap;"><span class="negative">-4.15%</span></td><td style="white-space:nowrap;"><span class="negative">-3.99%</span></td><td style="white-space:nowrap;"><span class="negative">-0.33%</span></td><td style="white-space:nowrap;"><span class="positive">5.32%</span></td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.6%
+[BUY|Mix|WR75%|1112企銀台南_ON_S, 9627富邦內湖_DT_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.6%
+[BUY|Mix|WR75%|1112企銀台南_ON_S, 9627富邦內湖_DT_L]</span></td><td title="1112企銀台南_ON_S, 9627富邦內湖_DT_L"><span class="truncate-group">1112企銀台南_ON_S, 9627富邦內湖_DT_L</span></td></tr><tr id="details_table-all_2457" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+電源供應器 電子零件元件
+
+【每日分點勝率明細】
+[0205] Hits:1 | Rat:0.6%
+[BUY|Mix|WR75%|1112企銀台南_ON_S, 9627富邦內湖_DT_L]
+
+【關鍵分點總覽】
+20260205: [BUY|Mix|WR75%|1112企銀台南_ON_S, 9627富邦內湖_DT_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-all_3665')"><td class="text-left"><a href="3665_貿聯-KY.html" style="white-space:nowrap;">3665 貿聯-KY</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">其他電子業</td><td title="連接器 電子零件元件 連接線材 電線電纜 電子線"><span class="truncate-group" style="max-width: 150px;">連接器 電子零件元件 連接線材 電線電纜 電子線</span></td><td>1</td><td style="white-space:nowrap;"><span class="negative">-0.02%</span></td><td style="white-space:nowrap;"><span class="negative">-0.02%</span></td><td style="white-space:nowrap;">0.00%</td><td>1387.94</td><td style="white-space:nowrap;"><span class="negative">-4.53%</span></td><td style="white-space:nowrap;"><span class="negative">-7.02%</span></td><td style="white-space:nowrap;"><span class="negative">-7.72%</span></td><td style="white-space:nowrap;"><span class="negative">-4.21%</span></td><td style="white-space:nowrap;"><span class="positive">2.46%</span></td><td style="white-space:nowrap;"><span class="positive">8.07%</span></td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:-0.0%
+[SELL|ON|WR72%|981j元大士林_ON_M, 984H元大景美_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:-0.0%
+[SELL|ON|WR72%|981j元大士林_ON_M, 984H元大景美_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="981j元大士林_ON_M, 984H元大景美_ON_L"><span class="truncate-group">981j元大士林_ON_M, 984H元大景美_ON_L</span></td></tr><tr id="details_table-all_3665" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+連接器 電子零件元件 連接線材 電線電纜 電子線
+
+【每日分點勝率明細】
+[0203] Hits:1 | Rat:-0.0%
+[SELL|ON|WR72%|981j元大士林_ON_M, 984H元大景美_ON_L]
+
+【關鍵分點總覽】
+20260203: [SELL|ON|WR72%|981j元大士林_ON_M, 984H元大景美_ON_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-all_4927')"><td class="text-left"><a href="4927_泰鼎-KY.html" style="white-space:nowrap;">4927 泰鼎-KY</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電子零組件</td><td title="印刷電路板 印刷電路板相關"><span class="truncate-group" style="max-width: 150px;">印刷電路板 印刷電路板相關</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.27%</span></td><td style="white-space:nowrap;"><span class="negative">-0.03%</span></td><td style="white-space:nowrap;"><span class="positive">0.30%</span></td><td>32.72</td><td style="white-space:nowrap;"><span class="positive">4.52%</span></td><td style="white-space:nowrap;"><span class="negative">-3.51%</span></td><td style="white-space:nowrap;"><span class="negative">-2.05%</span></td><td style="white-space:nowrap;"><span class="negative">-4.39%</span></td><td style="white-space:nowrap;"><span class="positive">7.02%</span></td><td style="white-space:nowrap;"><span class="positive">41.23%</span></td><td>0</td><td>2</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:-0.3%
+[SELL|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:-0.3%
+[SELL|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.3%
+[BUY|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.3%
+[BUY|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]</span></td><td title="845J康和高雄_ON_XS, 邦_ON_XS"><span class="truncate-group">845J康和高雄_ON_XS, 邦_ON_XS</span></td></tr><tr id="details_table-all_4927" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+印刷電路板 印刷電路板相關
+
+【每日分點勝率明細】
+[0130] Hits:1 | Rat:-0.3%
+[SELL|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]
+[0205] Hits:1 | Rat:0.3%
+[BUY|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]
+
+【關鍵分點總覽】
+20260130: [SELL|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]
+20260205: [BUY|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-all_6282')"><td class="text-left"><a href="6282_康舒.html" style="white-space:nowrap;">6282 康舒</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電子零組件</td><td title="電源供應器 電子零件元件"><span class="truncate-group" style="max-width: 150px;">電源供應器 電子零件元件</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.15%</span></td><td style="white-space:nowrap;"><span class="positive">0.15%</span></td><td style="white-space:nowrap;">0.00%</td><td>49.34</td><td style="white-space:nowrap;"><span class="positive">3.36%</span></td><td style="white-space:nowrap;"><span class="negative">-5.59%</span></td><td style="white-space:nowrap;"><span class="negative">-2.94%</span></td><td style="white-space:nowrap;"><span class="negative">-2.55%</span></td><td style="white-space:nowrap;"><span class="negative">-0.20%</span></td><td style="white-space:nowrap;"><span class="positive">5.69%</span></td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.1%
+[BUY|Mix|WR78%|5263美好泰山_ON_S, 5962日茂南投_DT_M]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.1%
+[BUY|Mix|WR78%|5263美好泰山_ON_S, 5962日茂南投_DT_M]</span></td><td title="5263美好泰山_ON_S, 5962日茂南投_DT_M"><span class="truncate-group">5263美好泰山_ON_S, 5962日茂南投_DT_M</span></td></tr><tr id="details_table-all_6282" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+電源供應器 電子零件元件
+
+【每日分點勝率明細】
+[0205] Hits:1 | Rat:0.1%
+[BUY|Mix|WR78%|5263美好泰山_ON_S, 5962日茂南投_DT_M]
+
+【關鍵分點總覽】
+20260205: [BUY|Mix|WR78%|5263美好泰山_ON_S, 5962日茂南投_DT_M]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-all_6443')"><td class="text-left"><a href="6443_元晶.html" style="white-space:nowrap;">6443 元晶</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">光電業</td><td title="太陽能 太陽能電池 太陽能電池模組"><span class="truncate-group" style="max-width: 150px;">太陽能 太陽能電池 太陽能電池模組</span></td><td>1</td><td style="white-space:nowrap;">0.00%</td><td style="white-space:nowrap;">0.00%</td><td style="white-space:nowrap;">0.00%</td><td>41.96</td><td style="white-space:nowrap;"><span class="positive">6.28%</span></td><td style="white-space:nowrap;"><span class="positive">1.48%</span></td><td style="white-space:nowrap;"><span class="negative">-5.80%</span></td><td style="white-space:nowrap;"><span class="negative">-3.75%</span></td><td style="white-space:nowrap;"><span class="negative">-13.08%</span></td><td style="white-space:nowrap;"><span class="positive">12.86%</span></td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.0%
+[BUY|ON|WR72%|845F康和仁愛_ON_L, 9324華南岡山_ON_M]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.0%
+[BUY|ON|WR72%|845F康和仁愛_ON_L, 9324華南岡山_ON_M]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="845F康和仁愛_ON_L, 9324華南岡山_ON_M"><span class="truncate-group">845F康和仁愛_ON_L, 9324華南岡山_ON_M</span></td></tr><tr id="details_table-all_6443" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+太陽能 太陽能電池 太陽能電池模組
+
+【每日分點勝率明細】
+[0203] Hits:1 | Rat:0.0%
+[BUY|ON|WR72%|845F康和仁愛_ON_L, 9324華南岡山_ON_M]
+
+【關鍵分點總覽】
+20260203: [BUY|ON|WR72%|845F康和仁愛_ON_L, 9324華南岡山_ON_M]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-all_7795')"><td class="text-left"><a href="7795_長廣.html" style="white-space:nowrap;">7795 長廣</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電子零組件</td><td title=""><span class="truncate-group" style="max-width: 150px;"></span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.54%</span></td><td style="white-space:nowrap;"><span class="positive">0.54%</span></td><td style="white-space:nowrap;">0.00%</td><td>394.16</td><td style="white-space:nowrap;"><span class="positive">3.51%</span></td><td style="white-space:nowrap;"><span class="negative">-3.19%</span></td><td style="white-space:nowrap;"><span class="negative">-2.94%</span></td><td style="white-space:nowrap;"><span class="negative">-7.84%</span></td><td style="white-space:nowrap;"><span class="negative">-6.62%</span></td><td style="white-space:nowrap;"><span class="positive">0.98%</span></td><td>0</td><td>2</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.5%
+[BUY|ON|WR72%|920G凱基彰化_ON_S, 980w元大西屯_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.5%
+[BUY|ON|WR72%|920G凱基彰化_ON_S, 980w元大西屯_ON_L]</span></td><td title="920G凱基彰化_ON_S, 980w元大西屯_ON_L"><span class="truncate-group">920G凱基彰化_ON_S, 980w元大西屯_ON_L</span></td></tr><tr id="details_table-all_7795" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+
+
+【每日分點勝率明細】
+[0205] Hits:1 | Rat:0.5%
+[BUY|ON|WR72%|920G凱基彰化_ON_S, 980w元大西屯_ON_L]
+
+【關鍵分點總覽】
+20260205: [BUY|ON|WR72%|920G凱基彰化_ON_S, 980w元大西屯_ON_L]</div></td></tr></tbody></table></div></div>
+<div class="tab-content" id="tab-5%" style="display:none;">
+<p style="color:var(--text-light);margin-bottom:15px;">5%勝率清單：共 12 支個股 (點擊標題可排序)</p>
+<div class="datatable-wrapper" style="overflow-x:auto;"><table class="datatable" id="table-5%"><thead><tr><th class="text-left" onclick="sortTable('table-5%', 0, 'str')">代碼 名稱</th><th onclick="sortTable('table-5%', 1, 'str')">最新股價</th><th onclick="sortTable('table-5%', 2, 'str')">產業</th><th onclick="sortTable('table-5%', 3, 'str')">細產業</th><th onclick="sortTable('table-5%', 4, 'num')">命中</th><th onclick="sortTable('table-5%', 5, 'num')">平均勝率</th><th onclick="sortTable('table-5%', 6, 'num')">勝率(10D)</th><th onclick="sortTable('table-5%', 7, 'num')">勝率差</th><th onclick="sortTable('table-5%', 8, 'num')">平均成本</th><th onclick="sortTable('table-5%', 9, 'num')">成本差</th><th onclick="sortTable('table-5%', 10, 'num')">報酬(1D)</th><th onclick="sortTable('table-5%', 11, 'num')">報酬(2D)</th><th onclick="sortTable('table-5%', 12, 'num')">報酬(3D)</th><th onclick="sortTable('table-5%', 13, 'num')">報酬(5D)</th><th onclick="sortTable('table-5%', 14, 'num')">報酬(10D)</th><th onclick="sortTable('table-5%', 15, 'num')">DT</th><th onclick="sortTable('table-5%', 16, 'num')">ON</th><th onclick="sortTable('table-5%', 17, 'num')">SW</th><th onclick="sortTable('table-5%', 18, 'num')">XS</th><th onclick="sortTable('table-5%', 19, 'num')">S</th><th onclick="sortTable('table-5%', 20, 'num')">M</th><th onclick="sortTable('table-5%', 21, 'num')">L</th><th onclick="sortTable('table-5%', 22, 'num')">0121</th><th onclick="sortTable('table-5%', 23, 'num')">0122</th><th onclick="sortTable('table-5%', 24, 'num')">0123</th><th onclick="sortTable('table-5%', 25, 'num')">0126</th><th onclick="sortTable('table-5%', 26, 'num')">0127</th><th onclick="sortTable('table-5%', 27, 'num')">0129</th><th onclick="sortTable('table-5%', 28, 'num')">0130</th><th onclick="sortTable('table-5%', 29, 'num')">0202</th><th onclick="sortTable('table-5%', 30, 'num')">0203</th><th onclick="sortTable('table-5%', 31, 'num')">0205</th><th onclick="sortTable('table-5%', 32, 'str')">關鍵分點</th></tr></thead><tbody><tr class="main-row" onclick="toggleDetails('details_table-5%_2337')"><td class="text-left"><a href="2337_旺宏.html" style="white-space:nowrap;">2337 旺宏</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">半導體業</td><td title="非揮發性記憶體 IC生產 IC製造"><span class="truncate-group" style="max-width: 150px;">非揮發性記憶體 IC生產 IC製造</span></td><td>6</td><td style="white-space:nowrap;"><span class="negative">-0.44%</span></td><td style="white-space:nowrap;"><span class="positive">0.02%</span></td><td style="white-space:nowrap;"><span class="negative">-0.47%</span></td><td>90.34</td><td style="white-space:nowrap;"><span class="positive">1.51%</span></td><td style="white-space:nowrap;"><span class="negative">-1.61%</span></td><td style="white-space:nowrap;"><span class="negative">-7.94%</span></td><td style="white-space:nowrap;"><span class="negative">-4.72%</span></td><td style="white-space:nowrap;"><span class="positive">5.69%</span></td><td style="white-space:nowrap;"><span class="positive">29.29%</span></td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>3</td><td>9</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.0%
+[BUY|Mix|WR75%|7006兆豐台南_ON_L, 981A元大三峽_DT_M]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.0%
+[BUY|Mix|WR75%|7006兆豐台南_ON_L, 981A元大三峽_DT_M]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:8 | Rat:0.5%
+[BUY|Mix|WR81%|9316華南淡水_ON_L, 9693富邦新營_DT_M]
+[BUY|Mix|WR81%|592E元富城中_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|700f兆豐鹿港_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9278凱基永康_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|592r元富城東_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:8 | Rat:0.5%
+[BUY|Mix|WR81%|9316華南淡水_ON_L, 9693富邦新營_DT_M]
+[BUY|Mix|WR81%|592E元富城中_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|700f兆豐鹿港_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9278凱基永康_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|592r元富城東_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:6 | Rat:-0.4%
+[SELL|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9316華南淡水_ON_L, 9A9M永豐南投_DT_M]
+[BUY|Mix|WR72%|921M凱基八德_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|9189群益桃園_DT_M, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:6 | Rat:-0.4%
+[SELL|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9316華南淡水_ON_L, 9A9M永豐南投_DT_M]
+[BUY|Mix|WR72%|921M凱基八德_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|9189群益桃園_DT_M, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="7006兆豐台南_ON_L, 981A元大三峽_DT_M, 9316華南淡水_ON_L, 9693富邦新營_DT_M, 592E元富城中_DT_L, 6160中國信託_DT_L, 700f兆豐鹿港_DT_M, 9278凱基永康_DT_M, 592r元富城東_DT_L, 913Y群益館前_DT_L, 5380第一金證_DT_L, 9A9M永豐南投_DT_M, 921M凱基八德_DT_M, 9189群益桃園_DT_M"><span class="truncate-group">7006兆豐台南_ON_L, 981A元大三峽_DT_M, 9316華南淡水_ON_L, 9693富邦新營_DT_M, 592E元富城中_DT_L, 6160中國信託_DT_L, 700f兆豐鹿港_DT_M, 9278凱基永康_DT_M, 592r元富城東_DT_L, 913Y群益館前_DT_L, 5380第一金證_DT_L, 9A9M永豐南投_DT_M, 921M凱基八德_DT_M, 9189群益桃園_DT_M</span></td></tr><tr id="details_table-5%_2337" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+非揮發性記憶體 IC生產 IC製造
+
+【每日分點勝率明細】
+[0127] Hits:1 | Rat:0.0%
+[BUY|Mix|WR75%|7006兆豐台南_ON_L, 981A元大三峽_DT_M]
+[0130] Hits:8 | Rat:0.5%
+[BUY|Mix|WR81%|9316華南淡水_ON_L, 9693富邦新營_DT_M]
+[BUY|Mix|WR81%|592E元富城中_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|700f兆豐鹿港_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9278凱基永康_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|592r元富城東_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]
+[0203] Hits:6 | Rat:-0.4%
+[SELL|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9316華南淡水_ON_L, 9A9M永豐南投_DT_M]
+[BUY|Mix|WR72%|921M凱基八德_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|9189群益桃園_DT_M, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]
+
+【關鍵分點總覽】
+20260127: [BUY|Mix|WR75%|7006兆豐台南_ON_L, 981A元大三峽_DT_M]
+20260130: [BUY|Mix|WR81%|9316華南淡水_ON_L, 9693富邦新營_DT_M]
+20260130: [BUY|Mix|WR81%|592E元富城中_DT_L, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR75%|700f兆豐鹿港_DT_M, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR75%|9278凱基永康_DT_M, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR72%|592r元富城東_DT_L, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]
+20260203: [SELL|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+20260203: [BUY|Mix|WR75%|9316華南淡水_ON_L, 9A9M永豐南投_DT_M]
+20260203: [BUY|Mix|WR72%|921M凱基八德_DT_M, 9316華南淡水_ON_L]
+20260203: [BUY|Mix|WR72%|9189群益桃園_DT_M, 9316華南淡水_ON_L]
+20260203: [SELL|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+20260203: [SELL|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-5%_2353')"><td class="text-left"><a href="2353_宏碁.html" style="white-space:nowrap;">2353 宏碁</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電腦及週邊設備業</td><td title="桌上型電腦 伺服器 筆記型電腦 顯示器 投影機 平板電腦 消費性電子產品 週邊產品 電腦系統業"><span class="truncate-group" style="max-width: 150px;">桌上型電腦 伺服器 筆記型電腦 顯示器 投影機 平板電腦 消費性電子產品 週邊產品 電腦系統業</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.27%</span></td><td style="white-space:nowrap;"><span class="positive">0.27%</span></td><td style="white-space:nowrap;">0.00%</td><td>26.53</td><td style="white-space:nowrap;"><span class="positive">6.12%</span></td><td style="white-space:nowrap;"><span class="positive">2.18%</span></td><td style="white-space:nowrap;"><span class="negative">-2.90%</span></td><td style="white-space:nowrap;"><span class="negative">-1.81%</span></td><td style="white-space:nowrap;"><span class="negative">-0.36%</span></td><td style="white-space:nowrap;"><span class="negative">-0.54%</span></td><td>0</td><td>2</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.3%
+[BUY|ON|WR72%|8520中    農_ON_S, 9884元大斗信_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.3%
+[BUY|ON|WR72%|8520中    農_ON_S, 9884元大斗信_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="農_ON_S, 9884元大斗信_ON_L"><span class="truncate-group">農_ON_S, 9884元大斗信_ON_L</span></td></tr><tr id="details_table-5%_2353" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+桌上型電腦 伺服器 筆記型電腦 顯示器 投影機 平板電腦 消費性電子產品 週邊產品 電腦系統業
+
+【每日分點勝率明細】
+[0203] Hits:1 | Rat:0.3%
+[BUY|ON|WR72%|8520中    農_ON_S, 9884元大斗信_ON_L]
+
+【關鍵分點總覽】
+20260203: [BUY|ON|WR72%|8520中    農_ON_S, 9884元大斗信_ON_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-5%_2369')"><td class="text-left"><a href="2369_菱生.html" style="white-space:nowrap;">2369 菱生</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">半導體業</td><td title="IC封裝 IC測試 IC封裝測試"><span class="truncate-group" style="max-width: 150px;">IC封裝 IC測試 IC封裝測試</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.35%</span></td><td style="white-space:nowrap;"><span class="positive">0.35%</span></td><td style="white-space:nowrap;">0.00%</td><td>26.08</td><td style="white-space:nowrap;"><span class="positive">0.47%</span></td><td style="white-space:nowrap;"><span class="negative">-2.06%</span></td><td style="white-space:nowrap;"><span class="negative">-5.79%</span></td><td style="white-space:nowrap;"><span class="negative">-3.55%</span></td><td style="white-space:nowrap;"><span class="negative">-5.23%</span></td><td style="white-space:nowrap;"><span class="positive">9.91%</span></td><td>0</td><td>2</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.4%
+[BUY|ON|WR84%|913E群益基隆_ON_S, 989g元大嘉義_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.4%
+[BUY|ON|WR84%|913E群益基隆_ON_S, 989g元大嘉義_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="913E群益基隆_ON_S, 989g元大嘉義_ON_L"><span class="truncate-group">913E群益基隆_ON_S, 989g元大嘉義_ON_L</span></td></tr><tr id="details_table-5%_2369" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+IC封裝 IC測試 IC封裝測試
+
+【每日分點勝率明細】
+[0203] Hits:1 | Rat:0.4%
+[BUY|ON|WR84%|913E群益基隆_ON_S, 989g元大嘉義_ON_L]
+
+【關鍵分點總覽】
+20260203: [BUY|ON|WR84%|913E群益基隆_ON_S, 989g元大嘉義_ON_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-5%_2408')"><td class="text-left"><a href="2408_南亞科.html" style="white-space:nowrap;">2408 南亞科</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">半導體業</td><td title="DRAM IC生產 IC製造"><span class="truncate-group" style="max-width: 150px;">DRAM IC生產 IC製造</span></td><td>1</td><td style="white-space:nowrap;"><span class="negative">-0.01%</span></td><td style="white-space:nowrap;"><span class="negative">-0.01%</span></td><td style="white-space:nowrap;">0.00%</td><td>291.87</td><td style="white-space:nowrap;"><span class="negative">-2.01%</span></td><td style="white-space:nowrap;"><span class="negative">-9.06%</span></td><td style="white-space:nowrap;"><span class="negative">-11.76%</span></td><td style="white-space:nowrap;"><span class="negative">-10.02%</span></td><td style="white-space:nowrap;"><span class="negative">-10.65%</span></td><td style="white-space:nowrap;"><span class="negative">-7.47%</span></td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:-0.0%
+[SELL|Mix|WR72%|779P國票九鼎_ON_L, 9312華南民權_DT_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:-0.0%
+[SELL|Mix|WR72%|779P國票九鼎_ON_L, 9312華南民權_DT_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="779P國票九鼎_ON_L, 9312華南民權_DT_L"><span class="truncate-group">779P國票九鼎_ON_L, 9312華南民權_DT_L</span></td></tr><tr id="details_table-5%_2408" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+DRAM IC生產 IC製造
+
+【每日分點勝率明細】
+[0203] Hits:1 | Rat:-0.0%
+[SELL|Mix|WR72%|779P國票九鼎_ON_L, 9312華南民權_DT_L]
+
+【關鍵分點總覽】
+20260203: [SELL|Mix|WR72%|779P國票九鼎_ON_L, 9312華南民權_DT_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-5%_2409')"><td class="text-left"><a href="2409_友達.html" style="white-space:nowrap;">2409 友達</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">光電業</td><td title="面板業 中小尺吋面板 TFT-LCD OLED 觸控面板"><span class="truncate-group" style="max-width: 150px;">面板業 中小尺吋面板 TFT-LCD OLED 觸控面板</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.14%</span></td><td style="white-space:nowrap;">0.00%</td><td style="white-space:nowrap;"><span class="positive">0.14%</span></td><td>14.07</td><td style="white-space:nowrap;"><span class="positive">16.56%</span></td><td style="white-space:nowrap;"><span class="positive">17.56%</span></td><td style="white-space:nowrap;"><span class="positive">13.26%</span></td><td style="white-space:nowrap;"><span class="positive">12.90%</span></td><td style="white-space:nowrap;"><span class="positive">16.13%</span></td><td style="white-space:nowrap;"><span class="positive">23.30%</span></td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:-0.1%
+[SELL|Mix|WR72%|7791國票台東_ON_S, 9257凱基林口_DT_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:-0.1%
+[SELL|Mix|WR72%|7791國票台東_ON_S, 9257凱基林口_DT_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.0%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.0%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]</span></td><td title="Hits:1 | Rat:-0.2%
+[SELL|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:-0.2%
+[SELL|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]</span></td><td title="Hits:1 | Rat:0.2%
+[BUY|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.2%
+[BUY|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]</span></td><td title="Hits:1 | Rat:0.1%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.1%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="7791國票台東_ON_S, 9257凱基林口_DT_L, 6465大昌桃園_SW_S, 989D元大左營_DT_L, 585R統一東湖_DT_S, 962P富邦頭份_ON_L"><span class="truncate-group">7791國票台東_ON_S, 9257凱基林口_DT_L, 6465大昌桃園_SW_S, 989D元大左營_DT_L, 585R統一東湖_DT_S, 962P富邦頭份_ON_L</span></td></tr><tr id="details_table-5%_2409" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+面板業 中小尺吋面板 TFT-LCD OLED 觸控面板
+
+【每日分點勝率明細】
+[0126] Hits:1 | Rat:-0.1%
+[SELL|Mix|WR72%|7791國票台東_ON_S, 9257凱基林口_DT_L]
+[0129] Hits:1 | Rat:0.0%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]
+[0130] Hits:1 | Rat:-0.2%
+[SELL|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]
+[0202] Hits:1 | Rat:0.2%
+[BUY|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]
+[0203] Hits:1 | Rat:0.1%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]
+
+【關鍵分點總覽】
+20260126: [SELL|Mix|WR72%|7791國票台東_ON_S, 9257凱基林口_DT_L]
+20260129: [BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]
+20260130: [SELL|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]
+20260202: [BUY|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]
+20260203: [BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-5%_2413')"><td class="text-left"><a href="2413_環科.html" style="white-space:nowrap;">2413 環科</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電子零組件</td><td title="電源供應器 變壓器 被動元件 電感 電子零件元件 電子製造服務 電腦系統業"><span class="truncate-group" style="max-width: 150px;">電源供應器 變壓器 被動元件 電感 電子零件元件 電子製造服務 電腦系統業</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.35%</span></td><td style="white-space:nowrap;"><span class="negative">-0.07%</span></td><td style="white-space:nowrap;"><span class="positive">0.41%</span></td><td>45.83</td><td style="white-space:nowrap;"><span class="positive">5.61%</span></td><td style="white-space:nowrap;"><span class="negative">-11.88%</span></td><td style="white-space:nowrap;"><span class="negative">-12.29%</span></td><td style="white-space:nowrap;"><span class="negative">-9.81%</span></td><td style="white-space:nowrap;"><span class="negative">-5.68%</span></td><td style="white-space:nowrap;"><span class="positive">18.60%</span></td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:-0.7%
+[SELL|Mix|WR73%|983K元大學甲_DT_S, 989Q元大汐止_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:-0.7%
+[SELL|Mix|WR73%|983K元大學甲_DT_S, 989Q元大汐止_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.3%
+[BUY|Mix|WR75%|9352華南桃園_ON_S, 9634富邦羅東_SW_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.3%
+[BUY|Mix|WR75%|9352華南桃園_ON_S, 9634富邦羅東_SW_L]</span></td><td title="983K元大學甲_DT_S, 989Q元大汐止_ON_L, 9352華南桃園_ON_S, 9634富邦羅東_SW_L"><span class="truncate-group">983K元大學甲_DT_S, 989Q元大汐止_ON_L, 9352華南桃園_ON_S, 9634富邦羅東_SW_L</span></td></tr><tr id="details_table-5%_2413" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+電源供應器 變壓器 被動元件 電感 電子零件元件 電子製造服務 電腦系統業
+
+【每日分點勝率明細】
+[0129] Hits:1 | Rat:-0.7%
+[SELL|Mix|WR73%|983K元大學甲_DT_S, 989Q元大汐止_ON_L]
+[0205] Hits:1 | Rat:0.3%
+[BUY|Mix|WR75%|9352華南桃園_ON_S, 9634富邦羅東_SW_L]
+
+【關鍵分點總覽】
+20260129: [SELL|Mix|WR73%|983K元大學甲_DT_S, 989Q元大汐止_ON_L]
+20260205: [BUY|Mix|WR75%|9352華南桃園_ON_S, 9634富邦羅東_SW_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-5%_2457')"><td class="text-left"><a href="2457_飛宏.html" style="white-space:nowrap;">2457 飛宏</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電子零組件</td><td title="電源供應器 電子零件元件"><span class="truncate-group" style="max-width: 150px;">電源供應器 電子零件元件</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.56%</span></td><td style="white-space:nowrap;"><span class="positive">0.56%</span></td><td style="white-space:nowrap;">0.00%</td><td>29.63</td><td style="white-space:nowrap;"><span class="positive">1.58%</span></td><td style="white-space:nowrap;"><span class="negative">-4.49%</span></td><td style="white-space:nowrap;"><span class="negative">-4.15%</span></td><td style="white-space:nowrap;"><span class="negative">-3.99%</span></td><td style="white-space:nowrap;"><span class="negative">-0.33%</span></td><td style="white-space:nowrap;"><span class="positive">5.32%</span></td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.6%
+[BUY|Mix|WR75%|1112企銀台南_ON_S, 9627富邦內湖_DT_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.6%
+[BUY|Mix|WR75%|1112企銀台南_ON_S, 9627富邦內湖_DT_L]</span></td><td title="1112企銀台南_ON_S, 9627富邦內湖_DT_L"><span class="truncate-group">1112企銀台南_ON_S, 9627富邦內湖_DT_L</span></td></tr><tr id="details_table-5%_2457" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+電源供應器 電子零件元件
+
+【每日分點勝率明細】
+[0205] Hits:1 | Rat:0.6%
+[BUY|Mix|WR75%|1112企銀台南_ON_S, 9627富邦內湖_DT_L]
+
+【關鍵分點總覽】
+20260205: [BUY|Mix|WR75%|1112企銀台南_ON_S, 9627富邦內湖_DT_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-5%_3665')"><td class="text-left"><a href="3665_貿聯-KY.html" style="white-space:nowrap;">3665 貿聯-KY</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">其他電子業</td><td title="連接器 電子零件元件 連接線材 電線電纜 電子線"><span class="truncate-group" style="max-width: 150px;">連接器 電子零件元件 連接線材 電線電纜 電子線</span></td><td>1</td><td style="white-space:nowrap;"><span class="negative">-0.02%</span></td><td style="white-space:nowrap;"><span class="negative">-0.02%</span></td><td style="white-space:nowrap;">0.00%</td><td>1387.94</td><td style="white-space:nowrap;"><span class="negative">-4.53%</span></td><td style="white-space:nowrap;"><span class="negative">-7.02%</span></td><td style="white-space:nowrap;"><span class="negative">-7.72%</span></td><td style="white-space:nowrap;"><span class="negative">-4.21%</span></td><td style="white-space:nowrap;"><span class="positive">2.46%</span></td><td style="white-space:nowrap;"><span class="positive">8.07%</span></td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:-0.0%
+[SELL|ON|WR72%|981j元大士林_ON_M, 984H元大景美_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:-0.0%
+[SELL|ON|WR72%|981j元大士林_ON_M, 984H元大景美_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="981j元大士林_ON_M, 984H元大景美_ON_L"><span class="truncate-group">981j元大士林_ON_M, 984H元大景美_ON_L</span></td></tr><tr id="details_table-5%_3665" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+連接器 電子零件元件 連接線材 電線電纜 電子線
+
+【每日分點勝率明細】
+[0203] Hits:1 | Rat:-0.0%
+[SELL|ON|WR72%|981j元大士林_ON_M, 984H元大景美_ON_L]
+
+【關鍵分點總覽】
+20260203: [SELL|ON|WR72%|981j元大士林_ON_M, 984H元大景美_ON_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-5%_4927')"><td class="text-left"><a href="4927_泰鼎-KY.html" style="white-space:nowrap;">4927 泰鼎-KY</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電子零組件</td><td title="印刷電路板 印刷電路板相關"><span class="truncate-group" style="max-width: 150px;">印刷電路板 印刷電路板相關</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.27%</span></td><td style="white-space:nowrap;"><span class="negative">-0.03%</span></td><td style="white-space:nowrap;"><span class="positive">0.30%</span></td><td>32.72</td><td style="white-space:nowrap;"><span class="positive">4.52%</span></td><td style="white-space:nowrap;"><span class="negative">-3.51%</span></td><td style="white-space:nowrap;"><span class="negative">-2.05%</span></td><td style="white-space:nowrap;"><span class="negative">-4.39%</span></td><td style="white-space:nowrap;"><span class="positive">7.02%</span></td><td style="white-space:nowrap;"><span class="positive">41.23%</span></td><td>0</td><td>2</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:-0.3%
+[SELL|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:-0.3%
+[SELL|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.3%
+[BUY|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.3%
+[BUY|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]</span></td><td title="845J康和高雄_ON_XS, 邦_ON_XS"><span class="truncate-group">845J康和高雄_ON_XS, 邦_ON_XS</span></td></tr><tr id="details_table-5%_4927" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+印刷電路板 印刷電路板相關
+
+【每日分點勝率明細】
+[0130] Hits:1 | Rat:-0.3%
+[SELL|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]
+[0205] Hits:1 | Rat:0.3%
+[BUY|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]
+
+【關鍵分點總覽】
+20260130: [SELL|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]
+20260205: [BUY|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-5%_6282')"><td class="text-left"><a href="6282_康舒.html" style="white-space:nowrap;">6282 康舒</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電子零組件</td><td title="電源供應器 電子零件元件"><span class="truncate-group" style="max-width: 150px;">電源供應器 電子零件元件</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.15%</span></td><td style="white-space:nowrap;"><span class="positive">0.15%</span></td><td style="white-space:nowrap;">0.00%</td><td>49.34</td><td style="white-space:nowrap;"><span class="positive">3.36%</span></td><td style="white-space:nowrap;"><span class="negative">-5.59%</span></td><td style="white-space:nowrap;"><span class="negative">-2.94%</span></td><td style="white-space:nowrap;"><span class="negative">-2.55%</span></td><td style="white-space:nowrap;"><span class="negative">-0.20%</span></td><td style="white-space:nowrap;"><span class="positive">5.69%</span></td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.1%
+[BUY|Mix|WR78%|5263美好泰山_ON_S, 5962日茂南投_DT_M]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.1%
+[BUY|Mix|WR78%|5263美好泰山_ON_S, 5962日茂南投_DT_M]</span></td><td title="5263美好泰山_ON_S, 5962日茂南投_DT_M"><span class="truncate-group">5263美好泰山_ON_S, 5962日茂南投_DT_M</span></td></tr><tr id="details_table-5%_6282" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+電源供應器 電子零件元件
+
+【每日分點勝率明細】
+[0205] Hits:1 | Rat:0.1%
+[BUY|Mix|WR78%|5263美好泰山_ON_S, 5962日茂南投_DT_M]
+
+【關鍵分點總覽】
+20260205: [BUY|Mix|WR78%|5263美好泰山_ON_S, 5962日茂南投_DT_M]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-5%_6443')"><td class="text-left"><a href="6443_元晶.html" style="white-space:nowrap;">6443 元晶</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">光電業</td><td title="太陽能 太陽能電池 太陽能電池模組"><span class="truncate-group" style="max-width: 150px;">太陽能 太陽能電池 太陽能電池模組</span></td><td>1</td><td style="white-space:nowrap;">0.00%</td><td style="white-space:nowrap;">0.00%</td><td style="white-space:nowrap;">0.00%</td><td>41.96</td><td style="white-space:nowrap;"><span class="positive">6.28%</span></td><td style="white-space:nowrap;"><span class="positive">1.48%</span></td><td style="white-space:nowrap;"><span class="negative">-5.80%</span></td><td style="white-space:nowrap;"><span class="negative">-3.75%</span></td><td style="white-space:nowrap;"><span class="negative">-13.08%</span></td><td style="white-space:nowrap;"><span class="positive">12.86%</span></td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.0%
+[BUY|ON|WR72%|845F康和仁愛_ON_L, 9324華南岡山_ON_M]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.0%
+[BUY|ON|WR72%|845F康和仁愛_ON_L, 9324華南岡山_ON_M]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="845F康和仁愛_ON_L, 9324華南岡山_ON_M"><span class="truncate-group">845F康和仁愛_ON_L, 9324華南岡山_ON_M</span></td></tr><tr id="details_table-5%_6443" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+太陽能 太陽能電池 太陽能電池模組
+
+【每日分點勝率明細】
+[0203] Hits:1 | Rat:0.0%
+[BUY|ON|WR72%|845F康和仁愛_ON_L, 9324華南岡山_ON_M]
+
+【關鍵分點總覽】
+20260203: [BUY|ON|WR72%|845F康和仁愛_ON_L, 9324華南岡山_ON_M]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-5%_7795')"><td class="text-left"><a href="7795_長廣.html" style="white-space:nowrap;">7795 長廣</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電子零組件</td><td title=""><span class="truncate-group" style="max-width: 150px;"></span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.54%</span></td><td style="white-space:nowrap;"><span class="positive">0.54%</span></td><td style="white-space:nowrap;">0.00%</td><td>394.16</td><td style="white-space:nowrap;"><span class="positive">3.51%</span></td><td style="white-space:nowrap;"><span class="negative">-3.19%</span></td><td style="white-space:nowrap;"><span class="negative">-2.94%</span></td><td style="white-space:nowrap;"><span class="negative">-7.84%</span></td><td style="white-space:nowrap;"><span class="negative">-6.62%</span></td><td style="white-space:nowrap;"><span class="positive">0.98%</span></td><td>0</td><td>2</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.5%
+[BUY|ON|WR72%|920G凱基彰化_ON_S, 980w元大西屯_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.5%
+[BUY|ON|WR72%|920G凱基彰化_ON_S, 980w元大西屯_ON_L]</span></td><td title="920G凱基彰化_ON_S, 980w元大西屯_ON_L"><span class="truncate-group">920G凱基彰化_ON_S, 980w元大西屯_ON_L</span></td></tr><tr id="details_table-5%_7795" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+
+
+【每日分點勝率明細】
+[0205] Hits:1 | Rat:0.5%
+[BUY|ON|WR72%|920G凱基彰化_ON_S, 980w元大西屯_ON_L]
+
+【關鍵分點總覽】
+20260205: [BUY|ON|WR72%|920G凱基彰化_ON_S, 980w元大西屯_ON_L]</div></td></tr></tbody></table></div></div>
+<div class="tab-content" id="tab-10%" style="display:none;">
+<p style="color:var(--text-light);margin-bottom:15px;">10%勝率清單：共 8 支個股 (點擊標題可排序)</p>
+<div class="datatable-wrapper" style="overflow-x:auto;"><table class="datatable" id="table-10%"><thead><tr><th class="text-left" onclick="sortTable('table-10%', 0, 'str')">代碼 名稱</th><th onclick="sortTable('table-10%', 1, 'str')">最新股價</th><th onclick="sortTable('table-10%', 2, 'str')">產業</th><th onclick="sortTable('table-10%', 3, 'str')">細產業</th><th onclick="sortTable('table-10%', 4, 'num')">命中</th><th onclick="sortTable('table-10%', 5, 'num')">平均勝率</th><th onclick="sortTable('table-10%', 6, 'num')">勝率(10D)</th><th onclick="sortTable('table-10%', 7, 'num')">勝率差</th><th onclick="sortTable('table-10%', 8, 'num')">平均成本</th><th onclick="sortTable('table-10%', 9, 'num')">成本差</th><th onclick="sortTable('table-10%', 10, 'num')">報酬(1D)</th><th onclick="sortTable('table-10%', 11, 'num')">報酬(2D)</th><th onclick="sortTable('table-10%', 12, 'num')">報酬(3D)</th><th onclick="sortTable('table-10%', 13, 'num')">報酬(5D)</th><th onclick="sortTable('table-10%', 14, 'num')">報酬(10D)</th><th onclick="sortTable('table-10%', 15, 'num')">DT</th><th onclick="sortTable('table-10%', 16, 'num')">ON</th><th onclick="sortTable('table-10%', 17, 'num')">SW</th><th onclick="sortTable('table-10%', 18, 'num')">XS</th><th onclick="sortTable('table-10%', 19, 'num')">S</th><th onclick="sortTable('table-10%', 20, 'num')">M</th><th onclick="sortTable('table-10%', 21, 'num')">L</th><th onclick="sortTable('table-10%', 22, 'num')">0121</th><th onclick="sortTable('table-10%', 23, 'num')">0122</th><th onclick="sortTable('table-10%', 24, 'num')">0123</th><th onclick="sortTable('table-10%', 25, 'num')">0126</th><th onclick="sortTable('table-10%', 26, 'num')">0127</th><th onclick="sortTable('table-10%', 27, 'num')">0129</th><th onclick="sortTable('table-10%', 28, 'num')">0130</th><th onclick="sortTable('table-10%', 29, 'num')">0202</th><th onclick="sortTable('table-10%', 30, 'num')">0203</th><th onclick="sortTable('table-10%', 31, 'num')">0205</th><th onclick="sortTable('table-10%', 32, 'str')">關鍵分點</th></tr></thead><tbody><tr class="main-row" onclick="toggleDetails('details_table-10%_2337')"><td class="text-left"><a href="2337_旺宏.html" style="white-space:nowrap;">2337 旺宏</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">半導體業</td><td title="非揮發性記憶體 IC生產 IC製造"><span class="truncate-group" style="max-width: 150px;">非揮發性記憶體 IC生產 IC製造</span></td><td>6</td><td style="white-space:nowrap;"><span class="negative">-0.44%</span></td><td style="white-space:nowrap;"><span class="positive">0.02%</span></td><td style="white-space:nowrap;"><span class="negative">-0.47%</span></td><td>90.34</td><td style="white-space:nowrap;"><span class="positive">1.51%</span></td><td style="white-space:nowrap;"><span class="negative">-1.61%</span></td><td style="white-space:nowrap;"><span class="negative">-7.94%</span></td><td style="white-space:nowrap;"><span class="negative">-4.72%</span></td><td style="white-space:nowrap;"><span class="positive">5.69%</span></td><td style="white-space:nowrap;"><span class="positive">29.29%</span></td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>3</td><td>9</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.0%
+[BUY|Mix|WR75%|7006兆豐台南_ON_L, 981A元大三峽_DT_M]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.0%
+[BUY|Mix|WR75%|7006兆豐台南_ON_L, 981A元大三峽_DT_M]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:8 | Rat:0.5%
+[BUY|Mix|WR81%|9316華南淡水_ON_L, 9693富邦新營_DT_M]
+[BUY|Mix|WR81%|592E元富城中_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|700f兆豐鹿港_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9278凱基永康_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|592r元富城東_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:8 | Rat:0.5%
+[BUY|Mix|WR81%|9316華南淡水_ON_L, 9693富邦新營_DT_M]
+[BUY|Mix|WR81%|592E元富城中_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|700f兆豐鹿港_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9278凱基永康_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|592r元富城東_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:6 | Rat:-0.4%
+[SELL|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9316華南淡水_ON_L, 9A9M永豐南投_DT_M]
+[BUY|Mix|WR72%|921M凱基八德_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|9189群益桃園_DT_M, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:6 | Rat:-0.4%
+[SELL|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9316華南淡水_ON_L, 9A9M永豐南投_DT_M]
+[BUY|Mix|WR72%|921M凱基八德_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|9189群益桃園_DT_M, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="7006兆豐台南_ON_L, 981A元大三峽_DT_M, 9316華南淡水_ON_L, 9693富邦新營_DT_M, 592E元富城中_DT_L, 6160中國信託_DT_L, 700f兆豐鹿港_DT_M, 9278凱基永康_DT_M, 592r元富城東_DT_L, 913Y群益館前_DT_L, 5380第一金證_DT_L, 9A9M永豐南投_DT_M, 921M凱基八德_DT_M, 9189群益桃園_DT_M"><span class="truncate-group">7006兆豐台南_ON_L, 981A元大三峽_DT_M, 9316華南淡水_ON_L, 9693富邦新營_DT_M, 592E元富城中_DT_L, 6160中國信託_DT_L, 700f兆豐鹿港_DT_M, 9278凱基永康_DT_M, 592r元富城東_DT_L, 913Y群益館前_DT_L, 5380第一金證_DT_L, 9A9M永豐南投_DT_M, 921M凱基八德_DT_M, 9189群益桃園_DT_M</span></td></tr><tr id="details_table-10%_2337" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+非揮發性記憶體 IC生產 IC製造
+
+【每日分點勝率明細】
+[0127] Hits:1 | Rat:0.0%
+[BUY|Mix|WR75%|7006兆豐台南_ON_L, 981A元大三峽_DT_M]
+[0130] Hits:8 | Rat:0.5%
+[BUY|Mix|WR81%|9316華南淡水_ON_L, 9693富邦新營_DT_M]
+[BUY|Mix|WR81%|592E元富城中_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|700f兆豐鹿港_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9278凱基永康_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|592r元富城東_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]
+[0203] Hits:6 | Rat:-0.4%
+[SELL|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9316華南淡水_ON_L, 9A9M永豐南投_DT_M]
+[BUY|Mix|WR72%|921M凱基八德_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|9189群益桃園_DT_M, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]
+
+【關鍵分點總覽】
+20260127: [BUY|Mix|WR75%|7006兆豐台南_ON_L, 981A元大三峽_DT_M]
+20260130: [BUY|Mix|WR81%|9316華南淡水_ON_L, 9693富邦新營_DT_M]
+20260130: [BUY|Mix|WR81%|592E元富城中_DT_L, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR75%|700f兆豐鹿港_DT_M, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR75%|9278凱基永康_DT_M, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR72%|592r元富城東_DT_L, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]
+20260203: [SELL|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+20260203: [BUY|Mix|WR75%|9316華南淡水_ON_L, 9A9M永豐南投_DT_M]
+20260203: [BUY|Mix|WR72%|921M凱基八德_DT_M, 9316華南淡水_ON_L]
+20260203: [BUY|Mix|WR72%|9189群益桃園_DT_M, 9316華南淡水_ON_L]
+20260203: [SELL|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+20260203: [SELL|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-10%_2353')"><td class="text-left"><a href="2353_宏碁.html" style="white-space:nowrap;">2353 宏碁</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電腦及週邊設備業</td><td title="桌上型電腦 伺服器 筆記型電腦 顯示器 投影機 平板電腦 消費性電子產品 週邊產品 電腦系統業"><span class="truncate-group" style="max-width: 150px;">桌上型電腦 伺服器 筆記型電腦 顯示器 投影機 平板電腦 消費性電子產品 週邊產品 電腦系統業</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.27%</span></td><td style="white-space:nowrap;"><span class="positive">0.27%</span></td><td style="white-space:nowrap;">0.00%</td><td>26.53</td><td style="white-space:nowrap;"><span class="positive">6.12%</span></td><td style="white-space:nowrap;"><span class="positive">2.18%</span></td><td style="white-space:nowrap;"><span class="negative">-2.90%</span></td><td style="white-space:nowrap;"><span class="negative">-1.81%</span></td><td style="white-space:nowrap;"><span class="negative">-0.36%</span></td><td style="white-space:nowrap;"><span class="negative">-0.54%</span></td><td>0</td><td>2</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.3%
+[BUY|ON|WR72%|8520中    農_ON_S, 9884元大斗信_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.3%
+[BUY|ON|WR72%|8520中    農_ON_S, 9884元大斗信_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="農_ON_S, 9884元大斗信_ON_L"><span class="truncate-group">農_ON_S, 9884元大斗信_ON_L</span></td></tr><tr id="details_table-10%_2353" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+桌上型電腦 伺服器 筆記型電腦 顯示器 投影機 平板電腦 消費性電子產品 週邊產品 電腦系統業
+
+【每日分點勝率明細】
+[0203] Hits:1 | Rat:0.3%
+[BUY|ON|WR72%|8520中    農_ON_S, 9884元大斗信_ON_L]
+
+【關鍵分點總覽】
+20260203: [BUY|ON|WR72%|8520中    農_ON_S, 9884元大斗信_ON_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-10%_2409')"><td class="text-left"><a href="2409_友達.html" style="white-space:nowrap;">2409 友達</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">光電業</td><td title="面板業 中小尺吋面板 TFT-LCD OLED 觸控面板"><span class="truncate-group" style="max-width: 150px;">面板業 中小尺吋面板 TFT-LCD OLED 觸控面板</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.14%</span></td><td style="white-space:nowrap;">0.00%</td><td style="white-space:nowrap;"><span class="positive">0.14%</span></td><td>14.07</td><td style="white-space:nowrap;"><span class="positive">16.56%</span></td><td style="white-space:nowrap;"><span class="positive">17.56%</span></td><td style="white-space:nowrap;"><span class="positive">13.26%</span></td><td style="white-space:nowrap;"><span class="positive">12.90%</span></td><td style="white-space:nowrap;"><span class="positive">16.13%</span></td><td style="white-space:nowrap;"><span class="positive">23.30%</span></td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:-0.1%
+[SELL|Mix|WR72%|7791國票台東_ON_S, 9257凱基林口_DT_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:-0.1%
+[SELL|Mix|WR72%|7791國票台東_ON_S, 9257凱基林口_DT_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.0%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.0%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]</span></td><td title="Hits:1 | Rat:-0.2%
+[SELL|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:-0.2%
+[SELL|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]</span></td><td title="Hits:1 | Rat:0.2%
+[BUY|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.2%
+[BUY|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]</span></td><td title="Hits:1 | Rat:0.1%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.1%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="7791國票台東_ON_S, 9257凱基林口_DT_L, 6465大昌桃園_SW_S, 989D元大左營_DT_L, 585R統一東湖_DT_S, 962P富邦頭份_ON_L"><span class="truncate-group">7791國票台東_ON_S, 9257凱基林口_DT_L, 6465大昌桃園_SW_S, 989D元大左營_DT_L, 585R統一東湖_DT_S, 962P富邦頭份_ON_L</span></td></tr><tr id="details_table-10%_2409" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+面板業 中小尺吋面板 TFT-LCD OLED 觸控面板
+
+【每日分點勝率明細】
+[0126] Hits:1 | Rat:-0.1%
+[SELL|Mix|WR72%|7791國票台東_ON_S, 9257凱基林口_DT_L]
+[0129] Hits:1 | Rat:0.0%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]
+[0130] Hits:1 | Rat:-0.2%
+[SELL|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]
+[0202] Hits:1 | Rat:0.2%
+[BUY|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]
+[0203] Hits:1 | Rat:0.1%
+[BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]
+
+【關鍵分點總覽】
+20260126: [SELL|Mix|WR72%|7791國票台東_ON_S, 9257凱基林口_DT_L]
+20260129: [BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]
+20260130: [SELL|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]
+20260202: [BUY|Mix|WR72%|585R統一東湖_DT_S, 962P富邦頭份_ON_L]
+20260203: [BUY|Mix|WR70%|6465大昌桃園_SW_S, 989D元大左營_DT_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-10%_2457')"><td class="text-left"><a href="2457_飛宏.html" style="white-space:nowrap;">2457 飛宏</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電子零組件</td><td title="電源供應器 電子零件元件"><span class="truncate-group" style="max-width: 150px;">電源供應器 電子零件元件</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.56%</span></td><td style="white-space:nowrap;"><span class="positive">0.56%</span></td><td style="white-space:nowrap;">0.00%</td><td>29.63</td><td style="white-space:nowrap;"><span class="positive">1.58%</span></td><td style="white-space:nowrap;"><span class="negative">-4.49%</span></td><td style="white-space:nowrap;"><span class="negative">-4.15%</span></td><td style="white-space:nowrap;"><span class="negative">-3.99%</span></td><td style="white-space:nowrap;"><span class="negative">-0.33%</span></td><td style="white-space:nowrap;"><span class="positive">5.32%</span></td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.6%
+[BUY|Mix|WR75%|1112企銀台南_ON_S, 9627富邦內湖_DT_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.6%
+[BUY|Mix|WR75%|1112企銀台南_ON_S, 9627富邦內湖_DT_L]</span></td><td title="1112企銀台南_ON_S, 9627富邦內湖_DT_L"><span class="truncate-group">1112企銀台南_ON_S, 9627富邦內湖_DT_L</span></td></tr><tr id="details_table-10%_2457" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+電源供應器 電子零件元件
+
+【每日分點勝率明細】
+[0205] Hits:1 | Rat:0.6%
+[BUY|Mix|WR75%|1112企銀台南_ON_S, 9627富邦內湖_DT_L]
+
+【關鍵分點總覽】
+20260205: [BUY|Mix|WR75%|1112企銀台南_ON_S, 9627富邦內湖_DT_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-10%_3665')"><td class="text-left"><a href="3665_貿聯-KY.html" style="white-space:nowrap;">3665 貿聯-KY</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">其他電子業</td><td title="連接器 電子零件元件 連接線材 電線電纜 電子線"><span class="truncate-group" style="max-width: 150px;">連接器 電子零件元件 連接線材 電線電纜 電子線</span></td><td>1</td><td style="white-space:nowrap;"><span class="negative">-0.02%</span></td><td style="white-space:nowrap;"><span class="negative">-0.02%</span></td><td style="white-space:nowrap;">0.00%</td><td>1387.94</td><td style="white-space:nowrap;"><span class="negative">-4.53%</span></td><td style="white-space:nowrap;"><span class="negative">-7.02%</span></td><td style="white-space:nowrap;"><span class="negative">-7.72%</span></td><td style="white-space:nowrap;"><span class="negative">-4.21%</span></td><td style="white-space:nowrap;"><span class="positive">2.46%</span></td><td style="white-space:nowrap;"><span class="positive">8.07%</span></td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:-0.0%
+[SELL|ON|WR72%|981j元大士林_ON_M, 984H元大景美_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:-0.0%
+[SELL|ON|WR72%|981j元大士林_ON_M, 984H元大景美_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="981j元大士林_ON_M, 984H元大景美_ON_L"><span class="truncate-group">981j元大士林_ON_M, 984H元大景美_ON_L</span></td></tr><tr id="details_table-10%_3665" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+連接器 電子零件元件 連接線材 電線電纜 電子線
+
+【每日分點勝率明細】
+[0203] Hits:1 | Rat:-0.0%
+[SELL|ON|WR72%|981j元大士林_ON_M, 984H元大景美_ON_L]
+
+【關鍵分點總覽】
+20260203: [SELL|ON|WR72%|981j元大士林_ON_M, 984H元大景美_ON_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-10%_4927')"><td class="text-left"><a href="4927_泰鼎-KY.html" style="white-space:nowrap;">4927 泰鼎-KY</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電子零組件</td><td title="印刷電路板 印刷電路板相關"><span class="truncate-group" style="max-width: 150px;">印刷電路板 印刷電路板相關</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.27%</span></td><td style="white-space:nowrap;"><span class="negative">-0.03%</span></td><td style="white-space:nowrap;"><span class="positive">0.30%</span></td><td>32.72</td><td style="white-space:nowrap;"><span class="positive">4.52%</span></td><td style="white-space:nowrap;"><span class="negative">-3.51%</span></td><td style="white-space:nowrap;"><span class="negative">-2.05%</span></td><td style="white-space:nowrap;"><span class="negative">-4.39%</span></td><td style="white-space:nowrap;"><span class="positive">7.02%</span></td><td style="white-space:nowrap;"><span class="positive">41.23%</span></td><td>0</td><td>2</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:-0.3%
+[SELL|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:-0.3%
+[SELL|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.3%
+[BUY|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.3%
+[BUY|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]</span></td><td title="845J康和高雄_ON_XS, 邦_ON_XS"><span class="truncate-group">845J康和高雄_ON_XS, 邦_ON_XS</span></td></tr><tr id="details_table-10%_4927" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+印刷電路板 印刷電路板相關
+
+【每日分點勝率明細】
+[0130] Hits:1 | Rat:-0.3%
+[SELL|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]
+[0205] Hits:1 | Rat:0.3%
+[BUY|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]
+
+【關鍵分點總覽】
+20260130: [SELL|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]
+20260205: [BUY|ON|WR90%|845J康和高雄_ON_XS, 8580聯    邦_ON_XS]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-10%_6282')"><td class="text-left"><a href="6282_康舒.html" style="white-space:nowrap;">6282 康舒</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電子零組件</td><td title="電源供應器 電子零件元件"><span class="truncate-group" style="max-width: 150px;">電源供應器 電子零件元件</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.15%</span></td><td style="white-space:nowrap;"><span class="positive">0.15%</span></td><td style="white-space:nowrap;">0.00%</td><td>49.34</td><td style="white-space:nowrap;"><span class="positive">3.36%</span></td><td style="white-space:nowrap;"><span class="negative">-5.59%</span></td><td style="white-space:nowrap;"><span class="negative">-2.94%</span></td><td style="white-space:nowrap;"><span class="negative">-2.55%</span></td><td style="white-space:nowrap;"><span class="negative">-0.20%</span></td><td style="white-space:nowrap;"><span class="positive">5.69%</span></td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.1%
+[BUY|Mix|WR78%|5263美好泰山_ON_S, 5962日茂南投_DT_M]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.1%
+[BUY|Mix|WR78%|5263美好泰山_ON_S, 5962日茂南投_DT_M]</span></td><td title="5263美好泰山_ON_S, 5962日茂南投_DT_M"><span class="truncate-group">5263美好泰山_ON_S, 5962日茂南投_DT_M</span></td></tr><tr id="details_table-10%_6282" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+電源供應器 電子零件元件
+
+【每日分點勝率明細】
+[0205] Hits:1 | Rat:0.1%
+[BUY|Mix|WR78%|5263美好泰山_ON_S, 5962日茂南投_DT_M]
+
+【關鍵分點總覽】
+20260205: [BUY|Mix|WR78%|5263美好泰山_ON_S, 5962日茂南投_DT_M]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-10%_6443')"><td class="text-left"><a href="6443_元晶.html" style="white-space:nowrap;">6443 元晶</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">光電業</td><td title="太陽能 太陽能電池 太陽能電池模組"><span class="truncate-group" style="max-width: 150px;">太陽能 太陽能電池 太陽能電池模組</span></td><td>1</td><td style="white-space:nowrap;">0.00%</td><td style="white-space:nowrap;">0.00%</td><td style="white-space:nowrap;">0.00%</td><td>41.96</td><td style="white-space:nowrap;"><span class="positive">6.28%</span></td><td style="white-space:nowrap;"><span class="positive">1.48%</span></td><td style="white-space:nowrap;"><span class="negative">-5.80%</span></td><td style="white-space:nowrap;"><span class="negative">-3.75%</span></td><td style="white-space:nowrap;"><span class="negative">-13.08%</span></td><td style="white-space:nowrap;"><span class="positive">12.86%</span></td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.0%
+[BUY|ON|WR72%|845F康和仁愛_ON_L, 9324華南岡山_ON_M]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.0%
+[BUY|ON|WR72%|845F康和仁愛_ON_L, 9324華南岡山_ON_M]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="845F康和仁愛_ON_L, 9324華南岡山_ON_M"><span class="truncate-group">845F康和仁愛_ON_L, 9324華南岡山_ON_M</span></td></tr><tr id="details_table-10%_6443" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+太陽能 太陽能電池 太陽能電池模組
+
+【每日分點勝率明細】
+[0203] Hits:1 | Rat:0.0%
+[BUY|ON|WR72%|845F康和仁愛_ON_L, 9324華南岡山_ON_M]
+
+【關鍵分點總覽】
+20260203: [BUY|ON|WR72%|845F康和仁愛_ON_L, 9324華南岡山_ON_M]</div></td></tr></tbody></table></div></div>
+<div class="tab-content" id="tab-15%" style="display:none;">
+<p style="color:var(--text-light);margin-bottom:15px;">15%勝率清單：共 2 支個股 (點擊標題可排序)</p>
+<div class="datatable-wrapper" style="overflow-x:auto;"><table class="datatable" id="table-15%"><thead><tr><th class="text-left" onclick="sortTable('table-15%', 0, 'str')">代碼 名稱</th><th onclick="sortTable('table-15%', 1, 'str')">最新股價</th><th onclick="sortTable('table-15%', 2, 'str')">產業</th><th onclick="sortTable('table-15%', 3, 'str')">細產業</th><th onclick="sortTable('table-15%', 4, 'num')">命中</th><th onclick="sortTable('table-15%', 5, 'num')">平均勝率</th><th onclick="sortTable('table-15%', 6, 'num')">勝率(10D)</th><th onclick="sortTable('table-15%', 7, 'num')">勝率差</th><th onclick="sortTable('table-15%', 8, 'num')">平均成本</th><th onclick="sortTable('table-15%', 9, 'num')">成本差</th><th onclick="sortTable('table-15%', 10, 'num')">報酬(1D)</th><th onclick="sortTable('table-15%', 11, 'num')">報酬(2D)</th><th onclick="sortTable('table-15%', 12, 'num')">報酬(3D)</th><th onclick="sortTable('table-15%', 13, 'num')">報酬(5D)</th><th onclick="sortTable('table-15%', 14, 'num')">報酬(10D)</th><th onclick="sortTable('table-15%', 15, 'num')">DT</th><th onclick="sortTable('table-15%', 16, 'num')">ON</th><th onclick="sortTable('table-15%', 17, 'num')">SW</th><th onclick="sortTable('table-15%', 18, 'num')">XS</th><th onclick="sortTable('table-15%', 19, 'num')">S</th><th onclick="sortTable('table-15%', 20, 'num')">M</th><th onclick="sortTable('table-15%', 21, 'num')">L</th><th onclick="sortTable('table-15%', 22, 'num')">0121</th><th onclick="sortTable('table-15%', 23, 'num')">0122</th><th onclick="sortTable('table-15%', 24, 'num')">0123</th><th onclick="sortTable('table-15%', 25, 'num')">0126</th><th onclick="sortTable('table-15%', 26, 'num')">0127</th><th onclick="sortTable('table-15%', 27, 'num')">0129</th><th onclick="sortTable('table-15%', 28, 'num')">0130</th><th onclick="sortTable('table-15%', 29, 'num')">0202</th><th onclick="sortTable('table-15%', 30, 'num')">0203</th><th onclick="sortTable('table-15%', 31, 'num')">0205</th><th onclick="sortTable('table-15%', 32, 'str')">關鍵分點</th></tr></thead><tbody><tr class="main-row" onclick="toggleDetails('details_table-15%_2337')"><td class="text-left"><a href="2337_旺宏.html" style="white-space:nowrap;">2337 旺宏</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">半導體業</td><td title="非揮發性記憶體 IC生產 IC製造"><span class="truncate-group" style="max-width: 150px;">非揮發性記憶體 IC生產 IC製造</span></td><td>6</td><td style="white-space:nowrap;"><span class="negative">-0.44%</span></td><td style="white-space:nowrap;"><span class="positive">0.02%</span></td><td style="white-space:nowrap;"><span class="negative">-0.47%</span></td><td>90.34</td><td style="white-space:nowrap;"><span class="positive">1.51%</span></td><td style="white-space:nowrap;"><span class="negative">-1.61%</span></td><td style="white-space:nowrap;"><span class="negative">-7.94%</span></td><td style="white-space:nowrap;"><span class="negative">-4.72%</span></td><td style="white-space:nowrap;"><span class="positive">5.69%</span></td><td style="white-space:nowrap;"><span class="positive">29.29%</span></td><td>6</td><td>6</td><td>0</td><td>0</td><td>0</td><td>3</td><td>9</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.0%
+[BUY|Mix|WR75%|7006兆豐台南_ON_L, 981A元大三峽_DT_M]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.0%
+[BUY|Mix|WR75%|7006兆豐台南_ON_L, 981A元大三峽_DT_M]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:8 | Rat:0.5%
+[BUY|Mix|WR81%|9316華南淡水_ON_L, 9693富邦新營_DT_M]
+[BUY|Mix|WR81%|592E元富城中_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|700f兆豐鹿港_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9278凱基永康_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|592r元富城東_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:8 | Rat:0.5%
+[BUY|Mix|WR81%|9316華南淡水_ON_L, 9693富邦新營_DT_M]
+[BUY|Mix|WR81%|592E元富城中_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|700f兆豐鹿港_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9278凱基永康_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|592r元富城東_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:6 | Rat:-0.4%
+[SELL|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9316華南淡水_ON_L, 9A9M永豐南投_DT_M]
+[BUY|Mix|WR72%|921M凱基八德_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|9189群益桃園_DT_M, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]"><span class="truncate-group" style="max-width: 100px;">Hits:6 | Rat:-0.4%
+[SELL|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9316華南淡水_ON_L, 9A9M永豐南投_DT_M]
+[BUY|Mix|WR72%|921M凱基八德_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|9189群益桃園_DT_M, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]</span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="7006兆豐台南_ON_L, 981A元大三峽_DT_M, 9316華南淡水_ON_L, 9693富邦新營_DT_M, 592E元富城中_DT_L, 6160中國信託_DT_L, 700f兆豐鹿港_DT_M, 9278凱基永康_DT_M, 592r元富城東_DT_L, 913Y群益館前_DT_L, 5380第一金證_DT_L, 9A9M永豐南投_DT_M, 921M凱基八德_DT_M, 9189群益桃園_DT_M"><span class="truncate-group">7006兆豐台南_ON_L, 981A元大三峽_DT_M, 9316華南淡水_ON_L, 9693富邦新營_DT_M, 592E元富城中_DT_L, 6160中國信託_DT_L, 700f兆豐鹿港_DT_M, 9278凱基永康_DT_M, 592r元富城東_DT_L, 913Y群益館前_DT_L, 5380第一金證_DT_L, 9A9M永豐南投_DT_M, 921M凱基八德_DT_M, 9189群益桃園_DT_M</span></td></tr><tr id="details_table-15%_2337" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+非揮發性記憶體 IC生產 IC製造
+
+【每日分點勝率明細】
+[0127] Hits:1 | Rat:0.0%
+[BUY|Mix|WR75%|7006兆豐台南_ON_L, 981A元大三峽_DT_M]
+[0130] Hits:8 | Rat:0.5%
+[BUY|Mix|WR81%|9316華南淡水_ON_L, 9693富邦新營_DT_M]
+[BUY|Mix|WR81%|592E元富城中_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|700f兆豐鹿港_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9278凱基永康_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|592r元富城東_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]
+[0203] Hits:6 | Rat:-0.4%
+[SELL|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+[BUY|Mix|WR75%|9316華南淡水_ON_L, 9A9M永豐南投_DT_M]
+[BUY|Mix|WR72%|921M凱基八德_DT_M, 9316華南淡水_ON_L]
+[BUY|Mix|WR72%|9189群益桃園_DT_M, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+[SELL|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]
+
+【關鍵分點總覽】
+20260127: [BUY|Mix|WR75%|7006兆豐台南_ON_L, 981A元大三峽_DT_M]
+20260130: [BUY|Mix|WR81%|9316華南淡水_ON_L, 9693富邦新營_DT_M]
+20260130: [BUY|Mix|WR81%|592E元富城中_DT_L, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR75%|700f兆豐鹿港_DT_M, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR75%|9278凱基永康_DT_M, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR72%|592r元富城東_DT_L, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+20260130: [BUY|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]
+20260203: [SELL|Mix|WR75%|6160中國信託_DT_L, 9316華南淡水_ON_L]
+20260203: [BUY|Mix|WR75%|9316華南淡水_ON_L, 9A9M永豐南投_DT_M]
+20260203: [BUY|Mix|WR72%|921M凱基八德_DT_M, 9316華南淡水_ON_L]
+20260203: [BUY|Mix|WR72%|9189群益桃園_DT_M, 9316華南淡水_ON_L]
+20260203: [SELL|Mix|WR72%|913Y群益館前_DT_L, 9316華南淡水_ON_L]
+20260203: [SELL|Mix|WR72%|5380第一金證_DT_L, 9316華南淡水_ON_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-15%_6282')"><td class="text-left"><a href="6282_康舒.html" style="white-space:nowrap;">6282 康舒</a></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;">電子零組件</td><td title="電源供應器 電子零件元件"><span class="truncate-group" style="max-width: 150px;">電源供應器 電子零件元件</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.15%</span></td><td style="white-space:nowrap;"><span class="positive">0.15%</span></td><td style="white-space:nowrap;">0.00%</td><td>49.34</td><td style="white-space:nowrap;"><span class="positive">3.36%</span></td><td style="white-space:nowrap;"><span class="negative">-5.59%</span></td><td style="white-space:nowrap;"><span class="negative">-2.94%</span></td><td style="white-space:nowrap;"><span class="negative">-2.55%</span></td><td style="white-space:nowrap;"><span class="negative">-0.20%</span></td><td style="white-space:nowrap;"><span class="positive">5.69%</span></td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title=""><span class="truncate-group" style="max-width: 100px;"></span></td><td title="Hits:1 | Rat:0.1%
+[BUY|Mix|WR78%|5263美好泰山_ON_S, 5962日茂南投_DT_M]"><span class="truncate-group" style="max-width: 100px;">Hits:1 | Rat:0.1%
+[BUY|Mix|WR78%|5263美好泰山_ON_S, 5962日茂南投_DT_M]</span></td><td title="5263美好泰山_ON_S, 5962日茂南投_DT_M"><span class="truncate-group">5263美好泰山_ON_S, 5962日茂南投_DT_M</span></td></tr><tr id="details_table-15%_6282" class="details-row"><td colspan="33"><div class="details-content">【細產業】
+電源供應器 電子零件元件
+
+【每日分點勝率明細】
+[0205] Hits:1 | Rat:0.1%
+[BUY|Mix|WR78%|5263美好泰山_ON_S, 5962日茂南投_DT_M]
+
+【關鍵分點總覽】
+20260205: [BUY|Mix|WR78%|5263美好泰山_ON_S, 5962日茂南投_DT_M]</div></td></tr></tbody></table></div></div>
+<script>
+function showTab(thr) {
+    document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    if (thr === 'all') {
+        document.getElementById('tab-all').style.display = 'block';
+    } else {
+        document.getElementById('tab-' + thr).style.display = 'block';
+    }
+    event.target.classList.add('active');
+}
+</script>
+
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-15 16:27</p>
+</footer>
+</body>
+</html>
