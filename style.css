@@ -455,6 +455,35 @@ tr:hover td { background: var(--accent-light); }
 .search-results .sr-name { flex: 1; }
 .search-results .sr-list { font-size: 0.75rem; color: var(--text-light); background: var(--bg); padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
 
+.stock-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0;
+    gap: 12px;
+}
+.stock-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.15s;
+    max-width: 38%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.stock-nav-btn:hover { background: var(--accent-light); border-color: var(--text-light); }
+.stock-nav-btn.disabled { visibility: hidden; }
+.stock-nav-pos { font-size: 0.82rem; color: var(--text-light); white-space: nowrap; }
+
 @media (max-width: 768px) {
     .nav-bar { flex-direction: column; align-items: stretch; border-radius: 24px; padding: 20px; }
     .custom-select { min-width: 100%; }
