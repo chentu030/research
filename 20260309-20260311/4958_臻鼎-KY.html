@@ -10,7 +10,7 @@
 <body>
 <div class="container">
 <a href="index.html" class="back-link">← 返回清單</a>
-<div class="stock-nav"><a class="stock-nav-btn prev" href="4919_新唐.html" title="4919 新唐">&#8592; 4919 新唐</a><span class="stock-nav-pos">37 / 47</span><a class="stock-nav-btn next" href="4977_眾達-KY.html" title="4977 眾達-KY">4977 眾達-KY &#8594;</a></div><div class="report-content">
+<div class="dl-bar"><a class="dl-btn" href="4958_臻鼎-KY.md" download>📄 下載 MD</a><button class="dl-btn" onclick="printToPDF('4958')">🖨️ 儲存 PDF</button></div><div class="stock-nav"><a class="stock-nav-btn prev" href="4919_新唐.html" title="4919 新唐">&#8592; 4919 新唐</a><span class="stock-nav-pos">37 / 47</span><a class="stock-nav-btn next" href="4977_眾達-KY.html" title="4977 眾達-KY">4977 眾達-KY &#8594;</a></div><div class="report-content">
 <div class="kline-wrap" style="margin:20px 0;padding:16px;background:#fff;border:1px solid #eaeaea;border-radius:12px;">
   <div id="kline-4958" style="width:100%;"></div>
 </div>
@@ -311,13 +311,13 @@
 
 <img src="./4958_臻鼎-KY_investment_summary.png" alt="investment_summary" class="info-card">
 
-</div><div class="stock-nav"><a class="stock-nav-btn prev" href="4919_新唐.html" title="4919 新唐">&#8592; 4919 新唐</a><span class="stock-nav-pos">37 / 47</span><a class="stock-nav-btn next" href="4977_眾達-KY.html" title="4977 眾達-KY">4977 眾達-KY &#8594;</a></div><script>document.addEventListener("keydown",function(e){if(e.key==="ArrowLeft"&&"4919_新唐.html")window.location.href="4919_新唐.html";if(e.key==="ArrowRight"&&"4977_眾達-KY.html")window.location.href="4977_眾達-KY.html";});</script>
+</div><div class="stock-nav"><a class="stock-nav-btn prev" href="4919_新唐.html" title="4919 新唐">&#8592; 4919 新唐</a><span class="stock-nav-pos">37 / 47</span><a class="stock-nav-btn next" href="4977_眾達-KY.html" title="4977 眾達-KY">4977 眾達-KY &#8594;</a></div><script>document.addEventListener("keydown",function(e){if(e.key==="ArrowLeft"&&"4919_新唐.html")window.location.href="4919_新唐.html";if(e.key==="ArrowRight"&&"4977_眾達-KY.html")window.location.href="4977_眾達-KY.html";});</script><script>function printToPDF(code){  var wrap=document.getElementById("kline-"+code);  var cv=wrap?wrap.querySelector("canvas"):null;  var img=null;  if(cv){    img=document.createElement("img");    img.src=cv.toDataURL("image/png");    img.style.maxWidth="100%";img.style.display="block";    cv.parentNode.insertBefore(img,cv);    cv.style.display="none";  }  window.print();  if(cv&&img){cv.style.display="";img.parentNode.removeChild(img);}}</script>
 </div>
 <script>window.ROOT_PATH = "../";</script>
 <script src="../search_index.js"></script>
 <footer class="site-footer">
 <p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
-<p>最後更新：2026-03-15 22:32</p>
+<p>最後更新：2026-03-16 00:14</p>
 </footer>
 </body>
 </html>

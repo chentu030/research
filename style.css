@@ -484,6 +484,39 @@ tr:hover td { background: var(--accent-light); }
 .stock-nav-btn.disabled { visibility: hidden; }
 .stock-nav-pos { font-size: 0.82rem; color: var(--text-light); white-space: nowrap; }
 
+.dl-bar {
+    display: flex;
+    gap: 10px;
+    margin: 12px 0;
+}
+.dl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+.dl-btn:hover { background: var(--accent-light); border-color: var(--text-light); }
+
+@media print {
+    .nav-bar, .back-link, .stock-nav, .dl-bar, .csv-downloads, .threshold-tabs { display: none !important; }
+    body { background: #fff !important; }
+    .container { max-width: 100% !important; padding: 0 !important; }
+    .report-content { padding: 10px !important; box-shadow: none !important; border: none !important; }
+    canvas { max-width: 100% !important; page-break-inside: avoid; }
+    img { max-width: 100% !important; }
+    h1,h2,h3 { page-break-after: avoid; }
+    table { page-break-inside: avoid; }
+}
+
 @media (max-width: 768px) {
     .nav-bar { flex-direction: column; align-items: stretch; border-radius: 24px; padding: 20px; }
     .custom-select { min-width: 100%; }
