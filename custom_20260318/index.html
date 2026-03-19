@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研究報告 custom_20260318</title>
+<link rel="stylesheet" href="../style.css">
+<script src="../kline.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="nav-bar">
+  <label>📅 清單</label>
+  <div class="custom-select" id="customListSelect">
+    <div class="select-selected" id="selectSelected">🔍 自訂 2026/03/18</div>
+    <div class="select-items" id="selectItems">
+      <div class="select-search">
+        <input type="text" id="selectSearchInput" placeholder="搜尋清單..." autocomplete="off">
+      </div>
+      <div class="select-options-container" id="selectOptionsContainer">
+        <div class="select-item same-as-selected" data-url="../custom_20260318/index.html">🔍 自訂 2026/03/18</div>
+        <div class="select-item" data-url="../custom_20260315/index.html">🔍 自訂 2026/03/15</div>
+        <div class="select-item" data-url="../20260309-20260311/index.html">2026/03/09 ~ 03/11</div>
+        <div class="select-item" data-url="../20260305-20260309/index.html">2026/03/05 ~ 03/09</div>
+        <div class="select-item" data-url="../20260304-20260306/index.html">2026/03/04 ~ 03/06</div>
+        <div class="select-item" data-url="../20260303-20260305/index.html">2026/03/03 ~ 03/05</div>
+        <div class="select-item" data-url="../20260302-20260304/index.html">2026/03/02 ~ 03/04</div>
+        <div class="select-item" data-url="../20260224-20260226/index.html">2026/02/24 ~ 02/26</div>
+        <div class="select-item" data-url="../20260204-20260206/index.html">2026/02/04 ~ 02/06</div>
+        <div class="select-item" data-url="../20260202-20260204/index.html">2026/02/02 ~ 02/04</div>
+      </div>
+    </div>
+  </div>
+  <div class="search-box">
+    <input type="text" id="stockSearch" placeholder="搜尋股票代碼或名稱..." oninput="globalSearch()" onfocus="globalSearch()" autocomplete="off">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var selected = document.getElementById("selectSelected");
+    var itemsList = document.getElementById("selectItems");
+    var searchInput = document.getElementById("selectSearchInput");
+    var optionsContainer = document.getElementById("selectOptionsContainer");
+    var optionDivs = optionsContainer.getElementsByClassName("select-item");
+
+    selected.addEventListener("click", function(e) {
+        e.stopPropagation();
+        this.classList.toggle("select-arrow-active");
+        itemsList.classList.toggle("select-show");
+        if (itemsList.classList.contains("select-show")) {
+            searchInput.focus();
+            searchInput.value = '';
+            filterOptions('');
+        }
+    });
+
+    for (var i = 0; i < optionDivs.length; i++) {
+        optionDivs[i].addEventListener("click", function(e) {
+            window.location.href = this.getAttribute("data-url");
+        });
+    }
+
+    searchInput.addEventListener("input", function() {
+        filterOptions(this.value.toLowerCase());
+    });
+
+    searchInput.addEventListener("click", function(e) {
+        e.stopPropagation();
+    });
+
+    function filterOptions(filter) {
+        for (var i = 0; i < optionDivs.length; i++) {
+            var txtValue = optionDivs[i].textContent || optionDivs[i].innerText;
+            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                optionDivs[i].style.display = "";
+            } else {
+                optionDivs[i].style.display = "none";
+            }
+        }
+    }
+
+    document.addEventListener("click", function(e) {
+        if (!itemsList.contains(e.target) && e.target !== selected) {
+            selected.classList.remove("select-arrow-active");
+            itemsList.classList.remove("select-show");
+        }
+    });
+});
+</script>
+
+<script>
+function toggleDetails(rowId) {
+    var detailsRow = document.getElementById(rowId);
+    if (detailsRow) {
+        if (detailsRow.style.display === 'none' || !detailsRow.style.display) {
+            detailsRow.style.display = 'table-row';
+        } else {
+            detailsRow.style.display = 'none';
+        }
+    }
+}
+
+function sortTable(tableId, n, type='str') {
+    var table, tbodies, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById(tableId);
+    switching = true;
+    dir = "desc"; 
+    
+    // Clear icons
+    var headers = table.getElementsByTagName("th");
+    for (var h = 0; h < headers.length; h++) {
+        headers[h].classList.remove("sort-asc", "sort-desc");
+    }
+    
+    while (switching) {
+        switching = false;
+        tbodies = table.tBodies; // Use tBodies array
+        for (i = 0; i < (tbodies.length - 1); i++) {
+            shouldSwitch = false;
+            // Get the main row (first row of the tbody) and the specific cell
+            x = tbodies[i].rows[0].getElementsByTagName("TD")[n];
+            y = tbodies[i + 1].rows[0].getElementsByTagName("TD")[n];
+            
+            var xVal = x.innerHTML.toLowerCase().replace(/<[^>]+>/g, '').trim();
+            var yVal = y.innerHTML.toLowerCase().replace(/<[^>]+>/g, '').trim();
+            
+            if (type === 'num') {
+                xVal = parseFloat(xVal.replace(/[%,]/g, '')) || 0;
+                yVal = parseFloat(yVal.replace(/[%,]/g, '')) || 0;
+            }
+            
+            if (dir == "asc") {
+                if (xVal > yVal) { shouldSwitch = true; break; }
+            } else if (dir == "desc") {
+                if (xVal < yVal) { shouldSwitch = true; break; }
+            }
+        }
+        if (shouldSwitch) {
+            tbodies[i].parentNode.insertBefore(tbodies[i + 1], tbodies[i]);
+            switching = true;
+            switchcount ++;      
+        } else {
+            if (switchcount == 0 && dir == "desc") {
+                dir = "asc";
+                switching = true;
+            }
+        }
+    }
+    headers[n].classList.add("sort-" + dir);
+}
+</script>
+<p style="color:var(--text-light);margin-bottom:15px;">共 6 支個股 (點擊標題可排序)</p>
+<div class="datatable-wrapper" style="overflow-x:auto;"><table class="datatable" id="table-fallback"><thead><tr><th class="text-left" onclick="sortTable('table-fallback', 0, 'str')">代碼 名稱</th><th onclick="sortTable('table-fallback', 1, 'str')">最新股價</th><th onclick="sortTable('table-fallback', 2, 'str')">產業</th><th onclick="sortTable('table-fallback', 3, 'str')">細產業</th><th onclick="sortTable('table-fallback', 4, 'num')">命中</th><th onclick="sortTable('table-fallback', 5, 'num')">平均勝率</th><th onclick="sortTable('table-fallback', 6, 'num')">勝率(10D)</th><th onclick="sortTable('table-fallback', 7, 'num')">勝率差</th><th onclick="sortTable('table-fallback', 8, 'num')">平均成本</th><th onclick="sortTable('table-fallback', 9, 'num')">成本差</th><th onclick="sortTable('table-fallback', 10, 'num')">報酬(1D)</th><th onclick="sortTable('table-fallback', 11, 'num')">報酬(2D)</th><th onclick="sortTable('table-fallback', 12, 'num')">報酬(3D)</th><th onclick="sortTable('table-fallback', 13, 'num')">報酬(5D)</th><th onclick="sortTable('table-fallback', 14, 'num')">報酬(10D)</th><th onclick="sortTable('table-fallback', 15, 'num')">DT</th><th onclick="sortTable('table-fallback', 16, 'num')">ON</th><th onclick="sortTable('table-fallback', 17, 'num')">SW</th><th onclick="sortTable('table-fallback', 18, 'num')">XS</th><th onclick="sortTable('table-fallback', 19, 'num')">S</th><th onclick="sortTable('table-fallback', 20, 'num')">M</th><th onclick="sortTable('table-fallback', 21, 'num')">L</th><th onclick="sortTable('table-fallback', 22, 'str')">關鍵分點</th></tr></thead><tbody><tr class="main-row" onclick="toggleDetails('details_table-fallback_2331')"><td class="text-left"><a href="2331_精英.html" style="white-space:nowrap;">2331 精英</a></td><td style="white-space:nowrap;">20.9</td><td style="white-space:nowrap;">電腦及週邊設備業</td><td title="桌上型電腦 筆記型電腦製造 主機板 平板電腦 消費性電子產品 繪圖卡 電腦系統業"><span class="truncate-group" style="max-width: 150px;">桌上型電腦 筆記型電腦製造 主機板 平板電腦 消費性電子產品 繪圖卡 電腦系統業</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.84%</span></td><td style="white-space:nowrap;"><span class="positive">1.50%</span></td><td style="white-space:nowrap;"><span class="negative">-0.66%</span></td><td>25.85</td><td style="white-space:nowrap;"><span class="negative">-4.25%</span></td><td style="white-space:nowrap;"><span class="negative">-0.81%</span></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td>0</td><td>0</td><td>2</td><td>0</td><td>1</td><td>0</td><td>1</td><td title="700r兆豐寶成_DT_L, 7795國票南港_ON_L, 9A8F永豐敦南_DT_L, 5857統一新竹_SW_L, 9658富邦建國_ON_L, 9329華南朴子_DT_M, 9686富邦宜蘭_DT_L, 9899元大淡水_DT_L, 1262宏遠桃園_DT_M, 1111企銀台中_SW_S, 9B2l元富大裕_SW_L"><span class="truncate-group">700r兆豐寶成_DT_L, 7795國票南港_ON_L, 9A8F永豐敦南_DT_L, 5857統一新竹_SW_L, 9658富邦建國_ON_L, 9329華南朴子_DT_M, 9686富邦宜蘭_DT_L, 9899元大淡水_DT_L, 1262宏遠桃園_DT_M, 1111企銀台中_SW_S, 9B2l元富大裕_SW_L</span></td></tr><tr id="details_table-fallback_2331" class="details-row"><td colspan="23"><div class="details-content">【細產業】
+桌上型電腦 筆記型電腦製造 主機板 平板電腦 消費性電子產品 繪圖卡 電腦系統業
+
+【關鍵分點總覽】
+20260303: [BUY|Mix|WR83%|700r兆豐寶成_DT_L, 7795國票南港_ON_L]
+20260303: [BUY|Mix|WR83%|7795國票南港_ON_L, 9A8F永豐敦南_DT_L]
+20260303: [BUY|Mix|WR81%|5857統一新竹_SW_L, 7795國票南港_ON_L]
+20260303: [BUY|ON|WR78%|7795國票南港_ON_L, 9658富邦建國_ON_L]
+20260303: [SELL|Mix|WR76%|7795國票南港_ON_L, 9329華南朴子_DT_M]
+20260303: [SELL|Mix|WR75%|7795國票南港_ON_L, 9686富邦宜蘭_DT_L]
+20260303: [BUY|Mix|WR75%|7795國票南港_ON_L, 9899元大淡水_DT_L]
+20260303: [BUY|Mix|WR72%|1262宏遠桃園_DT_M, 7795國票南港_ON_L]
+20260311: [BUY|SW|WR75%|1111企銀台中_SW_S, 9B2l元富大裕_SW_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-fallback_2367')"><td class="text-left"><a href="2367_燿華.html" style="white-space:nowrap;">2367 燿華</a></td><td style="white-space:nowrap;">24.1</td><td style="white-space:nowrap;">電子零組件</td><td title="印刷電路板 印刷電路板相關"><span class="truncate-group" style="max-width: 150px;">印刷電路板 印刷電路板相關</span></td><td>2</td><td style="white-space:nowrap;"><span class="positive">0.32%</span></td><td style="white-space:nowrap;"><span class="positive">0.32%</span></td><td style="white-space:nowrap;">0.00%</td><td>68.53</td><td style="white-space:nowrap;"><span class="positive">1.27%</span></td><td style="white-space:nowrap;"><span class="positive">5.91%</span></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td>2</td><td>1</td><td>1</td><td>0</td><td>2</td><td>0</td><td>2</td><td title="983U元大頭份_DT_L, 9B2B元富永和_ON_S, 9B2Y元富埔里_SW_S"><span class="truncate-group">983U元大頭份_DT_L, 9B2B元富永和_ON_S, 9B2Y元富埔里_SW_S</span></td></tr><tr id="details_table-fallback_2367" class="details-row"><td colspan="23"><div class="details-content">【細產業】
+印刷電路板 印刷電路板相關
+
+【關鍵分點總覽】
+20260311: [BUY|Mix|WR75%|983U元大頭份_DT_L, 9B2B元富永和_ON_S]
+20260311: [BUY|Mix|WR75%|983U元大頭份_DT_L, 9B2Y元富埔里_SW_S]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-fallback_2395')"><td class="text-left"><a href="2395_研華.html" style="white-space:nowrap;">2395 研華</a></td><td style="white-space:nowrap;">288</td><td style="white-space:nowrap;">電腦及週邊設備業</td><td title="工業電腦 電腦系統業"><span class="truncate-group" style="max-width: 150px;">工業電腦 電腦系統業</span></td><td>2</td><td style="white-space:nowrap;"><span class="positive">0.33%</span></td><td style="white-space:nowrap;"><span class="negative">-0.45%</span></td><td style="white-space:nowrap;"><span class="positive">0.78%</span></td><td>327.40</td><td style="white-space:nowrap;"><span class="positive">2.78%</span></td><td style="white-space:nowrap;"><span class="positive">1.78%</span></td><td style="white-space:nowrap;"><span class="positive">0.59%</span></td><td style="white-space:nowrap;"><span class="negative">-3.42%</span></td><td style="white-space:nowrap;"><span class="positive">11.89%</span></td><td style="white-space:nowrap;"></td><td>3</td><td>1</td><td>0</td><td>0</td><td>2</td><td>1</td><td>1</td><td title="橋_ON_M, 9B2A元富緯城_ON_S, 9331華南鳳山_ON_M, 538I第一頭份_ON_S, 9B2C元富潮州_DT_M, 989J元大彰生_DT_S, 9B2r元富城東_DT_L"><span class="truncate-group">橋_ON_M, 9B2A元富緯城_ON_S, 9331華南鳳山_ON_M, 538I第一頭份_ON_S, 9B2C元富潮州_DT_M, 989J元大彰生_DT_S, 9B2r元富城東_DT_L</span></td></tr><tr id="details_table-fallback_2395" class="details-row"><td colspan="23"><div class="details-content">【細產業】
+工業電腦 電腦系統業
+
+【關鍵分點總覽】
+20260211: [SELL|ON|WR78%|5320高    橋_ON_M, 9B2A元富緯城_ON_S]
+20260211: [SELL|ON|WR72%|9331華南鳳山_ON_M, 9B2A元富緯城_ON_S]
+20260226: [SELL|Mix|WR93%|538I第一頭份_ON_S, 9B2C元富潮州_DT_M]
+20260226: [BUY|DT|WR83%|989J元大彰生_DT_S, 9B2r元富城東_DT_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-fallback_2464')"><td class="text-left"><a href="2464_盟立.html" style="white-space:nowrap;">2464 盟立</a></td><td style="white-space:nowrap;">59.4</td><td style="white-space:nowrap;">其他電子業</td><td title="半導體設備 軟體業 軟體通路／代理 設備儀器廠商 面板設備 自動化設備 機器人 機械"><span class="truncate-group" style="max-width: 150px;">半導體設備 軟體業 軟體通路／代理 設備儀器廠商 面板設備 自動化設備 機器人 機械</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.14%</span></td><td style="white-space:nowrap;"><span class="positive">0.43%</span></td><td style="white-space:nowrap;"><span class="negative">-0.29%</span></td><td>73.79</td><td style="white-space:nowrap;"><span class="positive">0.97%</span></td><td style="white-space:nowrap;"><span class="positive">7.81%</span></td><td style="white-space:nowrap;"><span class="negative">-1.59%</span></td><td style="white-space:nowrap;"><span class="positive">0.58%</span></td><td style="white-space:nowrap;"></td><td style="white-space:nowrap;"></td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td title="538E第一自由_DT_L, 9B2B元富永和_ON_S, 526A美好中和_SW_XS, 9B2n元富西松_DT_L, 5266美好中壢_SW_XS, 980a元大中北_ON_L"><span class="truncate-group">538E第一自由_DT_L, 9B2B元富永和_ON_S, 526A美好中和_SW_XS, 9B2n元富西松_DT_L, 5266美好中壢_SW_XS, 980a元大中北_ON_L</span></td></tr><tr id="details_table-fallback_2464" class="details-row"><td colspan="23"><div class="details-content">【細產業】
+半導體設備 軟體業 軟體通路／代理 設備儀器廠商 面板設備 自動化設備 機器人 機械
+
+【關鍵分點總覽】
+20260223: [BUY|Mix|WR72%|538E第一自由_DT_L, 9B2B元富永和_ON_S]
+20260226: [BUY|Mix|WR72%|526A美好中和_SW_XS, 9B2n元富西松_DT_L]
+20260306: [BUY|Mix|WR72%|5266美好中壢_SW_XS, 980a元大中北_ON_L]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-fallback_6191')"><td class="text-left"><a href="6191_精成科.html" style="white-space:nowrap;">6191 精成科</a></td><td style="white-space:nowrap;">128.5</td><td style="white-space:nowrap;">電子零組件</td><td title="印刷電路板 印刷電路板相關 電子製造服務 電腦系統業"><span class="truncate-group" style="max-width: 150px;">印刷電路板 印刷電路板相關 電子製造服務 電腦系統業</span></td><td>3</td><td style="white-space:nowrap;"><span class="positive">1.16%</span></td><td style="white-space:nowrap;"><span class="positive">1.16%</span></td><td style="white-space:nowrap;">0.00%</td><td>108.03</td><td style="white-space:nowrap;"><span class="positive">1.82%</span></td><td style="white-space:nowrap;">0.00%</td><td style="white-space:nowrap;"><span class="positive">0.45%</span></td><td style="white-space:nowrap;"><span class="negative">-5.91%</span></td><td style="white-space:nowrap;"><span class="negative">-9.27%</span></td><td style="white-space:nowrap;"></td><td>1</td><td>4</td><td>1</td><td>0</td><td>5</td><td>1</td><td>0</td><td title="111E企銀桃園_ON_S, 9B2Q元富敦南_SW_S, 918J群益永和_ON_S, 9B27元富林園_ON_S, 9B00元富證券_DT_M"><span class="truncate-group">111E企銀桃園_ON_S, 9B2Q元富敦南_SW_S, 918J群益永和_ON_S, 9B27元富林園_ON_S, 9B00元富證券_DT_M</span></td></tr><tr id="details_table-fallback_6191" class="details-row"><td colspan="23"><div class="details-content">【細產業】
+印刷電路板 印刷電路板相關 電子製造服務 電腦系統業
+
+【關鍵分點總覽】
+20260226: [BUY|Mix|WR81%|111E企銀桃園_ON_S, 9B2Q元富敦南_SW_S]
+20260226: [SELL|ON|WR75%|918J群益永和_ON_S, 9B27元富林園_ON_S]
+20260226: [BUY|Mix|WR71%|111E企銀桃園_ON_S, 9B00元富證券_DT_M]</div></td></tr></tbody><tbody><tr class="main-row" onclick="toggleDetails('details_table-fallback_6869')"><td class="text-left"><a href="6869_雲豹能源.html" style="white-space:nowrap;">6869 雲豹能源</a></td><td style="white-space:nowrap;">96.5</td><td style="white-space:nowrap;">35</td><td title="電力公共事業 水資源 污水處理 電力 太陽能發電 太陽能 太陽能系統運用 工業用電池 電力設備"><span class="truncate-group" style="max-width: 150px;">電力公共事業 水資源 污水處理 電力 太陽能發電 太陽能 太陽能系統運用 工業用電池 電力設備</span></td><td>1</td><td style="white-space:nowrap;"><span class="positive">0.27%</span></td><td style="white-space:nowrap;"><span class="positive">0.17%</span></td><td style="white-space:nowrap;"><span class="positive">0.09%</span></td><td>107.24</td><td style="white-space:nowrap;"><span class="positive">4.43%</span></td><td style="white-space:nowrap;"><span class="negative">-1.34%</span></td><td style="white-space:nowrap;"><span class="positive">4.46%</span></td><td style="white-space:nowrap;"><span class="positive">4.46%</span></td><td style="white-space:nowrap;"><span class="negative">-1.79%</span></td><td style="white-space:nowrap;"></td><td>2</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td title="9A9Q永豐豐原_ON_M, 9B2H元富信義_DT_S, 1036土銀玉里_DT_M, 9B28元富新莊_DT_S"><span class="truncate-group">9A9Q永豐豐原_ON_M, 9B2H元富信義_DT_S, 1036土銀玉里_DT_M, 9B28元富新莊_DT_S</span></td></tr><tr id="details_table-fallback_6869" class="details-row"><td colspan="23"><div class="details-content">【細產業】
+電力公共事業 水資源 污水處理 電力 太陽能發電 太陽能 太陽能系統運用 工業用電池 電力設備
+
+【關鍵分點總覽】
+20260211: [SELL|Mix|WR73%|9A9Q永豐豐原_ON_M, 9B2H元富信義_DT_S]
+20260226: [BUY|DT|WR76%|1036土銀玉里_DT_M, 9B28元富新莊_DT_S]</div></td></tr></tbody></table></div>
+</div>
+<script>window.ROOT_PATH = "../";</script>
+<script src="../search_index.js"></script>
+<footer class="site-footer">
+<p>本站報告由 AI 自動產生，僅供參考，不構成投資建議。</p>
+<p>最後更新：2026-03-19 08:31</p>
+</footer>
+</body>
+</html>
