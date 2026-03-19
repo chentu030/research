@@ -32,7 +32,7 @@ KC.prototype._pre=function(){
   }
   var maf=function(p){return d.map(function(_,i){if(i<p-1)return null;var s=0;for(var j=i-p+1;j<=i;j++)s+=d[j].c;return s/p;});};
   this.ma5=maf(5);this.ma10=maf(10);this.ma20=maf(20);this.ma60=maf(60);
-  this.cols=d.map(function(b,i){return b.c>=(i>0?d[i-1].c:b.o)?'#ef5350':'#26a69a';});
+  this.cols=d.map(function(b){return b.c>=b.o?'#ef5350':'#26a69a';});
 };
 KC.prototype._draw=function(){
   var cv=this.cv,el=this.el,W=el.clientWidth;
